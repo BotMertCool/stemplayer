@@ -779,7 +779,7 @@
                     e.playbackState === _.QK.Playing && (U = requestAnimationFrame(x));
                 else {
                     const t = e.getActiveQueue()[l + 1];
-                    t && K(t.id || t.global_id)
+                    t && G(t.id || t.global_id)
                 }
             }
             , [e.playbackState]),
@@ -797,11 +797,11 @@
                     D.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = R.current[w.current + 1] ? R.current[w.current + 1] : R.current[0];
-                        e && K(e.id || e.global_id)
+                        e && G(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
                         const t = R.current[w.current - 1] ? R.current[w.current - 1] : R.current[R.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : K(t.id || t.global_id))
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : G(t.id || t.global_id))
                     }
                 }
             }
@@ -844,7 +844,7 @@
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
-                        if (!e.getMutedStateForStem(t)) {
+                        if (!e.getMutedStateForStem(t) && D.current !== _.QK.Stopped) {
                             const r = (0,
                             s.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
@@ -860,12 +860,12 @@
                     r < 1 && D.current === _.QK.Playing && (U = requestAnimationFrame(x))
                 }
             }
-              , G = t=>{
+              , K = t=>{
                 t.preventDefault(),
                 t.stopPropagation(),
                 S.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , K = t=>{
+              , G = t=>{
                 (0,
                 u.Z)(),
                 c(t),
@@ -881,20 +881,21 @@
                 className: "mini-player__topshade"
             }), a.createElement("div", {
                 className: `mini-player ${e.shouldHideMiniPlayer ? "mini-player__hidden" : ""}`,
-                onTouchEnd: G
+                onTouchEnd: K
             }, a.createElement("div", {
                 className: "mini-player__left",
-                onClick: G
+                onClick: K
             }, a.createElement("div", {
                 className: `mini-player__stems ${e.trackIsLoaded ? "" : "mini-player__stems--loading"}`
             }, (()=>Object.values(_.wA).map(t=>{
-                const r = e.getMutedStateForStem(t);
+                const r = e.getMutedStateForStem(t)
+                  , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
                 return a.createElement("div", {
                     className: `mini-player__stems--stem-container  mini-player__stems--${t}-container`,
                     key: t
                 }, a.createElement("svg", {
                     className: `mini-player__stems--stem ${r ? "mini-player__stems--stem--muted" : ""}`,
-                    style: r || !e.trackIsLoaded ? {
+                    style: o ? {
                         transform: "scale(0.3)"
                     } : {},
                     height: "12",
@@ -919,7 +920,7 @@
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(h.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: K,
+                goToTrackCb: G,
                 trackIndex: l
             }))))
         }
@@ -1102,7 +1103,7 @@
             ), []),
             (0,
             o.useEffect)(()=>{
-                e.playbackState === a.QK.Playing && (u = requestAnimationFrame(v))
+                e.playbackState === a.QK.Playing ? u = requestAnimationFrame(v) : e.playbackState === a.QK.Stopped && s(0)
             }
             , [e.playbackState]),
             (0,
@@ -1116,7 +1117,7 @@
             }
             , [e.trackIsLoaded]);
             const v = ()=>{
-                if (b.current) {
+                if (b.current && m.current !== a.QK.Stopped) {
                     const t = e.getCurrentPositionPercent()
                       , r = new Date;
                     !h.current && r.getTime() - f.getTime() > 1e3 / 3 && (s(t),
@@ -1384,7 +1385,7 @@
             s.useState)(null)
               , [B,x] = (0,
             s.useState)(null)
-              , [G,K] = (0,
+              , [K,G] = (0,
             s.useState)(!1)
               , [W,H] = (0,
             s.useState)(null)
@@ -1396,7 +1397,7 @@
             s.useState)("")
               , [$,z] = (0,
             s.useState)(null)
-              , [Y,Q] = (0,
+              , [Q,Y] = (0,
             s.useState)(null)
               , [J,X] = (0,
             s.useState)(!1)
@@ -1451,7 +1452,7 @@
             (0,
             s.useEffect)(()=>{
                 F && F.id && q && f.session ? (_(F),
-                m.push(`/connect/stem/track/${F.id}`)) : F && !G && (j(null),
+                m.push(`/connect/stem/track/${F.id}`)) : F && !K && (j(null),
                 _(F),
                 (0,
                 b.gn)() || !e.deviceConnected ? m.push(`/connect/stem/track/${F.id}`) : m.push("/connect/new"),
@@ -1486,9 +1487,9 @@
             (0,
             s.useEffect)(()=>{
                 ie("Upload"),
-                ie(Y || "Upload")
+                ie(Q || "Upload")
             }
-            , [Y]),
+            , [Q]),
             (0,
             s.useEffect)(()=>{
                 ie("Upload"),
@@ -1502,7 +1503,7 @@
                     S || R || de(!0),
                     N(null),
                     j(null),
-                    K(!1),
+                    G(!1),
                     _e(!0),
                     null === S && "" === Z && null === R && (console.error("Error: no file or url found"),
                     z(null)),
@@ -1578,7 +1579,16 @@
                             h(o.id, !1),
                             Pe()
                     } catch (e) {
-                        e.message && "Cancelled" !== e.message ? (X(!0),
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (X(!0),
+                        te("Upload failed - reconnect Stemplayer"),
+                        z("Try again"),
+                        r({
+                            error: {
+                                name: "track_split",
+                                stack: "Failed to split track",
+                                message: JSON.stringify(e.message)
+                            }
+                        })) : e.message && "Cancelled" !== e.message ? (X(!0),
                         te(e.message),
                         z("Try again"),
                         r({
@@ -1608,7 +1618,7 @@
                 C.current && (C.current.value = ""),
                 z(null),
                 H(null),
-                K(null),
+                G(null),
                 V(""),
                 U(null),
                 I(null),
@@ -1653,16 +1663,16 @@
                     I(null),
                     U(null);
                     let t = null;
-                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield Me(e.dataTransfer.items) : (Q("UPLOAD UP TO 4 FILES"),
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield Me(e.dataTransfer.items) : (Y("UPLOAD UP TO 4 FILES"),
                     U(null),
-                    I(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield Me(e.dataTransfer.files) : (Q("UPLOAD UP TO 4 FILES"),
+                    I(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield Me(e.dataTransfer.files) : (Y("UPLOAD UP TO 4 FILES"),
                     U(null),
-                    I(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield Me(e.target.files) : (Q("UPLOAD UP TO 4 FILES"),
+                    I(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield Me(e.target.files) : (Y("UPLOAD UP TO 4 FILES"),
                     U(null),
                     I(null)),
                     t) {
                         ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (U(t),
-                        Q(null)) : (Q("AUDIO FILES ONLY"),
+                        Y(null)) : (Y("AUDIO FILES ONLY"),
                         U(null),
                         I(null))
                     }
@@ -1674,13 +1684,13 @@
               , we = ()=>{
                 U(null),
                 I(null),
-                Q(null)
+                Y(null)
             }
               , Te = ()=>{
-                Q(null),
+                Y(null),
                 X(!1),
                 te(null),
-                K(!1),
+                G(!1),
                 z(null)
             }
             ;
@@ -1800,7 +1810,7 @@
                 disabled: !(()=>Le() && [null, "Try again"].includes($) && "No available space on device" !== ne)(),
                 text: ne,
                 onClick: e=>{
-                    (!S && !R && "" === Z || S && null !== Y) && (e.preventDefault(),
+                    (!S && !R && "" === Z || S && null !== Q) && (e.preventDefault(),
                     C.current.click())
                 }
             }), !q && W && s.createElement(T, {
@@ -7802,7 +7812,8 @@
                         let a = {
                             method: "POST",
                             body: e.audio_file_ids ? JSON.stringify({
-                                audio_file_ids: e.audio_file_ids
+                                audio_file_ids: e.audio_file_ids,
+                                fallback_track_title: e.fallback_track_title
                             }) : JSON.stringify(e),
                             signal: o
                         };
@@ -9859,7 +9870,7 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2581",
+            KB_APP_VERSION: "1.1.2595",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",

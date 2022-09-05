@@ -1150,14 +1150,10 @@
               , xe = function() {
                 var e = (0,
                 n.Z)(function*() {
-                    if (oe)
-                        if (a)
-                            yield S.deleteTrack(o, t.device_id);
-                        else {
-                            const e = `${t.albumId}_${t.trackId}`;
-                            yield D(t, e)
-                        }
-                    else
+                    if (oe) {
+                        const e = a ? `${o}_${t.device_id}` : `${t.albumId}_${t.trackId}`;
+                        yield D(t, e)
+                    } else
                         c(t, null, Y)
                 });
                 return function() {
@@ -1484,7 +1480,7 @@
                 var e = (0,
                 n.Z)(function*(e, t) {
                     $ === t ? (I(t),
-                    r ? yield k.deleteTrack(r, e.device_id) : f(e.albumId, e.trackId, e.title, e.artist, e.global_id)) : F(t)
+                    r ? f(r, e.device_id, e.title, e.artist, e.id) : f(e.albumId, e.trackId, e.title, e.artist, e.global_id)) : F(t)
                 });
                 return function(t, a) {
                     return e.apply(this, arguments)
@@ -2728,6 +2724,7 @@
                 albumTitle: e.title,
                 isOfficialAlbum: !0,
                 removingTrack: lt,
+                handleRemove: Ht,
                 playAlbumClicked: ct,
                 closeAlbumPlay: ()=>it(null),
                 deviceTracks: dt,
