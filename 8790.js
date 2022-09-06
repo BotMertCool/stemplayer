@@ -496,7 +496,7 @@
             corePath: "undefined" !== typeof r && "development" === {
                 TARGET_ENV: "staging",
                 NODE_ENV: "staging",
-                KB_APP_VERSION: "1.1.2595",
+                KB_APP_VERSION: "1.1.2606",
                 KB_APP_NAME: "stem-player-client",
                 KB_APP_TITLE: "STEMPLAYER - Staging",
                 KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -2472,7 +2472,7 @@
                 if (o >= 0 ? s = arguments[o] : e ? (s = {
                     TARGET_ENV: "staging",
                     NODE_ENV: "staging",
-                    KB_APP_VERSION: "1.1.2595",
+                    KB_APP_VERSION: "1.1.2606",
                     KB_APP_NAME: "stem-player-client",
                     KB_APP_TITLE: "STEMPLAYER - Staging",
                     KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -5936,7 +5936,7 @@
             if (b(i) && (i = {
                 TARGET_ENV: "staging",
                 NODE_ENV: "staging",
-                KB_APP_VERSION: "1.1.2595",
+                KB_APP_VERSION: "1.1.2606",
                 KB_APP_NAME: "stem-player-client",
                 KB_APP_TITLE: "STEMPLAYER - Staging",
                 KB_APP_URL: "https://staging-stemplatform.netlify.app",

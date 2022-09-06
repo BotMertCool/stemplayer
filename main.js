@@ -671,7 +671,7 @@
     "7e15fd75b6f1cbf7b3fd": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>E
+            Z: ()=>g
         });
         var o = r("de098c4daf91477f9cbc")
           , a = r("8af190b70a6bc55c6f1b")
@@ -926,14 +926,16 @@
         }
         ;
         p(b, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseRef{}\nuseHistory{history}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[i.useHistory]);
-        const v = (0,
+        const v = b
+          , E = (0,
         l.E9)((0,
         c.f)(b))
-          , E = v;
+          , g = E;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(b, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
-            e.register(v, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
+            e.register(v, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e.register(E, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -944,7 +946,7 @@
     "410dd64c33f00b849fa7": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>u
+            Z: ()=>f
         });
         var o = r("8af190b70a6bc55c6f1b")
           , a = r("804fe702b68cd889ff76")
@@ -1001,7 +1003,6 @@
                 className: `player-controls__prev-next-button ${l ? "player-controls__prev-next-button--mini-player" : ""}`
             }, o.createElement(a.default, {
                 className: "player-controls__prev-button",
-                disabled: !l && (i || "Uploading" === r || "Cancelling" === r),
                 onMouseDown: ()=>m("prev"),
                 onMouseLeave: b,
                 onMouseUp: e=>p(e, "prev"),
@@ -1010,7 +1011,6 @@
                 onTouchEnd: e=>p(e, "prev")
             }), o.createElement(a.default, {
                 className: "player-controls__next-button",
-                disabled: !l && (i || "Uploading" === r || "Cancelling" === r),
                 onMouseDown: ()=>m("next"),
                 onMouseUp: e=>p(e, "next"),
                 onMouseLeave: b,
@@ -1041,13 +1041,15 @@
         }
         ;
         _(l, "useState{[prevNextButtonHighlightStatus, setPrevNextButtonHighlightStatus](null)}\nuseRef{prevNextButtonHighlightStatusRef}");
-        const d = (0,
+        const d = l
+          , u = (0,
         i.f)(l)
-          , u = d;
+          , f = u;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(l, "PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
-            e.register(d, "default", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"))
+            e.register(d, "__TEST__PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
+            e.register(u, "default", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -9870,7 +9872,7 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2595",
+            KB_APP_VERSION: "1.1.2606",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
