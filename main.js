@@ -4997,13 +4997,15 @@
                 }
                 ),
                 this.stop = (()=>{
+                    this.state.playbackState !== AudioEnginePlaybackState.Stopped && (this.state.playbackState !== AudioEnginePlaybackState.Ended && this.setState({
+                        playbackState: AudioEnginePlaybackState.Stopped
+                    }),
                     this.setState({
-                        playbackState: AudioEnginePlaybackState.Stopped,
                         currentPosition: 0
                     }),
                     this.clearMediacontrols(),
                     this.repository.stop(),
-                    this.state.isIsolating && this.setIsolatedStems([])
+                    this.state.isIsolating && this.setIsolatedStems([]))
                 }
                 ),
                 this.seekTo = (e=>{
@@ -9872,7 +9874,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2606",
+            KB_APP_VERSION: "1.1.2616",
+            KB_APP_REVISION: "7f0309841289610e14be6b2a10f34092464a748b",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -9900,7 +9903,8 @@
             KB_SHOPIFY_US_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
             KB_SHOPIFY_UK_DOMAIN: "gb.shop.sycamore-nonprod.kano.me",
             KB_SHOPIFY_UK_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
-            KB_SENTRY_SAMPLE_RATE: "1.0"
+            KB_SENTRY_SAMPLE_RATE: "1.0",
+            KB_REPO_URL: "https://github.com/KanoComputing/stem-player"
         }
           , telemetryConfig = {
             app: config.KB_APP_NAME,

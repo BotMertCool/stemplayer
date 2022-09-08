@@ -496,7 +496,8 @@
             corePath: "undefined" !== typeof r && "development" === {
                 TARGET_ENV: "staging",
                 NODE_ENV: "staging",
-                KB_APP_VERSION: "1.1.2606",
+                KB_APP_VERSION: "1.1.2616",
+                KB_APP_REVISION: "7f0309841289610e14be6b2a10f34092464a748b",
                 KB_APP_NAME: "stem-player-client",
                 KB_APP_TITLE: "STEMPLAYER - Staging",
                 KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -524,7 +525,8 @@
                 KB_SHOPIFY_US_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
                 KB_SHOPIFY_UK_DOMAIN: "gb.shop.sycamore-nonprod.kano.me",
                 KB_SHOPIFY_UK_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
-                KB_SENTRY_SAMPLE_RATE: "1.0"
+                KB_SENTRY_SAMPLE_RATE: "1.0",
+                KB_REPO_URL: "https://github.com/KanoComputing/stem-player"
             }.FFMPEG_ENV ? o("/node_modules/@ffmpeg/core/dist/ffmpeg-core.js") : `https://unpkg.com/@ffmpeg/core@${i["@ffmpeg/core"].substring(1)}/dist/ffmpeg-core.js`
         }
     }
@@ -2472,7 +2474,8 @@
                 if (o >= 0 ? s = arguments[o] : e ? (s = {
                     TARGET_ENV: "staging",
                     NODE_ENV: "staging",
-                    KB_APP_VERSION: "1.1.2606",
+                    KB_APP_VERSION: "1.1.2616",
+                    KB_APP_REVISION: "7f0309841289610e14be6b2a10f34092464a748b",
                     KB_APP_NAME: "stem-player-client",
                     KB_APP_TITLE: "STEMPLAYER - Staging",
                     KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -2500,7 +2503,8 @@
                     KB_SHOPIFY_US_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
                     KB_SHOPIFY_UK_DOMAIN: "gb.shop.sycamore-nonprod.kano.me",
                     KB_SHOPIFY_UK_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
-                    KB_SENTRY_SAMPLE_RATE: "1.0"
+                    KB_SENTRY_SAMPLE_RATE: "1.0",
+                    KB_REPO_URL: "https://github.com/KanoComputing/stem-player"
                 }["=" + e]) && s.substr(0, 3).toLowerCase() === e.toLowerCase() + "\\" || (s = e + "\\") : s = r.cwd(),
                 !i.isString(s))
                     throw new TypeError("Arguments to path.resolve must be strings");
@@ -4928,17 +4932,17 @@
               , U = 5
               , B = 0
               , N = 0
-              , M = "function" === typeof SharedArrayBuffer ? new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT) : "function" === typeof ArrayBuffer ? new ArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT) : null
-              , K = null !== M ? new Int32Array(M) : []
+              , K = "function" === typeof SharedArrayBuffer ? new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT) : "function" === typeof ArrayBuffer ? new ArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT) : null
+              , M = null !== K ? new Int32Array(K) : []
               , F = 0
               , D = 1
               , W = 2
               , H = 3;
-            K[F] = k,
-            K[H] = 0,
-            K[D] = 0;
-            var $ = 131072
-              , V = 524288
+            M[F] = k,
+            M[H] = 0,
+            M[D] = 0;
+            var V = 131072
+              , $ = 524288
               , z = 0
               , Y = null
               , q = null
@@ -4955,7 +4959,7 @@
                 if (null !== q) {
                     var t = G;
                     if ((G += e.length) + 1 > z) {
-                        if ((z *= 2) > V)
+                        if ((z *= 2) > $)
                             return console.error("Scheduler Profiling: Event log exceeded maximum size. Don't forget to call `stopLoggingProfilingEvents()`."),
                             void ie();
                         var n = new Int32Array(4 * z);
@@ -4975,19 +4979,19 @@
                 e
             }
             function ae(e, t) {
-                K[H]++,
+                M[H]++,
                 null !== q && oe([J, 1e3 * t, e.id, e.priorityLevel])
             }
             function se(e, t) {
-                K[F] = k,
-                K[D] = 0,
-                K[H]--,
+                M[F] = k,
+                M[D] = 0,
+                M[H]--,
                 null !== q && oe([Q, 1e3 * t, e.id])
             }
             function ue(e, t) {
-                K[F] = k,
-                K[D] = 0,
-                K[W] = 0,
+                M[F] = k,
+                M[D] = 0,
+                M[W] = 0,
                 null !== q && oe([te, 1e3 * t, e.id, B])
             }
             var ce = -1
@@ -5049,9 +5053,9 @@
                         if (null !== ve) {
                             var a = t.unstable_now();
                             !function(e, t) {
-                                K[F] = k,
-                                K[D] = 0,
-                                K[H]--,
+                                M[F] = k,
+                                M[D] = 0,
+                                M[H]--,
                                 null !== q && oe([Z, 1e3 * t, e.id])
                             }(ve, a),
                             ve.isQueued = !1
@@ -5080,9 +5084,9 @@
                         i = ve,
                         s = u,
                         B++,
-                        K[F] = i.priorityLevel,
-                        K[D] = i.id,
-                        K[W] = B,
+                        M[F] = i.priorityLevel,
+                        M[D] = i.id,
+                        M[W] = B,
                         null !== q && oe([ee, 1e3 * s, i.id, B]);
                         var l = c(f);
                         u = t.unstable_now(),
@@ -5119,13 +5123,13 @@
             var Ae = i
               , Pe = {
                 startLoggingProfilingEvents: function() {
-                    z = $,
+                    z = V,
                     Y = new ArrayBuffer(4 * z),
                     q = new Int32Array(Y),
                     G = 0
                 },
                 stopLoggingProfilingEvents: ie,
-                sharedProfilingBuffer: M
+                sharedProfilingBuffer: K
             };
             t.unstable_IdlePriority = U,
             t.unstable_ImmediatePriority = R,
@@ -5135,7 +5139,7 @@
             t.unstable_UserBlockingPriority = L,
             t.unstable_cancelCallback = function(e) {
                 e.isQueued && (function(e, t) {
-                    K[H]--,
+                    M[H]--,
                     null !== q && oe([X, 1e3 * t, e.id])
                 }(e, t.unstable_now()),
                 e.isQueued = !1),
@@ -5936,7 +5940,8 @@
             if (b(i) && (i = {
                 TARGET_ENV: "staging",
                 NODE_ENV: "staging",
-                KB_APP_VERSION: "1.1.2606",
+                KB_APP_VERSION: "1.1.2616",
+                KB_APP_REVISION: "7f0309841289610e14be6b2a10f34092464a748b",
                 KB_APP_NAME: "stem-player-client",
                 KB_APP_TITLE: "STEMPLAYER - Staging",
                 KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -5964,7 +5969,8 @@
                 KB_SHOPIFY_US_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
                 KB_SHOPIFY_UK_DOMAIN: "gb.shop.sycamore-nonprod.kano.me",
                 KB_SHOPIFY_UK_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
-                KB_SENTRY_SAMPLE_RATE: "1.0"
+                KB_SENTRY_SAMPLE_RATE: "1.0",
+                KB_REPO_URL: "https://github.com/KanoComputing/stem-player"
             }.NODE_DEBUG || ""),
             e = e.toUpperCase(),
             !a[e])
