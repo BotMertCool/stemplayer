@@ -3,41 +3,41 @@
     var e = {}
       , t = {};
     function r(o) {
-        var a = t[o];
-        if (void 0 !== a)
-            return a.exports;
-        var n = t[o] = {
+        var n = t[o];
+        if (void 0 !== n)
+            return n.exports;
+        var a = t[o] = {
             id: o,
             loaded: !1,
             exports: {}
         };
-        return e[o].call(n.exports, n, n.exports, r),
-        n.loaded = !0,
-        n.exports
+        return e[o].call(a.exports, a, a.exports, r),
+        a.loaded = !0,
+        a.exports
     }
     r.m = e,
     r.amdO = {},
     (()=>{
         var e = [];
-        r.O = ((t,o,a,n)=>{
+        r.O = ((t,o,n,a)=>{
             if (!o) {
                 var c = 1 / 0;
                 for (s = 0; s < e.length; s++) {
-                    for (var [o,a,n] = e[s], d = !0, i = 0; i < o.length; i++)
-                        (!1 & n || c >= n) && Object.keys(r.O).every(e=>r.O[e](o[i])) ? o.splice(i--, 1) : (d = !1,
-                        n < c && (c = n));
+                    for (var [o,n,a] = e[s], d = !0, i = 0; i < o.length; i++)
+                        (!1 & a || c >= a) && Object.keys(r.O).every(e=>r.O[e](o[i])) ? o.splice(i--, 1) : (d = !1,
+                        a < c && (c = a));
                     if (d) {
                         e.splice(s--, 1);
-                        var f = a();
+                        var f = n();
                         void 0 !== f && (t = f)
                     }
                 }
                 return t
             }
-            n = n || 0;
-            for (var s = e.length; s > 0 && e[s - 1][2] > n; s--)
+            a = a || 0;
+            for (var s = e.length; s > 0 && e[s - 1][2] > a; s--)
                 e[s] = e[s - 1];
-            e[s] = [o, a, n]
+            e[s] = [o, n, a]
         }
         )
     }
@@ -112,7 +112,7 @@
         451: "b94719131e8c1d97e617",
         856: "c20abb82dda2cc56dde4",
         900: "1de3f30946e268a77a78",
-        1285: "32df5fad3d6ca0ee42d4",
+        1285: "bb55d80bcbd0db3b52f7",
         1840: "7d7d8fe0dfb1b93dc358",
         1866: "c03e5d3de34543b82e3c",
         1918: "9cd6d4a024ad28751ff6",
@@ -135,7 +135,7 @@
         6521: "76844330d6e8e1800250",
         6630: "97c3cdf3a16506238c64",
         6743: "fc7507a783f3381102f6",
-        7203: "8a737148c0fb49f0cc15",
+        7203: "4e21186966178c823ca7",
         7452: "7055e6c07c5795209a00",
         7713: "7021eeb121e4c7eb999b",
         8317: "b4c35b8be722bd2463dd",
@@ -195,15 +195,15 @@
     r.o = ((e,t)=>Object.prototype.hasOwnProperty.call(e, t)),
     (()=>{
         var e = {};
-        r.l = ((t,o,a,n)=>{
+        r.l = ((t,o,n,a)=>{
             if (e[t])
                 e[t].push(o);
             else {
                 var c, d;
-                if (void 0 !== a)
+                if (void 0 !== n)
                     for (var i = document.getElementsByTagName("script"), f = 0; f < i.length; f++) {
                         var s = i[f];
-                        if (s.getAttribute("src") == t || s.getAttribute("data-webpack") == "blank-board:" + a) {
+                        if (s.getAttribute("src") == t || s.getAttribute("data-webpack") == "blank-board:" + n) {
                             c = s;
                             break
                         }
@@ -212,20 +212,20 @@
                 (c = document.createElement("script")).charset = "utf-8",
                 c.timeout = 120,
                 r.nc && c.setAttribute("nonce", r.nc),
-                c.setAttribute("data-webpack", "blank-board:" + a),
+                c.setAttribute("data-webpack", "blank-board:" + n),
                 c.src = t),
                 e[t] = [o];
                 var l = (r,o)=>{
                     c.onerror = c.onload = null,
-                    clearTimeout(u);
-                    var a = e[t];
+                    clearTimeout(b);
+                    var n = e[t];
                     if (delete e[t],
                     c.parentNode && c.parentNode.removeChild(c),
-                    a && a.forEach(e=>e(o)),
+                    n && n.forEach(e=>e(o)),
                     r)
                         return r(o)
                 }
-                  , u = setTimeout(l.bind(null, void 0, {
+                  , b = setTimeout(l.bind(null, void 0, {
                     type: "timeout",
                     target: c
                 }), 12e4);
@@ -252,47 +252,47 @@
     r.p = "/",
     (()=>{
         var e = e=>new Promise((t,o)=>{
-            var a = r.miniCssF(e)
-              , n = r.p + a;
+            var n = r.miniCssF(e)
+              , a = r.p + n;
             if (((e,t)=>{
                 for (var r = document.getElementsByTagName("link"), o = 0; o < r.length; o++) {
-                    var a = (c = r[o]).getAttribute("data-href") || c.getAttribute("href");
-                    if ("stylesheet" === c.rel && (a === e || a === t))
+                    var n = (c = r[o]).getAttribute("data-href") || c.getAttribute("href");
+                    if ("stylesheet" === c.rel && (n === e || n === t))
                         return c
                 }
-                var n = document.getElementsByTagName("style");
-                for (o = 0; o < n.length; o++) {
+                var a = document.getElementsByTagName("style");
+                for (o = 0; o < a.length; o++) {
                     var c;
-                    if ((a = (c = n[o]).getAttribute("data-href")) === e || a === t)
+                    if ((n = (c = a[o]).getAttribute("data-href")) === e || n === t)
                         return c
                 }
             }
-            )(a, n))
+            )(n, a))
                 return t();
             ((e,t,r,o)=>{
-                var a = document.createElement("link");
-                a.rel = "stylesheet",
-                a.type = "text/css";
-                a.onerror = a.onload = (n=>{
-                    if (a.onerror = a.onload = null,
-                    "load" === n.type)
+                var n = document.createElement("link");
+                n.rel = "stylesheet",
+                n.type = "text/css";
+                n.onerror = n.onload = (a=>{
+                    if (n.onerror = n.onload = null,
+                    "load" === a.type)
                         r();
                     else {
-                        var c = n && ("load" === n.type ? "missing" : n.type)
-                          , d = n && n.target && n.target.href || t
+                        var c = a && ("load" === a.type ? "missing" : a.type)
+                          , d = a && a.target && a.target.href || t
                           , i = new Error("Loading CSS chunk " + e + " failed.\n(" + d + ")");
                         i.code = "CSS_CHUNK_LOAD_FAILED",
                         i.type = c,
                         i.request = d,
-                        a.parentNode.removeChild(a),
+                        n.parentNode.removeChild(n),
                         o(i)
                     }
                 }
                 ),
-                a.href = t,
-                document.head.appendChild(a)
+                n.href = t,
+                document.head.appendChild(n)
             }
-            )(e, n, t, o)
+            )(e, a, t, o)
         }
         )
           , t = {
@@ -342,25 +342,25 @@
             3666: 0
         };
         r.f.j = ((t,o)=>{
-            var a = r.o(e, t) ? e[t] : void 0;
-            if (0 !== a)
-                if (a)
-                    o.push(a[2]);
+            var n = r.o(e, t) ? e[t] : void 0;
+            if (0 !== n)
+                if (n)
+                    o.push(n[2]);
                 else if (3666 != t) {
-                    var n = new Promise((r,o)=>a = e[t] = [r, o]);
-                    o.push(a[2] = n);
+                    var a = new Promise((r,o)=>n = e[t] = [r, o]);
+                    o.push(n[2] = a);
                     var c = r.p + r.u(t)
                       , d = new Error;
                     r.l(c, o=>{
-                        if (r.o(e, t) && (0 !== (a = e[t]) && (e[t] = void 0),
-                        a)) {
-                            var n = o && ("load" === o.type ? "missing" : o.type)
+                        if (r.o(e, t) && (0 !== (n = e[t]) && (e[t] = void 0),
+                        n)) {
+                            var a = o && ("load" === o.type ? "missing" : o.type)
                               , c = o && o.target && o.target.src;
-                            d.message = "Loading chunk " + t + " failed.\n(" + n + ": " + c + ")",
+                            d.message = "Loading chunk " + t + " failed.\n(" + a + ": " + c + ")",
                             d.name = "ChunkLoadError",
-                            d.type = n,
+                            d.type = a,
                             d.request = c,
-                            a[1](d)
+                            n[1](d)
                         }
                     }
                     , "chunk-" + t, t)
@@ -382,17 +382,17 @@
         ),
         r.O.j = (t=>0 === e[t]);
         var t = (t,o)=>{
-            var a, n, [c,d,i] = o, f = 0;
+            var n, a, [c,d,i] = o, f = 0;
             if (c.some(t=>0 !== e[t])) {
-                for (a in d)
-                    r.o(d, a) && (r.m[a] = d[a]);
+                for (n in d)
+                    r.o(d, n) && (r.m[n] = d[n]);
                 if (i)
                     var s = i(r)
             }
             for (t && t(o); f < c.length; f++)
-                n = c[f],
-                r.o(e, n) && e[n] && e[n][0](),
-                e[n] = 0;
+                a = c[f],
+                r.o(e, a) && e[a] && e[a][0](),
+                e[a] = 0;
             return r.O(s)
         }
           , o = self.webpackChunkblank_board = self.webpackChunkblank_board || [];
