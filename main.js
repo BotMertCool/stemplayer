@@ -2121,10 +2121,10 @@
         __webpack_require__.d(__webpack_exports__, {
             Z: ()=>__WEBPACK_DEFAULT_EXPORT__
         });
-        var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("cc5a1791ca69c601dde3")
+        var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("cc5a1791ca69c601dde3")
           , react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8af190b70a6bc55c6f1b")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("657c5d0bc31a26770cad")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_9__)
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_10__)
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8a5d22dd0b24a6092d3e")
           , _contexts_webusb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("f60aef9fa88f4e9ce07a")
           , _contexts_album_restore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("16c6bde65fb4831cea2e")
@@ -2132,7 +2132,8 @@
           , _contexts_view_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("3e17aee31846974e528a")
           , _components_YeLayers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("df9ee908f82293cf6f64")
           , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("77d9647920c06e8befd6")
-          , _components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("7e15fd75b6f1cbf7b3fd");
+          , _components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("7e15fd75b6f1cbf7b3fd")
+          , _loadable_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("9c2db445b2a1a7a1cf6d");
         module = __webpack_require__.hmd(module),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -2142,6 +2143,29 @@
             return e
         }
         ;
+        const DevMenuTrigger = (0,
+        _loadable_component__WEBPACK_IMPORTED_MODULE_9__.ZP)({
+            resolved: {},
+            chunkName: ()=>"components-DevMenuTrigger",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!__webpack_require__.m[t]
+            },
+            importAsync: ()=>__webpack_require__.e(1866).then(__webpack_require__.bind(__webpack_require__, "8ee2ed86fae0a20a563a")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return __webpack_require__(t)
+            },
+            resolve() {
+                return "8ee2ed86fae0a20a563a"
+            }
+        });
         class ViewManager extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
             constructor(e) {
                 super(e),
@@ -2221,7 +2245,7 @@
                 "/connect/new" === location.pathname && null === r && e.navigate("/connect/stem");
                 for (const r of this.props.routes) {
                     const o = (0,
-                    react_router_dom__WEBPACK_IMPORTED_MODULE_9__.matchPath)(location.pathname, {
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_10__.matchPath)(location.pathname, {
                         path: r.path,
                         exact: r.exact
                     });
@@ -2250,10 +2274,10 @@
                     className: "content"
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_YeLayers__WEBPACK_IMPORTED_MODULE_6__.o, {
                     loaded: this.state.viewLoaded,
-                    layers: i.map(t=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+                    layers: i.map(t=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
                         computedMatch: r,
                         children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
-                        _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_10__.Z)({}, r, {
+                        _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_11__.Z)({}, r, {
                             config: o,
                             isUK: e,
                             onLoaded: this.setViewLoaded,
@@ -2267,7 +2291,7 @@
                             }
                         })
                     }))
-                }), (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__.Z, null)))
+                }), (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__.Z, null)), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null)
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -2277,7 +2301,7 @@
         _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__.j)({
             module: "view_manager"
         })((0,
-        react_router_dom__WEBPACK_IMPORTED_MODULE_9__.withRouter)((0,
+        react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)((0,
         _contexts_album_restore__WEBPACK_IMPORTED_MODULE_3__.C)((0,
         _contexts_webusb__WEBPACK_IMPORTED_MODULE_2__.MM)((0,
         _contexts_view_manager__WEBPACK_IMPORTED_MODULE_5__.q)((0,
@@ -2286,7 +2310,8 @@
           , __WEBPACK_DEFAULT_EXPORT__ = _default;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(ViewManager, "ViewManager", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"),
+            e && (e.register(DevMenuTrigger, "DevMenuTrigger", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"),
+            e.register(ViewManager, "ViewManager", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"),
             e.register(_default, "default", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"))
         }(),
         function() {
@@ -9874,8 +9899,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2619",
-            KB_APP_REVISION: "179ebf38755c94b5f609a46453fd5a3f784eb932",
+            KB_APP_VERSION: "1.1.2651",
+            KB_APP_REVISION: "e2f04ab83a5ea347a10ceb4f00ef76ba51918b63",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -9932,8 +9957,9 @@
         }),
         _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.updateFromUrlParams(),
         _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-dark") ? (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.D)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.y.dark) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-light") && (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.D)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.y.light);
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.D)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.y.dark) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-light") ? (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.D)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.y.light) : (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.D)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.y.default);
         const MOUNT_NODE = document.getElementById("app")
           , render = e=>{
             react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Router, {
@@ -10967,12 +10993,12 @@
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const o = {
             default: {
-                background: "white",
-                main: "black"
-            },
-            light: {
                 background: "#959595",
                 main: "#252525"
+            },
+            light: {
+                background: "white",
+                main: "black"
             },
             dark: {
                 background: "#6b7475",

@@ -22,31 +22,31 @@
           , _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("8390a660195ca787c81e");
         module = __webpack_require__.hmd(module),
         function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
+            var _ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            _ && _(module)
         }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(_) {
+            return _
         }
         ;
         const ProductVideo = (0,
         _loadable_component__WEBPACK_IMPORTED_MODULE_2__.ZP)({
             resolved: {},
             chunkName: ()=>"components-ProductVideo",
-            isReady(e) {
-                const _ = this.resolve(e);
-                return !0 === this.resolved[_] && !!__webpack_require__.m[_]
+            isReady(_) {
+                const e = this.resolve(_);
+                return !0 === this.resolved[e] && !!__webpack_require__.m[e]
             },
             importAsync: ()=>__webpack_require__.e(7713).then(__webpack_require__.bind(__webpack_require__, "b16554fc9785500898b2")),
-            requireAsync(e) {
-                const _ = this.resolve(e);
-                return this.resolved[_] = !1,
-                this.importAsync(e).then(e=>(this.resolved[_] = !0,
-                e))
+            requireAsync(_) {
+                const e = this.resolve(_);
+                return this.resolved[e] = !1,
+                this.importAsync(_).then(_=>(this.resolved[e] = !0,
+                _))
             },
-            requireSync(e) {
-                const _ = this.resolve(e);
-                return __webpack_require__(_)
+            requireSync(_) {
+                const e = this.resolve(_);
+                return __webpack_require__(e)
             },
             resolve() {
                 return "b16554fc9785500898b2"
@@ -56,51 +56,28 @@
         _loadable_component__WEBPACK_IMPORTED_MODULE_2__.ZP)({
             resolved: {},
             chunkName: ()=>"components-Menu",
-            isReady(e) {
-                const _ = this.resolve(e);
-                return !0 === this.resolved[_] && !!__webpack_require__.m[_]
+            isReady(_) {
+                const e = this.resolve(_);
+                return !0 === this.resolved[e] && !!__webpack_require__.m[e]
             },
             importAsync: ()=>__webpack_require__.e(6130).then(__webpack_require__.bind(__webpack_require__, "dd5c825fad9a8b9fa5e0")),
-            requireAsync(e) {
-                const _ = this.resolve(e);
-                return this.resolved[_] = !1,
-                this.importAsync(e).then(e=>(this.resolved[_] = !0,
-                e))
+            requireAsync(_) {
+                const e = this.resolve(_);
+                return this.resolved[e] = !1,
+                this.importAsync(_).then(_=>(this.resolved[e] = !0,
+                _))
             },
-            requireSync(e) {
-                const _ = this.resolve(e);
-                return __webpack_require__(_)
+            requireSync(_) {
+                const e = this.resolve(_);
+                return __webpack_require__(e)
             },
             resolve() {
                 return "dd5c825fad9a8b9fa5e0"
             }
-        })
-          , DevMenuTrigger = (0,
-        _loadable_component__WEBPACK_IMPORTED_MODULE_2__.ZP)({
-            resolved: {},
-            chunkName: ()=>"components-DevMenuTrigger",
-            isReady(e) {
-                const _ = this.resolve(e);
-                return !0 === this.resolved[_] && !!__webpack_require__.m[_]
-            },
-            importAsync: ()=>__webpack_require__.e(1866).then(__webpack_require__.bind(__webpack_require__, "8ee2ed86fae0a20a563a")),
-            requireAsync(e) {
-                const _ = this.resolve(e);
-                return this.resolved[_] = !1,
-                this.importAsync(e).then(e=>(this.resolved[_] = !0,
-                e))
-            },
-            requireSync(e) {
-                const _ = this.resolve(e);
-                return __webpack_require__(_)
-            },
-            resolve() {
-                return "8ee2ed86fae0a20a563a"
-            }
         });
         class HomePageComp extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
-            constructor(e) {
-                super(e),
+            constructor(_) {
+                super(_),
                 this.debouncedUpdateHeight = (0,
                 _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_9__.Ds)(this.updateAppHeight, 500),
                 this.onVideoLoaded = (()=>{
@@ -127,22 +104,22 @@
                 document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`)
             }
             componentDidMount() {
-                var e = this;
+                var _ = this;
                 return (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
-                    e.updateAppHeight(),
-                    window.addEventListener("resize", e.debouncedUpdateHeight)
+                    _.updateAppHeight(),
+                    window.addEventListener("resize", _.debouncedUpdateHeight)
                 })()
             }
             componentWillUnmount() {
                 window.removeEventListener("resize", this.debouncedUpdateHeight)
             }
-            componentDidUpdate(e, _, t) {
+            componentDidUpdate(_, e, t) {
                 const {history: r, audioEngine: o} = this.props;
                 "/" === r.location.pathname && o.trackIsLoaded && o.unload()
             }
             render() {
-                const {imagesLoaded: e, loading: _, isIPhone: t, isIOSSafari: r} = this.state
+                const {imagesLoaded: _, loading: e, isIPhone: t, isIOSSafari: r} = this.state
                   , {isUK: o, hidden: a, config: n} = this.props;
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: `home-wrapper${a ? " home-wrapper--hidden" : ""}`
@@ -156,7 +133,7 @@
                     property: "og:url",
                     content: n.KB_APP_URL
                 })), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                    className: `home${_ ? "" : " home--loaded"}${t ? " home--iphone" : ""}`
+                    className: `home${e ? "" : " home--loaded"}${t ? " home--iphone" : ""}`
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: `player player--show${t && r ? " player--iphone-safari" : ""}`,
                     onClick: ()=>this.props.history.push("/video")
@@ -165,10 +142,10 @@
                 })), react__WEBPACK_IMPORTED_MODULE_0__.createElement(Menu, {
                     config: this.props.config,
                     isUK: o,
-                    imagesLoaded: e,
+                    imagesLoaded: _,
                     classList: "home__buy",
                     onConnectClicked: ()=>this.props.connectToDevice()
-                }))), "production" !== n.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null)
+                }))))
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -185,17 +162,16 @@
           , _default = HomePage
           , __WEBPACK_DEFAULT_EXPORT__ = _default;
         !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(ProductVideo, "ProductVideo", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
-            e.register(Menu, "Menu", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
-            e.register(DevMenuTrigger, "DevMenuTrigger", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
-            e.register(HomePageComp, "HomePageComp", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
-            e.register(HomePage, "HomePage", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
-            e.register(_default, "default", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"))
+            var _ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            _ && (_.register(ProductVideo, "ProductVideo", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
+            _.register(Menu, "Menu", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
+            _.register(HomePageComp, "HomePageComp", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
+            _.register(HomePage, "HomePage", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"),
+            _.register(_default, "default", "/home/vsts/work/1/s/src/containers/HomePage/index.tsx"))
         }(),
         function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
+            var _ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            _ && _(module)
         }()
     }
 }]);

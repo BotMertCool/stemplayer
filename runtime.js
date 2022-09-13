@@ -22,22 +22,22 @@
         r.O = ((t,o,n,a)=>{
             if (!o) {
                 var c = 1 / 0;
-                for (s = 0; s < e.length; s++) {
-                    for (var [o,n,a] = e[s], d = !0, i = 0; i < o.length; i++)
+                for (f = 0; f < e.length; f++) {
+                    for (var [o,n,a] = e[f], d = !0, i = 0; i < o.length; i++)
                         (!1 & a || c >= a) && Object.keys(r.O).every(e=>r.O[e](o[i])) ? o.splice(i--, 1) : (d = !1,
                         a < c && (c = a));
                     if (d) {
-                        e.splice(s--, 1);
-                        var f = n();
-                        void 0 !== f && (t = f)
+                        e.splice(f--, 1);
+                        var s = n();
+                        void 0 !== s && (t = s)
                     }
                 }
                 return t
             }
             a = a || 0;
-            for (var s = e.length; s > 0 && e[s - 1][2] > a; s--)
-                e[s] = e[s - 1];
-            e[s] = [o, n, a]
+            for (var f = e.length; f > 0 && e[f - 1][2] > a; f--)
+                e[f] = e[f - 1];
+            e[f] = [o, n, a]
         }
         )
     }
@@ -135,12 +135,12 @@
         6521: "76844330d6e8e1800250",
         6630: "97c3cdf3a16506238c64",
         6743: "fc7507a783f3381102f6",
-        7203: "4e21186966178c823ca7",
+        7203: "b11988a88b2bb182a15a",
         7452: "7055e6c07c5795209a00",
         7713: "7021eeb121e4c7eb999b",
         8317: "b4c35b8be722bd2463dd",
         8445: "6df6dacb24115308ac14",
-        8460: "a9b7d9f2222a97411191",
+        8460: "95715b6b0b036c793ccc",
         9014: "582d57a829bbc3e4165f",
         9295: "bfe98caa5c71ff7974db",
         9322: "348b00d384a3009765c5",
@@ -201,10 +201,10 @@
             else {
                 var c, d;
                 if (void 0 !== n)
-                    for (var i = document.getElementsByTagName("script"), f = 0; f < i.length; f++) {
-                        var s = i[f];
-                        if (s.getAttribute("src") == t || s.getAttribute("data-webpack") == "blank-board:" + n) {
-                            c = s;
+                    for (var i = document.getElementsByTagName("script"), s = 0; s < i.length; s++) {
+                        var f = i[s];
+                        if (f.getAttribute("src") == t || f.getAttribute("data-webpack") == "blank-board:" + n) {
+                            c = f;
                             break
                         }
                     }
@@ -382,18 +382,18 @@
         ),
         r.O.j = (t=>0 === e[t]);
         var t = (t,o)=>{
-            var n, a, [c,d,i] = o, f = 0;
+            var n, a, [c,d,i] = o, s = 0;
             if (c.some(t=>0 !== e[t])) {
                 for (n in d)
                     r.o(d, n) && (r.m[n] = d[n]);
                 if (i)
-                    var s = i(r)
+                    var f = i(r)
             }
-            for (t && t(o); f < c.length; f++)
-                a = c[f],
+            for (t && t(o); s < c.length; s++)
+                a = c[s],
                 r.o(e, a) && e[a] && e[a][0](),
                 e[a] = 0;
-            return r.O(s)
+            return r.O(f)
         }
           , o = self.webpackChunkblank_board = self.webpackChunkblank_board || [];
         o.forEach(t.bind(null, 0)),
