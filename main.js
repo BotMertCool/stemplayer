@@ -1918,7 +1918,7 @@
     df9ee908f82293cf6f64: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            o: ()=>o
+            o: ()=>s
         });
         var a = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
@@ -1926,32 +1926,61 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = ({layers: e, loaded: t})=>{
-            const r = [];
-            for (let o = 0; o < 8; o += 1) {
-                const s = Math.min(1, (1 + o) / e.length);
-                let n = "";
-                o < e.length - 1 ? n = "below" : o > e.length - 1 && (n = "above");
-                const i = a.createElement("div", {
-                    className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === o ? "base" : "overlay"}\n                    ye-layers__layer--${n}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
+        var o = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const s = ({layers: e, loaded: t})=>{
+            const [r,o] = (0,
+            a.useState)([])
+              , [s,n] = (0,
+            a.useState)(null);
+            (0,
+            a.useEffect)(()=>{
+                if (e.length === r.length + 1)
+                    ;
+                else if (e.length === r.length - 1) {
+                    let t = !1;
+                    for (let a = 0; a < e.length; a += 1)
+                        e[a].id !== r[a].id && (t = !0);
+                    if (!t)
+                        return n("removing"),
+                        void setTimeout(()=>{
+                            n(null),
+                            o(e)
+                        }
+                        , 200)
+                }
+                o(e)
+            }
+            , [e]);
+            const i = [];
+            for (let e = 0; e < 8; e += 1) {
+                var c;
+                const o = "removing" === s ? -1 : 0
+                  , n = Math.min(1, (1 + e - o) / r.length);
+                let _ = "";
+                e - o < r.length - 1 ? _ = "below" : e - o > r.length - 1 && (_ = "above");
+                const l = a.createElement("div", {
+                    className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === e ? "base" : "overlay"}\n                    ye-layers__layer--${_}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
                     style: {
-                        transform: s < 1 ? `scale(${s})` : void 0,
-                        opacity: s < 1 ? s : void 0
+                        transform: n < 1 ? `scale(${n})` : void 0,
+                        opacity: n < 1 ? n : void 0
                     },
-                    key: o
-                }, e[o]);
-                r.push(i)
+                    key: e
+                }, null === (c = r[e]) || void 0 === c ? void 0 : c.component);
+                i.push(l)
             }
             return a.createElement("div", {
                 className: "ye-layers"
-            }, r)
+            }, i)
         }
         ;
-        !function() {
+        o(s, "useState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}"),
+        function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(8, "AVAILABLE_LAYERS", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"),
-            e.register(o, "YeLayers", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"))
+            e.register(s, "YeLayers", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -2282,8 +2311,8 @@
             }
             render() {
                 const {isUK: e, route: t, match: r} = this.state
-                  , {config: a, audioEngine: o, viewManagerClient: {modals: s}, accountClient: n} = this.props
-                  , i = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(s);
+                  , {config: a, audioEngine: o, viewManagerClient: {modals: s}} = this.props
+                  , n = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(s);
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "main",
                     id: "main"
@@ -2291,21 +2320,24 @@
                     className: "content"
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_YeLayers__WEBPACK_IMPORTED_MODULE_6__.o, {
                     loaded: this.state.viewLoaded,
-                    layers: i.map(t=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-                        computedMatch: r,
-                        children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
-                        _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_11__.Z)({}, r, {
-                            config: a,
-                            isUK: e,
-                            onLoaded: this.setViewLoaded,
-                            onImagesLoaded: this.setHomeImagesLoaded,
-                            connectToDevice: this.connectToDevice
-                        })) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                            className: "modal",
-                            ref: e=>{
-                                t.container.current = e,
-                                t.ready && t.ready.resolve()
-                            }
+                    layers: n.map(t=>({
+                        id: t.id,
+                        component: react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+                            computedMatch: r,
+                            children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
+                            _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_11__.Z)({}, r, {
+                                config: a,
+                                isUK: e,
+                                onLoaded: this.setViewLoaded,
+                                onImagesLoaded: this.setHomeImagesLoaded,
+                                connectToDevice: this.connectToDevice
+                            })) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                                className: "modal",
+                                ref: e=>{
+                                    t.container.current = e,
+                                    t.ready && t.ready.resolve()
+                                }
+                            })
                         })
                     }))
                 }), (o.currentTrack || o.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__.Z, null)), "production" !== a.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null)
@@ -9909,8 +9941,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2670",
-            KB_APP_REVISION: "3b1818ee98873c2d540eefcb9940cd0ca76b0ff2",
+            KB_APP_VERSION: "1.1.2700",
+            KB_APP_REVISION: "8c2a315af6c65f375d679194d4430efda2d7c216",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
