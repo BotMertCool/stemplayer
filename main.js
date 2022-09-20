@@ -9941,8 +9941,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2700",
-            KB_APP_REVISION: "8c2a315af6c65f375d679194d4430efda2d7c216",
+            KB_APP_VERSION: "1.1.2723",
+            KB_APP_REVISION: "08e5ceeef7048d33ffd3b14284d1e8357751ce9e",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
