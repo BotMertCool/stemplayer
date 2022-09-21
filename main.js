@@ -4,51 +4,51 @@
         r.d(t, {
             WU: ()=>i
         });
-        var a = r("8af190b70a6bc55c6f1b");
+        var o = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = ({width: e=17, height: t=19, fill: r="white"})=>a.createElement("svg", {
+        const a = ({width: e=17, height: t=19, fill: r="white"})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 17 19",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             d: "M15.1252 6.67829C17.1252 7.83299 17.1252 10.7197 15.1252 11.8744L5.02222 17.7074C3.02222 18.8621 0.522224 17.4187 0.522224 15.1093L0.522224 3.44337C0.522224 1.13397 3.02222 -0.309397 5.02222 0.845304L15.1252 6.67829Z",
             fill: r
         }))
-          , s = ({width: e=25, height: t=25})=>a.createElement("svg", {
+          , s = ({width: e=25, height: t=25})=>o.createElement("svg", {
             width: "22",
             height: "25",
             viewBox: "0 0 22 25",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             d: "M19.2349 11.634C19.9015 12.0189 19.9015 12.9811 19.2349 13.366L3.38525 22.5168C2.71859 22.9017 1.88525 22.4206 1.88525 21.6508L1.88525 3.34922C1.88525 2.57942 2.71859 2.0983 3.38525 2.4832L19.2349 11.634Z",
             stroke: "currentColor",
             strokeWidth: "3"
         }))
-          , n = ({width: e=31, height: t=35})=>a.createElement("svg", {
+          , n = ({width: e=31, height: t=35})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 31 35",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             d: "M30.2109 17.5L0.644537 34.5702L0.644539 0.429825L30.2109 17.5Z",
             fill: "white"
         }))
-          , i = ({width: e=44, height: t=44, stroke: r="var(--color-main)"})=>a.createElement("svg", {
+          , i = ({width: e=44, height: t=44, stroke: r="var(--color-main)"})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 44 44",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("circle", {
+        }, o.createElement("circle", {
             cx: "22",
             cy: "22",
             r: "20",
@@ -57,7 +57,7 @@
         }));
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "Play", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
+            e && (e.register(a, "Play", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
             e.register(s, "PlayOutline", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
             e.register(n, "PlayDonda2", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
             e.register(i, "PlayNew", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"))
@@ -71,82 +71,82 @@
     "98207642210e3d58d89a": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _z: ()=>o,
+            _z: ()=>a,
             mE: ()=>s,
             ry: ()=>n
         });
-        var a = r("8af190b70a6bc55c6f1b");
+        var o = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>a.createElement("svg", {
+        const a = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 74 33",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M16.28 28.96L57.72 28.96C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6L16.28 3.6C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96ZM57.72 32.56C66.7112 32.56 74 25.2712 74 16.28C74 7.2888 66.7112 -3.8147e-06 57.72 -3.8147e-06L16.28 -3.8147e-06C7.2888 -3.8147e-06 0 7.2888 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56L57.72 32.56ZM51.7484 16.3636C51.7484 13.4886 54.0791 11.1579 56.9542 11.1579C59.8292 11.1579 62.1599 13.4886 62.1599 16.3636C62.1599 19.2387 59.8292 21.5694 56.9542 21.5694C54.0791 21.5694 51.7484 19.2387 51.7484 16.3636ZM16.6009 11.1579C13.7258 11.1579 11.3951 13.4886 11.3951 16.3636C11.3951 19.2387 13.7258 21.5694 16.6009 21.5694C19.4759 21.5694 21.8066 19.2387 21.8066 16.3636C21.8066 13.4886 19.4759 11.1579 16.6009 11.1579Z",
             fill: "var(--color-main)"
         }))
-          , s = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>a.createElement("svg", {
+          , s = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 74 33",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M16.28 28.96L57.72 28.96C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6L16.28 3.6C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96ZM57.72 32.56C66.7112 32.56 74 25.2712 74 16.28C74 7.2888 66.7112 -3.8147e-06 57.72 -3.8147e-06L16.28 -3.8147e-06C7.2888 -3.8147e-06 0 7.2888 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56L57.72 32.56ZM51.7484 16.3636C51.7484 13.4886 54.0791 11.1579 56.9542 11.1579C59.8292 11.1579 62.1599 13.4886 62.1599 16.3636C62.1599 19.2387 59.8292 21.5694 56.9542 21.5694C54.0791 21.5694 51.7484 19.2387 51.7484 16.3636ZM16.6009 11.1579C13.7258 11.1579 11.3951 13.4886 11.3951 16.3636C11.3951 19.2387 13.7258 21.5694 16.6009 21.5694C19.4759 21.5694 21.8066 19.2387 21.8066 16.3636C21.8066 13.4886 19.4759 11.1579 16.6009 11.1579Z",
             fill: "url(#paint0_linear_37_215)"
-        }), a.createElement("defs", null, a.createElement("linearGradient", {
+        }), o.createElement("defs", null, o.createElement("linearGradient", {
             id: "paint0_linear_37_215",
             x1: "2.12071e-07",
             y1: "16.56",
             x2: "74",
             y2: "16.56",
             gradientUnits: "userSpaceOnUse"
-        }, a.createElement("stop", {
+        }, o.createElement("stop", {
             stopColor: r
-        }), a.createElement("stop", {
+        }), o.createElement("stop", {
             offset: "0.609375",
             stopColor: r,
             stopOpacity: "0.35"
         }))))
-          , n = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>a.createElement("svg", {
+          , n = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
             width: e,
             height: t,
             viewBox: "0 0 74 33",
             fill: "none",
             xmlns: "http://www.w3.org/2000/svg"
-        }, a.createElement("path", {
+        }, o.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M57.72 3.6H16.28C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96H57.72C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6ZM16.28 0C7.28881 0 0 7.28881 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56H57.72C66.7112 32.56 74 25.2712 74 16.28C74 7.28881 66.7112 0 57.72 0L16.28 0ZM22.2516 16.1964C22.2516 19.0714 19.9209 21.4021 17.0458 21.4021C14.1708 21.4021 11.8401 19.0714 11.8401 16.1964C11.8401 13.3213 14.1708 10.9906 17.0458 10.9906C19.9209 10.9906 22.2516 13.3213 22.2516 16.1964ZM57.3991 21.4021C60.2742 21.4021 62.6049 19.0714 62.6049 16.1964C62.6049 13.3213 60.2742 10.9906 57.3991 10.9906C54.5241 10.9906 52.1934 13.3213 52.1934 16.1964C52.1934 19.0714 54.5241 21.4021 57.3991 21.4021Z",
             fill: "url(#paint0_linear_37_215)"
-        }), a.createElement("defs", null, a.createElement("linearGradient", {
+        }), o.createElement("defs", null, o.createElement("linearGradient", {
             id: "paint0_linear_37_215",
             x1: "74",
             y1: "16",
             x2: "-2.12071e-07",
             y2: "16",
             gradientUnits: "userSpaceOnUse"
-        }, a.createElement("stop", {
+        }, o.createElement("stop", {
             stopColor: r
-        }), a.createElement("stop", {
+        }), o.createElement("stop", {
             offset: "0.609375",
             stopColor: r,
             stopOpacity: "0.35"
         }))));
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "PrevNext", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"),
+            e && (e.register(a, "PrevNext", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"),
             e.register(s, "NextHighlighted", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"),
             e.register(n, "PrevHighlighted", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"))
         }(),
@@ -163,8 +163,8 @@
             Button: ()=>c,
             default: ()=>l
         });
-        var a = r("8af190b70a6bc55c6f1b")
-          , o = r("9c2db445b2a1a7a1cf6d");
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -175,7 +175,7 @@
         }
         ;
         const n = (0,
-        o.ZP)({
+        a.ZP)({
             resolved: {},
             chunkName: ()=>"Loader",
             isReady(e) {
@@ -197,18 +197,18 @@
                 return "abf12094d6dd744112a4"
             }
         })
-          , i = ()=>a.createElement("span", null, a.createElement("span", {
+          , i = ()=>o.createElement("span", null, o.createElement("span", {
             className: "dots__dot--1"
-        }, "."), a.createElement("span", {
+        }, "."), o.createElement("span", {
             className: "dots__dot--2"
-        }, "."), a.createElement("span", {
+        }, "."), o.createElement("span", {
             className: "dots__dot--3"
         }, "."))
-          , c = ({icon: e, text: t=!1, type: r="button", onClick: o, onMouseDown: s, onMouseLeave: c, onMouseUp: _, onTouchMove: l, onTouchStart: d, onTouchEnd: u, disabled: f=!1, loading: m=!1, active: h=!1, hideTextWhenLoading: p=!1, className: b, size: v="", brackets: E=!1, dots: g=!1, id: y})=>a.createElement("button", {
+          , c = ({icon: e, text: t=!1, type: r="button", onClick: a, onMouseDown: s, onMouseLeave: c, onMouseUp: _, onTouchMove: l, onTouchStart: d, onTouchEnd: u, disabled: f=!1, loading: m=!1, active: h=!1, hideTextWhenLoading: p=!1, className: b, size: v="", brackets: E=!1, dots: g=!1, id: y})=>o.createElement("button", {
             className: `button\n            ${m ? " button--loading" : ""}\n            ${v ? ` button--${v}` : ""}\n            ${f ? " disabled" : ""}\n            ${h ? " button--active" : ""}\n            ${e ? " button--icon" : ""}\n            ${t ? " button--text" : " button--no-text"}\n            ${b ? ` ${b}` : ""}\n        `,
             id: y && y,
             type: r,
-            onClick: o && !m ? o : void 0,
+            onClick: a && !m ? a : void 0,
             onMouseDown: s && !m ? s : void 0,
             onMouseLeave: c && !m ? c : void 0,
             onMouseUp: _ && !m ? _ : void 0,
@@ -216,11 +216,11 @@
             onTouchStart: d && !m ? d : void 0,
             onTouchEnd: u && !m ? u : void 0,
             disabled: f
-        }, m && a.createElement(n, {
+        }, m && o.createElement(n, {
             size: "small"
-        }), e ? e() : !1 !== t ? a.createElement("span", {
+        }), e ? e() : !1 !== t ? o.createElement("span", {
             className: `button__text${p ? " button__text--hide-when-loading" : ""}`
-        }, E ? "[ " : "", t, g ? a.createElement(i, null) : "", E ? " ]" : "") : null)
+        }, E ? "[ " : "", t, g ? o.createElement(i, null) : "", E ? " ]" : "") : null)
           , _ = c
           , l = _;
         !function() {
@@ -243,19 +243,19 @@
             L_: ()=>u,
             TC: ()=>b
         });
-        var a = r("990057777e9b2b7543e8")
-          , o = r("8af190b70a6bc55c6f1b")
+        var o = r("990057777e9b2b7543e8")
+          , a = r("8af190b70a6bc55c6f1b")
           , s = r("2f0f179fdd043e994433")
           , n = r("f60aef9fa88f4e9ce07a")
           , i = r("abf12094d6dd744112a4");
         function c(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -264,7 +264,7 @@
                 var r = null != arguments[t] ? arguments[t] : {};
                 t % 2 ? c(Object(r), !0).forEach(function(t) {
                     (0,
-                    a.Z)(e, t, r[t])
+                    o.Z)(e, t, r[t])
                 }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : c(Object(r)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                 })
@@ -281,11 +281,11 @@
         }
         ;
         const d = (0,
-        o.forwardRef)(({min: e=null, max: t=null, maxLength: r=null, type: a="text", className: s="", invalid: n, placeholder: i="", value: c="", onChange: _, onInput: l, onBlur: d, autoFocus: u, disabled: f=!1, readOnly: m=!1, id: h, style: p, modifier: b, autoComplete: v, size: E, autoCapitalize: g},y)=>o.createElement("input", {
+        a.forwardRef)(({min: e=null, max: t=null, maxLength: r=null, type: o="text", className: s="", invalid: n, placeholder: i="", value: c="", onChange: _, onInput: l, onBlur: d, autoFocus: u, disabled: f=!1, readOnly: m=!1, id: h, style: p, modifier: b, autoComplete: v, size: E, autoCapitalize: g},y)=>a.createElement("input", {
             min: e && e,
             max: t && t,
             maxLength: r && r,
-            type: a,
+            type: o,
             className: `input${b ? ` input--${b}` : ""}${n ? " input--invalid" : ""} ${s}`,
             placeholder: i,
             value: c,
@@ -303,41 +303,41 @@
             autoFocus: u && u,
             autoCapitalize: g
         }))
-          , u = o.forwardRef((e,t)=>{
+          , u = a.forwardRef((e,t)=>{
             var r;
-            const a = (null === (r = e.placeholder) || void 0 === r ? void 0 : r.toUpperCase()) || void 0;
-            return o.createElement("div", {
+            const o = (null === (r = e.placeholder) || void 0 === r ? void 0 : r.toUpperCase()) || void 0;
+            return a.createElement("div", {
                 className: "labeled-input",
                 id: e.id
-            }, o.createElement("label", {
+            }, a.createElement("label", {
                 className: "input-sizer",
-                "data-value": a
-            }, o.createElement("span", null, e.label), o.createElement(d, _(_({}, e), {}, {
+                "data-value": o
+            }, a.createElement("span", null, e.label), a.createElement(d, _(_({}, e), {}, {
                 onInput: e=>{
-                    e.target.parentElement.dataset.value = e.target.value || a || ""
+                    e.target.parentElement.dataset.value = e.target.value || o || ""
                 }
                 ,
-                placeholder: a,
+                placeholder: o,
                 size: 1,
                 ref: t
             }))))
         }
         )
           , f = (e,t,r)=>{
-            let a, o, s;
+            let o, a, s;
             if (0 == t)
-                a = o = s = r;
+                o = a = s = r;
             else {
                 const n = (e,t,r)=>(r < 0 && (r += 1),
                 r > 1 && (r -= 1),
                 r < 1 / 6 ? e + 6 * (t - e) * r : r < .5 ? t : r < 2 / 3 ? e + (t - e) * (2 / 3 - r) * 6 : e)
                   , i = r < .5 ? r * (1 + t) : r + t - r * t
                   , c = 2 * r - i;
-                a = n(c, i, e + 1 / 3),
-                o = n(c, i, e),
+                o = n(c, i, e + 1 / 3),
+                a = n(c, i, e),
                 s = n(c, i, e - 1 / 3)
             }
-            return [Math.round(255 * a), Math.round(255 * o), Math.round(255 * s)]
+            return [Math.round(255 * o), Math.round(255 * a), Math.round(255 * s)]
         }
           , m = (e,t,r)=>"#" + ((1 << 24) + (e << 16) + (t << 8) + r).toString(16).slice(1)
           , h = e=>{
@@ -345,11 +345,11 @@
             return [t >> 16 & 255, t >> 8 & 255, 255 & t]
         }
           , p = (e,t,r)=>{
-            let a = e / 255
-              , o = t / 255
+            let o = e / 255
+              , a = t / 255
               , s = r / 255;
-            const n = Math.max(a, o, s)
-              , i = Math.min(a, o, s);
+            const n = Math.max(o, a, s)
+              , i = Math.min(o, a, s);
             let c = (n + i) / 2
               , _ = (n + i) / 2
               , l = (n + i) / 2;
@@ -360,57 +360,57 @@
                 const e = n - i;
                 switch (_ = l > .5 ? e / (2 - n - i) : e / (n + i),
                 n) {
-                case a:
-                    c = (o - s) / e + (o < s ? 6 : 0);
-                    break;
                 case o:
-                    c = (s - a) / e + 2;
+                    c = (a - s) / e + (a < s ? 6 : 0);
+                    break;
+                case a:
+                    c = (s - o) / e + 2;
                     break;
                 case s:
-                    c = (a - o) / e + 4
+                    c = (o - a) / e + 4
                 }
                 c /= 6
             }
             return [Math.floor(360 * c), Math.floor(100 * _), Math.floor(100 * l)]
         }
-          , b = ({name: e, value: t, onChange: r, disabled: a=!1})=>{
+          , b = ({name: e, value: t, onChange: r, disabled: o=!1})=>{
             const s = h(t.replace("#", ""))
               , [n,c] = (0,
-            o.useState)(s)
+            a.useState)(s)
               , [_,l] = (0,
-            o.useState)(t.toUpperCase())
+            a.useState)(t.toUpperCase())
               , [u,b] = (0,
-            o.useState)(!1)
+            a.useState)(!1)
               , [v,E] = (0,
-            o.useState)(!0)
+            a.useState)(!0)
               , [g,y] = (0,
-            o.useState)(!0)
-              , A = (0,
-            o.useRef)(null)
+            a.useState)(!0)
               , P = (0,
-            o.useRef)(null)
+            a.useRef)(null)
+              , A = (0,
+            a.useRef)(null)
               , M = (0,
-            o.useRef)(null)
+            a.useRef)(null)
               , O = e=>{
                 var t;
-                null === (t = P.current) || void 0 === t || t.addEventListener("mousemove", D),
+                null === (t = A.current) || void 0 === t || t.addEventListener("mousemove", D),
                 D(e)
             }
               , w = e=>{
                 var t;
-                null === (t = P.current) || void 0 === t || t.removeEventListener("mousemove", D)
+                null === (t = A.current) || void 0 === t || t.removeEventListener("mousemove", D)
             }
               , T = e=>{
                 var t;
-                1 !== e.buttons && (null === (t = P.current) || void 0 === t || t.removeEventListener("mousemove", D))
+                1 !== e.buttons && (null === (t = A.current) || void 0 === t || t.removeEventListener("mousemove", D))
             }
               , D = t=>{
                 if (0 === t.button) {
-                    const a = t.currentTarget
-                      , o = Math.atan2(t.offsetY - a.height / 2, t.offsetX - a.width / 2)
-                      , s = 1 - Math.hypot(t.offsetY - a.height / 2, t.offsetX - a.width / 2) / 85
+                    const o = t.currentTarget
+                      , a = Math.atan2(t.offsetY - o.height / 2, t.offsetX - o.width / 2)
+                      , s = 1 - Math.hypot(t.offsetY - o.height / 2, t.offsetX - o.width / 2) / 85
                       , n = s < 0 ? 0 : s
-                      , i = 180 * o / Math.PI + 90
+                      , i = 180 * a / Math.PI + 90
                       , _ = f(i / 360, 1, .5 * n + .5)
                       , d = m(_[0], _[1], _[2]);
                     c(_),
@@ -418,52 +418,52 @@
                     r(d, e)
                 }
             }
-              , L = (t,a)=>{
-                const o = t.target.value;
+              , L = (t,o)=>{
+                const a = t.target.value;
                 let s;
-                if ((s = "" === o ? 0 : parseInt(o) && parseInt(o) > 255 ? 255 : parseInt(o)) && s <= 255 || 0 === s) {
-                    const t = n.map((e,t)=>t === a ? s : e);
+                if ((s = "" === a ? 0 : parseInt(a) && parseInt(a) > 255 ? 255 : parseInt(a)) && s <= 255 || 0 === s) {
+                    const t = n.map((e,t)=>t === o ? s : e);
                     c(t);
-                    const o = m(t[0], t[1], t[2]);
-                    l(o.toUpperCase()),
-                    r(o, e)
+                    const a = m(t[0], t[1], t[2]);
+                    l(a.toUpperCase()),
+                    r(a, e)
                 }
             }
             ;
             return (0,
-            o.useEffect)(()=>{
-                if (!P.current)
+            a.useEffect)(()=>{
+                if (!A.current)
                     return;
-                const e = P.current.getContext("2d");
+                const e = A.current.getContext("2d");
                 e.imageSmoothingEnabled = !1,
                 e.lineWidth = 1,
                 e.clearRect(0, 0, 170, 170);
                 for (let t = 1; t < 85; t++) {
                     const r = 85
-                      , a = 85
-                      , o = r - t
+                      , o = 85
+                      , a = r - t
                       , s = Math.PI / 180;
                     for (let n = 0; n < 360; n++) {
                         const i = f(n / 360, 1, .5 + t / 85 * .5);
                         e.beginPath(),
-                        e.arc(r, a, o, (n - 90.5) * s, (n - 89.2) * s),
+                        e.arc(r, o, a, (n - 90.5) * s, (n - 89.2) * s),
                         e.strokeStyle = `rgb(${i[0]},${i[1]},${i[2]})`,
                         e.stroke()
                     }
                 }
-                return P.current.addEventListener("mousedown", O),
-                P.current.addEventListener("mouseenter", T),
-                P.current.addEventListener("mouseup", w),
+                return A.current.addEventListener("mousedown", O),
+                A.current.addEventListener("mouseenter", T),
+                A.current.addEventListener("mouseup", w),
                 ()=>{
                     var e, t, r;
-                    null === (e = P.current) || void 0 === e || e.removeEventListener("mousedown", O),
-                    null === (t = P.current) || void 0 === t || t.removeEventListener("mouseenter", T),
-                    null === (r = P.current) || void 0 === r || r.removeEventListener("mouseup", w)
+                    null === (e = A.current) || void 0 === e || e.removeEventListener("mousedown", O),
+                    null === (t = A.current) || void 0 === t || t.removeEventListener("mouseenter", T),
+                    null === (r = A.current) || void 0 === r || r.removeEventListener("mouseup", w)
                 }
             }
-            , [P, u]),
+            , [A, u]),
             (0,
-            o.useEffect)(()=>{
+            a.useEffect)(()=>{
                 if (E(!0),
                 !M.current)
                     return;
@@ -471,11 +471,11 @@
                 e.clearRect(0, 0, 210, 210),
                 e.imageSmoothingEnabled = !1;
                 const r = h(t.replace("#", ""))
-                  , a = p(r[0], r[1], r[2])
-                  , [o,s,n] = a
+                  , o = p(r[0], r[1], r[2])
+                  , [a,s,n] = o
                   , i = 85 * (1 - (n - 50) / 50)
-                  , c = 85 + i * Math.sin(2 * Math.PI * o / 360) + 20
-                  , _ = 170 - (85 + i * Math.cos(2 * Math.PI * o / 360)) + 20;
+                  , c = 85 + i * Math.sin(2 * Math.PI * a / 360) + 20
+                  , _ = 170 - (85 + i * Math.cos(2 * Math.PI * a / 360)) + 20;
                 (_ > 190 || c > 190 || _ < 20 || c < 20) && E(!1),
                 e.lineWidth = 14,
                 e.strokeStyle = t,
@@ -490,12 +490,12 @@
             }
             , [M, t, u]),
             (0,
-            o.useEffect)(()=>{
-                if (!A.current)
+            a.useEffect)(()=>{
+                if (!P.current)
                     return;
                 document.body.style.userSelect = u ? "none" : null;
                 const e = e=>{
-                    A.current.contains(e.target) || b(!1)
+                    P.current.contains(e.target) || b(!1)
                 }
                 ;
                 return document.addEventListener("mousedown", e),
@@ -503,73 +503,73 @@
                     document.removeEventListener("mousedown", e)
                 }
             }
-            , [A, u]),
-            (0,
-            o.useEffect)(()=>{
-                y(!0),
-                null != P.current && u && y(!1)
-            }
             , [P, u]),
-            o.createElement("div", {
+            (0,
+            a.useEffect)(()=>{
+                y(!0),
+                null != A.current && u && y(!1)
+            }
+            , [A, u]),
+            a.createElement("div", {
                 className: "input-color",
-                ref: A
-            }, o.createElement("button", {
+                ref: P
+            }, a.createElement("button", {
                 name: e,
                 className: "input-color__input",
-                disabled: a,
+                disabled: o,
                 onClick: ()=>{
                     b(!u)
                 }
                 ,
                 type: "button"
-            }), o.createElement("div", {
+            }), a.createElement("div", {
                 className: "input-color__preview",
                 style: {
                     backgroundColor: t
                 }
-            }), u && o.createElement("div", {
+            }), u && a.createElement("div", {
                 className: "input-color__picker"
-            }, g && o.createElement("div", {
+            }, g && a.createElement("div", {
                 className: "input-color__picker-loader"
-            }, o.createElement(i.default, {
+            }, a.createElement(i.default, {
                 size: "small"
-            })), o.createElement("canvas", {
+            })), a.createElement("canvas", {
                 className: "input-color__canvas",
-                ref: P,
+                ref: A,
                 width: 170,
                 height: 170,
                 style: {
                     borderRadius: "100%"
                 }
-            }), v && o.createElement("canvas", {
+            }), v && a.createElement("canvas", {
                 className: "input-color__canvas  input-color__canvas--overlay",
                 ref: M,
                 width: 210,
                 height: 210
-            }), o.createElement("div", {
+            }), a.createElement("div", {
                 className: "input-color__values"
-            }, o.createElement("div", {
+            }, a.createElement("div", {
                 className: "input-color__value"
-            }, o.createElement(d, {
+            }, a.createElement(d, {
                 value: `${n[0]}`,
                 onChange: e=>L(e, 0),
                 className: "input-color__box"
-            }), o.createElement(d, {
+            }), a.createElement(d, {
                 value: `${n[1]}`,
                 onChange: e=>L(e, 1),
                 className: "input-color__box"
-            }), o.createElement(d, {
+            }), a.createElement(d, {
                 value: `${n[2]}`,
                 onChange: e=>L(e, 2),
                 className: "input-color__box"
-            })), o.createElement(d, {
+            })), a.createElement(d, {
                 value: `${_}`,
                 onChange: t=>{
-                    const a = `${"#" === t.target.value[0] ? "" : "#"}${t.target.value.toUpperCase()}`
-                      , o = /^#[0-9A-F]{0,}$/.test(a);
-                    a.length <= 7 && o && l(a);
-                    /^#[0-9A-F]{6}$/i.test(a) && (r(a, e),
-                    c(h(a.substring(1))))
+                    const o = `${"#" === t.target.value[0] ? "" : "#"}${t.target.value.toUpperCase()}`
+                      , a = /^#[0-9A-F]{0,}$/.test(o);
+                    o.length <= 7 && a && l(o);
+                    /^#[0-9A-F]{6}$/i.test(o) && (r(o, e),
+                    c(h(o.substring(1))))
                 }
                 ,
                 id: "input-color-value"
@@ -577,11 +577,11 @@
         }
         ;
         l(b, "useState{[rgbValue, setRgbValue](valueToRgb)}\nuseState{[hexCode, setHexCode](value.toUpperCase())}\nuseState{[pickerOpen, setPickerOpen](false)}\nuseState{[showCanvasSelector, setShowCanvasSelector](true)}\nuseState{[pickerLoading, setPickerLoading](true)}\nuseRef{outerRef}\nuseRef{pickerRef}\nuseRef{selectorRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
-        const v = ({value: e, invalid: t, onChange: r, onSelect: a, onCreate: n, disabled: i=!1, webUSBClient: c, resetValue: _})=>{
+        const v = ({value: e, invalid: t, onChange: r, onSelect: o, onCreate: n, disabled: i=!1, webUSBClient: c, resetValue: _})=>{
             const [l,u] = (0,
-            o.useState)(e)
+            a.useState)(e)
               , [f,m] = (0,
-            o.useState)(!1);
+            a.useState)(!1);
             let h = []
               , p = !1;
             if (c.deviceAlbums) {
@@ -589,26 +589,26 @@
                 s.qP)(r.title, e), !1),
                 h = Object.values(c.deviceAlbums).some(t=>t.title.toUpperCase() === e.toUpperCase()) ? Object.values(c.deviceAlbums).filter(t=>"RECORD" !== t.id && t.title.toUpperCase() !== e.toUpperCase()).slice(0, 12) : Object.values(c.deviceAlbums).filter(t=>"RECORD" !== t.id && (!e || t.title.toUpperCase().indexOf(e.toUpperCase()) >= 0)).slice(0, 12)
             }
-            return o.createElement("div", {
+            return a.createElement("div", {
                 className: `album-input${f ? " album-input--active" : ""}`,
                 onFocus: ()=>m(!0),
                 onBlur: ()=>m(!1)
-            }, o.createElement("div", {
+            }, a.createElement("div", {
                 className: `album-input__drop-down ${f ? "album-input__drop-down--active" : ""}`
-            }, o.createElement("ul", null, h.length > 0 && h.map((e,t)=>o.createElement("li", {
+            }, a.createElement("ul", null, h.length > 0 && h.map((e,t)=>a.createElement("li", {
                 key: t,
-                onMouseDown: ()=>a(e.id)
-            }, e.title)), e && !p && o.createElement("li", {
+                onMouseDown: ()=>o(e.id)
+            }, e.title)), e && !p && a.createElement("li", {
                 className: "create-entry",
                 onMouseDown: ()=>n(e)
-            }, "Create ", o.createElement("strong", null, e), " Album"))), o.createElement(d, {
+            }, "Create ", a.createElement("strong", null, e), " Album"))), a.createElement(d, {
                 disabled: i,
                 modifier: "album",
                 invalid: t,
                 placeholder: "Album",
                 value: e,
                 onChange: r
-            }), e && o.createElement("button", {
+            }), e && a.createElement("button", {
                 className: "album-input__delete",
                 onClick: _
             }))
@@ -641,25 +641,25 @@
         r.d(t, {
             default: ()=>n
         });
-        var a = r("8af190b70a6bc55c6f1b");
+        var o = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = ({size: e, primaryColor: t, bgColor: r})=>a.createElement("div", {
+        const a = ({size: e, primaryColor: t, bgColor: r})=>o.createElement("div", {
             className: `loader${e ? ` loader--${e}` : ""}`
-        }, a.createElement("span", {
+        }, o.createElement("span", {
             className: `loader__spinner${r ? ` u-border--${r}` : ""}`
-        }, a.createElement("span", null), a.createElement("span", {
+        }, o.createElement("span", null), o.createElement("span", {
             className: t ? `u-border--${t}` : ""
-        }), a.createElement("span", null)))
-          , s = o
+        }), o.createElement("span", null)))
+          , s = a
           , n = s;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "Loader", "/home/vsts/work/1/s/src/components/Loader/index.tsx"),
+            e && (e.register(a, "Loader", "/home/vsts/work/1/s/src/components/Loader/index.tsx"),
             e.register(s, "default", "/home/vsts/work/1/s/src/components/Loader/index.tsx"))
         }(),
         function() {
@@ -673,8 +673,8 @@
         r.d(t, {
             Z: ()=>y
         });
-        var a = r("de098c4daf91477f9cbc")
-          , o = r("8af190b70a6bc55c6f1b")
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("8af190b70a6bc55c6f1b")
           , s = r("657c5d0bc31a26770cad")
           , n = r("8390a660195ca787c81e")
           , i = r("9667880090888529dc91")
@@ -698,80 +698,80 @@
         ;
         const v = ({audioEngine: e, stemsClient: t})=>{
             const [r,_] = (0,
-            o.useState)()
+            a.useState)()
               , [d,b] = (0,
-            o.useState)()
+            a.useState)()
               , [v,E] = (0,
-            o.useState)()
+            a.useState)()
               , [g,y] = (0,
-            o.useState)("")
-              , [A,P] = (0,
-            o.useState)("")
+            a.useState)("")
+              , [P,A] = (0,
+            a.useState)("")
               , [M,O] = (0,
-            o.useState)(!1)
+            a.useState)(!1)
               , [w,T] = (0,
-            o.useState)(!0)
+            a.useState)(!0)
               , D = (0,
             m.s)()
               , L = (0,
-            o.useRef)();
+            a.useRef)();
             L.current = r;
             const k = (0,
-            o.useRef)();
+            a.useRef)();
             k.current = d;
             const C = (0,
-            o.useRef)();
+            a.useRef)();
             C.current = v;
             const S = (0,
-            o.useRef)();
+            a.useRef)();
             S.current = e.playbackState;
             const U = (0,
-            o.useRef)();
+            a.useRef)();
             U.current = e.trackIsLoaded;
             const R = (0,
-            o.useRef)();
+            a.useRef)();
             R.current = e.shouldHideMiniPlayer;
             const I = (0,
             s.useHistory)();
             let B;
             const x = (0,
-            o.useRef)();
+            a.useRef)();
             (0,
-            o.useEffect)(()=>(B = requestAnimationFrame(H),
-            document.addEventListener("keydown", G),
+            a.useEffect)(()=>(B = requestAnimationFrame(H),
+            document.addEventListener("keydown", K),
             ()=>{
-                document.removeEventListener("keydown", G),
+                document.removeEventListener("keydown", K),
                 cancelAnimationFrame(B),
                 e.isNavigating && e.setIsNavigating(!1)
             }
             ), []),
             (0,
-            o.useEffect)(()=>{
+            a.useEffect)(()=>{
                 const t = e.getActiveQueue();
                 if (t) {
-                    const a = t.findIndex(e=>{
+                    const o = t.findIndex(e=>{
                         return (e.id ? e.id : e.global_id) === r
                     }
                     );
-                    if (-1 !== a) {
-                        const e = t[a]
+                    if (-1 !== o) {
+                        const e = t[o]
                           , r = (0,
                         f.vJ)(e)
-                          , o = (0,
+                          , a = (0,
                         f.ee)(e)
                           , s = (0,
-                        f.$r)(o, r);
-                        b(a),
+                        f.$r)(a, r);
+                        b(o),
                         E(e),
                         y(s),
-                        P(r)
+                        A(r)
                     } else
                         e.currentTrack && _(e.currentTrack.id)
                 }
             }
-            , [r, e.userQueue, e.currentTrack]),
+            , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
-            o.useEffect)(()=>{
+            a.useEffect)(()=>{
                 e.currentTrack && (M && O(!1),
                 _(e.currentTrack.id));
                 const t = ()=>{
@@ -790,7 +790,7 @@
             }
             , [e.currentTrack]),
             (0,
-            o.useEffect)(()=>{
+            a.useEffect)(()=>{
                 if (e.playbackState !== l.QK.Ended || e.shouldHideMiniPlayer)
                     e.playbackState === l.QK.Playing && (B = requestAnimationFrame(H));
                 else {
@@ -800,42 +800,42 @@
             }
             , [e.playbackState]),
             (0,
-            o.useEffect)(()=>{
+            a.useEffect)(()=>{
                 B = requestAnimationFrame(H)
             }
             , [e.currentPosition]);
-            const K = (0,
-            o.useRef)();
-            K.current = e.getActiveQueue();
-            const G = t=>{
+            const G = (0,
+            a.useRef)();
+            G.current = e.getActiveQueue();
+            const K = t=>{
                 if (!R.current) {
                     if (U.current && " " === t.key && (t.preventDefault(),
                     S.current === l.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
-                        const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
+                        const e = G.current[k.current + 1] ? G.current[k.current + 1] : G.current[0];
                         e && F(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
-                        const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
+                        const t = G.current[k.current - 1] ? G.current[k.current - 1] : G.current[G.current.length - 1];
                         t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
                     }
                 }
             }
               , W = function() {
                 var r = (0,
-                a.Z)(function*() {
+                o.Z)(function*() {
                     const r = L.current;
                     if (!D())
                         return;
-                    let a;
+                    let o;
                     if (r === L.current) {
                         if (e.activeQueue === l.$_.Official) {
-                            const o = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
                             try {
-                                const s = yield t.getWaveformData(o["waveform-data"], r);
-                                a = e.generateTrack(C.current, o, s)
+                                const s = yield t.getWaveformData(a["waveform-data"], r);
+                                o = e.generateTrack(C.current, a, s)
                             } catch (t) {
-                                a = e.generateTrack(C.current, o)
+                                o = e.generateTrack(C.current, a)
                             }
                         } else {
                             const r = e.generateTrack(C.current);
@@ -843,11 +843,11 @@
                                 const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
                                 r.waveformData = e
                             }
-                            a = r
+                            o = r
                         }
                         if (!D())
                             return;
-                        e.load(a)
+                        e.load(o)
                     }
                     e.setIsNavigating(!1)
                 });
@@ -863,12 +863,12 @@
                         if (!e.getMutedStateForStem(t) && S.current !== l.QK.Stopped) {
                             const r = (0,
                             p.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
-                              , a = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
-                            if (a) {
+                              , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
+                            if (o) {
                                 O(!0);
                                 const e = (0,
                                 u.Z)(r, [0, 1], [.3, 1], !0);
-                                a.style.transform = `scale(${e})`
+                                o.style.transform = `scale(${e})`
                             }
                         }
                     }
@@ -891,51 +891,51 @@
                 M && O(!1)
             }
               , q = (0,
-            o.useCallback)((0,
+            a.useCallback)((0,
             n.Ds)(W, 500), []);
-            return o.createElement(o.Fragment, null, !e.shouldHideMiniPlayer && o.createElement("div", {
+            return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && a.createElement("div", {
                 className: "mini-player__topshade"
-            }), o.createElement("div", {
+            }), a.createElement("div", {
                 className: `mini-player ${e.shouldHideMiniPlayer ? "mini-player__hidden" : ""}`,
                 onTouchEnd: N
-            }, o.createElement("div", {
+            }, a.createElement("div", {
                 className: "mini-player__left",
                 onClick: N
-            }, o.createElement("div", {
+            }, a.createElement("div", {
                 ref: x,
                 className: `mini-player__stems ${w ? "mini-player__stems--loading" : ""}`
             }, (()=>Object.values(l.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
-                  , a = r || !e.trackIsLoaded || e.playbackState === l.QK.Stopped;
-                return o.createElement("div", {
+                  , o = r || !e.trackIsLoaded || e.playbackState === l.QK.Stopped;
+                return a.createElement("div", {
                     className: `mini-player__stems--stem-container  mini-player__stems--${t}-container`,
                     key: t
-                }, o.createElement("svg", {
+                }, a.createElement("svg", {
                     className: `mini-player__stems--stem ${r ? "mini-player__stems--stem--muted" : ""}`,
-                    style: a ? {
+                    style: o ? {
                         transform: "scale(0.3)"
                     } : {},
                     height: "12",
                     width: "12",
                     fill: "var(--color-main)"
-                }, o.createElement("circle", {
+                }, a.createElement("circle", {
                     cx: "6",
                     cy: "6",
                     r: "5"
                 })))
             }
-            ))()), o.createElement("div", {
+            ))()), a.createElement("div", {
                 className: "mini-player__track-info"
-            }, o.createElement("p", {
+            }, a.createElement("p", {
                 className: "mini-player__track-info--title"
-            }, g && g.length ? g : "Untitled"), o.createElement("p", {
+            }, g && g.length ? g : "Untitled"), a.createElement("p", {
                 className: "mini-player__track-info--artist"
-            }, A))), o.createElement("div", {
+            }, P))), a.createElement("div", {
                 className: "mini-player__scrubber-container",
                 onTouchEnd: e=>e.stopPropagation()
-            }, o.createElement(i.Z, null)), o.createElement("div", {
+            }, a.createElement(i.Z, null)), a.createElement("div", {
                 onTouchEnd: e=>e.stopPropagation()
-            }, o.createElement(c.Z, {
+            }, a.createElement(c.Z, {
                 isMiniPlayer: !0,
                 goToTrackCb: F,
                 trackIndex: d
@@ -965,8 +965,8 @@
         r.d(t, {
             Z: ()=>f
         });
-        var a = r("8af190b70a6bc55c6f1b")
-          , o = r("804fe702b68cd889ff76")
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("804fe702b68cd889ff76")
           , s = r("88e8bdd04c305099c2c9")
           , n = r("98207642210e3d58d89a")
           , i = r("77d9647920c06e8befd6")
@@ -982,21 +982,21 @@
         ;
         const l = ({trackIndex: e, goToTrackCb: t, uploadText: r, deviceTransferActive: i, hidePrevNext: _, isMiniPlayer: l, closeCallback: d, audioEngine: u})=>{
             const [f,m] = (0,
-            a.useState)(null)
+            o.useState)(null)
               , h = (0,
-            a.useRef)();
+            o.useRef)();
             h.current = f;
-            const p = (r,a)=>{
+            const p = (r,o)=>{
                 if (r.preventDefault(),
-                h.current === a) {
+                h.current === o) {
                     m(null);
                     const r = u.getActiveQueue();
-                    if ("prev" === a) {
-                        const a = r[e - 1] ? r[e - 1] : r[r.length - 1];
-                        u.getCurrentTime() >= 3 ? u.seekTo(0) : t(a.id || a.global_id)
+                    if ("prev" === o) {
+                        const o = r[e - 1] ? r[e - 1] : r[r.length - 1];
+                        u.getCurrentTime() >= 3 ? u.seekTo(0) : t(o.id || o.global_id)
                     } else {
-                        const a = r[e + 1] ? r[e + 1] : r[0];
-                        a ? t(a.id || a.global_id) : d && d()
+                        const o = r[e + 1] ? r[e + 1] : r[0];
+                        o ? t(o.id || o.global_id) : d && d()
                     }
                 }
             }
@@ -1014,11 +1014,11 @@
             g = 40) : (v = 33,
             E = 74,
             g = 44),
-            a.createElement("div", {
+            o.createElement("div", {
                 className: "player-controls"
-            }, !_ && a.createElement("div", {
+            }, !_ && o.createElement("div", {
                 className: `player-controls__prev-next-button ${l ? "player-controls__prev-next-button--mini-player" : ""}`
-            }, a.createElement(o.default, {
+            }, o.createElement(a.default, {
                 className: "player-controls__prev-button",
                 onMouseDown: ()=>m("prev"),
                 onMouseLeave: b,
@@ -1026,7 +1026,7 @@
                 onTouchStart: ()=>m("prev"),
                 onTouchMove: ()=>m(null),
                 onTouchEnd: e=>p(e, "prev")
-            }), a.createElement(o.default, {
+            }), o.createElement(a.default, {
                 className: "player-controls__next-button",
                 onMouseDown: ()=>m("next"),
                 onMouseUp: e=>p(e, "next"),
@@ -1034,20 +1034,20 @@
                 onTouchStart: ()=>m("next"),
                 onTouchMove: ()=>m(null),
                 onTouchEnd: e=>p(e, "next")
-            }), a.createElement("span", {
+            }), o.createElement("span", {
                 className: "player-controls__prev-next-icon"
-            }, "next" === h.current ? a.createElement(n.mE, {
+            }, "next" === h.current ? o.createElement(n.mE, {
                 height: v,
                 width: E
-            }) : "prev" === h.current ? a.createElement(n.ry, {
+            }) : "prev" === h.current ? o.createElement(n.ry, {
                 height: v,
                 width: E
-            }) : a.createElement(n._z, {
+            }) : o.createElement(n._z, {
                 height: v,
                 width: E
-            }))), a.createElement(o.default, {
+            }))), o.createElement(a.default, {
                 id: "play-button",
-                icon: ()=>a.createElement(s.WU, {
+                icon: ()=>o.createElement(s.WU, {
                     height: g,
                     width: g
                 }),
@@ -1077,10 +1077,10 @@
     "9667880090888529dc91": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>_
+            Z: ()=>l
         });
-        var a = r("8af190b70a6bc55c6f1b")
-          , o = r("6515cd559c65eab0c80c")
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("6515cd559c65eab0c80c")
           , s = r("77d9647920c06e8befd6");
         e = r.hmd(e),
         function() {
@@ -1094,54 +1094,54 @@
         const i = ({audioEngine: e})=>{
             const t = e.trackIsLoaded ? e.getCurrentPositionPercent() : 0
               , [r,s] = (0,
-            a.useState)(t)
+            o.useState)(t)
               , [n,i] = (0,
-            a.useState)(!1)
+            o.useState)(!1)
               , c = (0,
-            a.useRef)()
+            o.useRef)()
               , _ = (0,
-            a.useRef)();
+            o.useRef)();
             let l, d, u, f = new Date;
             const m = (0,
-            a.useRef)();
+            o.useRef)();
             m.current = e.playbackState;
             const h = (0,
-            a.useRef)();
+            o.useRef)();
             h.current = n;
             const p = (0,
-            a.useRef)();
+            o.useRef)();
             p.current = r;
             const b = (0,
-            a.useRef)();
+            o.useRef)();
             (0,
-            a.useEffect)(()=>(b.current = !0,
+            o.useEffect)(()=>(b.current = !0,
             ()=>{
                 b.current = !1,
                 cancelAnimationFrame(u)
             }
             ), []),
             (0,
-            a.useEffect)(()=>{
-                e.playbackState === o.QK.Playing ? u = requestAnimationFrame(v) : e.playbackState === o.QK.Stopped && s(0)
+            o.useEffect)(()=>{
+                e.playbackState === a.QK.Playing ? u = requestAnimationFrame(v) : e.playbackState === a.QK.Stopped && s(0)
             }
             , [e.playbackState]),
             (0,
-            a.useEffect)(()=>{
-                e.playbackState === o.QK.Paused && (u = requestAnimationFrame(v))
+            o.useEffect)(()=>{
+                e.playbackState === a.QK.Paused && (u = requestAnimationFrame(v))
             }
             , [e.currentPosition]),
             (0,
-            a.useEffect)(()=>{
+            o.useEffect)(()=>{
                 e.trackIsLoaded || s(0)
             }
             , [e.trackIsLoaded]);
             const v = ()=>{
-                if (b.current && m.current !== o.QK.Stopped) {
+                if (b.current && m.current !== a.QK.Stopped) {
                     const t = e.getCurrentPositionPercent()
                       , r = new Date;
                     !h.current && r.getTime() - f.getTime() > 1e3 / 3 && (s(t),
                     f = r),
-                    t < 1 && (m.current === o.QK.Playing || h.current || t !== p.current) && requestAnimationFrame(v)
+                    t < 1 && (m.current === a.QK.Playing || h.current || t !== p.current) && requestAnimationFrame(v)
                 }
             }
               , E = e=>{
@@ -1156,7 +1156,7 @@
                 }
             }
               , g = _.current ? _.current.offsetWidth : 0;
-            return a.createElement("div", {
+            return o.createElement("div", {
                 ref: c,
                 className: "scrubber-container",
                 onMouseEnter: t=>{
@@ -1194,9 +1194,9 @@
                     else if (d && l) {
                         const t = e.touches[0].clientX
                           , r = e.touches[0].clientY
-                          , a = t - d
-                          , o = r - l;
-                        Math.abs(a) > Math.abs(o) && (window.preventScroll = !0,
+                          , o = t - d
+                          , a = r - l;
+                        Math.abs(o) > Math.abs(a) && (window.preventScroll = !0,
                         i(!0),
                         E(e)),
                         d = null,
@@ -1214,10 +1214,10 @@
                             e.seekToPercent(r);
                         else if (Math.abs(t.changedTouches[0].clientY - l) < 3) {
                             const r = c.current.getBoundingClientRect()
-                              , a = (t.changedTouches[0].clientX - r.left) / r.width;
+                              , o = (t.changedTouches[0].clientX - r.left) / r.width;
                             l = null,
-                            s(a),
-                            e.seekToPercent(a)
+                            s(o),
+                            e.seekToPercent(o)
                         }
                 }
                 ,
@@ -1228,7 +1228,7 @@
                     i(!1),
                     E(e))
                 }
-            }, a.createElement("div", {
+            }, o.createElement("div", {
                 className: "scrubber",
                 onMouseDown: t=>{
                     t.stopPropagation(),
@@ -1236,12 +1236,12 @@
                     t.touches || e.trackIsLoaded && (i(!0),
                     E(t))
                 }
-            }, a.createElement("span", {
+            }, o.createElement("span", {
                 className: "scrubber--line"
-            }), a.createElement("div", {
+            }), o.createElement("div", {
                 ref: _,
                 className: "scrubber--playhead-container"
-            }, a.createElement("div", {
+            }, o.createElement("div", {
                 className: "scrubber--playhead-hitbox",
                 style: {
                     left: `${(e.trackIsLoaded ? r * g : 0) - 27}px`
@@ -1252,20 +1252,22 @@
                     e.trackIsLoaded && !e.isIsolating && (i(!0),
                     E(t))
                 }
-            }, a.createElement("span", {
+            }, o.createElement("span", {
                 className: "scrubber--playhead"
             })))))
         }
         ;
         n(i, "useState{[localPosition, setLocalPosition](initialScrubberPos)}\nuseState{[isScrubbing, setIsScrubbing](false)}\nuseRef{scrubberContainerRef: React.RefObject<HTMLDivElement>}\nuseRef{scrubberRef: React.RefObject<HTMLDivElement>}\nuseRef{playbackStateRef}\nuseRef{isScrubbingRef}\nuseRef{localPositionRef}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
-        const c = (0,
+        const c = i
+          , _ = (0,
         s.f)(i)
-          , _ = c;
+          , l = _;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(3, "PLAYHEAD_FPS", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
             e.register(i, "Scrubber", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
-            e.register(c, "default", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"))
+            e.register(c, "__TEST__Scrubber", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -1279,8 +1281,8 @@
             Rq: ()=>k,
             ZP: ()=>I
         });
-        var a = r("990057777e9b2b7543e8")
-          , o = r("de098c4daf91477f9cbc")
+        var o = r("990057777e9b2b7543e8")
+          , a = r("de098c4daf91477f9cbc")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("657c5d0bc31a26770cad")
           , i = r.n(n)
@@ -1298,16 +1300,16 @@
           , E = r("da23a0dbab1fa75005eb")
           , g = r("63922d5ff7825dcb0b86")
           , y = r("50adafd66d905a6a5399")
-          , A = r("3029aafe6858c31fb8c9")
-          , P = r("d6e61794281205c7e43a");
+          , P = r("3029aafe6858c31fb8c9")
+          , A = r("d6e61794281205c7e43a");
         function M(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -1316,7 +1318,7 @@
                 var r = null != arguments[t] ? arguments[t] : {};
                 t % 2 ? M(Object(r), !0).forEach(function(t) {
                     (0,
-                    a.Z)(e, t, r[t])
+                    o.Z)(e, t, r[t])
                 }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : M(Object(r)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                 })
@@ -1381,11 +1383,11 @@
           , L = "Connect Stemplayer"
           , k = function() {
             var e = (0,
-            o.Z)(function*(e) {
+            a.Z)(function*(e) {
                 const t = e ? "mp3" : "wav"
                   , r = yield fetch(`/audio/silent-track.${t}`)
-                  , a = yield r.blob();
-                return new File([a],`silent-track.${t}`,{
+                  , o = yield r.blob();
+                return new File([o],`silent-track.${t}`,{
                     type: "audio/mpeg"
                 })
             });
@@ -1393,159 +1395,124 @@
                 return e.apply(this, arguments)
             }
         }()
-          , C = ({webUSBClient: e, trackApiClient: t, tracking: {trackEvent: r}, albumRestoreClient: {restoreError: a, resetState: n}, firmwareUpdateClient: {hasCrucialUpdate: i, getAvailableUpdates: c}, viewManagerClient: {setNewTrack: _, setDeviceFullUploadError: d}, unloadAudioEngineTrackCb: u, accountClient: f, history: m, newTrackUploadedCb: h, closeClicked: p, fetchUserLibraryWaveforms: M})=>{
-            const w = (0,
+          , C = ({webUSBClient: e, trackApiClient: t, tracking: {trackEvent: r}, albumRestoreClient: {restoreError: o, resetState: n}, viewManagerClient: {setNewTrack: i, setDeviceFullUploadError: c}, unloadAudioEngineTrackCb: _, accountClient: d, history: u, newTrackUploadedCb: f, closeClicked: m, fetchUserLibraryWaveforms: h})=>{
+            const p = (0,
             s.useRef)(null)
-              , C = (0,
+              , M = (0,
             s.useRef)(null)
+              , [w,C] = (0,
+            s.useState)(null)
               , [S,U] = (0,
             s.useState)(null)
               , [R,I] = (0,
             s.useState)(null)
               , [B,x] = (0,
-            s.useState)(null)
-              , [K,G] = (0,
             s.useState)(!1)
+              , [G,K] = (0,
+            s.useState)(null)
               , [W,H] = (0,
             s.useState)(null)
               , [N,F] = (0,
             s.useState)(null)
               , [q,j] = (0,
-            s.useState)(null)
-              , [Z,V] = (0,
             s.useState)("")
+              , [Z,V] = (0,
+            s.useState)(null)
               , [$,z] = (0,
             s.useState)(null)
               , [Q,Y] = (0,
-            s.useState)(null)
+            s.useState)(!1)
               , [J,X] = (0,
-            s.useState)(!1)
-              , [ee,te] = (0,
             s.useState)(null)
-              , [re,ae] = (0,
+              , [ee,te] = (0,
             s.useState)(!1)
-              , [oe,se] = (0,
+              , [re,oe] = (0,
             s.useState)(!1)
-              , [ne,ie] = (0,
+              , [ae,se] = (0,
             s.useState)("Upload")
+              , [ne,ie] = (0,
+            s.useState)(!1)
               , [ce,_e] = (0,
             s.useState)(!1)
               , [le,de] = (0,
             s.useState)(!1)
               , [ue,fe] = (0,
-            s.useState)(!1)
-              , [me,he] = (0,
             s.useState)(null)
-              , [pe,be] = (0,
-            s.useState)(!1)
-              , [ve,Ee] = (0,
-            s.useState)(L)
-              , [ge,ye] = (0,
-            s.useState)(!1);
+              , [me,he] = (0,
+            s.useState)(L);
             (0,
             s.useEffect)(()=>{
-                if (!e.deviceConnected)
-                    return;
-                const t = new AbortController;
-                let r = !0;
-                return function() {
-                    var a = (0,
-                    o.Z)(function*() {
-                        try {
-                            const a = yield c(t.signal);
-                            r && i(a, e.deviceInfo) && be(!0)
-                        } catch (e) {
-                            console.error(e)
-                        }
-                    });
-                    return function() {
-                        return a.apply(this, arguments)
-                    }
-                }()(),
-                ()=>{
-                    r = !1,
-                    t.abort()
-                }
-            }
-            , [e.deviceConnected]),
-            (0,
-            s.useEffect)(()=>{
-                N && N.id && q && f.session ? (_(N),
-                m.push(`/connect/stem/track/${N.id}`)) : N && !K && (j(null),
-                _(N),
+                W && W.id && N && d.session ? (i(W),
+                u.push(`/connect/stem/track/${W.id}`)) : W && !B && (F(null),
+                i(W),
                 (0,
-                b.gn)() || !e.deviceConnected ? m.push(`/connect/stem/track/${N.id}`) : m.push("/connect/new"),
-                Pe())
+                b.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
+                be())
             }
-            , [N]),
+            , [W]),
             (0,
             s.useEffect)(()=>{
-                f.session || e.deviceConnected || m.push("/")
+                m && be()
             }
-            , [e.deviceConnected]),
+            , [m]),
             (0,
             s.useEffect)(()=>{
-                p && Pe()
+                (o || ue) && (ce || w) && de(!0)
             }
-            , [p]),
+            , [w, ce, o, ue]),
             (0,
             s.useEffect)(()=>{
-                (a || me) && (le || S) && fe(!0)
+                ee && de(!1)
             }
-            , [S, le, a, me]),
+            , [ee]),
             (0,
             s.useEffect)(()=>{
-                re && fe(!1)
+                ce && p.current.focus()
             }
-            , [re]),
+            , [ce]),
             (0,
             s.useEffect)(()=>{
-                le && w.current.focus()
+                se("Upload"),
+                se($ || "Upload")
             }
-            , [le]),
+            , [$]),
             (0,
             s.useEffect)(()=>{
-                ie("Upload"),
-                ie(Q || "Upload")
+                se("Upload"),
+                null === N && Z && se(Z)
             }
-            , [Q]),
-            (0,
-            s.useEffect)(()=>{
-                ie("Upload"),
-                null === q && $ && ie($)
-            }
-            , [q, $]);
-            const Ae = function() {
-                var a = (0,
-                o.Z)(function*(a) {
-                    a.preventDefault(),
-                    S || R || de(!0),
+            , [N, Z]);
+            const pe = function() {
+                var o = (0,
+                a.Z)(function*(o) {
+                    o.preventDefault(),
+                    w || S || _e(!0),
+                    H(null),
                     F(null),
-                    j(null),
-                    G(!1),
-                    _e(!0),
-                    null === S && "" === Z && null === R && (console.error("Error: no file or url found"),
-                    z(null)),
-                    z("Splitting"),
-                    ie("Splitting");
-                    const o = Date.now();
+                    x(!1),
+                    ie(!0),
+                    null === w && "" === q && null === S && (console.error("Error: no file or url found"),
+                    V(null)),
+                    V("Splitting"),
+                    se("Splitting");
+                    const a = Date.now();
                     try {
-                        let a = null;
-                        const c = new v.f;
+                        let o = null;
+                        const u = new v.f;
                         var s;
-                        if (H(c),
-                        null !== S)
+                        if (K(u),
+                        null !== w)
                             r({
                                 event: "track_split",
                                 data: {
-                                    name: S.name,
-                                    size: S.size,
-                                    type: S.type,
+                                    name: w.name,
+                                    size: w.size,
+                                    type: w.type,
                                     single_file: !0
                                 }
                             }),
-                            a = yield t.createTrackFromFile(S, e=>z(e), c.register, null === (s = f.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === A.L4.High || !1);
-                        else if (null !== R) {
+                            o = yield t.createTrackFromFile(w, e=>V(e), u.register, null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1);
+                        else if (null !== S) {
                             var n;
                             r({
                                 event: "track_split",
@@ -1553,71 +1520,71 @@
                                     single_file: !1
                                 }
                             }),
-                            a = yield t.createTrackFromMultiFiles(R, e=>z(e), null === (n = f.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === A.L4.High || !1)
+                            o = yield t.createTrackFromMultiFiles(S, e=>V(e), null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
                         } else {
-                            var i;
+                            var l;
                             r({
                                 event: "track_split",
                                 data: {
                                     type: "url",
-                                    url: `${Z}`
+                                    url: `${q}`
                                 }
                             }),
-                            a = yield t.createTrackFromLink(Z, e=>z(e), c.register, null === (i = f.session) || void 0 === i ? void 0 : i.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === A.L4.High || !1)
+                            o = yield t.createTrackFromLink(q, e=>V(e), u.register, null === (l = d.session) || void 0 === l ? void 0 : l.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
                         }
-                        if (null !== S || null === R) {
+                        if (null !== w || null === S) {
                             const e = Date.now();
                             r({
                                 event: "track_split_complete",
                                 data: {
-                                    time: e - o,
-                                    title: a.title || "",
-                                    artist: a.artist || ""
+                                    time: e - a,
+                                    title: o.title || "",
+                                    artist: o.artist || ""
                                 }
                             })
                         }
-                        const l = yield t.getTracks([a.id])
-                          , m = yield M(l[a.id])
-                          , p = O(O({}, a), {}, {
-                            waveformData: m
+                        const m = yield t.getTracks([o.id])
+                          , p = yield h(m[o.id])
+                          , b = O(O({}, o), {}, {
+                            waveformData: p
                         });
                         if (e.deviceConnected) {
-                            const t = yield e.hasSpaceForTrack(a);
-                            u(),
-                            t ? (_(N),
-                            F(p),
-                            null !== S || null !== R ? h(a.id, !0, p) : h(a.id, !0)) : (d(!0),
-                            z("Importing"),
-                            j(a),
-                            F(p),
-                            h(a.id, !1)),
-                            Pe()
+                            const t = yield e.hasSpaceForTrack(o);
+                            _(),
+                            t ? (i(W),
+                            H(b),
+                            null !== w || null !== S ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
+                            V("Importing"),
+                            F(o),
+                            H(b),
+                            f(o.id, !1)),
+                            be()
                         } else
-                            _(p),
-                            F(p),
-                            h(a.id, !1),
-                            Pe()
+                            i(b),
+                            H(b),
+                            f(o.id, !1),
+                            be()
                     } catch (e) {
-                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (X(!0),
-                        te("Upload failed - reconnect Stemplayer"),
-                        z("Try again"),
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Y(!0),
+                        X("Upload failed - reconnect Stemplayer"),
+                        V("Try again"),
                         r({
                             error: {
                                 name: "track_split",
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : e.message && "Cancelled" !== e.message ? (X(!0),
-                        te(e.message),
-                        z("Try again"),
+                        })) : e.message && "Cancelled" !== e.message ? (Y(!0),
+                        X(e.message),
+                        V("Try again"),
                         r({
                             error: {
                                 name: "track_split",
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : (Pe(),
-                        z("Upload cancelled"),
+                        })) : (be(),
+                        V("Upload cancelled"),
                         r({
                             error: {
                                 name: "track_split_cancelled",
@@ -1625,104 +1592,104 @@
                                 message: JSON.stringify(e.message || e)
                             }
                         })),
-                        ae(!1),
-                        H(null)
+                        te(!1),
+                        K(null)
                     }
                 });
                 return function(e) {
-                    return a.apply(this, arguments)
+                    return o.apply(this, arguments)
                 }
             }()
-              , Pe = ()=>{
-                C.current && (C.current.value = ""),
-                z(null),
-                H(null),
-                G(null),
-                V(""),
+              , be = ()=>{
+                M.current && (M.current.value = ""),
+                V(null),
+                K(null),
+                x(null),
+                j(""),
+                C(null),
                 U(null),
-                I(null),
-                de(!1),
-                ae(!1),
+                _e(!1),
+                te(!1),
                 e.setDeviceTransferActive(!1),
-                _e(!0)
+                ie(!0)
             }
-              , Me = function() {
+              , ve = function() {
                 var e = (0,
-                o.Z)(function*(e) {
-                    x(e.length);
+                a.Z)(function*(e) {
+                    I(e.length);
                     let t = []
                       , r = !0;
-                    for (let a = 0; a < 4; a++) {
-                        const o = e[a];
-                        if (a >= e.length) {
+                    for (let o = 0; o < 4; o++) {
+                        const a = e[o];
+                        if (o >= e.length) {
                             const e = yield k(r);
                             t.push(e)
-                        } else if ("getAsFile"in o) {
-                            const e = o.getAsFile();
+                        } else if ("getAsFile"in a) {
+                            const e = a.getAsFile();
                             e.name.match(/\.mp3$/i) || (r = !1),
                             t.push(e)
                         } else
-                            t.push(o)
+                            t.push(a)
                     }
-                    I(t)
+                    U(t)
                 });
                 return function(t) {
                     return e.apply(this, arguments)
                 }
             }()
-              , Oe = function() {
+              , Ee = function() {
                 var e = (0,
-                o.Z)(function*(e) {
+                a.Z)(function*(e) {
                     if ("files"in e.target && 0 === e.target.files.length)
                         return;
-                    a && n(),
+                    o && n(),
                     e.preventDefault(),
-                    Te(),
-                    V(""),
-                    I(null),
-                    U(null);
+                    ye(),
+                    j(""),
+                    U(null),
+                    C(null);
                     let t = null;
-                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield Me(e.dataTransfer.items) : (Y("UPLOAD UP TO 4 FILES"),
-                    U(null),
-                    I(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield Me(e.dataTransfer.files) : (Y("UPLOAD UP TO 4 FILES"),
-                    U(null),
-                    I(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield Me(e.target.files) : (Y("UPLOAD UP TO 4 FILES"),
-                    U(null),
-                    I(null)),
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    U(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    U(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    U(null)),
                     t) {
-                        ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (U(t),
-                        Y(null)) : (Y("AUDIO FILES ONLY"),
-                        U(null),
-                        I(null))
+                        ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
+                        z(null)) : (z("AUDIO FILES ONLY"),
+                        C(null),
+                        U(null))
                     }
                 });
                 return function(t) {
                     return e.apply(this, arguments)
                 }
             }()
-              , we = ()=>{
+              , ge = ()=>{
+                C(null),
                 U(null),
-                I(null),
-                Y(null)
-            }
-              , Te = ()=>{
-                Y(null),
-                X(!1),
-                te(null),
-                G(!1),
                 z(null)
             }
-            ;
-            let De = Z.replace(/^https?\:\/\/(www\.)?/i, "");
-            De.match(/^w?w?w?\.?$/i) && (De = Z);
-            const Le = ()=>!e.deviceTransferActive && !re
-              , ke = ()=>Le() && [null, "Upload cancelled", "Try again"].includes($)
-              , Ce = ()=>{
-                m.push("/connect/config")
+              , ye = ()=>{
+                z(null),
+                Y(!1),
+                X(null),
+                x(!1),
+                V(null)
             }
-              , Se = function() {
+            ;
+            let Pe = q.replace(/^https?\:\/\/(www\.)?/i, "");
+            Pe.match(/^w?w?w?\.?$/i) && (Pe = q);
+            const Ae = ()=>!e.deviceTransferActive && !ee
+              , Me = ()=>Ae() && [null, "Upload cancelled", "Try again"].includes(Z)
+              , Oe = ()=>{
+                u.push("/connect/config")
+            }
+              , we = function() {
                 var t = (0,
-                o.Z)(function*() {
+                a.Z)(function*() {
                     const t = (0,
                     b.qs)();
                     if ("Use Chrome or Edge" !== ("Chrome" !== t && "Edge" !== t && "Use Chrome or Edge"))
@@ -1730,7 +1697,7 @@
                             try {
                                 yield e.disconnect()
                             } catch (e) {
-                                Ee("Failed to connect"),
+                                he("Failed to connect"),
                                 console.error(`Error: ${e}`)
                             }
                         else
@@ -1738,11 +1705,11 @@
                                 yield e.connect()
                             } catch (e) {
                                 const t = yield(0,
-                                y.X)();
-                                Ee(t ? "Connected in another tab" : "Failed to connect")
+                                y.Xb)();
+                                he(t ? "Connected in another tab" : "Failed to connect")
                             }
                     else
-                        Ee("Use Chrome or Edge")
+                        he("Use Chrome or Edge")
                 });
                 return function() {
                     return t.apply(this, arguments)
@@ -1750,140 +1717,140 @@
             }();
             return s.createElement("div", {
                 className: "col-centered track-splitter",
-                onDrop: Oe,
+                onDrop: Ee,
                 onDragOver: e=>e.preventDefault(),
                 id: "track-splitter-top"
             }, s.createElement("div", {
                 className: "u-mb-medium"
-            }), !re && !pe && !ge && s.createElement("form", {
+            }), !ee && s.createElement("form", {
                 className: "track-splitter__form",
                 method: "post",
                 encType: "multipart/form-data",
-                onSubmit: Ae
+                onSubmit: pe
             }, s.createElement("div", {
                 className: "track-splitter__input menu-item"
-            }, !le && !S && !R && s.createElement("label", {
+            }, !ce && !w && !S && s.createElement("label", {
                 htmlFor: "link-input",
-                className: `track-splitter__link-button ${ke() ? "" : "disabled"}`,
+                className: `track-splitter__link-button ${Me() ? "" : "disabled"}`,
                 onClick: ()=>{
-                    "Upload cancelled" === $ && (Pe(),
-                    de(!0)),
-                    ke() && de(!0)
+                    "Upload cancelled" === Z && (be(),
+                    _e(!0)),
+                    Me() && _e(!0)
                 }
             }, s.createElement("span", {
                 className: "track-splitter__text"
-            }, "LINK")), le && !(S && S.name || R) && s.createElement(l.II, {
+            }, "LINK")), ce && !(w && w.name || S) && s.createElement(l.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
-                disabled: !ke(),
-                invalid: J,
+                disabled: !Me(),
+                invalid: Q,
                 modifier: "url",
                 placeholder: "ENTER LINK",
-                value: De,
+                value: Pe,
                 onChange: e=>{
-                    a && n(),
-                    Te(),
-                    S && we();
+                    o && n(),
+                    ye(),
+                    w && ge();
                     const t = e.target.value.trim()
                       , r = (0,
                     g.xb)(t) || t.match(/^https?:\/\//i) ? t : `https://${t}`;
-                    V(r),
+                    j(r),
                     (0,
                     g.xb)(r) || (0,
-                    g.b3)(r) ? J && (X(!1),
-                    te(null)) : (X(!0),
-                    te("Input not valid link"))
+                    g.b3)(r) ? Q && (Y(!1),
+                    X(null)) : (Y(!0),
+                    X("Input not valid link"))
                 }
                 ,
-                onBlur: ()=>0 === De.length && de(!1),
-                ref: w,
+                onBlur: ()=>0 === Pe.length && _e(!1),
+                ref: p,
                 id: "link-input",
                 autoComplete: "off"
-            }), !le && !S && !R && s.createElement("span", {
+            }), !ce && !w && !S && s.createElement("span", {
                 className: "track-splitter__text track-splitter__text--or"
-            }, "or"), !le && s.createElement(s.Fragment, null, s.createElement("label", {
+            }, "or"), !ce && s.createElement(s.Fragment, null, s.createElement("label", {
                 htmlFor: "file",
-                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${ke() ? "" : " disabled"}\n                                        ${S && S.name || R ? " track-splitter__input--full" : ""}\n                                    `
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Me() ? "" : " disabled"}\n                                        ${w && w.name || S ? " track-splitter__input--full" : ""}\n                                    `
             }, s.createElement("span", {
                 className: "track-splitter__text"
-            }, S && S.name && S.name.toUpperCase(), R && `${(0,
-            E.pG)(B)} files selected`, null === S && null === R && "FILE")), s.createElement("input", {
+            }, w && w.name && w.name.toUpperCase(), S && `${(0,
+            E.pG)(R)} files selected`, null === w && null === S && "FILE")), s.createElement("input", {
                 className: "input--file",
                 type: "file",
                 id: "file",
                 name: "file",
                 multiple: !0,
-                disabled: !ke(),
-                accept: [...P.Z, "video/mp4"].join(", "),
-                onChange: Oe,
-                ref: C
-            }))), "Try again" === $ && s.createElement(T, {
-                text: `${ee || "Error uploading track"}`,
+                disabled: !Me(),
+                accept: [...A.Z, "video/mp4"].join(", "),
+                onChange: Ee,
+                ref: M
+            }))), "Try again" === Z && s.createElement(T, {
+                text: `${J || "Error uploading track"}`,
                 className: "u-mx-auto",
                 disabled: !0
             }), s.createElement(T, {
                 type: "submit",
                 className: "u-mx-auto menu-item",
                 hideTextWhenLoading: !0,
-                brackets: "No available space on device" !== ne,
-                dots: ["Splitting", "Formatting", "Uploading", "Importing"].includes(ne),
-                disabled: !(()=>Le() && [null, "Try again"].includes($) && "No available space on device" !== ne)(),
-                text: ne,
+                brackets: "No available space on device" !== ae,
+                dots: ["Splitting", "Formatting", "Uploading", "Importing"].includes(ae),
+                disabled: !(()=>Ae() && [null, "Try again"].includes(Z) && "No available space on device" !== ae)(),
+                text: ae,
                 onClick: e=>{
-                    (!S && !R && "" === Z || S && null !== Q) && (e.preventDefault(),
-                    C.current.click())
+                    (!w && !S && "" === q || w && null !== $) && (e.preventDefault(),
+                    M.current.click())
                 }
-            }), !q && W && s.createElement(T, {
+            }), !N && G && s.createElement(T, {
                 text: "CANCEL",
                 className: "u-mx-auto stripped-device-firmware__button menu-item",
                 brackets: !0,
                 onClick: ()=>{
-                    W && (W.cancel(),
-                    ie(null),
-                    Pe(),
-                    j(null),
-                    z("Upload cancelled"),
+                    G && (G.cancel(),
+                    se(null),
+                    be(),
+                    F(null),
+                    V("Upload cancelled"),
                     setTimeout(()=>{
-                        z(null),
-                        ie("Upload")
+                        V(null),
+                        se("Upload")
                     }
                     , 2e3),
                     r({
                         event: "track_upload_cancelled"
                     }))
                 }
-            })), !re && !pe && !oe && !ge && s.createElement(T, {
+            })), !ee && !re && s.createElement(T, {
                 text: "Config",
-                disabled: !Le(),
+                disabled: !Ae(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Ce()
+                onClick: ()=>Oe()
             }), !e.deviceConnected && !(0,
             b.gn)() && s.createElement(T, {
-                text: ve,
-                disabled: !Le(),
+                text: me,
+                disabled: !Ae(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Se()
-            }), !f.session && !ge && s.createElement(T, {
+                onClick: ()=>we()
+            }), !d.session && s.createElement(T, {
                 text: "Login",
-                disabled: !Le(),
+                disabled: !Ae(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>m.push("/account/login")
-            }), (!e.deviceTransferActive || re) && !ge && s.createElement(D, {
-                resetUpdateRestoreState: ce,
-                setUpdateRestoreReset: _e,
+                onClick: ()=>u.push("/account/login")
+            }), (!e.deviceTransferActive || ee) && s.createElement(D, {
+                resetUpdateRestoreState: ne,
+                setUpdateRestoreReset: ie,
                 deviceInfo: e.deviceInfo,
-                disabled: !Le(),
-                updatingCallback: e=>ae(e),
-                resetErrorState: ue,
-                updateErrorCb: e=>he(e),
-                updateCompleteCb: ()=>Ce(),
-                hasUpdateCb: se
+                disabled: !Ae(),
+                updatingCallback: e=>te(e),
+                resetErrorState: le,
+                updateErrorCb: e=>fe(e),
+                updateCompleteCb: ()=>Oe(),
+                hasUpdateCb: oe
             }))
         }
         ;
-        w(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[forceUpdate, setForceUpdate](false)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseState{[addingAlbumToDevice, setAddingAlbumToDevice](false)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        w(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
         const S = C
           , U = (0,
         _.j)({
@@ -1920,48 +1887,48 @@
         r.d(t, {
             o: ()=>s
         });
-        var a = r("8af190b70a6bc55c6f1b");
+        var o = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var o = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var a = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
         const s = ({layers: e, loaded: t})=>{
-            const [r,o] = (0,
-            a.useState)([])
+            const [r,a] = (0,
+            o.useState)([])
               , [s,n] = (0,
-            a.useState)(null);
+            o.useState)(null);
             (0,
-            a.useEffect)(()=>{
+            o.useEffect)(()=>{
                 if (e.length === r.length + 1)
                     ;
                 else if (e.length === r.length - 1) {
                     let t = !1;
-                    for (let a = 0; a < e.length; a += 1)
-                        e[a].id !== r[a].id && (t = !0);
+                    for (let o = 0; o < e.length; o += 1)
+                        e[o].id !== r[o].id && (t = !0);
                     if (!t)
                         return n("removing"),
                         void setTimeout(()=>{
                             n(null),
-                            o(e)
+                            a(e)
                         }
                         , 200)
                 }
-                o(e)
+                a(e)
             }
             , [e]);
             const i = [];
             for (let e = 0; e < 8; e += 1) {
                 var c;
-                const o = "removing" === s ? -1 : 0
-                  , n = Math.min(1, (1 + e - o) / r.length);
+                const a = "removing" === s ? -1 : 0
+                  , n = Math.min(1, (1 + e - a) / r.length);
                 let _ = "";
-                e - o < r.length - 1 ? _ = "below" : e - o > r.length - 1 && (_ = "above");
-                const l = a.createElement("div", {
+                e - a < r.length - 1 ? _ = "below" : e - a > r.length - 1 && (_ = "above");
+                const l = o.createElement("div", {
                     className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === e ? "base" : "overlay"}\n                    ye-layers__layer--${_}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
                     style: {
                         transform: n < 1 ? `scale(${n})` : void 0,
@@ -1971,12 +1938,12 @@
                 }, null === (c = r[e]) || void 0 === c ? void 0 : c.component);
                 i.push(l)
             }
-            return a.createElement("div", {
+            return o.createElement("div", {
                 className: "ye-layers"
             }, i)
         }
         ;
-        o(s, "useState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}"),
+        a(s, "useState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}"),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(8, "AVAILABLE_LAYERS", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"),
@@ -2095,8 +2062,8 @@
     "3029aafe6858c31fb8c9": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _E: ()=>a,
-            N6: ()=>o,
+            _E: ()=>o,
+            N6: ()=>a,
             hX: ()=>s,
             UA: ()=>n,
             a6: ()=>i,
@@ -2109,7 +2076,7 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = {
+        const o = {
             SeekJumpPeriod_mSecs: 1e3,
             SeekBuffersToPlay: 4,
             IsolationRampPeriod_mSecs: 50,
@@ -2125,11 +2092,11 @@
             HeadphoneWiredLimit: 3,
             SplitterPreference: 1
         };
-        let o, s, n, i, c, _;
+        let a, s, n, i, c, _;
         !function(e) {
             e[e.Max = 6e5] = "Max",
             e[e.Min = 1e4] = "Min"
-        }(o || (o = {})),
+        }(a || (a = {})),
         function(e) {
             e[e.FastMax = 125] = "FastMax",
             e[e.FastMin = 100] = "FastMin",
@@ -2154,7 +2121,7 @@
         }(_ || (_ = {})),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "DefaultConfig", "/home/vsts/work/1/s/src/containers/DeviceConfig/config.ts")
+            e && e.register(o, "DefaultConfig", "/home/vsts/work/1/s/src/containers/DeviceConfig/config.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -2281,8 +2248,8 @@
                 this.updateRoute()
             }
             componentDidUpdate(e) {
-                const {webUSBClient: {deviceConnected: t}, location: r, viewManagerClient: a} = this.props;
-                (e.location.pathname !== r.pathname || e.location.search !== r.search || e.webUSBClient && e.webUSBClient.deviceConnected !== t) && (a.setPreviousLocation(e.location.pathname + e.location.search),
+                const {webUSBClient: {deviceConnected: t}, location: r, viewManagerClient: o} = this.props;
+                (e.location.pathname !== r.pathname || e.location.search !== r.search || e.webUSBClient && e.webUSBClient.deviceConnected !== t) && (o.setPreviousLocation(e.location.pathname + e.location.search),
                 this.updateRoute())
             }
             updateRoute() {
@@ -2290,18 +2257,18 @@
                   , {newTrack: r} = e;
                 "/connect/new" === location.pathname && null === r && e.navigate("/connect/stem");
                 for (const r of this.props.routes) {
-                    const a = (0,
+                    const o = (0,
                     react_router_dom__WEBPACK_IMPORTED_MODULE_10__.matchPath)(location.pathname, {
                         path: r.path,
                         exact: r.exact
                     });
-                    if (a) {
+                    if (o) {
                         !r.deviceRequired || t.deviceConnected || r.accessWithLoginSession || e.navigate("/");
-                        const o = r.layers.map(e=>e.component.load && e.component.load());
-                        return void Promise.all(o).then(()=>{
+                        const a = r.layers.map(e=>e.component.load && e.component.load());
+                        return void Promise.all(a).then(()=>{
                             this.setState({
                                 route: r,
-                                match: a
+                                match: o
                             })
                         }
                         )
@@ -2311,7 +2278,7 @@
             }
             render() {
                 const {isUK: e, route: t, match: r} = this.state
-                  , {config: a, audioEngine: o, viewManagerClient: {modals: s}} = this.props
+                  , {config: o, audioEngine: a, viewManagerClient: {modals: s}} = this.props
                   , n = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(s);
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "main",
@@ -2326,7 +2293,7 @@
                             computedMatch: r,
                             children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
                             _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_11__.Z)({}, r, {
-                                config: a,
+                                config: o,
                                 isUK: e,
                                 onLoaded: this.setViewLoaded,
                                 onImagesLoaded: this.setHomeImagesLoaded,
@@ -2340,7 +2307,7 @@
                             })
                         })
                     }))
-                }), (o.currentTrack || o.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__.Z, null)), "production" !== a.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null)
+                }), (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_8__.Z, null)), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null)
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -2374,18 +2341,18 @@
         r.d(t, {
             _: ()=>D
         });
-        var a = r("9c2db445b2a1a7a1cf6d");
+        var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var o = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var a = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
         const s = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Updating",
             isReady(e) {
@@ -2408,7 +2375,7 @@
             }
         })
           , n = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Remix",
             isReady(e) {
@@ -2431,7 +2398,7 @@
             }
         })
           , i = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Account",
             isReady(e) {
@@ -2454,7 +2421,7 @@
             }
         })
           , c = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"PasswordReset",
             isReady(e) {
@@ -2477,7 +2444,7 @@
             }
         })
           , _ = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"ConfirmEmailUpdate",
             isReady(e) {
@@ -2500,7 +2467,7 @@
             }
         })
           , l = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Registration",
             isReady(e) {
@@ -2523,7 +2490,7 @@
             }
         })
           , d = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"AccountLogin",
             isReady(e) {
@@ -2546,7 +2513,7 @@
             }
         })
           , u = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"PasswordChange",
             isReady(e) {
@@ -2569,7 +2536,7 @@
             }
         })
           , f = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"HomePage",
             isReady(e) {
@@ -2592,7 +2559,7 @@
             }
         })
           , m = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Controls",
             isReady(e) {
@@ -2615,7 +2582,7 @@
             }
         })
           , h = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"FAQ",
             isReady(e) {
@@ -2638,7 +2605,7 @@
             }
         })
           , p = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Info",
             isReady(e) {
@@ -2661,7 +2628,7 @@
             }
         })
           , b = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Terms",
             isReady(e) {
@@ -2684,7 +2651,7 @@
             }
         })
           , v = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"PrivacyPolicy",
             isReady(e) {
@@ -2707,7 +2674,7 @@
             }
         })
           , E = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"RefundPolicy",
             isReady(e) {
@@ -2730,7 +2697,7 @@
             }
         })
           , g = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Video",
             isReady(e) {
@@ -2753,7 +2720,7 @@
             }
         })
           , y = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"MusicVideos",
             isReady(e) {
@@ -2775,8 +2742,8 @@
                 return "eeaff95f5d41d43ad9fb"
             }
         })
-          , A = (0,
-        a.ZP)({
+          , P = (0,
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"FactoryReset",
             isReady(e) {
@@ -2798,8 +2765,8 @@
                 return "9ce1b3c31aa3a4f16c2c"
             }
         })
-          , P = (0,
-        a.ZP)({
+          , A = (0,
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"DeviceConfig",
             isReady(e) {
@@ -2822,14 +2789,14 @@
             }
         })
           , M = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"StemUpload",
             isReady(e) {
                 const t = this.resolve(e);
                 return !0 === this.resolved[t] && !!r.m[t]
             },
-            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(1285), r.e(451)]).then(r.bind(r, "eee9a4037fce6f3bba79")),
+            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(3930), r.e(451)]).then(r.bind(r, "eee9a4037fce6f3bba79")),
             requireAsync(e) {
                 const t = this.resolve(e);
                 return this.resolved[t] = !1,
@@ -2845,14 +2812,14 @@
             }
         })
           , O = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"Platform",
             isReady(e) {
                 const t = this.resolve(e);
                 return !0 === this.resolved[t] && !!r.m[t]
             },
-            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(900), r.e(1285), r.e(4771), r.e(7203)]).then(r.bind(r, "d8233878ff089243fc65")),
+            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(900), r.e(3930), r.e(4771), r.e(7203)]).then(r.bind(r, "d8233878ff089243fc65")),
             requireAsync(e) {
                 const t = this.resolve(e);
                 return this.resolved[t] = !1,
@@ -2868,7 +2835,7 @@
             }
         })
           , w = (0,
-        a.ZP)({
+        o.ZP)({
             resolved: {},
             chunkName: ()=>"DevMenu",
             isReady(e) {
@@ -2961,11 +2928,11 @@
             },
             factoryReset: {
                 id: "factory-reset",
-                component: A
+                component: P
             },
             deviceConfig: {
                 id: "device-config",
-                component: P
+                component: A
             },
             stemUpload: {
                 id: "stem-upload",
@@ -3163,8 +3130,8 @@
             e.register(E, "LoadableRefund", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(g, "LoadableVideo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(y, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(A, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(P, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(P, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(A, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(M, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(w, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
@@ -3192,11 +3159,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -3245,36 +3212,36 @@
                 this.login = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r) {
-                        const a = {
+                        const o = {
                             error: null,
                             session: null
                         };
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
-                            return a.error = "Invalid Email Address",
-                            a;
+                            return o.error = "Invalid Email Address",
+                            o;
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
-                            return a.error = "Invalid email or password",
-                            a;
+                            return o.error = "Invalid email or password",
+                            o;
                         try {
-                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/login`, {
+                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/login`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e,
                                     password: r
                                 })
                             });
-                            if (!o.ok)
-                                return a.error = "Invalid email or password",
-                                a;
-                            const s = yield o.json();
+                            if (!a.ok)
+                                return o.error = "Invalid email or password",
+                                o;
+                            const s = yield a.json();
                             return t.saveSession(s.data),
-                            a.session = s.data,
-                            a
+                            o.session = s.data,
+                            o
                         } catch (e) {
-                            return a.error = "Login failed. Try again later",
-                            a
+                            return o.error = "Login failed. Try again later",
+                            o
                         }
                     });
                     return function(t, r) {
@@ -3283,50 +3250,50 @@
                 }(),
                 this.signup = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, a) {
-                        const o = {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
                             error: null,
                             session: null
                         };
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
-                            return o.error = "Invalid email",
-                            o;
+                            return a.error = "Invalid email",
+                            a;
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
-                            return o.error = "Password must be 8 characters or longer",
-                            o;
-                        if (r !== a)
-                            return o.error = "Passwords don't match",
-                            o;
+                            return a.error = "Password must be 8 characters or longer",
+                            a;
+                        if (r !== o)
+                            return a.error = "Passwords don't match",
+                            a;
                         try {
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/signup`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/signup`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e,
                                     password: r
                                 })
                             });
-                            if (!a.ok) {
-                                if (400 === a.status) {
-                                    const e = yield a.json();
-                                    return o.error = e.error,
-                                    o.error = "Signup failed. Please try again later (2)",
-                                    o
+                            if (!o.ok) {
+                                if (400 === o.status) {
+                                    const e = yield o.json();
+                                    return a.error = e.error,
+                                    a.error = "Signup failed. Please try again later (2)",
+                                    a
                                 }
-                                return o.error = "Signup failed. Please try again later",
-                                o
+                                return a.error = "Signup failed. Please try again later",
+                                a
                             }
-                            const s = yield a.json();
+                            const s = yield o.json();
                             return t.saveSession(s.data),
-                            o.session = s.data,
-                            o
+                            a.session = s.data,
+                            a
                         } catch (e) {
-                            return o.error = "Signup failed. Please try again later",
-                            o
+                            return a.error = "Signup failed. Please try again later",
+                            a
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -3338,17 +3305,17 @@
                                 products: e
                             };
                             "production" !== t.props.config.TARGET_ENV && (r.redirectBaseUrl = `${document.location.origin}`);
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/purchase`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/purchase`, {
                                 method: "POST",
                                 headers: {
                                     Authorization: `bearer ${t.state.session.AccessToken}`
                                 },
                                 body: JSON.stringify(r)
                             });
-                            if (!a.ok)
-                                throw new Error(`Request failed: ${a.status}`);
-                            const o = yield a.json();
-                            window.location.href = o.data.redirectUrl
+                            if (!o.ok)
+                                throw new Error(`Request failed: ${o.status}`);
+                            const a = yield o.json();
+                            window.location.href = a.data.redirectUrl
                         } catch (e) {
                             throw new Error(`Creating purchase failed: ${e}`)
                         }
@@ -3371,8 +3338,8 @@
                         });
                         if (!r.ok)
                             throw new Error(`Request failed: ${r.status}`);
-                        const a = yield r.json();
-                        window.location.href = a.data.redirectUrl
+                        const o = yield r.json();
+                        window.location.href = o.data.redirectUrl
                     } catch (e) {
                         throw new Error(`Creating subscription failed: ${e}`)
                     }
@@ -3383,15 +3350,15 @@
                         let e = [];
                         "production" !== t.props.config.TARGET_ENV && e.push(`redirectBaseUrl=${document.location.origin}`);
                         const r = e.length > 0 ? `?${e.join("&")}` : ""
-                          , a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/manage-subscription${r}`, {
+                          , o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/manage-subscription${r}`, {
                             headers: {
                                 Authorization: `bearer ${t.state.session.AccessToken}`
                             }
                         });
-                        if (!a.ok)
-                            throw new Error(`Request failed: ${a.status}`);
-                        const o = yield a.json();
-                        window.location.href = o.data.redirectUrl
+                        if (!o.ok)
+                            throw new Error(`Request failed: ${o.status}`);
+                        const a = yield o.json();
+                        window.location.href = a.data.redirectUrl
                     } catch (e) {
                         throw new Error(`Managing subscription failed: ${e}`)
                     }
@@ -3407,13 +3374,13 @@
                             _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
                                 return r.error = "Invalid Email Address",
                                 r;
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/forgot-password`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/forgot-password`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e
                                 })
                             });
-                            return a.ok ? r : (r.error = `${a.status}`,
+                            return o.ok ? r : (r.error = `${o.status}`,
                             r)
                         } catch (e) {
                             return r.error = `${e}`,
@@ -3435,13 +3402,13 @@
                             _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
                                 return r.error = "Invalid Email Address",
                                 r;
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/register`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/register`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e
                                 })
                             });
-                            return a.ok ? r : (r.error = `${a.status}`,
+                            return o.ok ? r : (r.error = `${o.status}`,
                             r)
                         } catch (e) {
                             return r.error = `${e}`,
@@ -3454,117 +3421,117 @@
                 }(),
                 this.confirmResetPassword = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, a) {
-                        const o = {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
                             error: null,
                             session: null
                         };
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
-                            return o.error = "Invalid Email Address",
-                            o;
+                            return a.error = "Invalid Email Address",
+                            a;
                         if (!(0,
-                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(a))
-                            return o.error = "Password must be over 8 characters long",
-                            o;
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(o))
+                            return a.error = "Password must be over 8 characters long",
+                            a;
                         if (!e || !r)
-                            return o.error = "Link Expired",
-                            o;
+                            return a.error = "Link Expired",
+                            a;
                         try {
                             const s = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/confirm-forgot-password`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e,
                                     confirmationCode: r,
-                                    newPassword: a
+                                    newPassword: o
                                 })
                             });
                             if (!s.ok) {
                                 switch (s.status) {
                                 case 410:
-                                    o.error = "Link Expired";
+                                    a.error = "Link Expired";
                                     break;
                                 default:
-                                    o.error = "Error saving password. Please try again later"
+                                    a.error = "Error saving password. Please try again later"
                                 }
-                                return o
+                                return a
                             }
                             const n = yield s.json();
                             return t.saveSession(n.data),
-                            o.session = n.data,
-                            o
+                            a.session = n.data,
+                            a
                         } catch (e) {
-                            return o.error = "Error saving password. Please try again later",
-                            o
+                            return a.error = "Error saving password. Please try again later",
+                            a
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.confirmRegistration = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, a) {
-                        const o = {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
                             error: null,
                             session: null
                         };
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
-                            return o.error = "Invalid Email Address",
-                            o;
+                            return a.error = "Invalid Email Address",
+                            a;
                         if (!(0,
-                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(a))
-                            return o.error = "Password must be over 8 characters long",
-                            o;
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(o))
+                            return a.error = "Password must be over 8 characters long",
+                            a;
                         if (!e || !r)
-                            return o.error = "Link Expired",
-                            o;
+                            return a.error = "Link Expired",
+                            a;
                         try {
                             const s = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/complete-registration`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     email: e,
                                     tempPassword: r,
-                                    newPassword: a
+                                    newPassword: o
                                 })
                             });
                             if (!s.ok) {
                                 switch (s.status) {
                                 case 401:
-                                    o.error = "Link Expired";
+                                    a.error = "Link Expired";
                                     break;
                                 default:
-                                    o.error = "Error saving password. Please try again later"
+                                    a.error = "Error saving password. Please try again later"
                                 }
-                                return o
+                                return a
                             }
                             const n = yield s.json();
                             return t.saveSession(n.data),
-                            o.session = n.data,
-                            o
+                            a.session = n.data,
+                            a
                         } catch (e) {
-                            return o.error = "Error saving password. Please try again later",
-                            o
+                            return a.error = "Error saving password. Please try again later",
+                            a
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.updatePassword = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, a) {
-                        const o = {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
                             error: null
                         };
                         if (!(0,
                         _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
-                            return o.error = "Password must be 8 characters or longer",
-                            o;
-                        if (r !== a)
-                            return o.error = "Passwords don't match",
-                            o;
+                            return a.error = "Password must be 8 characters or longer",
+                            a;
+                        if (r !== o)
+                            return a.error = "Passwords don't match",
+                            a;
                         try {
                             return (yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/change-password`, {
                                 method: "POST",
@@ -3575,14 +3542,14 @@
                                     oldPassword: e,
                                     newPassword: r
                                 })
-                            })).ok ? o : (o.error = "Incorrect password",
-                            o)
+                            })).ok ? a : (a.error = "Incorrect password",
+                            a)
                         } catch (e) {
-                            return o.error = "Error updating password. Please try again later",
-                            o
+                            return a.error = "Error updating password. Please try again later",
+                            a
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -3618,11 +3585,11 @@
                 }(),
                 this.confirmedEmailUpdate = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o, a) {
                         const s = e
                           , n = r
-                          , i = a
-                          , c = o;
+                          , i = o
+                          , c = a;
                         t.setUpdatedEmail(n);
                         try {
                             if (!(yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/confirm-update-email`, {
@@ -3642,7 +3609,7 @@
                             console.log(e)
                         }
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -3654,7 +3621,7 @@
                     }
                       , {RefreshToken: r} = t.state.session;
                     try {
-                        const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/refresh-token`, {
+                        const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/refresh-token`, {
                             method: "POST",
                             headers: {
                                 Authorization: `bearer ${t.state.session.AccessToken}`
@@ -3663,20 +3630,20 @@
                                 RefreshToken: r
                             })
                         });
-                        if (!a.ok) {
-                            if (401 === a.status) {
-                                const t = yield a.json();
+                        if (!o.ok) {
+                            if (401 === o.status) {
+                                const t = yield o.json();
                                 return e.error = t.error,
                                 e
                             }
                             return e.error = "Refresh failed. Try again later",
                             e
                         }
-                        const o = _objectSpread({
+                        const a = _objectSpread({
                             RefreshToken: r
-                        }, (yield a.json()).data);
-                        return t.saveSession(o),
-                        e.session = o,
+                        }, (yield o.json()).data);
+                        return t.saveSession(a),
+                        e.session = a,
                         e
                     } catch (t) {
                         return e.error = "Refresh failed. Try again later",
@@ -3734,9 +3701,9 @@
                             });
                             if (!r.ok)
                                 throw new Error(`Device challenge request failed: ${r.status} ${r.statusText}`);
-                            const a = yield r.json();
+                            const o = yield r.json();
                             return {
-                                challenge: parseInt(a.data.challenge, 16)
+                                challenge: parseInt(o.data.challenge, 16)
                             }
                         } catch (e) {
                             return {
@@ -3752,17 +3719,17 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r) {
                         try {
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/device-login`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/device-login`, {
                                 method: "POST",
                                 body: JSON.stringify({
                                     device_id: e,
                                     challenge_response: r
                                 })
                             });
-                            if (!a.ok)
-                                throw new Error(`Device challenge failed: ${a.status} ${a.statusText}`);
+                            if (!o.ok)
+                                throw new Error(`Device challenge failed: ${o.status} ${o.statusText}`);
                             return {
-                                token: (yield a.json()).data.AccessToken
+                                token: (yield o.json()).data.AccessToken
                             }
                         } catch (e) {
                             return {
@@ -3777,10 +3744,10 @@
                 this.LSKey = `${e.config.TARGET_ENV}_sp_session`;
                 const r = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.LSKey);
                 this.BasicLSKey = `${e.config.TARGET_ENV}_sp_basic_session`;
-                const a = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.BasicLSKey);
+                const o = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.BasicLSKey);
                 this.state = {
                     session: r ? JSON.parse(r) : null,
-                    basicSession: a ? JSON.parse(a) : null,
+                    basicSession: o ? JSON.parse(o) : null,
                     updatedEmail: null,
                     userLoggedOut: !1
                 }
@@ -3859,8 +3826,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("727b34f8bf995459d503")
           , i = r("5ef9de3df8d92ea0e41c")
@@ -3875,9 +3842,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , i = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(n.w0.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, i, t, {
+                o.Z)({}, i, t, {
                     ref: r
                 })))
             }
@@ -3901,11 +3868,11 @@
     ad21e61587d47603cd1c: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            u: ()=>a.ZP,
-            o: ()=>o.Z
+            u: ()=>o.ZP,
+            o: ()=>a.Z
         });
-        var a = r("727b34f8bf995459d503")
-          , o = r("5b59c92b90bc77179045");
+        var o = r("727b34f8bf995459d503")
+          , a = r("5b59c92b90bc77179045");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -3921,11 +3888,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -3987,12 +3954,12 @@
                       , {latestAlbums: r} = t.state;
                     if (!r)
                         return;
-                    const a = Object.values(r)
-                      , o = Object.values(e.deviceAlbums);
-                    return Promise.all(a.map(function() {
+                    const o = Object.values(r)
+                      , a = Object.values(e.deviceAlbums);
+                    return Promise.all(o.map(function() {
                         var e = (0,
                         _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
-                            const r = o.find(t=>(0,
+                            const r = a.find(t=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e.title));
                             yield t.checkForAlbumActions(r, e)
                         });
@@ -4024,13 +3991,13 @@
                         }), {
                             functionName: "fetchLatestAlbums"
                         })
-                          , a = yield r.json()
-                          , {data: o} = a;
+                          , o = yield r.json()
+                          , {data: a} = o;
                         let s = {};
-                        Object.keys(o).forEach(r=>{
-                            const a = t.mapAlbumTitles(r);
-                            s[a] = o[r],
-                            s[a].cover = e(a)
+                        Object.keys(a).forEach(r=>{
+                            const o = t.mapAlbumTitles(r);
+                            s[o] = a[r],
+                            s[o].cover = e(o)
                         }
                         ),
                         t.setState({
@@ -4040,8 +4007,8 @@
                 }),
                 this.downloadStemsWithProgress = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, a) {
-                        const {stemsClient: {downloadStems: o}} = t.props;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o) {
+                        const {stemsClient: {downloadStems: a}} = t.props;
                         t.setState({
                             trackRestore: {
                                 id: e.id,
@@ -4068,7 +4035,7 @@
                         t.setState({
                             updateInterval: s
                         });
-                        const n = yield o(r, a);
+                        const n = yield a(r, o);
                         return clearInterval(s),
                         t.cancelInterval(),
                         t.setState({
@@ -4081,7 +4048,7 @@
                         }),
                         n
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -4116,16 +4083,16 @@
                 this.checkForAlbumActions = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const a = r.tracks.map(e=>e.id)
-                          , o = r.title
-                          , s = MandatoryAlbums.includes(o)
+                        const o = r.tracks.map(e=>e.id)
+                          , a = r.title
+                          , s = MandatoryAlbums.includes(a)
                           , {webUSBClient: {setDeviceTransferActive: n, updateAlbumVersion: i}, stemsClient: {getLatestAlbumStemVersion: c}} = t.props;
                         if (!e)
                             return t.setState(e=>{
                                 const {albumsStatus: t} = e;
-                                return t[o] = {
+                                return t[a] = {
                                     isMandatory: s,
-                                    latestTrackIds: a,
+                                    latestTrackIds: o,
                                     albumId: null,
                                     trackIds: [],
                                     moveOrAddTracks: !0,
@@ -4152,28 +4119,28 @@
                           , d = _.filter(e=>e.meta_version !== t.getLatestAlbumMetaVersion(e, r)).filter(e=>!l.includes(e))
                           , u = e.tracks.length !== r.tracks.length
                           , f = e.tracks.map(e=>e.global_id)
-                          , m = f.join("") !== a.join("")
+                          , m = f.join("") !== o.join("")
                           , h = [];
                         e.tracks.forEach(e=>{
                             const t = r.tracks.find(t=>t.id === e.global_id);
                             if (!t)
                                 return;
-                            const a = e.colors.join("").toLowerCase() !== t.metadata.color.join("").toLowerCase()
-                              , o = e.bpm !== t.metadata.tempos[0].tempo_bpm
+                            const o = e.colors.join("").toLowerCase() !== t.metadata.color.join("").toLowerCase()
+                              , a = e.bpm !== t.metadata.tempos[0].tempo_bpm
                               , s = e.title !== t.metadata.title
                               , n = e.TrackGain_dB !== t.metadata.gain
                               , i = e.artist !== t.metadata.artists.join(", ");
-                            return a || o || s || n || i ? h.push(e) : void 0
+                            return o || a || s || n || i ? h.push(e) : void 0
                         }
                         );
                         const p = u || m || h.length > 0
                           , b = h.length > 0 || r.version != e.version || l.length > 0 || d.length > 0;
                         t.setState(t=>{
                             const {albumsStatus: r} = t;
-                            return r[o] = {
+                            return r[a] = {
                                 isMandatory: s,
                                 trackIds: f,
-                                latestTrackIds: a,
+                                latestTrackIds: o,
                                 albumId: e.id,
                                 moveOrAddTracks: u || m,
                                 updateAlbumAvailable: b,
@@ -4202,9 +4169,9 @@
                 this.getAlbumSize = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
-                        const {albumsStatus: r, latestAlbums: a} = t.state
-                          , o = r[e];
-                        return o.restoreAlbumAvailable && o.restoreAlbumAvailable && o.latestTrackIds ? o.latestTrackIds.filter((e,t)=>!o.trackIds.includes(e)).map(t=>a[e].tracks.find(e=>e.id === t)).filter(e=>void 0 !== e).reduce((e,t)=>{
+                        const {albumsStatus: r, latestAlbums: o} = t.state
+                          , a = r[e];
+                        return a.restoreAlbumAvailable && a.restoreAlbumAvailable && a.latestTrackIds ? a.latestTrackIds.filter((e,t)=>!a.trackIds.includes(e)).map(t=>o[e].tracks.find(e=>e.id === t)).filter(e=>void 0 !== e).reduce((e,t)=>{
                             return e + (t.metadata.stem_size[1] + t.metadata.stem_size[2] + t.metadata.stem_size[3] + t.metadata.stem_size[4])
                         }
                         , 0) : 0
@@ -4226,23 +4193,23 @@
                 this.clearAlbumWithTracks = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {webUSBClient: {deleteTrack: a, deleteAlbum: o, fetchDeviceAlbums: s}} = t.props
+                        const {webUSBClient: {deleteTrack: o, deleteAlbum: a, fetchDeviceAlbums: s}} = t.props
                           , n = yield s()
                           , i = (e=>{
-                            let t, r = "", a = "";
+                            let t, r = "", o = "";
                             for (r in n)
-                                (t = n[r].title) === e && (a = r);
-                            return a
+                                (t = n[r].title) === e && (o = r);
+                            return o
                         }
                         )(e);
                         if ("" !== i)
                             if (n[i].tracks.length > 0) {
                                 for (const e of n[i].tracks)
-                                    if (yield a(i, e.id),
+                                    if (yield o(i, e.id),
                                     r.aborted)
                                         throw new Error("Cancelled")
                             } else
-                                yield o(e)
+                                yield a(e)
                     });
                     return function(t, r) {
                         return e.apply(this, arguments)
@@ -4250,7 +4217,7 @@
                 }(),
                 this.startAlbumRestoreAndUpdate = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, a=!1, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o=!1, a) {
                         const {tracking: {trackEvent: s}, webUSBClient: {setDeviceTransferActive: n, fetchDeviceAlbums: i, addAlbum: c, moveAlbums: _, updateAlbumVersion: l, deviceInfo: d, deviceAlbums: u, deviceStorageUsed: f}} = t.props
                           , {albumsStatus: m, latestAlbums: h} = t.state
                           , p = m[e]
@@ -4258,7 +4225,7 @@
                         if (!p.restoreAlbumAvailable && !p.updateAlbumAvailable)
                             return;
                         s({
-                            event: `user_started_album_${a ? "update" : "restore"}`,
+                            event: `user_started_album_${o ? "update" : "restore"}`,
                             data: {
                                 album: e,
                                 serialNumber: d.serialNumber
@@ -4273,7 +4240,7 @@
                         const v = new AbortController;
                         r && r(()=>{
                             s({
-                                event: `user_cancelled_album_${a ? "update" : "restore"}`,
+                                event: `user_cancelled_album_${o ? "update" : "restore"}`,
                                 data: {
                                     album: e,
                                     serialNumber: d.serialNumber
@@ -4294,13 +4261,13 @@
                                 const t = yield i()
                                   , r = Object.keys(t).sort().filter(e=>!(0,
                                 _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(e, "RECORD")).map(e=>t[e])
-                                  , a = r.findIndex(t=>(0,
+                                  , o = r.findIndex(t=>(0,
                                 _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e));
                                 (0,
-                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.Rp)(r, a, 0);
-                                const o = (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.Rp)(r, o, 0);
+                                const a = (0,
                                 _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.ll)(r);
-                                yield _(o)
+                                yield _(a)
                             }
                             if (t.restoreCancelled)
                                 throw new Error("Cancelled");
@@ -4309,22 +4276,22 @@
                                 yield t.moveMissingTracks(e, v.signal),
                                 yield t.moveBadTracks(e, v.signal),
                                 yield t.clearAlbumWithTracks(tempAlbumBadTrack, v.signal),
-                                yield t.addMissingTracks(e, r, v.signal, o),
+                                yield t.addMissingTracks(e, r, v.signal, a),
                                 t.restoreCancelled)
                                     throw new Error("Cancelled");
                                 yield t.restoreAlbumOrder(e, v.signal)
                             }
-                            p.updateAlbumAvailable && p.stemsUpdate && p.stemsUpdate.length > 0 && (yield t.updateAlbumStems(e, r, v.signal, o));
-                            let {metaUpdate: a} = p;
+                            p.updateAlbumAvailable && p.stemsUpdate && p.stemsUpdate.length > 0 && (yield t.updateAlbumStems(e, r, v.signal, a));
+                            let {metaUpdate: o} = p;
                             const s = function() {
                                 var t = (0,
                                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(t) {
                                     let r = yield i();
                                     if (void 0 !== r)
-                                        for (let a = 0; a < t.length; a++) {
-                                            const o = Object.keys(r).filter(t=>r[t].title === e)[0]
-                                              , s = r[o].tracks.find(e=>t[a].global_id === e.global_id);
-                                            t[a].id = s.id
+                                        for (let o = 0; o < t.length; o++) {
+                                            const a = Object.keys(r).filter(t=>r[t].title === e)[0]
+                                              , s = r[a].tracks.find(e=>t[o].global_id === e.global_id);
+                                            t[o].id = s.id
                                         }
                                     return t
                                 });
@@ -4332,10 +4299,10 @@
                                     return t.apply(this, arguments)
                                 }
                             }();
-                            if (p.updateAlbumAvailable && a && a.length > 0)
-                                for (a = yield s(a); a.length > 0; )
-                                    yield t.metadataUpdate(e, a[0]),
-                                    a.shift();
+                            if (p.updateAlbumAvailable && o && o.length > 0)
+                                for (o = yield s(o); o.length > 0; )
+                                    yield t.metadataUpdate(e, o[0]),
+                                    o.shift();
                             yield t.restoreMetadata(e);
                             let d = yield i();
                             const u = Object.values(d).find(t=>(0,
@@ -4361,12 +4328,12 @@
                 this.restoreMetadata = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {albumsStatus: a} = t.state
-                          , o = a[e]
-                          , s = r ? r[0] : !(!o.restoreAlbumAvailable || !o.badMetaTracks) && o.badMetaTracks[0];
+                        const {albumsStatus: o} = t.state
+                          , a = o[e]
+                          , s = r ? r[0] : !(!a.restoreAlbumAvailable || !a.badMetaTracks) && a.badMetaTracks[0];
                         s && (yield t.metadataUpdate(e, s),
-                        o.badMetaTracks.shift(),
-                        yield t.restoreMetadata(e, o.badMetaTracks))
+                        a.badMetaTracks.shift(),
+                        yield t.restoreMetadata(e, a.badMetaTracks))
                     });
                     return function(t, r) {
                         return e.apply(this, arguments)
@@ -4375,8 +4342,8 @@
                 this.metadataUpdate = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {albumsStatus: a} = t.state
-                          , o = a[e]
+                        const {albumsStatus: o} = t.state
+                          , a = o[e]
                           , s = t.state.latestAlbums[e].tracks.find(e=>r.global_id === e.id)
                           , n = {
                             global_id: s.id,
@@ -4388,7 +4355,7 @@
                             temposConfig: s.metadata.tempos,
                             TrackGain_dB: s.metadata.gain
                         };
-                        if (yield t.props.webUSBClient.editTrackMetadataSimple(o.albumId, r.id, n),
+                        if (yield t.props.webUSBClient.editTrackMetadataSimple(a.albumId, r.id, n),
                         t.restoreCancelled)
                             throw new Error("Cancelled")
                     });
@@ -4399,7 +4366,7 @@
                 this.moveMissingTracks = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {webUSBClient: {moveTracks: a, fetchDeviceAlbums: o, deviceAlbums: s}} = t.props
+                        const {webUSBClient: {moveTracks: o, fetchDeviceAlbums: a, deviceAlbums: s}} = t.props
                           , {albumsStatus: n} = t.state
                           , i = n[e]
                           , c = Object.values(s).filter(e=>"RECORD" !== e.id && e.id !== i.albumId).map(e=>{
@@ -4439,8 +4406,8 @@
                                     stage: "moving"
                                 }
                             }),
-                            yield a(f),
-                            yield o(),
+                            yield o(f),
+                            yield a(),
                             r.aborted)
                                 throw new Error("Cancelled");
                             yield t.moveMissingTracks(e, r)
@@ -4453,7 +4420,7 @@
                 this.moveBadTracks = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {webUSBClient: {addAlbum: a, moveTracks: o, fetchDeviceAlbums: s}} = t.props
+                        const {webUSBClient: {addAlbum: o, moveTracks: a, fetchDeviceAlbums: s}} = t.props
                           , {albumsStatus: n} = t.state
                           , i = n[e];
                         let c = i.restoreAlbumAvailable && i.trackIds && i.trackIds.find((e,t)=>!i.latestTrackIds.includes(e));
@@ -4477,21 +4444,21 @@
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e)).id;
                             let _ = Object.values(t.props.webUSBClient.deviceAlbums).find(e=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, n));
-                            _ || (yield a(n),
+                            _ || (yield o(n),
                             yield s(),
                             _ = Object.values(t.props.webUSBClient.deviceAlbums).find(e=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, n)));
                             const l = _.id
                               , d = (e,t)=>{
                                 const r = `${e.global_id}_${e.stems_version}_${e.meta_version}`
-                                  , a = `${t.global_id}_${t.stems_version}_${t.meta_version}`;
-                                return r.localeCompare(a)
+                                  , o = `${t.global_id}_${t.stems_version}_${t.meta_version}`;
+                                return r.localeCompare(o)
                             }
                               , u = t.props.webUSBClient.deviceAlbums[i].tracks.sort(d).find(e=>e.global_id === c).id
                               , f = `T${_.tracks.reduce((e,t)=>Math.max(parseInt(t.id.substr(1)), e), 0) + 2}`
                               , m = (0,
                             _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.Ye)(t.props.webUSBClient.deviceAlbums[i], t.props.webUSBClient.deviceAlbums[l], u, f);
-                            if (yield o(m),
+                            if (yield a(m),
                             yield s(),
                             r.aborted)
                                 throw new Error("Cancelled");
@@ -4507,7 +4474,7 @@
                 }(),
                 this.addMissingTracks = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o, a) {
                         const {webUSBClient: {addTrackSimple: s, fetchDeviceAlbums: n, setDeviceTransferActive: i, deviceInfo: c, deleteTrack: _, deviceAlbums: l}, stemsClient: {getLatestStems: d, hasSpaceForStems: u, getSizeOfStems: f}} = t.props
                           , {latestAlbums: m, albumsStatus: h} = t.state
                           , p = h[e];
@@ -4523,15 +4490,15 @@
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, v));
                             let c = "wav";
                             i.formats && i.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (c = "mp3");
-                            const h = yield d(v, i.version, c, i.subscription_required, a, !0);
-                            if (a.aborted || b)
+                            const h = yield d(v, i.version, c, i.subscription_required, o, !0);
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
-                            const E = yield t.downloadStemsWithProgress(i, h.stems, a);
-                            if (a.aborted || b)
+                            const E = yield t.downloadStemsWithProgress(i, h.stems, o);
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             if (!(yield u(E, i.metadata.title))) {
                                 const e = f(E);
-                                yield t.waitUntilUserHasSpace(o, e)
+                                yield t.waitUntilUserHasSpace(a, e)
                             }
                             const g = {
                                 id: `T${p.latestTrackIds.reverse().indexOf(v) + 1}`,
@@ -4566,19 +4533,19 @@
                                 }
                             }
                               , y = m[e].tracks.findIndex(e=>e.id === i.id)
-                              , A = Object.keys(l).find(t=>l[t].title === e);
-                            if (a.aborted || b)
+                              , P = Object.keys(l).find(t=>l[t].title === e);
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             if (-1 !== y) {
                                 const e = `T${y + 1}`;
                                 try {
-                                    yield _(A, e, a)
+                                    yield _(P, e, o)
                                 } catch (e) {
                                     if (e && "Cancelled" === e.message)
                                         throw e
                                 }
                             }
-                            if (a.aborted || b)
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             if (yield s(g, e=>{
                                 const r = e ? downloadProgressPercent / 100 + (100 - downloadProgressPercent) / 100 * e.total : 1;
@@ -4593,26 +4560,26 @@
                             }
                             , r),
                             yield n(),
-                            a.aborted || b)
+                            o.aborted || b)
                                 throw new Error("Cancelled");
-                            yield t.addMissingTracks(e, r, a, o)
+                            yield t.addMissingTracks(e, r, o, a)
                         } else
                             t.setState({
                                 trackRestore: null
                             })
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.restoreAlbumOrder = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {webUSBClient: {moveTracksSimple: a, fetchDeviceAlbums: o}} = t.props;
+                        const {webUSBClient: {moveTracksSimple: o, fetchDeviceAlbums: a}} = t.props;
                         let s, n;
                         const {albumsStatus: i} = t.state
                           , c = i[e]
-                          , _ = yield o()
+                          , _ = yield a()
                           , l = Object.keys(_).find(t=>_[t].title === e)
                           , d = _[l].tracks.map(e=>e.global_id);
                         if ((c.restoreAlbumAvailable && c.latestTrackIds ? c.latestTrackIds.find((e,t)=>{
@@ -4626,9 +4593,9 @@
                             t.setState({
                                 restorationStatus: "reordering"
                             });
-                            const o = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
+                            const a = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e)).id
-                              , i = t.props.webUSBClient.deviceAlbums[o]
+                              , i = t.props.webUSBClient.deviceAlbums[a]
                               , c = i
                               , _ = i
                               , l = i.tracks[s].id
@@ -4638,7 +4605,7 @@
                               , f = Object.assign({}, _objectSpread(_objectSpread({}, d), {
                                 id: u
                             }))
-                              , m = Array.from(t.props.webUSBClient.deviceAlbums[o].tracks);
+                              , m = Array.from(t.props.webUSBClient.deviceAlbums[a].tracks);
                             m.splice(s, 1),
                             m.splice(n, 0, f);
                             const h = _objectSpread(_objectSpread({}, c), {}, {
@@ -4646,7 +4613,7 @@
                             })
                               , p = (0,
                             _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.Ye)(h, h, l, u);
-                            if (yield a(p),
+                            if (yield o(p),
                             r.aborted)
                                 throw new Error("Cancelled");
                             yield t.restoreAlbumOrder(e, r)
@@ -4659,13 +4626,13 @@
                 this.waitUntilUserHasSpace = ((e,t)=>{
                     const {webUSBClient: {setDeviceTransferActive: r}} = this.props;
                     return r(!1),
-                    new Promise((a,o)=>{
+                    new Promise((o,a)=>{
                         this.setState({
-                            cancelWaiting: o
+                            cancelWaiting: a
                         }),
                         e(t, ()=>{
                             r(!0),
-                            a()
+                            o()
                         }
                         )
                     }
@@ -4675,9 +4642,9 @@
                 this.hasSpaceForFiles = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
-                        const {webUSBClient: {getRemainingSize: a}, tracking: {trackEvent: o}} = t.props
-                          , s = (yield a()) > e;
-                        return s || o({
+                        const {webUSBClient: {getRemainingSize: o}, tracking: {trackEvent: a}} = t.props
+                          , s = (yield o()) > e;
+                        return s || a({
                             event: "device_full_during_update_restore",
                             data: {
                                 trackTitle: r
@@ -4691,7 +4658,7 @@
                 }(),
                 this.updateAlbumStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o, a) {
                         const {webUSBClient: {addTrackSimple: s, fetchDeviceAlbums: n, setDeviceTransferActive: i, deleteTrack: c, deviceInfo: _}, stemsClient: {getLatestStems: l, hasSpaceForStems: d, getSizeOfStems: u}} = t.props
                           , {latestAlbums: f, albumsStatus: m} = t.state
                           , h = m[e]
@@ -4707,15 +4674,15 @@
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, p.global_id));
                             let b = "wav";
                             h.formats && h.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (b = "mp3");
-                            const v = yield l(p.global_id, h.version, b, h.subscription_required, a, !0);
-                            if (a.aborted)
+                            const v = yield l(p.global_id, h.version, b, h.subscription_required, o, !0);
+                            if (o.aborted)
                                 throw new Error("Cancelled");
-                            const E = yield t.downloadStemsWithProgress(h, v, a);
-                            if (a.aborted)
+                            const E = yield t.downloadStemsWithProgress(h, v, o);
+                            if (o.aborted)
                                 throw new Error("Cancelled");
                             if (!(yield d(E, h.metadata.title))) {
                                 const e = u(E);
-                                yield t.waitUntilUserHasSpace(o, e)
+                                yield t.waitUntilUserHasSpace(a, e)
                             }
                             const g = {
                                 id: m,
@@ -4749,7 +4716,7 @@
                                     format: b
                                 }
                             };
-                            if (a.aborted)
+                            if (o.aborted)
                                 throw new Error("Cancelled");
                             if (yield s(g, e=>{
                                 const r = e ? downloadProgressPercent / 100 + (100 - downloadProgressPercent) / 100 * e.total : 1;
@@ -4764,15 +4731,15 @@
                             }
                             , r),
                             yield n(),
-                            a.aborted)
+                            o.aborted)
                                 throw new Error("Cancelled");
-                            yield t.updateAlbumStems(e, r, a, o)
+                            yield t.updateAlbumStems(e, r, o, a)
                         } else
                             t.setState({
                                 trackRestore: null
                             })
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -4856,8 +4823,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("5ef9de3df8d92ea0e41c")
           , i = r.n(n)
@@ -4872,9 +4839,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , n = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(c.OZ.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, n, t, {
+                o.Z)({}, n, t, {
                     ref: r
                 })))
             }
@@ -4898,11 +4865,11 @@
     "16c6bde65fb4831cea2e": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>a.ZP,
-            C: ()=>o.Z
+            _: ()=>o.ZP,
+            C: ()=>a.Z
         });
-        var a = r("d33789936ad161eefce0")
-          , o = r("9051b4e216287ce0ce77");
+        var o = r("d33789936ad161eefce0")
+          , a = r("9051b4e216287ce0ce77");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -4927,11 +4894,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -4979,6 +4946,7 @@
             currentTrack: null,
             trackIsLoaded: !1,
             isLoading: !1,
+            currentTrackMetadataUpdated: -1,
             playbackState: AudioEnginePlaybackState.Stopped,
             currentPosition: 0,
             isAllMuted: !1,
@@ -5191,13 +5159,13 @@
                 }
                 ),
                 this.getIsolatedStems = (()=>{
-                    const {bassIsolated: e, vocalsIsolated: t, drumsIsolated: r, otherIsolated: a} = this.state
-                      , o = [];
-                    return e && o.push(AudioEngineStemType.Bass),
-                    t && o.push(AudioEngineStemType.Vocals),
-                    r && o.push(AudioEngineStemType.Drums),
-                    a && o.push(AudioEngineStemType.Other),
-                    o
+                    const {bassIsolated: e, vocalsIsolated: t, drumsIsolated: r, otherIsolated: o} = this.state
+                      , a = [];
+                    return e && a.push(AudioEngineStemType.Bass),
+                    t && a.push(AudioEngineStemType.Vocals),
+                    r && a.push(AudioEngineStemType.Drums),
+                    o && a.push(AudioEngineStemType.Other),
+                    a
                 }
                 ),
                 this.stopIsolating = (e=>{
@@ -5293,9 +5261,9 @@
                     const r = this.state.currentTrack;
                     if (null === r)
                         return [];
-                    const a = r.stems[e].waveform;
-                    return 0 === a.length ? [] : (0,
-                    _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__.f1)(a)
+                    const o = r.stems[e].waveform;
+                    return 0 === o.length ? [] : (0,
+                    _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__.f1)(o)
                 }
                 ),
                 this.getAmplitudeForStem = (e=>[]),
@@ -5361,7 +5329,7 @@
                 this.generateTrack = ((e,t,r)=>{
                     try {
                         let d = {};
-                        var a, o, s, n, i, c, _, l;
+                        var o, a, s, n, i, c, _, l;
                         if (d.id = e.global_id ? e.global_id : e.id,
                         e.metadata ? (d.title = e.metadata.title,
                         d.artist = e.metadata.artists ? e.metadata.artists.join(",") : e.metadata.artist) : (d.title = e.title,
@@ -5434,7 +5402,7 @@
                                 vocals: {
                                     file: e.stems.vocals.file,
                                     url: e.stems.vocals.url ? e.stems.vocals.url : e.stems.vocals,
-                                    waveform: null !== (a = e.metadata) && void 0 !== a && null !== (o = a.waveforms) && void 0 !== o && o.vocals ? e.metadata.waveforms.vocals : [0, 0],
+                                    waveform: null !== (o = e.metadata) && void 0 !== o && null !== (a = o.waveforms) && void 0 !== a && a.vocals ? e.metadata.waveforms.vocals : [0, 0],
                                     energy: [],
                                     version: 1
                                 },
@@ -5464,6 +5432,24 @@
                     } catch (e) {
                         return console.log(e),
                         null
+                    }
+                }
+                ),
+                this.updateTrackMetaData = ((e,t,r,o,a)=>{
+                    const s = this.state.userQueue;
+                    if (s) {
+                        const o = s.findIndex(t=>{
+                            return (t.id ? t.id : t.global_id) === e
+                        }
+                        );
+                        if (-1 !== o) {
+                            const e = s[o];
+                            e.metadata.title = t,
+                            e.metadata.artist = r
+                        }
+                        this.setState({
+                            currentTrackMetadataUpdated: this.state.currentTrackMetadataUpdated + 1
+                        })
                     }
                 }
                 ),
@@ -5518,8 +5504,8 @@
                 )
             }
             isAllMuted() {
-                const {vocalsMuted: e, otherMuted: t, drumsMuted: r, bassMuted: a} = this.state;
-                return e && t && r && a
+                const {vocalsMuted: e, otherMuted: t, drumsMuted: r, bassMuted: o} = this.state;
+                return e && t && r && o
             }
             startIsolating(e) {
                 Object.values(AudioEngineStemType).filter(t=>!e.includes(t)).forEach(e=>{
@@ -5583,7 +5569,8 @@
                         getCurrentTime: this.getCurrentTime,
                         getDuration: this.getDuration,
                         generateTrack: this.generateTrack,
-                        getHasPlayed: this.getHasPlayed
+                        getHasPlayed: this.getHasPlayed,
+                        updateTrackMetaData: this.updateTrackMetaData
                     }), this.state)
                 };
                 return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AudioEngineContext.Provider, {
@@ -5622,8 +5609,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("5ef9de3df8d92ea0e41c")
           , i = r.n(n)
@@ -5638,9 +5625,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , n = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(c.iJ.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, n, t, {
+                o.Z)({}, n, t, {
                     ref: r
                 })))
             }
@@ -5664,11 +5651,11 @@
     "77d9647920c06e8befd6": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>a.ZP,
-            f: ()=>o.Z
+            Z: ()=>o.ZP,
+            f: ()=>a.Z
         });
-        var a = r("6515cd559c65eab0c80c")
-          , o = r("da2143d0c5dd27b4850b");
+        var o = r("6515cd559c65eab0c80c")
+          , a = r("da2143d0c5dd27b4850b");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -5799,7 +5786,7 @@
                 this.threshold = .1,
                 this.autosyncPlayheads = !0
             }
-            load(e, t, r, a) {
+            load(e, t, r, o) {
                 this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals, e.stems.vocals, t, r),
                 this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other, e.stems.other, t, r),
                 this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums, e.stems.drums, t, r),
@@ -5929,25 +5916,25 @@
                 }
                 )
             }
-            loadAudioDirect(e, t, r, a) {
-                var o = this;
+            loadAudioDirect(e, t, r, o) {
+                var a = this;
                 return (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*() {
-                    const s = o.getAudioForStem(e);
+                    const s = a.getAudioForStem(e);
                     let n = null;
                     if (s.src && (n = s.src),
                     t.file ? (s.src = URL.createObjectURL(t.file),
                     s.load(),
                     s.oncanplaythrough = (()=>{
-                        o.areOtherStemsReady(e) && r()
+                        a.areOtherStemsReady(e) && r()
                     }
                     )) : (s.src = t.url,
                     s.load(),
                     s.oncanplaythrough = (()=>{
-                        o.areOtherStemsReady(e) && r()
+                        a.areOtherStemsReady(e) && r()
                     }
                     )),
-                    s.onended = (()=>a(e)),
+                    s.onended = (()=>o(e)),
                     n)
                         try {
                             URL.revokeObjectURL(n)
@@ -6032,23 +6019,23 @@
                 }
                 )
             }
-            load(e, t, r, a) {
-                var o = this;
+            load(e, t, r, o) {
+                var a = this;
                 return (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*() {
-                    o.unload(),
-                    o.unmuteAll(),
-                    yield o.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Vocals, e.stems.vocals, t, r),
-                    yield o.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Other, e.stems.other, t, r),
-                    yield o.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Drums, e.stems.drums, t, r),
-                    yield o.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Bass, e.stems.bass, t, r)
+                    a.unload(),
+                    a.unmuteAll(),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Vocals, e.stems.vocals, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Other, e.stems.other, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Drums, e.stems.drums, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Bass, e.stems.bass, t, r)
                 })()
             }
-            loadAudio(e, t, r, a) {
-                var o = this;
+            loadAudio(e, t, r, o) {
+                var a = this;
                 return (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*() {
-                    const s = o.getAudioForStem(e)
+                    const s = a.getAudioForStem(e)
                       , n = yield fetch(t.url);
                     if (!n.ok)
                         throw new Error(`Failed downloading track ${t.url} (${n.statusText})`);
@@ -6060,10 +6047,10 @@
                     s.src = _,
                     s.load(),
                     s.oncanplaythrough = (()=>{
-                        o.areOtherStemsReady(e) && r()
+                        a.areOtherStemsReady(e) && r()
                     }
                     ),
-                    s.onended = (()=>a(e))
+                    s.onended = (()=>o(e))
                 })()
             }
             play() {
@@ -6117,10 +6104,10 @@
     "9f8992917dda43cfdc1d": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            is: ()=>a.i
+            is: ()=>o.i
         });
         r("1f0f3f47e7d0195f2f75");
-        var a = r("29133bc41b1e7dcf829f");
+        var o = r("29133bc41b1e7dcf829f");
         r("2ca539090f17e1b084e6"),
         r("29df392f3133c6496e02"),
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
@@ -6228,27 +6215,27 @@
                 this.loadAudio(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass, e.stems.bass, t)
             }
             loadAudio(e, t, r) {
-                var a = this;
+                var o = this;
                 return (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*() {
-                    const o = new XMLHttpRequest;
-                    o.open("GET", encodeURI(t.url), !0),
-                    o.setRequestHeader("Content-Type", "application/json"),
-                    o.responseType = "blob",
-                    o.onload = function() {
+                    const a = new XMLHttpRequest;
+                    a.open("GET", encodeURI(t.url), !0),
+                    a.setRequestHeader("Content-Type", "application/json"),
+                    a.responseType = "blob",
+                    a.onload = function() {
                         var t = (0,
                         _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(t) {
-                            var s = new Blob([o.response],{
+                            var s = new Blob([a.response],{
                                 type: "audio/aac"
                             });
                             const n = yield s.arrayBuffer();
-                            a.loadBuffer(e, n, r)
+                            o.loadBuffer(e, n, r)
                         });
                         return function(e) {
                             return t.apply(this, arguments)
                         }
                     }(),
-                    o.send()
+                    a.send()
                 })()
             }
             loadBuffer(e, t, r) {
@@ -6303,25 +6290,25 @@
             }
             createSourceNode(e, t, r) {
                 this.destroySourceNode(e);
-                const a = this.audioContext.createBufferSource();
-                switch (a.buffer = t,
+                const o = this.audioContext.createBufferSource();
+                switch (o.buffer = t,
                 e) {
                 case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
-                    this.vocalsSource = a;
+                    this.vocalsSource = o;
                     break;
                 case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
-                    this.otherSource = a;
+                    this.otherSource = o;
                     break;
                 case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
-                    this.drumsSource = a;
+                    this.drumsSource = o;
                     break;
                 case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
-                    this.bassSource = a
+                    this.bassSource = o
                 }
-                if (!(o = this.getGainNode(e)))
-                    var o = this.createGainNode(e);
-                a.connect(o),
-                o.connect(this.audioContext.destination),
+                if (!(a = this.getGainNode(e)))
+                    var a = this.createGainNode(e);
+                o.connect(a),
+                a.connect(this.audioContext.destination),
                 this.onLoaded(e, r)
             }
             destroySourceNode(e) {
@@ -6452,11 +6439,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -6483,9 +6470,9 @@
         ;
         const FirmwareUpdateContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
         function compareFirmwareVersions(e, t) {
-            const [r,a,o] = e.split(".").map(e=>parseInt(e, 10))
+            const [r,o,a] = e.split(".").map(e=>parseInt(e, 10))
               , [s,n,i] = t.split(".").map(e=>parseInt(e, 10));
-            return Number.isInteger(r) && Number.isInteger(a) && Number.isInteger(o) && !Number.isInteger(s) && Number.isInteger(n) && Number.isInteger(i) ? r === s ? a === n ? o === i ? 0 : o < i ? -1 : 1 : a < n ? -1 : 1 : r < s ? -1 : 1 : e < t ? -1 : e > t ? 1 : 0
+            return Number.isInteger(r) && Number.isInteger(o) && Number.isInteger(a) && !Number.isInteger(s) && Number.isInteger(n) && Number.isInteger(i) ? r === s ? o === n ? a === i ? 0 : a < i ? -1 : 1 : o < n ? -1 : 1 : r < s ? -1 : 1 : e < t ? -1 : e > t ? 1 : 0
         }
         function firmwareIsOlderThan(e, t) {
             return -1 === compareFirmwareVersions(e, t)
@@ -6528,18 +6515,18 @@
                 this.hasCrucialUpdate = ((e,t)=>null !== e && null !== t && (!!firmwareIsOlderThan(t.bootloaderVersion, "0.1.1010") || (!!firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.minimumVersion) || (!(t.bluetoothVersion && !firmwareIsOlderThan(t.bluetoothVersion, e.bluetooth.minimumVersion)) || firmwareIsOlderThan(t.appVersion, e.firmware.minimumVersion))))),
                 this.calculateUpdates = ((e,t)=>{
                     const r = [];
-                    let a = !1;
+                    let o = !1;
                     if (null === e || null === t)
                         return r;
                     firmwareIsOlderThan(t.bootloaderVersion, "0.1.1010") ? (r.push({
                         filename: "samara.dfu",
                         url: e.bootloader.dfuUrl
                     }),
-                    a = !0) : firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.version) && (r.push({
+                    o = !0) : firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.version) && (r.push({
                         filename: "1_blua.dfu",
                         url: e.bootloader.dfuUrl
                     }),
-                    a = !0),
+                    o = !0),
                     t.bluetoothVersion && !firmwareIsOlderThan(t.bluetoothVersion, e.bluetooth.version) || (r.push({
                         filename: "2_btua.dfu",
                         url: e.bluetooth.dfuUrl
@@ -6548,8 +6535,8 @@
                         filename: "rehex.hex",
                         url: e.bluetooth.hexUrl
                     }),
-                    a = !0),
-                    (a || firmwareIsOlderThan(t.appVersion, e.firmware.version)) && (r.push({
+                    o = !0),
+                    (o || firmwareIsOlderThan(t.appVersion, e.firmware.version)) && (r.push({
                         filename: "config.txt",
                         url: e.config.configUrl
                     }),
@@ -6557,9 +6544,9 @@
                         filename: "3_stpl.dfu",
                         url: e.firmware.dfuUrl
                     }));
-                    const o = r.find(e=>"rehex.hex" === e.filename);
+                    const a = r.find(e=>"rehex.hex" === e.filename);
                     return this.setState({
-                        updateType: o ? "bluetooth" : "firmware"
+                        updateType: a ? "bluetooth" : "firmware"
                     }),
                     r
                 }
@@ -6573,8 +6560,8 @@
                             if (!e.ok)
                                 throw new Error(`Received ${e.status}: ${e.statusText}`);
                             {
-                                const a = yield e.blob();
-                                t.push(new File([a],r.filename))
+                                const o = yield e.blob();
+                                t.push(new File([o],r.filename))
                             }
                         }
                         return t
@@ -6630,8 +6617,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("3f02c5877d4690b5563c")
           , i = r("5ef9de3df8d92ea0e41c")
@@ -6646,9 +6633,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , i = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(n.HI.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, i, t, {
+                o.Z)({}, i, t, {
                     ref: r
                 })))
             }
@@ -6672,18 +6659,18 @@
     c1bece57111e2d76e639: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            E: ()=>a.ZP,
-            J: ()=>o.Z
+            E: ()=>o.ZP,
+            J: ()=>a.Z
         });
-        var a = r("3f02c5877d4690b5563c")
-          , o = r("e1212da5b2e14234c7a1");
+        var o = r("3f02c5877d4690b5563c")
+          , a = r("e1212da5b2e14234c7a1");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
     c84f0674dd266fe19a17: (e,t,r)=>{
         "use strict";
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("8256549a766e1cb27712")
           , i = r("5ef9de3df8d92ea0e41c")
@@ -6698,9 +6685,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , i = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(n.uj.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, i, t, {
+                o.Z)({}, i, t, {
                     ref: r
                 })))
             }
@@ -6723,9 +6710,9 @@
     ceede5265ca6ca2cb4b1: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            JB: ()=>a.ZP
+            JB: ()=>o.ZP
         });
-        var a = r("8256549a766e1cb27712");
+        var o = r("8256549a766e1cb27712");
         r("c84f0674dd266fe19a17"),
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
@@ -6742,11 +6729,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -6800,20 +6787,20 @@
                     const {notifications: r} = this.state;
                     if (r.find(t=>t.notification === e))
                         return;
-                    const a = [...r, {
+                    const o = [...r, {
                         notification: e,
                         callback: t
                     }];
                     this.setState({
-                        notifications: a
+                        notifications: o
                     })
                 }
                 ),
                 this.removeNotification = (e=>{
                     const {notifications: t} = this.state
                       , r = [...t]
-                      , a = r.findIndex(t=>t.notification === e);
-                    -1 !== a && (r.splice(a, 1),
+                      , o = r.findIndex(t=>t.notification === e);
+                    -1 !== o && (r.splice(o, 1),
                     this.setState({
                         notifications: r
                     }))
@@ -6862,8 +6849,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("5ef9de3df8d92ea0e41c")
           , i = r.n(n)
@@ -6878,9 +6865,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , n = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(c._.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, n, t, {
+                o.Z)({}, n, t, {
                     ref: r
                 })))
             }
@@ -6904,11 +6891,11 @@
     "04580fa4bddd672dfde3": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            V: ()=>a.Z,
-            o: ()=>o.Z
+            V: ()=>o.Z,
+            o: ()=>a.Z
         });
-        var a = r("8e3e448917f6413c5c1b")
-          , o = r("1368faf58685f2c8dc6c");
+        var o = r("8e3e448917f6413c5c1b")
+          , a = r("1368faf58685f2c8dc6c");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -6926,11 +6913,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -6984,24 +6971,24 @@
                 ),
                 this.uploadRemixFile = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, t, r, a) {
-                        let o = new FormData;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, t, r, o) {
+                        let a = new FormData;
                         Object.keys(t).forEach(e=>{
                             let r = t[e];
-                            o.append(e, r)
+                            a.append(e, r)
                         }
                         ),
-                        o.append("file", r);
+                        a.append("file", r);
                         const s = yield fetch(e, {
                             method: "POST",
-                            body: o,
-                            signal: a
+                            body: a,
+                            signal: o
                         });
                         if (s.ok)
                             return s;
                         throw new Error("Failed to upload file")
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -7022,22 +7009,22 @@
                 }(),
                 this.createRemixFromStem = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, r, a) {
-                        a && a("Uploading");
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, r, o) {
+                        o && o("Uploading");
                         try {
-                            const {upload: a, id: o, url: s} = yield t.createRemixUpload(e);
-                            return yield t.uploadRemixFile(a.url, a.fields, r),
+                            const {upload: o, id: a, url: s} = yield t.createRemixUpload(e);
+                            return yield t.uploadRemixFile(o.url, o.fields, r),
                             {
-                                id: o,
+                                id: a,
                                 title: e,
                                 downloadUrl: s,
-                                shareUrl: `${t.platformUrl}/remix/${o}`
+                                shareUrl: `${t.platformUrl}/remix/${a}`
                             }
                         } catch (e) {
                             throw e
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -7057,11 +7044,11 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
                         try {
-                            const {id: r, url: a, title: o} = yield t.getRemixById(e);
+                            const {id: r, url: o, title: a} = yield t.getRemixById(e);
                             return {
                                 id: r,
-                                title: o,
-                                downloadUrl: a,
+                                title: a,
+                                downloadUrl: o,
                                 shareUrl: `${t.platformUrl}/remix/${r}`
                             }
                         } catch (e) {
@@ -7077,11 +7064,11 @@
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
                         yield fetch(e.downloadUrl).then(e=>e.blob()).then(t=>{
                             const r = URL.createObjectURL(t)
-                              , a = document.createElement("a");
-                            a.style.display = "none",
-                            a.href = r,
-                            a.download = `${e.title}.mp3`,
-                            a.click(),
+                              , o = document.createElement("a");
+                            o.style.display = "none",
+                            o.href = r,
+                            o.download = `${e.title}.mp3`,
+                            o.click(),
                             URL.revokeObjectURL(r)
                         }
                         )
@@ -7147,8 +7134,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("5ef9de3df8d92ea0e41c")
           , i = r.n(n)
@@ -7163,9 +7150,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , n = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(c.ws.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, n, t, {
+                o.Z)({}, n, t, {
                     ref: r
                 })))
             }
@@ -7189,12 +7176,12 @@
     d92624744e8fb7e743e8: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            nZ: ()=>a.ZP,
-            E9: ()=>o.Z,
+            nZ: ()=>o.ZP,
+            E9: ()=>a.Z,
             o9: ()=>s.o
         });
-        var a = r("661f68c254b5c15c9d92")
-          , o = r("7c5fda3b28a2cb9d3bf6")
+        var o = r("661f68c254b5c15c9d92")
+          , a = r("7c5fda3b28a2cb9d3bf6")
           , s = r("4e1fab892d8fe6fce890");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
@@ -7209,11 +7196,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -7254,17 +7241,17 @@
                 this.cachedPresignedUrl = void 0,
                 this.fetchAndDownloadLatestStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, a, o, s) {
-                        const n = yield t.getLatestStems(e, r, a, o, s, !0);
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a, s) {
+                        const n = yield t.getLatestStems(e, r, o, a, s, !0);
                         return t.downloadStems(n.stems, s)
                     });
-                    return function(t, r, a, o, s) {
+                    return function(t, r, o, a, s) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.getTrackMix = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a) {
                         const {webUSBClient: {deviceInfo: s, authenticateDevice: n}, accountClient: {session: i, basicSession: c}} = t.props;
                         try {
                             let _, l = void 0;
@@ -7284,8 +7271,8 @@
                             const d = yield(0,
                             _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
                             _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
-                                return fetch(`${t.apiUrl}/tracks/${e}?version=${r}&codec=${a}`, {
-                                    signal: o,
+                                return fetch(`${t.apiUrl}/tracks/${e}?version=${r}&codec=${o}`, {
+                                    signal: a,
                                     headers: l
                                 })
                             }), {
@@ -7299,22 +7286,22 @@
                             new Error(`Failed to get track ${e}`)
                         }
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.getTracksMixes = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
-                        const {webUSBClient: {deviceInfo: a, authenticateDevice: o}, accountClient: {session: s, basicSession: n}} = t.props;
+                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}, accountClient: {session: s, basicSession: n}} = t.props;
                         try {
                             let i = void 0;
                             if (s)
                                 i = {
                                     Authorization: `bearer ${s.AccessToken}`
                                 };
-                            else if (a) {
-                                const e = yield o();
+                            else if (o) {
+                                const e = yield a();
                                 i = {
                                     Authorization: `bearer ${e}`
                                 }
@@ -7346,15 +7333,15 @@
                 }(),
                 this.getLatestStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, a, o, s, n=!1) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a, s, n=!1) {
                         const {webUSBClient: {deviceInfo: i, authenticateDevice: c}} = t.props;
                         try {
-                            const _ = t.getCachedPresignedUrl(e, r, a);
+                            const _ = t.getCachedPresignedUrl(e, r, o);
                             if (null !== _ && !1 === n)
                                 return _.json.data;
-                            const l = `${t.apiUrl}/stems?track_id=${e}&version=${r}&codec=${a}${!0 === n ? "&profile=stemplayer" : "&profile=web"}`;
+                            const l = `${t.apiUrl}/stems?track_id=${e}&version=${r}&codec=${o}${!0 === n ? "&profile=stemplayer" : "&profile=web"}`;
                             let d = void 0;
-                            if (o || t.props.accountClient.session)
+                            if (a || t.props.accountClient.session)
                                 d = {
                                     Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
                                 };
@@ -7375,20 +7362,20 @@
                                 functionName: "getLatestStems"
                             })
                               , f = yield u.json();
-                            return !1 === n && t.updatePresignedUrl(e, r, a, f),
+                            return !1 === n && t.updatePresignedUrl(e, r, o, f),
                             f.data
                         } catch (t) {
                             throw new Error(`Failed to get stem track ${e}`)
                         }
                     });
-                    return function(t, r, a, o, s) {
+                    return function(t, r, o, a, s) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.getMultipleTracksStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, a) {
-                        const {webUSBClient: {deviceInfo: o, authenticateDevice: s}, accountClient: {session: n, basicSession: i}} = t.props;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o) {
+                        const {webUSBClient: {deviceInfo: a, authenticateDevice: s}, accountClient: {session: n, basicSession: i}} = t.props;
                         try {
                             const n = {};
                             for (let r in e) {
@@ -7406,7 +7393,7 @@
                                     e = {
                                         Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
                                     };
-                                else if (o) {
+                                else if (a) {
                                     const t = yield s();
                                     e = {
                                         Authorization: `bearer ${t}`
@@ -7417,7 +7404,7 @@
                                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
                                     return fetch(`${t.apiUrl}/stems`, {
                                         method: "POST",
-                                        signal: a,
+                                        signal: o,
                                         headers: e,
                                         body: JSON.stringify(n)
                                     })
@@ -7432,8 +7419,8 @@
                             }
                             const i = {};
                             for (let r in e) {
-                                const a = t.getCachedPresignedUrl(r, e[r].version, e[r].codec);
-                                null !== a && (i[r] = a.json.data)
+                                const o = t.getCachedPresignedUrl(r, e[r].version, e[r].codec);
+                                null !== o && (i[r] = o.json.data)
                             }
                             return i
                         } catch (e) {
@@ -7441,28 +7428,28 @@
                             new Error("Failed to get tracks")
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.getCachedPresignedUrlId = ((e,t,r)=>`${e}_${t}_${r}`),
                 this.getCachedPresignedUrl = ((e,t,r)=>{
-                    const a = this.getCachedPresignedUrlId(e, t, r)
-                      , o = this.cachedPresignedUrl[a];
-                    return o ? this.isPresignUrlExpired(o.expires) ? null : o : null
+                    const o = this.getCachedPresignedUrlId(e, t, r)
+                      , a = this.cachedPresignedUrl[o];
+                    return a ? this.isPresignUrlExpired(a.expires) ? null : a : null
                 }
                 ),
-                this.updatePresignedUrl = ((e,t,r,a)=>{
+                this.updatePresignedUrl = ((e,t,r,o)=>{
                     try {
-                        const o = new URL(a.data.stems.vocals)
-                          , s = new URLSearchParams(o.search).get("Expires")
+                        const a = new URL(o.data.stems.vocals)
+                          , s = new URLSearchParams(a.search).get("Expires")
                           , n = this.getCachedPresignedUrlId(e, t, r)
                           , i = {
                             expires: 1 * s,
                             trackId: e,
                             version: t,
                             codec: r,
-                            json: a
+                            json: o
                         };
                         this.cachedPresignedUrl[n] = i
                     } catch (e) {
@@ -7476,7 +7463,7 @@
                 ),
                 this.getWaveformData = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a) {
                         const {webUSBClient: {deviceInfo: s, authenticateDevice: n}} = t.props;
                         try {
                             let i;
@@ -7484,7 +7471,7 @@
                                 return i;
                             const c = `${e}`;
                             let _ = void 0;
-                            if (a || t.props.accountClient.session)
+                            if (o || t.props.accountClient.session)
                                 _ = {
                                     Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
                                 };
@@ -7499,7 +7486,7 @@
                             _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
                                 return fetch(c, {
                                     headers: _,
-                                    signal: o
+                                    signal: a
                                 })
                             }), {
                                 functionName: "getWaveformData"
@@ -7512,14 +7499,14 @@
                             new Error(`Failed to get waveform ${e}, ${t}`)
                         }
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.getMultipleWaveformData = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
-                        const {webUSBClient: {deviceInfo: a, authenticateDevice: o}} = t.props
+                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}} = t.props
                           , s = "https://d1qsqh3utn6cwx.cloudfront.net/waveform-data.json";
                         try {
                             let n = void 0;
@@ -7527,8 +7514,8 @@
                                 n = {
                                     Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
                                 };
-                            else if (a) {
-                                const e = yield o();
+                            else if (o) {
+                                const e = yield a();
                                 n = {
                                     Authorization: `bearer ${e}`
                                 }
@@ -7558,14 +7545,14 @@
                 }(),
                 this.downloadStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*({vocals: e, bass: r, drums: a, other: o}, s) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*({vocals: e, bass: r, drums: o, other: a}, s) {
                         const {tracking: {trackEvent: n}} = t.props
                           , i = Date.now()
                           , c = yield Promise.all([(0,
                         _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(e, "vocals", s), (0,
                         _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(r, "bass", s), (0,
-                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(a, "drums", s), (0,
-                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(o, "other", s)])
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(o, "drums", s), (0,
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(a, "other", s)])
                           , _ = {
                             vocals: c[0],
                             bass: c[1],
@@ -7597,10 +7584,10 @@
                 this.hasSpaceForStems = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
-                        const {webUSBClient: {getRemainingSize: a}, tracking: {trackEvent: o}} = t.props
+                        const {webUSBClient: {getRemainingSize: o}, tracking: {trackEvent: a}} = t.props
                           , s = t.getSizeOfStems(e)
-                          , n = (yield a()) > s;
-                        return n || o({
+                          , n = (yield o()) > s;
+                        return n || a({
                             event: "device_full_during_update_restore",
                             data: {
                                 trackTitle: r
@@ -7619,8 +7606,8 @@
                 }
                 ),
                 this.addDataIntoCache = ((e,t,r)=>{
-                    const a = new Response(r);
-                    "caches"in window && caches.open(e).then(e=>e.put(t, a))
+                    const o = new Response(r);
+                    "caches"in window && caches.open(e).then(e=>e.put(t, o))
                 }
                 ),
                 this.apiUrl = `${e.config.KB_STEMIFY_API_URL}/content`,
@@ -7678,25 +7665,25 @@
     "4e1fab892d8fe6fce890": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            o: ()=>o
+            o: ()=>a
         });
-        var a = r("de098c4daf91477f9cbc");
+        var o = r("de098c4daf91477f9cbc");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = function() {
+        const a = function() {
             var e = (0,
-            a.Z)(function*(e, t, r, a) {
-                const o = e.findIndex(e=>{
+            o.Z)(function*(e, t, r, o) {
+                const a = e.findIndex(e=>{
                     return (e.id ? e.id : e.global_id) === t
                 }
                 );
                 r = r % 2 == 1 ? r + 1 : r;
-                const s = o - Math.floor(r / 2)
-                  , n = [...Array(r + 1).keys()].map(e=>e + s).map(t=>t < 0 ? e.length + t < 0 ? -1 : e.length + t : t > e.length - 1 ? -e.length + t > e.length - 1 ? -1 : -e.length + t : t === o ? -1 : t).filter((e,t,r)=>r.indexOf(e) == t)
+                const s = a - Math.floor(r / 2)
+                  , n = [...Array(r + 1).keys()].map(e=>e + s).map(t=>t < 0 ? e.length + t < 0 ? -1 : e.length + t : t > e.length - 1 ? -e.length + t > e.length - 1 ? -1 : -e.length + t : t === a ? -1 : t).filter((e,t,r)=>r.indexOf(e) == t)
                   , i = {} || {};
                 n.forEach(t=>{
                     -1 !== t && (i[e[t].id] = {
@@ -7705,15 +7692,15 @@
                     })
                 }
                 ),
-                a.getMultipleTracksStems(i)
+                o.getMultipleTracksStems(i)
             });
-            return function(t, r, a, o) {
+            return function(t, r, o, a) {
                 return e.apply(this, arguments)
             }
         }();
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "fetchPresignedUrl", "/home/vsts/work/1/s/src/contexts/stems/utils.ts")
+            e && e.register(a, "fetchPresignedUrl", "/home/vsts/work/1/s/src/contexts/stems/utils.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -7726,8 +7713,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("9a38c66934fd9dbd5f9c")
           , i = r("5ef9de3df8d92ea0e41c")
@@ -7742,9 +7729,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , i = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(n.Rg.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, i, t, {
+                o.Z)({}, i, t, {
                     ref: r
                 })))
             }
@@ -7768,11 +7755,11 @@
     "09e5b40f0abea70b7ff4": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            G: ()=>a.ZP,
-            j: ()=>o.Z
+            G: ()=>o.ZP,
+            j: ()=>a.Z
         });
-        var a = r("9a38c66934fd9dbd5f9c")
-          , o = r("cc568cf4493256150123");
+        var o = r("9a38c66934fd9dbd5f9c")
+          , a = r("cc568cf4493256150123");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -7796,11 +7783,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -7856,12 +7843,12 @@
                 this.createAudioUpload = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
-                        const a = yield fetch(`${t.apiUrl}/audio-uploads`, {
+                        const o = yield fetch(`${t.apiUrl}/audio-uploads`, {
                             method: "POST",
                             signal: e,
                             body: JSON.stringify(r)
                         });
-                        return (yield a.json()).data
+                        return (yield o.json()).data
                     });
                     return function(t, r) {
                         return e.apply(this, arguments)
@@ -7880,25 +7867,25 @@
                         })).status)
                             throw new Error("Failed to upload file")
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.createTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a) {
-                        let o = {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        let a = {
                             method: "POST",
                             body: e.audio_file_ids ? JSON.stringify({
                                 audio_file_ids: e.audio_file_ids,
                                 fallback_track_title: e.fallback_track_title
                             }) : JSON.stringify(e),
-                            signal: a
+                            signal: o
                         };
-                        r && (o.headers = {
+                        r && (a.headers = {
                             Authorization: `bearer ${r}`
                         });
-                        const s = yield fetch(`${t.apiUrl}/track-creator/tracks`, o)
+                        const s = yield fetch(`${t.apiUrl}/track-creator/tracks`, a)
                           , n = yield s.json();
                         if (!s.ok) {
                             if (422 === s.status && n.error && ("invalid link" === n.error.message || "track download error" === n.error.message))
@@ -7918,7 +7905,7 @@
                             throw new Error(n.error.message);
                         return n.data
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -7926,27 +7913,27 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
                         try {
-                            const a = [];
+                            const o = [];
                             for (let r of e) {
-                                null === t.getCachedPresignedUrl(r) && 0 === a.filter(e=>e === r).length && a.push(r)
+                                null === t.getCachedPresignedUrl(r) && 0 === o.filter(e=>e === r).length && o.push(r)
                             }
-                            const o = `${t.apiUrl}/track-creator/tracks?`
+                            const a = `${t.apiUrl}/track-creator/tracks?`
                               , s = (0,
-                            _utils_api_request_pagination__WEBPACK_IMPORTED_MODULE_9__.T)(a, o, 4094)
+                            _utils_api_request_pagination__WEBPACK_IMPORTED_MODULE_9__.T)(o, a, 4094)
                               , n = {}
                               , i = {};
                             yield Promise.all(s.map(function() {
                                 var e = (0,
                                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
                                     if (Object.keys(e.items).length > 0) {
-                                        const a = yield fetch(e.url, {
+                                        const o = yield fetch(e.url, {
                                             signal: r
                                         });
-                                        if (!a.ok)
-                                            throw new Error(`Unable to download track(s) (Status: ${a.status})`);
-                                        const o = yield a.json();
+                                        if (!o.ok)
+                                            throw new Error(`Unable to download track(s) (Status: ${o.status})`);
+                                        const a = yield o.json();
                                         for (let r of e.items)
-                                            o.data[r] && ("ready" === o.data[r].status || o.data[r].error && o.data[r].error && 400 === o.data[r].error.code ? t.updatePresignedUrl(r, o.data[r]) : i[r] = o.data[r])
+                                            a.data[r] && ("ready" === a.data[r].status || a.data[r].error && a.data[r].error && 400 === a.data[r].error.code ? t.updatePresignedUrl(r, a.data[r]) : i[r] = a.data[r])
                                     }
                                 });
                                 return function(t) {
@@ -7967,11 +7954,14 @@
                     }
                 }(),
                 this.cachedPresignedUrl = void 0,
+                this.randomGeneratedTrackColors = void 0,
                 this.getCachedPresignedUrlId = (e=>`${e}`),
                 this.getCachedPresignedUrl = (e=>{
                     const t = this.getCachedPresignedUrlId(e)
                       , r = this.cachedPresignedUrl[t];
-                    return r || null
+                    return r ? _objectSpread(_objectSpread({}, r), {}, {
+                        metadata: _objectSpread({}, r.metadata)
+                    }) : null
                 }
                 ),
                 this.updatePresignedUrl = ((e,t)=>{
@@ -7985,16 +7975,16 @@
                 ),
                 this.getReadyTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a) {
-                        return new Promise((o,s)=>{
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        return new Promise((a,s)=>{
                             const n = ()=>{
                                 setTimeout((0,
                                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
                                     try {
-                                        const i = (yield t.getTracks([e], a))[e];
+                                        const i = (yield t.getTracks([e], o))[e];
                                         if ("ready" === i.status) {
                                             if (!r || t.trackHasHighQualityStems(i))
-                                                return o(i);
+                                                return a(i);
                                             n()
                                         } else if ("failed" === i.status) {
                                             let e = "Failed to stemify";
@@ -8012,27 +8002,27 @@
                         }
                         )
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.createTrackFromMultiFiles = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a) {
                         const s = e[0].name.replace(/\.\w+$/i, "");
                         let n = ["vocals", "drums", "bass", "other"];
                         const i = new AbortController
                           , c = e.every(e=>e.name.match(/\.mp3$/i)) ? "mp3" : "wav"
                           , _ = {};
                         let l = {};
-                        for (let a = 0; a < e.length; a++) {
-                            const o = n[a]
-                              , s = e[a];
+                        for (let o = 0; o < e.length; o++) {
+                            const a = n[o]
+                              , s = e[o];
                             r("Uploading");
                             try {
                                 const {audio_file_id: e, upload_url: r} = yield t.createAudioUpload(i.signal);
                                 yield t.uploadFile(r, s, i.signal),
-                                _[o] = e
+                                _[a] = e
                             } catch (e) {
                                 console.log("err", e)
                             }
@@ -8042,17 +8032,24 @@
                                 stem_codec: c,
                                 fallback_track_title: s,
                                 audio_file_ids: _
-                            }, a, i.signal)
+                            }, o, i.signal)
                               , {id: r} = e
-                              , {stems: n} = yield t.getReadyTrack(r, o, i.signal)
+                              , {stems: n} = yield t.getReadyTrack(r, a, i.signal)
                               , d = t.state.userLibraryTrackIds.some(e=>e == r);
                             if (d)
                                 throw new Error("Duplicate Track");
-                            !d && a && t.addTrackToUserLibrary([r], a),
                             l = {
                                 id: r,
-                                stems: n
-                            }
+                                stems: n,
+                                colors: [(0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]
+                            },
+                            !d && o && t.addTrackToUserLibrary([{
+                                track_id: l.id,
+                                color1: l.colors[0],
+                                color2: l.colors[1]
+                            }], o)
                         } catch (e) {
                             console.log("error", e)
                         }
@@ -8067,38 +8064,36 @@
                             title: (0,
                             _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(s, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
                             bpm: 90,
-                            colors: [(0,
-                            _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
-                            _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]
+                            colors: l.colors
                         }
                     });
-                    return function(t, r, a, o) {
+                    return function(t, r, o, a) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.createTrackFromFile = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a, o, s, n) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a, s, n) {
                         const {stemsClient: {downloadStems: i}} = t.props
                           , c = (0,
                         _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
                         t.startActiveRequest(c);
                         const _ = new AbortController;
                         let l = !1;
-                        a && a(()=>{
+                        o && o(()=>{
                             _.abort(),
                             l = !0
                         }
                         ),
                         r && r("Splitting");
                         try {
-                            const {audio_file_id: a, upload_url: d} = yield t.createAudioUpload(_.signal);
+                            const {audio_file_id: o, upload_url: d} = yield t.createAudioUpload(_.signal);
                             yield t.uploadFile(d, e, _.signal);
                             const u = yield t.createTrack({
-                                audio_file_id: a,
+                                audio_file_id: o,
                                 stem_codec: "mp3",
                                 fallback_track_title: e.name
-                            }, o, _.signal)
+                            }, a, _.signal)
                               , {id: f} = u
                               , {metadata: {album: m, artist: h, duration: p, title: b, bpm: v}, stems: E} = yield t.getReadyTrack(f, s, _.signal);
                             if (l)
@@ -8106,11 +8101,18 @@
                             const g = t.state.userLibraryTrackIds.some(e=>e == f);
                             if (!n && g)
                                 throw new Error("Duplicate Track");
-                            !g && o && t.addTrackToUserLibrary([f], o),
+                            const y = {
+                                track_id: f,
+                                color1: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(),
+                                color2: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()
+                            };
+                            !g && a && t.addTrackToUserLibrary([y], a),
                             r && r("Importing");
-                            const y = yield i(E, _.signal);
+                            const P = yield i(E, _.signal);
                             return _objectSpread(_objectSpread({
-                                id: f,
+                                id: y.track_id,
                                 album: m,
                                 artist: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(h, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.h1),
@@ -8118,10 +8120,8 @@
                                 title: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(b || e.name, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
                                 bpm: v
-                            }, y), {}, {
-                                colors: [(0,
-                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
-                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]
+                            }, P), {}, {
+                                colors: [y.color1, y.color2]
                             })
                         } catch (e) {
                             if (e.name && "AbortError" === e.name)
@@ -8131,7 +8131,7 @@
                             t.endActiveRequest(c)
                         }
                     });
-                    return function(t, r, a, o, s, n) {
+                    return function(t, r, o, a, s, n) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -8143,39 +8143,46 @@
                 ),
                 this.createTrackFromLink = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a, o, s) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a, s) {
                         const {stemsClient: {downloadStems: n}} = t.props
                           , i = (0,
                         _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
                         t.startActiveRequest(i);
                         const c = new AbortController;
                         let _ = !1;
-                        a && a(()=>{
+                        o && o(()=>{
                             c.abort(),
                             _ = !0
                         }
                         ),
                         r && r("Splitting");
                         try {
-                            const a = yield t.createTrack({
+                            const o = yield t.createTrack({
                                 link: e,
                                 stem_codec: "mp3"
-                            }, o, c.signal);
+                            }, a, c.signal);
                             let l = null;
-                            const {id: d} = a
+                            const {id: d} = o
                               , u = t.state.userLibraryTrackIds.some(e=>e == d);
                             if (u)
                                 throw new Error("Duplicate Track");
-                            "ready" !== a.status ? l = yield t.getReadyTrack(d, s, c.signal) : (l = a,
+                            "ready" !== o.status ? l = yield t.getReadyTrack(d, s, c.signal) : (l = o,
                             s && !t.trackHasHighQualityStems(l) && (l = yield t.getReadyTrack(d, s, c.signal)));
                             const {metadata: {album: f, artist: m, duration: h, title: p, bpm: b}, stems: v} = l;
                             if (_)
                                 throw new Error("Cancelled");
-                            !u && o && t.addTrackToUserLibrary([d], o),
+                            const E = {
+                                track_id: d,
+                                color1: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(),
+                                color2: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()
+                            };
+                            !u && a && t.addTrackToUserLibrary([E], a),
                             r && r("Importing");
-                            const E = yield n(v, c.signal);
+                            const g = yield n(v, c.signal);
                             return _objectSpread(_objectSpread({
-                                id: d,
+                                id: E.track_id,
                                 album: f,
                                 artist: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(m, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.h1),
@@ -8183,10 +8190,8 @@
                                 title: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(p, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
                                 bpm: b
-                            }, E), {}, {
-                                colors: [(0,
-                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
-                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()],
+                            }, g), {}, {
+                                colors: [E.color1, E.color2],
                                 metadata: l.metadata
                             })
                         } catch (e) {
@@ -8197,21 +8202,19 @@
                             t.endActiveRequest(i)
                         }
                     });
-                    return function(t, r, a, o, s) {
+                    return function(t, r, o, a, s) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.addTrackToUserLibrary = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
-                        const a = {
+                        const o = {
                             trackList: []
                         };
                         for (const t of e)
-                            a.trackList.push({
-                                track_id: t
-                            });
-                        const o = {
+                            o.trackList.push(t);
+                        const a = {
                             error: null
                         };
                         try {
@@ -8220,14 +8223,43 @@
                                 headers: {
                                     Authorization: `bearer ${r}`
                                 },
-                                body: JSON.stringify(a)
+                                body: JSON.stringify(o)
                             });
                             return e.ok ? (yield e.json(),
-                            o) : (o.error = "Upload failed. Please try again later.",
-                            o)
+                            a) : (a.error = "Upload failed. Please try again later.",
+                            a)
                         } catch (e) {
-                            return o.error = "Upload failed. Please try again later.",
-                            o
+                            return a.error = "Upload failed. Please try again later.",
+                            a
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateTrackToUserLibrary = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        const o = {
+                            trackList: e
+                        }
+                          , a = {
+                            error: null
+                        };
+                        try {
+                            const e = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${r}`
+                                },
+                                body: JSON.stringify(o)
+                            });
+                            return e.ok ? (yield e.json(),
+                            a) : (a.error = "Upload failed. Please try again later.",
+                            a)
+                        } catch (e) {
+                            return a.error = "Upload failed. Please try again later.",
+                            a
                         }
                     });
                     return function(t, r) {
@@ -8241,22 +8273,41 @@
                             error: null
                         };
                         try {
-                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
                                 method: "GET",
                                 headers: {
                                     Authorization: `bearer ${e}`
                                 }
                             });
-                            if (!a.ok)
+                            if (!o.ok)
                                 return r.error = "Failed to fetch library.",
                                 console.error(r),
                                 [];
-                            const o = (yield a.json()).data.filter(e=>["02", "03"].includes(e.track_id.slice(0, 2)))
-                              , s = o.map(e=>e.track_id);
-                            return 0 === s.length ? [] : (t.setState({
+                            const a = (yield o.json()).data.filter(e=>["02", "03"].includes(e.track_id.slice(0, 2)))
+                              , s = a.map(e=>e.track_id);
+                            if (0 === s.length)
+                                return [];
+                            let n = !1
+                              , i = [];
+                            return a.map(e=>{
+                                null !== e.color1 && null !== e.color2 || (void 0 === t.randomGeneratedTrackColors[e.track_id] && (t.randomGeneratedTrackColors[e.track_id] = [(0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]),
+                                e.color1 = t.randomGeneratedTrackColors[e.track_id][0],
+                                e.color2 = t.randomGeneratedTrackColors[e.track_id][1],
+                                i.push({
+                                    track_id: e.track_id,
+                                    color1: e.color1,
+                                    color2: e.color2
+                                }),
+                                n = !0)
+                            }
+                            ),
+                            n && t.updateTrackToUserLibrary(i, e),
+                            t.setState({
                                 userLibraryTrackIds: s
                             }),
-                            o)
+                            a
                         } catch (e) {
                             return r.error = "Failed to fetch library.",
                             console.error(r),
@@ -8270,10 +8321,10 @@
                 this.deleteUserAccountTracks = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
-                        const a = {
+                        const o = {
                             trackList: e
                         }
-                          , o = {
+                          , a = {
                             error: null
                         };
                         try {
@@ -8282,14 +8333,14 @@
                                 headers: {
                                     Authorization: `bearer ${r}`
                                 },
-                                body: JSON.stringify(a)
+                                body: JSON.stringify(o)
                             });
                             return e.ok ? (yield e.json(),
-                            o) : (o.error = "Delete failed. Please try again later.",
-                            o)
+                            a) : (a.error = "Delete failed. Please try again later.",
+                            a)
                         } catch (e) {
-                            return o.error = "Delete failed. Please try again later.",
-                            o
+                            return a.error = "Delete failed. Please try again later.",
+                            a
                         }
                     });
                     return function(t, r) {
@@ -8328,19 +8379,19 @@
                 this.getReadyStem = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
-                        return new Promise((r,a)=>{
-                            const o = ()=>setTimeout((0,
+                        return new Promise((r,o)=>{
+                            const a = ()=>setTimeout((0,
                             _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
                                 try {
                                     const s = yield t.getStem(e);
                                     if (s.no_change || "ready" === s.status)
                                         return r(s);
-                                    o()
+                                    a()
                                 } catch (e) {
-                                    return a(e)
+                                    return o(e)
                                 }
                             }), 1e3);
-                            o()
+                            a()
                         }
                         )
                     });
@@ -8350,29 +8401,29 @@
                 }(),
                 this.createStemFromFile = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, a) {
-                        const o = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        const a = (0,
                         _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
-                        t.startActiveRequest(o),
-                        a && a("Mastering");
+                        t.startActiveRequest(a),
+                        o && o("Mastering");
                         try {
                             const {audio_file_id: s, upload_url: n} = yield t.createAudioUpload();
                             yield t.uploadFile(n, e);
                             const i = yield t.createStem(s)
                               , {url: c, no_change: _} = yield t.getReadyStem(i.id);
-                            if (a && a("Importing"),
+                            if (o && o("Importing"),
                             _)
-                                return t.endActiveRequest(o),
+                                return t.endActiveRequest(a),
                                 null;
                             const l = yield(0,
                             _utils_downloads__WEBPACK_IMPORTED_MODULE_8__.S)(c, r);
-                            return t.endActiveRequest(o),
+                            return t.endActiveRequest(a),
                             l
                         } catch (e) {
                             throw e
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -8405,7 +8456,8 @@
                     userLibraryTracksLoading: !0,
                     userLibraryTrackIds: []
                 },
-                this.cachedPresignedUrl = {}
+                this.cachedPresignedUrl = {},
+                this.randomGeneratedTrackColors = {}
             }
             render() {
                 const e = {
@@ -8419,7 +8471,8 @@
                         setUserLibraryTracksLoading: this.setUserLibraryTracksLoading,
                         getUserAccountTracks: this.getUserAccountTracks,
                         deleteUserAccountTracks: this.deleteUserAccountTracks,
-                        setUserLibraryTrackIds: this.setUserLibraryTrackIds
+                        setUserLibraryTrackIds: this.setUserLibraryTrackIds,
+                        updateTrackToUserLibrary: this.updateTrackToUserLibrary
                     }), this.state)
                 };
                 return react__WEBPACK_IMPORTED_MODULE_1__.createElement(TrackApiContext.Provider, {
@@ -8455,8 +8508,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("5ef9de3df8d92ea0e41c")
           , i = r.n(n)
@@ -8471,9 +8524,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , n = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(c.w.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, n, t, {
+                o.Z)({}, n, t, {
                     ref: r
                 })))
             }
@@ -8497,11 +8550,11 @@
     "3e17aee31846974e528a": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            d: ()=>a.Z,
-            q: ()=>o.Z
+            d: ()=>o.Z,
+            q: ()=>a.Z
         });
-        var a = r("c8274a236c515829d380")
-          , o = r("62c5c68fae4c59b9a093");
+        var o = r("c8274a236c515829d380")
+          , a = r("62c5c68fae4c59b9a093");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -8520,11 +8573,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -8559,8 +8612,8 @@
                     const e = uuid_v4__WEBPACK_IMPORTED_MODULE_3___default()()
                       , t = react__WEBPACK_IMPORTED_MODULE_1__.createRef()
                       , r = new _utils_promises__WEBPACK_IMPORTED_MODULE_2__.C;
-                    return this.setState(a=>({
-                        modals: a.modals.concat([{
+                    return this.setState(o=>({
+                        modals: o.modals.concat([{
                             id: e,
                             container: t,
                             ready: r
@@ -8666,8 +8719,8 @@
         r.d(t, {
             Z: ()=>d
         });
-        var a = r("cc5a1791ca69c601dde3")
-          , o = r("b02a35033e7f8e6fa1e0")
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
           , s = r("8af190b70a6bc55c6f1b")
           , n = r("a7b043367627a4b04036")
           , i = r("5ef9de3df8d92ea0e41c")
@@ -8682,9 +8735,9 @@
             const t = t=>{
                 const {wrappedComponentRef: r} = t
                   , i = (0,
-                o.Z)(t, ["wrappedComponentRef"]);
+                a.Z)(t, ["wrappedComponentRef"]);
                 return s.createElement(n.qj.Consumer, null, t=>s.createElement(e, (0,
-                a.Z)({}, i, t, {
+                o.Z)({}, i, t, {
                     ref: r
                 })))
             }
@@ -8708,12 +8761,12 @@
     f60aef9fa88f4e9ce07a: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Ye: ()=>a.ZP,
-            wO: ()=>a.wO,
-            MM: ()=>o.Z
+            Ye: ()=>o.ZP,
+            wO: ()=>o.wO,
+            MM: ()=>a.Z
         });
-        var a = r("a7b043367627a4b04036")
-          , o = r("2e23121d141c228196a0");
+        var o = r("a7b043367627a4b04036")
+          , a = r("2e23121d141c228196a0");
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
     }
     ,
@@ -8746,11 +8799,11 @@
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var a = Object.getOwnPropertySymbols(e);
-                t && (a = a.filter(function(t) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
                     return Object.getOwnPropertyDescriptor(e, t).enumerable
                 })),
-                r.push.apply(r, a)
+                r.push.apply(r, o)
             }
             return r
         }
@@ -8777,15 +8830,15 @@
         ;
         const CHARGE_POLLING_INTERVAL = 6e4
           , MAGIC_MP3_WAV_CONVERSION = 8;
-        function calculateTrackMoves(e, t, r, a) {
-            const o = []
+        function calculateTrackMoves(e, t, r, o) {
+            const a = []
               , s = t
               , n = t.tracks;
-            o.push({
+            a.push({
                 albumOld: e.id,
                 trackOld: r,
                 albumNew: t.id,
-                trackNew: a
+                trackNew: o
             });
             const i = n.map(e=>parseInt(e.id.substr(1)))
               , c = n.map((e,t)=>({
@@ -8797,14 +8850,14 @@
                 for (let t = 0; t < c.length; t += 1) {
                     const r = c[t];
                     if (i.indexOf(r.newId) < 0) {
-                        o.push({
+                        a.push({
                             albumOld: s.id,
                             trackOld: `T${r.oldId}`,
                             albumNew: s.id,
                             trackNew: `T${r.newId}`
                         });
-                        const a = i.indexOf(r.oldId);
-                        i.splice(a, 1, r.newId),
+                        const o = i.indexOf(r.oldId);
+                        i.splice(o, 1, r.newId),
                         c.splice(t, 1),
                         e += 1
                     }
@@ -8814,36 +8867,36 @@
                       , t = c.findIndex(t=>e.indexOf(t.oldId) >= 0)
                       , r = c[t];
                     c.splice(t, 1);
-                    let a = Math.max(...i) + 5;
-                    for (; e.indexOf(a) >= 0; )
-                        a += 1;
-                    o.push({
+                    let o = Math.max(...i) + 5;
+                    for (; e.indexOf(o) >= 0; )
+                        o += 1;
+                    a.push({
                         albumOld: s.id,
                         trackOld: `T${r.oldId}`,
                         albumNew: s.id,
-                        trackNew: `T${a}`
+                        trackNew: `T${o}`
                     });
                     const n = i.indexOf(r.oldId);
-                    i.splice(n, 1, a),
+                    i.splice(n, 1, o),
                     c.push({
-                        oldId: a,
+                        oldId: o,
                         newId: r.newId
                     })
                 }
             }
-            return o
+            return a
         }
         function calculateAlbumMoves(e) {
             const t = e.map(e=>parseInt(e.id.substr(1)))
               , r = []
-              , a = e.map((e,t)=>({
+              , o = e.map((e,t)=>({
                 oldId: parseInt(e.id.substr(1)),
                 newId: t + 1
             })).filter(e=>e.oldId !== e.newId);
-            for (; a.length > 0; ) {
+            for (; o.length > 0; ) {
                 let e = 0;
-                for (let o = 0; o < a.length; o += 1) {
-                    const s = a[o];
+                for (let a = 0; a < o.length; a += 1) {
+                    const s = o[a];
                     if (t.indexOf(s.newId) < 0) {
                         r.push({
                             oldId: `A${s.oldId}`,
@@ -8851,15 +8904,15 @@
                         });
                         const n = t.indexOf(s.oldId);
                         t.splice(n, 1, s.newId),
-                        a.splice(o, 1),
+                        o.splice(a, 1),
                         e += 1
                     }
                 }
                 if (!e) {
-                    const e = a.map(e=>e.newId)
-                      , o = a.findIndex(t=>e.indexOf(t.oldId) >= 0)
-                      , s = a[o];
-                    a.splice(o, 1);
+                    const e = o.map(e=>e.newId)
+                      , a = o.findIndex(t=>e.indexOf(t.oldId) >= 0)
+                      , s = o[a];
+                    o.splice(a, 1);
                     let n = Math.max(...t) + 5;
                     for (; e.indexOf(n) >= 0; )
                         n += 1;
@@ -8869,7 +8922,7 @@
                     });
                     const i = t.indexOf(s.oldId);
                     t.splice(i, 1, n),
-                    a.push({
+                    o.push({
                         oldId: n,
                         newId: s.newId
                     })
@@ -9012,14 +9065,14 @@
                         yield t.fetchDeviceConfig(),
                         yield t.fetchDeviceStorageInfo(),
                         t.authenticateDevice();
-                        const a = (yield t.updateDeviceChargeState()).lastBt
-                          , o = null === a ? "None" : a ? a.split(new RegExp("(..)")).filter(Boolean).reverse().join(":") : "UNKNOWN";
+                        const o = (yield t.updateDeviceChargeState()).lastBt
+                          , a = null === o ? "None" : o ? o.split(new RegExp("(..)")).filter(Boolean).reverse().join(":") : "UNKNOWN";
                         let s = 0;
                         null !== t.state.deviceRecordedSlots && (s = t.state.deviceRecordedSlots.reduce((e,t)=>e + (t ? 1 : 0), 0)),
                         r({
                             event: "device_connected",
                             data: _objectSpread(_objectSpread({}, t.state.deviceInfo), {}, {
-                                lastBluetoothAddress: o,
+                                lastBluetoothAddress: a,
                                 recordings: s
                             })
                         }),
@@ -9061,10 +9114,10 @@
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getStorageInfo()
-                      , {free: a, size: o} = r;
+                      , {free: o, size: a} = r;
                     t._isMounted && t.setState({
-                        deviceStorageSize: o / t.conversionValue,
-                        deviceStorageUsed: (o - a) / t.conversionValue
+                        deviceStorageSize: a / t.conversionValue,
+                        deviceStorageUsed: (a - o) / t.conversionValue
                     })
                 }),
                 this.authenticateDevice = (0,
@@ -9078,15 +9131,15 @@
                     if (t.state._deviceToken)
                         return t.state._deviceToken.promise;
                     const {device: r} = t
-                      , {serialNumber: a} = e
-                      , {accountClient: o} = t.props
+                      , {serialNumber: o} = e
+                      , {accountClient: a} = t.props
                       , s = new _utils_promises__WEBPACK_IMPORTED_MODULE_5__.C;
                     let n = null;
                     t._isMounted && t.setState({
                         _deviceToken: s
                     });
                     try {
-                        const e = yield o.requestDeviceChallenge(a);
+                        const e = yield a.requestDeviceChallenge(o);
                         if (e.error)
                             throw new Error(`Unable to authenticate device: ${e.error}`);
                         let i;
@@ -9095,7 +9148,7 @@
                         } catch (e) {
                             throw new Error(`Unable to authenticate device: ${e}`)
                         }
-                        const c = yield o.completeDeviceChallenge(a, i);
+                        const c = yield a.completeDeviceChallenge(o, i);
                         if (c.error)
                             throw new Error(`Unable to authenticate device: ${c.error}`);
                         n = c.token
@@ -9112,13 +9165,13 @@
                 this.updateDeviceChargeState = (0,
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
                     const {device: e} = t
-                      , {soc: r, "last-bt": a} = yield e.getChargeState();
+                      , {soc: r, "last-bt": o} = yield e.getChargeState();
                     return t._isMounted && t.setState({
                         deviceChargeState: r
                     }),
                     {
                         soc: r,
-                        lastBt: a
+                        lastBt: o
                     }
                 }),
                 this.startChargeStatePolling = (()=>{
@@ -9134,9 +9187,9 @@
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getRecordedSlots()
-                      , a = Object.values(r);
+                      , o = Object.values(r);
                     t._isMounted && t.setState({
-                        deviceRecordedSlots: a
+                        deviceRecordedSlots: o
                     })
                 }),
                 this.setCover = ((e,t)=>(0,
@@ -9149,28 +9202,28 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
                         const {device: r} = t
-                          , a = yield r.listTracks();
+                          , o = yield r.listTracks();
                         if (e && e.aborted)
                             throw t.setDeviceTransferActive(!1),
                             new Error("Cancelled");
-                        const o = a.albums.reduce((e,r)=>{
-                            let a = Object.assign({}, r);
-                            a.title = (0,
-                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(a.id, "RECORD") ? "RECORDINGS" : a.title;
-                            const o = t.setCover(a.title, a.id)
+                        const a = o.albums.reduce((e,r)=>{
+                            let o = Object.assign({}, r);
+                            o.title = (0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(o.id, "RECORD") ? "RECORDINGS" : o.title;
+                            const a = t.setCover(o.title, o.id)
                               , s = Object.assign({
-                                cover: o
-                            }, a);
+                                cover: a
+                            }, o);
                             return _objectSpread(_objectSpread({}, e), {}, {
-                                [a.id]: s
+                                [o.id]: s
                             })
                         }
                         , {});
                         return t._isMounted && t.setState(e=>({
-                            deviceAlbums: o,
+                            deviceAlbums: a,
                             deviceAlbumsUpdated: e.deviceAlbumsUpdated ? e.deviceAlbumsUpdated + 1 : 1
                         })),
-                        o
+                        a
                     });
                     return function(t) {
                         return e.apply(this, arguments)
@@ -9201,15 +9254,15 @@
                 _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getStorageInfo()
-                      , {free: a} = r;
-                    return 1e3 * a - 3 * Math.pow(1e3, 2)
+                      , {free: o} = r;
+                    return 1e3 * o - 3 * Math.pow(1e3, 2)
                 }),
                 this.hasSpaceForTrack = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
                         const {tracking: {trackEvent: r}} = t.props
-                          , a = (yield t.getRemainingSize()) > t.getDeviceFileSize(e.bass) + t.getDeviceFileSize(e.vocals) + t.getDeviceFileSize(e.drums) + t.getDeviceFileSize(e.other);
-                        return a || r({
+                          , o = (yield t.getRemainingSize()) > t.getDeviceFileSize(e.bass) + t.getDeviceFileSize(e.vocals) + t.getDeviceFileSize(e.drums) + t.getDeviceFileSize(e.other);
+                        return o || r({
                             event: "device_full_adding_new_track",
                             data: {
                                 track: {
@@ -9219,7 +9272,7 @@
                                 }
                             }
                         }),
-                        a
+                        o
                     });
                     return function(t) {
                         return e.apply(this, arguments)
@@ -9244,10 +9297,10 @@
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
                         t.setDeviceTransferActive(!0);
                         const {device: r} = t
-                          , {tracking: {trackEvent: a}} = t.props;
+                          , {tracking: {trackEvent: o}} = t.props;
                         try {
                             yield r.uploadFirmwareUpdate(e),
-                            a({
+                            o({
                                 event: "firmware_update_success",
                                 data: {
                                     file: e.name,
@@ -9256,7 +9309,7 @@
                             }),
                             t.setDeviceTransferActive(!1)
                         } catch (e) {
-                            throw a({
+                            throw o({
                                 error: {
                                     name: "firware_update",
                                     stack: "Failed to update firmware",
@@ -9302,19 +9355,19 @@
                     const {deviceAlbums: r} = this.state;
                     if (!(e in r))
                         return null;
-                    let a = null;
-                    const o = r[e]
-                      , s = o.tracks.filter(e=>(0,
+                    let o = null;
+                    const a = r[e]
+                      , s = a.tracks.filter(e=>(0,
                     _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, t));
                     if (s.length > 0) {
                         const {id: e, title: t, colors: r, bpm: n, meta_version: i, stems_version: c} = s[0];
-                        a = {
+                        o = {
                             id: e,
                             title: t,
                             colors: r,
                             bpm: n,
-                            album: o.title,
-                            artist: o.artist,
+                            album: a.title,
+                            artist: a.artist,
                             meta_version: i || null,
                             stems_version: c || null,
                             duration: 0,
@@ -9324,22 +9377,22 @@
                             other: null
                         }
                     }
-                    return a
+                    return o
                 }
                 ),
                 this.addTrackSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
-                        const {device: o} = t;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {device: a} = t;
                         let s, n = null, i = !1;
-                        a && a(()=>{
+                        o && o(()=>{
                             t.setDeviceTransferActive(!1),
                             n && n.cancel(),
                             i = !0
                         }
                         );
                         try {
-                            if (n = o.addTrack(e, e=>r(e)),
+                            if (n = a.addTrack(e, e=>r(e)),
                             i)
                                 throw new Error("Cancelled");
                             if (s = yield n.promise,
@@ -9361,7 +9414,7 @@
                         }
                         return s
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -9373,26 +9426,26 @@
                 ),
                 this.addTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
                         if (t.setDeviceTransferActive(!0),
                         !(yield t.hasAvailableSpace(e)))
                             return console.error("No available space on device"),
                             r(null),
                             void t.setDeviceTransferActive(!1);
-                        const o = yield t.addTrackSimple(e, r, a);
+                        const a = yield t.addTrackSimple(e, r, o);
                         return t.setDeviceTransferActive(!1),
-                        o
+                        a
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.editTrackMetadataSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
-                        const {device: o} = t;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {device: a} = t;
                         try {
-                            yield o.editTrackMetadata(e, r, a)
+                            yield a.editTrackMetadata(e, r, o)
                         } catch (e) {
                             return console.error(e),
                             t.setDeviceTransferActive(!1),
@@ -9407,30 +9460,30 @@
                         yield t.fetchDeviceAlbums(),
                         yield t.fetchDeviceStorageInfo()
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.editTrackMetadata = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
                         t.setDeviceTransferActive(!0),
-                        yield t.editTrackMetadataSimple(e, r, a),
+                        yield t.editTrackMetadataSimple(e, r, o),
                         t.setDeviceTransferActive(!1)
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
                 this.deleteTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
-                        const {tracking: {trackEvent: o}} = t.props;
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {tracking: {trackEvent: a}} = t.props;
                         t.setDeviceTransferActive(!0);
                         const {device: s} = t;
                         try {
                             yield s.deleteTrack(e, r),
-                            o({
+                            a({
                                 event: "track_deleted",
                                 data: {
                                     albumid: e,
@@ -9439,7 +9492,7 @@
                             })
                         } catch (e) {
                             throw t.setDeviceTransferActive(!1),
-                            o({
+                            a({
                                 error: {
                                     name: "delete_track",
                                     stack: "Failed to delete track",
@@ -9448,12 +9501,12 @@
                             }),
                             e
                         }
-                        yield t.fetchDeviceAlbums(a),
+                        yield t.fetchDeviceAlbums(o),
                         yield t.fetchDeviceStorageInfo(),
                         yield t.fetchDeviceRecordedSlots(),
                         t.setDeviceTransferActive(!1)
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -9461,17 +9514,17 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
                         const {tracking: {trackEvent: r}} = t.props
-                          , {deviceAlbums: a} = t.state;
+                          , {deviceAlbums: o} = t.state;
                         t.setDeviceTransferActive(!0);
-                        const {device: o} = t;
+                        const {device: a} = t;
                         try {
                             var s;
-                            yield o.deleteAlbum(e),
+                            yield a.deleteAlbum(e),
                             r({
                                 event: "album_deleted",
                                 data: {
                                     albumId: e,
-                                    albumName: null === (s = a[e]) || void 0 === s ? void 0 : s.title
+                                    albumName: null === (s = o[e]) || void 0 === s ? void 0 : s.title
                                 }
                             })
                         } catch (e) {
@@ -9529,10 +9582,10 @@
                 }(),
                 this.moveTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({albumOld: e, trackOld: r, albumNew: a, trackNew: o}) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({albumOld: e, trackOld: r, albumNew: o, trackNew: a}) {
                         const {device: s} = t;
                         try {
-                            yield s.moveTrack(e, r, a, o)
+                            yield s.moveTrack(e, r, o, a)
                         } catch (e) {
                             throw console.error(e),
                             e
@@ -9546,9 +9599,9 @@
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r=(()=>{}
                     )) {
-                        const {device: a} = t;
+                        const {device: o} = t;
                         try {
-                            return a.downloadTrackStem("RECORD", "T1", e, r)
+                            return o.downloadTrackStem("RECORD", "T1", e, r)
                         } catch (e) {
                             throw console.error(e),
                             e
@@ -9560,20 +9613,20 @@
                 }(),
                 this.addAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r="Unknown", a, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r="Unknown", o, a) {
                         const {device: s} = t;
                         try {
-                            const n = yield s.addAlbum(a || null, r, e, o);
+                            const n = yield s.addAlbum(o || null, r, e, a);
                             return yield t.fetchDeviceAlbums(),
                             n
-                        } catch (a) {
-                            if (a.message && "Cancelled" !== a.message && ["jesus is king", "donda", "donda 2", "life of the party", "wash us in the blood"].includes(null === e || void 0 === e ? void 0 : e.toLowerCase())) {
-                                const a = "DONDA" === e ? "A2" : "A1";
-                                return yield t.deleteAlbum(a),
+                        } catch (o) {
+                            if (o.message && "Cancelled" !== o.message && ["jesus is king", "donda", "donda 2", "life of the party", "wash us in the blood"].includes(null === e || void 0 === e ? void 0 : e.toLowerCase())) {
+                                const o = "DONDA" === e ? "A2" : "A1";
+                                return yield t.deleteAlbum(o),
                                 yield t.addAlbum(e, r)
                             }
-                            throw console.error(a),
-                            a
+                            throw console.error(o),
+                            o
                         }
                     });
                     return function(t) {
@@ -9618,9 +9671,9 @@
                 this.moveAlbum = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({oldId: e, newId: r}) {
-                        const {device: a} = t;
+                        const {device: o} = t;
                         try {
-                            yield a.renameAlbum(e, r)
+                            yield o.renameAlbum(e, r)
                         } catch (e) {
                             throw console.error(e),
                             e
@@ -9633,9 +9686,9 @@
                 this.updateAlbumTitle = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
-                        const {device: a} = t;
+                        const {device: o} = t;
                         try {
-                            yield a.updateAlbumTitle(e, r),
+                            yield o.updateAlbumTitle(e, r),
                             yield t.fetchDeviceAlbums()
                         } catch (e) {
                             throw console.error(e),
@@ -9649,9 +9702,9 @@
                 this.updateAlbumVersion = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
-                        const {device: a} = t;
+                        const {device: o} = t;
                         try {
-                            yield a.updateAlbumVersion(e, r),
+                            yield o.updateAlbumVersion(e, r),
                             yield t.fetchDeviceAlbums()
                         } catch (e) {
                             throw console.error(e),
@@ -9679,19 +9732,19 @@
                                 uploadFeedback: null,
                                 uploadCancelled: !1
                             });
-                            const a = new _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__.f;
+                            const o = new _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__.f;
                             t._isMounted && t.setState({
-                                cancelController: a
+                                cancelController: o
                             });
-                            const o = yield t.addTrack(e, e=>t.setState({
+                            const a = yield t.addTrack(e, e=>t.setState({
                                 uploadProgress: Object.assign({}, e)
-                            }), a.register);
-                            if (void 0 === o)
+                            }), o.register);
+                            if (void 0 === a)
                                 throw new Error("Upload cancelled (2)");
                             t.setState({
-                                uploadedTrackLocation: o
+                                uploadedTrackLocation: a
                             }),
-                            r.album !== t.state.deviceAlbums[o.album].title && (yield t.moveTrackToAlbum(o.album, o.id, r.album)),
+                            r.album !== t.state.deviceAlbums[a.album].title && (yield t.moveTrackToAlbum(a.album, a.id, r.album)),
                             t.setState({
                                 uploading: "uploaded"
                             })
@@ -9741,28 +9794,28 @@
                 ),
                 this.moveTrackToAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, a) {
-                        let o, s, n = Object.values(t.state.deviceAlbums).find(e=>(0,
-                        _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, a));
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        let a, s, n = Object.values(t.state.deviceAlbums).find(e=>(0,
+                        _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, o));
                         if (n) {
                             const e = n.tracks.map(e=>parseInt(e.id.substring(1)));
-                            o = n.id,
+                            a = n.id,
                             s = `T${Math.max(0, ...e) + 1}`
                         } else
-                            o = yield t.addAlbum(a, void 0, void 0, "1"),
+                            a = yield t.addAlbum(o, void 0, void 0, "1"),
                             s = "T1";
                         return yield t.moveTracks([{
                             albumOld: e,
-                            albumNew: o,
+                            albumNew: a,
                             trackOld: r,
                             trackNew: s
                         }]),
                         {
-                            albumId: o,
+                            albumId: a,
                             trackId: s
                         }
                     });
-                    return function(t, r, a) {
+                    return function(t, r, o) {
                         return e.apply(this, arguments)
                     }
                 }(),
@@ -9941,8 +9994,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2723",
-            KB_APP_REVISION: "08e5ceeef7048d33ffd3b14284d1e8357751ce9e",
+            KB_APP_VERSION: "1.1.2742",
+            KB_APP_REVISION: "8803bd258b01bfc39b4e2b155b46bda0afa59835",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -9992,9 +10045,9 @@
             release: `${config.KB_APP_NAME}@${config.KB_APP_VERSION}`,
             tracesSampleRate: parseFloat(config.KB_SENTRY_SAMPLE_RATE),
             beforeSend(e) {
-                var t, r, a, o, s;
+                var t, r, o, a, s;
                 const n = null === (t = e.exception) || void 0 === t ? void 0 : null === (r = t.values) || void 0 === r ? void 0 : r[0];
-                return null !== n && void 0 !== n && null !== (a = n.value) && void 0 !== a && a.match(/ResizeObserver loop limit exceeded/i) ? null : null !== n && void 0 !== n && null !== (o = n.type) && void 0 !== o && o.match(/UnhandledRejection/) && null !== n && void 0 !== n && null !== (s = n.value) && void 0 !== s && s.match(/Non-Error promise rejection captured with value: undefined/) ? null : e
+                return null !== n && void 0 !== n && null !== (o = n.value) && void 0 !== o && o.match(/ResizeObserver loop limit exceeded/i) ? null : null !== n && void 0 !== n && null !== (a = n.type) && void 0 !== a && a.match(/UnhandledRejection/) && null !== n && void 0 !== n && null !== (s = n.value) && void 0 !== s && s.match(/Non-Error promise rejection captured with value: undefined/) ? null : e
             }
         }),
         _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.updateFromUrlParams(),
@@ -10063,7 +10116,7 @@
     "1cbf6a093bab4cc54764": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            T: ()=>a
+            T: ()=>o
         }),
         e = r.hmd(e),
         function() {
@@ -10071,9 +10124,9 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = (e,t,r)=>{
-            const a = []
-              , o = e=>{
+        const o = (e,t,r)=>{
+            const o = []
+              , a = e=>{
                 if (0 === e.length)
                     return;
                 let s = t;
@@ -10081,15 +10134,15 @@
                     const i = `id=${n}&`;
                     if ((s += i).length >= r) {
                         s = s.replace(i, "").slice(0, -1),
-                        a.push({
+                        o.push({
                             url: s,
                             items: e.slice(0, t)
                         }),
-                        o(e.slice(t));
+                        a(e.slice(t));
                         break
                     }
                     if (t === e.length - 1) {
-                        a.push({
+                        o.push({
                             url: s.slice(0, -1),
                             items: e
                         });
@@ -10098,13 +10151,13 @@
                 }
             }
             ;
-            return o(e),
-            a
+            return a(e),
+            o
         }
         ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "returnPaginatedUrls", "/home/vsts/work/1/s/src/utils/api-request-pagination.ts")
+            e && e.register(o, "returnPaginatedUrls", "/home/vsts/work/1/s/src/utils/api-request-pagination.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10115,7 +10168,7 @@
     d6e61794281205c7e43a: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>o
+            Z: ()=>a
         }),
         e = r.hmd(e),
         function() {
@@ -10123,11 +10176,11 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = ["audio/aiff", "audio/basic", "audio/flac", "audio/x-flac", "audio/it", "audio/L24", "audio/make.my.funk", "audio/make", "audio/mid", "audio/midi", "audio/mod", "audio/mp4", "audio/m4a", "audio/x-m4a", "audio/mpeg", "audio/mpeg3", "audio/nspaudio", "audio/ogg", "audio/s3m", "audio/tsp-audio", "audio/tsplayer", "audio/vnd.qcelp", "audio/vnd.rn-realaudio", "audio/vnd.wav", "audio/voc", "audio/vorbis", "audio/voxware", "audio/wav", "audio/x-adpcm", "audio/x-aiff", "audio/x-au", "audio/x-gsm", "audio/x-jam", "audio/x-liveaudio", "audio/x-mid", "audio/x-midi", "audio/x-mod", "audio/x-mpeg-3", "audio/x-mpeg", "audio/x-mpegurl", "audio/x-mpequrl", "audio/x-nspaudio", "audio/x-pn-realaudio-plugin", "audio/x-pn-realaudio", "audio/x-psid", "audio/x-realaudio", "audio/x-twinvq-plugin", "audio/x-twinvq", "audio/x-vnd.audioexplosion.mjuicemediafile", "audio/x-voc", "audio/x-wav", "audio/x-xm", "audio/xm"]
-          , o = a;
+        const o = ["audio/aiff", "audio/basic", "audio/flac", "audio/x-flac", "audio/it", "audio/L24", "audio/make.my.funk", "audio/make", "audio/mid", "audio/midi", "audio/mod", "audio/mp4", "audio/m4a", "audio/x-m4a", "audio/mpeg", "audio/mpeg3", "audio/nspaudio", "audio/ogg", "audio/s3m", "audio/tsp-audio", "audio/tsplayer", "audio/vnd.qcelp", "audio/vnd.rn-realaudio", "audio/vnd.wav", "audio/voc", "audio/vorbis", "audio/voxware", "audio/wav", "audio/x-adpcm", "audio/x-aiff", "audio/x-au", "audio/x-gsm", "audio/x-jam", "audio/x-liveaudio", "audio/x-mid", "audio/x-midi", "audio/x-mod", "audio/x-mpeg-3", "audio/x-mpeg", "audio/x-mpegurl", "audio/x-mpequrl", "audio/x-nspaudio", "audio/x-pn-realaudio-plugin", "audio/x-pn-realaudio", "audio/x-psid", "audio/x-realaudio", "audio/x-twinvq-plugin", "audio/x-twinvq", "audio/x-vnd.audioexplosion.mjuicemediafile", "audio/x-voc", "audio/x-wav", "audio/x-xm", "audio/xm"]
+          , a = o;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "default", "/home/vsts/work/1/s/src/utils/audioMimeTypes.js")
+            e && e.register(o, "default", "/home/vsts/work/1/s/src/utils/audioMimeTypes.js")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10140,8 +10193,8 @@
         r.d(t, {
             Z: ()=>c
         });
-        var a = r("de098c4daf91477f9cbc")
-          , o = r("eb88800281880750dee6");
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("eb88800281880750dee6");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10151,22 +10204,22 @@
         const s = e=>new Promise(t=>setTimeout(t, e))
           , n = function() {
             var e = (0,
-            a.Z)(function*(e, t) {
-                const {maxRetries: r=5, retry: a=1, functionName: i=e.name} = null !== t && void 0 !== t ? t : {};
+            o.Z)(function*(e, t) {
+                const {maxRetries: r=5, retry: o=1, functionName: i=e.name} = null !== t && void 0 !== t ? t : {};
                 try {
                     return yield e()
                 } catch (t) {
                     var c;
                     if (null !== t && void 0 !== t && null !== (c = t.message) && void 0 !== c && c.match(/user aborted/i))
                         throw t;
-                    if (a === r)
-                        throw o.captureException(t),
+                    if (o === r)
+                        throw a.captureException(t),
                         new Error(`${i} has been retried ${r} times.`);
-                    if (a <= r)
-                        return yield s(Math.pow(a, 6)),
+                    if (o <= r)
+                        return yield s(Math.pow(o, 6)),
                         yield n(e, {
                             maxRetries: r,
-                            retry: a + 1,
+                            retry: o + 1,
                             functionName: i
                         })
                 }
@@ -10204,8 +10257,8 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = !!window.opr && !!window.opr.addons || !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0
-          , o = "undefined" !== typeof window.InstallTrigger
+        const o = !!window.opr && !!window.opr.addons || !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0
+          , a = "undefined" !== typeof window.InstallTrigger
           , s = /constructor/i.test(window.HTMLElement) || function(e) {
             return "[object SafariRemoteNotification]" === (!window["safari"] || typeof window.safari !== "undefined" && window.safari.pushNotification).toString()
         }()
@@ -10213,14 +10266,14 @@
           , i = !n && !!window.StyleMedia
           , c = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime || !!window.chrome.loadTimes)
           , _ = navigator.userAgent.match(/SamsungBrowser/i)
-          , l = ()=>a ? "Opera" : _ ? "Samsung" : o ? "Firefox" : s ? "Safari" : n ? "IE" : i ? "Edge" : c ? "Chrome" : void 0
+          , l = ()=>o ? "Opera" : _ ? "Samsung" : a ? "Firefox" : s ? "Safari" : n ? "IE" : i ? "Edge" : c ? "Chrome" : void 0
           , d = ()=>!!navigator.userAgent.match(/iphone|ipod|ipad/i)
           , u = ()=>!!navigator.userAgent.match(/iphone|ipod|ipad/i) && !!navigator.userAgent.match("Version")
           , f = ()=>!!window.navigator.userAgent.match(/Trident\/7\./i);
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "isOpera", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
-            e.register(o, "isFirefox", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e && (e.register(o, "isOpera", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(a, "isFirefox", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
             e.register(s, "isSafari", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
             e.register(n, "isIE", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
             e.register(i, "isEdge", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
@@ -10287,14 +10340,14 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e) {
+        function o(e) {
             var t = "0123456789abcdef"
               , r = e;
             return 0 == r || isNaN(e) ? "00" : (r = Math.round(Math.min(Math.max(0, r), 255)),
             t.charAt((r - r % 16) / 16) + t.charAt(r % 16))
         }
-        function o(e) {
-            return a(e[0]) + a(e[1]) + a(e[2])
+        function a(e) {
+            return o(e[0]) + o(e[1]) + o(e[2])
         }
         function s(e) {
             return "#" == e.charAt(0) ? e.substring(1, 7) : e
@@ -10308,14 +10361,14 @@
         }
         function i(e, t, r) {
             r /= 100;
-            const a = t * Math.min(r, 1 - r) / 100
-              , o = t=>{
-                const o = (t + e / 30) % 12
-                  , s = r - a * Math.max(Math.min(o - 3, 9 - o, 1), -1);
+            const o = t * Math.min(r, 1 - r) / 100
+              , a = t=>{
+                const a = (t + e / 30) % 12
+                  , s = r - o * Math.max(Math.min(a - 3, 9 - a, 1), -1);
                 return Math.round(255 * s).toString(16).padStart(2, "0")
             }
             ;
-            return `#${o(0)}${o(8)}${o(4)}`
+            return `#${a(0)}${a(8)}${a(4)}`
         }
         function c(e, t) {
             return Math.floor(Math.random() * (t - e) + e)
@@ -10329,7 +10382,7 @@
             return [i(e, 100, 50), i(t, 100, 50)]
         }
         function d(e, t, r) {
-            var a = n(e)
+            var o = n(e)
               , s = n(t)
               , i = r
               , c = 0
@@ -10337,17 +10390,17 @@
             for (let e = 0; e < i; e++) {
                 var l = [];
                 c += 1 / i,
-                l[0] = a[0] * c + (1 - c) * s[0],
-                l[1] = a[1] * c + (1 - c) * s[1],
-                l[2] = a[2] * c + (1 - c) * s[2],
-                _.push("#" + o(l))
+                l[0] = o[0] * c + (1 - c) * s[0],
+                l[1] = o[1] * c + (1 - c) * s[1],
+                l[2] = o[2] * c + (1 - c) * s[2],
+                _.push("#" + a(l))
             }
             return _
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "hex", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(o, "convertToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e && (e.register(o, "hex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(a, "convertToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
             e.register(s, "trim", "/home/vsts/work/1/s/src/utils/colors.ts"),
             e.register(n, "hexToRGB", "/home/vsts/work/1/s/src/utils/colors.ts"),
             e.register(i, "hslToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
@@ -10373,23 +10426,23 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e, t, r, a) {
-            if (a && (e *= 100,
+        function o(e, t, r, o) {
+            if (o && (e *= 100,
             t = t.map(e=>100 * e),
             r = r.map(e=>100 * e)),
             e < t[0] || e > t[1])
                 return NaN;
-            var o = t[1] - t[0]
+            var a = t[1] - t[0]
               , s = r[1] - r[0];
-            const n = (e - t[0]) * s / o + r[0];
-            return a ? n / 100 : n
+            const n = (e - t[0]) * s / a + r[0];
+            return o ? n / 100 : n
         }
-        const o = a
-          , s = o;
+        const a = o
+          , s = a;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "convertToRange", "/home/vsts/work/1/s/src/utils/convertToRange.ts"),
-            e.register(o, "default", "/home/vsts/work/1/s/src/utils/convertToRange.ts"))
+            e && (e.register(o, "convertToRange", "/home/vsts/work/1/s/src/utils/convertToRange.ts"),
+            e.register(a, "default", "/home/vsts/work/1/s/src/utils/convertToRange.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10402,8 +10455,8 @@
         r.d(t, {
             l: ()=>s
         });
-        var a = r("de098c4daf91477f9cbc")
-          , o = r("557b135c7198835d5410");
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("557b135c7198835d5410");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10412,10 +10465,10 @@
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const s = function() {
             var e = (0,
-            a.Z)(function*(e, t) {
+            o.Z)(function*(e, t) {
                 const r = yield(0,
-                o.Z)((0,
-                a.Z)(function*() {
+                a.Z)((0,
+                o.Z)(function*() {
                     return fetch(e, {
                         signal: t
                     })
@@ -10445,8 +10498,8 @@
         r.d(t, {
             S: ()=>n
         });
-        var a = r("de098c4daf91477f9cbc")
-          , o = r("09bf4ee68fa3c88cf6b2")
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("09bf4ee68fa3c88cf6b2")
           , s = r("4f28e23b4abf5c56b2d8");
         e = r.hmd(e),
         function() {
@@ -10456,13 +10509,13 @@
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const n = function() {
             var e = (0,
-            a.Z)(function*(e, t, r) {
-                const a = yield(0,
+            o.Z)(function*(e, t, r) {
+                const o = yield(0,
                 s.l)(e, r)
-                  , n = o.extension(a.type);
-                return new File([a],`${t}.${n}`)
+                  , n = a.extension(o.type);
+                return new File([o],`${t}.${n}`)
             });
-            return function(t, r, a) {
+            return function(t, r, o) {
                 return e.apply(this, arguments)
             }
         }();
@@ -10560,8 +10613,8 @@
     "3c15b862d899a16e9481": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            vJ: ()=>a,
-            ee: ()=>o,
+            vJ: ()=>o,
+            ee: ()=>a,
             $r: ()=>s
         }),
         e = r.hmd(e),
@@ -10570,20 +10623,21 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = e=>{
+        const o = e=>{
             var t;
-            return (e.metadata && e.metadata.artists && e.metadata.artists.length > 0 ? e.metadata.artists[0] : null !== (t = e.metadata) && void 0 !== t && t.artist ? e.metadata.artist : e.artist ? e.artist : "").replace("VEVO", "")
+            let r = e.metadata && e.metadata.artists && e.metadata.artists.length > 0 ? e.metadata.artists[0] : null !== (t = e.metadata) && void 0 !== t && t.artist ? e.metadata.artist : e.artist ? e.artist : "";
+            return r
         }
-          , o = e=>{
+          , a = e=>{
             var t;
-            let r = e.title ? e.title : e.metadata && e.metadata.title ? null === (t = e.metadata) || void 0 === t ? void 0 : t.title : "";
-            return r = (r = (r = (r = (r = (r = (r = (r = (r = (r = (r = (r = (r = r.replace(" (Official Audio)", "")).replace("[Official Music Video]", "")).replace("(Official Music Video)", "")).replace("(Official Video)", "")).replace("(Official Lyric Video)", "")).replace("(lyrics Video).", "")).replace(".mp3", "")).replace(".wav", "")).replace("[W Lyrics]", "")).replace(" (Audio)", "")).replace("Lyrics video", "")).replace(" (Official)", "")).replace("-", "\u2013")
+            let r = null !== e && void 0 !== e && e.title ? e.title : null !== e && void 0 !== e && e.metadata && null !== e && void 0 !== e && e.metadata.title ? null === e || void 0 === e ? void 0 : null === (t = e.metadata) || void 0 === t ? void 0 : t.title : "";
+            return r
         }
-          , s = (e,t)=>e.replace(`${t} - `, "");
+          , s = (e,t)=>e;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "filteredTrackArtist", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
-            e.register(o, "filterTrackTitle", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
+            e && (e.register(o, "filteredTrackArtist", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
+            e.register(a, "filterTrackTitle", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
             e.register(s, "filteredTrackTitle", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"))
         }(),
         function() {
@@ -10595,25 +10649,25 @@
     da23a0dbab1fa75005eb: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            hA: ()=>o,
+            hA: ()=>a,
             kd: ()=>s,
             Rx: ()=>n,
             pG: ()=>i
         });
-        var a = r("3f02c5877d4690b5563c");
+        var o = r("3f02c5877d4690b5563c");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = 120
+        const a = 120
           , s = 1
           , n = e=>{
             if (void 0 === e)
                 return 180;
             return -1 === (0,
-            a.Ee)(e, "1.0.1551") ? 180 : 250
+            o.Ee)(e, "1.0.1551") ? 180 : 250
         }
           , i = e=>{
             switch (e) {
@@ -10630,7 +10684,7 @@
         ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "DEFAULT_BPM", "/home/vsts/work/1/s/src/utils/forms.ts"),
+            e && (e.register(a, "DEFAULT_BPM", "/home/vsts/work/1/s/src/utils/forms.ts"),
             e.register(s, "MIN_BPM", "/home/vsts/work/1/s/src/utils/forms.ts"),
             e.register(n, "getMaxBpm", "/home/vsts/work/1/s/src/utils/forms.ts"),
             e.register(i, "numberAsWord", "/home/vsts/work/1/s/src/utils/forms.ts"))
@@ -10646,20 +10700,20 @@
         r.d(t, {
             Z: ()=>n
         });
-        var a = r("89fa59dfd48f288c4600");
+        var o = r("89fa59dfd48f288c4600");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = (0,
-        a.Z)()
-          , s = o
+        const a = (0,
+        o.Z)()
+          , s = a
           , n = s;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "history", "/home/vsts/work/1/s/src/utils/history.ts"),
+            e && (e.register(a, "history", "/home/vsts/work/1/s/src/utils/history.ts"),
             e.register(s, "default", "/home/vsts/work/1/s/src/utils/history.ts"))
         }(),
         function() {
@@ -10673,8 +10727,8 @@
         r.d(t, {
             T: ()=>n
         });
-        var a = r("c7b40aca13c4330396a9")
-          , o = r.n(a);
+        var o = r("c7b40aca13c4330396a9")
+          , a = r.n(o);
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10682,7 +10736,7 @@
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         function s() {
-            return o()().replace(/-/g, "")
+            return a()().replace(/-/g, "")
         }
         function n() {
             return s().substring(0, 8)
@@ -10701,7 +10755,7 @@
     e2161c2bb2fb866f34ce: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            t: ()=>a
+            t: ()=>o
         }),
         e = r.hmd(e),
         function() {
@@ -10709,12 +10763,12 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e, t, r) {
+        function o(e, t, r) {
             return e * (1 - r) + t * r
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "lerp", "/home/vsts/work/1/s/src/utils/lerp.ts")
+            e && e.register(o, "lerp", "/home/vsts/work/1/s/src/utils/lerp.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10725,7 +10779,7 @@
     a60417c8351c73d4238a: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Rp: ()=>a,
+            Rp: ()=>o,
             BS: ()=>s
         }),
         e = r.hmd(e),
@@ -10734,16 +10788,16 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e, t, r) {
+        function o(e, t, r) {
             if (r >= e.length) {
                 let t = r - e.length + 1;
                 for (; t--; )
                     e.push(void 0)
             }
-            const a = e.splice(t, 1)[0];
-            e.splice(r, 0, a)
+            const o = e.splice(t, 1)[0];
+            e.splice(r, 0, o)
         }
-        const o = e=>{
+        const a = e=>{
             if (!e.target)
                 return !1;
             let t = e.target;
@@ -10756,8 +10810,8 @@
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "arrayMove", "/home/vsts/work/1/s/src/utils/misc.ts"),
-            e.register(o, "clickedPlayButton", "/home/vsts/work/1/s/src/utils/misc.ts"),
+            e && (e.register(o, "arrayMove", "/home/vsts/work/1/s/src/utils/misc.ts"),
+            e.register(a, "clickedPlayButton", "/home/vsts/work/1/s/src/utils/misc.ts"),
             e.register(s, "maxLength", "/home/vsts/work/1/s/src/utils/misc.ts"))
         }(),
         function() {
@@ -10769,7 +10823,7 @@
     "33f12881a4b6c417b540": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>o
+            Z: ()=>a
         }),
         e = r.hmd(e),
         function() {
@@ -10777,13 +10831,13 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = e=>{
+        const o = e=>{
             window.preventScroll && e.preventDefault()
         }
-          , o = a;
+          , a = o;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "default", "/home/vsts/work/1/s/src/utils/preventScrollHandler.js")
+            e && e.register(o, "default", "/home/vsts/work/1/s/src/utils/preventScrollHandler.js")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10833,21 +10887,21 @@
     "553c2c26a5c8a1e6fec3": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            s: ()=>o
+            s: ()=>a
         });
-        var a = r("8af190b70a6bc55c6f1b");
-        function o() {
+        var o = r("8af190b70a6bc55c6f1b");
+        function a() {
             const e = (0,
-            a.useRef)(!1);
+            o.useRef)(!1);
             return (0,
-            a.useEffect)(function() {
+            o.useEffect)(function() {
                 return e.current = !0,
                 function() {
                     e.current = !1
                 }
             }, []),
             (0,
-            a.useCallback)(function() {
+            o.useCallback)(function() {
                 return e.current
             }, [e])
         }
@@ -10859,10 +10913,10 @@
         ("undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
-        )(o, "useRef{mountedRef}\nuseEffect{}\nuseCallback{}"),
+        )(a, "useRef{mountedRef}\nuseEffect{}\nuseCallback{}"),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "useMounted", "/home/vsts/work/1/s/src/utils/react-is-mounted.ts")
+            e && e.register(a, "useMounted", "/home/vsts/work/1/s/src/utils/react-is-mounted.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10873,8 +10927,8 @@
     "63922d5ff7825dcb0b86": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            b3: ()=>a,
-            xb: ()=>o,
+            b3: ()=>o,
+            xb: ()=>a,
             vu: ()=>s
         }),
         e = r.hmd(e),
@@ -10883,12 +10937,12 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e) {
+        function o(e) {
             var t = document.createElement("a");
             return t.href = e,
             t.host && t.host != window.location.host
         }
-        function o(e) {
+        function a(e) {
             return !e || 0 === e.length
         }
         function s(e) {
@@ -10896,8 +10950,8 @@
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "validURL", "/home/vsts/work/1/s/src/utils/regex.ts"),
-            e.register(o, "isEmpty", "/home/vsts/work/1/s/src/utils/regex.ts"),
+            e && (e.register(o, "validURL", "/home/vsts/work/1/s/src/utils/regex.ts"),
+            e.register(a, "isEmpty", "/home/vsts/work/1/s/src/utils/regex.ts"),
             e.register(s, "isValidBpm", "/home/vsts/work/1/s/src/utils/regex.ts"))
         }(),
         function() {
@@ -10917,7 +10971,7 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = ()=>{
+        const o = ()=>{
             const e = document.querySelectorAll(".ye-waveform--loading")
               , t = document.querySelectorAll(".mini-player__stems--loading");
             e.length > 0 && e.forEach(e=>{
@@ -10943,12 +10997,12 @@
             }
             )
         }
-          , o = a
-          , s = o;
+          , a = o
+          , s = a;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "restartLoadingAnimations", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"),
-            e.register(o, "default", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"))
+            e && (e.register(o, "restartLoadingAnimations", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"),
+            e.register(a, "default", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10959,8 +11013,8 @@
     "957d24b63b1050799be8": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            y: ()=>a,
-            D: ()=>o
+            y: ()=>o,
+            D: ()=>a
         }),
         e = r.hmd(e),
         function() {
@@ -10968,7 +11022,7 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = {
+        const o = {
             default: {
                 background: "#959595",
                 main: "#252525"
@@ -10982,14 +11036,14 @@
                 main: "#a8a28a"
             }
         };
-        function o(e) {
+        function a(e) {
             document.documentElement.style.setProperty("--color-background", e.background),
             document.documentElement.style.setProperty("--color-main", e.main)
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(o, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"))
+            e && (e.register(o, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(a, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -11000,7 +11054,7 @@
     "6792dda0bcc4906dd1ad": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            $: ()=>a
+            $: ()=>o
         }),
         e = r.hmd(e),
         function() {
@@ -11008,35 +11062,35 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const a = (e,t,r)=>{
-            var a;
+        const o = (e,t,r)=>{
+            var o;
             void 0 === t && (t = !1),
             void 0 === r && (r = !1),
-            void 0 !== document.hidden ? a = {
+            void 0 !== document.hidden ? o = {
                 hidden: "hidden",
                 visibilitychange: "visibilitychange"
-            } : void 0 !== document.webkitHidden ? a = {
+            } : void 0 !== document.webkitHidden ? o = {
                 hidden: "webkitHidden",
                 visibilitychange: "webkitvisibilitychange"
-            } : void 0 !== document.mozHidden ? a = {
+            } : void 0 !== document.mozHidden ? o = {
                 hidden: "mozHidden",
                 visibilitychange: "mozvisibilitychange"
-            } : void 0 !== document.msHidden && (a = {
+            } : void 0 !== document.msHidden && (o = {
                 hidden: "msHidden",
                 visibilitychange: "msvisibilitychange"
             });
-            const o = (e,t,r,a,o)=>{
+            const a = (e,t,r,o,a)=>{
                 for (var s = 0; s < t.length; ++s)
                     e.addEventListener(t[s], r, {
-                        capture: a,
-                        passive: o
+                        capture: o,
+                        passive: a
                     })
             }
-              , s = (e,t,r,a,o)=>{
+              , s = (e,t,r,o,a)=>{
                 for (var s = 0; s < t.length; ++s)
                     e.removeEventListener(t[s], r, {
-                        capture: a,
-                        passive: o
+                        capture: o,
+                        passive: a
                     })
             }
               , n = ()=>{}
@@ -11046,7 +11100,7 @@
             console.log("unmute is ios: ", c);
             var _ = !0;
             const l = ()=>{
-                var e = !(!t && (a && document[a.hidden] || c && !document.hasFocus()));
+                var e = !(!t && (o && document[o.hidden] || c && !document.hasFocus()));
                 e !== _ && (_ = e,
                 v(!1),
                 f())
@@ -11055,12 +11109,12 @@
                 l()
             }
             ;
-            a && o(document, [a.visibilitychange], d, !0, !0);
+            o && a(document, [o.visibilitychange], d, !0, !0);
             const u = e=>{
                 e && e.target !== window || l()
             }
             ;
-            c && o(window, ["focus", "blur"], u, !0, !0);
+            c && a(window, ["focus", "blur"], u, !0, !0);
             const f = ()=>{
                 var t;
                 _ ? "running" !== e.state && "closed" !== e.state && y && (t = e.resume()) && t.then(n, n).catch(n) : "running" === e.state && (t = e.suspend()) && t.then(n, n).catch(n)
@@ -11070,7 +11124,7 @@
                 f())
             }
             ;
-            o(e, ["statechange"], m, !0, !0),
+            a(e, ["statechange"], m, !0, !0),
             e.onstatechange || (e.onstatechange = m);
             var h = null;
             function p(e, t) {
@@ -11109,19 +11163,19 @@
             ;
             var g = ["click", "contextmenu", "auxclick", "dblclick", "mousedown", "mouseup", "touchend", "keydown", "keyup"]
               , y = !1;
-            const A = ()=>{
+            const P = ()=>{
                 y = !0,
                 v(!0),
                 f()
             }
             ;
-            return o(window, g, A, !0, !0),
+            return a(window, g, P, !0, !0),
             {
                 dispose: ()=>{
                     E(),
-                    a && s(document, [a.visibilitychange], d, !0, !0),
+                    o && s(document, [o.visibilitychange], d, !0, !0),
                     c && s(window, ["focus", "blur"], u, !0, !0),
-                    s(window, g, A, !0, !0),
+                    s(window, g, P, !0, !0),
                     s(e, ["statechange"], m, !0, !0),
                     e.onstatechange === m && (e.onstatechange = null)
                 }
@@ -11130,7 +11184,7 @@
         ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(a, "unmute", "/home/vsts/work/1/s/src/utils/unmute.js")
+            e && e.register(o, "unmute", "/home/vsts/work/1/s/src/utils/unmute.js")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -11141,16 +11195,42 @@
     "50adafd66d905a6a5399": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            X: ()=>o
+            Xb: ()=>c,
+            tJ: ()=>_
         });
-        var a = r("de098c4daf91477f9cbc");
+        var o = r("990057777e9b2b7543e8")
+          , a = r("de098c4daf91477f9cbc")
+          , s = r("590e518eaa9efe3ab6d3");
+        function n(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function i(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? n(Object(r), !0).forEach(function(t) {
+                    (0,
+                    o.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : n(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = function() {
+        const c = function() {
             var e = (0,
             a.Z)(function*() {
                 if (navigator && navigator.usb) {
@@ -11162,10 +11242,77 @@
             return function() {
                 return e.apply(this, arguments)
             }
+        }()
+          , _ = function() {
+            var e = (0,
+            a.Z)(function*(e, t, r, o, a, n) {
+                const {fetchDeviceAlbums: c, deviceAlbums: _, deviceConnected: d} = n;
+                if (!d)
+                    return !1;
+                if ("" === e.trim())
+                    return !1;
+                if ("" === t.trim())
+                    return !1;
+                if ("" === r.trim())
+                    return !1;
+                if (!(0,
+                s.G5)(o))
+                    return !1;
+                if (!(0,
+                s.G5)(a))
+                    return !1;
+                yield c();
+                try {
+                    const s = yield l(e, n);
+                    if (null !== s) {
+                        const e = s.tracks[0]
+                          , c = i(i({}, e), {}, {
+                            title: t,
+                            artist: r,
+                            colors: [o, a]
+                        });
+                        yield n.editTrackMetadataSimple(s.id, e.id, c);
+                        yield n.fetchDeviceAlbums();
+                        return !0
+                    }
+                    return !1
+                } catch (e) {
+                    return console.error(e),
+                    !1
+                }
+            });
+            return function(t, r, o, a, s, n) {
+                return e.apply(this, arguments)
+            }
+        }()
+          , l = function() {
+            var e = (0,
+            a.Z)(function*(e, t) {
+                const {fetchDeviceAlbums: r, deviceAlbums: o, deviceConnected: a} = t;
+                if (!1 === a)
+                    return null;
+                yield r();
+                const s = Object.values(o).find(t=>{
+                    if (t.tracks.filter(t=>t.global_id === e).length > 0)
+                        return t
+                }
+                );
+                if (void 0 === s)
+                    return null;
+                const n = s.tracks.filter(t=>t.global_id === e)
+                  , i = JSON.parse(JSON.stringify(s));
+                return i.tracks = JSON.parse(JSON.stringify(n)),
+                i
+            });
+            return function(t, r) {
+                return e.apply(this, arguments)
+            }
         }();
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "isConnectedInAnotherTab", "/home/vsts/work/1/s/src/utils/usb.ts")
+            e && (e.register(c, "isConnectedInAnotherTab", "/home/vsts/work/1/s/src/utils/usb.ts"),
+            e.register(_, "editUserTrackMetadataWithTrackId", "/home/vsts/work/1/s/src/utils/usb.ts"),
+            e.register(l, "searchTrackLocationOnDevice", "/home/vsts/work/1/s/src/utils/usb.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -11176,8 +11323,9 @@
     "590e518eaa9efe3ab6d3": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            oH: ()=>a,
-            uo: ()=>o
+            oH: ()=>o,
+            uo: ()=>a,
+            G5: ()=>s
         }),
         e = r.hmd(e),
         function() {
@@ -11185,10 +11333,10 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function a(e) {
+        function o(e) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
         }
-        function o(e) {
+        function a(e) {
             return !!(e.length >= 8)
         }
         function s(e) {
@@ -11205,8 +11353,8 @@
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(a, "validateEmail", "/home/vsts/work/1/s/src/utils/validate.ts"),
-            e.register(o, "validatePassword", "/home/vsts/work/1/s/src/utils/validate.ts"),
+            e && (e.register(o, "validateEmail", "/home/vsts/work/1/s/src/utils/validate.ts"),
+            e.register(a, "validatePassword", "/home/vsts/work/1/s/src/utils/validate.ts"),
             e.register(s, "validHexaCode", "/home/vsts/work/1/s/src/utils/validate.ts"))
         }(),
         function() {
@@ -11218,20 +11366,20 @@
     "238af0e74d3daf256b28": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            lo: ()=>o,
+            lo: ()=>a,
             f1: ()=>n,
             tX: ()=>i,
             xd: ()=>c,
             Jb: ()=>_
         });
-        var a = r("e2161c2bb2fb866f34ce");
+        var o = r("e2161c2bb2fb866f34ce");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = [.1, .1];
+        const a = [.1, .1];
         function s(e) {
             const t = {};
             return Object.keys(e).map(r=>{
@@ -11243,18 +11391,18 @@
         function n(e) {
             return e.map(e=>0 === e ? e : e / 100)
         }
-        function i(e, t, r, a, o) {
-            if (o || 0 === r || t === r)
+        function i(e, t, r, o, a) {
+            if (a || 0 === r || t === r)
                 return 0;
             if (e) {
-                const r = Math.round(t * a);
+                const r = Math.round(t * o);
                 return r >= e.length ? 0 : e[r] / 100
             }
             return 0
         }
         function c(e, t) {
             const r = e.length / t
-              , o = Math.floor(r / 10) || 1;
+              , a = Math.floor(r / 10) || 1;
             let s = [];
             if (t <= 0)
                 return s;
@@ -11264,11 +11412,11 @@
                 return s
             }
             if (e.length > t)
-                for (let a = 0; a < t; a += 1) {
-                    const t = Math.floor(a * r)
+                for (let o = 0; o < t; o += 1) {
+                    const t = Math.floor(o * r)
                       , n = Math.floor(t + r);
                     let i = 0;
-                    for (let r = t; r < n; r += o) {
+                    for (let r = t; r < n; r += a) {
                         const t = (e[r] - 50) / 100;
                         t > i && (i = t)
                     }
@@ -11276,12 +11424,12 @@
                 }
             else if (e.length < t)
                 for (let r = 0; r < t; r += 1) {
-                    const o = t / (e.length - 1)
-                      , n = Math.floor(r / o)
-                      , i = n * o
-                      , c = Math.min(i + o, t - 1) - i
+                    const a = t / (e.length - 1)
+                      , n = Math.floor(r / a)
+                      , i = n * a
+                      , c = Math.min(i + a, t - 1) - i
                       , _ = (0,
-                    a.t)(e[n], e[n + 1], (r - i) / c);
+                    o.t)(e[n], e[n + 1], (r - i) / c);
                     s.push(_)
                 }
             else
@@ -11298,7 +11446,7 @@
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "FALLBACK_WAVEFORM_DATA", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e && (e.register(a, "FALLBACK_WAVEFORM_DATA", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
             e.register(s, "parseFetchedWaveformData", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
             e.register(n, "parseFetchedWaveformDataIndividual", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
             e.register(i, "getIntensityAtMoment", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
