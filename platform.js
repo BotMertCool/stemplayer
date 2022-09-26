@@ -1153,7 +1153,7 @@
                 return document.addEventListener("keydown", Ue),
                 _.setShouldHideMiniPlayer(!0),
                 null === _.activeQueue && _.setActiveQueue(a ? i.$_.Official : i.$_.User),
-                _.trackIsLoaded && ee === (null === (e = _.currentTrack) || void 0 === e ? void 0 : e.id) || (_.stop(),
+                _.trackIsLoaded && ee === (null === (e = _.currentTrack) || void 0 === e ? void 0 : e.id) && !1 !== _.getHasPlayed() || (_.stop(),
                 Oe()),
                 (0,
                 b.nz)() && (history.pushState(null, null, location.href),
@@ -1335,7 +1335,7 @@
             c.useCallback)(()=>{
                 G(!1),
                 N(null),
-                !1 === _.getHasPlayed() && _.setupAutoplay(),
+                !1 === _.getHasUserConsent() && _.setupAutoplay(),
                 e()
             }
             , [_.trackIsLoaded])
