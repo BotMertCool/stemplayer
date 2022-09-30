@@ -674,9 +674,11 @@
                 }
             }
             ;
-            return n.createElement("div", {
+            let x;
+            return x = c > 0 ? i ? " marquee__left-and-right-gradients" : " marquee__right-gradient" : "",
+            n.createElement("div", {
                 id: e,
-                className: "marquee"
+                className: `marquee${x}`
             }, n.createElement("div", {
                 id: t,
                 className: `\n                    marquee__text\n                    ${c > 0 ? "marquee__scrolling-text" : ""}\n                    ${i ? "marquee__prevent-animation" : ""}\n                `,
@@ -687,11 +689,7 @@
                 onClick: ()=>{
                     c > 0 && R()
                 }
-            }, n.createElement("p", null, a)), c > 0 && n.createElement(n.Fragment, null, i && n.createElement("div", {
-                className: "marquee__left-gradient"
-            }), n.createElement("div", {
-                className: "marquee__right-gradient"
-            })))
+            }, n.createElement("p", null, a)))
         }
         ;
         l(r, "useState{[newMarqueeTrack, setNewMarqueeTrack](true)}\nuseState{[duration, setDuration](0)}\nuseState{[transitionInProgress, setTransitionInProgress](false)}\nuseState{[marqueeParentWidth, setMarqueeParentWidth](null)}\nuseState{[marqueeTextWidth, setMarqueeTextWidth](null)}\nuseState{[marqueeAnimation, setMarqueeAnimation](null)}\nuseState{[resetTimeout, setResetTimeout](null)}\nuseState{[marqueeTimeout, setResetMarqueeTimeout](null)}\nuseState{[transitionTimeout, setTransitionTimeout](null)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
@@ -1624,41 +1622,26 @@
               , [J,X] = (0,
             r.useState)(!1)
               , [ee,te] = (0,
-            r.useState)(0)
-              , [ae,ne] = (0,
             r.useState)("")
-              , [le,re] = (0,
+              , [ae,ne] = (0,
             r.useState)(-1)
-              , oe = (0,
+              , le = (0,
             r.useRef)();
-            let ce;
-            const se = null === (j = oe.current) || void 0 === j ? void 0 : j.getBoundingClientRect().height
-              , ie = {
-                overflow: "hidden",
-                transition: `all ${ee}s`,
-                opacity: 1,
-                height: se
-            }
-              , de = k(k({}, ie), {}, {
-                height: 0,
-                opacity: 0
-            });
-            S && s && (ce = s.map(e=>e.tracks).flat()),
+            let re;
+            const oe = null === (j = le.current) || void 0 === j ? void 0 : j.scrollHeight;
+            S && s && (re = s.map(e=>e.tracks).flat());
+            const [ce,se] = (0,
+            r.useState)(!1);
             (0,
             r.useEffect)(()=>{
-                X(x === o)
+                X(x === o);
+                const e = setTimeout(()=>{
+                    se(!0)
+                }
+                , 500);
+                return ()=>clearTimeout(e)
             }
             , [x, o]),
-            (0,
-            r.useEffect)(()=>{
-                if (x && x === o) {
-                    (e=>{
-                        te(e / 600)
-                    }
-                    )(se)
-                }
-            }
-            , [x, se]),
             (0,
             r.useEffect)(()=>{
                 z && z.length > 0 && (p || null === C) && Y([])
@@ -1737,7 +1720,7 @@
                     isOfficialAlbum: S,
                     albumTitle: c,
                     albumVersion: i,
-                    key: ae,
+                    key: ee,
                     albumSlug: o && o.length > 0 ? o : ""
                 })),
                 t) {
@@ -1748,7 +1731,7 @@
             , [R, K]),
             (0,
             r.useEffect)(()=>{
-                if (K && (0 === L.officialQueue.length && void 0 !== ce && L.createQueue(ce, m.$_.Official),
+                if (K && (0 === L.officialQueue.length && void 0 !== re && L.createQueue(re, m.$_.Official),
                 0 === L.userQueue.length)) {
                     const e = K.filter(e=>void 0 !== e.stems).reduce((e,t)=>{
                         let a;
@@ -1763,14 +1746,14 @@
             r.useEffect)(()=>{
                 const e = (0,
                 v.Ds)(()=>{
-                    re(Math.floor(1e3 * Math.random()))
+                    ne(Math.floor(1e3 * Math.random()))
                 }
                 , 100);
                 return window.addEventListener("resize", e),
                 ()=>window.removeEventListener("resize", e)
             }
             , []);
-            const ue = function() {
+            const ie = function() {
                 var e = (0,
                 n.Z)(function*(e, t) {
                     if (q === t) {
@@ -1790,11 +1773,11 @@
                     return e.apply(this, arguments)
                 }
             }()
-              , fe = function() {
+              , de = function() {
                 var e = (0,
                 n.Z)(function*(e, t) {
                     var a, n;
-                    ne(t),
+                    te(t),
                     L.trackIsLoaded && L.playbackState === m.QK.Paused && e.id === (null === (a = L.currentTrack) || void 0 === a ? void 0 : a.id) && L.play(),
                     (null === (n = L.currentTrack) || void 0 === n ? void 0 : n.id) !== e.id && L.unmuteAll(),
                     L.setActiveQueue(S ? m.$_.Official : m.$_.User),
@@ -1804,7 +1787,7 @@
                     return e.apply(this, arguments)
                 }
             }()
-              , me = (e,t)=>{
+              , ue = (e,t)=>{
                 var n, o, s, i;
                 const u = e.metadata.title;
                 let m = u && u.length ? u : e && e.uploadingTrackData && e && e.uploadingTrackData.title ? e.uploadingTrackData.title : "Untitled";
@@ -1890,14 +1873,14 @@
                     brackets: !0,
                     disabled: null !== a,
                     text: "PLAY",
-                    onClick: ()=>fe(e, k)
+                    onClick: ()=>de(e, k)
                 }), p && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
                     disabled: null !== a || E || !1 !== y,
                     dots: D === k,
                     text: D === k ? "DELETING" : `DELETE${q === k ? "?" : ""}`,
-                    onClick: ()=>ue(e, k)
+                    onClick: ()=>ie(e, k)
                 }), f && v && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
@@ -1937,15 +1920,18 @@
                 })))
             }
             ;
-            return r.createElement(r.Fragment, null, !J && r.createElement(r.Fragment, null, z.map(e=>me(e, e.trackIndex))), r.createElement("div", {
-                style: S && J ? ie : S && !J ? de : {},
-                "data-resize-seed": S ? "" : le
+            return r.createElement(r.Fragment, null, !J && r.createElement(r.Fragment, null, z.map(e=>ue(e, e.trackIndex))), r.createElement("div", {
+                className: `${ce ? "animation" : ""} collapse ${x === o && "show"} ${S ? "" : "user-album"}`,
+                "data-resize-seed": S ? "" : ae
             }, r.createElement("div", {
-                ref: oe
-            }, K.map((e,t)=>me(e, t)))))
+                ref: le,
+                style: {
+                    maxHeight: `${oe}px`
+                }
+            }, K.map((e,t)=>ue(e, t)))))
         }
         ;
-        C(h, "useState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[fullTracks, setFullTracks]([])}\nuseState{[showTrackPlay, setShowTrackPlay](null)}\nuseState{[surfaceUploadingOfficialTrack, setSurfaceUploadingOfficialTrack]([])}\nuseState{[tracksVisible, setTracksVisible](false)}\nuseState{[duration, setDuration](0)}\nuseState{[trackKey, setTrackKey]('')}\nuseState{[resizeSeed, setResizeSeed](-1)}\nuseRef{albumRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        C(h, "useState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[fullTracks, setFullTracks]([])}\nuseState{[showTrackPlay, setShowTrackPlay](null)}\nuseState{[surfaceUploadingOfficialTrack, setSurfaceUploadingOfficialTrack]([])}\nuseState{[tracksVisible, setTracksVisible](false)}\nuseState{[trackKey, setTrackKey]('')}\nuseState{[resizeSeed, setResizeSeed](-1)}\nuseRef{albumRef}\nuseState{[albumAnimation, setAlbumAnimation](false)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
         const E = (0,
         d.j)({
             module: "ye_tracks_list"
@@ -2421,7 +2407,10 @@
                 if (!e && !t)
                     return void Ee(null);
                 let a;
-                (a = t ? fe.find(e=>e.tracks.find(e=>e.trackId === t)) : fe.find(t=>t.albumSlug === e)) && Ee(a.albumSlug)
+                (a = t ? fe.find(e=>e.tracks.find(e=>e.id === t)) : fe.find(t=>t.albumSlug === e)) && he !== a.albumSlug && setTimeout(()=>{
+                    Ot() && Ee(a.albumSlug)
+                }
+                , 1e3)
             }
             , [te, fe]),
             (0,
