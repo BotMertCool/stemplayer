@@ -1,4231 +1,8 @@
-(self.webpackChunkblank_board = self.webpackChunkblank_board || []).push([[8142], {
-    "2f0f179fdd043e994433": (e,t,r)=>{
+(self.webpackChunkblank_board = self.webpackChunkblank_board || []).push([[179], {
+    "88e8bdd04c305099c2c9": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            FF: ()=>x,
-            h1: ()=>O,
-            Kz: ()=>T,
-            o7: ()=>p,
-            qP: ()=>m,
-            wO: ()=>h,
-            O8: ()=>b
-        });
-        var o, n = function(e, t) {
-            for (var r = 0, o = t.length, n = e.length; r < o; r++,
-            n++)
-                e[n] = t[r];
-            return e
-        };
-        !function(e) {
-            e[e.DEBUG = 0] = "DEBUG",
-            e[e.INFO = 1] = "INFO",
-            e[e.WARNING = 2] = "WARNING",
-            e[e.ERROR = 3] = "ERROR",
-            e[e.OFF = 4] = "OFF"
-        }(o || (o = {}));
-        var s = {
-            debug: 0,
-            info: 1,
-            warning: 2,
-            error: 3,
-            off: 4
-        }
-          , i = "spLogLevel"
-          , a = o.ERROR
-          , u = localStorage.getItem(i);
-        function d(e) {
-            for (var t = [], r = 1; r < arguments.length; r++)
-                t[r - 1] = arguments[r];
-            s[e] >= a && console.log.apply(console, n([(new Date).toISOString() + " " + e.toUpperCase() + ":"], t))
-        }
-        Object.keys(s).indexOf(u) >= 0 && (a = s[u]);
-        var c = {
-            debug: function() {
-                for (var e = [], t = 0; t < arguments.length; t++)
-                    e[t] = arguments[t];
-                return d.apply(void 0, n(["debug"], e))
-            },
-            info: function() {
-                for (var e = [], t = 0; t < arguments.length; t++)
-                    e[t] = arguments[t];
-                return d.apply(void 0, n(["info"], e))
-            },
-            warning: function() {
-                for (var e = [], t = 0; t < arguments.length; t++)
-                    e[t] = arguments[t];
-                return d.apply(void 0, n(["warning"], e))
-            },
-            error: function() {
-                for (var e = [], t = 0; t < arguments.length; t++)
-                    e[t] = arguments[t];
-                return d.apply(void 0, n(["error"], e))
-            }
-        }
-          , l = function() {
-            function e() {
-                this.queue = Promise.resolve()
-            }
-            return e.prototype.queueTask = function(e, t, r) {
-                void 0 === r && (r = 0);
-                var o, n, s = t || e;
-                c.debug("Queuing task", s);
-                var i = new Promise(function(e, t) {
-                    o = e,
-                    n = t
-                }
-                );
-                return this.queue = this.queue.then(function() {
-                    c.debug("Starting task", s);
-                    var i = !1;
-                    return r > 0 && setTimeout(function() {
-                        if (!i) {
-                            var e = "task" + (t ? " " + t : "") + " timed out after " + r + "ms";
-                            c.error(e),
-                            i = !0,
-                            n(new Error(e))
-                        }
-                    }, r),
-                    e().then(function(e) {
-                        c.debug("Task finished", s),
-                        o(e)
-                    }).catch(function(e) {
-                        c.debug("Task failed", s),
-                        n(e)
-                    }).finally(function() {
-                        i = !0
-                    })
-                }),
-                i
-            }
-            ,
-            e
-        }()
-          , _ = function(e, t, r, o) {
-            return new (r || (r = Promise))(function(n, s) {
-                function i(e) {
-                    try {
-                        u(o.next(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function a(e) {
-                    try {
-                        u(o.throw(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function u(e) {
-                    var t;
-                    e.done ? n(e.value) : (t = e.value,
-                    t instanceof r ? t : new r(function(e) {
-                        e(t)
-                    }
-                    )).then(i, a)
-                }
-                u((o = o.apply(e, t || [])).next())
-            }
-            )
-        }
-          , f = function(e, t) {
-            var r, o, n, s, i = {
-                label: 0,
-                sent: function() {
-                    if (1 & n[0])
-                        throw n[1];
-                    return n[1]
-                },
-                trys: [],
-                ops: []
-            };
-            return s = {
-                next: a(0),
-                throw: a(1),
-                return: a(2)
-            },
-            "function" === typeof Symbol && (s[Symbol.iterator] = function() {
-                return this
-            }
-            ),
-            s;
-            function a(s) {
-                return function(a) {
-                    return function(s) {
-                        if (r)
-                            throw new TypeError("Generator is already executing.");
-                        for (; i; )
-                            try {
-                                if (r = 1,
-                                o && (n = 2 & s[0] ? o.return : s[0] ? o.throw || ((n = o.return) && n.call(o),
-                                0) : o.next) && !(n = n.call(o, s[1])).done)
-                                    return n;
-                                switch (o = 0,
-                                n && (s = [2 & s[0], n.value]),
-                                s[0]) {
-                                case 0:
-                                case 1:
-                                    n = s;
-                                    break;
-                                case 4:
-                                    return i.label++,
-                                    {
-                                        value: s[1],
-                                        done: !1
-                                    };
-                                case 5:
-                                    i.label++,
-                                    o = s[1],
-                                    s = [0];
-                                    continue;
-                                case 7:
-                                    s = i.ops.pop(),
-                                    i.trys.pop();
-                                    continue;
-                                default:
-                                    if (!(n = (n = i.trys).length > 0 && n[n.length - 1]) && (6 === s[0] || 2 === s[0])) {
-                                        i = 0;
-                                        continue
-                                    }
-                                    if (3 === s[0] && (!n || s[1] > n[0] && s[1] < n[3])) {
-                                        i.label = s[1];
-                                        break
-                                    }
-                                    if (6 === s[0] && i.label < n[1]) {
-                                        i.label = n[1],
-                                        n = s;
-                                        break
-                                    }
-                                    if (n && i.label < n[2]) {
-                                        i.label = n[2],
-                                        i.ops.push(s);
-                                        break
-                                    }
-                                    n[2] && i.ops.pop(),
-                                    i.trys.pop();
-                                    continue
-                                }
-                                s = t.call(e, i)
-                            } catch (e) {
-                                s = [6, e],
-                                o = 0
-                            } finally {
-                                r = n = 0
-                            }
-                        if (5 & s[0])
-                            throw s[1];
-                        return {
-                            value: s[0] ? s[1] : void 0,
-                            done: !0
-                        }
-                    }([s, a])
-                }
-            }
-        };
-        function h(e) {
-            return _(this, void 0, void 0, function() {
-                return f(this, function(t) {
-                    return [2, new Promise(function(t) {
-                        return setTimeout(t, e)
-                    }
-                    )]
-                })
-            })
-        }
-        function v(e, t) {
-            return (e ? e.toUpperCase() : e) === (t ? t.toUpperCase() : t)
-        }
-        function p(e, t) {
-            return v(e, t)
-        }
-        function b(e, t) {
-            return v(e, t)
-        }
-        function m(e, t) {
-            return v(e, t)
-        }
-        function g(e) {
-            return /^#[0-9A-F]{6}$/i.test(e)
-        }
-        var k, y, E = function(e, t, r, o) {
-            return new (r || (r = Promise))(function(n, s) {
-                function i(e) {
-                    try {
-                        u(o.next(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function a(e) {
-                    try {
-                        u(o.throw(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function u(e) {
-                    var t;
-                    e.done ? n(e.value) : (t = e.value,
-                    t instanceof r ? t : new r(function(e) {
-                        e(t)
-                    }
-                    )).then(i, a)
-                }
-                u((o = o.apply(e, t || [])).next())
-            }
-            )
-        }, w = function(e, t) {
-            var r, o, n, s, i = {
-                label: 0,
-                sent: function() {
-                    if (1 & n[0])
-                        throw n[1];
-                    return n[1]
-                },
-                trys: [],
-                ops: []
-            };
-            return s = {
-                next: a(0),
-                throw: a(1),
-                return: a(2)
-            },
-            "function" === typeof Symbol && (s[Symbol.iterator] = function() {
-                return this
-            }
-            ),
-            s;
-            function a(s) {
-                return function(a) {
-                    return function(s) {
-                        if (r)
-                            throw new TypeError("Generator is already executing.");
-                        for (; i; )
-                            try {
-                                if (r = 1,
-                                o && (n = 2 & s[0] ? o.return : s[0] ? o.throw || ((n = o.return) && n.call(o),
-                                0) : o.next) && !(n = n.call(o, s[1])).done)
-                                    return n;
-                                switch (o = 0,
-                                n && (s = [2 & s[0], n.value]),
-                                s[0]) {
-                                case 0:
-                                case 1:
-                                    n = s;
-                                    break;
-                                case 4:
-                                    return i.label++,
-                                    {
-                                        value: s[1],
-                                        done: !1
-                                    };
-                                case 5:
-                                    i.label++,
-                                    o = s[1],
-                                    s = [0];
-                                    continue;
-                                case 7:
-                                    s = i.ops.pop(),
-                                    i.trys.pop();
-                                    continue;
-                                default:
-                                    if (!(n = (n = i.trys).length > 0 && n[n.length - 1]) && (6 === s[0] || 2 === s[0])) {
-                                        i = 0;
-                                        continue
-                                    }
-                                    if (3 === s[0] && (!n || s[1] > n[0] && s[1] < n[3])) {
-                                        i.label = s[1];
-                                        break
-                                    }
-                                    if (6 === s[0] && i.label < n[1]) {
-                                        i.label = n[1],
-                                        n = s;
-                                        break
-                                    }
-                                    if (n && i.label < n[2]) {
-                                        i.label = n[2],
-                                        i.ops.push(s);
-                                        break
-                                    }
-                                    n[2] && i.ops.pop(),
-                                    i.trys.pop();
-                                    continue
-                                }
-                                s = t.call(e, i)
-                            } catch (e) {
-                                s = [6, e],
-                                o = 0
-                            } finally {
-                                r = n = 0
-                            }
-                        if (5 & s[0])
-                            throw s[1];
-                        return {
-                            value: s[0] ? s[1] : void 0,
-                            done: !0
-                        }
-                    }([s, a])
-                }
-            }
-        }, O = 250, T = 250, L = {
-            1: "other",
-            2: "vocals",
-            3: "bass",
-            4: "drums"
-        };
-        !function(e) {
-            e[e.other = 1] = "other",
-            e[e.vocals = 2] = "vocals",
-            e[e.bass = 3] = "bass",
-            e[e.drums = 4] = "drums"
-        }(k || (k = {})),
-        function(e) {
-            e[e.ACK = 0] = "ACK",
-            e[e.NAK = 1] = "NAK",
-            e[e.CONNECT = 2] = "CONNECT",
-            e[e.DISCONNECT = 3] = "DISCONNECT",
-            e[e.CONTROL = 4] = "CONTROL",
-            e[e.RESPONSE = 5] = "RESPONSE",
-            e[e.FILE_HEADER = 6] = "FILE_HEADER",
-            e[e.FILE_BODY = 7] = "FILE_BODY",
-            e[e.ABORT = 8] = "ABORT"
-        }(y || (y = {}));
-        var C, P = ["ACK", "NAK", "CONNECT", "DISCONNECT", "CONTROL", "RESPONSE", "FILE_HEADER", "FILE_BODY", "ABORT"];
-        !function(e) {
-            e[e.REBOOT = 0] = "REBOOT",
-            e[e.VERSION = 1] = "VERSION",
-            e[e.GET_STORAGE_INFO = 2] = "GET_STORAGE_INFO",
-            e[e.GET_TRACKS_INFO = 3] = "GET_TRACKS_INFO",
-            e[e.GET_DEVICE_CONFIG = 4] = "GET_DEVICE_CONFIG",
-            e[e.GET_ALBUM_CONFIG = 5] = "GET_ALBUM_CONFIG",
-            e[e.GET_TRACK_CONFIG = 6] = "GET_TRACK_CONFIG",
-            e[e.GET_ALBUM_COVER = 7] = "GET_ALBUM_COVER",
-            e[e.ADD_ALBUM = 8] = "ADD_ALBUM",
-            e[e.DELETE_ALBUM = 9] = "DELETE_ALBUM",
-            e[e.DELETE_TRACK = 10] = "DELETE_TRACK",
-            e[e.GET_MUSIC_FILE = 11] = "GET_MUSIC_FILE",
-            e[e.GET_RECORDING_SLOTS = 12] = "GET_RECORDING_SLOTS",
-            e[e.GET_RECORDING = 13] = "GET_RECORDING",
-            e[e.DELETE_RECORDING = 14] = "DELETE_RECORDING",
-            e[e.RENAME_ALBUM = 15] = "RENAME_ALBUM",
-            e[e.MOVE_TRACK = 16] = "MOVE_TRACK",
-            e[e.GET_STATE_OF_CHARGE = 17] = "GET_STATE_OF_CHARGE",
-            e[e.CHALLENGE = 18] = "CHALLENGE"
-        }(C || (C = {}));
-        var D, G = ["REBOOT", "VERSION", "GET_STORAGE_INFO", "GET_TRACKS_INFO", "GET_DEVICE_CONFIG", "GET_ALBUM_CONFIG", "GET_TRACK_CONFIG", "GET_ALBUM_COVER", "ADD_ALBUM", "DELETE_ALBUM", "DELETE_TRACK", "GET_MUSIC_FILE", "GET_RECORDING_SLOTS", "GET_RECORDING", "DELETE_RECORDING", "RENAME_ALBUM", "MOVE_TRACK", "GET_STATE_OF_CHARGE", "CHALLENGE"];
-        !function(e) {
-            e[e.BUSY = 0] = "BUSY",
-            e[e.SYNTAX_ERROR = 1] = "SYNTAX_ERROR",
-            e[e.STATE_ERROR = 2] = "STATE_ERROR",
-            e[e.RESOURCE_ERROR = 3] = "RESOURCE_ERROR"
-        }(D || (D = {}));
-        var M = ["BUSY", "SYNTAX_ERROR", "STATE_ERROR", "RESOURCE_ERROR"]
-          , S = [];
-        function R(e, t, r) {
-            if (a <= o.DEBUG) {
-                var n = {
-                    transfer: e,
-                    type: t.type,
-                    success: r
-                };
-                switch (t.type) {
-                case y.CONTROL:
-                case y.RESPONSE:
-                    n.operation = t.payload[0];
-                case y.NAK:
-                    n.error = t.payload[0]
-                }
-                S.push(n)
-            }
-        }
-        if (a <= o.DEBUG) {
-            var A = function() {
-                for (var e = [], t = 0, r = S; t < r.length; t++) {
-                    var o = r[t]
-                      , n = "" + ("in" === o.transfer ? " " : "") + o.transfer.toUpperCase() + ": " + P[o.type];
-                    void 0 !== o.operation ? n += " " + G[o.operation] : void 0 !== o.error && (n += " " + M[o.error]),
-                    void 0 !== o.success && (n += o.success ? "" : " [FAIL]"),
-                    e.push(n)
-                }
-                return e
-            };
-            window.printStemPlayerPacketLog = function() {
-                for (var e = 0, t = A(); e < t.length; e++) {
-                    var r = t[e];
-                    console.log(r)
-                }
-            }
-            ,
-            window.downloadStemPlayerPacketLog = function() {
-                var e, t, r;
-                e = "stem-player-packet-log.txt",
-                t = A().join("\n"),
-                (r = document.createElement("a")).setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(t)),
-                r.setAttribute("download", e),
-                r.style.display = "none",
-                document.body.appendChild(r),
-                r.click(),
-                document.body.removeChild(r)
-            }
-        }
-        function I(e) {
-            if (e < 0 || e > 65535)
-                throw new Error("Invalid packet length.");
-            return [255 & e, e >> 8 & 255]
-        }
-        function H(e, t) {
-            return (t << 8) + e
-        }
-        function U(e, t) {
-            var r = String.fromCharCode(e) + JSON.stringify(t) + "\0";
-            return (new TextEncoder).encode(r)
-        }
-        var N = function() {
-            function e() {
-                var e = this;
-                this.sendReceivePacket = function(t, r, o, n) {
-                    return new Promise(function(s) {
-                        return E(e, void 0, void 0, function() {
-                            var e;
-                            return w(this, function(i) {
-                                switch (i.label) {
-                                case 0:
-                                    return i.trys.push([0, 2, , 3]),
-                                    [4, this.sendPacket(t)];
-                                case 1:
-                                    return i.sent(),
-                                    s(null),
-                                    [3, 3];
-                                case 2:
-                                    return e = i.sent(),
-                                    console.error(e),
-                                    n("file upload error: transfering block at position " + (r - o) + " failed."),
-                                    [2];
-                                case 3:
-                                    return this.receivePacket().then(function(e) {
-                                        e.type === y.ACK || n("file upload error: transfering file block at postition " + (r - o) + " failed. failed.")
-                                    }),
-                                    [2]
-                                }
-                            })
-                        })
-                    }
-                    )
-                }
-                ,
-                this.sendAndAcknowledgeReceivePacket = function(t, r, o, n) {
-                    return E(e, void 0, void 0, function() {
-                        var e;
-                        return w(this, function(s) {
-                            switch (s.label) {
-                            case 0:
-                                return s.trys.push([0, 2, , 3]),
-                                [4, this.sendPacket(t)];
-                            case 1:
-                                return s.sent(),
-                                [3, 3];
-                            case 2:
-                                return e = s.sent(),
-                                console.error(e),
-                                n("file upload error: transfering block at position " + (r - o) + " failed."),
-                                [2];
-                            case 3:
-                                return [4, this.receivePacket()];
-                            case 4:
-                                return s.sent().type !== y.ACK ? (n("file upload error: transfering file block at postition " + (r - o) + " failed. failed."),
-                                [2]) : [2]
-                            }
-                        })
-                    })
-                }
-                ,
-                this.onUSBConnect = this.onUSBConnect.bind(this),
-                this.onUSBDisconnect = this.onUSBDisconnect.bind(this),
-                navigator && navigator.usb && (navigator.usb.addEventListener("connect", this.onUSBConnect),
-                navigator.usb.addEventListener("disconnect", this.onUSBDisconnect))
-            }
-            return Object.defineProperty(e.prototype, "connected", {
-                get: function() {
-                    return this.usb && this.usb.opened
-                },
-                enumerable: !1,
-                configurable: !0
-            }),
-            e.prototype.onUSBConnect = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
-                        switch (e.label) {
-                        case 0:
-                            return this.usb ? [3, 2] : [4, h(2e3)];
-                        case 1:
-                            e.sent(),
-                            this.findPairedDevice(),
-                            e.label = 2;
-                        case 2:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.onUSBDisconnect = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return this.usb ? [4, navigator.usb.getDevices()] : [3, 2];
-                        case 1:
-                            e = r.sent(),
-                            e.find(function(e) {
-                                return e.serialNumber === t.usb.serialNumber
-                            }) || this.reset(),
-                            r.label = 2;
-                        case 2:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.destroy = function() {
-                navigator && navigator.usb && (navigator.usb.removeEventListener("connect", this.onUSBConnect),
-                navigator.usb.removeEventListener("disconnect", this.onUSBDisconnect)),
-                this.usb = void 0
-            }
-            ,
-            e.prototype.ensureDevice = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
-                        switch (e.label) {
-                        case 0:
-                            if (this.usb) {
-                                if (this.usb.opened)
-                                    return [2];
-                                this.usb = void 0
-                            }
-                            return [4, this.findPairedDevice()];
-                        case 1:
-                            return e.sent() ? [2] : [4, this.requestDevice()];
-                        case 2:
-                            if (!e.sent())
-                                throw new Error("No device found");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.openConnection = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
-                        switch (e.label) {
-                        case 0:
-                            return this.usb ? [4, this.usb.open()] : [3, 5];
-                        case 1:
-                            return e.sent(),
-                            [4, this.usb.selectConfiguration(1)];
-                        case 2:
-                            return e.sent(),
-                            [4, this.usb.claimInterface(0)];
-                        case 3:
-                            return e.sent(),
-                            [4, h(500)];
-                        case 4:
-                            return e.sent(),
-                            this.onConnectHandler && this.onConnectHandler(),
-                            [2, !0];
-                        case 5:
-                            return [2, !1]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.findPairedDevice = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return navigator && navigator.usb ? [4, navigator.usb.getDevices()] : [3, 2];
-                        case 1:
-                            for (e = r.sent(),
-                            t = 0; t < e.length; t += 1)
-                                4617 === e[t].vendorId && (this.usb = e[t]);
-                            r.label = 2;
-                        case 2:
-                            return [2, this.openConnection()]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.requestDevice = function(e) {
-                return void 0 === e && (e = !1),
-                E(this, void 0, void 0, function() {
-                    var t, r, o, n;
-                    return w(this, function(s) {
-                        switch (s.label) {
-                        case 0:
-                            if (!this.usb)
-                                return [3, 9];
-                            if (!e)
-                                return [3, 8];
-                            s.label = 1;
-                        case 1:
-                            return s.trys.push([1, 3, , 4]),
-                            [4, this.endSession()];
-                        case 2:
-                            return s.sent(),
-                            [3, 4];
-                        case 3:
-                            return t = s.sent(),
-                            c.error("Error ignored while disconnecting: " + t),
-                            [3, 4];
-                        case 4:
-                            return s.trys.push([4, 6, , 7]),
-                            [4, this.reset()];
-                        case 5:
-                            return s.sent(),
-                            [3, 7];
-                        case 6:
-                            return r = s.sent(),
-                            c.error("Error ignored while disconnecting: " + r),
-                            [3, 7];
-                        case 7:
-                            return [3, 9];
-                        case 8:
-                            throw new Error("Device already initialised.");
-                        case 9:
-                            return s.trys.push([9, 11, , 12]),
-                            o = this,
-                            [4, navigator.usb.requestDevice({
-                                filters: [{
-                                    vendorId: 4617
-                                }]
-                            })];
-                        case 10:
-                            return o.usb = s.sent(),
-                            [3, 12];
-                        case 11:
-                            if ("NotFoundError" !== (n = s.sent()).name)
-                                throw n;
-                            return [3, 12];
-                        case 12:
-                            return [2, this.openConnection()]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.reset = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
-                        switch (e.label) {
-                        case 0:
-                            if (!this.usb)
-                                return [3, 5];
-                            e.label = 1;
-                        case 1:
-                            return e.trys.push([1, 3, , 4]),
-                            [4, this.usb.close()];
-                        case 2:
-                            return e.sent(),
-                            [3, 4];
-                        case 3:
-                            return e.sent(),
-                            [3, 4];
-                        case 4:
-                            this.usb = void 0,
-                            this.onDisconnectHandler && this.onDisconnectHandler(),
-                            e.label = 5;
-                        case 5:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.onConnect = function(e) {
-                this.onConnectHandler = e
-            }
-            ,
-            e.prototype.onDisconnect = function(e) {
-                this.onDisconnectHandler = e
-            }
-            ,
-            e.prototype.startSession = function() {
-                return E(this, void 0, void 0, function() {
-                    var e;
-                    return w(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return c.debug("startSession called"),
-                            [4, this.ensureDevice()];
-                        case 1:
-                            return t.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONNECT,
-                                payload: []
-                            })];
-                        case 2:
-                            return t.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (e = t.sent(),
-                            c.debug("startSession respose received", P[e.type]),
-                            e.type !== y.ACK)
-                                throw new Error("`startSession` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.endSession = function() {
-                return E(this, void 0, void 0, function() {
-                    var e;
-                    return w(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return c.debug("endSession called"),
-                            [4, this.ensureDevice()];
-                        case 1:
-                            return t.sent(),
-                            [4, this.sendPacket({
-                                type: y.DISCONNECT,
-                                payload: []
-                            })];
-                        case 2:
-                            return t.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (e = t.sent(),
-                            c.debug("endSession respose received", P[e.type]),
-                            e.type !== y.ACK)
-                                throw new Error("`endSession` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.reboot = function() {
-                return E(this, void 0, void 0, function() {
-                    var e;
-                    return w(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return t.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.REBOOT]
-                            })];
-                        case 2:
-                            return t.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            return (e = t.sent()).type !== y.RESPONSE ? [3, 5] : e.payload[0] === C.REBOOT ? [2] : [4, this.reset()];
-                        case 4:
-                            return t.sent(),
-                            [2];
-                        case 5:
-                            throw new Error("`control` operation " + C.REBOOT + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceInfo = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.VERSION]
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if ((e = r.sent()).type === y.RESPONSE && e.payload[0] === C.VERSION)
-                                return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                [2, JSON.parse(t)];
-                            throw new Error("`control` operation " + C.VERSION + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getStorageInfo = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            c.debug("getStorageInfo: sending"),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_STORAGE_INFO]
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (e = r.sent(),
-                            c.debug("getStorageInfo: res", e),
-                            e.type === y.RESPONSE) {
-                                if (e.payload[0] === C.GET_STORAGE_INFO)
-                                    return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                    c.debug("getStorageInfo return", t),
-                                    [2, JSON.parse(t)]
-                            } else
-                                c.error("getStorageInfo: Received " + P[e.type]);
-                            throw new Error("`control` operation " + G[C.GET_STORAGE_INFO] + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getTrackList = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t, r;
-                    return w(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            return c.debug("getTrackList: before ensure device"),
-                            [4, this.ensureDevice()];
-                        case 1:
-                            return o.sent(),
-                            c.debug("getTrackList: after ensure device"),
-                            c.debug("getTrackList: sending " + P[y.CONTROL] + ": " + G[C.GET_TRACKS_INFO]),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_TRACKS_INFO]
-                            })];
-                        case 2:
-                            return o.sent(),
-                            c.debug("getTrackList: listening for response"),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (e = o.sent(),
-                            c.debug("getTrackList: response received"),
-                            e.type === y.RESPONSE) {
-                                if (e.payload[0] === C.GET_TRACKS_INFO)
-                                    return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                    r = JSON.parse(t),
-                                    c.debug("getTrackList: response", r),
-                                    [2, r]
-                            } else
-                                c.error("getTrackList: Received " + P[e.type]);
-                            throw new Error("`control` operation " + G[C.GET_TRACKS_INFO] + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteTrack = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.DELETE_TRACK, {
-                                    album: e,
-                                    track: t
-                                })
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (r.sent().type !== y.RESPONSE)
-                                throw new Error("`deleteTrack` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getTrackInfo = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    var r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return i.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.GET_TRACK_CONFIG, {
-                                    album: e,
-                                    track: t
-                                })
-                            })];
-                        case 2:
-                            return i.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            return (r = i.sent()).type !== y.RESPONSE ? [3, 8] : r.payload[0] !== C.GET_TRACK_CONFIG ? [3, 8] : [4, this.sendPacket({
-                                type: y.ACK,
-                                payload: []
-                            })];
-                        case 4:
-                            i.sent(),
-                            i.label = 5;
-                        case 5:
-                            return i.trys.push([5, 7, , 8]),
-                            [4, this.downloadFile().promise];
-                        case 6:
-                            return o = i.sent(),
-                            0 === (n = (new TextDecoder).decode(o.data)).charCodeAt(n.length - 1) && (n = n.substr(0, n.length - 1)),
-                            [2, JSON.parse(n)];
-                        case 7:
-                            throw s = i.sent(),
-                            console.error(s),
-                            new Error("Getting track info failed: " + s);
-                        case 8:
-                            throw new Error("`control` operation " + C.GET_TRACK_CONFIG + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.addAlbum = function(e) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return t.sent(),
-                            c.debug("addAlbum", e),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.ADD_ALBUM, {
-                                    album: e
-                                })
-                            })];
-                        case 2:
-                            return t.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (t.sent().type !== y.RESPONSE)
-                                throw new Error("`addAlbum` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteAlbum = function(e) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return t.sent(),
-                            c.debug("deleteAlbum", e),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.DELETE_ALBUM, {
-                                    album: e
-                                })
-                            })];
-                        case 2:
-                            return t.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (t.sent().type !== y.RESPONSE)
-                                throw new Error("`deleteAlbum` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceConfig = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t, r, o;
-                    return w(this, function(n) {
-                        switch (n.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return n.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_DEVICE_CONFIG]
-                            })];
-                        case 2:
-                            return n.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            return (e = n.sent()).type !== y.RESPONSE ? [3, 10] : e.payload[0] !== C.GET_DEVICE_CONFIG ? [3, 9] : [4, this.sendPacket({
-                                type: y.ACK,
-                                payload: []
-                            })];
-                        case 4:
-                            n.sent(),
-                            t = null,
-                            n.label = 5;
-                        case 5:
-                            return n.trys.push([5, 7, , 8]),
-                            [4, this.downloadFile().promise];
-                        case 6:
-                            return t = n.sent(),
-                            [3, 8];
-                        case 7:
-                            throw r = n.sent(),
-                            new Error("Getting device config failed: " + r);
-                        case 8:
-                            try {
-                                return o = (new TextDecoder).decode(t.data),
-                                [2, JSON.parse(o)]
-                            } catch (e) {
-                                throw new Error("Parsing device config failed: " + e)
-                            }
-                            n.label = 9;
-                        case 9:
-                            return [3, 11];
-                        case 10:
-                            if (e.type === y.NAK && e.payload[0] === D.RESOURCE_ERROR)
-                                return [2, null];
-                            n.label = 11;
-                        case 11:
-                            throw new Error("`control` operation " + C.GET_DEVICE_CONFIG + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getAlbumConfig = function(e) {
-                return E(this, void 0, void 0, function() {
-                    var t, r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return i.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.GET_ALBUM_CONFIG, {
-                                    album: e
-                                })
-                            })];
-                        case 2:
-                            return i.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            return (t = i.sent()).type !== y.RESPONSE ? [3, 10] : t.payload[0] !== C.GET_ALBUM_CONFIG ? [3, 9] : [4, this.sendPacket({
-                                type: y.ACK,
-                                payload: []
-                            })];
-                        case 4:
-                            i.sent(),
-                            r = null,
-                            i.label = 5;
-                        case 5:
-                            return i.trys.push([5, 7, , 8]),
-                            [4, this.downloadFile().promise];
-                        case 6:
-                            return r = i.sent(),
-                            [3, 8];
-                        case 7:
-                            throw o = i.sent(),
-                            new Error("Getting album info failed: " + o);
-                        case 8:
-                            try {
-                                return n = (new TextDecoder).decode(r.data),
-                                (s = JSON.parse(n)).id && (s.id = s.id.toUpperCase()),
-                                s.tracks && s.tracks.forEach(function(e) {
-                                    e.id && (e.id = e.id.toUpperCase())
-                                }),
-                                [2, s]
-                            } catch (e) {
-                                throw new Error("Parsing album info failed: " + e)
-                            }
-                            i.label = 9;
-                        case 9:
-                            return [3, 11];
-                        case 10:
-                            if (t.type === y.NAK && t.payload[0] === D.RESOURCE_ERROR)
-                                return [2, null];
-                            i.label = 11;
-                        case 11:
-                            throw new Error("`control` operation " + C.GET_ALBUM_CONFIG + " failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.downloadFile = function(e) {
-                var t = this
-                  , r = !1;
-                return {
-                    promise: new Promise(function(o, n) {
-                        return E(t, void 0, void 0, function() {
-                            var t, s, i, a, u, d, c, l, _, f, v, p;
-                            return w(this, function(b) {
-                                switch (b.label) {
-                                case 0:
-                                    return b.trys.push([0, 12, , 13]),
-                                    [4, this.receivePacket()];
-                                case 1:
-                                    if ((t = b.sent()).type !== y.FILE_HEADER)
-                                        throw new Error("Receiving file failed: Expected FILE_HEADER");
-                                    return s = (new TextDecoder).decode(t.payload.slice(0, t.payload.length - 1)),
-                                    i = JSON.parse(s),
-                                    [4, this.sendPacket({
-                                        type: y.ACK,
-                                        payload: []
-                                    })];
-                                case 2:
-                                    b.sent(),
-                                    a = 0,
-                                    u = new Uint8Array(i.size),
-                                    d = Date.now(),
-                                    e && e(0),
-                                    b.label = 3;
-                                case 3:
-                                    return [4, this.receivePacket()];
-                                case 4:
-                                    return (c = b.sent()).type !== y.FILE_BODY ? (n("Receiving file failed: Expected FILE_BODY"),
-                                    [2]) : (l = H(c.payload[0], c.payload[1]),
-                                    _ = c.payload.slice(5, l + 2 + 3),
-                                    u.set(_, a),
-                                    a += l,
-                                    f = Date.now(),
-                                    e && f - d > 250 && (v = Math.round(a / i.size * 100) / 100,
-                                    e(Math.min(v, 1)),
-                                    d = f),
-                                    a >= i.size ? [3, 11] : r ? [4, h(250)] : [3, 9]);
-                                case 5:
-                                    return b.sent(),
-                                    [4, this.sendPacket({
-                                        type: y.ABORT,
-                                        payload: []
-                                    })];
-                                case 6:
-                                    return b.sent(),
-                                    [4, this.receivePacket()];
-                                case 7:
-                                    return b.sent().type !== y.ACK ? (n(new Error("Cancelling download failed")),
-                                    [2]) : [4, h(250)];
-                                case 8:
-                                    return b.sent(),
-                                    n(new Error("Cancelled")),
-                                    [2];
-                                case 9:
-                                    return [4, this.sendPacket({
-                                        type: y.ACK,
-                                        payload: []
-                                    })];
-                                case 10:
-                                    return b.sent(),
-                                    [3, 3];
-                                case 11:
-                                    return o({
-                                        size: i.size,
-                                        type: i.type,
-                                        data: u
-                                    }),
-                                    [3, 13];
-                                case 12:
-                                    return p = b.sent(),
-                                    n(p),
-                                    [3, 13];
-                                case 13:
-                                    return [2]
-                                }
-                            })
-                        })
-                    }
-                    ),
-                    cancel: function() {
-                        r = !0
-                    }
-                }
-            }
-            ,
-            e.prototype.uploadFile = function(e, t, r) {
-                var o = this;
-                c.debug("Upload file called", e, t.name);
-                var n = !1;
-                return {
-                    promise: new Promise(function(s, i) {
-                        return E(o, void 0, void 0, function() {
-                            var o, a, u, d, l, _, f = this;
-                            return w(this, function(v) {
-                                switch (v.label) {
-                                case 0:
-                                    return o = JSON.stringify(e) + "\0",
-                                    a = new TextEncoder,
-                                    u = a.encode(o),
-                                    d = {
-                                        type: y.FILE_HEADER,
-                                        payload: u
-                                    },
-                                    c.debug("before send header"),
-                                    [4, this.sendPacket(d)];
-                                case 1:
-                                    return v.sent(),
-                                    c.debug("after send header"),
-                                    [4, this.receivePacket()];
-                                case 2:
-                                    return l = v.sent(),
-                                    c.debug("header res", l),
-                                    l.type !== y.ACK ? (c.error("Response: ", l),
-                                    i(new Error("file upload error: sending `file-header` failed.")),
-                                    [2]) : ((_ = new FileReader).addEventListener("load", function(t) {
-                                        return E(f, void 0, void 0, function() {
-                                            var o, a, u, d, l, _, f, v, p, b, m;
-                                            return w(this, function(g) {
-                                                switch (g.label) {
-                                                case 0:
-                                                    o = t.target.result,
-                                                    a = new Uint8Array(o),
-                                                    u = e.size,
-                                                    d = Date.now(),
-                                                    r && r(0),
-                                                    g.label = 1;
-                                                case 1:
-                                                    if (!(u > 0))
-                                                        return [3, 8];
-                                                    for (l = Math.min(u, 8192),
-                                                    _ = I(l),
-                                                    (f = new Uint8Array(l + 2 + 3))[0] = _[0],
-                                                    f[1] = _[1],
-                                                    v = 0; v < l; v += 1)
-                                                        f[5 + v] = a[e.size - u + v];
-                                                    return n && u > l ? [4, h(250)] : [3, 6];
-                                                case 2:
-                                                    return g.sent(),
-                                                    [4, this.sendPacket({
-                                                        type: y.ABORT,
-                                                        payload: []
-                                                    })];
-                                                case 3:
-                                                    return g.sent(),
-                                                    [4, this.receivePacket()];
-                                                case 4:
-                                                    return g.sent().type !== y.ACK ? (i(new Error("Cancelling upload failed")),
-                                                    [2]) : [4, h(250)];
-                                                case 5:
-                                                    return g.sent(),
-                                                    i(new Error("Cancelled")),
-                                                    [2];
-                                                case 6:
-                                                    return p = {
-                                                        type: y.FILE_BODY,
-                                                        payload: f
-                                                    },
-                                                    [4, this.sendReceivePacket(p, e.size, u, i)];
-                                                case 7:
-                                                    return g.sent(),
-                                                    b = Date.now(),
-                                                    r && b - d > 250 && (m = Math.round((e.size - u) / e.size * 100) / 100,
-                                                    r(m),
-                                                    d = b),
-                                                    u -= l,
-                                                    [3, 1];
-                                                case 8:
-                                                    return r && r(1),
-                                                    c.debug("file transfer complete"),
-                                                    s(),
-                                                    [2]
-                                                }
-                                            })
-                                        })
-                                    }),
-                                    _.addEventListener("error", function() {
-                                        throw new Error("file upload error: reading source file failed.")
-                                    }),
-                                    _.readAsArrayBuffer(t),
-                                    [2])
-                                }
-                            })
-                        })
-                    }
-                    ),
-                    cancel: function() {
-                        n = !0
-                    }
-                }
-            }
-            ,
-            e.prototype.uploadStem = function(e, t, r, o, n, s) {
-                void 0 === n && (n = "wav");
-                var i = o.size;
-                c.debug("uploadStem", e);
-                var a = {
-                    size: i,
-                    type: "mp3" === n ? "stem-audio-mp3" : "stem-audio",
-                    track: e,
-                    album: t,
-                    stem: r
-                };
-                return this.uploadFile(a, o, s)
-            }
-            ,
-            e.prototype.uploadTrackConfig = function(e, t, r, o) {
-                return E(this, void 0, void 0, function() {
-                    var n, s, i, a, u;
-                    return w(this, function(d) {
-                        if (n = new TextEncoder,
-                        (s = JSON.stringify(r, null, 2)).length > 1024)
-                            throw new Error("Track config too big: " + s.length + "B");
-                        return i = n.encode(s),
-                        a = new File([i, "\0"],"trackconfig.json"),
-                        u = {
-                            size: a.size,
-                            type: "track-config",
-                            track: e,
-                            album: t
-                        },
-                        c.debug("uploadTrackConfig", u, r),
-                        [2, this.uploadFile(u, a, o).promise]
-                    })
-                })
-            }
-            ,
-            e.prototype.uploadAlbumConfig = function(e, t, r) {
-                return E(this, void 0, void 0, function() {
-                    var o, n, s, i;
-                    return w(this, function(a) {
-                        return o = new TextEncoder,
-                        t.id = t.id.toUpperCase(),
-                        n = o.encode(JSON.stringify(t, null, 2)),
-                        s = new File([n],"albumconfig.json"),
-                        i = {
-                            size: s.size,
-                            type: "album-config",
-                            album: e
-                        },
-                        c.debug("Upload album config: ", i, t),
-                        [2, this.uploadFile(i, s, r).promise]
-                    })
-                })
-            }
-            ,
-            e.prototype.uploadDeviceConfig = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    var r, o, n, s;
-                    return w(this, function(i) {
-                        return r = new TextEncoder,
-                        o = r.encode(JSON.stringify(e, null, 2)),
-                        n = new File([o],"config.txt"),
-                        s = {
-                            size: n.size,
-                            type: "device-config"
-                        },
-                        c.debug("uploadDeviceConfig", s, n),
-                        [2, this.uploadFile(s, n, t).promise]
-                    })
-                })
-            }
-            ,
-            e.prototype.downloadStem = function(e, t, r, o) {
-                var n = this
-                  , s = null;
-                return {
-                    promise: new Promise(function(i, a) {
-                        return E(n, void 0, void 0, function() {
-                            var n, u, d, c, l;
-                            return w(this, function(_) {
-                                switch (_.label) {
-                                case 0:
-                                    return _.trys.push([0, 9, , 10]),
-                                    [4, this.ensureDevice()];
-                                case 1:
-                                    return _.sent(),
-                                    [4, this.sendPacket({
-                                        type: y.CONTROL,
-                                        payload: U(C.GET_MUSIC_FILE, {
-                                            album: e,
-                                            track: t,
-                                            stem: r
-                                        })
-                                    })];
-                                case 2:
-                                    return _.sent(),
-                                    [4, this.receivePacket()];
-                                case 3:
-                                    return (n = _.sent()).type !== y.RESPONSE ? [3, 8] : n.payload[0] !== C.GET_MUSIC_FILE ? [3, 8] : [4, this.sendPacket({
-                                        type: y.ACK,
-                                        payload: []
-                                    })];
-                                case 4:
-                                    _.sent(),
-                                    _.label = 5;
-                                case 5:
-                                    return _.trys.push([5, 7, , 8]),
-                                    [4, (s = this.downloadFile(o)).promise];
-                                case 6:
-                                    return u = _.sent(),
-                                    d = new File([u.data],L[r] + ".wav"),
-                                    i(d),
-                                    [2];
-                                case 7:
-                                    if ("Cancelled" === (c = _.sent()).message)
-                                        return a(c),
-                                        [2];
-                                    throw c;
-                                case 8:
-                                    return a(new Error("`control` operation " + C.GET_MUSIC_FILE + " failed.")),
-                                    [3, 10];
-                                case 9:
-                                    return l = _.sent(),
-                                    console.error(l),
-                                    a(new Error("Getting stem failed: " + l)),
-                                    [2];
-                                case 10:
-                                    return [2]
-                                }
-                            })
-                        })
-                    }
-                    ),
-                    cancel: function() {
-                        if (!s)
-                            throw new Error("Unable to cancel: transfer not started yet");
-                        s.cancel()
-                    }
-                }
-            }
-            ,
-            e.prototype.getRecordedSlots = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            c.debug("getRecordedSlots - started"),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_RECORDING_SLOTS]
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (e = r.sent(),
-                            c.debug("getRecordedSlots", e),
-                            e.type === y.RESPONSE && e.payload[0] === C.GET_RECORDING_SLOTS)
-                                return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                [2, JSON.parse(t)];
-                            throw new Error("`getRecordedSlots` failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.renameAlbum = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.RENAME_ALBUM, {
-                                    "album-old": e,
-                                    "album-new": t
-                                })
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (r.sent().type !== y.RESPONSE)
-                                throw new Error("`renameAlbum` failed.");
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.moveTrack = function(e, t, r, o) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(n) {
-                        switch (n.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return n.sent(),
-                            c.debug("moveTrack - started", e, t, r, o),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.MOVE_TRACK, {
-                                    "album-old": e,
-                                    "album-new": r,
-                                    "track-old": t,
-                                    "track-new": o
-                                })
-                            })];
-                        case 2:
-                            return n.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (n.sent().type !== y.RESPONSE)
-                                throw new Error("`moveTrack` - failed.");
-                            return c.debug("moveTrack - complete"),
-                            [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getChargeState = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t;
-                    return w(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return r.sent(),
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_STATE_OF_CHARGE]
-                            })];
-                        case 2:
-                            return r.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if ((e = r.sent()).type === y.RESPONSE && e.payload[0] === C.GET_STATE_OF_CHARGE)
-                                return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                [2, JSON.parse(t)];
-                            throw new Error("`getChargeState` failed.")
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deviceAuth = function(e) {
-                return E(this, void 0, void 0, function() {
-                    var t, r;
-                    return w(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            return [4, this.ensureDevice()];
-                        case 1:
-                            return o.sent(),
-                            c.debug("getChallengeResponse - start"),
-                            e = (2147483648 & (n = e)) > 0 ? n - 4294967296 & 4294967295 : 4294967295 & n,
-                            [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.CHALLENGE, {
-                                    challenge: e
-                                })
-                            })];
-                        case 2:
-                            return o.sent(),
-                            [4, this.receivePacket()];
-                        case 3:
-                            if (t = o.sent(),
-                            c.debug("getChallengeResponse: res", t),
-                            t.type === y.RESPONSE && t.payload[0] === C.CHALLENGE)
-                                return r = (new TextDecoder).decode(t.payload.slice(1, t.payload.length - 1)),
-                                c.debug("getChallengeResponse: validated payload", JSON.parse(r)),
-                                [2, JSON.parse(r).response];
-                            throw new Error("`control` operation " + C.CHALLENGE + " failed.")
-                        }
-                        var n
-                    })
-                })
-            }
-            ,
-            e.prototype.sendPacket = function(e) {
-                return E(this, void 0, void 0, function() {
-                    var t, r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
-                        case 0:
-                            t = function(e) {
-                                var t = e.payload.length + 1
-                                  , r = I(t)
-                                  , o = 2 + t;
-                                o % 64 === 0 && (o += 1);
-                                var n = new Uint8Array(o);
-                                return n[0] = r[0],
-                                n[1] = r[1],
-                                n[2] = e.type,
-                                n.set(e.payload, 3),
-                                n
-                            }(e),
-                            o = void 0,
-                            i.label = 1;
-                        case 1:
-                            i.trys.push([1, 6, 7, 8]),
-                            e.type === y.FILE_HEADER && (c.debug("about to send file-header"),
-                            c.debug(e.payload.length, t)),
-                            i.label = 2;
-                        case 2:
-                            return i.trys.push([2, 4, , 5]),
-                            [4, this.usb.transferOut(1, t)];
-                        case 3:
-                            return r = i.sent(),
-                            e.type === y.FILE_HEADER && c.debug("file-header sent", r),
-                            [3, 5];
-                        case 4:
-                            throw "NotFoundError" === (n = i.sent()).name && this.reset(),
-                            n;
-                        case 5:
-                            if ("ok" !== r.status)
-                                throw new Error("USB data transfer failed.");
-                            return o = !0,
-                            [3, 8];
-                        case 6:
-                            throw s = i.sent(),
-                            o = !1,
-                            s;
-                        case 7:
-                            return R("out", e, o),
-                            [7];
-                        case 8:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.receivePacket = function() {
-                return E(this, void 0, void 0, function() {
-                    var e, t, r, o;
-                    return w(this, function(n) {
-                        switch (n.label) {
-                        case 0:
-                            return n.trys.push([0, 2, , 3]),
-                            [4, this.usb.transferIn(1, 8210)];
-                        case 1:
-                            return e = n.sent(),
-                            [3, 3];
-                        case 2:
-                            throw "NotFoundError" === (t = n.sent()).name && this.reset(),
-                            t;
-                        case 3:
-                            if ("ok" !== e.status)
-                                throw new Error("USB data transfer failed.");
-                            return r = new Uint8Array(e.data.buffer),
-                            R("in", o = function(e) {
-                                var t = H(e[0], e[1])
-                                  , r = {
-                                    type: e[2],
-                                    payload: []
-                                };
-                                return t > 1 && (r.payload = e.slice(3, t + 2)),
-                                r
-                            }(r), !0),
-                            [2, o]
-                        }
-                    })
-                })
-            }
-            ,
-            e
-        }()
-          , B = function() {
-            return (B = Object.assign || function(e) {
-                for (var t, r = 1, o = arguments.length; r < o; r++)
-                    for (var n in t = arguments[r])
-                        Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
-                return e
-            }
-            ).apply(this, arguments)
-        }
-          , j = function(e, t, r, o) {
-            return new (r || (r = Promise))(function(n, s) {
-                function i(e) {
-                    try {
-                        u(o.next(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function a(e) {
-                    try {
-                        u(o.throw(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function u(e) {
-                    var t;
-                    e.done ? n(e.value) : (t = e.value,
-                    t instanceof r ? t : new r(function(e) {
-                        e(t)
-                    }
-                    )).then(i, a)
-                }
-                u((o = o.apply(e, t || [])).next())
-            }
-            )
-        }
-          , K = function(e, t) {
-            var r, o, n, s, i = {
-                label: 0,
-                sent: function() {
-                    if (1 & n[0])
-                        throw n[1];
-                    return n[1]
-                },
-                trys: [],
-                ops: []
-            };
-            return s = {
-                next: a(0),
-                throw: a(1),
-                return: a(2)
-            },
-            "function" === typeof Symbol && (s[Symbol.iterator] = function() {
-                return this
-            }
-            ),
-            s;
-            function a(s) {
-                return function(a) {
-                    return function(s) {
-                        if (r)
-                            throw new TypeError("Generator is already executing.");
-                        for (; i; )
-                            try {
-                                if (r = 1,
-                                o && (n = 2 & s[0] ? o.return : s[0] ? o.throw || ((n = o.return) && n.call(o),
-                                0) : o.next) && !(n = n.call(o, s[1])).done)
-                                    return n;
-                                switch (o = 0,
-                                n && (s = [2 & s[0], n.value]),
-                                s[0]) {
-                                case 0:
-                                case 1:
-                                    n = s;
-                                    break;
-                                case 4:
-                                    return i.label++,
-                                    {
-                                        value: s[1],
-                                        done: !1
-                                    };
-                                case 5:
-                                    i.label++,
-                                    o = s[1],
-                                    s = [0];
-                                    continue;
-                                case 7:
-                                    s = i.ops.pop(),
-                                    i.trys.pop();
-                                    continue;
-                                default:
-                                    if (!(n = (n = i.trys).length > 0 && n[n.length - 1]) && (6 === s[0] || 2 === s[0])) {
-                                        i = 0;
-                                        continue
-                                    }
-                                    if (3 === s[0] && (!n || s[1] > n[0] && s[1] < n[3])) {
-                                        i.label = s[1];
-                                        break
-                                    }
-                                    if (6 === s[0] && i.label < n[1]) {
-                                        i.label = n[1],
-                                        n = s;
-                                        break
-                                    }
-                                    if (n && i.label < n[2]) {
-                                        i.label = n[2],
-                                        i.ops.push(s);
-                                        break
-                                    }
-                                    n[2] && i.ops.pop(),
-                                    i.trys.pop();
-                                    continue
-                                }
-                                s = t.call(e, i)
-                            } catch (e) {
-                                s = [6, e],
-                                o = 0
-                            } finally {
-                                r = n = 0
-                            }
-                        if (5 & s[0])
-                            throw s[1];
-                        return {
-                            value: s[0] ? s[1] : void 0,
-                            done: !0
-                        }
-                    }([s, a])
-                }
-            }
-        }
-          , x = function() {
-            function e() {
-                this.taskQueue = new l,
-                this.usb = new N
-            }
-            return e.prototype.queueTask = function(e, t, r) {
-                return void 0 === r && (r = 0),
-                this.taskQueue.queueTask(e, t, r)
-            }
-            ,
-            e.prototype.findPairedDevice = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.findPairedDevice()
-                        }, "findPairedDevice")]
-                    })
-                })
-            }
-            ,
-            e.prototype.connect = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.ensureDevice()
-                        }, "connect")]
-                    })
-                })
-            }
-            ,
-            e.prototype.disconnect = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.reset()
-                        }, "disconnect")]
-                    })
-                })
-            }
-            ,
-            Object.defineProperty(e.prototype, "connected", {
-                get: function() {
-                    return this.usb.connected
-                },
-                enumerable: !1,
-                configurable: !0
-            }),
-            e.prototype.startSession = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return r.trys.push([0, 3, , 5]),
-                            [4, this.queueTask(function() {
-                                return t.usb.startSession()
-                            }, "startSession", 5e3)];
-                        case 1:
-                            return r.sent(),
-                            [4, this.queueTask(function() {
-                                return t.deviceMigration()
-                            }, "deviceCheck")];
-                        case 2:
-                            return [2, r.sent()];
-                        case 3:
-                            return e = r.sent(),
-                            c.error("startSession failed", e),
-                            c.debug("Trying to reboot"),
-                            [4, this.usb.reboot()];
-                        case 4:
-                            return r.sent(),
-                            [3, 5];
-                        case 5:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.endSession = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.endSession()
-                        }, "endSession")]
-                    })
-                })
-            }
-            ,
-            e.prototype.onConnect = function(e) {
-                this.usb.onConnect(e)
-            }
-            ,
-            e.prototype.onDisconnect = function(e) {
-                this.usb.onDisconnect(e)
-            }
-            ,
-            e.prototype.reboot = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.reboot()
-                        }, "reboot")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceInfo = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return t.usb.getDeviceInfo()
-                            }, "getDeviceInfo")];
-                        case 1:
-                            return [2, {
-                                bootloaderVersion: (e = r.sent()).blver,
-                                bluetoothVersion: e.btver,
-                                appVersion: e.appver,
-                                serialNumber: e.sn
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getStorageInfo = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return t.usb.getStorageInfo()
-                            }, "getStorageInfo")];
-                        case 1:
-                            return e = r.sent(),
-                            [2, {
-                                size: parseInt(e.size),
-                                free: parseInt(e.free)
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.listTracks = function(e) {
-                return void 0 === e && (e = !1),
-                j(this, void 0, void 0, function() {
-                    var t, r = this;
-                    return K(this, function(o) {
-                        return t = function() {
-                            return j(r, void 0, void 0, function() {
-                                var e, t, r, o, n, s, i, a, u, d, l, _;
-                                return K(this, function(f) {
-                                    switch (f.label) {
-                                    case 0:
-                                        return c.debug("listTracks: before getTrackList"),
-                                        [4, this.usb.getTrackList()];
-                                    case 1:
-                                        e = f.sent(),
-                                        c.debug("listTracks: after getTrackList"),
-                                        t = {},
-                                        r = {},
-                                        o = 0,
-                                        f.label = 2;
-                                    case 2:
-                                        if (!(o < e.l.length))
-                                            return [3, 11];
-                                        n = e.l[o],
-                                        s = n.a,
-                                        r[s] = r[s] || {},
-                                        f.label = 3;
-                                    case 3:
-                                        return f.trys.push([3, 5, , 6]),
-                                        c.debug("listTracks: before getAlbumConfig for " + s),
-                                        i = t,
-                                        a = s,
-                                        [4, this.usb.getAlbumConfig(s)];
-                                    case 4:
-                                        return i[a] = f.sent(),
-                                        c.debug("listTracks: received albumConfig", t[s]),
-                                        [3, 6];
-                                    case 5:
-                                        return f.sent(),
-                                        [3, 6];
-                                    case 6:
-                                        u = 0,
-                                        f.label = 7;
-                                    case 7:
-                                        return u < n.c.length ? (d = n.c[u].t,
-                                        c.debug("listTracks: before getTrackInfo for " + d),
-                                        l = r[s],
-                                        _ = d,
-                                        [4, this.usb.getTrackInfo(s, d)]) : [3, 10];
-                                    case 8:
-                                        l[_] = f.sent(),
-                                        c.debug("listTracks: received trackInfo for " + d, r[s][d]),
-                                        f.label = 9;
-                                    case 9:
-                                        return u += 1,
-                                        [3, 7];
-                                    case 10:
-                                        return o += 1,
-                                        [3, 2];
-                                    case 11:
-                                        return c.debug("listTracks: formatting result"),
-                                        [2, {
-                                            albums: e.l.map(function(e) {
-                                                var o, n;
-                                                return {
-                                                    id: e.a,
-                                                    version: t[e.a] ? t[e.a].version : null,
-                                                    artist: (null === (o = t[e.a]) || void 0 === o ? void 0 : o.artist) || "Unknown",
-                                                    title: (null === (n = t[e.a]) || void 0 === n ? void 0 : n.title) || "Unknown",
-                                                    tracks: e.c.map(function(o) {
-                                                        var n, s = null;
-                                                        t[e.a] && (s = null === (n = t[e.a].tracks) || void 0 === n ? void 0 : n.find(function(e) {
-                                                            return b(e.id, o.t)
-                                                        }));
-                                                        var i = r[e.a][o.t].metadata
-                                                          , a = (null === i || void 0 === i ? void 0 : i.global_id) || (null === s || void 0 === s ? void 0 : s.global_id) || "Unknown"
-                                                          , u = (null === i || void 0 === i ? void 0 : i.meta_version) || (null === s || void 0 === s ? void 0 : s.meta_version) || "1"
-                                                          , d = (null === i || void 0 === i ? void 0 : i.stems_version) || (null === s || void 0 === s ? void 0 : s.stems_version) || "1"
-                                                          , c = (null === i || void 0 === i ? void 0 : i.artist) || (null === s || void 0 === s ? void 0 : s.artist) || ""
-                                                          , l = (null === i || void 0 === i ? void 0 : i.title) || (null === s || void 0 === s ? void 0 : s.title) || "Unknown";
-                                                        return {
-                                                            id: o.t,
-                                                            bpm: r[e.a][o.t].tempos[0].tempo_bpm,
-                                                            colors: r[e.a][o.t].TrackColour,
-                                                            TrackGain_dB: r[e.a][o.t].TrackGain_dB,
-                                                            title: l,
-                                                            global_id: a,
-                                                            meta_version: u,
-                                                            stems_version: d,
-                                                            artist: c
-                                                        }
-                                                    })
-                                                }
-                                            })
-                                        }]
-                                    }
-                                })
-                            })
-                        }
-                        ,
-                        [2, e ? t() : this.queueTask(t, "listTracks")]
-                    })
-                })
-            }
-            ,
-            e.prototype.uploadFirmwareUpdate = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r, o, n, s = this;
-                    return K(this, function(i) {
-                        return r = e.name,
-                        o = e.size,
-                        n = {
-                            size: o,
-                            type: "config.txt" === r ? "device-config" : "dfu",
-                            name: r
-                        },
-                        [2, this.queueTask(function() {
-                            return s.usb.uploadFile(n, e, t).promise
-                        }, "uploadFirmwareUpdate")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceConfig = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return j(e, void 0, void 0, function() {
-                                var e, t;
-                                return K(this, function(r) {
-                                    switch (r.label) {
-                                    case 0:
-                                        e = null,
-                                        r.label = 1;
-                                    case 1:
-                                        return r.trys.push([1, 3, , 4]),
-                                        [4, this.usb.getDeviceConfig()];
-                                    case 2:
-                                        return e = r.sent(),
-                                        [3, 4];
-                                    case 3:
-                                        if (!((t = r.sent())instanceof Error) || !t.message.startsWith("Parsing device config failed"))
-                                            throw t;
-                                        return [3, 4];
-                                    case 4:
-                                        return [2, e]
-                                    }
-                                })
-                            })
-                        }, "getDeviceConfig")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getAlbums = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return j(e, void 0, void 0, function() {
-                                var e, t, r, o, n, s;
-                                return K(this, function(i) {
-                                    switch (i.label) {
-                                    case 0:
-                                        return [4, this.usb.getTrackList()];
-                                    case 1:
-                                        e = i.sent(),
-                                        t = e.l.map(function(e) {
-                                            return e.a
-                                        }),
-                                        r = t.map(function(e) {
-                                            return {
-                                                id: e,
-                                                title: void 0,
-                                                artist: void 0
-                                            }
-                                        }),
-                                        o = 0,
-                                        i.label = 2;
-                                    case 2:
-                                        return o < t.length ? (n = t[o],
-                                        [4, this.getOrGenerateAlbumConfig(n)]) : [3, 5];
-                                    case 3:
-                                        (s = i.sent()) && (r[o].artist = s.artist,
-                                        r[o].title = s.title),
-                                        i.label = 4;
-                                    case 4:
-                                        return o += 1,
-                                        [3, 2];
-                                    case 5:
-                                        return [2, r]
-                                    }
-                                })
-                            })
-                        }, "getAlbums")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getNextAvailableAlbumId = function(e) {
-                return "A" + (e.reduce(function(e, t) {
-                    var r = t.id.match(/a([0-9]+)/i)
-                      , o = 0;
-                    return r && (o = parseInt(r[1])),
-                    Math.max(e, o)
-                }, 0) + 1)
-            }
-            ,
-            e.prototype.ensureAlbum = function(e, t, r) {
-                return void 0 === t && (t = "Unknown"),
-                j(this, void 0, void 0, function() {
-                    var o, n, s, i;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            return [4, this.getAlbums()];
-                        case 1:
-                            return o = a.sent(),
-                            (n = o.find(function(r) {
-                                return m(r.title, e) && ("Unknown" === t || r.artist === t)
-                            })) ? [2, n.id] : (s = this.getNextAvailableAlbumId(o),
-                            i = r || "1",
-                            [4, this.addAlbum(s, t, e, i)]);
-                        case 2:
-                            return a.sent(),
-                            [2, s]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.generateDefaultAlbumConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t, r;
-                    return K(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            return [4, this.listTracks(!0)];
-                        case 1:
-                            if (t = o.sent(),
-                            !(r = t.albums.find(function(t) {
-                                return p(t.id, e)
-                            })))
-                                throw new Error("Album " + e + " not found.");
-                            return [2, {
-                                id: e,
-                                version: r.version || null,
-                                artist: r.artist,
-                                title: r.title,
-                                tracks: null
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getOrGenerateAlbumConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t, r;
-                    return K(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            t = null,
-                            o.label = 1;
-                        case 1:
-                            return o.trys.push([1, 3, , 4]),
-                            [4, this.usb.getAlbumConfig(e)];
-                        case 2:
-                            return t = o.sent(),
-                            [3, 4];
-                        case 3:
-                            if (!((r = o.sent())instanceof Error) || !r.message.startsWith("Parsing album info failed"))
-                                throw r;
-                            return [3, 4];
-                        case 4:
-                            return t ? [3, 6] : (c.debug("Generating default album config for " + e),
-                            [4, this.generateDefaultAlbumConfig(e)]);
-                        case 5:
-                            t = o.sent(),
-                            o.label = 6;
-                        case 6:
-                            return [2, t]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.updateAlbumTitle = function(e, t, r) {
-                return j(this, void 0, void 0, function() {
-                    var o = this;
-                    return K(this, function(n) {
-                        return [2, this.queueTask(function() {
-                            return j(o, void 0, void 0, function() {
-                                var o;
-                                return K(this, function(n) {
-                                    switch (n.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return (o = n.sent()).title = t,
-                                        r && (o.artist = r),
-                                        [4, this.usb.uploadAlbumConfig(e, o)];
-                                    case 2:
-                                        return n.sent(),
-                                        [2, o]
-                                    }
-                                })
-                            })
-                        }, "updateAlbumTitle")]
-                    })
-                })
-            }
-            ,
-            e.prototype.updateAlbumVersion = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return (r = o.sent()).version = t,
-                                        [4, this.usb.uploadAlbumConfig(e, r)];
-                                    case 2:
-                                        return o.sent(),
-                                        [2, r]
-                                    }
-                                })
-                            })
-                        }, "updateAlbumVersion")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getNextTrackId = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                var t, r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.usb.getTrackList()];
-                                    case 1:
-                                        if (t = o.sent(),
-                                        !(r = t.l.find(function(t) {
-                                            return p(t.a, e)
-                                        })))
-                                            throw new Error("Album " + r + " not found");
-                                        return [2, "t" + (r.c.reduce(function(e, t) {
-                                            var r = t.t.match(/t([0-9]+)/i)
-                                              , o = 0;
-                                            return r && (o = parseInt(r[1])),
-                                            Math.max(e, o)
-                                        }, 0) + 1)]
-                                    }
-                                })
-                            })
-                        }, "getNextTrackId")]
-                    })
-                })
-            }
-            ,
-            e.prototype.addTrack = function(e, t) {
-                var r = this
-                  , o = null
-                  , n = !1
-                  , s = {
-                    total: 0,
-                    vocals: 0,
-                    bass: 0,
-                    drums: 0,
-                    other: 0,
-                    config: 0
-                };
-                function i(e, r) {
-                    s[e] = r,
-                    s.total = Math.floor((100 * s.vocals + 100 * s.bass + 100 * s.drums + 100 * s.other + 1 * s.config) / 401 * 100) / 100,
-                    Number.isNaN(s.total) && (c.debug("updateProgress isNan"),
-                    s.total = 0),
-                    t && t(s)
-                }
-                return {
-                    promise: new Promise(function(t, s) {
-                        return j(r, void 0, void 0, function() {
-                            var r, a, u, d, l, _, f, h = this;
-                            return K(this, function(v) {
-                                switch (v.label) {
-                                case 0:
-                                    return v.trys.push([0, 5, , 6]),
-                                    [4, this.ensureAlbum(e.album, e.getMetadata().artist, e.album_version)];
-                                case 1:
-                                    return r = v.sent(),
-                                    (u = e.id) ? [3, 3] : [4, this.getNextTrackId(r)];
-                                case 2:
-                                    u = v.sent(),
-                                    v.label = 3;
-                                case 3:
-                                    return a = u,
-                                    d = e.global_id || ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function(e) {
-                                        return (e ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> e / 4).toString(16)
-                                    }),
-                                    l = e.meta_version || "1",
-                                    _ = e.stems_version || "1",
-                                    [4, this.queueTask(function() {
-                                        return j(h, void 0, void 0, function() {
-                                            var u, f, h, v, p, b, m, y, E;
-                                            return K(this, function(w) {
-                                                switch (w.label) {
-                                                case 0:
-                                                    if (n)
-                                                        return s(new Error("Cancelled")),
-                                                        [2];
-                                                    u = [{
-                                                        id: k.vocals,
-                                                        stem: e.vocals,
-                                                        type: "vocals"
-                                                    }, {
-                                                        id: k.bass,
-                                                        stem: e.bass,
-                                                        type: "bass"
-                                                    }, {
-                                                        id: k.drums,
-                                                        stem: e.drums,
-                                                        type: "drums"
-                                                    }, {
-                                                        id: k.other,
-                                                        stem: e.other,
-                                                        type: "other"
-                                                    }],
-                                                    f = function(e) {
-                                                        return K(this, function(t) {
-                                                            switch (t.label) {
-                                                            case 0:
-                                                                return [4, (o = h.usb.uploadStem(a, r, u[e].id, u[e].stem.file, u[e].stem.format, function(t) {
-                                                                    return i(u[e].type, t)
-                                                                })).promise];
-                                                            case 1:
-                                                                return t.sent(),
-                                                                o = null,
-                                                                n ? (c.debug("addTrack chain cancelled"),
-                                                                s(new Error("Cancelled")),
-                                                                [2, {
-                                                                    value: void 0
-                                                                }]) : [2]
-                                                            }
-                                                        })
-                                                    }
-                                                    ,
-                                                    h = this,
-                                                    v = 0,
-                                                    w.label = 1;
-                                                case 1:
-                                                    return v < u.length ? [5, f(v)] : [3, 4];
-                                                case 2:
-                                                    if ("object" === typeof (p = w.sent()))
-                                                        return [2, p.value];
-                                                    w.label = 3;
-                                                case 3:
-                                                    return v += 1,
-                                                    [3, 1];
-                                                case 4:
-                                                    if (b = e.getMetadata(),
-                                                    m = b.trackConfig,
-                                                    (null === (y = null === b || void 0 === b ? void 0 : b.artist) || void 0 === y ? void 0 : y.length) > O)
-                                                        throw new Error("Track artist longer than " + O + " characters");
-                                                    if ((null === (E = null === m || void 0 === m ? void 0 : m.title) || void 0 === E ? void 0 : E.length) > O)
-                                                        throw new Error("Track title longer than " + T + " characters");
-                                                    if (!b.trackConfig.bpm && !b.trackConfig.temposConfig)
-                                                        throw new Error("Track config error: Either bpm or temposConfig required");
-                                                    if (!Array.isArray(b.trackConfig.colors) || 2 !== b.trackConfig.colors.length || !g(b.trackConfig.colors[0]) || !g(b.trackConfig.colors[1]))
-                                                        throw new Error("Track config error: Invalid colors");
-                                                    if (b.trackConfig.TrackGain_dB && (L = b.trackConfig.TrackGain_dB,
-                                                    Number(L) !== L))
-                                                        throw new Error("Track config error: TrackGain_dB must be a number");
-                                                    return [4, this.usb.uploadTrackConfig(a, r, {
-                                                        TrackColour: m.colors,
-                                                        tempos: m.temposConfig || [{
-                                                            time_ms: 0,
-                                                            tempo_bpm: m.bpm
-                                                        }],
-                                                        TrackGain_dB: m.TrackGain_dB,
-                                                        metadata: {
-                                                            artist: b.artist,
-                                                            title: m.title,
-                                                            global_id: d,
-                                                            meta_version: l,
-                                                            stems_version: _
-                                                        }
-                                                    })];
-                                                case 5:
-                                                    return w.sent(),
-                                                    i("config", 100),
-                                                    t({
-                                                        album: r,
-                                                        id: a
-                                                    }),
-                                                    [2]
-                                                }
-                                                var L
-                                            })
-                                        })
-                                    }, "uploadStems")];
-                                case 4:
-                                    return v.sent(),
-                                    [3, 6];
-                                case 5:
-                                    return "Cancelled" === (f = v.sent()).message && s(f),
-                                    s(new Error("addTrack failed: " + f)),
-                                    [3, 6];
-                                case 6:
-                                    return [2]
-                                }
-                            })
-                        })
-                    }
-                    ),
-                    cancel: function() {
-                        n = !0,
-                        o && o.cancel()
-                    }
-                }
-            }
-            ,
-            e.prototype.downloadTrackStem = function(e, t, r, o) {
-                var n = this
-                  , s = !1
-                  , i = null;
-                return {
-                    promise: this.queueTask(function() {
-                        return j(n, void 0, void 0, function() {
-                            return K(this, function(n) {
-                                return s ? [2, Promise.reject(new Error("Cancelled"))] : [2, (i = this.usb.downloadStem(e, t, r, o)).promise]
-                            })
-                        })
-                    }, "downloadTrackStem"),
-                    cancel: function() {
-                        s = !0,
-                        i && i.cancel()
-                    }
-                }
-            }
-            ,
-            e.prototype.editTrackMetadata = function(e, t, r) {
-                var o, n;
-                return j(this, void 0, void 0, function() {
-                    var s, i = this;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            if (a.trys.push([0, 2, , 3]),
-                            !r.bpm && 0 !== r.bpm && !r.temposConfig)
-                                throw new Error("Either `bpm` or `temposConfig` required");
-                            if ((null === (o = null === r || void 0 === r ? void 0 : r.artist) || void 0 === o ? void 0 : o.length) > O)
-                                throw new Error("Track artist longer than " + O + " characters");
-                            if ((null === (n = null === r || void 0 === r ? void 0 : r.title) || void 0 === n ? void 0 : n.length) > O)
-                                throw new Error("Track title longer than " + T + " characters");
-                            return [4, this.queueTask(function() {
-                                return j(i, void 0, void 0, function() {
-                                    return K(this, function(o) {
-                                        return [2, this.usb.uploadTrackConfig(t, e, {
-                                            TrackColour: r.colors,
-                                            tempos: r.temposConfig || [{
-                                                time_ms: 0,
-                                                tempo_bpm: r.bpm
-                                            }],
-                                            TrackGain_dB: r.TrackGain_dB,
-                                            metadata: {
-                                                artist: r.artist,
-                                                title: r.title,
-                                                global_id: r.global_id,
-                                                meta_version: r.meta_version,
-                                                stems_version: r.stems_version
-                                            }
-                                        })]
-                                    })
-                                })
-                            }, "uploadTrackConfig")];
-                        case 1:
-                            return a.sent(),
-                            [3, 3];
-                        case 2:
-                            throw s = a.sent(),
-                            new Error("Track edit failed: " + s);
-                        case 3:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteTrack = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r, o, n;
-                                return K(this, function(s) {
-                                    switch (s.label) {
-                                    case 0:
-                                        return s.trys.push([0, 5, , 6]),
-                                        [4, this.usb.deleteTrack(e, t)];
-                                    case 1:
-                                        return s.sent(),
-                                        [4, this.listTracks(!0)];
-                                    case 2:
-                                        return r = s.sent(),
-                                        (o = r.albums.find(function(t) {
-                                            return p(t.id, e)
-                                        })) && 0 === o.tracks.length ? [4, this.usb.deleteAlbum(e)] : [3, 4];
-                                    case 3:
-                                        s.sent(),
-                                        s.label = 4;
-                                    case 4:
-                                        return [3, 6];
-                                    case 5:
-                                        throw n = s.sent(),
-                                        new Error("Deleting track failed: " + n);
-                                    case 6:
-                                        return [2]
-                                    }
-                                })
-                            })
-                        }, "deleteTrack")]
-                    })
-                })
-            }
-            ,
-            e.prototype.addAlbum = function(e, t, r, o) {
-                return j(this, void 0, void 0, function() {
-                    var n, s, i = this;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            return (n = e) ? [3, 2] : (s = this.getNextAvailableAlbumId,
-                            [4, this.getAlbums()]);
-                        case 1:
-                            n = s.apply(this, [a.sent()]),
-                            a.label = 2;
-                        case 2:
-                            return [2, this.queueTask(function() {
-                                return j(i, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.addAlbum(n.toUpperCase())];
-                                        case 1:
-                                            return e.sent(),
-                                            [4, this.usb.uploadAlbumConfig(n, {
-                                                id: n.toUpperCase(),
-                                                artist: t,
-                                                title: r,
-                                                version: o || null,
-                                                tracks: null
-                                            })];
-                                        case 2:
-                                            return e.sent(),
-                                            [2, n]
-                                        }
-                                    })
-                                })
-                            }, "addAlbum")]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteAlbum = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return t.usb.deleteAlbum(e)
-                        }, "deleteAlbum")]
-                    })
-                })
-            }
-            ,
-            e.prototype.renameAlbum = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return r = o.sent(),
-                                        [4, this.usb.renameAlbum(e, t)];
-                                    case 2:
-                                        return o.sent(),
-                                        r.id = t,
-                                        [4, this.usb.uploadAlbumConfig(t, r)];
-                                    case 3:
-                                        return o.sent(),
-                                        [2]
-                                    }
-                                })
-                            })
-                        }, "renameAlbum")]
-                    })
-                })
-            }
-            ,
-            e.prototype.moveTrack = function(e, t, r, o) {
-                return j(this, void 0, void 0, function() {
-                    var n = this;
-                    return K(this, function(s) {
-                        return [2, this.queueTask(function() {
-                            return j(n, void 0, void 0, function() {
-                                var n, s;
-                                return K(this, function(i) {
-                                    switch (i.label) {
-                                    case 0:
-                                        return [4, this.usb.moveTrack(e, t, r, o)];
-                                    case 1:
-                                        return i.sent(),
-                                        e === r ? [3, 4] : [4, this.listTracks(!0)];
-                                    case 2:
-                                        return n = i.sent(),
-                                        (s = n.albums.find(function(t) {
-                                            return p(t.id, e)
-                                        })) && 0 === s.tracks.length ? (c.debug("moveTrack - caused album delete"),
-                                        [4, this.usb.deleteAlbum(e)]) : [3, 4];
-                                    case 3:
-                                        i.sent(),
-                                        i.label = 4;
-                                    case 4:
-                                        return [2]
-                                    }
-                                })
-                            })
-                        }, "moveTrack")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getRecordedSlots = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return j(t, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.getRecordedSlots()];
-                                        case 1:
-                                            return [2, e.sent()]
-                                        }
-                                    })
-                                })
-                            }, "getRecordedSlots")];
-                        case 1:
-                            return [2, {
-                                slot1: (e = r.sent())["slot-1"],
-                                slot2: e["slot-2"],
-                                slot3: e["slot-3"],
-                                slot4: e["slot-4"]
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getChargeState = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return j(e, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.getChargeState()];
-                                        case 1:
-                                            return [2, e.sent()]
-                                        }
-                                    })
-                                })
-                            }, "getChargeState")];
-                        case 1:
-                            return [2, t.sent()]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.updateDeviceConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                var t;
-                                return K(this, function(r) {
-                                    switch (r.label) {
-                                    case 0:
-                                        return t = {
-                                            name: "Stem Player Configuration",
-                                            parameters: e
-                                        },
-                                        [4, this.usb.uploadDeviceConfig(t, function() {})];
-                                    case 1:
-                                        return r.sent(),
-                                        [2]
-                                    }
-                                })
-                            })
-                        }, "updateDeviceConfig")]
-                    })
-                })
-            }
-            ,
-            e.prototype.deviceMigration = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t, r, o, n, s, i, a, u;
-                    return K(this, function(d) {
-                        switch (d.label) {
-                        case 0:
-                            return [4, this.usb.getTrackList()];
-                        case 1:
-                            e = d.sent(),
-                            t = 0,
-                            d.label = 2;
-                        case 2:
-                            if (!(t < e.l.length))
-                                return [3, 16];
-                            if (r = e.l[t],
-                            o = r.a,
-                            n = void 0,
-                            p(o, "RECORD"))
-                                return [3, 15];
-                            d.label = 3;
-                        case 3:
-                            return d.trys.push([3, 5, , 6]),
-                            [4, this.usb.getAlbumConfig(o)];
-                        case 4:
-                            return n = d.sent(),
-                            [3, 6];
-                        case 5:
-                            return d.sent(),
-                            [3, 6];
-                        case 6:
-                            if (!n)
-                                return [3, 15];
-                            d.label = 7;
-                        case 7:
-                            if (d.trys.push([7, 14, , 15]),
-                            null === n.tracks)
-                                return [3, 13];
-                            c.info("Converting " + o + " (" + n.title + ") to the new format..."),
-                            s = function(e) {
-                                var t, s, a, u;
-                                return K(this, function(d) {
-                                    switch (d.label) {
-                                    case 0:
-                                        return t = r.c[e].t,
-                                        [4, i.usb.getTrackInfo(o, t)];
-                                    case 1:
-                                        return s = d.sent(),
-                                        a = n.tracks.find(function(e) {
-                                            return b(e.id, t)
-                                        }),
-                                        u = void 0,
-                                        u = B(B({}, s), a ? {
-                                            metadata: {
-                                                title: a.title,
-                                                artist: a.artist,
-                                                global_id: a.global_id,
-                                                meta_version: a.meta_version,
-                                                stems_version: a.stems_version
-                                            }
-                                        } : {
-                                            metadata: {
-                                                title: "Unknown",
-                                                global_id: "Unknown",
-                                                meta_version: "1",
-                                                stems_version: "1"
-                                            }
-                                        }),
-                                        [4, i.usb.uploadTrackConfig(t, o, u)];
-                                    case 2:
-                                        return d.sent(),
-                                        [2]
-                                    }
-                                })
-                            }
-                            ,
-                            i = this,
-                            a = 0,
-                            d.label = 8;
-                        case 8:
-                            return a < r.c.length ? [5, s(a)] : [3, 11];
-                        case 9:
-                            d.sent(),
-                            d.label = 10;
-                        case 10:
-                            return a += 1,
-                            [3, 8];
-                        case 11:
-                            return n.tracks = null,
-                            [4, this.usb.uploadAlbumConfig(o, n)];
-                        case 12:
-                            d.sent(),
-                            d.label = 13;
-                        case 13:
-                            return [3, 15];
-                        case 14:
-                            return u = d.sent(),
-                            c.error("Album conversion failed: " + u),
-                            [3, 15];
-                        case 15:
-                            return t += 1,
-                            [3, 2];
-                        case 16:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deviceAuth = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                return K(this, function(t) {
-                                    return [2, this.usb.deviceAuth(e)]
-                                })
-                            })
-                        }, "deviceAuth")]
-                    })
-                })
-            }
-            ,
-            e
-        }()
-    }
-    ,
-    a48309e68714456ffccb: (e,t,r)=>{
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e, t, r, o, n, s, i) {
-            try {
-                var a = e[s](i)
-                  , u = a.value
-            } catch (e) {
-                return void r(e)
-            }
-            a.done ? t(u) : Promise.resolve(u).then(o, n)
-        }
-        function n(e) {
-            return function() {
-                var t = this
-                  , r = arguments;
-                return new Promise(function(n, s) {
-                    var i = e.apply(t, r);
-                    function a(e) {
-                        o(i, n, s, a, u, "next", e)
-                    }
-                    function u(e) {
-                        o(i, n, s, a, u, "throw", e)
-                    }
-                    a(void 0)
-                }
-                )
-            }
-        }
-        e.exports = n,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "asyncGeneratorStep", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/asyncToGenerator.js"),
-            e.register(n, "_asyncToGenerator", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/asyncToGenerator.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "6f187f73a51c6304e7d6": (e,t,r)=>{
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e, t, r) {
-            return t in e ? Object.defineProperty(e, t, {
-                value: r,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0
-            }) : e[t] = r,
-            e
-        }
-        e.exports = o,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "_defineProperty", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/defineProperty.js")
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    ceea40cb320efd487259: (e,t,r)=>{
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o() {
-            return e.exports = o = Object.assign || function(e) {
-                for (var t = 1; t < arguments.length; t++) {
-                    var r = arguments[t];
-                    for (var o in r)
-                        Object.prototype.hasOwnProperty.call(r, o) && (e[o] = r[o])
-                }
-                return e
-            }
-            ,
-            o.apply(this, arguments)
-        }
-        e.exports = o,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "_extends", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/extends.js")
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "8c32303422aadf36cbf3": (e,t,r)=>{
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        var o = r("0e2cb0586908e240e659");
-        function n(e, t) {
-            if (null == e)
-                return {};
-            var r, n, s = o(e, t);
-            if (Object.getOwnPropertySymbols) {
-                var i = Object.getOwnPropertySymbols(e);
-                for (n = 0; n < i.length; n++)
-                    r = i[n],
-                    t.indexOf(r) >= 0 || Object.prototype.propertyIsEnumerable.call(e, r) && (s[r] = e[r])
-            }
-            return s
-        }
-        e.exports = n,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(n, "_objectWithoutProperties", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/objectWithoutProperties.js")
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "0e2cb0586908e240e659": (e,t,r)=>{
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e, t) {
-            if (null == e)
-                return {};
-            var r, o, n = {}, s = Object.keys(e);
-            for (o = 0; o < s.length; o++)
-                r = s[o],
-                t.indexOf(r) >= 0 || (n[r] = e[r]);
-            return n
-        }
-        e.exports = o,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "_objectWithoutPropertiesLoose", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js")
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "5e06711fc204c8cc9b3a": (e,t,r)=>{
-        "use strict";
-        e = r.hmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = r.g;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/@types/global.d.ts")
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    d6531ad49d2742e2387a: ()=>{
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
-    }
-    ,
-    "8a5d22dd0b24a6092d3e": (e,t,r)=>{
-        "use strict";
-        r.d(t, {
-            Yi: ()=>n.ZP,
-            j: ()=>o.j,
-            v8: ()=>o.v8
-        });
-        r("5e06711fc204c8cc9b3a"),
-        r("d6531ad49d2742e2387a");
-        var o = r("1ccf057766bc7fd4a574")
-          , n = r("5679d3d5fd3ced4243e1");
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature,
-        r("3c7d3c701ef55206f5a7"),
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
-    }
-    ,
-    b5a6793b1fbe56728969: (module,__unused_webpack___webpack_exports__,__webpack_require__)=>{
-        "use strict";
-        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6f187f73a51c6304e7d6")
-          , _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__)
-          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
-          , _utils_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("76e801c56e29117c1f5c");
-        function ownKeys(e, t) {
-            var r = Object.keys(e);
-            if (Object.getOwnPropertySymbols) {
-                var o = Object.getOwnPropertySymbols(e);
-                t && (o = o.filter(function(t) {
-                    return Object.getOwnPropertyDescriptor(e, t).enumerable
-                })),
-                r.push.apply(r, o)
-            }
-            return r
-        }
-        function _objectSpread(e) {
-            for (var t = 1; t < arguments.length; t++) {
-                var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
-                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
-                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
-                })
-            }
-            return e
-        }
-        module = __webpack_require__.hmd(module),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
-        }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
-        }
-        ;
-        class OfflineClientConsumer extends react__WEBPACK_IMPORTED_MODULE_1__.Component {
-            render() {
-                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(_utils_context__WEBPACK_IMPORTED_MODULE_2__.g.Consumer, null, e=>{
-                    const t = _objectSpread({}, e)
-                      , {children: r} = this.props
-                      , o = [];
-                    return react__WEBPACK_IMPORTED_MODULE_1__.Children.forEach(r, e=>{
-                        react__WEBPACK_IMPORTED_MODULE_1__.isValidElement(e) && o.push(react__WEBPACK_IMPORTED_MODULE_1__.cloneElement(e, t))
-                    }
-                    ),
-                    o || null
-                }
-                )
-            }
-            __reactstandin__regenerateByEval(key, code) {
-                this[key] = eval(code)
-            }
-        }
-        const _default = OfflineClientConsumer;
-        var __WEBPACK_DEFAULT_EXPORT__ = _default;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(OfflineClientConsumer, "OfflineClientConsumer", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/consumer.tsx"),
-            e.register(_default, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/consumer.tsx"))
-        }(),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
-        }()
-    }
-    ,
-    "08abf5351c8674495f94": (e,t,r)=>{
-        "use strict";
-        var o = r("ceea40cb320efd487259")
-          , n = r.n(o)
-          , s = r("8c32303422aadf36cbf3")
-          , i = r.n(s)
-          , a = r("8af190b70a6bc55c6f1b")
-          , u = r("5ef9de3df8d92ea0e41c")
-          , d = r.n(u)
-          , c = r("76e801c56e29117c1f5c");
-        e = r.hmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function l(e) {
-            const t = `withOfflineClient(${e.displayName || e.name})`
-              , r = t=>{
-                const {wrappedComponentRef: r} = t
-                  , o = i()(t, ["wrappedComponentRef"]);
-                return a.createElement(c.g.Consumer, null, t=>a.createElement(e, n()({}, o, t, {
-                    ref: r
-                })))
-            }
-            ;
-            return r.displayName = t,
-            r.WrappedComponent = e,
-            d()(r, e)
-        }
-        const _ = l;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(l, "withOfflineClient", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/hoc.tsx"),
-            e.register(_, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/hoc.tsx"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "3c7d3c701ef55206f5a7": (e,t,r)=>{
-        "use strict";
-        r.d(t, {
-            yi: ()=>o.Z
-        });
-        r("b5a6793b1fbe56728969");
-        var o = r("356aea238549c3ac1a7c");
-        r("08abf5351c8674495f94"),
-        r("76e801c56e29117c1f5c"),
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
-    }
-    ,
-    "356aea238549c3ac1a7c": (module,__webpack_exports__,__webpack_require__)=>{
-        "use strict";
-        __webpack_require__.d(__webpack_exports__, {
-            Z: ()=>__WEBPACK_DEFAULT_EXPORT__
-        });
-        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6f187f73a51c6304e7d6")
-          , _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__)
-          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
-          , react_detect_offline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("e90ffebabba709c7f296")
-          , _utils_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("76e801c56e29117c1f5c");
-        function ownKeys(e, t) {
-            var r = Object.keys(e);
-            if (Object.getOwnPropertySymbols) {
-                var o = Object.getOwnPropertySymbols(e);
-                t && (o = o.filter(function(t) {
-                    return Object.getOwnPropertyDescriptor(e, t).enumerable
-                })),
-                r.push.apply(r, o)
-            }
-            return r
-        }
-        function _objectSpread(e) {
-            for (var t = 1; t < arguments.length; t++) {
-                var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
-                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
-                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
-                })
-            }
-            return e
-        }
-        module = __webpack_require__.hmd(module),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
-        }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
-        }
-        ;
-        const inBrowser = "undefined" !== typeof navigator;
-        class OfflineClientProvider extends react__WEBPACK_IMPORTED_MODULE_1__.Component {
-            constructor(e) {
-                super(e),
-                this.state = {
-                    online: !inBrowser || "boolean" !== typeof navigator.onLine || navigator.onLine
-                },
-                this.getOnlineStatus = (()=>this.state.online)
-            }
-            render() {
-                const {children: e} = this.props
-                  , t = {
-                    offlineClient: _objectSpread(_objectSpread({}, {
-                        getOnlineStatus: this.getOnlineStatus
-                    }), this.state)
-                };
-                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(_utils_context__WEBPACK_IMPORTED_MODULE_3__.g.Provider, {
-                    value: t
-                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_detect_offline__WEBPACK_IMPORTED_MODULE_2__.gU, {
-                    render: ()=>react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null),
-                    onChange: e=>this.setState({
-                        online: e
-                    })
-                }), e ? e(t) : null)
-            }
-            __reactstandin__regenerateByEval(key, code) {
-                this[key] = eval(code)
-            }
-        }
-        const _default = OfflineClientProvider
-          , __WEBPACK_DEFAULT_EXPORT__ = _default;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(inBrowser, "inBrowser", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/provider.tsx"),
-            e.register(OfflineClientProvider, "OfflineClientProvider", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/provider.tsx"),
-            e.register(_default, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/provider.tsx"))
-        }(),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
-        }()
-    }
-    ,
-    bc232552341112f68615: (module,__webpack_exports__,__webpack_require__)=>{
-        "use strict";
-        __webpack_require__.d(__webpack_exports__, {
-            e: ()=>TelemetryClient
-        });
-        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6f187f73a51c6304e7d6")
-          , _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__)
-          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("a48309e68714456ffccb")
-          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__)
-          , fingerprintjs2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("ed0cde5521b40c88175e")
-          , fingerprintjs2__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(fingerprintjs2__WEBPACK_IMPORTED_MODULE_2__)
-          , _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("8390a660195ca787c81e")
-          , _utils_react_tracking__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("1ccf057766bc7fd4a574")
-          , _provider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("5679d3d5fd3ced4243e1");
-        function ownKeys(e, t) {
-            var r = Object.keys(e);
-            if (Object.getOwnPropertySymbols) {
-                var o = Object.getOwnPropertySymbols(e);
-                t && (o = o.filter(function(t) {
-                    return Object.getOwnPropertyDescriptor(e, t).enumerable
-                })),
-                r.push.apply(r, o)
-            }
-            return r
-        }
-        function _objectSpread(e) {
-            for (var t = 1; t < arguments.length; t++) {
-                var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
-                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
-                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
-                })
-            }
-            return e
-        }
-        module = __webpack_require__.hmd(module),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
-        }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
-        }
-        ;
-        window.telemetryLayerHistory = [],
-        window.stackTraceId = (0,
-        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.do)();
-        const debugTimingDivider = 1
-          , defaultConfig = {
-            trackingInterval: 1e4 / debugTimingDivider,
-            refreshIdleSessionInterval: 3e4 / debugTimingDivider,
-            sessionSoftTimeout: 6e4 / debugTimingDivider,
-            sessionHardTimeout: 18e4 / debugTimingDivider,
-            refreshCookieInterval: 6e4 / debugTimingDivider,
-            deviceIdCookieTimeout: 864e5,
-            disableCookies: !1
-        };
-        class TelemetryClient {
-            constructor({config: e, tracking: t, getCookiePermissions: r}) {
-                var o = this;
-                this.config = void 0,
-                this.trackEvent = void 0,
-                this.getCookiePermissions = void 0,
-                this.sessionId = void 0,
-                this.userId = void 0,
-                this.deviceId = void 0,
-                this.expiryingSessionId = void 0,
-                this.lastTrackedEvent = void 0,
-                this.lastInteractionTimestamp = void 0,
-                this.pageChanged = void 0,
-                this.kit_id = void 0,
-                this.kit_session_id = void 0,
-                this.kit_sku = void 0,
-                this.kit_user_id = void 0,
-                this.is_uwp_app = void 0,
-                this.telemetryStarted = void 0,
-                this.sessionPaused = void 0,
-                this.sendingInProgress = void 0,
-                this.offlineStoreName = void 0,
-                this.deviceIdStoreName = void 0,
-                this.acceptedEnv = void 0,
-                this.online = void 0,
-                this.refreshIdleSession = void 0,
-                this.refreshCookie = void 0,
-                this.sessionEnd = void 0,
-                this.tracking = void 0,
-                this._hasCookiePermissions = void 0,
-                this._sendTrackingData = void 0,
-                this.initTracking = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        const {url: t} = o.config;
-                        if (!t || !o.acceptedEnv)
-                            return void console.log(`telemetry-client:: tracking is not supported for env: ${o.config.env}`);
-                        if (o.userId = e,
-                        o.telemetryStarted)
-                            return;
-                        o.telemetryStarted = !0,
-                        window.Windows && (o.is_uwp_app = !0,
-                        o.setWindowsKitInfo()),
-                        yield _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.remove(o.config.cookieSessionName);
-                        const {sessionId: r, sessionType: n} = o.getSession();
-                        o.sessionId = r;
-                        const s = yield o.getDeviceId();
-                        o.deviceId = s,
-                        o.pageIsHidden() || (o.trackSessionEvent({
-                            event: n,
-                            userId: e,
-                            sessionId: r,
-                            deviceId: s
-                        }),
-                        yield o.startTracking(),
-                        yield o.startCookieSession(r)),
-                        o.addEventListeners()
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.getSession = (()=>{
-                    const e = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.eR.read({
-                        name: this.config.cookieSessionName
-                    });
-                    if (e)
-                        return {
-                            sessionId: e,
-                            sessionType: "resume_session"
-                        };
-                    if (this.expiryingSessionId)
-                        return {
-                            sessionId: this.expiryingSessionId,
-                            sessionType: "resume_session"
-                        };
-                    let t = "";
-                    if (window.Windows) {
-                        t = (new window.KanoComputing.KpcUwpCore.WinRT.PlatformDetection.PlatformIdentifiers).getAppSessionId()
-                    } else
-                        t = (0,
-                        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.do)();
-                    return {
-                        sessionId: t,
-                        sessionType: "start_session"
-                    }
-                }
-                ),
-                this.resumeSession = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        if (!o.tracking || o.sessionPaused) {
-                            o.sessionPaused = !1;
-                            const {sessionId: t, sessionType: r} = o.getSession();
-                            o.sessionId = t,
-                            o.deviceId = yield o.getDeviceId(),
-                            o.trackSessionEvent({
-                                event: r
-                            }),
-                            yield o.startTracking(),
-                            yield o.startCookieSession(t),
-                            e && o.trackEvent(e),
-                            o.sessionEnd && (clearTimeout(o.sessionEnd),
-                            o.expiryingSessionId = null)
-                        }
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.pauseSession = (()=>{
-                    this.tracking && !this.sessionPaused && (this.sessionPaused = !0,
-                    this.clearCookieSession(),
-                    this.clearRefreshIdleSession(),
-                    this.trackSessionEvent({
-                        event: "pause_session"
-                    }),
-                    this.expiryingSessionId = this.sessionId,
-                    this.sessionEnd = setTimeout(()=>{
-                        this.expiryingSessionId = null
-                    }
-                    , this.config.sessionHardTimeout))
-                }
-                ),
-                this.setWindowsKitInfo = (()=>{
-                    if (!window.Windows)
-                        return;
-                    const e = new window.KanoComputing.KpcUwpApp.WinRT.PlatformDetection.KanoPlatformDetector;
-                    this.kit_sku = e.getDeviceSku();
-                    const t = new window.KanoComputing.KpcUwpCore.WinRT.PlatformDetection.PlatformIdentifiers;
-                    this.kit_user_id = t.getUserId(),
-                    this.kit_id = t.getDeviceId(),
-                    this.kit_session_id = t.getSessionId()
-                }
-                ),
-                this.startTracking = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*() {
-                    const {url: e, trackingInterval: t} = o.config;
-                    e && o.acceptedEnv && (o.tracking || (o._tracking(),
-                    o.tracking = setInterval(o._tracking, t)))
-                }),
-                this._tracking = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*() {
-                    if (window[_provider__WEBPACK_IMPORTED_MODULE_5__.Ez] && window[_provider__WEBPACK_IMPORTED_MODULE_5__.Ez].length > 0 && !o.sendingInProgress) {
-                        const e = [...window[_provider__WEBPACK_IMPORTED_MODULE_5__.Ez]]
-                          , t = e[e.length - 1];
-                        if (o.setLastTrackedEvent(t),
-                        window[_provider__WEBPACK_IMPORTED_MODULE_5__.Ez] = [],
-                        !o.online)
-                            return o.updateLocalStorage(e);
-                        yield o.triggerDataSend(e, o.tracking)
-                    } else
-                        o.sessionPaused || o.startRefreshIdleSession(!0)
-                }),
-                this.startCookieSession = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        if (!(yield o.hasCookiePermissions()) || o.refreshCookie)
-                            return;
-                        const t = e || o.sessionId;
-                        yield o.setSessionCookie({
-                            sessionId: t
-                        }),
-                        o.refreshCookie = setInterval(()=>{
-                            o.setSessionCookie({
-                                sessionId: t
-                            })
-                        }
-                        , o.config.refreshCookieInterval)
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.setSessionCookie = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*({sessionId: e=o.sessionId, expiryTime: t}) {
-                        if (!(yield o.hasCookiePermissions()))
-                            return;
-                        const r = new Date((new Date).getTime() + (t || o.config.refreshCookieInterval));
-                        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.eR.create({
-                            name: o.config.cookieSessionName,
-                            value: e,
-                            expires: r
-                        })
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.clearCookieSession = (()=>{
-                    null !== this.refreshCookie && (clearInterval(this.refreshCookie),
-                    this.refreshCookie = null)
-                }
-                ),
-                this.stopCookieSession = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        (yield o.hasCookiePermissions()) && null !== o.refreshCookie && (o.setSessionCookie({
-                            expiryTime: e || 0
-                        }),
-                        o.clearCookieSession())
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.startRefreshIdleSession = (e=>{
-                    this.refreshIdleSession || (e && this._refreshIdleSession(),
-                    document.body.addEventListener("mousedown", this.handleMouseDown),
-                    this.refreshIdleSession = setInterval(this._refreshIdleSession, this.config.refreshIdleSessionInterval))
-                }
-                ),
-                this._refreshIdleSession = (()=>{
-                    const e = new Date;
-                    if (null !== this.lastTrackedEvent) {
-                        if (null !== this.lastInteractionTimestamp)
-                            return this.trackSessionEvent({
-                                event: "refresh_session"
-                            }),
-                            this.lastInteractionTimestamp = null,
-                            this.lastTrackedEvent.date = e,
-                            void document.body.addEventListener("mousedown", this.handleMouseDown);
-                        const t = this.lastTrackedEvent.date.getTime();
-                        if (t && e.getTime() - t > this.config.sessionSoftTimeout)
-                            return void (this.pageChanged && (this.stopCookieSession(),
-                            this.pauseSession()));
-                        this.sessionPaused || this.trackSessionEvent({
-                            event: "refresh_session"
-                        })
-                    }
-                }
-                ),
-                this.clearRefreshIdleSession = (()=>{
-                    null !== this.refreshIdleSession && (clearInterval(this.refreshIdleSession),
-                    this.refreshIdleSession = null)
-                }
-                ),
-                this.addEventListeners = (()=>{
-                    window.addEventListener("beforeunload", ()=>this.handleBeforeUnload),
-                    document.addEventListener("visibilitychange", this.handleVisibilityChange, !1),
-                    window.addEventListener("blur", this.handleVisibilityChange),
-                    window.addEventListener("focus", this.handleVisibilityChange)
-                }
-                ),
-                this.handleBeforeUnload = (()=>{
-                    this.sessionPaused || null === this.refreshCookie || this.pageIsHidden() || this.stopCookieSession(5e3)
-                }
-                ),
-                this.handleVisibilityChange = (e=>{
-                    this.pageIsHidden() ? this.pauseSession() : this.resumeSession()
-                }
-                ),
-                this.handleMouseDown = (()=>{
-                    (this.refreshIdleSession || this.sessionPaused) && null === this.lastInteractionTimestamp && (this.lastInteractionTimestamp = new Date,
-                    document.body.removeEventListener("mousedown", this.handleMouseDown),
-                    this.sessionPaused && this.resumeSession())
-                }
-                ),
-                this.trackSessionEvent = (({event: e, sessionId: t=this.sessionId, userId: r=this.userId, deviceId: o=this.deviceId, additionalEventData: n={}},s)=>{
-                    const {platform: i, vendor: a, language: u} = window.navigator ? window.navigator : {
-                        platform: null,
-                        vendor: null,
-                        language: null
-                    };
-                    let d = {
-                        sessionId: t,
-                        userId: r,
-                        deviceId: o,
-                        platform: i,
-                        vendor: a,
-                        language: u,
-                        windowSize: window.innerWidth
-                    };
-                    switch (e) {
-                    case "pause_session":
-                        const t = {
-                            currentPage: this.pageChanged.page,
-                            duration: (new Date).getTime() - this.pageChanged.time.getTime()
-                        };
-                        d = _objectSpread(_objectSpread({}, d), t)
-                    }
-                    const c = _objectSpread({
-                        event: e,
-                        data: d
-                    }, n);
-                    return !1 !== s && this.trackEvent(c),
-                    c
-                }
-                ),
-                this.trackSessionError = ((e,t,r)=>{
-                    this.trackEvent({
-                        error: {
-                            message: e,
-                            name: t,
-                            stack: r
-                        }
-                    })
-                }
-                ),
-                this.setLastTrackedEvent = (e=>{
-                    e.event && "refresh_session" !== e.event && (this.lastTrackedEvent = {
-                        date: e.date,
-                        event: e.event
-                    })
-                }
-                ),
-                this.updateOnline = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        if (o.online && !e)
-                            o.online = e;
-                        else if (!o.online && e && (o.online = e,
-                        o.acceptedEnv)) {
-                            const e = JSON.parse(_kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(o.offlineStoreName));
-                            e && (yield o.triggerDataSend(e),
-                            _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.remove(o.offlineStoreName))
-                        }
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.hasCookiePermissions = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*() {
-                    if (o.config.disableCookies)
-                        return !1;
-                    if (null !== o._hasCookiePermissions)
-                        return o._hasCookiePermissions;
-                    const e = yield o.getCookiePermissions()
-                      , t = JSON.parse(e)
-                      , r = t && "allow" === t.permission;
-                    return o._hasCookiePermissions = r,
-                    r
-                }),
-                this.handleOnSaveCookie = (()=>{
-                    this._hasCookiePermissions = !0,
-                    this.startCookieSession(),
-                    this.createCookieDeviceId(this.deviceId),
-                    this.addEventListeners()
-                }
-                ),
-                this.pageIsHidden = (()=>document.hidden || !document.hasFocus()),
-                this.getDeviceId = (()=>new Promise(e=>{
-                    const t = null !== this.deviceId ? this.deviceId : _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.deviceIdStoreName);
-                    if (t)
-                        return e(t);
-                    const r = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.eR.read({
-                        name: this.config.cookieDeviceIdName
-                    });
-                    return r ? e(r) : this.createDeviceId().then(t=>e(t))
-                }
-                )),
-                this.createDeviceId = (()=>new Promise(function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        const t = yield new Promise(e=>{
-                            window.requestIdleCallback ? window.requestIdleCallback(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*() {
-                                fingerprintjs2__WEBPACK_IMPORTED_MODULE_2___default().get(t=>e(o.createBrowserFingerprintHash(t)))
-                            })) : setTimeout(()=>{
-                                fingerprintjs2__WEBPACK_IMPORTED_MODULE_2___default().get(t=>e(o.createBrowserFingerprintHash(t)))
-                            }
-                            , 500)
-                        }
-                        );
-                        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.write(o.deviceIdStoreName, t),
-                        yield o.createCookieDeviceId(t),
-                        e(t)
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }())),
-                this.createBrowserFingerprintHash = (e=>{
-                    const t = e.map(function(e) {
-                        return e.value
-                    });
-                    return fingerprintjs2__WEBPACK_IMPORTED_MODULE_2___default().x64hash128(t.join(""), 31)
-                }
-                ),
-                this.createCookieDeviceId = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        if (yield o.hasCookiePermissions()) {
-                            const t = new Date((new Date).getTime() + o.config.deviceIdCookieTimeout);
-                            _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.eR.create({
-                                name: o.config.cookieDeviceIdName,
-                                value: e,
-                                expires: t
-                            })
-                        }
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.updateLocalStorage = (e=>{
-                    const t = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.offlineStoreName)
-                      , r = t ? [...JSON.parse(t), ...e] : [...e];
-                    _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.write(this.offlineStoreName, JSON.stringify(r))
-                }
-                ),
-                this.updatePageChanged = (e=>{
-                    this.pageChanged = {
-                        page: e.page,
-                        time: e.date
-                    }
-                }
-                ),
-                this.triggerDataSend = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e, t) {
-                        const {url: r, env: n} = o.config;
-                        o.sendingInProgress = !0;
-                        try {
-                            yield o.sendData(r, {
-                                data: e,
-                                collection: n
-                            }),
-                            o.sendingInProgress = !1
-                        } catch (e) {
-                            console.error(e),
-                            t && clearInterval(t),
-                            o.sendingInProgress = !1
-                        }
-                    });
-                    return function(t, r) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.sendData = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e="", t) {
-                        let r = !1;
-                        const n = t.data.map(e=>{
-                            let t = null;
-                            (0,
-                            _utils_react_tracking__WEBPACK_IMPORTED_MODULE_4__.y0)(e) ? (r = !0,
-                            t = {
-                                name: "error",
-                                properties: e.error
-                            }) : t = {
-                                name: e.event,
-                                properties: e.data,
-                                action: e.action,
-                                module: e.module
-                            };
-                            let n = null;
-                            o.is_uwp_app && (n = {
-                                kit_id: o.kit_id,
-                                kit_session_id: o.kit_session_id,
-                                kit_sku: o.kit_sku,
-                                kit_user_id: o.kit_user_id
-                            });
-                            const s = new Date(e.date)
-                              , i = _objectSpread(_objectSpread(_objectSpread({}, t), n), {}, {
-                                page_path: e.page || null,
-                                time: s.getTime(),
-                                timezone_offset: s.getTimezoneOffset(),
-                                session_id: o.sessionId,
-                                userId: o.userId,
-                                device_id: o.deviceId,
-                                version: e.appVersion
-                            });
-                            return JSON.stringify(i)
-                        }
-                        );
-                        if (!r && "string" !== typeof o.sessionId) {
-                            const e = {
-                                telemetryClient: o,
-                                events: n,
-                                stackTraceId: window.stackTraceId
-                            };
-                            o.trackSessionError("Telemetry session is missing vital tracking config.", "telemetry-session-config-missing", JSON.stringify(e))
-                        }
-                        const s = {
-                            n: t.data[0].app,
-                            d: n,
-                            c: t.collection,
-                            v: t.data[0].appVersion
-                        }
-                          , i = o._sendTrackingData ? yield fetch(e, {
-                            method: "PUT",
-                            body: JSON.stringify(s),
-                            headers: new Headers({
-                                "Content-Type": "application/json"
-                            })
-                        }).then(e=>200 === e.status ? e.json() : e.text().then(e=>{
-                            throw new Error(e)
-                        }
-                        )).catch(e=>{
-                            console.log(e)
-                        }
-                        ) : {};
-                        return "production" !== o.config.env && (window.telemetryLayerHistory = [...window.telemetryLayerHistory, ...n]),
-                        i
-                    });
-                    return function() {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.dispose = (()=>{
-                    this.refreshIdleSession && clearInterval(this.refreshIdleSession),
-                    this.refreshCookie && clearInterval(this.refreshCookie),
-                    this.tracking && clearInterval(this.tracking),
-                    document.body.removeEventListener("mousedown", this.handleMouseDown),
-                    document.removeEventListener("visibilitychange", this.handleVisibilityChange, !1),
-                    window.removeEventListener("blur", this.handleVisibilityChange),
-                    window.removeEventListener("focus", this.handleVisibilityChange)
-                }
-                ),
-                this.config = _objectSpread(_objectSpread({}, defaultConfig), e),
-                this.trackEvent = t.trackEvent,
-                this.getCookiePermissions = r,
-                this.sessionId = null,
-                this.userId = null,
-                this.deviceId = null,
-                this.expiryingSessionId = null,
-                this.telemetryStarted = !1,
-                this.sendingInProgress = !1,
-                this.offlineStoreName = `kano-telemetry-offline-${e.env}`,
-                this.deviceIdStoreName = `kano-telemetry-device-id-${e.env}`,
-                this.acceptedEnv = "staging" === e.env || "production" === e.env,
-                this.sessionPaused = !1,
-                this.lastInteractionTimestamp = null,
-                this.lastTrackedEvent = null,
-                this.is_uwp_app = !1,
-                this._hasCookiePermissions = null,
-                this._sendTrackingData = this.acceptedEnv
-            }
-            __reactstandin__regenerateByEval(key, code) {
-                this[key] = eval(code)
-            }
-        }
-        const _default = TelemetryClient;
-        var __WEBPACK_DEFAULT_EXPORT__ = _default;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(debugTimingDivider, "debugTimingDivider", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/client.ts"),
-            e.register(defaultConfig, "defaultConfig", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/client.ts"),
-            e.register(TelemetryClient, "TelemetryClient", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/client.ts"),
-            e.register(_default, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/client.ts"))
-        }(),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
-        }()
-    }
-    ,
-    "5679d3d5fd3ced4243e1": (module,__webpack_exports__,__webpack_require__)=>{
-        "use strict";
-        __webpack_require__.d(__webpack_exports__, {
-            Ez: ()=>DATA_LAYER_TELEMETRY_NAME,
-            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
-        });
-        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6f187f73a51c6304e7d6"), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("a48309e68714456ffccb"), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__), react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8af190b70a6bc55c6f1b"), react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("657c5d0bc31a26770cad"), react_router_dom__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_8__), _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("8390a660195ca787c81e"), _utils_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("76e801c56e29117c1f5c"), _utils_react_tracking__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("1ccf057766bc7fd4a574"), _offlineClient__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("3c7d3c701ef55206f5a7"), _client__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("bc232552341112f68615"), _dec, _class, _temp;
-        function ownKeys(e, t) {
-            var r = Object.keys(e);
-            if (Object.getOwnPropertySymbols) {
-                var o = Object.getOwnPropertySymbols(e);
-                t && (o = o.filter(function(t) {
-                    return Object.getOwnPropertyDescriptor(e, t).enumerable
-                })),
-                r.push.apply(r, o)
-            }
-            return r
-        }
-        function _objectSpread(e) {
-            for (var t = 1; t < arguments.length; t++) {
-                var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
-                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
-                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
-                })
-            }
-            return e
-        }
-        module = __webpack_require__.hmd(module),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
-        }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
-        }
-        ;
-        let telemetryClient = null
-          , TelemetryManager = (_dec = (0,
-        _utils_react_tracking__WEBPACK_IMPORTED_MODULE_5__.j)(e=>({
-            page: e.location.pathname
-        })),
-        _dec((_temp = class TelemetryManager extends react__WEBPACK_IMPORTED_MODULE_2__.PureComponent {
-            constructor(e) {
-                var t;
-                super(e),
-                t = this,
-                this.telemetryClient = void 0,
-                this.cookieLocalStoreName = void 0,
-                this.cookieSessionName = void 0,
-                this.cookieDeviceIdName = void 0,
-                this.crossDomainStorage = void 0,
-                this.cookieStorage = void 0,
-                this.onRouteChanged = ((e,t,r)=>{
-                    const {lastPageChange: o, sythenticPageChange: n} = this.state
-                      , {trackEvent: s, getTrackingData: i} = this.props.tracking
-                      , {date: a} = i()
-                      , u = null !== n ? n : t && t.pathname || null
-                      , d = e && e.pathname || null;
-                    this.setState({
-                        currentPage: d,
-                        lastPageChange: a,
-                        sythenticPageChange: r ? d : null
-                    }, ()=>s({
-                        event: "page_view",
-                        data: {
-                            oldPage: u,
-                            newPage: d,
-                            duration: o && a.getTime() / 1e3 - o.getTime() / 1e3 || null
-                        }
-                    }))
-                }
-                ),
-                this.trackSyntheticPageChange = (e=>{
-                    const t = {
-                        pathname: e,
-                        search: "",
-                        state: "",
-                        hash: ""
-                    };
-                    this.onRouteChanged(t, this.props.location, !0)
-                }
-                ),
-                this.trackUser = (e=>{
-                    this.setState({
-                        trackUser: !0
-                    }),
-                    this.telemetryClient.initTracking(e)
-                }
-                ),
-                this.getCookiePermissions = (()=>new Promise(function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        try {
-                            const r = t.crossDomainStorage && (yield t.crossDomainStorage.read(t.cookieLocalStoreName));
-                            if (r)
-                                return e(r)
-                        } catch (e) {}
-                        return e(_kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(t.cookieLocalStoreName))
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }())),
-                this.setCookiePermissions = (e=>{
-                    _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.write(this.cookieLocalStoreName, JSON.stringify({
-                        date: new Date,
-                        permission: e
-                    })),
-                    this.crossDomainStorage && this.crossDomainStorage.write(this.cookieLocalStoreName, JSON.stringify({
-                        date: new Date,
-                        permission: e
-                    }))
-                }
-                ),
-                this.updateStatus = (e=>{
-                    this.telemetryClient.updateOnline(e)
-                }
-                ),
-                this.onToastManagerMounted = function() {
-                    var e = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(function*(e) {
-                        const {providerConfig: {disableCookies: r}} = t.props;
-                        if (r)
-                            return;
-                        const o = t.cookieStorage.read({
-                            name: t.cookieSessionName
-                        });
-                        (yield t.getCookiePermissions()) || o ? o && t.setCookiePermissions("allow") : e.toastManager.queueToast("cookie-consent", "rich-teas", {
-                            onAllow: ()=>{
-                                t.setCookiePermissions("allow"),
-                                t.telemetryClient.handleOnSaveCookie()
-                            }
-                            ,
-                            onDeny: ()=>{
-                                t.setCookiePermissions("deny")
-                            }
-                        })
-                    });
-                    return function(t) {
-                        return e.apply(this, arguments)
-                    }
-                }(),
-                this.state = {
-                    trackUser: !1,
-                    currentPage: e.location.pathname,
-                    lastPageChange: new Date,
-                    sythenticPageChange: null
-                },
-                this.cookieLocalStoreName = `kano-cookie-permission-${e.providerConfig.env}`,
-                this.cookieSessionName = "kano-telemetry-session",
-                this.cookieDeviceIdName = "kano-telemetry-device-id";
-                const r = _objectSpread(_objectSpread({}, e.providerConfig), {}, {
-                    cookieLocalStoreName: this.cookieLocalStoreName,
-                    cookieSessionName: this.cookieSessionName,
-                    cookieDeviceIdName: this.cookieDeviceIdName
-                });
-                telemetryClient = new _client__WEBPACK_IMPORTED_MODULE_7__.e({
-                    config: r,
-                    tracking: e.tracking,
-                    getCookiePermissions: this.getCookiePermissions
-                }),
-                this.telemetryClient = telemetryClient
-            }
-            componentDidMount() {
-                const {providerConfig: {hasCrossDomainStorage: e=!0}} = this.props;
-                this.crossDomainStorage = e && (0,
-                _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.PM)(),
-                this.cookieStorage = (0,
-                _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.Hh)()
-            }
-            componentDidUpdate(e) {
-                this.props.location !== e.location && this.state.trackUser && this.onRouteChanged(this.props.location, e.location, !1)
-            }
-            componentWillUnmount() {
-                this.telemetryClient && this.telemetryClient.dispose()
-            }
-            render() {
-                const {children: e} = this.props
-                  , t = _objectSpread({}, {
-                    trackUser: this.trackUser,
-                    trackSyntheticPageChange: this.trackSyntheticPageChange,
-                    onToastManagerMounted: this.onToastManagerMounted
-                });
-                return react__WEBPACK_IMPORTED_MODULE_2__.createElement(_utils_context__WEBPACK_IMPORTED_MODULE_4__.w.Provider, {
-                    value: t
-                }, react__WEBPACK_IMPORTED_MODULE_2__.createElement(_offlineClient__WEBPACK_IMPORTED_MODULE_6__.yi, null, ({offlineClient: {online: r}})=>(this.updateStatus(r),
-                e ? e(_objectSpread(_objectSpread({}, t), {}, {
-                    online: r
-                })) : null)))
-            }
-            __reactstandin__regenerateByEval(key, code) {
-                this[key] = eval(code)
-            }
-        }
-        ,
-        _class = _temp)) || _class);
-        const appTrackingData = e=>({
-            app: e.app,
-            appVersion: e.appVersion,
-            env: e.env,
-            date: new Date
-        })
-          , DATA_LAYER_TELEMETRY_NAME = "telemetryLayer"
-          , TelemetryProvider = (0,
-        _utils_react_tracking__WEBPACK_IMPORTED_MODULE_5__.j)(e=>appTrackingData(e.providerConfig), {
-            dispatch: e=>{
-                const {refreshIdleSession: t, sessionPaused: r, resumeSession: o, clearRefreshIdleSession: n} = telemetryClient
-                  , s = (0,
-                _utils_react_tracking__WEBPACK_IMPORTED_MODULE_5__.y0)(e) ? "error" : e.event;
-                t || !r || "pause_session" === s || "resume_session" === s ? (t && "resume_session" !== s && "refresh_session" !== s && n(),
-                "page_view" !== s && "start_session" !== s && "resume_session" !== s || telemetryClient.updatePageChanged(e),
-                (window[DATA_LAYER_TELEMETRY_NAME] = window[DATA_LAYER_TELEMETRY_NAME] || []).push(e)) : o(e)
-            }
-        })((0,
-        react_router_dom__WEBPACK_IMPORTED_MODULE_8__.withRouter)(TelemetryManager))
-          , __TEST__TelemetryManager = TelemetryManager
-          , _default = TelemetryProvider
-          , __WEBPACK_DEFAULT_EXPORT__ = _default;
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(telemetryClient, "telemetryClient", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(TelemetryManager, "TelemetryManager", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(appTrackingData, "appTrackingData", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(DATA_LAYER_TELEMETRY_NAME, "DATA_LAYER_TELEMETRY_NAME", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(TelemetryProvider, "TelemetryProvider", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(__TEST__TelemetryManager, "__TEST__TelemetryManager", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"),
-            e.register(_default, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/telemetry/provider.tsx"))
-        }(),
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
-        }()
-    }
-    ,
-    "76e801c56e29117c1f5c": (e,t,r)=>{
-        "use strict";
-        r.d(t, {
-            g: ()=>s,
-            w: ()=>i
+            WU: ()=>i
         });
         var o = r("8af190b70a6bc55c6f1b");
         e = r.hmd(e),
@@ -4234,19 +11,56 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const n = e=>{
-            const t = (0,
-            o.createContext)(null);
-            return t.displayName = e,
-            t
-        }
-          , s = n("offlineClient")
-          , i = n("telemetryClient");
+        const a = ({width: e=17, height: t=19, fill: r="white"})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 17 19",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            d: "M15.1252 6.67829C17.1252 7.83299 17.1252 10.7197 15.1252 11.8744L5.02222 17.7074C3.02222 18.8621 0.522224 17.4187 0.522224 15.1093L0.522224 3.44337C0.522224 1.13397 3.02222 -0.309397 5.02222 0.845304L15.1252 6.67829Z",
+            fill: r
+        }))
+          , n = ({width: e=25, height: t=25})=>o.createElement("svg", {
+            width: "22",
+            height: "25",
+            viewBox: "0 0 22 25",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            d: "M19.2349 11.634C19.9015 12.0189 19.9015 12.9811 19.2349 13.366L3.38525 22.5168C2.71859 22.9017 1.88525 22.4206 1.88525 21.6508L1.88525 3.34922C1.88525 2.57942 2.71859 2.0983 3.38525 2.4832L19.2349 11.634Z",
+            stroke: "currentColor",
+            strokeWidth: "3"
+        }))
+          , s = ({width: e=31, height: t=35})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 31 35",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            d: "M30.2109 17.5L0.644537 34.5702L0.644539 0.429825L30.2109 17.5Z",
+            fill: "white"
+        }))
+          , i = ({width: e=44, height: t=44, stroke: r="var(--color-main)"})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 44 44",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("circle", {
+            cx: "22",
+            cy: "22",
+            r: "20",
+            stroke: r,
+            strokeWidth: "4"
+        }));
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(n, "createNamedContext", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/context.tsx"),
-            e.register(s, "OfflineClientContext", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/context.tsx"),
-            e.register(i, "TelemetryClientContext", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/context.tsx"))
+            e && (e.register(a, "Play", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
+            e.register(n, "PlayOutline", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
+            e.register(s, "PlayDonda2", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"),
+            e.register(i, "PlayNew", "/home/vsts/work/1/s/src/assets/icons/Play.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -4254,26 +68,643 @@
         }()
     }
     ,
-    "1ccf057766bc7fd4a574": (e,t,r)=>{
+    "98207642210e3d58d89a": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            y0: ()=>m,
-            j: ()=>g,
-            v8: ()=>E
+            _z: ()=>a,
+            mE: ()=>n,
+            ry: ()=>s
         });
-        var o = r("ceea40cb320efd487259")
-          , n = r.n(o)
-          , s = r("6f187f73a51c6304e7d6")
-          , i = r.n(s)
-          , a = r("8c32303422aadf36cbf3")
-          , u = r.n(a)
-          , d = r("8af190b70a6bc55c6f1b")
-          , c = r("5ef9de3df8d92ea0e41c")
-          , l = r.n(c)
-          , _ = r("750be1a664aacea1e4b5")
-          , f = r("96473cd9242fc2a39f3f")
-          , h = r("76e801c56e29117c1f5c");
-        function v(e, t) {
+        var o = r("8af190b70a6bc55c6f1b");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const a = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 74 33",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            d: "M16.28 28.96L57.72 28.96C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6L16.28 3.6C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96ZM57.72 32.56C66.7112 32.56 74 25.2712 74 16.28C74 7.2888 66.7112 -3.8147e-06 57.72 -3.8147e-06L16.28 -3.8147e-06C7.2888 -3.8147e-06 0 7.2888 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56L57.72 32.56ZM51.7484 16.3636C51.7484 13.4886 54.0791 11.1579 56.9542 11.1579C59.8292 11.1579 62.1599 13.4886 62.1599 16.3636C62.1599 19.2387 59.8292 21.5694 56.9542 21.5694C54.0791 21.5694 51.7484 19.2387 51.7484 16.3636ZM16.6009 11.1579C13.7258 11.1579 11.3951 13.4886 11.3951 16.3636C11.3951 19.2387 13.7258 21.5694 16.6009 21.5694C19.4759 21.5694 21.8066 19.2387 21.8066 16.3636C21.8066 13.4886 19.4759 11.1579 16.6009 11.1579Z",
+            fill: "var(--color-main)"
+        }))
+          , n = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 74 33",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            d: "M16.28 28.96L57.72 28.96C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6L16.28 3.6C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96ZM57.72 32.56C66.7112 32.56 74 25.2712 74 16.28C74 7.2888 66.7112 -3.8147e-06 57.72 -3.8147e-06L16.28 -3.8147e-06C7.2888 -3.8147e-06 0 7.2888 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56L57.72 32.56ZM51.7484 16.3636C51.7484 13.4886 54.0791 11.1579 56.9542 11.1579C59.8292 11.1579 62.1599 13.4886 62.1599 16.3636C62.1599 19.2387 59.8292 21.5694 56.9542 21.5694C54.0791 21.5694 51.7484 19.2387 51.7484 16.3636ZM16.6009 11.1579C13.7258 11.1579 11.3951 13.4886 11.3951 16.3636C11.3951 19.2387 13.7258 21.5694 16.6009 21.5694C19.4759 21.5694 21.8066 19.2387 21.8066 16.3636C21.8066 13.4886 19.4759 11.1579 16.6009 11.1579Z",
+            fill: "url(#paint0_linear_37_215)"
+        }), o.createElement("defs", null, o.createElement("linearGradient", {
+            id: "paint0_linear_37_215",
+            x1: "2.12071e-07",
+            y1: "16.56",
+            x2: "74",
+            y2: "16.56",
+            gradientUnits: "userSpaceOnUse"
+        }, o.createElement("stop", {
+            stopColor: r
+        }), o.createElement("stop", {
+            offset: "0.609375",
+            stopColor: r,
+            stopOpacity: "0.35"
+        }))))
+          , s = ({width: e=74, height: t=33, color: r="var(--color-main)"})=>o.createElement("svg", {
+            width: e,
+            height: t,
+            viewBox: "0 0 74 33",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg"
+        }, o.createElement("path", {
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            d: "M57.72 3.6H16.28C9.27703 3.6 3.6 9.27703 3.6 16.28C3.6 23.283 9.27703 28.96 16.28 28.96H57.72C64.723 28.96 70.4 23.283 70.4 16.28C70.4 9.27703 64.723 3.6 57.72 3.6ZM16.28 0C7.28881 0 0 7.28881 0 16.28C0 25.2712 7.2888 32.56 16.28 32.56H57.72C66.7112 32.56 74 25.2712 74 16.28C74 7.28881 66.7112 0 57.72 0L16.28 0ZM22.2516 16.1964C22.2516 19.0714 19.9209 21.4021 17.0458 21.4021C14.1708 21.4021 11.8401 19.0714 11.8401 16.1964C11.8401 13.3213 14.1708 10.9906 17.0458 10.9906C19.9209 10.9906 22.2516 13.3213 22.2516 16.1964ZM57.3991 21.4021C60.2742 21.4021 62.6049 19.0714 62.6049 16.1964C62.6049 13.3213 60.2742 10.9906 57.3991 10.9906C54.5241 10.9906 52.1934 13.3213 52.1934 16.1964C52.1934 19.0714 54.5241 21.4021 57.3991 21.4021Z",
+            fill: "url(#paint0_linear_37_215)"
+        }), o.createElement("defs", null, o.createElement("linearGradient", {
+            id: "paint0_linear_37_215",
+            x1: "74",
+            y1: "16",
+            x2: "-2.12071e-07",
+            y2: "16",
+            gradientUnits: "userSpaceOnUse"
+        }, o.createElement("stop", {
+            stopColor: r
+        }), o.createElement("stop", {
+            offset: "0.609375",
+            stopColor: r,
+            stopOpacity: "0.35"
+        }))));
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(a, "PrevNext", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"),
+            e.register(n, "NextHighlighted", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"),
+            e.register(s, "PrevHighlighted", "/home/vsts/work/1/s/src/assets/icons/PrevNext.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    cc0255108d6122cbc66a: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>b
+        });
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("6515cd559c65eab0c80c")
+          , n = r("77d9647920c06e8befd6")
+          , s = r("238af0e74d3daf256b28")
+          , i = r("c90b79b40c6328f03c9e")
+          , c = r("e2161c2bb2fb866f34ce")
+          , l = r("20096a37950a1cbbc5cd");
+        const _ = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var d = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const u = {
+            "single-gradient": {
+                vs: _,
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 3000.));\n    total += smoothNoise(p*2.  + (uTime / 3000.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 3000.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 3000.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 3000.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.28) * 5.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+            },
+            gradients: {
+                vs: _,
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(.9,.9,.9,1.), .7);\nvec4 color2 = mix(uColor2, vec4(.9,.9,.9,1.), .7);\nvec4 color3 = mix(uColor1, vec4(.6,.6,.6,1.), .5);\nvec4 color4 = mix(uColor2, vec4(.6,.6,.6,1.), .5);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 3000.));\n    total += smoothNoise(p*2.  + (uTime / 3000.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 3000.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 3000.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 3000.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.25) * 5.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color4, uv.x);\n    vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+            }
+        };
+        function f(e, t, r) {
+            const o = e.createShader(e.VERTEX_SHADER)
+              , a = e.createShader(e.FRAGMENT_SHADER);
+            if (e.shaderSource(o, t),
+            e.shaderSource(a, r),
+            e.compileShader(o),
+            !e.getShaderParameter(o, e.COMPILE_STATUS))
+                return void console.error("ERROR compiling vertex shader", e.getShaderInfoLog(o));
+            if (e.compileShader(a),
+            !e.getShaderParameter(a, e.COMPILE_STATUS))
+                return void console.error("ERROR compiling fragment shader", e.getShaderInfoLog(a));
+            const n = e.createProgram();
+            if (e.attachShader(n, o),
+            e.attachShader(n, a),
+            e.linkProgram(n),
+            e.getProgramParameter(n, e.LINK_STATUS)) {
+                if (e.validateProgram(n),
+                e.getProgramParameter(n, e.VALIDATE_STATUS))
+                    return e.useProgram(n),
+                    n;
+                console.error("ERROR validating program", e.getProgramInfoLog(n))
+            } else
+                console.error("ERROR linking program", e.getProgramInfoLog(n))
+        }
+        function m(e, t) {
+            const r = new Float32Array([-1, 1, 1, 1, 1, -1, -1, 1, 1, -1, -1, -1])
+              , o = e.createBuffer();
+            e.bindBuffer(e.ARRAY_BUFFER, o),
+            e.bufferData(e.ARRAY_BUFFER, r, e.STATIC_DRAW);
+            const a = e.getAttribLocation(t, "aPosition");
+            e.vertexAttribPointer(a, 2, e.FLOAT, !1, 0, 0),
+            e.enableVertexAttribArray(a);
+            const n = e.getAttribLocation(t, "aTexCoord")
+              , s = e.createBuffer();
+            return e.bindBuffer(e.ARRAY_BUFFER, s),
+            e.bufferData(e.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]), e.STATIC_DRAW),
+            e.enableVertexAttribArray(n),
+            e.vertexAttribPointer(n, 2, e.FLOAT, !1, 0, 0),
+            r.length / 2
+        }
+        d(f, "useProgram{}");
+        const p = [[1, .2666, 0], [.2509, .4392, .8392]]
+          , h = ({audioEngine: e, loading: t, type: r})=>{
+            const n = (0,
+            o.useRef)()
+              , _ = (0,
+            o.useRef)()
+              , d = (0,
+            o.useRef)();
+            d.current = e.currentTrack;
+            const h = (0,
+            o.useRef)();
+            h.current = e.playbackState;
+            const v = (0,
+            o.useRef)(p);
+            return (0,
+            o.useEffect)(()=>{
+                const t = ()=>{
+                    const e = n.current
+                      , t = e.clientWidth
+                      , r = e.clientHeight;
+                    (e.width !== t || e.height !== r) && (e.width = t,
+                    e.height = r),
+                    _.current.viewport(0, 0, e.clientWidth, e.clientHeight)
+                }
+                ;
+                window.addEventListener("resize", t);
+                const o = n.current;
+                let p;
+                o.width = o.clientWidth,
+                o.height = o.clientHeight;
+                var b = o.getContext("webgl");
+                if (b) {
+                    _.current = b,
+                    t();
+                    const n = u[r]
+                      , E = f(b, n.vs, n.fs)
+                      , g = m(b, E)
+                      , y = b.getUniformLocation(E, "uTime")
+                      , P = b.getUniformLocation(E, "uResolution")
+                      , A = b.getUniformLocation(E, "uColor1")
+                      , T = b.getUniformLocation(E, "uColor2");
+                    let O = 0
+                      , M = !1;
+                    const D = t=>{
+                        b.clearColor(0, 0, 0, 1),
+                        b.clear(b.COLOR_BUFFER_BIT),
+                        b.uniform1f(y, t),
+                        b.uniform2f(P, o.clientWidth, o.clientHeight);
+                        const r = d.current;
+                        if (r) {
+                            const t = r.colors.map(e=>(0,
+                            i.oo)(e.substring(1)).map(e=>e / 255))
+                              , n = v.current.every((e,r)=>(0,
+                            l.H)(e, t[r]));
+                            n || M || (M = !0,
+                            O = 0),
+                            M && (O += .002,
+                            v.current = v.current.map((e,r)=>{
+                                const o = t[r];
+                                return e.map((e,t)=>(0,
+                                c.t)(e, o[t], O))
+                            }
+                            ),
+                            n && (M = !1,
+                            O = 0)),
+                            O >= 1 && (M = !1,
+                            O = 0,
+                            v.current = t);
+                            const _ = document.querySelectorAll(".ye-waveform");
+                            Object.values(a.wA).forEach((t,n)=>{
+                                const i = t.charAt(0).toUpperCase() + t.slice(1)
+                                  , c = b.getUniformLocation(E, `uAmplitude${i}`)
+                                  , l = b.getUniformLocation(E, `uWaveformYPos${i}`);
+                                if (_.length) {
+                                    const e = _[n].getBoundingClientRect().top + _[n].clientHeight / 2
+                                      , t = (o.clientHeight / 2 - e) / (o.clientHeight / 2);
+                                    b.uniform1f(l, t)
+                                }
+                                let d;
+                                d = e.shouldMute(t) || h.current !== a.QK.Playing ? 0 : (0,
+                                s.tX)(r.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), r.waveformData[t].fps),
+                                b.uniform1f(c, d)
+                            }
+                            )
+                        }
+                        const [n,_] = v.current;
+                        b.uniform4f(A, n[0], n[1], n[2], 1),
+                        b.uniform4f(T, _[0], _[1], _[2], 1),
+                        b.drawArrays(b.TRIANGLES, 0, g),
+                        p = requestAnimationFrame(D)
+                    }
+                    ;
+                    D(0)
+                }
+                return ()=>{
+                    window.removeEventListener("resize", t),
+                    p && cancelAnimationFrame(p)
+                }
+            }
+            , []),
+            o.createElement("div", {
+                className: `background-shader ${t ? "loading" : ""}`
+            }, o.createElement("canvas", {
+                className: "background-shader__canvas",
+                ref: n
+            }))
+        }
+        ;
+        d(h, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseEffect{}");
+        const v = (0,
+        n.f)(h)
+          , b = v;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(u, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(f, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(m, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(p, "defaultBackgroundColorsRgbPercent", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(h, "BackgroundShader", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(v, "default", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "611644a0797bcf6f7bf2": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>m
+        });
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("6515cd559c65eab0c80c")
+          , n = r("77d9647920c06e8befd6");
+        const s = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var i = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const c = {
+            ripples: {
+                vs: s,
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .25;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.5*uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    vec3 color1 = vec3(0.445,0.002,0.419);\n    vec3 color2 = vec3(1.000,0.467,0.174);\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(color1, color2, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolate(float x, vec2 x0, vec2 x1, vec2 x2) {\n    return (((x - x1.x) * (x - x2.x)) / ((x0.x - x1.x) * (x0.x - x2.x))) * x0.y\n        + (((x - x0.x) * (x - x2.x)) / ((x1.x - x0.x) * (x1.x - x2.x))) * x1.y\n        + (((x - x0.x) * (x - x1.x)) / ((x2.x - x0.x) * (x2.x - x1.x))) * x2.y;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.0006 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    // gl_FragColor = noisyTexture(outUV, scaledTime);\n    vec4 layer1 = mix(uColor1, uColor3, outUV.x);\n    vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(texture2D(uVocals, vTexCoord));\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
+            },
+            water: {
+                vs: s,
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .25;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.5*uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    // vec3 color1 = vec3(0.445,0.002,0.419);\n    // vec3 color2 = vec3(1.000,0.467,0.174);\n    vec3 color1 = uColor1.rgb;\n    vec3 color2 = uColor3.rgb;\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(uColor2.rgb, uColor4.rgb, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolate(float x, vec2 x0, vec2 x1, vec2 x2) {\n    return (((x - x1.x) * (x - x2.x)) / ((x0.x - x1.x) * (x0.x - x2.x))) * x0.y\n        + (((x - x0.x) * (x - x2.x)) / ((x1.x - x0.x) * (x1.x - x2.x))) * x1.y\n        + (((x - x0.x) * (x - x1.x)) / ((x2.x - x0.x) * (x2.x - x1.x))) * x2.y;\n}\n\nfloat interpolated(sampler2D buf, float t, float sampleIndex) {\n    float pi = 3.14159;\n    float acc = 0.;\n    float T = 1.;\n    for (float i = 0.; i < 3.; i++) {\n        float sample = getStemSample(buf, sampleIndex + i);\n        float sinArg = 1.;\n        if (sinArg == 0.) {\n            sinArg = (pi / T) * (t - i * T);\n        }\n        acc += sample * (sin(sinArg) / sinArg);\n    }\n\n    return acc;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    // sinc function reconstructing audio signal from samples?\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n    // float waveValue = interpolated(buf, rem, sampleNo);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.0006 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    gl_FragColor = noisyTexture(outUV, scaledTime);\n    // vec4 layer1 = mix(uColor1, uColor3, outUV.x);\n    // vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    // gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(texture2D(uVocals, vTexCoord));\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
+            }
+        };
+        function l(e, t, r) {
+            const o = e.createShader(e.VERTEX_SHADER)
+              , a = e.createShader(e.FRAGMENT_SHADER);
+            if (e.shaderSource(o, t),
+            e.shaderSource(a, r),
+            e.compileShader(o),
+            !e.getShaderParameter(o, e.COMPILE_STATUS))
+                return void console.error("ERROR compiling vertex shader", e.getShaderInfoLog(o));
+            if (e.compileShader(a),
+            !e.getShaderParameter(a, e.COMPILE_STATUS))
+                return void console.error("ERROR compiling fragment shader", e.getShaderInfoLog(a));
+            const n = e.createProgram();
+            if (e.attachShader(n, o),
+            e.attachShader(n, a),
+            e.linkProgram(n),
+            e.getProgramParameter(n, e.LINK_STATUS)) {
+                if (e.validateProgram(n),
+                e.getProgramParameter(n, e.VALIDATE_STATUS))
+                    return e.useProgram(n),
+                    n;
+                console.error("ERROR validating program", e.getProgramInfoLog(n))
+            } else
+                console.error("ERROR linking program", e.getProgramInfoLog(n))
+        }
+        function _(e, t) {
+            const r = new Float32Array([-1, 1, 1, 1, 1, -1, -1, 1, 1, -1, -1, -1])
+              , o = e.createBuffer();
+            e.bindBuffer(e.ARRAY_BUFFER, o),
+            e.bufferData(e.ARRAY_BUFFER, r, e.STATIC_DRAW);
+            const a = e.getAttribLocation(t, "aPosition");
+            e.vertexAttribPointer(a, 2, e.FLOAT, !1, 0, 0),
+            e.enableVertexAttribArray(a);
+            const n = e.getAttribLocation(t, "aTexCoord")
+              , s = e.createBuffer();
+            return e.bindBuffer(e.ARRAY_BUFFER, s),
+            e.bufferData(e.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]), e.STATIC_DRAW),
+            e.enableVertexAttribArray(n),
+            e.vertexAttribPointer(n, 2, e.FLOAT, !1, 0, 0),
+            r.length / 2
+        }
+        function d(e, t, r, o, a) {
+            const n = t.slice();
+            for (let e = 0; e < n.length; e += 1)
+                n[e] = Math.floor(n[e] / 100 * 255);
+            for (; n.length < o * a * 4; )
+                n.push(0);
+            const s = new Uint8Array(n);
+            e.activeTexture(e.TEXTURE0);
+            const i = e.createTexture();
+            return e.bindTexture(e.TEXTURE_2D, i),
+            e.texImage2D(e.TEXTURE_2D, 0, r, o, a, 0, r, e.UNSIGNED_BYTE, s),
+            e.texParameteri(e.TEXTURE_2D, e.TEXTURE_MAG_FILTER, e.NEAREST),
+            e.texParameteri(e.TEXTURE_2D, e.TEXTURE_MIN_FILTER, e.NEAREST),
+            e.texParameteri(e.TEXTURE_2D, e.TEXTURE_WRAP_S, e.CLAMP_TO_EDGE),
+            e.texParameteri(e.TEXTURE_2D, e.TEXTURE_WRAP_T, e.CLAMP_TO_EDGE),
+            e.bindTexture(e.TEXTURE_2D, null),
+            i
+        }
+        i(l, "useProgram{}");
+        const u = ({audioEngine: e, loading: t, type: r})=>{
+            const n = (0,
+            o.useRef)()
+              , s = (0,
+            o.useRef)()
+              , i = (0,
+            o.useRef)()
+              , u = (0,
+            o.useRef)()
+              , f = (0,
+            o.useRef)(null)
+              , m = (0,
+            o.useRef)(0)
+              , p = (0,
+            o.useRef)(1)
+              , h = (0,
+            o.useRef)(0)
+              , v = (0,
+            o.useRef)(1)
+              , b = (0,
+            o.useRef)(0)
+              , E = (0,
+            o.useRef)(1)
+              , g = (0,
+            o.useRef)(0)
+              , y = (0,
+            o.useRef)(1)
+              , P = (0,
+            o.useRef)(0);
+            return (0,
+            o.useRef)().current = e.playbackState,
+            (0,
+            o.useEffect)(()=>{
+                u.current = e
+            }
+            , [e]),
+            (0,
+            o.useEffect)(()=>{
+                const {currentTrack: t} = e;
+                i.current = t;
+                const r = f.current
+                  , o = s.current;
+                if (r) {
+                    f.current = null;
+                    for (const e of r)
+                        o.deleteTexture(e)
+                }
+                if (t) {
+                    const e = [];
+                    for (const r of ["vocals", "other", "drums", "bass"]) {
+                        const a = d(o, t.waveformData[r].intensity, o.RGBA, 128, 128);
+                        e.push(a)
+                    }
+                    f.current = e
+                }
+            }
+            , [e.currentTrack]),
+            (0,
+            o.useEffect)(()=>{
+                const t = ()=>{
+                    const e = n.current
+                      , t = e.clientWidth
+                      , r = e.clientHeight;
+                    (e.width !== t || e.height !== r) && (e.width = t,
+                    e.height = r),
+                    s.current.viewport(0, 0, e.clientWidth, e.clientHeight)
+                }
+                ;
+                window.addEventListener("resize", t);
+                const o = n.current;
+                let d;
+                o.width = o.clientWidth,
+                o.height = o.clientHeight;
+                var A = o.getContext("webgl");
+                if (A) {
+                    s.current = A,
+                    t();
+                    const n = c[r]
+                      , T = l(A, n.vs, n.fs)
+                      , O = _(A, T)
+                      , M = A.getUniformLocation(T, "uTime")
+                      , D = A.getUniformLocation(T, "uTrackPosition")
+                      , w = A.getUniformLocation(T, "uResolution")
+                      , L = A.getUniformLocation(T, "uColor1")
+                      , k = A.getUniformLocation(T, "uColor2")
+                      , C = A.getUniformLocation(T, "uColor3")
+                      , S = A.getUniformLocation(T, "uColor4")
+                      , R = A.getUniformLocation(T, "uVocalsVolume")
+                      , U = A.getUniformLocation(T, "uOtherVolume")
+                      , x = A.getUniformLocation(T, "uDrumsVolume")
+                      , I = A.getUniformLocation(T, "uBassVolume")
+                      , B = A.getUniformLocation(T, "uStoppedAt")
+                      , G = A.getUniformLocation(T, "uTrackSamples")
+                      , K = [A.getUniformLocation(T, "uVocals"), A.getUniformLocation(T, "uOther"), A.getUniformLocation(T, "uDrums"), A.getUniformLocation(T, "uBass")]
+                      , W = t=>{
+                        A.clearColor(0, 0, 0, 1),
+                        A.clear(A.COLOR_BUFFER_BIT),
+                        A.uniform1f(M, t),
+                        A.uniform2f(w, o.clientWidth, o.clientHeight);
+                        const r = i.current
+                          , n = f.current;
+                        if (A.uniform4f(L, .6, .6235, .6745, 1),
+                        A.uniform4f(k, .8941, .8235, .815686, 1),
+                        A.uniform4f(C, .90196, .70588, .63529, 1),
+                        A.uniform4f(S, .6, .62745, .67843, 1),
+                        r && (A.uniform1f(D, e.getCurrentTime() / e.getDuration()),
+                        u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
+                        e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
+                        p.current > h.current ? p.current -= .033 : p.current < h.current && (p.current += .033),
+                        e.shouldMute(a.wA.Other) ? 1 === b.current && (b.current = 0) : b.current = 1,
+                        v.current > b.current ? v.current -= .033 : v.current < b.current && (v.current += .033),
+                        e.shouldMute(a.wA.Drums) ? 1 === g.current && (g.current = 0) : g.current = 1,
+                        E.current > g.current ? E.current -= .033 : E.current < g.current && (E.current += .033),
+                        e.shouldMute(a.wA.Bass) ? 1 === P.current && (P.current = 0) : P.current = 1,
+                        y.current > P.current ? y.current -= .033 : y.current < P.current && (y.current += .033),
+                        A.uniform1f(R, p.current),
+                        A.uniform1f(U, v.current),
+                        A.uniform1f(x, E.current),
+                        A.uniform1f(I, y.current),
+                        A.uniform1f(B, m.current)),
+                        n) {
+                            A.uniform1f(G, r.waveformData.drums.intensity.length);
+                            for (let e = 0; e < n.length; e += 1) {
+                                const t = n[e];
+                                A.activeTexture(A.TEXTURE0 + e),
+                                A.bindTexture(A.TEXTURE_2D, t),
+                                A.uniform1i(K[e], e)
+                            }
+                        }
+                        A.drawArrays(A.TRIANGLES, 0, O),
+                        d = requestAnimationFrame(W)
+                    }
+                    ;
+                    W(0)
+                }
+                return ()=>{
+                    window.removeEventListener("resize", t),
+                    d && cancelAnimationFrame(d)
+                }
+            }
+            , []),
+            o.createElement("div", {
+                className: `background-shader ${t ? "loading" : ""}`
+            }, o.createElement("canvas", {
+                className: "background-shader__canvas",
+                ref: n
+            }))
+        }
+        ;
+        i(u, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{audioEngineRef}\nuseRef{texturesRef}\nuseRef{stoppedAtRef}\nuseRef{vocalsVolumeRef}\nuseRef{vocalsNewVolumeRef}\nuseRef{otherVolumeRef}\nuseRef{otherNewVolumeRef}\nuseRef{drumsVolumeRef}\nuseRef{drumsNewVolumeRef}\nuseRef{bassVolumeRef}\nuseRef{bassNewVolumeRef}\nuseRef{playbackStateRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const f = (0,
+        n.f)(u)
+          , m = f;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(c, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(l, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(_, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(d, "textureFromPixelArray", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(u, "BackgroundShader2", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(f, "default", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "804fe702b68cd889ff76": (e,t,r)=>{
+        "use strict";
+        r.r(t),
+        r.d(t, {
+            Button: ()=>c,
+            default: ()=>_
+        });
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("9c2db445b2a1a7a1cf6d");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var n = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const s = (0,
+        a.ZP)({
+            resolved: {},
+            chunkName: ()=>"Loader",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.resolve().then(r.bind(r, "abf12094d6dd744112a4")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "abf12094d6dd744112a4"
+            }
+        })
+          , i = ()=>o.createElement("span", null, o.createElement("span", {
+            className: "dots__dot--1"
+        }, "."), o.createElement("span", {
+            className: "dots__dot--2"
+        }, "."), o.createElement("span", {
+            className: "dots__dot--3"
+        }, "."))
+          , c = ({icon: e, text: t=!1, type: r="button", onClick: a, onMouseDown: n, onMouseLeave: c, onMouseUp: l, onTouchMove: _, onTouchStart: d, onTouchEnd: u, disabled: f=!1, loading: m=!1, active: p=!1, hideTextWhenLoading: h=!1, className: v, size: b="", brackets: E=!1, dots: g=!1, id: y})=>o.createElement("button", {
+            className: `button\n            ${m ? " button--loading" : ""}\n            ${b ? ` button--${b}` : ""}\n            ${f ? " disabled" : ""}\n            ${p ? " button--active" : ""}\n            ${e ? " button--icon" : ""}\n            ${t ? " button--text" : " button--no-text"}\n            ${v ? ` ${v}` : ""}\n        `,
+            id: y && y,
+            type: r,
+            onClick: a && !m ? a : void 0,
+            onMouseDown: n && !m ? n : void 0,
+            onMouseLeave: c && !m ? c : void 0,
+            onMouseUp: l && !m ? l : void 0,
+            onTouchMove: _ && !m ? _ : void 0,
+            onTouchStart: d && !m ? d : void 0,
+            onTouchEnd: u && !m ? u : void 0,
+            disabled: f
+        }, m && o.createElement(s, {
+            size: "small"
+        }), e ? e() : !1 !== t ? o.createElement("span", {
+            className: `button__text${h ? " button__text--hide-when-loading" : ""}`
+        }, E ? "[ " : "", t, g ? o.createElement(i, null) : "", E ? " ]" : "") : null)
+          , l = c
+          , _ = l;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(s, "Loader", "/home/vsts/work/1/s/src/components/Button/index.tsx"),
+            e.register(i, "Dots", "/home/vsts/work/1/s/src/components/Button/index.tsx"),
+            e.register(c, "Button", "/home/vsts/work/1/s/src/components/Button/index.tsx"),
+            e.register(l, "default", "/home/vsts/work/1/s/src/components/Button/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    b17b0ee5884def929afc: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            II: ()=>u,
+            L_: ()=>f,
+            TC: ()=>m
+        });
+        var o = r("990057777e9b2b7543e8")
+          , a = r("8af190b70a6bc55c6f1b")
+          , n = r("2f0f179fdd043e994433")
+          , s = r("c90b79b40c6328f03c9e")
+          , i = r("f60aef9fa88f4e9ce07a")
+          , c = r("abf12094d6dd744112a4");
+        function l(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
                 var o = Object.getOwnPropertySymbols(e);
@@ -4284,12 +715,13 @@
             }
             return r
         }
-        function p(e) {
+        function _(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? v(Object(r), !0).forEach(function(t) {
-                    i()(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : v(Object(r)).forEach(function(t) {
+                t % 2 ? l(Object(r), !0).forEach(function(t) {
+                    (0,
+                    o.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : l(Object(r)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                 })
             }
@@ -4300,424 +732,314 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var b = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var d = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const m = e=>void 0 !== e.error;
-        function g(e, t) {
-            return function(...r) {
-                return (0,
-                f.default)(e, t)(...r)
-            }
+        const u = (0,
+        a.forwardRef)(({min: e=null, max: t=null, maxLength: r=null, type: o="text", className: n="", invalid: s, placeholder: i="", value: c="", onChange: l, onInput: _, onBlur: d, autoFocus: u, disabled: f=!1, readOnly: m=!1, id: p, style: h, modifier: v, autoComplete: b, size: E, autoCapitalize: g},y)=>a.createElement("input", {
+            min: e && e,
+            max: t && t,
+            maxLength: r && r,
+            type: o,
+            className: `input${v ? ` input--${v}` : ""}${s ? " input--invalid" : ""} ${n}`,
+            placeholder: i,
+            value: c,
+            onChange: l,
+            onBlur: d && d,
+            onInput: _,
+            disabled: f,
+            readOnly: m,
+            ref: y,
+            id: p && p,
+            style: h,
+            size: E,
+            "data-lpignore": "true",
+            autoComplete: b,
+            autoFocus: u && u,
+            autoCapitalize: g
+        }))
+          , f = a.forwardRef((e,t)=>{
+            var r;
+            const o = (null === (r = e.placeholder) || void 0 === r ? void 0 : r.toUpperCase()) || void 0;
+            return a.createElement("div", {
+                className: "labeled-input",
+                id: e.id
+            }, a.createElement("label", {
+                className: "input-sizer",
+                "data-value": o
+            }, a.createElement("span", null, e.label), a.createElement(u, _(_({}, e), {}, {
+                onInput: e=>{
+                    e.target.parentElement.dataset.value = e.target.value || o || ""
+                }
+                ,
+                placeholder: o,
+                size: 1,
+                ref: t
+            }))))
         }
-        const k = _.j
-          , y = _.rS;
-        function E(e) {
-            const t = `withTelemetry(${e.displayName || e.name})`
-              , r = t=>{
-                const {wrappedComponentRef: r} = t
-                  , o = u()(t, ["wrappedComponentRef"])
-                  , s = y();
-                return d.createElement(h.w.Consumer, null, t=>d.createElement(e, n()({}, o, {
-                    tracking: p(p({}, s), t),
-                    ref: r
-                })))
+        )
+          , m = ({name: e, value: t, onChange: r, disabled: o=!1})=>{
+            const n = (0,
+            s.oo)(t.replace("#", ""))
+              , [i,l] = (0,
+            a.useState)(n)
+              , [_,d] = (0,
+            a.useState)(t.toUpperCase())
+              , [f,m] = (0,
+            a.useState)(!1)
+              , [p,h] = (0,
+            a.useState)(!0)
+              , [v,b] = (0,
+            a.useState)(!0)
+              , E = (0,
+            a.useRef)(null)
+              , g = (0,
+            a.useRef)(null)
+              , y = (0,
+            a.useRef)(null)
+              , P = e=>{
+                var t;
+                null === (t = g.current) || void 0 === t || t.addEventListener("mousemove", O),
+                O(e)
+            }
+              , A = e=>{
+                var t;
+                null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O)
+            }
+              , T = e=>{
+                var t;
+                1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O))
+            }
+              , O = t=>{
+                if (0 === t.button) {
+                    const o = t.currentTarget
+                      , a = Math.atan2(t.offsetY - o.height / 2, t.offsetX - o.width / 2)
+                      , n = 1 - Math.hypot(t.offsetY - o.height / 2, t.offsetX - o.width / 2) / 85
+                      , i = n < 0 ? 0 : n
+                      , c = 180 * a / Math.PI + 90
+                      , _ = .5 * i + .5
+                      , u = (0,
+                    s.ve)(c / 360, 1, _)
+                      , f = (0,
+                    s.vq)(u[0], u[1], u[2]);
+                    l(u),
+                    d(f.toUpperCase()),
+                    r(f, e)
+                }
+            }
+              , M = (t,o)=>{
+                const a = t.target.value;
+                let n;
+                if ((n = "" === a ? 0 : parseInt(a) && parseInt(a) > 255 ? 255 : parseInt(a)) && n <= 255 || 0 === n) {
+                    const t = i.map((e,t)=>t === o ? n : e);
+                    l(t);
+                    const a = (0,
+                    s.vq)(t[0], t[1], t[2]);
+                    d(a.toUpperCase()),
+                    r(a, e)
+                }
             }
             ;
-            return b(r, "useTracking{tracking}", ()=>[y]),
-            r.displayName = t,
-            r.WrappedComponent = e,
-            l()(r, e)
-        }
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(m, "isEventError", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/react-tracking.tsx"),
-            e.register(g, "track", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/react-tracking.tsx"),
-            e.register(k, "trackError", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/react-tracking.tsx"),
-            e.register(y, "useTracking", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/react-tracking.tsx"),
-            e.register(E, "withTracking", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/utils/react-tracking.tsx"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    d751f45f65ac1c624692: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        for (var o = [], n = 0; n < 256; ++n)
-            o[n] = (n + 256).toString(16).substr(1);
-        function s(e, t) {
-            var r = t || 0
-              , n = o;
-            return [n[e[r++]], n[e[r++]], n[e[r++]], n[e[r++]], "-", n[e[r++]], n[e[r++]], "-", n[e[r++]], n[e[r++]], "-", n[e[r++]], n[e[r++]], "-", n[e[r++]], n[e[r++]], n[e[r++]], n[e[r++]], n[e[r++]], n[e[r++]]].join("")
-        }
-        var i = s;
-        t.default = i,
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "byteToHex", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/bytesToUuid.js"),
-            e.register(n, "i", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/bytesToUuid.js"),
-            e.register(s, "bytesToUuid", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/bytesToUuid.js"),
-            e.register(i, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/bytesToUuid.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    fd2b14d16115f6fe0bc5: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        Object.defineProperty(t, "v1", {
-            enumerable: !0,
-            get: function() {
-                return o.default
-            }
-        }),
-        Object.defineProperty(t, "v3", {
-            enumerable: !0,
-            get: function() {
-                return n.default
-            }
-        }),
-        Object.defineProperty(t, "v4", {
-            enumerable: !0,
-            get: function() {
-                return s.default
-            }
-        }),
-        Object.defineProperty(t, "v5", {
-            enumerable: !0,
-            get: function() {
-                return i.default
-            }
-        });
-        var o = a(r("ddf163ae89a0d0edf339"))
-          , n = a(r("ce92c2b40b4873fa0a50"))
-          , s = a(r("999d920524dbda1fe19f"))
-          , i = a(r("27a403248e6902ba6d25"));
-        function a(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "_v", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/index.js"),
-            e.register(n, "_v2", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/index.js"),
-            e.register(s, "_v3", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/index.js"),
-            e.register(i, "_v4", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/index.js"),
-            e.register(a, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/index.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    b65afb49c43b33d69d05: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e) {
-            if ("string" == typeof e) {
-                var t = unescape(encodeURIComponent(e));
-                e = new Array(t.length);
-                for (var r = 0; r < t.length; r++)
-                    e[r] = t.charCodeAt(r)
-            }
-            return n(s(i(e), 8 * e.length))
-        }
-        function n(e) {
-            var t, r, o, n = [], s = 32 * e.length;
-            for (t = 0; t < s; t += 8)
-                r = e[t >> 5] >>> t % 32 & 255,
-                o = parseInt("0123456789abcdef".charAt(r >>> 4 & 15) + "0123456789abcdef".charAt(15 & r), 16),
-                n.push(o);
-            return n
-        }
-        function s(e, t) {
-            var r, o, n, s, i;
-            e[t >> 5] |= 128 << t % 32,
-            e[14 + (t + 64 >>> 9 << 4)] = t;
-            var u = 1732584193
-              , d = -271733879
-              , h = -1732584194
-              , v = 271733878;
-            for (r = 0; r < e.length; r += 16)
-                o = u,
-                n = d,
-                s = h,
-                i = v,
-                u = c(u, d, h, v, e[r], 7, -680876936),
-                v = c(v, u, d, h, e[r + 1], 12, -389564586),
-                h = c(h, v, u, d, e[r + 2], 17, 606105819),
-                d = c(d, h, v, u, e[r + 3], 22, -1044525330),
-                u = c(u, d, h, v, e[r + 4], 7, -176418897),
-                v = c(v, u, d, h, e[r + 5], 12, 1200080426),
-                h = c(h, v, u, d, e[r + 6], 17, -1473231341),
-                d = c(d, h, v, u, e[r + 7], 22, -45705983),
-                u = c(u, d, h, v, e[r + 8], 7, 1770035416),
-                v = c(v, u, d, h, e[r + 9], 12, -1958414417),
-                h = c(h, v, u, d, e[r + 10], 17, -42063),
-                d = c(d, h, v, u, e[r + 11], 22, -1990404162),
-                u = c(u, d, h, v, e[r + 12], 7, 1804603682),
-                v = c(v, u, d, h, e[r + 13], 12, -40341101),
-                h = c(h, v, u, d, e[r + 14], 17, -1502002290),
-                u = l(u, d = c(d, h, v, u, e[r + 15], 22, 1236535329), h, v, e[r + 1], 5, -165796510),
-                v = l(v, u, d, h, e[r + 6], 9, -1069501632),
-                h = l(h, v, u, d, e[r + 11], 14, 643717713),
-                d = l(d, h, v, u, e[r], 20, -373897302),
-                u = l(u, d, h, v, e[r + 5], 5, -701558691),
-                v = l(v, u, d, h, e[r + 10], 9, 38016083),
-                h = l(h, v, u, d, e[r + 15], 14, -660478335),
-                d = l(d, h, v, u, e[r + 4], 20, -405537848),
-                u = l(u, d, h, v, e[r + 9], 5, 568446438),
-                v = l(v, u, d, h, e[r + 14], 9, -1019803690),
-                h = l(h, v, u, d, e[r + 3], 14, -187363961),
-                d = l(d, h, v, u, e[r + 8], 20, 1163531501),
-                u = l(u, d, h, v, e[r + 13], 5, -1444681467),
-                v = l(v, u, d, h, e[r + 2], 9, -51403784),
-                h = l(h, v, u, d, e[r + 7], 14, 1735328473),
-                u = _(u, d = l(d, h, v, u, e[r + 12], 20, -1926607734), h, v, e[r + 5], 4, -378558),
-                v = _(v, u, d, h, e[r + 8], 11, -2022574463),
-                h = _(h, v, u, d, e[r + 11], 16, 1839030562),
-                d = _(d, h, v, u, e[r + 14], 23, -35309556),
-                u = _(u, d, h, v, e[r + 1], 4, -1530992060),
-                v = _(v, u, d, h, e[r + 4], 11, 1272893353),
-                h = _(h, v, u, d, e[r + 7], 16, -155497632),
-                d = _(d, h, v, u, e[r + 10], 23, -1094730640),
-                u = _(u, d, h, v, e[r + 13], 4, 681279174),
-                v = _(v, u, d, h, e[r], 11, -358537222),
-                h = _(h, v, u, d, e[r + 3], 16, -722521979),
-                d = _(d, h, v, u, e[r + 6], 23, 76029189),
-                u = _(u, d, h, v, e[r + 9], 4, -640364487),
-                v = _(v, u, d, h, e[r + 12], 11, -421815835),
-                h = _(h, v, u, d, e[r + 15], 16, 530742520),
-                u = f(u, d = _(d, h, v, u, e[r + 2], 23, -995338651), h, v, e[r], 6, -198630844),
-                v = f(v, u, d, h, e[r + 7], 10, 1126891415),
-                h = f(h, v, u, d, e[r + 14], 15, -1416354905),
-                d = f(d, h, v, u, e[r + 5], 21, -57434055),
-                u = f(u, d, h, v, e[r + 12], 6, 1700485571),
-                v = f(v, u, d, h, e[r + 3], 10, -1894986606),
-                h = f(h, v, u, d, e[r + 10], 15, -1051523),
-                d = f(d, h, v, u, e[r + 1], 21, -2054922799),
-                u = f(u, d, h, v, e[r + 8], 6, 1873313359),
-                v = f(v, u, d, h, e[r + 15], 10, -30611744),
-                h = f(h, v, u, d, e[r + 6], 15, -1560198380),
-                d = f(d, h, v, u, e[r + 13], 21, 1309151649),
-                u = f(u, d, h, v, e[r + 4], 6, -145523070),
-                v = f(v, u, d, h, e[r + 11], 10, -1120210379),
-                h = f(h, v, u, d, e[r + 2], 15, 718787259),
-                d = f(d, h, v, u, e[r + 9], 21, -343485551),
-                u = a(u, o),
-                d = a(d, n),
-                h = a(h, s),
-                v = a(v, i);
-            return [u, d, h, v]
-        }
-        function i(e) {
-            var t, r = [];
-            for (r[(e.length >> 2) - 1] = void 0,
-            t = 0; t < r.length; t += 1)
-                r[t] = 0;
-            var o = 8 * e.length;
-            for (t = 0; t < o; t += 8)
-                r[t >> 5] |= (255 & e[t / 8]) << t % 32;
-            return r
-        }
-        function a(e, t) {
-            var r = (65535 & e) + (65535 & t);
-            return (e >> 16) + (t >> 16) + (r >> 16) << 16 | 65535 & r
-        }
-        function u(e, t) {
-            return e << t | e >>> 32 - t
-        }
-        function d(e, t, r, o, n, s) {
-            return a(u(a(a(t, e), a(o, s)), n), r)
-        }
-        function c(e, t, r, o, n, s, i) {
-            return d(t & r | ~t & o, e, t, n, s, i)
-        }
-        function l(e, t, r, o, n, s, i) {
-            return d(t & o | r & ~o, e, t, n, s, i)
-        }
-        function _(e, t, r, o, n, s, i) {
-            return d(t ^ r ^ o, e, t, n, s, i)
-        }
-        function f(e, t, r, o, n, s, i) {
-            return d(r ^ (t | ~o), e, t, n, s, i)
-        }
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var h = o;
-        t.default = h,
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "md5", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(n, "md5ToHexEncodedArray", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(s, "wordsToMd5", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(i, "bytesToWords", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(a, "safeAdd", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(u, "bitRotateLeft", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(d, "md5cmn", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(c, "md5ff", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(l, "md5gg", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(_, "md5hh", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(f, "md5ii", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(h, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "0b23010ecd18e5c7ea38": (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = s;
-        var o = "undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || "undefined" != typeof msCrypto && "function" == typeof msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto)
-          , n = new Uint8Array(16);
-        function s() {
-            if (!o)
-                throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-            return o(n)
-        }
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "getRandomValues", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/rng-browser.js"),
-            e.register(n, "rnds8", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/rng-browser.js"),
-            e.register(s, "rng", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/rng-browser.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    dfb13c455ac0925b1b71: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e, t, r, o) {
-            switch (e) {
-            case 0:
-                return t & r ^ ~t & o;
-            case 1:
-                return t ^ r ^ o;
-            case 2:
-                return t & r ^ t & o ^ r & o;
-            case 3:
-                return t ^ r ^ o
-            }
-        }
-        function n(e, t) {
-            return e << t | e >>> 32 - t
-        }
-        function s(e) {
-            var t = [1518500249, 1859775393, 2400959708, 3395469782]
-              , r = [1732584193, 4023233417, 2562383102, 271733878, 3285377520];
-            if ("string" == typeof e) {
-                var s = unescape(encodeURIComponent(e));
-                e = new Array(s.length);
-                for (var i = 0; i < s.length; i++)
-                    e[i] = s.charCodeAt(i)
-            }
-            e.push(128);
-            var a = e.length / 4 + 2
-              , u = Math.ceil(a / 16)
-              , d = new Array(u);
-            for (i = 0; i < u; i++) {
-                d[i] = new Array(16);
-                for (var c = 0; c < 16; c++)
-                    d[i][c] = e[64 * i + 4 * c] << 24 | e[64 * i + 4 * c + 1] << 16 | e[64 * i + 4 * c + 2] << 8 | e[64 * i + 4 * c + 3]
-            }
-            d[u - 1][14] = 8 * (e.length - 1) / Math.pow(2, 32),
-            d[u - 1][14] = Math.floor(d[u - 1][14]),
-            d[u - 1][15] = 8 * (e.length - 1) & 4294967295;
-            for (i = 0; i < u; i++) {
-                for (var l = new Array(80), _ = 0; _ < 16; _++)
-                    l[_] = d[i][_];
-                for (_ = 16; _ < 80; _++)
-                    l[_] = n(l[_ - 3] ^ l[_ - 8] ^ l[_ - 14] ^ l[_ - 16], 1);
-                var f = r[0]
-                  , h = r[1]
-                  , v = r[2]
-                  , p = r[3]
-                  , b = r[4];
-                for (_ = 0; _ < 80; _++) {
-                    var m = Math.floor(_ / 20)
-                      , g = n(f, 5) + o(m, h, v, p) + b + t[m] + l[_] >>> 0;
-                    b = p,
-                    p = v,
-                    v = n(h, 30) >>> 0,
-                    h = f,
-                    f = g
+            return (0,
+            a.useEffect)(()=>{
+                if (!g.current)
+                    return;
+                const e = g.current.getContext("2d");
+                e.imageSmoothingEnabled = !1,
+                e.lineWidth = 1,
+                e.clearRect(0, 0, 170, 170);
+                for (let t = 1; t < 85; t++) {
+                    const r = 85
+                      , o = 85
+                      , a = r - t
+                      , n = Math.PI / 180;
+                    for (let i = 0; i < 360; i++) {
+                        const c = .5 + t / 85 * .5
+                          , l = (0,
+                        s.ve)(i / 360, 1, c);
+                        e.beginPath(),
+                        e.arc(r, o, a, (i - 90.5) * n, (i - 89.2) * n),
+                        e.strokeStyle = `rgb(${l[0]},${l[1]},${l[2]})`,
+                        e.stroke()
+                    }
                 }
-                r[0] = r[0] + f >>> 0,
-                r[1] = r[1] + h >>> 0,
-                r[2] = r[2] + v >>> 0,
-                r[3] = r[3] + p >>> 0,
-                r[4] = r[4] + b >>> 0
+                return g.current.addEventListener("mousedown", P),
+                g.current.addEventListener("mouseenter", T),
+                g.current.addEventListener("mouseup", A),
+                ()=>{
+                    var e, t, r;
+                    null === (e = g.current) || void 0 === e || e.removeEventListener("mousedown", P),
+                    null === (t = g.current) || void 0 === t || t.removeEventListener("mouseenter", T),
+                    null === (r = g.current) || void 0 === r || r.removeEventListener("mouseup", A)
+                }
             }
-            return [r[0] >> 24 & 255, r[0] >> 16 & 255, r[0] >> 8 & 255, 255 & r[0], r[1] >> 24 & 255, r[1] >> 16 & 255, r[1] >> 8 & 255, 255 & r[1], r[2] >> 24 & 255, r[2] >> 16 & 255, r[2] >> 8 & 255, 255 & r[2], r[3] >> 24 & 255, r[3] >> 16 & 255, r[3] >> 8 & 255, 255 & r[3], r[4] >> 24 & 255, r[4] >> 16 & 255, r[4] >> 8 & 255, 255 & r[4]]
+            , [g, f]),
+            (0,
+            a.useEffect)(()=>{
+                if (h(!0),
+                !y.current)
+                    return;
+                const e = y.current.getContext("2d");
+                e.clearRect(0, 0, 210, 210),
+                e.imageSmoothingEnabled = !1;
+                const r = (0,
+                s.oo)(t.replace("#", ""))
+                  , o = (0,
+                s.lC)(r[0], r[1], r[2])
+                  , [a,n,i] = o
+                  , c = 85 * (1 - (i - 50) / 50)
+                  , l = 85 + c * Math.sin(2 * Math.PI * a / 360) + 20
+                  , _ = 170 - (85 + c * Math.cos(2 * Math.PI * a / 360)) + 20;
+                (_ > 190 || l > 190 || _ < 20 || l < 20) && h(!1),
+                e.lineWidth = 14,
+                e.strokeStyle = t,
+                e.beginPath(),
+                e.arc(l, _, 7, 0, 2 * Math.PI),
+                e.stroke(),
+                e.lineWidth = 3,
+                e.strokeStyle = "#fff",
+                e.beginPath(),
+                e.arc(l, _, 14, 0, 2 * Math.PI),
+                e.stroke()
+            }
+            , [y, t, f]),
+            (0,
+            a.useEffect)(()=>{
+                if (!E.current)
+                    return;
+                document.body.style.userSelect = f ? "none" : null;
+                const e = e=>{
+                    E.current.contains(e.target) || m(!1)
+                }
+                ;
+                return document.addEventListener("mousedown", e),
+                ()=>{
+                    document.removeEventListener("mousedown", e)
+                }
+            }
+            , [E, f]),
+            (0,
+            a.useEffect)(()=>{
+                b(!0),
+                null != g.current && f && b(!1)
+            }
+            , [g, f]),
+            a.createElement("div", {
+                className: "input-color",
+                ref: E
+            }, a.createElement("button", {
+                name: e,
+                className: "input-color__input",
+                disabled: o,
+                onClick: ()=>{
+                    m(!f)
+                }
+                ,
+                type: "button"
+            }), a.createElement("div", {
+                className: "input-color__preview",
+                style: {
+                    backgroundColor: t
+                }
+            }), f && a.createElement("div", {
+                className: "input-color__picker"
+            }, v && a.createElement("div", {
+                className: "input-color__picker-loader"
+            }, a.createElement(c.default, {
+                size: "small"
+            })), a.createElement("canvas", {
+                className: "input-color__canvas",
+                ref: g,
+                width: 170,
+                height: 170,
+                style: {
+                    borderRadius: "100%"
+                }
+            }), p && a.createElement("canvas", {
+                className: "input-color__canvas  input-color__canvas--overlay",
+                ref: y,
+                width: 210,
+                height: 210
+            }), a.createElement("div", {
+                className: "input-color__values"
+            }, a.createElement("div", {
+                className: "input-color__value"
+            }, a.createElement(u, {
+                value: `${i[0]}`,
+                onChange: e=>M(e, 0),
+                className: "input-color__box"
+            }), a.createElement(u, {
+                value: `${i[1]}`,
+                onChange: e=>M(e, 1),
+                className: "input-color__box"
+            }), a.createElement(u, {
+                value: `${i[2]}`,
+                onChange: e=>M(e, 2),
+                className: "input-color__box"
+            })), a.createElement(u, {
+                value: `${_}`,
+                onChange: t=>{
+                    const o = `${"#" === t.target.value[0] ? "" : "#"}${t.target.value.toUpperCase()}`
+                      , a = /^#[0-9A-F]{0,}$/.test(o);
+                    o.length <= 7 && a && d(o);
+                    /^#[0-9A-F]{6}$/i.test(o) && (r(o, e),
+                    l((0,
+                    s.oo)(o.substring(1))))
+                }
+                ,
+                id: "input-color-value"
+            }))))
         }
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var i = s;
-        t.default = i,
-        e.exports = t.default,
-        function() {
+        ;
+        d(m, "useState{[rgbValue, setRgbValue](valueToRgb)}\nuseState{[hexCode, setHexCode](value.toUpperCase())}\nuseState{[pickerOpen, setPickerOpen](false)}\nuseState{[showCanvasSelector, setShowCanvasSelector](true)}\nuseState{[pickerLoading, setPickerLoading](true)}\nuseRef{outerRef}\nuseRef{pickerRef}\nuseRef{selectorRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const p = ({value: e, invalid: t, onChange: r, onSelect: o, onCreate: s, disabled: i=!1, webUSBClient: c, resetValue: l})=>{
+            const [_,d] = (0,
+            a.useState)(e)
+              , [f,m] = (0,
+            a.useState)(!1);
+            let p = []
+              , h = !1;
+            if (c.deviceAlbums) {
+                h = Object.values(c.deviceAlbums).reduce((t,r)=>t || (0,
+                n.qP)(r.title, e), !1),
+                p = Object.values(c.deviceAlbums).some(t=>t.title.toUpperCase() === e.toUpperCase()) ? Object.values(c.deviceAlbums).filter(t=>"RECORD" !== t.id && t.title.toUpperCase() !== e.toUpperCase()).slice(0, 12) : Object.values(c.deviceAlbums).filter(t=>"RECORD" !== t.id && (!e || t.title.toUpperCase().indexOf(e.toUpperCase()) >= 0)).slice(0, 12)
+            }
+            return a.createElement("div", {
+                className: `album-input${f ? " album-input--active" : ""}`,
+                onFocus: ()=>m(!0),
+                onBlur: ()=>m(!1)
+            }, a.createElement("div", {
+                className: `album-input__drop-down ${f ? "album-input__drop-down--active" : ""}`
+            }, a.createElement("ul", null, p.length > 0 && p.map((e,t)=>a.createElement("li", {
+                key: t,
+                onMouseDown: ()=>o(e.id)
+            }, e.title)), e && !h && a.createElement("li", {
+                className: "create-entry",
+                onMouseDown: ()=>s(e)
+            }, "Create ", a.createElement("strong", null, e), " Album"))), a.createElement(u, {
+                disabled: i,
+                modifier: "album",
+                invalid: t,
+                placeholder: "Album",
+                value: e,
+                onChange: r
+            }), e && a.createElement("button", {
+                className: "album-input__delete",
+                onClick: l
+            }))
+        }
+        ;
+        d(p, "useState{[albumInputValue, setAlbumInputValue](value)}\nuseState{[active, setActive](false)}");
+        const h = (0,
+        i.MM)(p);
+        !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "f", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/sha1-browser.js"),
-            e.register(n, "ROTL", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/sha1-browser.js"),
-            e.register(s, "sha1", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/sha1-browser.js"),
-            e.register(i, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/sha1-browser.js"))
+            e && (e.register(u, "Input", "/home/vsts/work/1/s/src/components/Input/index.tsx"),
+            e.register(f, "LabeledInput", "/home/vsts/work/1/s/src/components/Input/index.tsx"),
+            e.register(m, "ColorInput", "/home/vsts/work/1/s/src/components/Input/index.tsx"),
+            e.register(p, "AlbumInputComp", "/home/vsts/work/1/s/src/components/Input/index.tsx"),
+            e.register(h, "AlbumInput", "/home/vsts/work/1/s/src/components/Input/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -4725,77 +1047,32 @@
         }()
     }
     ,
-    ddf163ae89a0d0edf339: (e,t,r)=>{
+    abf12094d6dd744112a4: (e,t,r)=>{
         "use strict";
-        e = r.nmd(e),
+        r.r(t),
+        r.d(t, {
+            default: ()=>s
+        });
+        var o = r("8af190b70a6bc55c6f1b");
+        e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var o, n, s = a(r("0b23010ecd18e5c7ea38")), i = a(r("d751f45f65ac1c624692"));
-        function a(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        var u = 0
-          , d = 0;
-        function c(e, t, r) {
-            var a = t && r || 0
-              , c = t || []
-              , l = (e = e || {}).node || o
-              , _ = void 0 !== e.clockseq ? e.clockseq : n;
-            if (null == l || null == _) {
-                var f = e.random || (e.rng || s.default)();
-                null == l && (l = o = [1 | f[0], f[1], f[2], f[3], f[4], f[5]]),
-                null == _ && (_ = n = 16383 & (f[6] << 8 | f[7]))
-            }
-            var h = void 0 !== e.msecs ? e.msecs : (new Date).getTime()
-              , v = void 0 !== e.nsecs ? e.nsecs : d + 1
-              , p = h - u + (v - d) / 1e4;
-            if (p < 0 && void 0 === e.clockseq && (_ = _ + 1 & 16383),
-            (p < 0 || h > u) && void 0 === e.nsecs && (v = 0),
-            v >= 1e4)
-                throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-            u = h,
-            d = v,
-            n = _;
-            var b = (1e4 * (268435455 & (h += 122192928e5)) + v) % 4294967296;
-            c[a++] = b >>> 24 & 255,
-            c[a++] = b >>> 16 & 255,
-            c[a++] = b >>> 8 & 255,
-            c[a++] = 255 & b;
-            var m = h / 4294967296 * 1e4 & 268435455;
-            c[a++] = m >>> 8 & 255,
-            c[a++] = 255 & m,
-            c[a++] = m >>> 24 & 15 | 16,
-            c[a++] = m >>> 16 & 255,
-            c[a++] = _ >>> 8 | 128,
-            c[a++] = 255 & _;
-            for (var g = 0; g < 6; ++g)
-                c[a + g] = l[g];
-            return t || (0,
-            i.default)(c)
-        }
-        var l = c;
-        t.default = l,
-        e.exports = t.default,
-        function() {
+        const a = ({size: e, primaryColor: t, bgColor: r})=>o.createElement("div", {
+            className: `loader${e ? ` loader--${e}` : ""}`
+        }, o.createElement("span", {
+            className: `loader__spinner${r ? ` u-border--${r}` : ""}`
+        }, o.createElement("span", null), o.createElement("span", {
+            className: t ? `u-border--${t}` : ""
+        }), o.createElement("span", null)))
+          , n = a
+          , s = n;
+        !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(s, "_rng", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(i, "_bytesToUuid", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(a, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(o, "_nodeId", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(n, "_clockseq", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(u, "_lastMSecs", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(d, "_lastNSecs", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(c, "v1", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"),
-            e.register(l, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v1.js"))
+            e && (e.register(a, "Loader", "/home/vsts/work/1/s/src/components/Loader/index.tsx"),
+            e.register(n, "default", "/home/vsts/work/1/s/src/components/Loader/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -4803,236 +1080,1704 @@
         }()
     }
     ,
-    ce92c2b40b4873fa0a50: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var o = s(r("c2f1101584dce024d4c6"))
-          , n = s(r("b65afb49c43b33d69d05"));
-        function s(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        const i = (0,
-        o.default)("v3", 48, n.default);
-        var a = i;
-        t.default = a,
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "_v", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v3.js"),
-            e.register(n, "_md", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v3.js"),
-            e.register(s, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v3.js"),
-            e.register(i, "v3", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v3.js"),
-            e.register(a, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v3.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    c2f1101584dce024d4c6: (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = d,
-        t.URL = t.DNS = void 0;
-        var o = n(r("d751f45f65ac1c624692"));
-        function n(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        function s(e) {
-            var t = [];
-            return e.replace(/[a-fA-F0-9]{2}/g, function(e) {
-                t.push(parseInt(e, 16))
-            }),
-            t
-        }
-        function i(e) {
-            e = unescape(encodeURIComponent(e));
-            for (var t = new Array(e.length), r = 0; r < e.length; r++)
-                t[r] = e.charCodeAt(r);
-            return t
-        }
-        const a = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-        t.DNS = a;
-        const u = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
-        function d(e, t, r) {
-            var n = function(e, n, a, u) {
-                var d = a && u || 0;
-                if ("string" == typeof e && (e = i(e)),
-                "string" == typeof n && (n = s(n)),
-                !Array.isArray(e))
-                    throw TypeError("value must be an array of bytes");
-                if (!Array.isArray(n) || 16 !== n.length)
-                    throw TypeError("namespace must be uuid string or an Array of 16 byte values");
-                var c = r(n.concat(e));
-                if (c[6] = 15 & c[6] | t,
-                c[8] = 63 & c[8] | 128,
-                a)
-                    for (var l = 0; l < 16; ++l)
-                        a[d + l] = c[l];
-                return a || (0,
-                o.default)(c)
-            };
-            try {
-                n.name = e
-            } catch (e) {}
-            return n.DNS = a,
-            n.URL = u,
-            n
-        }
-        t.URL = u,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "_bytesToUuid", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(n, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(s, "uuidToBytes", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(i, "stringToBytes", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(a, "DNS", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(u, "URL", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"),
-            e.register(d, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v35.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "999d920524dbda1fe19f": (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var o = s(r("0b23010ecd18e5c7ea38"))
-          , n = s(r("d751f45f65ac1c624692"));
-        function s(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        function i(e, t, r) {
-            var s = t && r || 0;
-            "string" == typeof e && (t = "binary" === e ? new Array(16) : null,
-            e = null);
-            var i = (e = e || {}).random || (e.rng || o.default)();
-            if (i[6] = 15 & i[6] | 64,
-            i[8] = 63 & i[8] | 128,
-            t)
-                for (var a = 0; a < 16; ++a)
-                    t[s + a] = i[a];
-            return t || (0,
-            n.default)(i)
-        }
-        var a = i;
-        t.default = a,
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "_rng", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v4.js"),
-            e.register(n, "_bytesToUuid", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v4.js"),
-            e.register(s, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v4.js"),
-            e.register(i, "v4", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v4.js"),
-            e.register(a, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v4.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "27a403248e6902ba6d25": (e,t,r)=>{
-        "use strict";
-        e = r.nmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        Object.defineProperty(t, "__esModule", {
-            value: !0
-        }),
-        t.default = void 0;
-        var o = s(r("c2f1101584dce024d4c6"))
-          , n = s(r("dfb13c455ac0925b1b71"));
-        function s(e) {
-            return e && e.__esModule ? e : {
-                default: e
-            }
-        }
-        const i = (0,
-        o.default)("v5", 80, n.default);
-        var a = i;
-        t.default = a,
-        e.exports = t.default,
-        function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "_v", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v5.js"),
-            e.register(n, "_sha", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v5.js"),
-            e.register(s, "_interopRequireDefault", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v5.js"),
-            e.register(i, "v5", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v5.js"),
-            e.register(a, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/v5.js"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "8390a660195ca787c81e": (e,t,r)=>{
+    "7e15fd75b6f1cbf7b3fd": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Ds: ()=>o.D,
-            do: ()=>n.d,
-            eR: ()=>s.eR,
-            mM: ()=>s.mM,
-            Hh: ()=>s.Hh,
-            PM: ()=>s.PM,
-            D9: ()=>i.D
+            Z: ()=>y
         });
-        r("3409c509881937a54c3e"),
-        r("b516f799ad73f4acba1b");
-        var o = r("0bb4d68b909b6fd96c63")
-          , n = (r("57e049c4a01887cb7df1"),
-        r("9a38b7a3df13ee9da38a"),
-        r("5f3058187c365cf2ae9c"))
-          , s = (r("24c3468e1121a922f01a"),
-        r("f1b4809f4fa3c0611b78"),
-        r("f490dda1e1d509b598a4"),
-        r("c3d218e3b357d5490975"))
-          , i = (r("fd982c4d772536042d90"),
-        r("c30e015ff5e58ebe2ef1"));
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("8af190b70a6bc55c6f1b")
+          , n = r("657c5d0bc31a26770cad")
+          , s = r("8390a660195ca787c81e")
+          , i = r("9667880090888529dc91")
+          , c = r("410dd64c33f00b849fa7")
+          , l = r("77d9647920c06e8befd6")
+          , _ = r("6515cd559c65eab0c80c")
+          , d = r("d92624744e8fb7e743e8")
+          , u = r("b194d90914e83db0f428")
+          , f = r("3c15b862d899a16e9481")
+          , m = r("553c2c26a5c8a1e6fec3")
+          , p = r("5a530d159ab46bd0cea7")
+          , h = r("238af0e74d3daf256b28");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var v = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const b = ({audioEngine: e, stemsClient: t})=>{
+            const [r,l] = (0,
+            a.useState)()
+              , [d,v] = (0,
+            a.useState)()
+              , [b,E] = (0,
+            a.useState)()
+              , [g,y] = (0,
+            a.useState)("")
+              , [P,A] = (0,
+            a.useState)("")
+              , [T,O] = (0,
+            a.useState)(!1)
+              , [M,D] = (0,
+            a.useState)(!0)
+              , w = (0,
+            m.s)()
+              , L = (0,
+            a.useRef)();
+            L.current = r;
+            const k = (0,
+            a.useRef)();
+            k.current = d;
+            const C = (0,
+            a.useRef)();
+            C.current = b;
+            const S = (0,
+            a.useRef)();
+            S.current = e.playbackState;
+            const R = (0,
+            a.useRef)();
+            R.current = e.trackIsLoaded;
+            const U = (0,
+            a.useRef)();
+            U.current = e.shouldHideMiniPlayer;
+            const x = (0,
+            n.useHistory)();
+            let I;
+            const B = (0,
+            a.useRef)();
+            (0,
+            a.useEffect)(()=>(I = requestAnimationFrame(H),
+            document.addEventListener("keydown", K),
+            ()=>{
+                document.removeEventListener("keydown", K),
+                cancelAnimationFrame(I),
+                e.isNavigating && e.setIsNavigating(!1)
+            }
+            ), []),
+            (0,
+            a.useEffect)(()=>{
+                const t = e.getActiveQueue();
+                if (t) {
+                    const o = t.findIndex(e=>{
+                        return (e.id ? e.id : e.global_id) === r
+                    }
+                    );
+                    if (-1 !== o) {
+                        const e = t[o]
+                          , r = (0,
+                        f.vJ)(e)
+                          , a = (0,
+                        f.ee)(e)
+                          , n = (0,
+                        f.$r)(a, r);
+                        v(o),
+                        E(e),
+                        y(n),
+                        A(r)
+                    } else
+                        e.currentTrack && l(e.currentTrack.id)
+                }
+            }
+            , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
+            (0,
+            a.useEffect)(()=>{
+                e.currentTrack && (T && O(!1),
+                l(e.currentTrack.id));
+                const t = ()=>{
+                    !0 === R.current && (D(!1),
+                    B.current.removeEventListener("animationiteration", t))
+                }
+                ;
+                var r;
+                !0 !== R.current && (D(!0),
+                null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
+                s.Ds)(t, 50, !0)));
+                return ()=>{
+                    var e;
+                    null === (e = B.current) || void 0 === e || e.removeEventListener("animationiteration", t)
+                }
+            }
+            , [e.currentTrack]),
+            (0,
+            a.useEffect)(()=>{
+                if (e.playbackState !== _.QK.Ended || e.shouldHideMiniPlayer)
+                    e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
+                else {
+                    const t = e.getActiveQueue()[d + 1];
+                    t && F(t.id || t.global_id)
+                }
+            }
+            , [e.playbackState]),
+            (0,
+            a.useEffect)(()=>{
+                I = requestAnimationFrame(H)
+            }
+            , [e.currentPosition]);
+            const G = (0,
+            a.useRef)();
+            G.current = e.getActiveQueue();
+            const K = t=>{
+                if (!U.current) {
+                    if (R.current && " " === t.key && (t.preventDefault(),
+                    S.current === _.QK.Playing ? e.pause() : e.play()),
+                    "ArrowRight" === t.key) {
+                        const e = G.current[k.current + 1] ? G.current[k.current + 1] : G.current[0];
+                        e && F(e.id || e.global_id)
+                    }
+                    if ("ArrowLeft" === t.key) {
+                        const t = G.current[k.current - 1] ? G.current[k.current - 1] : G.current[G.current.length - 1];
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
+                    }
+                }
+            }
+              , W = function() {
+                var r = (0,
+                o.Z)(function*() {
+                    const r = L.current;
+                    if (!w())
+                        return;
+                    let o;
+                    if (r === L.current) {
+                        if (e.activeQueue === _.$_.Official) {
+                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                            try {
+                                const n = yield t.getWaveformData(a["waveform-data"], r);
+                                o = e.generateTrack(C.current, a, n)
+                            } catch (t) {
+                                o = e.generateTrack(C.current, a)
+                            }
+                        } else {
+                            const r = e.generateTrack(C.current);
+                            if (!r.waveformData) {
+                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
+                                r.waveformData = e
+                            }
+                            o = r
+                        }
+                        if (!w())
+                            return;
+                        e.load(o)
+                    }
+                    e.setIsNavigating(!1)
+                });
+                return function() {
+                    return r.apply(this, arguments)
+                }
+            }()
+              , H = ()=>{
+                if (w()) {
+                    var t;
+                    const r = e.getCurrentPositionPercent();
+                    null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
+                        if (!e.getMutedStateForStem(t) && S.current !== _.QK.Stopped) {
+                            const r = (0,
+                            h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
+                              , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
+                            if (o) {
+                                O(!0);
+                                const e = (0,
+                                u.Z)(r, [0, 1], [.3, 1], !0);
+                                o.style.transform = `scale(${e})`
+                            }
+                        }
+                    }
+                    ),
+                    r < 1 && S.current === _.QK.Playing && (I = requestAnimationFrame(H))
+                }
+            }
+              , N = t=>{
+                t.preventDefault(),
+                t.stopPropagation(),
+                x.push(`/connect/stem/track/${e.currentTrack.id}`)
+            }
+              , F = t=>{
+                (0,
+                p.Z)(),
+                l(t),
+                e.setIsNavigating(!0),
+                e.stop(),
+                V(),
+                T && O(!1)
+            }
+              , V = (0,
+            a.useCallback)((0,
+            s.Ds)(W, 500), []);
+            return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && e.getHasPlayed() && a.createElement("div", {
+                className: "mini-player__topshade"
+            }), a.createElement("div", {
+                className: `mini-player ${e.shouldHideMiniPlayer || !e.getHasPlayed() ? "mini-player__hidden" : ""}`,
+                onTouchEnd: N
+            }, a.createElement("div", {
+                className: "mini-player__left",
+                onClick: N
+            }, a.createElement("div", {
+                ref: B,
+                className: `mini-player__stems ${M ? "mini-player__stems--loading" : ""}`
+            }, (()=>Object.values(_.wA).map(t=>{
+                const r = e.getMutedStateForStem(t)
+                  , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
+                return a.createElement("div", {
+                    className: `mini-player__stems--stem-container  mini-player__stems--${t}-container`,
+                    key: t
+                }, a.createElement("svg", {
+                    className: `mini-player__stems--stem ${r ? "mini-player__stems--stem--muted" : ""}`,
+                    style: o ? {
+                        transform: "scale(0.3)"
+                    } : {},
+                    height: "12",
+                    width: "12",
+                    fill: "var(--color-main)"
+                }, a.createElement("circle", {
+                    cx: "6",
+                    cy: "6",
+                    r: "5"
+                })))
+            }
+            ))()), a.createElement("div", {
+                className: "mini-player__track-info"
+            }, a.createElement("p", {
+                className: "mini-player__track-info--title"
+            }, g && g.length ? g : "Untitled"), a.createElement("p", {
+                className: "mini-player__track-info--artist"
+            }, P))), a.createElement("div", {
+                className: "mini-player__scrubber-container",
+                onTouchEnd: e=>e.stopPropagation()
+            }, a.createElement(i.Z, null)), a.createElement("div", {
+                onTouchEnd: e=>e.stopPropagation()
+            }, a.createElement(c.Z, {
+                isMiniPlayer: !0,
+                goToTrackCb: F,
+                trackIndex: d
+            }))))
+        }
+        ;
+        v(b, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
+        const E = b
+          , g = (0,
+        d.E9)((0,
+        l.f)(b))
+          , y = g;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(b, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e.register(E, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e.register(g, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
     }
     ,
-    "3409c509881937a54c3e": (e,t,r)=>{
+    abfe2b08803905e2fbf1: (e,t,r)=>{
         "use strict";
+        r.d(t, {
+            Z: ()=>y
+        });
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("8af190b70a6bc55c6f1b")
+          , n = r("657c5d0bc31a26770cad")
+          , s = r("8390a660195ca787c81e")
+          , i = r("9667880090888529dc91")
+          , c = r("410dd64c33f00b849fa7")
+          , l = r("77d9647920c06e8befd6")
+          , _ = r("6515cd559c65eab0c80c")
+          , d = r("d92624744e8fb7e743e8")
+          , u = r("b194d90914e83db0f428")
+          , f = r("3c15b862d899a16e9481")
+          , m = r("553c2c26a5c8a1e6fec3")
+          , p = r("5a530d159ab46bd0cea7")
+          , h = r("238af0e74d3daf256b28");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var v = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const b = ({audioEngine: e, stemsClient: t})=>{
+            const [r,l] = (0,
+            a.useState)()
+              , [d,v] = (0,
+            a.useState)()
+              , [b,E] = (0,
+            a.useState)()
+              , [g,y] = (0,
+            a.useState)("")
+              , [P,A] = (0,
+            a.useState)("")
+              , [T,O] = (0,
+            a.useState)(!1)
+              , [M,D] = (0,
+            a.useState)(!0)
+              , w = (0,
+            m.s)()
+              , L = (0,
+            a.useRef)();
+            L.current = r;
+            const k = (0,
+            a.useRef)();
+            k.current = d;
+            const C = (0,
+            a.useRef)();
+            C.current = b;
+            const S = (0,
+            a.useRef)();
+            S.current = e.playbackState;
+            const R = (0,
+            a.useRef)();
+            R.current = e.trackIsLoaded;
+            const U = (0,
+            a.useRef)();
+            U.current = e.shouldHideMiniPlayer;
+            const x = (0,
+            n.useHistory)();
+            let I;
+            const B = (0,
+            a.useRef)();
+            (0,
+            a.useEffect)(()=>(I = requestAnimationFrame(H),
+            document.addEventListener("keydown", K),
+            ()=>{
+                document.removeEventListener("keydown", K),
+                cancelAnimationFrame(I),
+                e.isNavigating && e.setIsNavigating(!1)
+            }
+            ), []),
+            (0,
+            a.useEffect)(()=>{
+                const t = e.getActiveQueue();
+                if (t) {
+                    const o = t.findIndex(e=>{
+                        return (e.id ? e.id : e.global_id) === r
+                    }
+                    );
+                    if (-1 !== o) {
+                        const e = t[o]
+                          , r = (0,
+                        f.vJ)(e)
+                          , a = (0,
+                        f.ee)(e)
+                          , n = (0,
+                        f.$r)(a, r);
+                        v(o),
+                        E(e),
+                        y(n),
+                        A(r)
+                    } else
+                        e.currentTrack && l(e.currentTrack.id)
+                }
+            }
+            , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
+            (0,
+            a.useEffect)(()=>{
+                e.currentTrack && (T && O(!1),
+                l(e.currentTrack.id));
+                const t = ()=>{
+                    !0 === R.current && (D(!1),
+                    B.current.removeEventListener("animationiteration", t))
+                }
+                ;
+                var r;
+                !0 !== R.current && (D(!0),
+                null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
+                s.Ds)(t, 50, !0)));
+                return ()=>{
+                    var e;
+                    null === (e = B.current) || void 0 === e || e.removeEventListener("animationiteration", t)
+                }
+            }
+            , [e.currentTrack]),
+            (0,
+            a.useEffect)(()=>{
+                if (e.playbackState !== _.QK.Ended || e.shouldHideMiniPlayer)
+                    e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
+                else {
+                    const t = e.getActiveQueue()[d + 1];
+                    t && F(t.id || t.global_id)
+                }
+            }
+            , [e.playbackState]),
+            (0,
+            a.useEffect)(()=>{
+                I = requestAnimationFrame(H)
+            }
+            , [e.currentPosition]);
+            const G = (0,
+            a.useRef)();
+            G.current = e.getActiveQueue();
+            const K = t=>{
+                if (!U.current) {
+                    if (R.current && " " === t.key && (t.preventDefault(),
+                    S.current === _.QK.Playing ? e.pause() : e.play()),
+                    "ArrowRight" === t.key) {
+                        const e = G.current[k.current + 1] ? G.current[k.current + 1] : G.current[0];
+                        e && F(e.id || e.global_id)
+                    }
+                    if ("ArrowLeft" === t.key) {
+                        const t = G.current[k.current - 1] ? G.current[k.current - 1] : G.current[G.current.length - 1];
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
+                    }
+                }
+            }
+              , W = function() {
+                var r = (0,
+                o.Z)(function*() {
+                    const r = L.current;
+                    if (!w())
+                        return;
+                    let o;
+                    if (r === L.current) {
+                        if (e.activeQueue === _.$_.Official) {
+                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                            try {
+                                const n = yield t.getWaveformData(a["waveform-data"], r);
+                                o = e.generateTrack(C.current, a, n)
+                            } catch (t) {
+                                o = e.generateTrack(C.current, a)
+                            }
+                        } else {
+                            const r = e.generateTrack(C.current);
+                            if (!r.waveformData) {
+                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
+                                r.waveformData = e
+                            }
+                            o = r
+                        }
+                        if (!w())
+                            return;
+                        e.load(o)
+                    }
+                    e.setIsNavigating(!1)
+                });
+                return function() {
+                    return r.apply(this, arguments)
+                }
+            }()
+              , H = ()=>{
+                if (w()) {
+                    var t;
+                    const r = e.getCurrentPositionPercent();
+                    null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
+                        if (!e.getMutedStateForStem(t) && S.current !== _.QK.Stopped) {
+                            const r = (0,
+                            h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
+                              , o = document.querySelector(`.mini-player-shader__stems--${t}-container`).querySelector(".mini-player-shader__stems--stem");
+                            if (o) {
+                                O(!0);
+                                const e = (0,
+                                u.Z)(r, [0, 1], [.3, 1], !0);
+                                o.style.transform = `scale(${e})`
+                            }
+                        }
+                    }
+                    ),
+                    r < 1 && S.current === _.QK.Playing && (I = requestAnimationFrame(H))
+                }
+            }
+              , N = t=>{
+                t.preventDefault(),
+                t.stopPropagation(),
+                x.push(`/connect/stem/track/${e.currentTrack.id}`)
+            }
+              , F = t=>{
+                (0,
+                p.Z)(),
+                l(t),
+                e.setIsNavigating(!0),
+                e.stop(),
+                V(),
+                T && O(!1)
+            }
+              , V = (0,
+            a.useCallback)((0,
+            s.Ds)(W, 500), []);
+            return a.createElement(a.Fragment, null, a.createElement("div", {
+                className: `mini-player-shader__container ${e.shouldHideMiniPlayer || !e.getHasPlayed() ? "mini-player-shader__container--hidden" : ""}`
+            }, a.createElement("div", {
+                className: "mini-player-shader",
+                onTouchEnd: N
+            }, a.createElement("div", {
+                className: "mini-player-shader__left",
+                onClick: N
+            }, a.createElement("div", {
+                ref: B,
+                className: `mini-player-shader__stems ${M ? "mini-player-shader__stems--loading" : ""}`
+            }, (()=>Object.values(_.wA).map(t=>{
+                const r = e.getMutedStateForStem(t)
+                  , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
+                return a.createElement("div", {
+                    className: `mini-player-shader__stems--stem-container  mini-player-shader__stems--${t}-container`,
+                    key: t
+                }, a.createElement("svg", {
+                    className: `mini-player-shader__stems--stem ${r ? "mini-player-shader__stems--stem--muted" : ""}`,
+                    style: o ? {
+                        transform: "scale(0.3)"
+                    } : {},
+                    height: "12",
+                    width: "12",
+                    fill: "var(--color-main)"
+                }, a.createElement("circle", {
+                    cx: "6",
+                    cy: "6",
+                    r: "5"
+                })))
+            }
+            ))()), a.createElement("div", {
+                className: "mini-player-shader__track-info"
+            }, a.createElement("p", {
+                className: "mini-player-shader__track-info--title"
+            }, g && g.length ? g : "Untitled"), a.createElement("p", {
+                className: "mini-player-shader__track-info--artist"
+            }, P))), a.createElement("div", {
+                className: "mini-player-shader__scrubber-container",
+                onTouchEnd: e=>e.stopPropagation()
+            }, a.createElement(i.Z, null)), a.createElement("div", {
+                onTouchEnd: e=>e.stopPropagation()
+            }, a.createElement(c.Z, {
+                isMiniPlayer: !0,
+                goToTrackCb: F,
+                trackIndex: d
+            })))))
+        }
+        ;
+        v(b, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
+        const E = b
+          , g = (0,
+        d.E9)((0,
+        l.f)(b))
+          , y = g;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(b, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"),
+            e.register(E, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"),
+            e.register(g, "default", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "410dd64c33f00b849fa7": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>f
+        });
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("804fe702b68cd889ff76")
+          , n = r("88e8bdd04c305099c2c9")
+          , s = r("98207642210e3d58d89a")
+          , i = r("77d9647920c06e8befd6")
+          , c = r("6515cd559c65eab0c80c");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var l = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const _ = ({trackIndex: e, goToTrackCb: t, uploadText: r, deviceTransferActive: i, hidePrevNext: l, isMiniPlayer: _, closeCallback: d, audioEngine: u})=>{
+            const [f,m] = (0,
+            o.useState)(null)
+              , p = (0,
+            o.useRef)();
+            p.current = f;
+            const h = (r,o)=>{
+                if (r.preventDefault(),
+                p.current === o) {
+                    m(null);
+                    const r = u.getActiveQueue();
+                    if ("prev" === o) {
+                        const o = r[e - 1] ? r[e - 1] : r[r.length - 1];
+                        u.getCurrentTime() >= 3 ? u.seekTo(0) : t(o.id || o.global_id)
+                    } else {
+                        const o = r[e + 1] ? r[e + 1] : r[0];
+                        o ? t(o.id || o.global_id) : d && d()
+                    }
+                }
+            }
+              , v = ()=>{
+                p.current && m(null)
+            }
+            ;
+            let b, E, g;
+            return _ && window.screen.width > 600 ? (b = 25,
+            E = 57,
+            g = 33) : _ ? (b = 26,
+            E = 59,
+            g = 35) : window.screen.width > 600 ? (b = 30,
+            E = 68,
+            g = 40) : (b = 33,
+            E = 74,
+            g = 44),
+            o.createElement("div", {
+                className: "player-controls"
+            }, !l && o.createElement("div", {
+                className: `player-controls__prev-next-button ${_ ? "player-controls__prev-next-button--mini-player" : ""}`
+            }, o.createElement(a.default, {
+                className: "player-controls__prev-button",
+                onMouseDown: ()=>m("prev"),
+                onMouseLeave: v,
+                onMouseUp: e=>h(e, "prev"),
+                onTouchStart: ()=>m("prev"),
+                onTouchMove: ()=>m(null),
+                onTouchEnd: e=>h(e, "prev")
+            }), o.createElement(a.default, {
+                className: "player-controls__next-button",
+                onMouseDown: ()=>m("next"),
+                onMouseUp: e=>h(e, "next"),
+                onMouseLeave: v,
+                onTouchStart: ()=>m("next"),
+                onTouchMove: ()=>m(null),
+                onTouchEnd: e=>h(e, "next")
+            }), o.createElement("span", {
+                className: "player-controls__prev-next-icon"
+            }, "next" === p.current ? o.createElement(s.mE, {
+                height: b,
+                width: E
+            }) : "prev" === p.current ? o.createElement(s.ry, {
+                height: b,
+                width: E
+            }) : o.createElement(s._z, {
+                height: b,
+                width: E
+            }))), o.createElement(a.default, {
+                id: "play-button",
+                icon: ()=>o.createElement(n.WU, {
+                    height: g,
+                    width: g
+                }),
+                brackets: !0,
+                disabled: !u.trackIsLoaded,
+                onClick: ()=>u.playbackState === c.QK.Playing ? u.pause() : u.play()
+            }))
+        }
+        ;
+        l(_, "useState{[prevNextButtonHighlightStatus, setPrevNextButtonHighlightStatus](null)}\nuseRef{prevNextButtonHighlightStatusRef}");
+        const d = _
+          , u = (0,
+        i.f)(_)
+          , f = u;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(_, "PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
+            e.register(d, "__TEST__PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
+            e.register(u, "default", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "9667880090888529dc91": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>_
+        });
+        var o = r("8af190b70a6bc55c6f1b")
+          , a = r("6515cd559c65eab0c80c")
+          , n = r("77d9647920c06e8befd6");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var s = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const i = ({audioEngine: e})=>{
+            const t = e.trackIsLoaded ? e.getCurrentPositionPercent() : 0
+              , [r,n] = (0,
+            o.useState)(t)
+              , [s,i] = (0,
+            o.useState)(!1)
+              , c = (0,
+            o.useRef)()
+              , l = (0,
+            o.useRef)();
+            let _, d, u, f = new Date;
+            const m = (0,
+            o.useRef)();
+            m.current = e.playbackState;
+            const p = (0,
+            o.useRef)();
+            p.current = s;
+            const h = (0,
+            o.useRef)();
+            h.current = r;
+            const v = (0,
+            o.useRef)();
+            (0,
+            o.useEffect)(()=>(v.current = !0,
+            ()=>{
+                v.current = !1,
+                cancelAnimationFrame(u)
+            }
+            ), []),
+            (0,
+            o.useEffect)(()=>{
+                e.playbackState === a.QK.Playing ? u = requestAnimationFrame(b) : e.playbackState === a.QK.Stopped && n(0)
+            }
+            , [e.playbackState]),
+            (0,
+            o.useEffect)(()=>{
+                e.playbackState === a.QK.Paused && (u = requestAnimationFrame(b))
+            }
+            , [e.currentPosition]),
+            (0,
+            o.useEffect)(()=>{
+                e.trackIsLoaded || n(0)
+            }
+            , [e.trackIsLoaded]);
+            const b = ()=>{
+                if (v.current && m.current !== a.QK.Stopped) {
+                    const t = e.getCurrentPositionPercent()
+                      , r = new Date;
+                    !p.current && r.getTime() - f.getTime() > 1e3 / 3 && (n(t),
+                    f = r),
+                    t < 1 && (m.current === a.QK.Playing || p.current || t !== h.current) && requestAnimationFrame(b)
+                }
+            }
+              , E = e=>{
+                if (e.target) {
+                    const t = (e=>{
+                        const t = l.current.getBoundingClientRect()
+                          , r = ((e.touches ? e.touches[0].clientX : e.clientX) - t.x) / t.width + Math.random() / 1e6;
+                        return Math.min(1, Math.max(0, r))
+                    }
+                    )(e);
+                    n(t)
+                }
+            }
+              , g = l.current ? l.current.offsetWidth : 0;
+            return o.createElement("div", {
+                ref: c,
+                className: "scrubber-container",
+                onMouseEnter: t=>{
+                    t.stopPropagation(),
+                    t.preventDefault(),
+                    e.isIsolating && e.setIsolatedStems([]),
+                    1 !== t.buttons && i(!1)
+                }
+                ,
+                onMouseMove: e=>{
+                    e.stopPropagation(),
+                    e.preventDefault(),
+                    s && ("pointer" !== document.body.style.cursor && (document.body.style.cursor = "pointer"),
+                    E(e))
+                }
+                ,
+                onMouseUp: t=>{
+                    t.stopPropagation(),
+                    t.preventDefault(),
+                    document.body.style.cursor = "default",
+                    s && (i(!1),
+                    e.seekToPercent(r))
+                }
+                ,
+                onTouchStart: e=>{
+                    d = e.touches[0].clientX,
+                    _ = e.touches[0].clientY
+                }
+                ,
+                onTouchMove: e=>{
+                    if (e.stopPropagation(),
+                    e.preventDefault(),
+                    s)
+                        E(e);
+                    else if (d && _) {
+                        const t = e.touches[0].clientX
+                          , r = e.touches[0].clientY
+                          , o = t - d
+                          , a = r - _;
+                        Math.abs(o) > Math.abs(a) && (window.preventScroll = !0,
+                        i(!0),
+                        E(e)),
+                        d = null,
+                        _ = null
+                    }
+                }
+                ,
+                onTouchEnd: t=>{
+                    if (t.stopPropagation(),
+                    t.preventDefault(),
+                    e.trackIsLoaded)
+                        if (window.preventScroll && (window.preventScroll = !1),
+                        s)
+                            i(!1),
+                            e.seekToPercent(r);
+                        else if (Math.abs(t.changedTouches[0].clientY - _) < 3) {
+                            const r = c.current.getBoundingClientRect()
+                              , o = (t.changedTouches[0].clientX - r.left) / r.width;
+                            _ = null,
+                            n(o),
+                            e.seekToPercent(o)
+                        }
+                }
+                ,
+                onMouseLeave: e=>{
+                    e.stopPropagation(),
+                    e.preventDefault(),
+                    s && (document.body.style.cursor = "default",
+                    i(!1),
+                    E(e))
+                }
+            }, o.createElement("div", {
+                className: "scrubber",
+                onMouseDown: t=>{
+                    t.stopPropagation(),
+                    t.preventDefault(),
+                    t.touches || e.trackIsLoaded && (i(!0),
+                    E(t))
+                }
+            }, o.createElement("span", {
+                className: "scrubber--line"
+            }), o.createElement("div", {
+                ref: l,
+                className: "scrubber--playhead-container"
+            }, o.createElement("div", {
+                className: "scrubber--playhead-hitbox",
+                style: {
+                    left: `${(e.trackIsLoaded ? r * g : 0) - 27}px`
+                },
+                onTouchStart: t=>{
+                    t.stopPropagation(),
+                    t.preventDefault(),
+                    e.trackIsLoaded && !e.isIsolating && (i(!0),
+                    E(t))
+                }
+            }, o.createElement("span", {
+                className: "scrubber--playhead"
+            })))))
+        }
+        ;
+        s(i, "useState{[localPosition, setLocalPosition](initialScrubberPos)}\nuseState{[isScrubbing, setIsScrubbing](false)}\nuseRef{scrubberContainerRef: React.RefObject<HTMLDivElement>}\nuseRef{scrubberRef: React.RefObject<HTMLDivElement>}\nuseRef{playbackStateRef}\nuseRef{isScrubbingRef}\nuseRef{localPositionRef}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const c = i
+          , l = (0,
+        n.f)(i)
+          , _ = l;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(3, "PLAYHEAD_FPS", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
+            e.register(i, "Scrubber", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
+            e.register(c, "__TEST__Scrubber", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"),
+            e.register(l, "default", "/home/vsts/work/1/s/src/components/Scrubber/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "371760fd96b575cf2118": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Rq: ()=>k,
+            ZP: ()=>x
+        });
+        var o = r("990057777e9b2b7543e8")
+          , a = r("de098c4daf91477f9cbc")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("657c5d0bc31a26770cad")
+          , i = r.n(s)
+          , c = r("9c2db445b2a1a7a1cf6d")
+          , l = r("8a5d22dd0b24a6092d3e")
+          , _ = r("b17b0ee5884def929afc")
+          , d = r("f60aef9fa88f4e9ce07a")
+          , u = r("09e5b40f0abea70b7ff4")
+          , f = r("16c6bde65fb4831cea2e")
+          , m = r("c1bece57111e2d76e639")
+          , p = r("ad21e61587d47603cd1c")
+          , h = r("3e17aee31846974e528a")
+          , v = r("5347e167343c470dbdfe")
+          , b = r("3145f0c7f3b91ffef7d2")
+          , E = r("da23a0dbab1fa75005eb")
+          , g = r("63922d5ff7825dcb0b86")
+          , y = r("50adafd66d905a6a5399")
+          , P = r("3029aafe6858c31fb8c9")
+          , A = r("d6e61794281205c7e43a");
+        function T(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function O(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? T(Object(r), !0).forEach(function(t) {
+                    (0,
+                    o.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : T(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var M = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const D = (0,
+        c.ZP)({
+            resolved: {},
+            chunkName: ()=>"components-Button",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.resolve().then(r.bind(r, "804fe702b68cd889ff76")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "804fe702b68cd889ff76"
+            }
+        })
+          , w = (0,
+        c.ZP)({
+            resolved: {},
+            chunkName: ()=>"components-DeviceFirmwareDemo",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(3754).then(r.bind(r, "92924b32b778a2c890d3")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "92924b32b778a2c890d3"
+            }
+        })
+          , L = "Connect Stemplayer"
+          , k = function() {
+            var e = (0,
+            a.Z)(function*(e) {
+                const t = e ? "mp3" : "wav"
+                  , r = yield fetch(`/audio/silent-track.${t}`)
+                  , o = yield r.blob();
+                return new File([o],`silent-track.${t}`,{
+                    type: "audio/mpeg"
+                })
+            });
+            return function(t) {
+                return e.apply(this, arguments)
+            }
+        }()
+          , C = ({webUSBClient: e, trackApiClient: t, tracking: {trackEvent: r}, albumRestoreClient: {restoreError: o, resetState: s}, viewManagerClient: {setNewTrack: i, setDeviceFullUploadError: c}, unloadAudioEngineTrackCb: l, accountClient: d, history: u, newTrackUploadedCb: f, closeClicked: m, fetchUserLibraryWaveforms: p})=>{
+            const h = (0,
+            n.useRef)(null)
+              , T = (0,
+            n.useRef)(null)
+              , [M,C] = (0,
+            n.useState)(null)
+              , [S,R] = (0,
+            n.useState)(null)
+              , [U,x] = (0,
+            n.useState)(null)
+              , [I,B] = (0,
+            n.useState)(!1)
+              , [G,K] = (0,
+            n.useState)(null)
+              , [W,H] = (0,
+            n.useState)(null)
+              , [N,F] = (0,
+            n.useState)(null)
+              , [V,q] = (0,
+            n.useState)("")
+              , [j,Z] = (0,
+            n.useState)(null)
+              , [$,z] = (0,
+            n.useState)(null)
+              , [Y,Q] = (0,
+            n.useState)(!1)
+              , [J,X] = (0,
+            n.useState)(null)
+              , [ee,te] = (0,
+            n.useState)(!1)
+              , [re,oe] = (0,
+            n.useState)(!1)
+              , [ae,ne] = (0,
+            n.useState)("Upload")
+              , [se,ie] = (0,
+            n.useState)(!1)
+              , [ce,le] = (0,
+            n.useState)(!1)
+              , [_e,de] = (0,
+            n.useState)(!1)
+              , [ue,fe] = (0,
+            n.useState)(null)
+              , [me,pe] = (0,
+            n.useState)(L);
+            (0,
+            n.useEffect)(()=>{
+                W && W.id && N && d.session ? (i(W),
+                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (F(null),
+                i(W),
+                (0,
+                v.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
+                ve())
+            }
+            , [W]),
+            (0,
+            n.useEffect)(()=>{
+                m && ve()
+            }
+            , [m]),
+            (0,
+            n.useEffect)(()=>{
+                (o || ue) && (ce || M) && de(!0)
+            }
+            , [M, ce, o, ue]),
+            (0,
+            n.useEffect)(()=>{
+                ee && de(!1)
+            }
+            , [ee]),
+            (0,
+            n.useEffect)(()=>{
+                ce && h.current.focus()
+            }
+            , [ce]),
+            (0,
+            n.useEffect)(()=>{
+                ne("Upload"),
+                ne($ || "Upload")
+            }
+            , [$]),
+            (0,
+            n.useEffect)(()=>{
+                ne("Upload"),
+                null === N && j && ne(j)
+            }
+            , [N, j]);
+            const he = function() {
+                var o = (0,
+                a.Z)(function*(o) {
+                    o.preventDefault(),
+                    M || S || le(!0),
+                    H(null),
+                    F(null),
+                    B(!1),
+                    ie(!0),
+                    null === M && "" === V && null === S && (console.error("Error: no file or url found"),
+                    Z(null)),
+                    Z("Splitting"),
+                    ne("Splitting");
+                    const a = Date.now();
+                    try {
+                        let o = null;
+                        const u = new b.f;
+                        var n;
+                        if (K(u),
+                        null !== M)
+                            r({
+                                event: "track_split",
+                                data: {
+                                    name: M.name,
+                                    size: M.size,
+                                    type: M.type,
+                                    single_file: !0
+                                }
+                            }),
+                            o = yield t.createTrackFromFile(M, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1);
+                        else if (null !== S) {
+                            var s;
+                            r({
+                                event: "track_split",
+                                data: {
+                                    single_file: !1
+                                }
+                            }),
+                            o = yield t.createTrackFromMultiFiles(S, e=>Z(e), null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
+                        } else {
+                            var _;
+                            r({
+                                event: "track_split",
+                                data: {
+                                    type: "url",
+                                    url: `${V}`
+                                }
+                            }),
+                            o = yield t.createTrackFromLink(V, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
+                        }
+                        if (null !== M || null === S) {
+                            const e = Date.now();
+                            r({
+                                event: "track_split_complete",
+                                data: {
+                                    time: e - a,
+                                    title: o.title || "",
+                                    artist: o.artist || ""
+                                }
+                            })
+                        }
+                        const m = yield t.getTracks([o.id])
+                          , h = yield p(m[o.id])
+                          , v = O(O({}, o), {}, {
+                            waveformData: h
+                        });
+                        if (e.deviceConnected) {
+                            const t = yield e.hasSpaceForTrack(o);
+                            l(),
+                            t ? (i(W),
+                            H(v),
+                            null !== M || null !== S ? f(o.id, !0, v) : f(o.id, !0)) : (c(!0),
+                            Z("Importing"),
+                            F(o),
+                            H(v),
+                            f(o.id, !1)),
+                            ve()
+                        } else
+                            i(v),
+                            H(v),
+                            f(o.id, !1),
+                            ve()
+                    } catch (e) {
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Q(!0),
+                        X("Upload failed - reconnect Stemplayer"),
+                        Z("Try again"),
+                        r({
+                            error: {
+                                name: "track_split",
+                                stack: "Failed to split track",
+                                message: JSON.stringify(e.message)
+                            }
+                        })) : e.message && "Cancelled" !== e.message ? (Q(!0),
+                        X(e.message),
+                        Z("Try again"),
+                        r({
+                            error: {
+                                name: "track_split",
+                                stack: "Failed to split track",
+                                message: JSON.stringify(e.message)
+                            }
+                        })) : (ve(),
+                        Z("Upload cancelled"),
+                        r({
+                            error: {
+                                name: "track_split_cancelled",
+                                stack: "Failed to split track",
+                                message: JSON.stringify(e.message || e)
+                            }
+                        })),
+                        te(!1),
+                        K(null)
+                    }
+                });
+                return function(e) {
+                    return o.apply(this, arguments)
+                }
+            }()
+              , ve = ()=>{
+                T.current && (T.current.value = ""),
+                Z(null),
+                K(null),
+                B(null),
+                q(""),
+                C(null),
+                R(null),
+                le(!1),
+                te(!1),
+                e.setDeviceTransferActive(!1),
+                ie(!0)
+            }
+              , be = function() {
+                var e = (0,
+                a.Z)(function*(e) {
+                    x(e.length);
+                    let t = []
+                      , r = !0;
+                    for (let o = 0; o < 4; o++) {
+                        const a = e[o];
+                        if (o >= e.length) {
+                            const e = yield k(r);
+                            t.push(e)
+                        } else if ("getAsFile"in a) {
+                            const e = a.getAsFile();
+                            e.name.match(/\.mp3$/i) || (r = !1),
+                            t.push(e)
+                        } else
+                            t.push(a)
+                    }
+                    R(t)
+                });
+                return function(t) {
+                    return e.apply(this, arguments)
+                }
+            }()
+              , Ee = function() {
+                var e = (0,
+                a.Z)(function*(e) {
+                    if ("files"in e.target && 0 === e.target.files.length)
+                        return;
+                    o && s(),
+                    e.preventDefault(),
+                    ye(),
+                    q(""),
+                    R(null),
+                    C(null);
+                    let t = null;
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield be(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    R(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield be(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    R(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield be(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
+                    C(null),
+                    R(null)),
+                    t) {
+                        ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
+                        z(null)) : (z("AUDIO FILES ONLY"),
+                        C(null),
+                        R(null))
+                    }
+                });
+                return function(t) {
+                    return e.apply(this, arguments)
+                }
+            }()
+              , ge = ()=>{
+                C(null),
+                R(null),
+                z(null)
+            }
+              , ye = ()=>{
+                z(null),
+                Q(!1),
+                X(null),
+                B(!1),
+                Z(null)
+            }
+            ;
+            let Pe = V.replace(/^https?\:\/\/(www\.)?/i, "");
+            Pe.match(/^w?w?w?\.?$/i) && (Pe = V);
+            const Ae = ()=>!e.deviceTransferActive && !ee
+              , Te = ()=>Ae() && [null, "Upload cancelled", "Try again"].includes(j)
+              , Oe = ()=>{
+                u.push("/connect/config")
+            }
+              , Me = function() {
+                var t = (0,
+                a.Z)(function*() {
+                    const t = (0,
+                    v.qs)();
+                    if ("Use Chrome or Edge" !== ("Chrome" !== t && "Edge" !== t && "Use Chrome or Edge"))
+                        if (e.deviceConnected)
+                            try {
+                                yield e.disconnect()
+                            } catch (e) {
+                                pe("Failed to connect"),
+                                console.error(`Error: ${e}`)
+                            }
+                        else
+                            try {
+                                yield e.connect()
+                            } catch (e) {
+                                const t = yield(0,
+                                y.Xb)();
+                                pe(t ? "Connected in another tab" : "Failed to connect")
+                            }
+                    else
+                        pe("Use Chrome or Edge")
+                });
+                return function() {
+                    return t.apply(this, arguments)
+                }
+            }();
+            return n.createElement("div", {
+                className: "col-centered track-splitter",
+                onDrop: Ee,
+                onDragOver: e=>e.preventDefault(),
+                id: "track-splitter-top"
+            }, n.createElement("div", {
+                className: "u-mb-medium"
+            }), !ee && n.createElement("form", {
+                className: "track-splitter__form",
+                method: "post",
+                encType: "multipart/form-data",
+                onSubmit: he
+            }, n.createElement("div", {
+                className: "track-splitter__input menu-item"
+            }, !ce && !M && !S && n.createElement("label", {
+                htmlFor: "link-input",
+                className: `track-splitter__link-button ${Te() ? "" : "disabled"}`,
+                onClick: ()=>{
+                    "Upload cancelled" === j && (ve(),
+                    le(!0)),
+                    Te() && le(!0)
+                }
+            }, n.createElement("span", {
+                className: "track-splitter__text"
+            }, "LINK")), ce && !(M && M.name || S) && n.createElement(_.II, {
+                className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
+                disabled: !Te(),
+                invalid: Y,
+                modifier: "url",
+                placeholder: "ENTER LINK",
+                value: Pe,
+                onChange: e=>{
+                    o && s(),
+                    ye(),
+                    M && ge();
+                    const t = e.target.value.trim()
+                      , r = (0,
+                    g.xb)(t) || t.match(/^https?:\/\//i) ? t : `https://${t}`;
+                    q(r),
+                    (0,
+                    g.xb)(r) || (0,
+                    g.b3)(r) ? Y && (Q(!1),
+                    X(null)) : (Q(!0),
+                    X("Input not valid link"))
+                }
+                ,
+                onBlur: ()=>0 === Pe.length && le(!1),
+                ref: h,
+                id: "link-input",
+                autoComplete: "off"
+            }), !ce && !M && !S && n.createElement("span", {
+                className: "track-splitter__text track-splitter__text--or"
+            }, "or"), !ce && n.createElement(n.Fragment, null, n.createElement("label", {
+                htmlFor: "file",
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Te() ? "" : " disabled"}\n                                        ${M && M.name || S ? " track-splitter__input--full" : ""}\n                                    `
+            }, n.createElement("span", {
+                className: "track-splitter__text"
+            }, M && M.name && M.name.toUpperCase(), S && `${(0,
+            E.pG)(U)} files selected`, null === M && null === S && "FILE")), n.createElement("input", {
+                className: "input--file",
+                type: "file",
+                id: "file",
+                name: "file",
+                multiple: !0,
+                disabled: !Te(),
+                accept: [...A.Z, "video/mp4"].join(", "),
+                onChange: Ee,
+                ref: T
+            }))), "Try again" === j && n.createElement(D, {
+                text: `${J || "Error uploading track"}`,
+                className: "u-mx-auto",
+                disabled: !0
+            }), n.createElement(D, {
+                type: "submit",
+                className: "u-mx-auto menu-item",
+                hideTextWhenLoading: !0,
+                brackets: "No available space on device" !== ae,
+                dots: ["Splitting", "Formatting", "Uploading", "Importing"].includes(ae),
+                disabled: !(()=>Ae() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
+                text: ae,
+                onClick: e=>{
+                    (!M && !S && "" === V || M && null !== $) && (e.preventDefault(),
+                    T.current.click())
+                }
+            }), !N && G && n.createElement(D, {
+                text: "CANCEL",
+                className: "u-mx-auto stripped-device-firmware__button menu-item",
+                brackets: !0,
+                onClick: ()=>{
+                    G && (G.cancel(),
+                    ne(null),
+                    ve(),
+                    F(null),
+                    Z("Upload cancelled"),
+                    setTimeout(()=>{
+                        Z(null),
+                        ne("Upload")
+                    }
+                    , 2e3),
+                    r({
+                        event: "track_upload_cancelled"
+                    }))
+                }
+            })), !ee && !re && n.createElement(D, {
+                text: "Config",
+                disabled: !Ae(),
+                brackets: !0,
+                className: "u-mx-auto menu-item",
+                onClick: ()=>Oe()
+            }), !e.deviceConnected && !(0,
+            v.gn)() && n.createElement(D, {
+                text: me,
+                disabled: !Ae(),
+                brackets: !0,
+                className: "u-mx-auto menu-item",
+                onClick: ()=>Me()
+            }), !d.session && n.createElement(D, {
+                text: "Login",
+                disabled: !Ae(),
+                brackets: !0,
+                className: "u-mx-auto menu-item",
+                onClick: ()=>u.push("/account/login")
+            }), (!e.deviceTransferActive || ee) && n.createElement(w, {
+                resetUpdateRestoreState: se,
+                setUpdateRestoreReset: ie,
+                deviceInfo: e.deviceInfo,
+                disabled: !Ae(),
+                updatingCallback: e=>te(e),
+                resetErrorState: _e,
+                updateErrorCb: e=>fe(e),
+                updateCompleteCb: ()=>Oe(),
+                hasUpdateCb: oe
+            }))
+        }
+        ;
+        M(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const S = C
+          , R = (0,
+        l.j)({
+            module: "trackUploadForm"
+        })((0,
+        s.withRouter)((0,
+        d.MM)((0,
+        u.j)((0,
+        f.C)((0,
+        m.J)((0,
+        p.o)((0,
+        h.q)(C))))))))
+          , U = R
+          , x = U;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(D, "Button", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(w, "StrippedDeviceFirmware", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(L, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(k, "createSilentTrack", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(C, "TrackUploadFormComp", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(S, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(R, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(U, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    df9ee908f82293cf6f64: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            o: ()=>n
+        });
+        var o = r("8af190b70a6bc55c6f1b");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var a = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const n = ({layers: e, loaded: t})=>{
+            const [r,a] = (0,
+            o.useState)([])
+              , [n,s] = (0,
+            o.useState)(null);
+            (0,
+            o.useEffect)(()=>{
+                if (e.length === r.length + 1)
+                    ;
+                else if (e.length === r.length - 1) {
+                    let t = !1;
+                    for (let o = 0; o < e.length; o += 1)
+                        e[o].id !== r[o].id && (t = !0);
+                    if (!t)
+                        return s("removing"),
+                        void setTimeout(()=>{
+                            s(null),
+                            a(e)
+                        }
+                        , 250)
+                }
+                a(e)
+            }
+            , [e]);
+            const i = [];
+            for (let e = 0; e < 8; e += 1) {
+                var c;
+                const a = "removing" === n ? -1 : 0
+                  , s = Math.min(1, (1 + e - a) / r.length);
+                let l = "";
+                e - a < r.length - 1 ? l = "below" : e - a > r.length - 1 && (l = "above");
+                const _ = o.createElement("div", {
+                    className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === e ? "base" : "overlay"}\n                    ye-layers__layer--${l}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
+                    style: {
+                        transform: s < 1 ? `scale(${s})` : void 0,
+                        opacity: s < 1 ? s : void 0
+                    },
+                    key: e
+                }, null === (c = r[e]) || void 0 === c ? void 0 : c.component);
+                i.push(_)
+            }
+            return o.createElement("div", {
+                className: "ye-layers"
+            }, i)
+        }
+        ;
+        a(n, "useState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}"),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(8, "AVAILABLE_LAYERS", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"),
+            e.register(n, "YeLayers", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "909d96d96697555397ee": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            Z: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _ViewManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("40353abbf4343fb217bd")
+          , _ViewManager_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("85e7ca4a0fc033a5d848")
+          , _contexts_account__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _utils_browser_detection__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("5347e167343c470dbdfe")
+          , _utils_preventScrollHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("33f12881a4b6c417b540")
+          , _components_BackgroundShader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("cc0255108d6122cbc66a")
+          , _components_BackgroundShader2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("611644a0797bcf6f7bf2")
+          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("c0326c9d650a633c92d0");
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+            constructor(e) {
+                super(e),
+                this._isMounted = !1,
+                this.handleOnViewLoaded = (()=>{
+                    this._isMounted && (this.setState({
+                        viewLoaded: !0
+                    }),
+                    setTimeout(()=>{
+                        this.setState({
+                            loading: !1
+                        })
+                    }
+                    , 1e3))
+                }
+                ),
+                this.state = {
+                    loading: !0,
+                    viewLoaded: !1,
+                    routes: _ViewManager_routes__WEBPACK_IMPORTED_MODULE_3__._
+                },
+                "Samsung" === (0,
+                _utils_browser_detection__WEBPACK_IMPORTED_MODULE_5__.qs)() && document.body.classList.add("is-samsung-internet")
+            }
+            componentDidMount() {
+                this._isMounted = !0,
+                document.addEventListener("touchmove", _utils_preventScrollHandler__WEBPACK_IMPORTED_MODULE_6__.Z, {
+                    passive: !1
+                })
+            }
+            componentDidUpdate() {
+                var e = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
+                    const {loading: t} = e.state
+                      , {accountClient: {session: r}} = e.props;
+                    t || e.props.trackUser((null === r || void 0 === r ? void 0 : r.User.Id) || null)
+                })()
+            }
+            componentWillUnmount() {
+                document.removeEventListener("touchmove", _utils_preventScrollHandler__WEBPACK_IMPORTED_MODULE_6__.Z),
+                this._isMounted = !1
+            }
+            render() {
+                const {config: e} = this.props
+                  , {routes: t, loading: r} = this.state;
+                let o;
+                return _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-single-gradient") ? o = "single-gradient" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-gradients") ? o = "gradients" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-ripples") ? o = "ripples" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-water") && (o = "water"),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, o && "ripples" !== o && "water" !== o && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader__WEBPACK_IMPORTED_MODULE_7__.Z, {
+                    loading: r,
+                    type: o
+                }), o && ("ripples" === o || "water" === o) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader2__WEBPACK_IMPORTED_MODULE_8__.Z, {
+                    loading: r,
+                    type: o
+                }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ViewManager__WEBPACK_IMPORTED_MODULE_2__.Z, {
+                    routes: t,
+                    config: e,
+                    onViewLoaded: this.handleOnViewLoaded
+                }))
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const AppProvider = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__.j)({
+            module: "app"
+        })((0,
+        _contexts_account__WEBPACK_IMPORTED_MODULE_4__.o)(App))
+          , _default = AppProvider
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(App, "App", "/home/vsts/work/1/s/src/containers/App/index.tsx"),
+            e.register(AppProvider, "AppProvider", "/home/vsts/work/1/s/src/containers/App/index.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/containers/App/index.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "3029aafe6858c31fb8c9": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            _E: ()=>o,
+            N6: ()=>a,
+            hX: ()=>n,
+            UA: ()=>s,
+            a6: ()=>i,
+            MN: ()=>c,
+            L4: ()=>l
+        }),
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -5040,56 +2785,51 @@
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const o = {
-            "make-art": "Make Art",
-            "kano-code": "Kano Code",
-            "how-computers-work": "How Computers Work",
-            "kano-create": "Kano Create",
-            "pixel-motion": "Pixel Motion",
-            guardian: "Guardian Site"
-        }
-          , n = e=>{
-            switch (e) {
-            case "guardian":
-            case "kano-world":
-            case "kano-world-studio":
-                return "kano-world";
-            case "make-art":
-            case "kano-draw":
-            case "make-art-studio":
-                return "make-art";
-            case "kano-code":
-            case "make-apps":
-            case "kano-code-studio":
-                return "kano-code";
-            case "how-computers-work":
-                return "how-computers-work";
-            case "pixel-motion":
-            case "pixel-motion-studio":
-                return "pixel-motion";
-            case "kano-create":
-            case "kano-create-studio":
-                return "kano-create"
-            }
-            return null
-        }
-          , s = e=>"guardian" === n(e)
-          , i = e=>"kano-world" === n(e)
-          , a = e=>"kano-code" === n(e)
-          , u = e=>"make-art" === n(e)
-          , d = e=>"how-computers-work" === n(e)
-          , c = e=>"pixel-motion" === n(e)
-          , l = e=>"kano-create" === n(e);
-        !function() {
+            SeekJumpPeriod_mSecs: 1e3,
+            SeekBuffersToPlay: 4,
+            IsolationRampPeriod_mSecs: 50,
+            IsolationHitBoxSize: 10,
+            MinStemBackgroundLevel: 130,
+            Fast2play: 1.25,
+            Fast1play: 1.15,
+            Slow1play: .5,
+            RecordPeriod_secs: 60,
+            MinVolumeLevel_dB: -30,
+            HeadphoneMaxLevel_dB: -2,
+            HeadphoneBTLimit: 5,
+            HeadphoneWiredLimit: 3,
+            SplitterPreference: 1
+        };
+        let a, n, s, i, c, l;
+        !function(e) {
+            e[e.Max = 6e5] = "Max",
+            e[e.Min = 1e4] = "Min"
+        }(a || (a = {})),
+        function(e) {
+            e[e.FastMax = 125] = "FastMax",
+            e[e.FastMin = 100] = "FastMin",
+            e[e.SlowMax = 100] = "SlowMax",
+            e[e.SlowMin = 20] = "SlowMin"
+        }(n || (n = {})),
+        function(e) {
+            e[e.Min = -10] = "Min",
+            e[e.Max = 10] = "Max"
+        }(s || (s = {})),
+        function(e) {
+            e[e.Large = 10] = "Large",
+            e[e.Small = 5] = "Small"
+        }(i || (i = {})),
+        function(e) {
+            e[e.Normal = 1e3] = "Normal",
+            e[e.Fast = 2e3] = "Fast"
+        }(c || (c = {})),
+        function(e) {
+            e[e.High = 2] = "High",
+            e[e.Low = 1] = "Low"
+        }(l || (l = {})),
+        function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "APP_LABELS", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(n, "sanitizeAppName", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(s, "isGuardian", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(i, "isKanoWorld", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(a, "isKanoCode", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(u, "isMakeArt", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(d, "isHowComputersWork", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(c, "isPixelMotion", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"),
-            e.register(l, "isKanoCreate", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/apps.ts"))
+            e && e.register(o, "DefaultConfig", "/home/vsts/work/1/s/src/containers/DeviceConfig/config.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5097,28 +2837,1018 @@
         }()
     }
     ,
-    b516f799ad73f4acba1b: (e,t,r)=>{
+    "40353abbf4343fb217bd": (module,__webpack_exports__,__webpack_require__)=>{
         "use strict";
-        e = r.hmd(e),
+        __webpack_require__.d(__webpack_exports__, {
+            Z: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("cc5a1791ca69c601dde3")
+          , react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_12___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_12__)
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("f60aef9fa88f4e9ce07a")
+          , _contexts_album_restore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("16c6bde65fb4831cea2e")
+          , _contexts_account__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _contexts_view_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("3e17aee31846974e528a")
+          , _components_YeLayers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("df9ee908f82293cf6f64")
+          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("77d9647920c06e8befd6")
+          , _components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("abfe2b08803905e2fbf1")
+          , _components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("7e15fd75b6f1cbf7b3fd")
+          , _loadable_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("9c2db445b2a1a7a1cf6d")
+          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("c0326c9d650a633c92d0");
+        module = __webpack_require__.hmd(module),
         function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
         }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = e=>{
-            let t = e.length - 1;
-            for (; t > 0; t--) {
-                const r = Math.floor(Math.random() * t)
-                  , o = e[t];
-                e[t] = e[r],
-                e[r] = o
-            }
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
+        const DevMenuTrigger = (0,
+        _loadable_component__WEBPACK_IMPORTED_MODULE_10__.ZP)({
+            resolved: {},
+            chunkName: ()=>"components-DevMenuTrigger",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!__webpack_require__.m[t]
+            },
+            importAsync: ()=>__webpack_require__.e(1866).then(__webpack_require__.bind(__webpack_require__, "8ee2ed86fae0a20a563a")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return __webpack_require__(t)
+            },
+            resolve() {
+                return "8ee2ed86fae0a20a563a"
+            }
+        });
+        class ViewManager extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+            constructor(e) {
+                super(e),
+                this.mainEl = void 0,
+                this.setViewLoaded = (()=>{
+                    this.setState({
+                        viewLoaded: !0
+                    }, ()=>{
+                        this.props.onViewLoaded && this.props.onViewLoaded()
+                    }
+                    )
+                }
+                ),
+                this.setHomeImagesLoaded = (()=>{
+                    this.setState({
+                        homeImagesLoaded: !0
+                    })
+                }
+                ),
+                this.onDevicePanelMounted = (e=>{
+                    this.setState({
+                        connectToDevice: e
+                    })
+                }
+                ),
+                this.connectToDevice = (()=>{
+                    const {connectToDevice: e} = this.state;
+                    e && e()
+                }
+                );
+                const {tracking: {trackEvent: t}} = e;
+                let r = !1;
+                "/uk" === location.pathname ? (r = !0,
+                t({
+                    event: "region_detect",
+                    data: {
+                        region: "uk",
+                        page_path: "/",
+                        vendor: window.location.hostname
+                    }
+                }),
+                e.history.replace("/")) : "/us" === location.pathname ? (r = !1,
+                t({
+                    event: "region_detect",
+                    data: {
+                        region: "us",
+                        page_path: "/",
+                        vendor: window.location.hostname
+                    }
+                }),
+                e.history.replace("/")) : t({
+                    event: "region_detect",
+                    data: {
+                        region: "us",
+                        page_path: "/",
+                        vendor: window.location.hostname
+                    }
+                }),
+                this.state = {
+                    viewLoaded: !1,
+                    homeImagesLoaded: !1,
+                    isUK: r,
+                    connectToDevice: null
+                }
+            }
+            componentDidMount() {
+                this.updateRoute()
+            }
+            componentDidUpdate(e) {
+                const {webUSBClient: {deviceConnected: t}, location: r, viewManagerClient: o} = this.props;
+                (e.location.pathname !== r.pathname || e.location.search !== r.search || e.webUSBClient && e.webUSBClient.deviceConnected !== t) && (o.setPreviousLocation(e.location.pathname + e.location.search),
+                this.updateRoute())
+            }
+            updateRoute() {
+                const {viewManagerClient: e, webUSBClient: t} = this.props
+                  , {newTrack: r} = e;
+                "/connect/new" === location.pathname && null === r && e.navigate("/connect/stem");
+                for (const r of this.props.routes) {
+                    const o = (0,
+                    react_router_dom__WEBPACK_IMPORTED_MODULE_12__.matchPath)(location.pathname, {
+                        path: r.path,
+                        exact: r.exact
+                    });
+                    if (o) {
+                        !r.deviceRequired || t.deviceConnected || r.accessWithLoginSession || e.navigate("/");
+                        const a = r.layers.map(e=>e.component.load && e.component.load());
+                        return void Promise.all(a).then(()=>{
+                            this.setState({
+                                route: r,
+                                match: o
+                            })
+                        }
+                        )
+                    }
+                }
+                e.navigate("/")
+            }
+            render() {
+                const {isUK: e, route: t, match: r} = this.state
+                  , {config: o, audioEngine: a, viewManagerClient: {modals: n}} = this.props
+                  , s = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(n);
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                    className: `main${a.currentTrack || a.isNavigating ? " main__mini-player" : ""}`,
+                    id: "main"
+                }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                    className: "content"
+                }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_YeLayers__WEBPACK_IMPORTED_MODULE_6__.o, {
+                    loaded: this.state.viewLoaded,
+                    layers: s.map(t=>({
+                        id: t.id,
+                        component: react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+                            computedMatch: r,
+                            children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
+                            _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_13__.Z)({}, r, {
+                                config: o,
+                                isUK: e,
+                                onLoaded: this.setViewLoaded,
+                                onImagesLoaded: this.setHomeImagesLoaded,
+                                connectToDevice: this.connectToDevice
+                            })) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                                className: "modal",
+                                ref: e=>{
+                                    t.container.current = e,
+                                    t.ready && t.ready.resolve()
+                                }
+                            })
+                        })
+                    }))
+                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                    className: "blur-overlay"
+                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null))
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_1__.j)({
+            module: "view_manager"
+        })((0,
+        react_router_dom__WEBPACK_IMPORTED_MODULE_12__.withRouter)((0,
+        _contexts_album_restore__WEBPACK_IMPORTED_MODULE_3__.C)((0,
+        _contexts_webusb__WEBPACK_IMPORTED_MODULE_2__.MM)((0,
+        _contexts_view_manager__WEBPACK_IMPORTED_MODULE_5__.q)((0,
+        _contexts_account__WEBPACK_IMPORTED_MODULE_4__.o)((0,
+        _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_7__.f)(ViewManager)))))))
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "shuffleArray", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/arrays.ts")
+            e && (e.register(DevMenuTrigger, "DevMenuTrigger", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"),
+            e.register(ViewManager, "ViewManager", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/containers/ViewManager/index.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "85e7ca4a0fc033a5d848": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            _: ()=>w
+        });
+        var o = r("9c2db445b2a1a7a1cf6d");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        var a = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const n = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Updating",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(5735).then(r.bind(r, "8ff050722c9ab1c75b44")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "8ff050722c9ab1c75b44"
+            }
+        })
+          , s = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Remix",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(8317), r.e(5779), r.e(4513), r.e(9295), r.e(4771), r.e(9322)]).then(r.bind(r, "000afd87a3893e62f19d")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "000afd87a3893e62f19d"
+            }
+        })
+          , i = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Account",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(1918).then(r.bind(r, "ab540654ec87e0a7bf2a")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "ab540654ec87e0a7bf2a"
+            }
+        })
+          , c = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"PasswordReset",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(6630).then(r.bind(r, "5e1201107e93964bd697")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "5e1201107e93964bd697"
+            }
+        })
+          , l = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"ConfirmEmailUpdate",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(7452).then(r.bind(r, "f747f0c246c4030c9bf0")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "f747f0c246c4030c9bf0"
+            }
+        })
+          , _ = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Registration",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(6150).then(r.bind(r, "55593ed3885f6c11ec50")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "55593ed3885f6c11ec50"
+            }
+        })
+          , d = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"AccountLogin",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(8445), r.e(3383)]).then(r.bind(r, "9219c90d47a8820a2a29")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "9219c90d47a8820a2a29"
+            }
+        })
+          , u = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"PasswordChange",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(9713), r.e(856)]).then(r.bind(r, "1ae9217340f0f396f87a")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "1ae9217340f0f396f87a"
+            }
+        })
+          , f = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"HomePage",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(5779), r.e(4513), r.e(9295), r.e(9708), r.e(8460)]).then(r.bind(r, "c109a9d128dff7bfbd45")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "c109a9d128dff7bfbd45"
+            }
+        })
+          , m = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Controls",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(6521)]).then(r.bind(r, "3ad034ce62c44843d3a6")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "3ad034ce62c44843d3a6"
+            }
+        })
+          , p = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"FAQ",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(5083).then(r.bind(r, "046ae41439684f406347")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "046ae41439684f406347"
+            }
+        })
+          , h = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Info",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(9014)]).then(r.bind(r, "3227868004d09282c22f")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "3227868004d09282c22f"
+            }
+        })
+          , v = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Terms",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(6743)]).then(r.bind(r, "b7167979877d5e17bee1")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "b7167979877d5e17bee1"
+            }
+        })
+          , b = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"PrivacyPolicy",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(327)]).then(r.bind(r, "4dc3bf1b60601d50c9e1")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "4dc3bf1b60601d50c9e1"
+            }
+        })
+          , E = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"RefundPolicy",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(5908)]).then(r.bind(r, "2016e39a85fa248e4004")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "2016e39a85fa248e4004"
+            }
+        })
+          , g = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Video",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(9945)]).then(r.bind(r, "0da2ab9a3c2d27b3b747")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "0da2ab9a3c2d27b3b747"
+            }
+        })
+          , y = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"MusicVideos",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(2868)]).then(r.bind(r, "eeaff95f5d41d43ad9fb")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "eeaff95f5d41d43ad9fb"
+            }
+        })
+          , P = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"FactoryReset",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(5009).then(r.bind(r, "9ce1b3c31aa3a4f16c2c")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "9ce1b3c31aa3a4f16c2c"
+            }
+        })
+          , A = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"DeviceConfig",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(9713), r.e(4958)]).then(r.bind(r, "d00aef4a5b07cfed0869")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "d00aef4a5b07cfed0869"
+            }
+        })
+          , T = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"StemUpload",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(3930), r.e(451)]).then(r.bind(r, "eee9a4037fce6f3bba79")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "eee9a4037fce6f3bba79"
+            }
+        })
+          , O = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Platform",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(8317), r.e(5508), r.e(900), r.e(3930), r.e(4771), r.e(7203)]).then(r.bind(r, "d8233878ff089243fc65")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "d8233878ff089243fc65"
+            }
+        })
+          , M = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"DevMenu",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(9642)]).then(r.bind(r, "acbf6c7eb8d93a282a95")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "acbf6c7eb8d93a282a95"
+            }
+        })
+          , D = {
+            updating: {
+                id: "updating",
+                component: n
+            },
+            remix: {
+                id: "remix",
+                component: s
+            },
+            account: {
+                id: "account",
+                component: i
+            },
+            resetPassword: {
+                id: "reset-password",
+                component: c
+            },
+            emailUpdated: {
+                id: "update-email",
+                component: l
+            },
+            passwordChange: {
+                id: "password-change",
+                component: u
+            },
+            registration: {
+                id: "reset-password",
+                component: _
+            },
+            accountLogin: {
+                id: "account-login",
+                component: d
+            },
+            controls: {
+                id: "controls",
+                component: m
+            },
+            home: {
+                id: "home",
+                component: f
+            },
+            faq: {
+                id: "faq",
+                component: p
+            },
+            info: {
+                id: "info",
+                component: h
+            },
+            terms: {
+                id: "terms",
+                component: v
+            },
+            privacy: {
+                id: "privacy",
+                component: b
+            },
+            refund: {
+                id: "refund",
+                component: E
+            },
+            video: {
+                id: "video",
+                component: g
+            },
+            musicVideos: {
+                id: "music-videos",
+                component: y
+            },
+            factoryReset: {
+                id: "factory-reset",
+                component: P
+            },
+            deviceConfig: {
+                id: "device-config",
+                component: A
+            },
+            stemUpload: {
+                id: "stem-upload",
+                component: T
+            },
+            platform: {
+                id: "platform",
+                component: O
+            },
+            devMenu: {
+                id: "dev-menu",
+                component: M
+            }
+        }
+          , w = [{
+            path: ["/account/reset-password"],
+            exact: !0,
+            layers: [D.home, D.resetPassword],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/account/update-email"],
+            exact: !0,
+            layers: [D.home, D.emailUpdated],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/account/password-change"],
+            exact: !0,
+            layers: [D.home, D.passwordChange],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/account/registration"],
+            exact: !0,
+            layers: [D.home, D.registration],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/account/login"],
+            exact: !0,
+            layers: [D.home, D.accountLogin],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/connect/factory-reset"],
+            exact: !0,
+            layers: [D.home, D.platform, D.factoryReset],
+            deviceRequired: !0,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/connect/config/factory-reset"],
+            exact: !0,
+            layers: [D.home, D.platform, D.deviceConfig, D.factoryReset],
+            deviceRequired: !0,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/connect/config"],
+            exact: !0,
+            layers: [D.home, D.platform, D.deviceConfig],
+            deviceRequired: !0,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/connect/new"],
+            exact: !0,
+            layers: [D.home, D.platform, D.stemUpload],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/connect/stem"],
+            exact: !0,
+            layers: [D.home, D.platform],
+            deviceRequired: !0,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/connect/stem/album/:albumSlug", "/connect/stem/track/:trackId"],
+            exact: !0,
+            layers: [D.home, D.platform],
+            deviceRequired: !0,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/controls"],
+            exact: !0,
+            layers: [D.home, D.platform, D.controls],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/remix"],
+            exact: !1,
+            layers: [D.home, D.remix],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/faq"],
+            exact: !0,
+            layers: [D.home, D.faq],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/faq/controls", "/controls"],
+            exact: !0,
+            layers: [D.home, D.faq, D.controls],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/info"],
+            exact: !0,
+            layers: [D.home, D.info],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/info/terms"],
+            exact: !0,
+            layers: [D.home, D.info, D.terms],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/info/privacy"],
+            exact: !0,
+            layers: [D.home, D.info, D.privacy],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/info/refund"],
+            exact: !0,
+            layers: [D.home, D.info, D.refund],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/terms"],
+            exact: !0,
+            layers: [D.home, D.terms],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/privacy", "/privacy-policy"],
+            exact: !0,
+            layers: [D.home, D.privacy],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/refund", "/refund-policy"],
+            exact: !0,
+            layers: [D.home, D.refund],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/video"],
+            exact: !0,
+            layers: [D.home, D.video],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/music-videos"],
+            exact: !0,
+            layers: [D.home, D.musicVideos],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }, {
+            path: ["/updating"],
+            exact: !0,
+            layers: [D.home, D.updating],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/"],
+            exact: !0,
+            layers: [D.home],
+            deviceRequired: !1,
+            accessWithLoginSession: !0
+        }];
+        w.unshift({
+            path: ["/dev"],
+            exact: !0,
+            layers: [D.home, D.devMenu],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(n, "LoadableUpdating", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(s, "LoadableRemix", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(i, "LoadableAccount", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(c, "LoadableResetPassword", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(l, "LoadableUpdateEmail", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(_, "LoadableRegistration", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(d, "LoadableAccountLogin", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(u, "LoadablePasswordChange", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(f, "LoadableHome", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(m, "LoadableControls", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(p, "LoadableFaq", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(h, "LoadableInfo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(v, "LoadableTerms", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(b, "LoadablePrivacy", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(E, "LoadableRefund", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(g, "LoadableVideo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(y, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(P, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(A, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(T, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(D, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5126,133 +3856,720 @@
         }()
     }
     ,
-    a4655733f713b286a10c: (e,t,r)=>{
+    "727b34f8bf995459d503": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            w0: ()=>AccountContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("8390a660195ca787c81e")
+          , _utils_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("590e518eaa9efe3ab6d3");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const AccountContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({})
+          , DONDA_2_ID = "donda_2";
+        class AccountProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.LSKey = void 0,
+                this.BasicLSKey = void 0,
+                this.setUpdatedEmail = (e=>{
+                    this.setState({
+                        updatedEmail: e
+                    })
+                }
+                ),
+                this.setUserLoggedOut = (e=>{
+                    this.setState({
+                        userLoggedOut: e
+                    })
+                }
+                ),
+                this.login = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r) {
+                        const o = {
+                            error: null,
+                            session: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                            return o.error = "Invalid Email Address",
+                            o;
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
+                            return o.error = "Invalid email or password",
+                            o;
+                        try {
+                            const a = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/login`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e,
+                                    password: r
+                                })
+                            });
+                            if (!a.ok)
+                                return o.error = "Invalid email or password",
+                                o;
+                            const n = yield a.json();
+                            return t.saveSession(n.data),
+                            o.session = n.data,
+                            o
+                        } catch (e) {
+                            return o.error = "Login failed. Try again later",
+                            o
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.signup = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
+                            error: null,
+                            session: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                            return a.error = "Invalid email",
+                            a;
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
+                            return a.error = "Password must be 8 characters or longer",
+                            a;
+                        if (r !== o)
+                            return a.error = "Passwords don't match",
+                            a;
+                        try {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/signup`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e,
+                                    password: r
+                                })
+                            });
+                            if (!o.ok) {
+                                if (400 === o.status) {
+                                    const e = yield o.json();
+                                    return a.error = e.error,
+                                    a.error = "Signup failed. Please try again later (2)",
+                                    a
+                                }
+                                return a.error = "Signup failed. Please try again later",
+                                a
+                            }
+                            const n = yield o.json();
+                            return t.saveSession(n.data),
+                            a.session = n.data,
+                            a
+                        } catch (e) {
+                            return a.error = "Signup failed. Please try again later",
+                            a
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.redirectToCreatePurchase = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        try {
+                            const r = {
+                                products: e
+                            };
+                            "production" !== t.props.config.TARGET_ENV && (r.redirectBaseUrl = `${document.location.origin}`);
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/purchase`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${t.state.session.AccessToken}`
+                                },
+                                body: JSON.stringify(r)
+                            });
+                            if (!o.ok)
+                                throw new Error(`Request failed: ${o.status}`);
+                            const a = yield o.json();
+                            window.location.href = a.data.redirectUrl
+                        } catch (e) {
+                            throw new Error(`Creating purchase failed: ${e}`)
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.redirectToCreateSubscription = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*() {
+                    try {
+                        const e = {};
+                        "production" !== t.props.config.TARGET_ENV && (e.redirectBaseUrl = `${document.location.origin}`);
+                        const r = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/subscribe`, {
+                            method: "POST",
+                            headers: {
+                                Authorization: `bearer ${t.state.session.AccessToken}`
+                            },
+                            body: JSON.stringify(e)
+                        });
+                        if (!r.ok)
+                            throw new Error(`Request failed: ${r.status}`);
+                        const o = yield r.json();
+                        window.location.href = o.data.redirectUrl
+                    } catch (e) {
+                        throw new Error(`Creating subscription failed: ${e}`)
+                    }
+                }),
+                this.redirectToManageSubscription = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*() {
+                    try {
+                        let e = [];
+                        "production" !== t.props.config.TARGET_ENV && e.push(`redirectBaseUrl=${document.location.origin}`);
+                        const r = e.length > 0 ? `?${e.join("&")}` : ""
+                          , o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/manage-subscription${r}`, {
+                            headers: {
+                                Authorization: `bearer ${t.state.session.AccessToken}`
+                            }
+                        });
+                        if (!o.ok)
+                            throw new Error(`Request failed: ${o.status}`);
+                        const a = yield o.json();
+                        window.location.href = a.data.redirectUrl
+                    } catch (e) {
+                        throw new Error(`Managing subscription failed: ${e}`)
+                    }
+                }),
+                this.resetPassword = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        const r = {
+                            error: null
+                        };
+                        try {
+                            if (!(0,
+                            _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                                return r.error = "Invalid Email Address",
+                                r;
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/forgot-password`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e
+                                })
+                            });
+                            return o.ok ? r : (r.error = `${o.status}`,
+                            r)
+                        } catch (e) {
+                            return r.error = `${e}`,
+                            r
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.resendRegistrationEmail = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        const r = {
+                            error: null
+                        };
+                        try {
+                            if (!(0,
+                            _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                                return r.error = "Invalid Email Address",
+                                r;
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/register`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e
+                                })
+                            });
+                            return o.ok ? r : (r.error = `${o.status}`,
+                            r)
+                        } catch (e) {
+                            return r.error = `${e}`,
+                            r
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.confirmResetPassword = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
+                            error: null,
+                            session: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                            return a.error = "Invalid Email Address",
+                            a;
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(o))
+                            return a.error = "Password must be over 8 characters long",
+                            a;
+                        if (!e || !r)
+                            return a.error = "Link Expired",
+                            a;
+                        try {
+                            const n = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/confirm-forgot-password`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e,
+                                    confirmationCode: r,
+                                    newPassword: o
+                                })
+                            });
+                            if (!n.ok) {
+                                switch (n.status) {
+                                case 410:
+                                    a.error = "Link Expired";
+                                    break;
+                                default:
+                                    a.error = "Error saving password. Please try again later"
+                                }
+                                return a
+                            }
+                            const s = yield n.json();
+                            return t.saveSession(s.data),
+                            a.session = s.data,
+                            a
+                        } catch (e) {
+                            return a.error = "Error saving password. Please try again later",
+                            a
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.confirmRegistration = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
+                            error: null,
+                            session: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                            return a.error = "Invalid Email Address",
+                            a;
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(o))
+                            return a.error = "Password must be over 8 characters long",
+                            a;
+                        if (!e || !r)
+                            return a.error = "Link Expired",
+                            a;
+                        try {
+                            const n = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/complete-registration`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    email: e,
+                                    tempPassword: r,
+                                    newPassword: o
+                                })
+                            });
+                            if (!n.ok) {
+                                switch (n.status) {
+                                case 401:
+                                    a.error = "Link Expired";
+                                    break;
+                                default:
+                                    a.error = "Error saving password. Please try again later"
+                                }
+                                return a
+                            }
+                            const s = yield n.json();
+                            return t.saveSession(s.data),
+                            a.session = s.data,
+                            a
+                        } catch (e) {
+                            return a.error = "Error saving password. Please try again later",
+                            a
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updatePassword = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o) {
+                        const a = {
+                            error: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.uo)(r))
+                            return a.error = "Password must be 8 characters or longer",
+                            a;
+                        if (r !== o)
+                            return a.error = "Passwords don't match",
+                            a;
+                        try {
+                            return (yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/change-password`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${t.state.session.AccessToken}`
+                                },
+                                body: JSON.stringify({
+                                    oldPassword: e,
+                                    newPassword: r
+                                })
+                            })).ok ? a : (a.error = "Incorrect password",
+                            a)
+                        } catch (e) {
+                            return a.error = "Error updating password. Please try again later",
+                            a
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateEmail = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        const r = {
+                            error: null
+                        };
+                        if (!(0,
+                        _utils_validate__WEBPACK_IMPORTED_MODULE_4__.oH)(e))
+                            return r.error = "Invalid Email",
+                            r;
+                        try {
+                            return (yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/update-email`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${t.state.session.AccessToken}`
+                                },
+                                body: JSON.stringify({
+                                    newEmail: e
+                                })
+                            })).ok ? r : (r.error = "Update failed. Please try again later.",
+                            r)
+                        } catch (e) {
+                            return r.error = "Update failed. Please try again later.",
+                            r
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.confirmedEmailUpdate = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r, o, a) {
+                        const n = e
+                          , s = r
+                          , i = o
+                          , c = a;
+                        t.setUpdatedEmail(s);
+                        try {
+                            if (!(yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/confirm-update-email`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${t.state.session.AccessToken}`
+                                },
+                                body: JSON.stringify({
+                                    oldEmail: n,
+                                    newEmail: s,
+                                    signDate: i,
+                                    sig: c
+                                })
+                            })).ok)
+                                throw Error("Update failed. Please try again later.")
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.refreshSession = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*() {
+                    const e = {
+                        error: null,
+                        session: null
+                    }
+                      , {RefreshToken: r} = t.state.session;
+                    try {
+                        const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/refresh-token`, {
+                            method: "POST",
+                            headers: {
+                                Authorization: `bearer ${t.state.session.AccessToken}`
+                            },
+                            body: JSON.stringify({
+                                RefreshToken: r
+                            })
+                        });
+                        if (!o.ok) {
+                            if (401 === o.status) {
+                                const t = yield o.json();
+                                return e.error = t.error,
+                                e
+                            }
+                            return e.error = "Refresh failed. Try again later",
+                            e
+                        }
+                        const a = _objectSpread({
+                            RefreshToken: r
+                        }, (yield o.json()).data);
+                        return t.saveSession(a),
+                        e.session = a,
+                        e
+                    } catch (t) {
+                        return e.error = "Refresh failed. Try again later",
+                        e
+                    }
+                }),
+                this.getSession = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*() {
+                    return t.state.session
+                }),
+                this.saveSession = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        t.setState({
+                            session: e
+                        }),
+                        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.write(t.LSKey, JSON.stringify(e))
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.saveBasicSession = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        t.setState({
+                            basicSession: e
+                        }),
+                        _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.write(t.BasicLSKey, JSON.stringify(e))
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.isUserSubscribed = (()=>{
+                    var e, t;
+                    return !(null === (e = this.state.session) || void 0 === e || null === (t = e.User) || void 0 === t || !t.SubscriptionActive)
+                }
+                ),
+                this.purchasedDonda2 = (()=>{
+                    var e, t, r;
+                    return !(null === (e = this.state.session) || void 0 === e || null === (t = e.User) || void 0 === t || null === (r = t.Purchases) || void 0 === r || !r.includes(DONDA_2_ID))
+                }
+                ),
+                this.purchasedStemPlayer = (()=>!!this.state.session),
+                this.requestDeviceChallenge = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e) {
+                        try {
+                            const r = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/device-challenge`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    device_id: e
+                                })
+                            });
+                            if (!r.ok)
+                                throw new Error(`Device challenge request failed: ${r.status} ${r.statusText}`);
+                            const o = yield r.json();
+                            return {
+                                challenge: parseInt(o.data.challenge, 16)
+                            }
+                        } catch (e) {
+                            return {
+                                error: e
+                            }
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.completeDeviceChallenge = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*(e, r) {
+                        try {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/device-login`, {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    device_id: e,
+                                    challenge_response: r
+                                })
+                            });
+                            if (!o.ok)
+                                throw new Error(`Device challenge failed: ${o.status} ${o.statusText}`);
+                            return {
+                                token: (yield o.json()).data.AccessToken
+                            }
+                        } catch (e) {
+                            return {
+                                error: e
+                            }
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.LSKey = `${e.config.TARGET_ENV}_sp_session`;
+                const r = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.LSKey);
+                this.BasicLSKey = `${e.config.TARGET_ENV}_sp_basic_session`;
+                const o = _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_3__.mM.read(this.BasicLSKey);
+                this.state = {
+                    session: r ? JSON.parse(r) : null,
+                    basicSession: o ? JSON.parse(o) : null,
+                    updatedEmail: null,
+                    userLoggedOut: !1
+                }
+            }
+            componentDidMount() {
+                var e = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__.Z)(function*() {
+                    if (e.state.session) {
+                        (yield e.refreshSession()).error && e.logout()
+                    }
+                })()
+            }
+            logout() {
+                this.saveSession(null),
+                this.saveBasicSession(null)
+            }
+            render() {
+                const e = {
+                    accountClient: _objectSpread(_objectSpread({}, {
+                        resendRegistrationEmail: this.resendRegistrationEmail,
+                        resetPassword: this.resetPassword,
+                        confirmResetPassword: this.confirmResetPassword,
+                        updatePassword: this.updatePassword,
+                        updateEmail: this.updateEmail,
+                        confirmedEmailUpdate: this.confirmedEmailUpdate,
+                        confirmRegistration: this.confirmRegistration,
+                        redirectToCreatePurchase: this.redirectToCreatePurchase,
+                        redirectToCreateSubscription: this.redirectToCreateSubscription,
+                        redirectToManageSubscription: this.redirectToManageSubscription,
+                        getSession: this.getSession,
+                        saveSession: this.saveSession,
+                        refreshSession: this.refreshSession,
+                        saveBasicSession: this.saveBasicSession,
+                        isUserSubscribed: this.isUserSubscribed,
+                        purchasedDonda2: this.purchasedDonda2,
+                        purchasedStemPlayer: this.purchasedStemPlayer,
+                        login: this.login,
+                        signup: this.signup,
+                        logout: this.logout,
+                        requestDeviceChallenge: this.requestDeviceChallenge,
+                        completeDeviceChallenge: this.completeDeviceChallenge,
+                        setUserLoggedOut: this.setUserLoggedOut
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AccountContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const __TEST__AccountProvider = AccountProvider
+          , _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "subscription"
+        })(AccountProvider)
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(AccountContext, "AccountContext", "/home/vsts/work/1/s/src/contexts/account/account-context.tsx"),
+            e.register(DONDA_2_ID, "DONDA_2_ID", "/home/vsts/work/1/s/src/contexts/account/account-context.tsx"),
+            e.register(AccountProvider, "AccountProvider", "/home/vsts/work/1/s/src/contexts/account/account-context.tsx"),
+            e.register(__TEST__AccountProvider, "__TEST__AccountProvider", "/home/vsts/work/1/s/src/contexts/account/account-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/account/account-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "5b59c92b90bc77179045": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            a: ()=>c
+            Z: ()=>d
         });
-        var o = r("de098c4daf91477f9cbc")
-          , n = r("5f3058187c365cf2ae9c")
-          , s = r("f1b4809f4fa3c0611b78");
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("727b34f8bf995459d503")
+          , i = r("5ef9de3df8d92ea0e41c")
+          , c = r.n(i);
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function i(e) {
-            if (Array.isArray(e)) {
-                for (var t = 0, r = Array(e.length); t < e.length; t++)
-                    r[t] = e[t];
-                return r
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , i = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(s.w0.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, i, t, {
+                    ref: r
+                })))
             }
-            return Array.from(e)
+            ;
+            return t.WrappedComponent = e,
+            c()(t, e)
         }
-        var a = "sessionAccessId-";
-        function u(e) {
-            var t = void 0;
-            return e && e.id && ~e.id.indexOf(a) && (t = e.id),
-            t
-        }
-        function d() {
-            return a + (0,
-            n.V)()
-        }
-        const c = (e,t)=>{
-            t = t || document.body;
-            var r = void 0
-              , n = {}
-              , a = []
-              , c = !1
-              , l = !0
-              , _ = void 0
-              , f = new s.C
-              , h = document.createElement("iframe");
-            function v() {
-                t.appendChild(h),
-                r = h.contentWindow,
-                l = !1,
-                window.addEventListener("message", p),
-                g()
-            }
-            function p(e) {
-                var t = e.data
-                  , r = u(t);
-                if ("sessionAccessId-connected" !== r) {
-                    if (t.connectError)
-                        return Object.keys(n).forEach(function(e) {
-                            return n[e](t.error)
-                        }),
-                        void (n = {});
-                    var o = n[r];
-                    r && o && o(t.error, t.data)
-                } else
-                    c = !0
-            }
-            function b(e, t, r, o) {
-                return m.apply(this, arguments)
-            }
-            function m() {
-                return (m = (0,
-                o.Z)(function*(t, o, s, i) {
-                    l && v(),
-                    c || "connect" === t || a.push([t, o, s, i]);
-                    var u = d();
-                    n && "function" === typeof i && (n[u] = i),
-                    (yield f.promise) && r.postMessage({
-                        method: t,
-                        key: o,
-                        value: s,
-                        id: u
-                    }, e)
-                })).apply(this, arguments)
-            }
-            function g() {
-                if (c)
-                    for (clearTimeout(_); a.length; )
-                        b.apply(void 0, i(a.pop()));
-                else
-                    b("connect"),
-                    _ = setTimeout(g, 125)
-            }
-            return h.src = e,
-            h.width = "0",
-            h.height = "0",
-            h.style.display = "none",
-            h.onload = function() {
-                f.resolve(!0)
-            }
-            ,
-            v(),
-            {
-                get: function(e, t) {
-                    if (!t)
-                        throw new Error("callback required for get");
-                    b("get", e, null, t)
-                },
-                set: function(e, t, r) {
-                    b("set", e, t, r)
-                },
-                remove: function(e, t) {
-                    b("remove", e, null, t)
-                },
-                close: function() {
-                    clearTimeout(_),
-                    window.removeEventListener("message", p),
-                    h.parentNode.removeChild(h),
-                    c = !1,
-                    l = !0
-                }
-            }
-        }
-        ;
+          , _ = l
+          , d = _;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(i, "_toConsumableArray", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/cross-domain-storage-guest.ts"),
-            e.register(a, "prefix", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/cross-domain-storage-guest.ts"),
-            e.register(u, "getId", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/cross-domain-storage-guest.ts"),
-            e.register(d, "createId", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/cross-domain-storage-guest.ts"),
-            e.register(c, "storageGuest", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/cross-domain-storage-guest.ts"))
+            e && (e.register(l, "withAccountClient", "/home/vsts/work/1/s/src/contexts/account/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/account/hoc.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5260,10 +4577,6281 @@
         }()
     }
     ,
-    "0bb4d68b909b6fd96c63": (e,t,r)=>{
+    ad21e61587d47603cd1c: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            D: ()=>o
+            u: ()=>o.ZP,
+            o: ()=>a.Z
+        });
+        var o = r("727b34f8bf995459d503")
+          , a = r("5b59c92b90bc77179045");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    d33789936ad161eefce0: (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            VW: ()=>tempAlbumBadTrack,
+            xU: ()=>MandatoryAlbums,
+            OZ: ()=>AlbumRestoreContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8"), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("de098c4daf91477f9cbc"), react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b"), _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e"), _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433"), _webusb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("f60aef9fa88f4e9ce07a"), _stems__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("d92624744e8fb7e743e8"), _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("a7b043367627a4b04036"), _utils_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("a60417c8351c73d4238a"), _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("557b135c7198835d5410"), _dec, _class, _temp;
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const downloadProgressInterval = 2e4
+          , downloadProgressPercent = 10
+          , selectedUpdateRestoreCodec = "mp3"
+          , tempAlbumBadTrack = "PENDING-TO-DELETE-ALBUM-OPS"
+          , MandatoryAlbums = ["Donda", "Life of The Party"]
+          , DEFAULT_ALBUMS_AVAILABLE = {
+            "Donda 2": !1,
+            "Donda (Deluxe)": !1,
+            Donda: !1,
+            "Life of The Party": !1,
+            "Jesus Is King": !1,
+            "Wash Us In The Blood": !1
+        }
+          , AlbumRestoreContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({})
+          , emptyStems = {
+            vocals: null,
+            bass: null,
+            drums: null,
+            other: null
+        };
+        let AlbumRestoreProviderComp = (_dec = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "album_restore_provider"
+        }),
+        _dec((_temp = class AlbumRestoreProviderComp extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.restoreCancelled = void 0,
+                this.apiUrl = void 0,
+                this.checkForContentUpdates = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*() {
+                    const {webUSBClient: e} = t.props
+                      , {latestAlbums: r} = t.state;
+                    if (!r)
+                        return;
+                    const o = Object.values(r)
+                      , a = Object.values(e.deviceAlbums);
+                    return Promise.all(o.map(function() {
+                        var e = (0,
+                        _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
+                            const r = a.find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e.title));
+                            yield t.checkForAlbumActions(r, e)
+                        });
+                        return function(t) {
+                            return e.apply(this, arguments)
+                        }
+                    }()))
+                }),
+                this.resetState = (()=>{
+                    this.setState({
+                        albumsStatus: {},
+                        restoringAlbum: !1,
+                        trackRestore: null,
+                        albumsStatusUpdated: null
+                    })
+                }
+                ),
+                this.resetErrorState = (()=>this.setState({
+                    restoreError: !1
+                })),
+                this.fetchLatestAlbums = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*() {
+                    const {webUSBClient: {setCover: e}} = t.props;
+                    try {
+                        const r = yield(0,
+                        _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_8__.Z)((0,
+                        _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*() {
+                            return fetch(`${t.apiUrl}/albums`)
+                        }), {
+                            functionName: "fetchLatestAlbums"
+                        })
+                          , o = yield r.json()
+                          , {data: a} = o;
+                        let n = {};
+                        Object.keys(a).forEach(r=>{
+                            const o = t.mapAlbumTitles(r);
+                            n[o] = a[r],
+                            n[o].cover = e(o)
+                        }
+                        ),
+                        t.setState({
+                            latestAlbums: n
+                        })
+                    } catch (e) {}
+                }),
+                this.downloadStemsWithProgress = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o) {
+                        const {stemsClient: {downloadStems: a}} = t.props;
+                        t.setState({
+                            trackRestore: {
+                                id: e.id,
+                                title: e.metadata.title,
+                                progress: 0,
+                                stage: "downloading"
+                            }
+                        });
+                        const n = setInterval(()=>{
+                            t.setState(t=>{
+                                const r = t.trackRestore && t.trackRestore.progress ? t.trackRestore.progress : 0;
+                                return {
+                                    trackRestore: {
+                                        id: e.id,
+                                        title: e.metadata.title,
+                                        progress: r < downloadProgressPercent / 100 ? r + .01 : .1,
+                                        stage: "downloading"
+                                    }
+                                }
+                            }
+                            )
+                        }
+                        , downloadProgressInterval / downloadProgressPercent);
+                        t.setState({
+                            updateInterval: n
+                        });
+                        const s = yield a(r, o);
+                        return clearInterval(n),
+                        t.cancelInterval(),
+                        t.setState({
+                            trackRestore: {
+                                id: e.id,
+                                title: e.metadata.title,
+                                progress: downloadProgressPercent / 100,
+                                stage: "downloading"
+                            }
+                        }),
+                        s
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.mapAlbumTitles = (e=>{
+                    switch (e) {
+                    case "donda_2":
+                        return "Donda 2";
+                    case "donda_deluxe":
+                        return "Donda (Deluxe)";
+                    case "donda":
+                        return "Donda";
+                    case "life_of_the_party":
+                        return "Life of The Party";
+                    case "jesus_is_king":
+                        return "Jesus Is King";
+                    case "wash_us_in_the_blood":
+                        return "Wash Us In The Blood";
+                    default:
+                        return null
+                    }
+                }
+                ),
+                this.componentWillUnmount = (()=>{
+                    this.cancelInterval()
+                }
+                ),
+                this.getLatestAlbumMetaVersion = ((e,t)=>{
+                    const r = t.tracks.find(t=>t.id === e.global_id);
+                    return r ? r.metadata.version : e.meta_version
+                }
+                ),
+                this.checkForAlbumActions = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const o = r.tracks.map(e=>e.id)
+                          , a = r.title
+                          , n = MandatoryAlbums.includes(a)
+                          , {webUSBClient: {setDeviceTransferActive: s, updateAlbumVersion: i}, stemsClient: {getLatestAlbumStemVersion: c}} = t.props;
+                        if (!e)
+                            return t.setState(e=>{
+                                const {albumsStatus: t} = e;
+                                return t[a] = {
+                                    isMandatory: n,
+                                    latestTrackIds: o,
+                                    albumId: null,
+                                    trackIds: [],
+                                    moveOrAddTracks: !0,
+                                    badMetaTracks: [],
+                                    restoreAlbumAvailable: !0
+                                },
+                                {
+                                    albumsStatus: t
+                                }
+                            }
+                            ),
+                            void t.setState(e=>{
+                                const {albumsStatusUpdated: t} = e;
+                                return {
+                                    albumsStatusUpdated: t + 1
+                                }
+                            }
+                            );
+                        e.version || (s(!0),
+                        yield i(e.id, "1"),
+                        s(!1));
+                        const {tracks: l} = e
+                          , _ = l.filter(e=>e.stems_version !== c(e, r))
+                          , d = l.filter(e=>e.meta_version !== t.getLatestAlbumMetaVersion(e, r)).filter(e=>!_.includes(e))
+                          , u = e.tracks.length !== r.tracks.length
+                          , f = e.tracks.map(e=>e.global_id)
+                          , m = f.join("") !== o.join("")
+                          , p = [];
+                        e.tracks.forEach(e=>{
+                            const t = r.tracks.find(t=>t.id === e.global_id);
+                            if (!t)
+                                return;
+                            const o = e.colors.join("").toLowerCase() !== t.metadata.color.join("").toLowerCase()
+                              , a = e.bpm !== t.metadata.tempos[0].tempo_bpm
+                              , n = e.title !== t.metadata.title
+                              , s = e.TrackGain_dB !== t.metadata.gain
+                              , i = e.artist !== t.metadata.artists.join(", ");
+                            return o || a || n || s || i ? p.push(e) : void 0
+                        }
+                        );
+                        const h = u || m || p.length > 0
+                          , v = p.length > 0 || r.version != e.version || _.length > 0 || d.length > 0;
+                        t.setState(t=>{
+                            const {albumsStatus: r} = t;
+                            return r[a] = {
+                                isMandatory: n,
+                                trackIds: f,
+                                latestTrackIds: o,
+                                albumId: e.id,
+                                moveOrAddTracks: u || m,
+                                updateAlbumAvailable: v,
+                                restoreAlbumAvailable: h,
+                                metaUpdate: d,
+                                stemsUpdate: _,
+                                badMetaTracks: p
+                            },
+                            {
+                                albumsStatus: r
+                            }
+                        }
+                        ),
+                        t.setState(e=>{
+                            const {albumsStatusUpdated: t} = e;
+                            return {
+                                albumsStatusUpdated: t + 1
+                            }
+                        }
+                        )
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getAlbumSize = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
+                        const {albumsStatus: r, latestAlbums: o} = t.state
+                          , a = r[e];
+                        return a.restoreAlbumAvailable && a.restoreAlbumAvailable && a.latestTrackIds ? a.latestTrackIds.filter((e,t)=>!a.trackIds.includes(e)).map(t=>o[e].tracks.find(e=>e.id === t)).filter(e=>void 0 !== e).reduce((e,t)=>{
+                            return e + (t.metadata.stem_size[1] + t.metadata.stem_size[2] + t.metadata.stem_size[3] + t.metadata.stem_size[4])
+                        }
+                        , 0) : 0
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.cancelInterval = (()=>{
+                    const {updateInterval: e} = this.state;
+                    e && clearInterval(e)
+                }
+                ),
+                this.cancelWaiting = (()=>{
+                    const {cancelWaiting: e} = this.state;
+                    e && e()
+                }
+                ),
+                this.clearAlbumWithTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {webUSBClient: {deleteTrack: o, deleteAlbum: a, fetchDeviceAlbums: n}} = t.props
+                          , s = yield n()
+                          , i = (e=>{
+                            let t, r = "", o = "";
+                            for (r in s)
+                                (t = s[r].title) === e && (o = r);
+                            return o
+                        }
+                        )(e);
+                        if ("" !== i)
+                            if (s[i].tracks.length > 0) {
+                                for (const e of s[i].tracks)
+                                    if (yield o(i, e.id),
+                                    r.aborted)
+                                        throw new Error("Cancelled")
+                            } else
+                                yield a(e)
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.startAlbumRestoreAndUpdate = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o=!1, a) {
+                        const {tracking: {trackEvent: n}, webUSBClient: {setDeviceTransferActive: s, fetchDeviceAlbums: i, addAlbum: c, moveAlbums: l, updateAlbumVersion: _, deviceInfo: d, deviceAlbums: u, deviceStorageUsed: f}} = t.props
+                          , {albumsStatus: m, latestAlbums: p} = t.state
+                          , h = m[e]
+                          , v = p[e];
+                        if (!h.restoreAlbumAvailable && !h.updateAlbumAvailable)
+                            return;
+                        n({
+                            event: `user_started_album_${o ? "update" : "restore"}`,
+                            data: {
+                                album: e,
+                                serialNumber: d.serialNumber
+                            }
+                        }),
+                        s(!0),
+                        t.setState({
+                            restoringAlbum: !0,
+                            restoreError: !1,
+                            trackRestore: null
+                        });
+                        const b = new AbortController;
+                        r && r(()=>{
+                            n({
+                                event: `user_cancelled_album_${o ? "update" : "restore"}`,
+                                data: {
+                                    album: e,
+                                    serialNumber: d.serialNumber
+                                }
+                            }),
+                            b.abort(),
+                            t.restoreCancelled = !0,
+                            t.cancelInterval(),
+                            t.setState({
+                                restoringAlbum: !1
+                            }),
+                            t.cancelWaiting()
+                        }
+                        );
+                        try {
+                            if (h.restoreAlbumAvailable && !h.albumId) {
+                                yield c(e, v.artist);
+                                const t = yield i()
+                                  , r = Object.keys(t).sort().filter(e=>!(0,
+                                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(e, "RECORD")).map(e=>t[e])
+                                  , o = r.findIndex(t=>(0,
+                                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e));
+                                (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.Rp)(r, o, 0);
+                                const a = (0,
+                                _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.ll)(r);
+                                yield l(a)
+                            }
+                            if (t.restoreCancelled)
+                                throw new Error("Cancelled");
+                            if (h.moveOrAddTracks) {
+                                if (yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal),
+                                yield t.moveMissingTracks(e, b.signal),
+                                yield t.moveBadTracks(e, b.signal),
+                                yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal),
+                                yield t.addMissingTracks(e, r, b.signal, a),
+                                t.restoreCancelled)
+                                    throw new Error("Cancelled");
+                                yield t.restoreAlbumOrder(e, b.signal)
+                            }
+                            h.updateAlbumAvailable && h.stemsUpdate && h.stemsUpdate.length > 0 && (yield t.updateAlbumStems(e, r, b.signal, a));
+                            let {metaUpdate: o} = h;
+                            const n = function() {
+                                var t = (0,
+                                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(t) {
+                                    let r = yield i();
+                                    if (void 0 !== r)
+                                        for (let o = 0; o < t.length; o++) {
+                                            const a = Object.keys(r).filter(t=>r[t].title === e)[0]
+                                              , n = r[a].tracks.find(e=>t[o].global_id === e.global_id);
+                                            t[o].id = n.id
+                                        }
+                                    return t
+                                });
+                                return function(e) {
+                                    return t.apply(this, arguments)
+                                }
+                            }();
+                            if (h.updateAlbumAvailable && o && o.length > 0)
+                                for (o = yield n(o); o.length > 0; )
+                                    yield t.metadataUpdate(e, o[0]),
+                                    o.shift();
+                            yield t.restoreMetadata(e);
+                            let d = yield i();
+                            const u = Object.values(d).find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e));
+                            u && (yield _(u.id, v.version))
+                        } catch (e) {
+                            throw e.message.match(/cancelled/i) ? yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal) : t.setState({
+                                restoreError: !0
+                            }),
+                            e
+                        } finally {
+                            t.restoreCancelled = !1,
+                            t.setState({
+                                restoringAlbum: !1
+                            }),
+                            s(!1)
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.restoreMetadata = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {albumsStatus: o} = t.state
+                          , a = o[e]
+                          , n = r ? r[0] : !(!a.restoreAlbumAvailable || !a.badMetaTracks) && a.badMetaTracks[0];
+                        n && (yield t.metadataUpdate(e, n),
+                        a.badMetaTracks.shift(),
+                        yield t.restoreMetadata(e, a.badMetaTracks))
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.metadataUpdate = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {albumsStatus: o} = t.state
+                          , a = o[e]
+                          , n = t.state.latestAlbums[e].tracks.find(e=>r.global_id === e.id)
+                          , s = {
+                            global_id: n.id,
+                            artist: n.metadata.artists.join(", "),
+                            title: n.metadata.title,
+                            meta_version: n.metadata.version,
+                            stems_version: n.stems_version,
+                            colors: n.metadata.color,
+                            temposConfig: n.metadata.tempos,
+                            TrackGain_dB: n.metadata.gain
+                        };
+                        if (yield t.props.webUSBClient.editTrackMetadataSimple(a.albumId, r.id, s),
+                        t.restoreCancelled)
+                            throw new Error("Cancelled")
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveMissingTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {webUSBClient: {moveTracks: o, fetchDeviceAlbums: a, deviceAlbums: n}} = t.props
+                          , {albumsStatus: s} = t.state
+                          , i = s[e]
+                          , c = Object.values(n).filter(e=>"RECORD" !== e.id && e.id !== i.albumId).map(e=>{
+                            let t = {};
+                            return t.id = e.id,
+                            t.globalIds = e.tracks.map(e=>e.global_id),
+                            t
+                        }
+                        );
+                        let l;
+                        const _ = i.restoreAlbumAvailable && i.latestTrackIds && i.latestTrackIds.find(e=>c.find(t=>{
+                            const r = t.globalIds.includes(e);
+                            return r && (l = t.id),
+                            r
+                        }
+                        ));
+                        if (_ && l) {
+                            const n = l;
+                            let s = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e));
+                            const i = s.id;
+                            let c;
+                            const d = t.props.webUSBClient.deviceAlbums[n].tracks.find(e=>{
+                                const t = e.global_id === _;
+                                return t && (c = e),
+                                t
+                            }
+                            ).id
+                              , u = `T${s.tracks.reduce((e,t)=>Math.max(parseInt(t.id.substr(1)), e), 0) + 2}`
+                              , f = (0,
+                            _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.Ye)(t.props.webUSBClient.deviceAlbums[n], t.props.webUSBClient.deviceAlbums[i], d, u);
+                            if (t.setState({
+                                trackRestore: {
+                                    id: c.global_id,
+                                    title: c.title,
+                                    progress: 0,
+                                    stage: "moving"
+                                }
+                            }),
+                            yield o(f),
+                            yield a(),
+                            r.aborted)
+                                throw new Error("Cancelled");
+                            yield t.moveMissingTracks(e, r)
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveBadTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {webUSBClient: {addAlbum: o, moveTracks: a, fetchDeviceAlbums: n}} = t.props
+                          , {albumsStatus: s} = t.state
+                          , i = s[e];
+                        let c = i.restoreAlbumAvailable && i.trackIds && i.trackIds.find((e,t)=>!i.latestTrackIds.includes(e));
+                        if (void 0 === c) {
+                            const e = e=>{
+                                let t = e.slice().sort()
+                                  , r = [];
+                                for (let e = 0; e < t.length - 1; e++)
+                                    t[e + 1] == t[e] && r.push(t[e]);
+                                return r
+                            }
+                            ;
+                            if (i.trackIds) {
+                                const t = e(i.trackIds);
+                                c = t.length > 0 ? t[0] : void 0
+                            }
+                        }
+                        if (c) {
+                            const s = tempAlbumBadTrack
+                              , i = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e)).id;
+                            let l = Object.values(t.props.webUSBClient.deviceAlbums).find(e=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, s));
+                            l || (yield o(s),
+                            yield n(),
+                            l = Object.values(t.props.webUSBClient.deviceAlbums).find(e=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, s)));
+                            const _ = l.id
+                              , d = (e,t)=>{
+                                const r = `${e.global_id}_${e.stems_version}_${e.meta_version}`
+                                  , o = `${t.global_id}_${t.stems_version}_${t.meta_version}`;
+                                return r.localeCompare(o)
+                            }
+                              , u = t.props.webUSBClient.deviceAlbums[i].tracks.sort(d).find(e=>e.global_id === c).id
+                              , f = `T${l.tracks.reduce((e,t)=>Math.max(parseInt(t.id.substr(1)), e), 0) + 2}`
+                              , m = (0,
+                            _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.Ye)(t.props.webUSBClient.deviceAlbums[i], t.props.webUSBClient.deviceAlbums[_], u, f);
+                            if (yield a(m),
+                            yield n(),
+                            r.aborted)
+                                throw new Error("Cancelled");
+                            yield t.moveBadTracks(e, r)
+                        } else
+                            t.setState({
+                                trackRestore: null
+                            })
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.addMissingTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o, a) {
+                        const {webUSBClient: {addTrackSimple: n, fetchDeviceAlbums: s, setDeviceTransferActive: i, deviceInfo: c, deleteTrack: l, deviceAlbums: _}, stemsClient: {getLatestStems: d, hasSpaceForStems: u, getSizeOfStems: f}} = t.props
+                          , {latestAlbums: m, albumsStatus: p} = t.state
+                          , h = p[e];
+                        let v = !1;
+                        r && r(()=>{
+                            v = !0
+                        }
+                        );
+                        const b = h.restoreAlbumAvailable && h.latestTrackIds && h.latestTrackIds.reverse().find(e=>!h.trackIds.includes(e));
+                        if (i(!0),
+                        b) {
+                            const i = m[e].tracks.find(e=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, b));
+                            let c = "wav";
+                            i.formats && i.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (c = "mp3");
+                            const p = yield d(b, i.version, c, i.subscription_required, o, !0);
+                            if (o.aborted || v)
+                                throw new Error("Cancelled");
+                            const E = yield t.downloadStemsWithProgress(i, p.stems, o);
+                            if (o.aborted || v)
+                                throw new Error("Cancelled");
+                            if (!(yield u(E, i.metadata.title))) {
+                                const e = f(E);
+                                yield t.waitUntilUserHasSpace(a, e)
+                            }
+                            const g = {
+                                id: `T${h.latestTrackIds.reverse().indexOf(b) + 1}`,
+                                global_id: i.id,
+                                meta_version: i.metadata.version,
+                                stems_version: i.stems_version,
+                                album: e,
+                                getMetadata: ()=>({
+                                    artist: m[e].artist,
+                                    trackConfig: {
+                                        title: i.metadata.title,
+                                        temposConfig: i.metadata.tempos,
+                                        colors: i.metadata.color,
+                                        TrackGain_dB: i.metadata.gain
+                                    }
+                                }),
+                                vocals: {
+                                    file: E.vocals,
+                                    format: c
+                                },
+                                bass: {
+                                    file: E.bass,
+                                    format: c
+                                },
+                                drums: {
+                                    file: E.drums,
+                                    format: c
+                                },
+                                other: {
+                                    file: E.other,
+                                    format: c
+                                }
+                            }
+                              , y = m[e].tracks.findIndex(e=>e.id === i.id)
+                              , P = Object.keys(_).find(t=>_[t].title === e);
+                            if (o.aborted || v)
+                                throw new Error("Cancelled");
+                            if (-1 !== y) {
+                                const e = `T${y + 1}`;
+                                try {
+                                    yield l(P, e, o)
+                                } catch (e) {
+                                    if (e && "Cancelled" === e.message)
+                                        throw e
+                                }
+                            }
+                            if (o.aborted || v)
+                                throw new Error("Cancelled");
+                            if (yield n(g, e=>{
+                                const r = e ? downloadProgressPercent / 100 + (100 - downloadProgressPercent) / 100 * e.total : 1;
+                                t.setState({
+                                    trackRestore: {
+                                        id: i.id,
+                                        title: i.metadata.title,
+                                        progress: r,
+                                        stage: "copying"
+                                    }
+                                })
+                            }
+                            , r),
+                            yield s(),
+                            o.aborted || v)
+                                throw new Error("Cancelled");
+                            yield t.addMissingTracks(e, r, o, a)
+                        } else
+                            t.setState({
+                                trackRestore: null
+                            })
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.restoreAlbumOrder = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {webUSBClient: {moveTracksSimple: o, fetchDeviceAlbums: a}} = t.props;
+                        let n, s;
+                        const {albumsStatus: i} = t.state
+                          , c = i[e]
+                          , l = yield a()
+                          , _ = Object.keys(l).find(t=>l[t].title === e)
+                          , d = l[_].tracks.map(e=>e.global_id);
+                        if ((c.restoreAlbumAvailable && c.latestTrackIds ? c.latestTrackIds.find((e,t)=>{
+                            const r = e !== d[t];
+                            return r && (n = d.findIndex(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(t, e)),
+                            s = t),
+                            r
+                        }
+                        ) : null) && -1 !== n) {
+                            t.setState({
+                                restorationStatus: "reordering"
+                            });
+                            const a = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e)).id
+                              , i = t.props.webUSBClient.deviceAlbums[a]
+                              , c = i
+                              , l = i
+                              , _ = i.tracks[n].id
+                              , d = i.tracks.find(e=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, _))
+                              , u = `T${l.tracks.reduce((e,t)=>Math.max(parseInt(t.id.substr(1)), e), 0) + 2}`
+                              , f = Object.assign({}, _objectSpread(_objectSpread({}, d), {
+                                id: u
+                            }))
+                              , m = Array.from(t.props.webUSBClient.deviceAlbums[a].tracks);
+                            m.splice(n, 1),
+                            m.splice(s, 0, f);
+                            const p = _objectSpread(_objectSpread({}, c), {}, {
+                                tracks: m
+                            })
+                              , h = (0,
+                            _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__.Ye)(p, p, _, u);
+                            if (yield o(h),
+                            r.aborted)
+                                throw new Error("Cancelled");
+                            yield t.restoreAlbumOrder(e, r)
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.waitUntilUserHasSpace = ((e,t)=>{
+                    const {webUSBClient: {setDeviceTransferActive: r}} = this.props;
+                    return r(!1),
+                    new Promise((o,a)=>{
+                        this.setState({
+                            cancelWaiting: a
+                        }),
+                        e(t, ()=>{
+                            r(!0),
+                            o()
+                        }
+                        )
+                    }
+                    )
+                }
+                ),
+                this.hasSpaceForFiles = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r) {
+                        const {webUSBClient: {getRemainingSize: o}, tracking: {trackEvent: a}} = t.props
+                          , n = (yield o()) > e;
+                        return n || a({
+                            event: "device_full_during_update_restore",
+                            data: {
+                                trackTitle: r
+                            }
+                        }),
+                        n
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateAlbumStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e, r, o, a) {
+                        const {webUSBClient: {addTrackSimple: n, fetchDeviceAlbums: s, setDeviceTransferActive: i, deleteTrack: c, deviceInfo: l}, stemsClient: {getLatestStems: _, hasSpaceForStems: d, getSizeOfStems: u}} = t.props
+                          , {latestAlbums: f, albumsStatus: m} = t.state
+                          , p = m[e]
+                          , h = !!(p.stemsUpdate && p.stemsUpdate.length > 0) && p.stemsUpdate[0];
+                        if (i(!0),
+                        h) {
+                            const l = Object.values(t.props.webUSBClient.deviceAlbums).find(t=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e))
+                              , m = l.tracks.find(e=>e.global_id === h.global_id).id;
+                            yield c(l.id, m),
+                            i(!0);
+                            const p = f[e].tracks.find(e=>(0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, h.global_id));
+                            let v = "wav";
+                            p.formats && p.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (v = "mp3");
+                            const b = yield _(h.global_id, p.version, v, p.subscription_required, o, !0);
+                            if (o.aborted)
+                                throw new Error("Cancelled");
+                            const E = yield t.downloadStemsWithProgress(p, b, o);
+                            if (o.aborted)
+                                throw new Error("Cancelled");
+                            if (!(yield d(E, p.metadata.title))) {
+                                const e = u(E);
+                                yield t.waitUntilUserHasSpace(a, e)
+                            }
+                            const g = {
+                                id: m,
+                                global_id: p.id,
+                                meta_version: p.metadata.version,
+                                stems_version: p.stems_version,
+                                album: e,
+                                getMetadata: ()=>({
+                                    artist: f[e].artist,
+                                    trackConfig: {
+                                        title: p.metadata.title,
+                                        temposConfig: p.metadata.tempos,
+                                        colors: p.metadata.color,
+                                        TrackGain_dB: p.metadata.gain
+                                    }
+                                }),
+                                vocals: {
+                                    file: E.vocals,
+                                    format: v
+                                },
+                                bass: {
+                                    file: E.bass,
+                                    format: v
+                                },
+                                drums: {
+                                    file: E.drums,
+                                    format: v
+                                },
+                                other: {
+                                    file: E.other,
+                                    format: v
+                                }
+                            };
+                            if (o.aborted)
+                                throw new Error("Cancelled");
+                            if (yield n(g, e=>{
+                                const r = e ? downloadProgressPercent / 100 + (100 - downloadProgressPercent) / 100 * e.total : 1;
+                                t.setState({
+                                    trackRestore: {
+                                        id: p.id,
+                                        title: p.metadata.title,
+                                        progress: r,
+                                        stage: "refreshing"
+                                    }
+                                })
+                            }
+                            , r),
+                            yield s(),
+                            o.aborted)
+                                throw new Error("Cancelled");
+                            yield t.updateAlbumStems(e, r, o, a)
+                        } else
+                            t.setState({
+                                trackRestore: null
+                            })
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.apiUrl = `${e.config.KB_STEMIFY_API_URL}/content`,
+                this.state = {
+                    albumsStatus: {},
+                    restoringAlbum: !1,
+                    restoreError: !1,
+                    latestAlbums: {},
+                    trackRestore: null,
+                    updateInterval: null,
+                    cancelWaiting: null,
+                    albumsStatusUpdated: null
+                }
+            }
+            componentDidUpdate(e, t) {
+                var r = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*() {
+                    const {webUSBClient: t} = r.props;
+                    e.webUSBClient.deviceConnected === t.deviceConnected || t.deviceConnected || r.resetState(),
+                    (e.webUSBClient.deviceAlbumsUpdated && e.webUSBClient.deviceAlbumsUpdated !== t.deviceAlbumsUpdated || !e.webUSBClient.deviceAlbumsUpdated && t.deviceAlbumsUpdated && r.state.latestAlbums) && (yield r.checkForContentUpdates()),
+                    !e.webUSBClient.deviceConnected && t.deviceConnected && (yield r.fetchLatestAlbums())
+                })()
+            }
+            render() {
+                const e = {
+                    albumRestoreClient: _objectSpread(_objectSpread({}, {
+                        resetState: this.resetState,
+                        fetchLatestAlbums: this.fetchLatestAlbums,
+                        checkForContentUpdates: this.checkForContentUpdates,
+                        mapAlbumTitles: this.mapAlbumTitles,
+                        startAlbumRestoreAndUpdate: this.startAlbumRestoreAndUpdate,
+                        getAlbumSize: this.getAlbumSize,
+                        restoreMetadata: this.restoreMetadata,
+                        moveBadTracks: this.moveBadTracks,
+                        addMissingTracks: this.addMissingTracks,
+                        restoreAlbumOrder: this.restoreAlbumOrder,
+                        resetErrorState: this.resetErrorState
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AlbumRestoreContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        ,
+        _class = _temp)) || _class);
+        const __TEST_AlbumRestoreProvider = AlbumRestoreProviderComp
+          , AlbumRestoreProvider = (0,
+        _webusb__WEBPACK_IMPORTED_MODULE_4__.MM)((0,
+        _stems__WEBPACK_IMPORTED_MODULE_5__.E9)(AlbumRestoreProviderComp))
+          , _default = AlbumRestoreProvider
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(downloadProgressInterval, "downloadProgressInterval", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(downloadProgressPercent, "downloadProgressPercent", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(selectedUpdateRestoreCodec, "selectedUpdateRestoreCodec", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(tempAlbumBadTrack, "tempAlbumBadTrack", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(MandatoryAlbums, "MandatoryAlbums", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(DEFAULT_ALBUMS_AVAILABLE, "DEFAULT_ALBUMS_AVAILABLE", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(AlbumRestoreContext, "AlbumRestoreContext", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(emptyStems, "emptyStems", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(AlbumRestoreProviderComp, "AlbumRestoreProviderComp", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(__TEST_AlbumRestoreProvider, "__TEST_AlbumRestoreProvider", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(AlbumRestoreProvider, "AlbumRestoreProvider", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/album-restore/album-restore-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "9051b4e216287ce0ce77": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("5ef9de3df8d92ea0e41c")
+          , i = r.n(s)
+          , c = r("d33789936ad161eefce0");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , s = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(c.OZ.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, s, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            i()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withAlbumRestoreClient", "/home/vsts/work/1/s/src/contexts/album-restore/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/album-restore/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "16c6bde65fb4831cea2e": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            _: ()=>o.ZP,
+            C: ()=>a.Z
+        });
+        var o = r("d33789936ad161eefce0")
+          , a = r("9051b4e216287ce0ce77");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "6515cd559c65eab0c80c": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            iJ: ()=>AudioEngineContext,
+            QK: ()=>AudioEnginePlaybackState,
+            wA: ()=>AudioEngineStemType,
+            $_: ()=>QueueType,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _repository__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("9f8992917dda43cfdc1d")
+          , _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("238af0e74d3daf256b28")
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("065f3a895d559954cd46")
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(react_page_visibility__WEBPACK_IMPORTED_MODULE_10__)
+          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("c0326c9d650a633c92d0")
+          , _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("94e777f63eff622615ee")
+          , _utils_lerp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("e2161c2bb2fb866f34ce")
+          , _utils_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c90b79b40c6328f03c9e");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const MODULE = "audio_engine"
+          , AudioEngineContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        let AudioEnginePlaybackState, AudioEngineStemType, QueueType;
+        !function(e) {
+            e.Playing = "playing",
+            e.Paused = "paused",
+            e.Stopped = "stopped",
+            e.Ended = "ended"
+        }(AudioEnginePlaybackState || (AudioEnginePlaybackState = {})),
+        function(e) {
+            e.Vocals = "vocals",
+            e.Other = "other",
+            e.Bass = "bass",
+            e.Drums = "drums"
+        }(AudioEngineStemType || (AudioEngineStemType = {})),
+        function(e) {
+            e.Official = "official",
+            e.User = "user"
+        }(QueueType || (QueueType = {}));
+        const AudioEngineEmptyState = {
+            currentTrack: null,
+            trackIsLoaded: !1,
+            isLoading: !1,
+            currentTrackMetadataUpdated: -1,
+            playbackState: AudioEnginePlaybackState.Stopped,
+            currentPosition: 0,
+            isAllMuted: !1,
+            vocalsMuted: !1,
+            otherMuted: !1,
+            drumsMuted: !1,
+            bassMuted: !1,
+            vocalsIsolated: !1,
+            otherIsolated: !1,
+            drumsIsolated: !1,
+            bassIsolated: !1,
+            isIsolating: !1
+        };
+        class AudioEngineProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.repository = void 0,
+                this.audioContext = void 0,
+                this.hasPlayed = !1,
+                this.hasUserConsent = !1,
+                this.previousPlaybackState = void 0,
+                this.setupAutoplay = (()=>{
+                    if (!0 === this.hasUserConsent)
+                        return;
+                    this.repository.setupSilentTrackForAutoPlay();
+                    const e = ()=>{
+                        this.repository.play(),
+                        this.hasUserConsent = !0,
+                        document.body.removeEventListener("click", e)
+                    }
+                    ;
+                    document.body.addEventListener("click", e)
+                }
+                ),
+                this.getHasPlayed = (()=>this.hasPlayed),
+                this.getHasUserConsent = (()=>this.hasUserConsent),
+                this.load = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
+                        t.stop(),
+                        t.setState({
+                            isLoading: !0,
+                            trackIsLoaded: !1,
+                            currentTrack: e
+                        }),
+                        t.repository.load(e, ()=>{
+                            t.state.isLoading && (t.setState({
+                                trackIsLoaded: !0,
+                                isLoading: !1
+                            }),
+                            t.hasUserConsent && t.play())
+                        }
+                        , e=>t.onPlaybackEnded(e), e=>{}
+                        )
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.unload = (()=>{
+                    this.stop(),
+                    this.repository.unload(),
+                    this.setState(AudioEngineEmptyState)
+                }
+                ),
+                this.play = (()=>{
+                    this.setState({
+                        playbackState: AudioEnginePlaybackState.Playing
+                    }),
+                    this.repository.play(),
+                    this.hasPlayed = !0,
+                    this.hasUserConsent = !0,
+                    this.setupMediaControls(this.state.currentTrack)
+                }
+                ),
+                this.pause = (()=>{
+                    this.setState({
+                        playbackState: AudioEnginePlaybackState.Paused
+                    }),
+                    this.repository.pause()
+                }
+                ),
+                this.playPause = (()=>{
+                    const {playbackState: e} = this.state;
+                    switch (e) {
+                    case AudioEnginePlaybackState.Playing:
+                        this.pause();
+                        break;
+                    default:
+                        this.play()
+                    }
+                }
+                ),
+                this.stop = (()=>{
+                    this.state.playbackState !== AudioEnginePlaybackState.Stopped && (this.state.playbackState !== AudioEnginePlaybackState.Ended && this.setState({
+                        playbackState: AudioEnginePlaybackState.Stopped
+                    }),
+                    this.setState({
+                        currentPosition: 0
+                    }),
+                    this.clearMediacontrols(),
+                    this.repository.stop(),
+                    this.state.isIsolating && this.setIsolatedStems([]))
+                }
+                ),
+                this.seekTo = (e=>{
+                    this.setState({
+                        currentPosition: e
+                    }),
+                    this.repository.seekTo(e)
+                }
+                ),
+                this.seekToPercent = (e=>{
+                    e *= this.getDuration(),
+                    this.seekTo(e)
+                }
+                ),
+                this.onPlaybackEnded = (e=>{
+                    this.repository.getDurationForStem(e) === this.getDuration() && this.state.playbackState !== AudioEnginePlaybackState.Ended && this.setState({
+                        playbackState: AudioEnginePlaybackState.Ended
+                    })
+                }
+                ),
+                this.toggleMute = (e=>{
+                    const t = this.getMutedStateForStem(e);
+                    switch (t ? this.repository.unmute(e) : this.repository.mute(e),
+                    e) {
+                    case AudioEngineStemType.Vocals:
+                        this.setState({
+                            vocalsMuted: !t
+                        });
+                        break;
+                    case AudioEngineStemType.Other:
+                        this.setState({
+                            otherMuted: !t
+                        });
+                        break;
+                    case AudioEngineStemType.Drums:
+                        this.setState({
+                            drumsMuted: !t
+                        });
+                        break;
+                    case AudioEngineStemType.Bass:
+                        this.setState({
+                            bassMuted: !t
+                        })
+                    }
+                }
+                ),
+                this.getMutedStateForStem = (e=>{
+                    switch (e) {
+                    case AudioEngineStemType.Vocals:
+                        return this.state.vocalsMuted;
+                    case AudioEngineStemType.Other:
+                        return this.state.otherMuted;
+                    case AudioEngineStemType.Drums:
+                        return this.state.drumsMuted;
+                    case AudioEngineStemType.Bass:
+                        return this.state.bassMuted
+                    }
+                }
+                ),
+                this.shouldMute = (e=>{
+                    const {isAllMuted: t, isIsolating: r} = this.state;
+                    return t || r && !this.getIsolationForStem(e) || !r && this.getMutedStateForStem(e)
+                }
+                ),
+                this.isolate = (e=>{
+                    switch (this.state.isIsolating || this.startIsolating([e]),
+                    e) {
+                    case AudioEngineStemType.Vocals:
+                        this.setState({
+                            isIsolating: !0,
+                            vocalsIsolated: !0
+                        });
+                        break;
+                    case AudioEngineStemType.Other:
+                        this.setState({
+                            isIsolating: !0,
+                            otherIsolated: !0
+                        });
+                        break;
+                    case AudioEngineStemType.Drums:
+                        this.setState({
+                            isIsolating: !0,
+                            drumsIsolated: !0
+                        });
+                        break;
+                    case AudioEngineStemType.Bass:
+                        this.setState({
+                            isIsolating: !0,
+                            bassIsolated: !0
+                        })
+                    }
+                    this.repository.isolate(e)
+                }
+                ),
+                this.setIsolatedStems = (e=>{
+                    if (e.length > 0)
+                        this.startIsolating(e),
+                        e.forEach(e=>this.repository.isolate(e));
+                    else {
+                        this.getIsolatedStems().forEach(e=>this.stopIsolating(e))
+                    }
+                    this.setState({
+                        isIsolating: e.length > 0,
+                        vocalsIsolated: e.includes(AudioEngineStemType.Vocals),
+                        otherIsolated: e.includes(AudioEngineStemType.Other),
+                        drumsIsolated: e.includes(AudioEngineStemType.Drums),
+                        bassIsolated: e.includes(AudioEngineStemType.Bass)
+                    })
+                }
+                ),
+                this.getIsolatedStems = (()=>{
+                    const {bassIsolated: e, vocalsIsolated: t, drumsIsolated: r, otherIsolated: o} = this.state
+                      , a = [];
+                    return e && a.push(AudioEngineStemType.Bass),
+                    t && a.push(AudioEngineStemType.Vocals),
+                    r && a.push(AudioEngineStemType.Drums),
+                    o && a.push(AudioEngineStemType.Other),
+                    a
+                }
+                ),
+                this.stopIsolating = (e=>{
+                    switch (e) {
+                    case AudioEngineStemType.Vocals:
+                        this.setState({
+                            vocalsIsolated: !1
+                        });
+                        break;
+                    case AudioEngineStemType.Other:
+                        this.setState({
+                            otherIsolated: !1
+                        });
+                        break;
+                    case AudioEngineStemType.Drums:
+                        this.setState({
+                            drumsIsolated: !1
+                        });
+                        break;
+                    case AudioEngineStemType.Bass:
+                        this.setState({
+                            bassIsolated: !1
+                        })
+                    }
+                    this.otherStemsAreIsolated(e) ? this.repository.mute(e) : (Object.values(AudioEngineStemType).forEach(t=>{
+                        if (t !== e) {
+                            this.getMutedStateForStem(t) ? this.repository.mute(t) : this.repository.unmute(t)
+                        }
+                    }
+                    ),
+                    this.setState({
+                        isIsolating: !1
+                    }))
+                }
+                ),
+                this.getIsolationForStem = (e=>{
+                    switch (e) {
+                    case AudioEngineStemType.Vocals:
+                        return this.state.vocalsIsolated;
+                    case AudioEngineStemType.Other:
+                        return this.state.otherIsolated;
+                    case AudioEngineStemType.Drums:
+                        return this.state.drumsIsolated;
+                    case AudioEngineStemType.Bass:
+                        return this.state.bassIsolated
+                    }
+                }
+                ),
+                this.previousTrack = (e=>{
+                    this.load(e)
+                }
+                ),
+                this.nextTrack = (e=>{
+                    this.load(e)
+                }
+                ),
+                this.addToQueue = (()=>{}
+                ),
+                this.createQueue = ((e,t)=>{
+                    t === QueueType.Official ? this.setState({
+                        officialQueue: e
+                    }) : this.setState({
+                        userQueue: e
+                    })
+                }
+                ),
+                this.setActiveQueue = (e=>{
+                    this.setState({
+                        activeQueue: e
+                    })
+                }
+                ),
+                this.getActiveQueue = (()=>{
+                    const {activeQueue: e} = this.state;
+                    return e ? e === QueueType.Official ? this.state.officialQueue : this.state.userQueue : []
+                }
+                ),
+                this.removeFromQueue = (()=>{}
+                ),
+                this.setShouldHideMiniPlayer = (e=>{
+                    this.setState({
+                        shouldHideMiniPlayer: e
+                    })
+                }
+                ),
+                this.setIsNavigating = (e=>{
+                    this.setState({
+                        isNavigating: e
+                    })
+                }
+                ),
+                this.getWaveformPeaksForStem = ((e,t)=>{
+                    const r = this.state.currentTrack;
+                    if (null === r)
+                        return [];
+                    const o = r.stems[e].waveform;
+                    return 0 === o.length ? [] : (0,
+                    _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__.f1)(o)
+                }
+                ),
+                this.getAmplitudeForStem = (e=>[]),
+                this.getEnergyAtCurrentTime = (()=>({
+                    vocals: Math.random(),
+                    other: Math.random(),
+                    bass: Math.random(),
+                    drums: Math.random()
+                })),
+                this.getCurrentTime = (()=>this.repository.getCurrentTime()),
+                this.getCurrentTimeForStem = (e=>this.repository.getCurrentTimeForStem(e)),
+                this.getDuration = (()=>{
+                    const e = this.repository.getDuration();
+                    return isNaN(e) ? 0 : e
+                }
+                ),
+                this.getDurationForStem = (e=>{
+                    const t = this.repository.getDurationForStem(e);
+                    return isNaN(t) ? 0 : t
+                }
+                ),
+                this.getCurrentPositionPercent = (()=>this.repository.getCurrentPositionPercent()),
+                this.setupMediaControls = (e=>{
+                    "mediaSession"in navigator && (navigator.mediaSession.metadata = new MediaMetadata({
+                        title: e.title,
+                        artist: e.artist,
+                        album: e.album,
+                        artwork: [{
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "96x96",
+                            type: "image/png"
+                        }, {
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "128x128",
+                            type: "image/png"
+                        }, {
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "192x192",
+                            type: "image/png"
+                        }, {
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "256x256",
+                            type: "image/png"
+                        }, {
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "384x384",
+                            type: "image/png"
+                        }, {
+                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            sizes: "512x512",
+                            type: "image/png"
+                        }]
+                    }),
+                    navigator.mediaSession.setActionHandler("play", this.play),
+                    navigator.mediaSession.setActionHandler("pause", this.pause),
+                    navigator.mediaSession.setActionHandler("seekto", e=>{
+                        this.seekTo(e.seekTime)
+                    }
+                    ))
+                }
+                ),
+                this.isBackgrounded = !1,
+                this.generateTrack = ((e,t,r)=>{
+                    try {
+                        let d = {};
+                        var o, a, n, s, i, c, l, _;
+                        if (d.id = e.global_id ? e.global_id : e.id,
+                        e.metadata ? (d.title = e.metadata.title,
+                        d.artist = e.metadata.artists ? e.metadata.artists.join(",") : e.metadata.artist,
+                        e.metadata.colors ? d.colors = e.metadata.colors : e.metadata.color && (d.colors = e.metadata.color)) : (d.title = e.title,
+                        d.artist = e.artists ? e.artists.join(",") : e.artist),
+                        d.duration = -1,
+                        d.albumCover = "",
+                        t)
+                            r && (d.waveformData = r),
+                            d.stems = {
+                                vocals: {
+                                    file: t.stems.vocals.file,
+                                    url: t.stems.vocals,
+                                    waveform: [0, 0],
+                                    version: 1
+                                },
+                                other: {
+                                    file: t.stems.other.file,
+                                    url: t.stems.other,
+                                    waveform: [0, 0],
+                                    version: 1
+                                },
+                                bass: {
+                                    file: t.stems.bass.file,
+                                    url: t.stems.bass,
+                                    waveform: [0, 0],
+                                    version: 1
+                                },
+                                drums: {
+                                    file: t.stems.drums.file,
+                                    url: t.stems.drums,
+                                    waveform: [0, 0],
+                                    version: 1
+                                }
+                            };
+                        else if (e.waveformData && (0,
+                        _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__.Jb)(e.waveformData))
+                            d.waveformData = e.waveformData,
+                            d.stems = {
+                                vocals: {
+                                    file: e.stems.vocals.file,
+                                    url: e.stems.vocals.url ? e.stems.vocals.url : e.stems.vocals,
+                                    waveform: [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                other: {
+                                    file: e.stems.other.file,
+                                    url: e.stems.other.url ? e.stems.other.url : e.stems.other,
+                                    waveform: [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                bass: {
+                                    file: e.stems.bass.file,
+                                    url: e.stems.bass.url ? e.stems.bass.url : e.stems.bass,
+                                    waveform: [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                drums: {
+                                    file: e.stems.drums.file,
+                                    url: e.stems.drums.url ? e.stems.drums.url : e.stems.drums,
+                                    waveform: [0, 0],
+                                    energy: [],
+                                    version: 1
+                                }
+                            };
+                        else
+                            d.stems = {
+                                vocals: {
+                                    file: e.stems.vocals.file,
+                                    url: e.stems.vocals.url ? e.stems.vocals.url : e.stems.vocals,
+                                    waveform: null !== (o = e.metadata) && void 0 !== o && null !== (a = o.waveforms) && void 0 !== a && a.vocals ? e.metadata.waveforms.vocals : [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                other: {
+                                    file: e.stems.other.file,
+                                    url: e.stems.other.url ? e.stems.other.url : e.stems.other,
+                                    waveform: null !== (n = e.metadata) && void 0 !== n && null !== (s = n.waveforms) && void 0 !== s && s.other ? e.metadata.waveforms.other : [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                bass: {
+                                    file: e.stems.bass.file,
+                                    url: e.stems.bass.url ? e.stems.bass.url : e.stems.bass,
+                                    waveform: null !== (i = e.metadata) && void 0 !== i && null !== (c = i.waveforms) && void 0 !== c && c.bass ? e.metadata.waveforms.bass : [0, 0],
+                                    energy: [],
+                                    version: 1
+                                },
+                                drums: {
+                                    file: e.stems.drums.file,
+                                    url: e.stems.drums.url ? e.stems.drums.url : e.stems.drums,
+                                    waveform: null !== (l = e.metadata) && void 0 !== l && null !== (_ = l.waveforms) && void 0 !== _ && _.drums ? e.metadata.waveforms.drums : [0, 0],
+                                    energy: [],
+                                    version: 1
+                                }
+                            };
+                        return d
+                    } catch (e) {
+                        return console.log(e),
+                        null
+                    }
+                }
+                ),
+                this.updateTrackMetaData = ((e,t,r,o,a)=>{
+                    const n = this.state.userQueue;
+                    if (n) {
+                        const o = n.findIndex(t=>{
+                            return (t.id ? t.id : t.global_id) === e
+                        }
+                        );
+                        if (-1 !== o) {
+                            const e = n[o];
+                            e.metadata.title = t,
+                            e.metadata.artist = r
+                        }
+                        this.setState({
+                            currentTrackMetadataUpdated: this.state.currentTrackMetadataUpdated + 1
+                        })
+                    }
+                }
+                ),
+                this.getPreviousPlaybackState = (()=>this.previousPlaybackState),
+                this.state = _objectSpread(_objectSpread({}, AudioEngineEmptyState), {}, {
+                    officialQueue: [],
+                    userQueue: []
+                })
+            }
+            componentDidMount() {
+                this.setup()
+            }
+            componentDidUpdate(e, t) {
+                const {playbackState: r, currentTrack: o} = this.state;
+                if (t.playbackState != r && (this.previousPlaybackState = t.playbackState),
+                t.playbackState !== AudioEnginePlaybackState.Ended && r === AudioEnginePlaybackState.Ended && this.stop(),
+                o && o !== t.currentTrack && _utils_feature_flags__WEBPACK_IMPORTED_MODULE_5__.V.hasFlag("background-shader-gradients")) {
+                    const e = o.colors.map(e=>(0,
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.oo)(e.substring(1)))
+                      , t = e[0].map((t,r)=>Math.floor((0,
+                    _utils_lerp__WEBPACK_IMPORTED_MODULE_7__.t)(t, e[1][r], .5)))
+                      , r = (0,
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(t, 1, .6);
+                    (0,
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(r[0], r[1], r[2])
+                }
+            }
+            setup() {
+                this.setupRepository(),
+                window.location.pathname.includes("/track/") || this.setupAutoplay(),
+                this.setupAudioContext()
+            }
+            setupRepository() {
+                this.repository = new _repository__WEBPACK_IMPORTED_MODULE_3__.is
+            }
+            setupAudioContext() {
+                if (this.audioContext = new (window.AudioContext || window.webkitAudioContext),
+                "suspended" === this.audioContext.state) {
+                    const e = ()=>{
+                        this.audioContext.resume(),
+                        document.body.removeEventListener("click", e),
+                        document.body.removeEventListener("touchstart", e),
+                        document.body.removeEventListener("touchend", e)
+                    }
+                    ;
+                    document.body.addEventListener("click", e),
+                    document.body.addEventListener("touchstart", e),
+                    document.body.addEventListener("touchend", e)
+                }
+            }
+            resumeAudioContextIfNeeded() {
+                "suspended" === this.audioContext.state && this.audioContext.resume()
+            }
+            muteAll() {
+                Object.values(AudioEngineStemType).forEach(e=>{
+                    this.getMutedStateForStem(e) || this.toggleMute(e)
+                }
+                )
+            }
+            unmuteAll() {
+                Object.values(AudioEngineStemType).forEach(e=>{
+                    this.getMutedStateForStem(e) && this.toggleMute(e)
+                }
+                )
+            }
+            isAllMuted() {
+                const {vocalsMuted: e, otherMuted: t, drumsMuted: r, bassMuted: o} = this.state;
+                return e && t && r && o
+            }
+            startIsolating(e) {
+                Object.values(AudioEngineStemType).filter(t=>!e.includes(t)).forEach(e=>{
+                    this.repository.mute(e)
+                }
+                )
+            }
+            otherStemsAreIsolated(e) {
+                const t = Object.values(AudioEngineStemType).filter(t=>t != e);
+                for (let e of t) {
+                    if (this.getIsolationForStem(e))
+                        return !0
+                }
+                return !1
+            }
+            clearMediacontrols() {
+                "mediaSession"in navigator && (navigator.mediaSession.metadata = null)
+            }
+            onVisibilityChange(e) {
+                this.isBackgrounded = !e,
+                this.repository.isBackgrounded = this.isBackgrounded,
+                e && this.resumeAudioContextIfNeeded(),
+                this.repository.onBackgrounded(this.isBackgrounded)
+            }
+            render() {
+                const e = {
+                    audioEngine: _objectSpread(_objectSpread({}, {
+                        load: this.load,
+                        unload: this.unload,
+                        play: this.play,
+                        pause: this.pause,
+                        playPause: this.playPause,
+                        stop: this.stop,
+                        muteAll: this.muteAll,
+                        unmuteAll: this.unmuteAll,
+                        toggleMute: this.toggleMute,
+                        getMutedStateForStem: this.getMutedStateForStem,
+                        shouldMute: this.shouldMute,
+                        isolate: this.isolate,
+                        setIsolatedStems: this.setIsolatedStems,
+                        getIsolatedStems: this.getIsolatedStems,
+                        stopIsolating: this.stopIsolating,
+                        getIsolationForStem: this.getIsolationForStem,
+                        setShouldHideMiniPlayer: this.setShouldHideMiniPlayer,
+                        setIsNavigating: this.setIsNavigating,
+                        seekTo: this.seekTo,
+                        seekToPercent: this.seekToPercent,
+                        previousTrack: this.previousTrack,
+                        nextTrack: this.nextTrack,
+                        createQueue: this.createQueue,
+                        getActiveQueue: this.getActiveQueue,
+                        setActiveQueue: this.setActiveQueue,
+                        addToQueue: this.addToQueue,
+                        removeFromQueue: this.removeFromQueue,
+                        setupAutoplay: this.setupAutoplay,
+                        getWaveformPeaksForStem: this.getWaveformPeaksForStem,
+                        getAmplitudeForStem: this.getAmplitudeForStem,
+                        getEnergyAtCurrentTime: this.getEnergyAtCurrentTime,
+                        getCurrentTimeForStem: this.getCurrentTimeForStem,
+                        getCurrentPositionPercent: this.getCurrentPositionPercent,
+                        getCurrentTime: this.getCurrentTime,
+                        getDuration: this.getDuration,
+                        generateTrack: this.generateTrack,
+                        getHasPlayed: this.getHasPlayed,
+                        getHasUserConsent: this.getHasUserConsent,
+                        updateTrackMetaData: this.updateTrackMetaData,
+                        getPreviousPlaybackState: this.getPreviousPlaybackState
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AudioEngineContext.Provider, {
+                    value: e
+                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_page_visibility__WEBPACK_IMPORTED_MODULE_10___default(), {
+                    onChange: e=>this.onVisibilityChange(e)
+                }), this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const __TEST__AudioEngineProvider = AudioEngineProvider
+          , _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: MODULE
+        })(AudioEngineProvider)
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(MODULE, "MODULE", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"),
+            e.register(AudioEngineContext, "AudioEngineContext", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"),
+            e.register(AudioEngineEmptyState, "AudioEngineEmptyState", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"),
+            e.register(AudioEngineProvider, "AudioEngineProvider", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"),
+            e.register(__TEST__AudioEngineProvider, "__TEST__AudioEngineProvider", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/audio-engine/audio-engine-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    da2143d0c5dd27b4850b: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("5ef9de3df8d92ea0e41c")
+          , i = r.n(s)
+          , c = r("6515cd559c65eab0c80c");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , s = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(c.iJ.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, s, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            i()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withAudioEngine", "/home/vsts/work/1/s/src/contexts/audio-engine/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/audio-engine/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "77d9647920c06e8befd6": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>o.ZP,
+            f: ()=>a.Z
+        });
+        var o = r("6515cd559c65eab0c80c")
+          , a = r("da2143d0c5dd27b4850b");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "29133bc41b1e7dcf829f": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            i: ()=>AudioEngineRepositoryHTMLAudio
+        });
+        var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("de098c4daf91477f9cbc")
+          , _components_TrackUploadForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("371760fd96b575cf2118")
+          , _utils_browser_detection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("5347e167343c470dbdfe")
+          , _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("6515cd559c65eab0c80c");
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        class AudioEngineRepositoryHTMLAudio {
+            constructor() {
+                this.vocals = void 0,
+                this.other = void 0,
+                this.drums = void 0,
+                this.bass = void 0,
+                this.intervalId = void 0,
+                this.syncCheck = {},
+                this.syncPlayheadsTS = void 0,
+                this.autosyncPlayheads = void 0,
+                this.threshold = void 0,
+                this.track = void 0,
+                this.silentTrack = void 0,
+                this.masterPlayhead = 0,
+                this.masterStem = _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals,
+                this.isBackgrounded = !1,
+                this.MIN_VOLUME = .001,
+                this.MAX_VOLUME = 1,
+                this.ENABLE_DEBUG = !1,
+                this.onBackgrounded = (e=>{
+                    if (e)
+                        Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(e=>{
+                            const t = this.getAudioForStem(e);
+                            (t.muted || t.volume == this.MIN_VOLUME) && t.play()
+                        }
+                        );
+                    else {
+                        4 === this.getMutedStems().length && this.syncPlayheads()
+                    }
+                }
+                ),
+                this.shouldSyncStem = (e=>{
+                    const t = this.getAudioForStem(e);
+                    if (t.muted && this.isBackgrounded)
+                        return !1;
+                    const r = Math.abs(t.currentTime - this.masterPlayhead) > this.threshold;
+                    return this.ENABLE_DEBUG && console.log(`Checking sync status for stem ${e} - current: ${t.currentTime} - diff from master[${this.masterStem}]: ${t.currentTime - this.masterPlayhead}, should sync: ${r}`),
+                    r
+                }
+                ),
+                this.getMutedStems = (()=>{
+                    const e = [];
+                    return Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(t=>{
+                        this.isMuted(t) && e.push(t)
+                    }
+                    ),
+                    e
+                }
+                ),
+                this.releaseSourceForStem = (e=>{
+                    const t = this.getAudioForStem(e)
+                      , r = t.src;
+                    t.src = "",
+                    t.oncanplaythrough = null,
+                    t.load(),
+                    URL.revokeObjectURL(r)
+                }
+                ),
+                this.getCurrentTime = (()=>{
+                    let e = 0;
+                    return Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(t=>{
+                        const r = this.getAudioForStem(t);
+                        r && r.currentTime > e && (e = r.currentTime)
+                    }
+                    ),
+                    e
+                }
+                ),
+                this.getDuration = (()=>{
+                    let e = 0;
+                    return Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(t=>{
+                        const r = this.getAudioForStem(t);
+                        r && (isNaN(r.duration) || r.duration > e && (e = r.duration))
+                    }
+                    ),
+                    e
+                }
+                ),
+                this.getDurationForStem = (e=>{
+                    const t = this.getAudioForStem(e);
+                    if (t && !isNaN(t.duration))
+                        return t.duration
+                }
+                ),
+                this.getCurrentPositionPercent = (()=>{
+                    let e = {
+                        type: null,
+                        length: 0
+                    };
+                    Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(t=>{
+                        const r = this.getAudioForStem(t);
+                        r && r.duration > e.length && (e.type = t,
+                        e.length = r.duration)
+                    }
+                    );
+                    const t = this.getAudioForStem(e.type);
+                    if (t)
+                        return t.currentTime / e.length
+                }
+                ),
+                this.getCurrentTimeForStem = (e=>this.getAudioForStem(e).currentTime),
+                this.vocals = new Audio,
+                this.other = new Audio,
+                this.drums = new Audio,
+                this.bass = new Audio,
+                this.setupSilentTrackForAutoPlay(),
+                this.threshold = .1,
+                this.autosyncPlayheads = !0
+            }
+            load(e, t, r, o) {
+                this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals, e.stems.vocals, t, r),
+                this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other, e.stems.other, t, r),
+                this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums, e.stems.drums, t, r),
+                this.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass, e.stems.bass, t, r)
+            }
+            setupInternalInterval() {
+                this.intervalId = setInterval(()=>{
+                    void 0 !== this.vocals && void 0 !== this.other && void 0 !== this.bass && void 0 !== this.drums && (this.updateMasterPlayhead(),
+                    this.ENABLE_DEBUG && console.log(`HTMLAudio master stem: ${this.masterStem}, playhead: ${this.masterPlayhead}`),
+                    this.autosyncPlayheads && this.shouldSyncPlayheads() && (this.ENABLE_DEBUG && console.error("AudioEngine: need to sync stems"),
+                    this.ENABLE_DEBUG && console.log(this.syncCheck),
+                    this.syncPlayheads(!1)))
+                }
+                , 500)
+            }
+            updateMasterPlayhead() {
+                return this.isMuted(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals) ? this.isMuted(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other) ? this.isMuted(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums) ? this.isMuted(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass) ? (this.masterPlayhead += .5,
+                void (this.masterStem = null)) : (this.masterPlayhead = this.bass.currentTime,
+                void (this.masterStem = _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass)) : (this.masterPlayhead = this.drums.currentTime,
+                void (this.masterStem = _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums)) : (this.masterPlayhead = this.other.currentTime,
+                void (this.masterStem = _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other)) : (this.masterPlayhead = this.vocals.currentTime,
+                void (this.masterStem = _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals))
+            }
+            clearInternalInterval() {
+                clearInterval(this.intervalId)
+            }
+            setupSilentTrackForAutoPlay() {
+                (0,
+                _components_TrackUploadForm__WEBPACK_IMPORTED_MODULE_0__.Rq)(!0).then(e=>{
+                    this.silentTrack = URL.createObjectURL(e),
+                    this.vocals.src = this.silentTrack,
+                    this.other.src = this.silentTrack,
+                    this.drums.src = this.silentTrack,
+                    this.bass.src = this.silentTrack
+                }
+                )
+            }
+            syncPlayheads(e=!0) {
+                this.ENABLE_DEBUG && console.log("syncPlayheads()");
+                const t = new Date;
+                if (void 0 === this.syncPlayheadsTS)
+                    this.syncPlayheadsTS = t;
+                else {
+                    if (t.getTime() - this.syncPlayheadsTS.getTime() < 1e3 && !0 === e)
+                        return void (this.ENABLE_DEBUG && console.log("it is too soon to syncPlayheads since last time i worked."));
+                    this.syncPlayheadsTS = t
+                }
+                const r = this.masterPlayhead;
+                if (e)
+                    this.seekTo(r);
+                else {
+                    const e = Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).filter(e=>this.shouldSyncStem(e));
+                    this.ENABLE_DEBUG && console.log("Stems to Sync: ", e),
+                    this.ENABLE_DEBUG && console.log("as master playhead: ", r),
+                    e.forEach(e=>{
+                        this.ENABLE_DEBUG && console.log(`${e} new time : ${this.getAudioForStem(e).currentTime}`),
+                        this.getAudioForStem(e).currentTime = r + .05
+                    }
+                    )
+                }
+            }
+            shouldSyncPlayheads() {
+                return !(this.masterStem == _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals || !this.shouldSyncStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals)) || (!(this.masterStem == _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other || !this.shouldSyncStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other)) || (!(this.masterStem == _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums || !this.shouldSyncStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums)) || !(this.masterStem == _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass || !this.shouldSyncStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass))))
+            }
+            unload() {
+                this.stop(),
+                this.releaseSources()
+            }
+            releaseSources() {
+                this.releaseSourceForStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals),
+                this.releaseSourceForStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other),
+                this.releaseSourceForStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums),
+                this.releaseSourceForStem(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass)
+            }
+            play() {
+                this.vocals.play(),
+                this.other.play(),
+                this.drums.play(),
+                this.bass.play(),
+                this.setupInternalInterval()
+            }
+            pause() {
+                this.vocals.pause(),
+                this.other.pause(),
+                this.drums.pause(),
+                this.bass.pause(),
+                this.syncPlayheads(),
+                this.clearInternalInterval()
+            }
+            stop() {
+                this.pause(),
+                this.masterPlayhead = 0
+            }
+            canUseVolume() {
+                return !(0,
+                _utils_browser_detection__WEBPACK_IMPORTED_MODULE_1__.gn)()
+            }
+            isMuted(e) {
+                const t = this.getAudioForStem(e);
+                return this.canUseVolume() ? t.volume === this.MIN_VOLUME : !0 === t.muted
+            }
+            mute(e) {
+                const t = this.getAudioForStem(e);
+                this.canUseVolume() ? t.volume = this.MIN_VOLUME : t.muted = !0
+            }
+            unmute(e) {
+                const t = this.getAudioForStem(e);
+                this.canUseVolume() ? t.volume = this.MAX_VOLUME : t.muted = !1
+            }
+            unmuteAll() {
+                this.canUseVolume() ? (this.vocals.volume = this.MAX_VOLUME,
+                this.other.volume = this.MAX_VOLUME,
+                this.drums.volume = this.MAX_VOLUME,
+                this.bass.volume = this.MAX_VOLUME) : (this.vocals.muted = !1,
+                this.other.muted = !1,
+                this.drums.muted = !1,
+                this.bass.muted = !1)
+            }
+            isolate(e) {
+                const t = this.getAudioForStem(e);
+                this.canUseVolume() ? t.volume = this.MAX_VOLUME : t.muted = !1
+            }
+            seekTo(e) {
+                this.masterPlayhead = e,
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).forEach(t=>{
+                    this.getAudioForStem(t).currentTime = e
+                }
+                )
+            }
+            loadAudioDirect(e, t, r, o) {
+                var a = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*() {
+                    const n = a.getAudioForStem(e);
+                    let s = null;
+                    if (n.src && (s = n.src),
+                    t.file ? (n.src = URL.createObjectURL(t.file),
+                    n.load(),
+                    n.oncanplaythrough = (()=>{
+                        a.areOtherStemsReady(e) && r()
+                    }
+                    )) : (n.src = t.url,
+                    n.load(),
+                    n.oncanplaythrough = (()=>{
+                        a.areOtherStemsReady(e) && r()
+                    }
+                    )),
+                    n.onended = (()=>o(e)),
+                    s)
+                        try {
+                            URL.revokeObjectURL(s)
+                        } catch (e) {
+                            console.error(e)
+                        }
+                })()
+            }
+            areOtherStemsReady(e) {
+                const t = Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA).filter(t=>t != e);
+                for (let e of t) {
+                    if (!(4 == this.getAudioForStem(e).readyState))
+                        return !1
+                }
+                return !0
+            }
+            getAudioForStem(e) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals:
+                    return this.vocals;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other:
+                    return this.other;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums:
+                    return this.drums;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass:
+                    return this.bass
+                }
+            }
+            enforceHiHatToneForDebug(e, t) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Vocals:
+                    t.src = "/audio/hi-hat-2-1-cbr.mp3";
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Other:
+                    t.src = "/audio/hi-hat-2-2-cbr.mp3";
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Drums:
+                    t.src = "/audio/hi-hat-2-3-cbr.mp3";
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_2__.wA.Bass:
+                    t.src = "/audio/hi-hat-2-4-cbr.mp3"
+                }
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(AudioEngineRepositoryHTMLAudio, "AudioEngineRepositoryHTMLAudio", "/home/vsts/work/1/s/src/contexts/audio-engine/repository/html-audio.ts")
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "2ca539090f17e1b084e6": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("de098c4daf91477f9cbc")
+          , _audio_engine_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6515cd559c65eab0c80c")
+          , _html_audio__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("29133bc41b1e7dcf829f");
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        class AudioEngineRepositoryHTMLMediaController extends _html_audio__WEBPACK_IMPORTED_MODULE_1__.i {
+            constructor() {
+                super(),
+                this.controller = void 0,
+                this.setupMediaController()
+            }
+            setupMediaController() {
+                this.controller = new window.MediaController,
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA).forEach(e=>{
+                    this.getAudioForStem(e).controller = this.controller
+                }
+                )
+            }
+            load(e, t, r, o) {
+                var a = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*() {
+                    a.unload(),
+                    a.unmuteAll(),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Vocals, e.stems.vocals, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Other, e.stems.other, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Drums, e.stems.drums, t, r),
+                    yield a.loadAudioDirect(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA.Bass, e.stems.bass, t, r)
+                })()
+            }
+            loadAudio(e, t, r, o) {
+                var a = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*() {
+                    const n = a.getAudioForStem(e)
+                      , s = yield fetch(t.url);
+                    if (!s.ok)
+                        throw new Error(`Failed downloading track ${t.url} (${s.statusText})`);
+                    const i = yield s.blob()
+                      , c = new File([i],`${e}.mp3`,{
+                        type: "audio/mp3"
+                    });
+                    var l = URL.createObjectURL(c);
+                    n.src = l,
+                    n.load(),
+                    n.oncanplaythrough = (()=>{
+                        a.areOtherStemsReady(e) && r()
+                    }
+                    ),
+                    n.onended = (()=>o(e))
+                })()
+            }
+            play() {
+                this.controller.play(),
+                this.setupInternalInterval()
+            }
+            pause() {
+                this.controller.pause(),
+                this.syncPlayheads(),
+                this.clearInternalInterval()
+            }
+            stop() {
+                this.controller.pause(),
+                this.controller.currentTime = 0
+            }
+            isMuted(e) {
+                return !0 === this.getAudioForStem(e).muted
+            }
+            mute(e) {
+                this.getAudioForStem(e).muted = !0
+            }
+            unmute(e) {
+                this.getAudioForStem(e).muted = !1
+            }
+            unmuteAll() {
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_0__.wA).forEach(e=>{
+                    this.getAudioForStem(e).muted = !1
+                }
+                )
+            }
+            isolate(e) {
+                this.getAudioForStem(e).muted = !1
+            }
+            seekTo(e) {
+                this.controller.currentTime = e
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(AudioEngineRepositoryHTMLMediaController, "AudioEngineRepositoryHTMLMediaController", "/home/vsts/work/1/s/src/contexts/audio-engine/repository/html-mediacontroller.ts")
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "9f8992917dda43cfdc1d": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            is: ()=>o.i
+        });
+        r("1f0f3f47e7d0195f2f75");
+        var o = r("29133bc41b1e7dcf829f");
+        r("2ca539090f17e1b084e6"),
+        r("29df392f3133c6496e02"),
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "1f0f3f47e7d0195f2f75": ()=>{
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "29df392f3133c6496e02": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("de098c4daf91477f9cbc")
+          , standardized_audio_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("f9fd2a53d9d77b928861")
+          , standardized_audio_context__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(standardized_audio_context__WEBPACK_IMPORTED_MODULE_0__)
+          , _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("6515cd559c65eab0c80c")
+          , _utils_unmute__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("6792dda0bcc4906dd1ad");
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        class AudioEngineRepositoryWebAudio {
+            constructor() {
+                this.isBackgrounded = !1,
+                this.audioContext = void 0,
+                this.offlineContext = void 0,
+                this.vocalsGain = void 0,
+                this.otherGain = void 0,
+                this.drumsGain = void 0,
+                this.bassGain = void 0,
+                this.vocalsSource = void 0,
+                this.otherSource = void 0,
+                this.drumsSource = void 0,
+                this.bassSource = void 0,
+                this.vocalsBuffer = void 0,
+                this.otherBuffer = void 0,
+                this.drumsBuffer = void 0,
+                this.bassBuffer = void 0,
+                this.vocalsLoaded = !1,
+                this.drumsLoaded = !1,
+                this.otherLoaded = !1,
+                this.bassLoaded = !1,
+                this.backgroundAudioHandler = void 0,
+                this.onBackgrounded = (e=>{}
+                ),
+                this.getCurrentTimeForStem = (e=>0),
+                this.audioContext = new standardized_audio_context__WEBPACK_IMPORTED_MODULE_0__.AudioContext,
+                this.offlineContext = new standardized_audio_context__WEBPACK_IMPORTED_MODULE_0__.OfflineAudioContext({
+                    length: 1,
+                    numberOfChannels: 2,
+                    sampleRate: 44100
+                })
+            }
+            play() {
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA).forEach(e=>{
+                    const t = this.getBuffer(e);
+                    this.createSourceNode(e, t, ()=>{
+                        this.getSource(e).start(0, 0)
+                    }
+                    )
+                }
+                ),
+                this.resumeAudioContext()
+            }
+            pause() {
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA).forEach(e=>{
+                    const t = this.getSource(e);
+                    t && t.stop()
+                }
+                )
+            }
+            stop() {
+                this.pause()
+            }
+            syncPlayheads() {}
+            mute(e) {}
+            unmute(e) {}
+            unmuteAll() {}
+            isolate(e) {}
+            seekTo(e) {}
+            getCurrentTime() {
+                return 0
+            }
+            getDuration() {
+                return 0
+            }
+            getDurationForStem(e) {
+                return 0
+            }
+            getCurrentPositionPercent() {
+                return 0
+            }
+            load(e, t) {
+                this.unload();
+                const r = (0,
+                _utils_unmute__WEBPACK_IMPORTED_MODULE_2__.$)(this.audioContext, !0, !0);
+                this.backgroundAudioHandler = r,
+                this.loadAudio(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals, e.stems.vocals, t),
+                this.loadAudio(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other, e.stems.other, t),
+                this.loadAudio(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums, e.stems.drums, t),
+                this.loadAudio(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass, e.stems.bass, t)
+            }
+            loadAudio(e, t, r) {
+                var o = this;
+                return (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*() {
+                    const a = new XMLHttpRequest;
+                    a.open("GET", encodeURI(t.url), !0),
+                    a.setRequestHeader("Content-Type", "application/json"),
+                    a.responseType = "blob",
+                    a.onload = function() {
+                        var t = (0,
+                        _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(t) {
+                            var n = new Blob([a.response],{
+                                type: "audio/aac"
+                            });
+                            const s = yield n.arrayBuffer();
+                            o.loadBuffer(e, s, r)
+                        });
+                        return function(e) {
+                            return t.apply(this, arguments)
+                        }
+                    }(),
+                    a.send()
+                })()
+            }
+            loadBuffer(e, t, r) {
+                this.offlineContext.decodeAudioData(t, t=>{
+                    switch (e) {
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                        this.vocalsBuffer = t;
+                        break;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                        this.otherBuffer = t;
+                        break;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                        this.drumsBuffer = t;
+                        break;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                        this.bassBuffer = t
+                    }
+                    this.createSourceNode(e, t, ()=>{
+                        this.stemsAreReady && r()
+                    }
+                    )
+                }
+                )
+            }
+            getBuffer(e) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    return this.vocalsBuffer;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    return this.otherBuffer;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    return this.drumsBuffer;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    return this.bassBuffer
+                }
+            }
+            onLoaded(e, t) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    this.vocalsLoaded = !0;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    this.otherLoaded = !0;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    this.drumsLoaded = !0;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    this.bassLoaded = !0
+                }
+                t()
+            }
+            createSourceNode(e, t, r) {
+                this.destroySourceNode(e);
+                const o = this.audioContext.createBufferSource();
+                switch (o.buffer = t,
+                e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    this.vocalsSource = o;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    this.otherSource = o;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    this.drumsSource = o;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    this.bassSource = o
+                }
+                if (!(a = this.getGainNode(e)))
+                    var a = this.createGainNode(e);
+                o.connect(a),
+                a.connect(this.audioContext.destination),
+                this.onLoaded(e, r)
+            }
+            destroySourceNode(e) {
+                const t = this.getSource(e);
+                t && (delete t.buffer,
+                t.disconnect(0))
+            }
+            getSource(e) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    return this.vocalsSource;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    return this.otherSource;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    return this.drumsSource;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    return this.bassSource
+                }
+            }
+            createGainNode(e) {
+                const t = this.audioContext.createGain();
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    this.vocalsGain = t;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    this.otherGain = t;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    this.drumsGain = t;
+                    break;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    this.bassGain = t
+                }
+                return t
+            }
+            destroyGainNode(e) {
+                const t = this.getGainNode(e);
+                if (t)
+                    switch (t.disconnect(),
+                    e) {
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                        this.vocalsGain = null;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                        this.otherGain = null;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                        this.drumsGain = null;
+                    case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                        this.bassGain = null
+                    }
+            }
+            getGainNode(e) {
+                switch (e) {
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Vocals:
+                    return this.vocalsGain;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Other:
+                    return this.otherGain;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Drums:
+                    return this.drumsGain;
+                case _audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA.Bass:
+                    return this.bassGain
+                }
+            }
+            unload() {
+                var e;
+                this.pause(),
+                this.disonnectAll(),
+                this.clearBuffers(),
+                this.resetLoaded(),
+                null === (e = this.backgroundAudioHandler) || void 0 === e || e.dispose(),
+                this.backgroundAudioHandler = null
+            }
+            resetLoaded() {
+                this.vocalsLoaded = !1,
+                this.otherLoaded = !1,
+                this.drumsLoaded = !1,
+                this.bassLoaded = !1
+            }
+            disonnectAll() {
+                Object.values(_audio_engine_context__WEBPACK_IMPORTED_MODULE_1__.wA).forEach(e=>{
+                    this.destroySourceNode(e),
+                    this.destroyGainNode(e)
+                }
+                ),
+                this.vocalsSource = null,
+                this.otherSource = null,
+                this.drumsSource = null,
+                this.bassSource = null
+            }
+            clearBuffers() {
+                this.vocalsBuffer = null,
+                this.otherBuffer = null,
+                this.drumsBuffer = null,
+                this.bassBuffer = null
+            }
+            stemsAreReady() {
+                return this.vocalsLoaded && this.otherLoaded && this.drumsLoaded && this.bassLoaded
+            }
+            resumeAudioContext() {
+                "suspended" == this.audioContext.state && this.audioContext.resume()
+            }
+            setupSilentTrackForAutoPlay() {}
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(AudioEngineRepositoryWebAudio, "AudioEngineRepositoryWebAudio", "/home/vsts/work/1/s/src/contexts/audio-engine/repository/web-audio.ts")
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "3f02c5877d4690b5563c": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            HI: ()=>FirmwareUpdateContext,
+            Ee: ()=>compareFirmwareVersions,
+            Hm: ()=>firmwareIsOlderThan,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const FirmwareUpdateContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        function compareFirmwareVersions(e, t) {
+            const [r,o,a] = e.split(".").map(e=>parseInt(e, 10))
+              , [n,s,i] = t.split(".").map(e=>parseInt(e, 10));
+            return Number.isInteger(r) && Number.isInteger(o) && Number.isInteger(a) && !Number.isInteger(n) && Number.isInteger(s) && Number.isInteger(i) ? r === n ? o === s ? a === i ? 0 : a < i ? -1 : 1 : o < s ? -1 : 1 : r < n ? -1 : 1 : e < t ? -1 : e > t ? 1 : 0
+        }
+        function firmwareIsOlderThan(e, t) {
+            return -1 === compareFirmwareVersions(e, t)
+        }
+        function firmwareIsNewerThan(e, t) {
+            return 1 === compareFirmwareVersions(e, t)
+        }
+        class FirmwareUpdateProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.queryEndpoint = void 0,
+                this.activeRequests = void 0,
+                this.setHasUpdateStarted = (e=>{
+                    this.setState({
+                        hasUpdateStarted: e
+                    })
+                }
+                ),
+                this.getAvailableUpdates = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*(e) {
+                        const r = yield fetch(t.queryEndpoint, {
+                            headers: {
+                                "Cache-Control": "max-age=0"
+                            },
+                            signal: e
+                        });
+                        if (r.ok) {
+                            return yield r.json()
+                        }
+                        throw new Error(`Received ${r.status}: ${r.statusText}`)
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.hasPreferredUpdate = ((e,t)=>!!firmwareIsOlderThan(t.bootloaderVersion, "0.1.1010") || (!!firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.preferredMinimumVersion) || (!(t.bluetoothVersion && !firmwareIsOlderThan(t.bluetoothVersion, e.bluetooth.preferredMinimumVersion)) || !!firmwareIsOlderThan(t.appVersion, e.firmware.preferredMinimumVersion)))),
+                this.hasCrucialUpdate = ((e,t)=>null !== e && null !== t && (!!firmwareIsOlderThan(t.bootloaderVersion, "0.1.1010") || (!!firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.minimumVersion) || (!(t.bluetoothVersion && !firmwareIsOlderThan(t.bluetoothVersion, e.bluetooth.minimumVersion)) || firmwareIsOlderThan(t.appVersion, e.firmware.minimumVersion))))),
+                this.calculateUpdates = ((e,t)=>{
+                    const r = [];
+                    let o = !1;
+                    if (null === e || null === t)
+                        return r;
+                    firmwareIsOlderThan(t.bootloaderVersion, "0.1.1010") ? (r.push({
+                        filename: "samara.dfu",
+                        url: e.bootloader.dfuUrl
+                    }),
+                    o = !0) : firmwareIsOlderThan(t.bootloaderVersion, e.bootloader.version) && (r.push({
+                        filename: "1_blua.dfu",
+                        url: e.bootloader.dfuUrl
+                    }),
+                    o = !0),
+                    t.bluetoothVersion && !firmwareIsOlderThan(t.bluetoothVersion, e.bluetooth.version) || (r.push({
+                        filename: "2_btua.dfu",
+                        url: e.bluetooth.dfuUrl
+                    }),
+                    r.push({
+                        filename: "rehex.hex",
+                        url: e.bluetooth.hexUrl
+                    }),
+                    o = !0),
+                    (o || firmwareIsOlderThan(t.appVersion, e.firmware.version)) && (r.push({
+                        filename: "config.txt",
+                        url: e.config.configUrl
+                    }),
+                    r.push({
+                        filename: "3_stpl.dfu",
+                        url: e.firmware.dfuUrl
+                    }));
+                    const a = r.find(e=>"rehex.hex" === e.filename);
+                    return this.setState({
+                        updateType: a ? "bluetooth" : "firmware"
+                    }),
+                    r
+                }
+                ),
+                this.downloadUpdates = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__.Z)(function*(e) {
+                        const t = [];
+                        for (let r of e) {
+                            const e = yield fetch(r.url);
+                            if (!e.ok)
+                                throw new Error(`Received ${e.status}: ${e.statusText}`);
+                            {
+                                const o = yield e.blob();
+                                t.push(new File([o],r.filename))
+                            }
+                        }
+                        return t
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.queryEndpoint = this.props.config.KB_UPDATE_QUERY_ENDPOINT,
+                this.state = {
+                    updateType: null,
+                    hasUpdateStarted: !1
+                }
+            }
+            render() {
+                const e = {
+                    firmwareUpdateClient: _objectSpread(_objectSpread({}, {
+                        getAvailableUpdates: this.getAvailableUpdates,
+                        calculateUpdates: this.calculateUpdates,
+                        hasCrucialUpdate: this.hasCrucialUpdate,
+                        hasPreferredUpdate: this.hasPreferredUpdate,
+                        downloadUpdates: this.downloadUpdates,
+                        setHasUpdateStarted: this.setHasUpdateStarted
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(FirmwareUpdateContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const _default = FirmwareUpdateProvider
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(FirmwareUpdateContext, "FirmwareUpdateContext", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"),
+            e.register(compareFirmwareVersions, "compareFirmwareVersions", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"),
+            e.register(firmwareIsOlderThan, "firmwareIsOlderThan", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"),
+            e.register(firmwareIsNewerThan, "firmwareIsNewerThan", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"),
+            e.register(FirmwareUpdateProvider, "FirmwareUpdateProvider", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/firmware-update/firmware-update-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    e1212da5b2e14234c7a1: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("3f02c5877d4690b5563c")
+          , i = r("5ef9de3df8d92ea0e41c")
+          , c = r.n(i);
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , i = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(s.HI.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, i, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            c()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withFirmwareUpdateClient", "/home/vsts/work/1/s/src/contexts/firmware-update/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/firmware-update/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    c1bece57111e2d76e639: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            E: ()=>o.ZP,
+            J: ()=>a.Z
+        });
+        var o = r("3f02c5877d4690b5563c")
+          , a = r("e1212da5b2e14234c7a1");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    c84f0674dd266fe19a17: (e,t,r)=>{
+        "use strict";
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("8256549a766e1cb27712")
+          , i = r("5ef9de3df8d92ea0e41c")
+          , c = r.n(i);
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , i = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(s.uj.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, i, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            c()(t, e)
+        }
+          , _ = l;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withNotificationClient", "/home/vsts/work/1/s/src/contexts/notifications/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/notifications/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    ceede5265ca6ca2cb4b1: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            JB: ()=>o.ZP
+        });
+        var o = r("8256549a766e1cb27712");
+        r("c84f0674dd266fe19a17"),
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "8256549a766e1cb27712": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            uj: ()=>NotificationContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const NotificationContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        let NotificationType;
+        !function(e) {
+            e[e.OSUpdate = 0] = "OSUpdate",
+            e[e.OSCrucialUpdate = 1] = "OSCrucialUpdate",
+            e[e.MusicUpdate = 2] = "MusicUpdate"
+        }(NotificationType || (NotificationType = {}));
+        class NotificationProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                super(e),
+                this.getNotificationName = (e=>{
+                    return {
+                        [NotificationType.OSUpdate]: "OS Update",
+                        [NotificationType.MusicUpdate]: "Music Update",
+                        [NotificationType.OSCrucialUpdate]: "Crucial Update"
+                    }[e]
+                }
+                ),
+                this.resetNotifications = (()=>{
+                    this.setState({
+                        notifications: []
+                    })
+                }
+                ),
+                this.addNotification = ((e,t=(()=>{}
+                ))=>{
+                    const {notifications: r} = this.state;
+                    if (r.find(t=>t.notification === e))
+                        return;
+                    const o = [...r, {
+                        notification: e,
+                        callback: t
+                    }];
+                    this.setState({
+                        notifications: o
+                    })
+                }
+                ),
+                this.removeNotification = (e=>{
+                    const {notifications: t} = this.state
+                      , r = [...t]
+                      , o = r.findIndex(t=>t.notification === e);
+                    -1 !== o && (r.splice(o, 1),
+                    this.setState({
+                        notifications: r
+                    }))
+                }
+                ),
+                this.state = {
+                    notifications: []
+                }
+            }
+            render() {
+                const e = {
+                    notificationClient: _objectSpread(_objectSpread({}, {
+                        addNotification: this.addNotification,
+                        removeNotification: this.removeNotification,
+                        getNotificationName: this.getNotificationName,
+                        resetNotifications: this.resetNotifications
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(NotificationContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "notifications"
+        })(NotificationProvider)
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(NotificationContext, "NotificationContext", "/home/vsts/work/1/s/src/contexts/notifications/notification-context.tsx"),
+            e.register(NotificationProvider, "NotificationProvider", "/home/vsts/work/1/s/src/contexts/notifications/notification-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/notifications/notification-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "1368faf58685f2c8dc6c": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("5ef9de3df8d92ea0e41c")
+          , i = r.n(s)
+          , c = r("8e3e448917f6413c5c1b");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , s = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(c._.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, s, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            i()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withRemixClient", "/home/vsts/work/1/s/src/contexts/remix/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/remix/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "04580fa4bddd672dfde3": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            V: ()=>o.Z,
+            o: ()=>a.Z
+        });
+        var o = r("8e3e448917f6413c5c1b")
+          , a = r("1368faf58685f2c8dc6c");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "8e3e448917f6413c5c1b": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            _: ()=>RemixContext,
+            Z: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("395ade0bdd7d87af2885")
+          , _webusb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("f60aef9fa88f4e9ce07a");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const RemixContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        class RemixProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.apiUrl = void 0,
+                this.platformUrl = void 0,
+                this.setIsViewingSharedRemix = (e=>this.setState({
+                    isViewingSharedRemix: e
+                })),
+                this.getRecordingById = (e=>this.state.recordings.find(t=>t.id === e)),
+                this.setRecordings = (e=>{
+                    this.state.recordings.some(t=>t.id === e.id) || this.setState({
+                        recordings: [...this.state.recordings, e]
+                    })
+                }
+                ),
+                this.setRecordingToShare = (e=>{
+                    this.setState({
+                        recordingToShare: e
+                    }, ()=>{
+                        e ? this.props.history.push("/remix") : this.props.webUSBClient.deviceConnected ? this.props.history.push("/connect/stem/tracks") : this.props.history.push("/")
+                    }
+                    )
+                }
+                ),
+                this.uploadRemixFile = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, t, r, o) {
+                        let a = new FormData;
+                        Object.keys(t).forEach(e=>{
+                            let r = t[e];
+                            a.append(e, r)
+                        }
+                        ),
+                        a.append("file", r);
+                        const n = yield fetch(e, {
+                            method: "POST",
+                            body: a,
+                            signal: o
+                        });
+                        if (n.ok)
+                            return n;
+                        throw new Error("Failed to upload file")
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createRemixUpload = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
+                        const r = yield fetch(`${t.apiUrl}/remixes`, {
+                            method: "POST",
+                            body: JSON.stringify({
+                                title: e
+                            })
+                        });
+                        return (yield r.json()).data
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createRemixFromStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e, r, o) {
+                        o && o("Uploading");
+                        try {
+                            const {upload: o, id: a, url: n} = yield t.createRemixUpload(e);
+                            return yield t.uploadRemixFile(o.url, o.fields, r),
+                            {
+                                id: a,
+                                title: e,
+                                downloadUrl: n,
+                                shareUrl: `${t.platformUrl}/remix/${a}`
+                            }
+                        } catch (e) {
+                            throw e
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getRemixById = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
+                        const r = yield fetch(`${t.apiUrl}/remixes/${e}`, {
+                            method: "GET"
+                        });
+                        return (yield r.json()).data
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getRemix = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
+                        try {
+                            const {id: r, url: o, title: a} = yield t.getRemixById(e);
+                            return {
+                                id: r,
+                                title: a,
+                                downloadUrl: o,
+                                shareUrl: `${t.platformUrl}/remix/${r}`
+                            }
+                        } catch (e) {
+                            throw e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.downloadRemixStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__.Z)(function*(e) {
+                        yield fetch(e.downloadUrl).then(e=>e.blob()).then(t=>{
+                            const r = URL.createObjectURL(t)
+                              , o = document.createElement("a");
+                            o.style.display = "none",
+                            o.href = r,
+                            o.download = `${e.title}.mp3`,
+                            o.click(),
+                            URL.revokeObjectURL(r)
+                        }
+                        )
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.resetRemixState = (()=>{
+                    this.setState({
+                        recordings: [],
+                        recordingToShare: null
+                    })
+                }
+                ),
+                this.apiUrl = e.config.KB_STEMIFY_API_URL,
+                this.platformUrl = e.config.KB_APP_URL,
+                this.state = {
+                    recordingToShare: null,
+                    recordings: [],
+                    isViewingSharedRemix: null
+                }
+            }
+            render() {
+                const e = {
+                    remixClient: _objectSpread(_objectSpread({}, {
+                        setRecordingToShare: this.setRecordingToShare,
+                        createRemixFromStem: this.createRemixFromStem,
+                        downloadRemixStem: this.downloadRemixStem,
+                        getRemix: this.getRemix,
+                        getRecordingById: this.getRecordingById,
+                        setRecordings: this.setRecordings,
+                        resetRemixState: this.resetRemixState,
+                        setIsViewingSharedRemix: this.setIsViewingSharedRemix
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(RemixContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const _default = (0,
+        react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)((0,
+        _webusb__WEBPACK_IMPORTED_MODULE_2__.MM)(RemixProvider))
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(RemixContext, "RemixContext", "/home/vsts/work/1/s/src/contexts/remix/remix-context.tsx"),
+            e.register(RemixProvider, "RemixProvider", "/home/vsts/work/1/s/src/contexts/remix/remix-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/remix/remix-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "7c5fda3b28a2cb9d3bf6": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("5ef9de3df8d92ea0e41c")
+          , i = r.n(s)
+          , c = r("661f68c254b5c15c9d92");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , s = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(c.ws.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, s, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            i()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withStemsClient", "/home/vsts/work/1/s/src/contexts/stems/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/stems/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    d92624744e8fb7e743e8: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            nZ: ()=>o.ZP,
+            E9: ()=>a.Z,
+            o9: ()=>n.o
+        });
+        var o = r("661f68c254b5c15c9d92")
+          , a = r("7c5fda3b28a2cb9d3bf6")
+          , n = r("4e1fab892d8fe6fce890");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "661f68c254b5c15c9d92": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            ws: ()=>StemsContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8"), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("de098c4daf91477f9cbc"), react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b"), _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e"), _webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("f60aef9fa88f4e9ce07a"), _account__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ad21e61587d47603cd1c"), _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("557b135c7198835d5410"), _utils_downloads__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("ae7c73bc2a0288473236"), _dec, _class, _temp;
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const StemsContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({})
+          , unixTimeAsJSDate = e=>new Date(1e3 * e);
+        let StemsProvider = (_dec = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "stems_provider"
+        }),
+        _dec((_temp = class StemsProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.apiUrl = void 0,
+                this.cachedWaveform = void 0,
+                this.cachedPresignedUrl = void 0,
+                this.fetchAndDownloadLatestStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a, n) {
+                        const s = yield t.getLatestStems(e, r, o, a, n, !0);
+                        return t.downloadStems(s.stems, n)
+                    });
+                    return function(t, r, o, a, n) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getTrackMix = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a) {
+                        const {webUSBClient: {deviceInfo: n, authenticateDevice: s}, accountClient: {session: i, basicSession: c}} = t.props;
+                        try {
+                            let l, _ = void 0;
+                            if (i)
+                                _ = {
+                                    Authorization: `bearer ${i.AccessToken}`
+                                };
+                            else if (n) {
+                                const e = yield s();
+                                _ = {
+                                    Authorization: `bearer ${e}`
+                                }
+                            } else
+                                c && (_ = {
+                                    Authorization: `Basic ${c.AuthToken}`
+                                });
+                            const d = yield(0,
+                            _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                return fetch(`${t.apiUrl}/tracks/${e}?version=${r}&codec=${o}`, {
+                                    signal: a,
+                                    headers: _
+                                })
+                            }), {
+                                functionName: "getTrackMix"
+                            });
+                            l = yield d.json();
+                            const {data: u} = l;
+                            return u.file
+                        } catch (t) {
+                            throw console.log(t),
+                            new Error(`Failed to get track ${e}`)
+                        }
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getTracksMixes = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
+                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}, accountClient: {session: n, basicSession: s}} = t.props;
+                        try {
+                            let i = void 0;
+                            if (n)
+                                i = {
+                                    Authorization: `bearer ${n.AccessToken}`
+                                };
+                            else if (o) {
+                                const e = yield a();
+                                i = {
+                                    Authorization: `bearer ${e}`
+                                }
+                            } else
+                                s && (i = {
+                                    Authorization: `Basic ${s.AuthToken}`
+                                });
+                            const c = yield(0,
+                            _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                return fetch(`${t.apiUrl}/tracks`, {
+                                    method: "POST",
+                                    signal: r,
+                                    headers: i,
+                                    body: JSON.stringify(e)
+                                })
+                            }), {
+                                functionName: "getTracksMixes"
+                            });
+                            return (yield c.json()).data
+                        } catch (e) {
+                            throw console.log(e),
+                            new Error("Failed to get tracks")
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getLatestStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a, n, s=!1) {
+                        const {webUSBClient: {deviceInfo: i, authenticateDevice: c}} = t.props;
+                        try {
+                            const l = t.getCachedPresignedUrl(e, r, o);
+                            if (null !== l && !1 === s)
+                                return l.json.data;
+                            const _ = `${t.apiUrl}/stems?track_id=${e}&version=${r}&codec=${o}${!0 === s ? "&profile=stemplayer" : "&profile=web"}`;
+                            let d = void 0;
+                            if (a || t.props.accountClient.session)
+                                d = {
+                                    Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
+                                };
+                            else if (i) {
+                                const e = yield c();
+                                d = {
+                                    Authorization: `bearer ${e}`
+                                }
+                            }
+                            const u = yield(0,
+                            _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                return fetch(_, {
+                                    headers: d,
+                                    signal: n
+                                })
+                            }), {
+                                functionName: "getLatestStems"
+                            })
+                              , f = yield u.json();
+                            return !1 === s && t.updatePresignedUrl(e, r, o, f),
+                            f.data
+                        } catch (t) {
+                            throw new Error(`Failed to get stem track ${e}`)
+                        }
+                    });
+                    return function(t, r, o, a, n) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getMultipleTracksStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o) {
+                        const {webUSBClient: {deviceInfo: a, authenticateDevice: n}, accountClient: {session: s, basicSession: i}} = t.props;
+                        try {
+                            const s = {};
+                            for (let r in e) {
+                                var c;
+                                if (null === t.getCachedPresignedUrl(r, e[r].version, e[r].codec))
+                                    s[r] = {
+                                        version: e[r].version,
+                                        codec: e[r].codec,
+                                        profile: null !== (c = e[r].profile) && void 0 !== c ? c : "web"
+                                    }
+                            }
+                            if (Object.keys(s).length > 0) {
+                                let e = void 0;
+                                if (r || t.props.accountClient.session)
+                                    e = {
+                                        Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
+                                    };
+                                else if (a) {
+                                    const t = yield n();
+                                    e = {
+                                        Authorization: `bearer ${t}`
+                                    }
+                                }
+                                const i = yield(0,
+                                _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                    return fetch(`${t.apiUrl}/stems`, {
+                                        method: "POST",
+                                        signal: o,
+                                        headers: e,
+                                        body: JSON.stringify(s)
+                                    })
+                                }), {
+                                    functionName: "getMultipleTracksStems"
+                                })
+                                  , c = yield i.json();
+                                for (let e in s)
+                                    c.data[e] && t.updatePresignedUrl(e, s[e].version, s[e].codec, {
+                                        data: c.data[e]
+                                    })
+                            }
+                            const i = {};
+                            for (let r in e) {
+                                const o = t.getCachedPresignedUrl(r, e[r].version, e[r].codec);
+                                null !== o && (i[r] = o.json.data)
+                            }
+                            return i
+                        } catch (e) {
+                            throw console.log(e),
+                            new Error("Failed to get tracks")
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getCachedPresignedUrlId = ((e,t,r)=>`${e}_${t}_${r}`),
+                this.getCachedPresignedUrl = ((e,t,r)=>{
+                    const o = this.getCachedPresignedUrlId(e, t, r)
+                      , a = this.cachedPresignedUrl[o];
+                    return a ? this.isPresignUrlExpired(a.expires) ? null : a : null
+                }
+                ),
+                this.updatePresignedUrl = ((e,t,r,o)=>{
+                    try {
+                        const a = new URL(o.data.stems.vocals)
+                          , n = new URLSearchParams(a.search).get("Expires")
+                          , s = this.getCachedPresignedUrlId(e, t, r)
+                          , i = {
+                            expires: 1 * n,
+                            trackId: e,
+                            version: t,
+                            codec: r,
+                            json: o
+                        };
+                        this.cachedPresignedUrl[s] = i
+                    } catch (e) {
+                        console.error(e)
+                    }
+                }
+                ),
+                this.isPresignUrlExpired = (e=>{
+                    return unixTimeAsJSDate(e) < new Date
+                }
+                ),
+                this.getWaveformData = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r, o, a) {
+                        const {webUSBClient: {deviceInfo: n, authenticateDevice: s}} = t.props;
+                        try {
+                            let i;
+                            if (r && null !== (i = t.getCachedWaveform(r)))
+                                return i;
+                            const c = `${e}`;
+                            let l = void 0;
+                            if (o || t.props.accountClient.session)
+                                l = {
+                                    Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
+                                };
+                            else if (n) {
+                                const e = yield s();
+                                l = {
+                                    Authorization: `bearer ${e}`
+                                }
+                            }
+                            const _ = yield(0,
+                            _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                return fetch(c, {
+                                    headers: l,
+                                    signal: a
+                                })
+                            }), {
+                                functionName: "getWaveformData"
+                            })
+                              , d = yield _.json();
+                            return r && t.updateCachedWaveform(r, e, d),
+                            d
+                        } catch (t) {
+                            throw console.error(t),
+                            new Error(`Failed to get waveform ${e}, ${t}`)
+                        }
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getMultipleWaveformData = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
+                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}} = t.props
+                          , n = "https://d1qsqh3utn6cwx.cloudfront.net/waveform-data.json";
+                        try {
+                            let s = void 0;
+                            if (e || t.props.accountClient.session)
+                                s = {
+                                    Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
+                                };
+                            else if (o) {
+                                const e = yield a();
+                                s = {
+                                    Authorization: `bearer ${e}`
+                                }
+                            }
+                            const i = yield(0,
+                            _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
+                                return fetch(n, {
+                                    headers: s,
+                                    signal: r
+                                })
+                            }), {
+                                functionName: "getMultipleWaveformData"
+                            })
+                              , c = yield i.json();
+                            t.addDataIntoCache("stemplayer", n, JSON.stringify(c));
+                            for (const e in c)
+                                t.updateCachedWaveform(e, null, c[e]);
+                            return c
+                        } catch (e) {
+                            throw new Error(`Failed to get waveform ${n}, ${e}`)
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.downloadStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*({vocals: e, bass: r, drums: o, other: a}, n) {
+                        const {tracking: {trackEvent: s}} = t.props
+                          , i = Date.now()
+                          , c = yield Promise.all([(0,
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(e, "vocals", n), (0,
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(r, "bass", n), (0,
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(o, "drums", n), (0,
+                        _utils_downloads__WEBPACK_IMPORTED_MODULE_6__.S)(a, "other", n)])
+                          , l = {
+                            vocals: c[0],
+                            bass: c[1],
+                            drums: c[2],
+                            other: c[3]
+                        };
+                        return s({
+                            event: "download_stems_complete",
+                            data: {
+                                time: Date.now() - i
+                            }
+                        }),
+                        l
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getLatestAlbumStemVersion = ((e,t)=>{
+                    const r = t.tracks.find(t=>t.id === e.global_id);
+                    return r ? r.stems_version : e.stems_version
+                }
+                ),
+                this.getSizeOfStems = (e=>{
+                    const {webUSBClient: {getDeviceFileSize: t}} = this.props;
+                    return t(e.bass) + t(e.drums) + t(e.other) + t(e.vocals)
+                }
+                ),
+                this.hasSpaceForStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
+                        const {webUSBClient: {getRemainingSize: o}, tracking: {trackEvent: a}} = t.props
+                          , n = t.getSizeOfStems(e)
+                          , s = (yield o()) > n;
+                        return s || a({
+                            event: "device_full_during_update_restore",
+                            data: {
+                                trackTitle: r
+                            }
+                        }),
+                        s
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getCachedWaveform = (e=>e && void 0 !== this.cachedWaveform[e] ? this.cachedWaveform[e] : null),
+                this.updateCachedWaveform = ((e,t,r)=>{
+                    e && (this.cachedWaveform[e] = r,
+                    null !== t && this.addDataIntoCache("stemplayer", t, JSON.stringify(r)))
+                }
+                ),
+                this.addDataIntoCache = ((e,t,r)=>{
+                    const o = new Response(r);
+                    "caches"in window && caches.open(e).then(e=>e.put(t, o))
+                }
+                ),
+                this.apiUrl = `${e.config.KB_STEMIFY_API_URL}/content`,
+                this.cachedWaveform = {},
+                this.cachedPresignedUrl = {},
+                this.getMultipleWaveformData()
+            }
+            render() {
+                const e = {
+                    stemsClient: _objectSpread(_objectSpread({}, {
+                        fetchAndDownloadLatestStems: this.fetchAndDownloadLatestStems,
+                        getLatestStems: this.getLatestStems,
+                        getMultipleTracksStems: this.getMultipleTracksStems,
+                        getWaveformData: this.getWaveformData,
+                        downloadStems: this.downloadStems,
+                        getLatestAlbumStemVersion: this.getLatestAlbumStemVersion,
+                        getSizeOfStems: this.getSizeOfStems,
+                        hasSpaceForStems: this.hasSpaceForStems,
+                        getTrackMix: this.getTrackMix,
+                        getTracksMixes: this.getTracksMixes
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(StemsContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        ,
+        _class = _temp)) || _class);
+        const __TEST__StemsProvider = StemsProvider
+          , _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "stems_provider"
+        })((0,
+        _webusb__WEBPACK_IMPORTED_MODULE_3__.MM)((0,
+        _account__WEBPACK_IMPORTED_MODULE_4__.o)(StemsProvider)))
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(StemsContext, "StemsContext", "/home/vsts/work/1/s/src/contexts/stems/stems-context.tsx"),
+            e.register(unixTimeAsJSDate, "unixTimeAsJSDate", "/home/vsts/work/1/s/src/contexts/stems/stems-context.tsx"),
+            e.register(StemsProvider, "StemsProvider", "/home/vsts/work/1/s/src/contexts/stems/stems-context.tsx"),
+            e.register(__TEST__StemsProvider, "__TEST__StemsProvider", "/home/vsts/work/1/s/src/contexts/stems/stems-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/stems/stems-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "4e1fab892d8fe6fce890": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            o: ()=>a
+        });
+        var o = r("de098c4daf91477f9cbc");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const a = function() {
+            var e = (0,
+            o.Z)(function*(e, t, r, o) {
+                const a = e.findIndex(e=>{
+                    return (e.id ? e.id : e.global_id) === t
+                }
+                );
+                r = r % 2 == 1 ? r + 1 : r;
+                const n = a - Math.floor(r / 2)
+                  , s = [...Array(r + 1).keys()].map(e=>e + n).map(t=>t < 0 ? e.length + t < 0 ? -1 : e.length + t : t > e.length - 1 ? -e.length + t > e.length - 1 ? -1 : -e.length + t : t === a ? -1 : t).filter((e,t,r)=>r.indexOf(e) == t)
+                  , i = {} || {};
+                s.forEach(t=>{
+                    -1 !== t && (i[e[t].id] = {
+                        version: e[t].version,
+                        codec: "mp3"
+                    })
+                }
+                ),
+                o.getMultipleTracksStems(i)
+            });
+            return function(t, r, o, a) {
+                return e.apply(this, arguments)
+            }
+        }();
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(a, "fetchPresignedUrl", "/home/vsts/work/1/s/src/contexts/stems/utils.ts")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    cc568cf4493256150123: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("9a38c66934fd9dbd5f9c")
+          , i = r("5ef9de3df8d92ea0e41c")
+          , c = r.n(i);
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , i = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(s.Rg.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, i, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            c()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withTrackApiClient", "/home/vsts/work/1/s/src/contexts/trackapi/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/trackapi/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "09e5b40f0abea70b7ff4": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            G: ()=>o.ZP,
+            j: ()=>a.Z
+        });
+        var o = r("9a38c66934fd9dbd5f9c")
+          , a = r("cc568cf4493256150123");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    "9a38c66934fd9dbd5f9c": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            Rg: ()=>TrackApiContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433")
+          , _stems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("d92624744e8fb7e743e8")
+          , _utils_ids__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("a251fa0b0449b11ba1dd")
+          , _utils_colors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("c90b79b40c6328f03c9e")
+          , _utils_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("a60417c8351c73d4238a")
+          , _utils_downloads__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("ae7c73bc2a0288473236")
+          , _utils_api_request_pagination__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("1cbf6a093bab4cc54764");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const TrackApiContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        class TrackApiProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.apiUrl = void 0,
+                this.platformUrl = void 0,
+                this.activeRequests = void 0,
+                this.getRecordingById = (e=>this.state.recordings.find(t=>t.id === e)),
+                this.setRecordings = (e=>{
+                    this.state.recordings.some(t=>t.id === e.id) || this.setState({
+                        recordings: [...this.state.recordings, e]
+                    })
+                }
+                ),
+                this.setTracksLoading = (e=>{
+                    this.setState({
+                        tracksLoading: e
+                    })
+                }
+                ),
+                this.setUserLibraryTracksLoading = (e=>{
+                    this.setState({
+                        userLibraryTracksLoading: e
+                    })
+                }
+                ),
+                this.createAudioUpload = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        const o = yield fetch(`${t.apiUrl}/audio-uploads`, {
+                            method: "POST",
+                            signal: e,
+                            body: JSON.stringify(r)
+                        });
+                        return (yield o.json()).data
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.uploadFile = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, t, r) {
+                        if (200 !== (yield fetch(e, {
+                            method: "PUT",
+                            body: t,
+                            headers: {
+                                "Content-Type": ""
+                            },
+                            signal: r
+                        })).status)
+                            throw new Error("Failed to upload file")
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        let a = {
+                            method: "POST",
+                            body: e.audio_file_ids ? JSON.stringify({
+                                audio_file_ids: e.audio_file_ids,
+                                fallback_track_title: e.fallback_track_title
+                            }) : JSON.stringify(e),
+                            signal: o
+                        };
+                        r && (a.headers = {
+                            Authorization: `bearer ${r}`
+                        });
+                        const n = yield fetch(`${t.apiUrl}/track-creator/tracks`, a)
+                          , s = yield n.json();
+                        if (!n.ok) {
+                            if (422 === n.status && s.error && ("invalid link" === s.error.message || "track download error" === s.error.message))
+                                throw new Error("Invalid link");
+                            if (422 === n.status && "video geo-restricted" === s.error.message)
+                                throw new Error("Invalid link: video geo-restricted");
+                            if (422 === n.status)
+                                throw new Error("Track is too long");
+                            try {
+                                const e = yield n.json();
+                                throw new Error(e.error.message)
+                            } catch (e) {
+                                throw new Error("Stemifying failed")
+                            }
+                        }
+                        if (s.error)
+                            throw new Error(s.error.message);
+                        return s.data
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        try {
+                            const o = [];
+                            for (let r of e) {
+                                null === t.getCachedPresignedUrl(r) && 0 === o.filter(e=>e === r).length && o.push(r)
+                            }
+                            const a = `${t.apiUrl}/track-creator/tracks?`
+                              , n = (0,
+                            _utils_api_request_pagination__WEBPACK_IMPORTED_MODULE_9__.T)(o, a, 4094)
+                              , s = {}
+                              , i = {};
+                            yield Promise.all(n.map(function() {
+                                var e = (0,
+                                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                                    if (Object.keys(e.items).length > 0) {
+                                        const o = yield fetch(e.url, {
+                                            signal: r
+                                        });
+                                        if (!o.ok)
+                                            throw new Error(`Unable to download track(s) (Status: ${o.status})`);
+                                        const a = yield o.json();
+                                        for (let r of e.items)
+                                            a.data[r] && ("ready" === a.data[r].status || a.data[r].error && a.data[r].error && 400 === a.data[r].error.code ? t.updatePresignedUrl(r, a.data[r]) : i[r] = a.data[r])
+                                    }
+                                });
+                                return function(t) {
+                                    return e.apply(this, arguments)
+                                }
+                            }()));
+                            for (let r of e) {
+                                const e = t.getCachedPresignedUrl(r);
+                                null !== e ? s[r] = e : i[r] && (s[r] = i[r])
+                            }
+                            return s
+                        } catch (e) {
+                            throw new Error(`Failed to get tracks: ${e}`)
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.cachedPresignedUrl = void 0,
+                this.randomGeneratedTrackColors = void 0,
+                this.getCachedPresignedUrlId = (e=>`${e}`),
+                this.getCachedPresignedUrl = (e=>{
+                    const t = this.getCachedPresignedUrlId(e)
+                      , r = this.cachedPresignedUrl[t];
+                    return r ? _objectSpread(_objectSpread({}, r), {}, {
+                        metadata: _objectSpread({}, r.metadata)
+                    }) : null
+                }
+                ),
+                this.updatePresignedUrl = ((e,t)=>{
+                    try {
+                        const r = this.getCachedPresignedUrlId(e);
+                        this.cachedPresignedUrl[r] = t
+                    } catch (e) {
+                        console.error(e)
+                    }
+                }
+                ),
+                this.getReadyTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        return new Promise((a,n)=>{
+                            const s = ()=>{
+                                setTimeout((0,
+                                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
+                                    try {
+                                        const i = (yield t.getTracks([e], o))[e];
+                                        if ("ready" === i.status) {
+                                            if (!r || t.trackHasHighQualityStems(i))
+                                                return a(i);
+                                            s()
+                                        } else if ("failed" === i.status) {
+                                            let e = "Failed to stemify";
+                                            throw i.errors && i.errors.length > 0 && i.errors[0].message && (e = i.errors[0].message),
+                                            new Error(e)
+                                        }
+                                        s()
+                                    } catch (e) {
+                                        return n(e)
+                                    }
+                                }), 1e3)
+                            }
+                            ;
+                            s()
+                        }
+                        )
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createTrackFromMultiFiles = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a) {
+                        const n = e[0].name.replace(/\.\w+$/i, "");
+                        let s = ["vocals", "drums", "bass", "other"];
+                        const i = new AbortController
+                          , c = e.every(e=>e.name.match(/\.mp3$/i)) ? "mp3" : "wav"
+                          , l = {};
+                        let _ = {};
+                        for (let o = 0; o < e.length; o++) {
+                            const a = s[o]
+                              , n = e[o];
+                            r("Uploading");
+                            try {
+                                const {audio_file_id: e, upload_url: r} = yield t.createAudioUpload(i.signal);
+                                yield t.uploadFile(r, n, i.signal),
+                                l[a] = e
+                            } catch (e) {
+                                console.log("err", e)
+                            }
+                        }
+                        try {
+                            const e = yield t.createTrack({
+                                stem_codec: c,
+                                fallback_track_title: n,
+                                audio_file_ids: l
+                            }, o, i.signal)
+                              , {id: r} = e
+                              , {stems: s} = yield t.getReadyTrack(r, a, i.signal)
+                              , d = t.state.userLibraryTrackIds.some(e=>e == r);
+                            if (d)
+                                throw new Error("Duplicate Track");
+                            _ = {
+                                id: r,
+                                stems: s,
+                                colors: [(0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]
+                            },
+                            !d && o && t.addTrackToUserLibrary([{
+                                track_id: _.id,
+                                color1: _.colors[0],
+                                color2: _.colors[1]
+                            }], o)
+                        } catch (e) {
+                            console.log("error", e)
+                        }
+                        return {
+                            vocals: e[0],
+                            bass: e[1],
+                            drums: e[2],
+                            other: e[3],
+                            id: _.id,
+                            album: "Other",
+                            artist: "Other",
+                            title: (0,
+                            _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(n, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
+                            bpm: 90,
+                            colors: _.colors
+                        }
+                    });
+                    return function(t, r, o, a) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createTrackFromFile = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a, n, s) {
+                        const {stemsClient: {downloadStems: i}} = t.props
+                          , c = (0,
+                        _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
+                        t.startActiveRequest(c);
+                        const l = new AbortController;
+                        let _ = !1;
+                        o && o(()=>{
+                            l.abort(),
+                            _ = !0
+                        }
+                        ),
+                        r && r("Splitting");
+                        try {
+                            const {audio_file_id: o, upload_url: d} = yield t.createAudioUpload(l.signal);
+                            yield t.uploadFile(d, e, l.signal);
+                            const u = yield t.createTrack({
+                                audio_file_id: o,
+                                stem_codec: "mp3",
+                                fallback_track_title: e.name
+                            }, a, l.signal)
+                              , {id: f} = u
+                              , {metadata: {album: m, artist: p, duration: h, title: v, bpm: b}, stems: E} = yield t.getReadyTrack(f, n, l.signal);
+                            if (_)
+                                throw new Error("Cancelled");
+                            const g = t.state.userLibraryTrackIds.some(e=>e == f);
+                            if (!s && g)
+                                throw new Error("Duplicate Track");
+                            const y = {
+                                track_id: f,
+                                color1: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(),
+                                color2: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()
+                            };
+                            !g && a && t.addTrackToUserLibrary([y], a),
+                            r && r("Importing");
+                            const P = yield i(E, l.signal);
+                            return _objectSpread(_objectSpread({
+                                id: y.track_id,
+                                album: m,
+                                artist: (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(p, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.h1),
+                                duration: h,
+                                title: (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(v || e.name, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
+                                bpm: b
+                            }, P), {}, {
+                                colors: [y.color1, y.color2]
+                            })
+                        } catch (e) {
+                            if (e.name && "AbortError" === e.name)
+                                throw new Error("Cancelled");
+                            throw e
+                        } finally {
+                            t.endActiveRequest(c)
+                        }
+                    });
+                    return function(t, r, o, a, n, s) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.setUserLibraryTrackIds = (e=>{
+                    this.setState({
+                        userLibraryTrackIds: e
+                    })
+                }
+                ),
+                this.createTrackFromLink = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o, a, n) {
+                        const {stemsClient: {downloadStems: s}} = t.props
+                          , i = (0,
+                        _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
+                        t.startActiveRequest(i);
+                        const c = new AbortController;
+                        let l = !1;
+                        o && o(()=>{
+                            c.abort(),
+                            l = !0
+                        }
+                        ),
+                        r && r("Splitting");
+                        try {
+                            const o = yield t.createTrack({
+                                link: e,
+                                stem_codec: "mp3"
+                            }, a, c.signal);
+                            let _ = null;
+                            const {id: d} = o
+                              , u = t.state.userLibraryTrackIds.some(e=>e == d);
+                            if (u)
+                                throw new Error("Duplicate Track");
+                            "ready" !== o.status ? _ = yield t.getReadyTrack(d, n, c.signal) : (_ = o,
+                            n && !t.trackHasHighQualityStems(_) && (_ = yield t.getReadyTrack(d, n, c.signal)));
+                            const {metadata: {album: f, artist: m, duration: p, title: h, bpm: v}, stems: b} = _;
+                            if (l)
+                                throw new Error("Cancelled");
+                            const E = {
+                                track_id: d,
+                                color1: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(),
+                                color2: (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()
+                            };
+                            !u && a && t.addTrackToUserLibrary([E], a),
+                            r && r("Importing");
+                            const g = yield s(b, c.signal);
+                            return _objectSpread(_objectSpread({
+                                id: E.track_id,
+                                album: f,
+                                artist: (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(m, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.h1),
+                                duration: p,
+                                title: (0,
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(h, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
+                                bpm: v
+                            }, g), {}, {
+                                colors: [E.color1, E.color2],
+                                metadata: _.metadata
+                            })
+                        } catch (e) {
+                            if (e.name && "AbortError" === e.name)
+                                throw new Error("Cancelled");
+                            throw e
+                        } finally {
+                            t.endActiveRequest(i)
+                        }
+                    });
+                    return function(t, r, o, a, n) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.addTrackToUserLibrary = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        const o = {
+                            trackList: []
+                        };
+                        for (const t of e)
+                            o.trackList.push(t);
+                        const a = {
+                            error: null
+                        };
+                        try {
+                            const e = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${r}`
+                                },
+                                body: JSON.stringify(o)
+                            });
+                            return e.ok ? (yield e.json(),
+                            a) : (a.error = "Upload failed. Please try again later.",
+                            a)
+                        } catch (e) {
+                            return a.error = "Upload failed. Please try again later.",
+                            a
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateTrackToUserLibrary = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        const o = {
+                            trackList: e
+                        }
+                          , a = {
+                            error: null
+                        };
+                        try {
+                            const e = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                                method: "POST",
+                                headers: {
+                                    Authorization: `bearer ${r}`
+                                },
+                                body: JSON.stringify(o)
+                            });
+                            return e.ok ? (yield e.json(),
+                            a) : (a.error = "Upload failed. Please try again later.",
+                            a)
+                        } catch (e) {
+                            return a.error = "Upload failed. Please try again later.",
+                            a
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getUserAccountTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                        const r = {
+                            error: null
+                        };
+                        try {
+                            const o = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                                method: "GET",
+                                headers: {
+                                    Authorization: `bearer ${e}`
+                                }
+                            });
+                            if (!o.ok)
+                                return r.error = "Failed to fetch library.",
+                                console.error(r),
+                                [];
+                            const a = (yield o.json()).data.filter(e=>["02", "03"].includes(e.track_id.slice(0, 2)))
+                              , n = a.map(e=>e.track_id);
+                            if (0 === n.length)
+                                return [];
+                            let s = !1
+                              , i = [];
+                            return a.map(e=>{
+                                null !== e.color1 && null !== e.color2 || (void 0 === t.randomGeneratedTrackColors[e.track_id] && (t.randomGeneratedTrackColors[e.track_id] = [(0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(), (0,
+                                _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()]),
+                                e.color1 = t.randomGeneratedTrackColors[e.track_id][0],
+                                e.color2 = t.randomGeneratedTrackColors[e.track_id][1],
+                                i.push({
+                                    track_id: e.track_id,
+                                    color1: e.color1,
+                                    color2: e.color2
+                                }),
+                                s = !0)
+                            }
+                            ),
+                            s && t.updateTrackToUserLibrary(i, e),
+                            t.setState({
+                                userLibraryTrackIds: n
+                            }),
+                            a
+                        } catch (e) {
+                            return r.error = "Failed to fetch library.",
+                            console.error(r),
+                            []
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.deleteUserAccountTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r) {
+                        const o = {
+                            trackList: e
+                        }
+                          , a = {
+                            error: null
+                        };
+                        try {
+                            const e = yield fetch(`${t.props.config.KB_STEMIFY_API_URL}/accounts/user-library`, {
+                                method: "DELETE",
+                                headers: {
+                                    Authorization: `bearer ${r}`
+                                },
+                                body: JSON.stringify(o)
+                            });
+                            return e.ok ? (yield e.json(),
+                            a) : (a.error = "Delete failed. Please try again later.",
+                            a)
+                        } catch (e) {
+                            return a.error = "Delete failed. Please try again later.",
+                            a
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                        return fetch(`${t.apiUrl}/stems`, {
+                            method: "POST",
+                            body: JSON.stringify({
+                                audio_file_id: e
+                            })
+                        }).then(e=>e.json()).then(e=>e.data).catch(e=>{
+                            throw e
+                        }
+                        )
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                        return fetch(`${t.apiUrl}/stems/${e}`, {}).then(e=>e.json()).then(e=>e.data).catch(e=>{
+                            throw e
+                        }
+                        )
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getReadyStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                        return new Promise((r,o)=>{
+                            const a = ()=>setTimeout((0,
+                            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*() {
+                                try {
+                                    const n = yield t.getStem(e);
+                                    if (n.no_change || "ready" === n.status)
+                                        return r(n);
+                                    a()
+                                } catch (e) {
+                                    return o(e)
+                                }
+                            }), 1e3);
+                            a()
+                        }
+                        )
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.createStemFromFile = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e, r, o) {
+                        const a = (0,
+                        _utils_ids__WEBPACK_IMPORTED_MODULE_5__.T)();
+                        t.startActiveRequest(a),
+                        o && o("Mastering");
+                        try {
+                            const {audio_file_id: n, upload_url: s} = yield t.createAudioUpload();
+                            yield t.uploadFile(s, e);
+                            const i = yield t.createStem(n)
+                              , {url: c, no_change: l} = yield t.getReadyStem(i.id);
+                            if (o && o("Importing"),
+                            l)
+                                return t.endActiveRequest(a),
+                                null;
+                            const _ = yield(0,
+                            _utils_downloads__WEBPACK_IMPORTED_MODULE_8__.S)(c, r);
+                            return t.endActiveRequest(a),
+                            _
+                        } catch (e) {
+                            throw e
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.startActiveRequest = (e=>{
+                    this.activeRequests.add(e),
+                    this.state.trackApiActive || this.setState({
+                        trackApiActive: !0
+                    })
+                }
+                ),
+                this.endActiveRequest = (e=>{
+                    this.activeRequests.delete(e),
+                    this.state.trackApiActive && 0 === this.activeRequests.size && this.setState({
+                        trackApiActive: !1
+                    })
+                }
+                ),
+                this.trackHasHighQualityStems = (e=>{
+                    var t;
+                    return !(null === (t = e.stem_variants) || void 0 === t || !t.find(e=>"demucs" === e.splitting_source.toLowerCase()))
+                }
+                ),
+                this.apiUrl = e.config.KB_STEMIFY_API_URL,
+                this.platformUrl = e.config.KB_APP_URL,
+                this.activeRequests = new Set,
+                this.state = {
+                    trackApiActive: !1,
+                    recordings: [],
+                    tracksLoading: !0,
+                    userLibraryTracksLoading: !0,
+                    userLibraryTrackIds: []
+                },
+                this.cachedPresignedUrl = {},
+                this.randomGeneratedTrackColors = {}
+            }
+            render() {
+                const e = {
+                    trackApiClient: _objectSpread(_objectSpread({}, {
+                        createStemFromFile: this.createStemFromFile,
+                        createTrackFromFile: this.createTrackFromFile,
+                        createTrackFromMultiFiles: this.createTrackFromMultiFiles,
+                        createTrackFromLink: this.createTrackFromLink,
+                        getTracks: this.getTracks,
+                        setTracksLoading: this.setTracksLoading,
+                        setUserLibraryTracksLoading: this.setUserLibraryTracksLoading,
+                        getUserAccountTracks: this.getUserAccountTracks,
+                        deleteUserAccountTracks: this.deleteUserAccountTracks,
+                        setUserLibraryTrackIds: this.setUserLibraryTrackIds,
+                        updateTrackToUserLibrary: this.updateTrackToUserLibrary
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(TrackApiContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const __TEST__TrackApiProvider = TrackApiProvider
+          , _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "track_api"
+        })((0,
+        _stems__WEBPACK_IMPORTED_MODULE_4__.E9)(TrackApiProvider))
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(TrackApiContext, "TrackApiContext", "/home/vsts/work/1/s/src/contexts/trackapi/track-api-context.tsx"),
+            e.register(TrackApiProvider, "TrackApiProvider", "/home/vsts/work/1/s/src/contexts/trackapi/track-api-context.tsx"),
+            e.register(__TEST__TrackApiProvider, "__TEST__TrackApiProvider", "/home/vsts/work/1/s/src/contexts/trackapi/track-api-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/trackapi/track-api-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "62c5c68fae4c59b9a093": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("5ef9de3df8d92ea0e41c")
+          , i = r.n(s)
+          , c = r("c8274a236c515829d380");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , s = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(c.w.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, s, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            i()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withViewManagerClient", "/home/vsts/work/1/s/src/contexts/view-manager/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/view-manager/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "3e17aee31846974e528a": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            d: ()=>o.Z,
+            q: ()=>a.Z
+        });
+        var o = r("c8274a236c515829d380")
+          , a = r("62c5c68fae4c59b9a093");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    c8274a236c515829d380: (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            w: ()=>ViewManagerContext,
+            Z: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("395ade0bdd7d87af2885")
+          , _utils_promises__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("971fd0ff834a938d5a3d")
+          , uuid_v4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("c7b40aca13c4330396a9")
+          , uuid_v4__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(uuid_v4__WEBPACK_IMPORTED_MODULE_3__);
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const ViewManagerContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        class ViewManagerProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                super(e),
+                this.apiUrl = void 0,
+                this.platformUrl = void 0,
+                this.createModal = (()=>{
+                    const e = uuid_v4__WEBPACK_IMPORTED_MODULE_3___default()()
+                      , t = react__WEBPACK_IMPORTED_MODULE_1__.createRef()
+                      , r = new _utils_promises__WEBPACK_IMPORTED_MODULE_2__.C;
+                    return this.setState(o=>({
+                        modals: o.modals.concat([{
+                            id: e,
+                            container: t,
+                            ready: r
+                        }])
+                    })),
+                    {
+                        id: e,
+                        container: t,
+                        ready: r,
+                        destroy: ()=>{
+                            this.setState(t=>({
+                                modals: t.modals.filter(t=>t.id !== e)
+                            }))
+                        }
+                    }
+                }
+                ),
+                this.closeAllModals = (()=>{
+                    this.setState({
+                        modals: []
+                    })
+                }
+                ),
+                this.setNewTrack = (e=>{
+                    this.setState({
+                        newTrack: e
+                    })
+                }
+                ),
+                this.setDeviceFullUploadError = (e=>{
+                    this.setState({
+                        deviceFullUploadError: e
+                    })
+                }
+                ),
+                this.setNewTransformedAudioEngineTrack = (e=>{
+                    this.setState({
+                        transformedAudioEngineTrack: e
+                    })
+                }
+                ),
+                this.setPreviousLocation = (e=>{
+                    this.setState({
+                        previousLocation: e
+                    })
+                }
+                ),
+                this.navigate = (e=>{
+                    this.props.history.push(e)
+                }
+                ),
+                this.goBack = ((e="/")=>{
+                    const {previousLocation: t} = this.state
+                      , r = this.props.location.pathname + this.props.location.search;
+                    t && t !== r ? this.navigate(t) : this.navigate(e)
+                }
+                ),
+                this.state = {
+                    modals: [],
+                    newTrack: null,
+                    deviceFullUploadError: !1,
+                    transformedAudioEngineTrack: null,
+                    previousLocation: null
+                }
+            }
+            render() {
+                const e = {
+                    viewManagerClient: _objectSpread(_objectSpread({}, {
+                        createModal: this.createModal,
+                        setNewTrack: this.setNewTrack,
+                        setDeviceFullUploadError: this.setDeviceFullUploadError,
+                        setNewTransformedAudioEngineTrack: this.setNewTransformedAudioEngineTrack,
+                        setPreviousLocation: this.setPreviousLocation,
+                        navigate: this.navigate,
+                        goBack: this.goBack
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(ViewManagerContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const _default = (0,
+        react_router__WEBPACK_IMPORTED_MODULE_4__.withRouter)(ViewManagerProvider)
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(ViewManagerContext, "ViewManagerContext", "/home/vsts/work/1/s/src/contexts/view-manager/view-manager-context.tsx"),
+            e.register(ViewManagerProvider, "ViewManagerProvider", "/home/vsts/work/1/s/src/contexts/view-manager/view-manager-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/view-manager/view-manager-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "2e23121d141c228196a0": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>d
+        });
+        var o = r("cc5a1791ca69c601dde3")
+          , a = r("b02a35033e7f8e6fa1e0")
+          , n = r("8af190b70a6bc55c6f1b")
+          , s = r("a7b043367627a4b04036")
+          , i = r("5ef9de3df8d92ea0e41c")
+          , c = r.n(i);
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const l = e=>{
+            const t = t=>{
+                const {wrappedComponentRef: r} = t
+                  , i = (0,
+                a.Z)(t, ["wrappedComponentRef"]);
+                return n.createElement(s.qj.Consumer, null, t=>n.createElement(e, (0,
+                o.Z)({}, i, t, {
+                    ref: r
+                })))
+            }
+            ;
+            return t.WrappedComponent = e,
+            c()(t, e)
+        }
+          , _ = l
+          , d = _;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(l, "withWebUSBClient", "/home/vsts/work/1/s/src/contexts/webusb/hoc.tsx"),
+            e.register(_, "default", "/home/vsts/work/1/s/src/contexts/webusb/hoc.tsx"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    f60aef9fa88f4e9ce07a: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Ye: ()=>o.ZP,
+            wO: ()=>o.wO,
+            MM: ()=>a.Z
+        });
+        var o = r("a7b043367627a4b04036")
+          , a = r("2e23121d141c228196a0");
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature
+    }
+    ,
+    a7b043367627a4b04036: (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            wO: ()=>_kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.wO,
+            Ye: ()=>calculateTrackMoves,
+            ll: ()=>calculateAlbumMoves,
+            qj: ()=>WebUSBContext,
+            ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
+        });
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("de098c4daf91477f9cbc")
+          , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_15___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_15__)
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433")
+          , _account__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _utils_promises__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("971fd0ff834a938d5a3d")
+          , _contexts_firmware_update_firmware_update_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("3f02c5877d4690b5563c")
+          , _assets_images_album_art_blank_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5fc49946715057305344")
+          , _assets_images_album_art_donda_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("f82e462f9208bbad1e7d")
+          , _assets_images_album_art_jesus_is_king_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("5c27a08769d295c50ba7")
+          , _assets_images_album_art_wash_us_in_the_blood_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("9f2316eeebc9c27ecc70")
+          , _assets_images_album_art_life_of_the_party_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("fbf27e791db133ce7130")
+          , _assets_images_album_art_recordings_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("6d601a08887d6ace5f82")
+          , _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("3145f0c7f3b91ffef7d2");
+        function ownKeys(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function _objectSpread(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? ownKeys(Object(r), !0).forEach(function(t) {
+                    (0,
+                    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : ownKeys(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const CHARGE_POLLING_INTERVAL = 6e4
+          , MAGIC_MP3_WAV_CONVERSION = 8;
+        function calculateTrackMoves(e, t, r, o) {
+            const a = []
+              , n = t
+              , s = t.tracks;
+            a.push({
+                albumOld: e.id,
+                trackOld: r,
+                albumNew: t.id,
+                trackNew: o
+            });
+            const i = s.map(e=>parseInt(e.id.substr(1)))
+              , c = s.map((e,t)=>({
+                oldId: i[t],
+                newId: t + 1
+            })).filter(e=>e.oldId !== e.newId);
+            for (; c.length > 0; ) {
+                let e = 0;
+                for (let t = 0; t < c.length; t += 1) {
+                    const r = c[t];
+                    if (i.indexOf(r.newId) < 0) {
+                        a.push({
+                            albumOld: n.id,
+                            trackOld: `T${r.oldId}`,
+                            albumNew: n.id,
+                            trackNew: `T${r.newId}`
+                        });
+                        const o = i.indexOf(r.oldId);
+                        i.splice(o, 1, r.newId),
+                        c.splice(t, 1),
+                        e += 1
+                    }
+                }
+                if (!e) {
+                    const e = c.map(e=>e.newId)
+                      , t = c.findIndex(t=>e.indexOf(t.oldId) >= 0)
+                      , r = c[t];
+                    c.splice(t, 1);
+                    let o = Math.max(...i) + 5;
+                    for (; e.indexOf(o) >= 0; )
+                        o += 1;
+                    a.push({
+                        albumOld: n.id,
+                        trackOld: `T${r.oldId}`,
+                        albumNew: n.id,
+                        trackNew: `T${o}`
+                    });
+                    const s = i.indexOf(r.oldId);
+                    i.splice(s, 1, o),
+                    c.push({
+                        oldId: o,
+                        newId: r.newId
+                    })
+                }
+            }
+            return a
+        }
+        function calculateAlbumMoves(e) {
+            const t = e.map(e=>parseInt(e.id.substr(1)))
+              , r = []
+              , o = e.map((e,t)=>({
+                oldId: parseInt(e.id.substr(1)),
+                newId: t + 1
+            })).filter(e=>e.oldId !== e.newId);
+            for (; o.length > 0; ) {
+                let e = 0;
+                for (let a = 0; a < o.length; a += 1) {
+                    const n = o[a];
+                    if (t.indexOf(n.newId) < 0) {
+                        r.push({
+                            oldId: `A${n.oldId}`,
+                            newId: `A${n.newId}`
+                        });
+                        const s = t.indexOf(n.oldId);
+                        t.splice(s, 1, n.newId),
+                        o.splice(a, 1),
+                        e += 1
+                    }
+                }
+                if (!e) {
+                    const e = o.map(e=>e.newId)
+                      , a = o.findIndex(t=>e.indexOf(t.oldId) >= 0)
+                      , n = o[a];
+                    o.splice(a, 1);
+                    let s = Math.max(...t) + 5;
+                    for (; e.indexOf(s) >= 0; )
+                        s += 1;
+                    r.push({
+                        oldId: `A${n.oldId}`,
+                        newId: `A${s}`
+                    });
+                    const i = t.indexOf(n.oldId);
+                    t.splice(i, 1, s),
+                    o.push({
+                        oldId: s,
+                        newId: n.newId
+                    })
+                }
+            }
+            return r
+        }
+        const WebUSBContext = react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+        class WebUSBProvider extends react__WEBPACK_IMPORTED_MODULE_1__.PureComponent {
+            constructor(e) {
+                var t;
+                super(e),
+                t = this,
+                this.device = void 0,
+                this.activeRequests = void 0,
+                this.chargeStateInterval = void 0,
+                this.conversionValue = 1048576,
+                this._isMounted = !1,
+                this.resetState = (()=>{
+                    this.stopChargeStatePolling(),
+                    this._isMounted && (this.setState({
+                        deviceConnected: !1,
+                        deviceAlbums: {},
+                        deviceInfo: null,
+                        deviceConfig: null,
+                        deviceRecordedSlots: null,
+                        deviceStorageUsed: null,
+                        deviceStorageSize: null,
+                        deviceChargeState: null,
+                        deviceTransferActive: !1,
+                        deviceUpdating: !1
+                    }),
+                    this.resetUploadData())
+                }
+                ),
+                this.beforeUnloadHandler = (e=>{
+                    if (this.state.deviceTransferActive)
+                        return e.preventDefault(),
+                        e.returnValue = "Transfer in process, exiting site may cause an error. Continue?",
+                        "Transfer in process, exiting site may cause an error. Continue?"
+                }
+                ),
+                this.setDeviceIsUpdating = (e=>{
+                    this._isMounted && this.setState({
+                        deviceUpdating: e
+                    })
+                }
+                ),
+                this.setDeviceTransferActive = (e=>{
+                    e !== this.state.deviceTransferActive && this._isMounted && this.setState({
+                        deviceTransferActive: e
+                    })
+                }
+                ),
+                this.resetUploadData = (()=>{
+                    this._isMounted && (this.setState({
+                        uploadProgress: null,
+                        cancelController: null
+                    }),
+                    this.setDeviceTransferActive(!1))
+                }
+                ),
+                this.handleCancelUpload = (()=>{
+                    const {cancelController: e} = this.state;
+                    e && e.cancel()
+                }
+                ),
+                this.connect = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , {deviceTransferActive: r} = t.state;
+                    if (!r) {
+                        t.setDeviceTransferActive(!0);
+                        try {
+                            e.connected ? yield t.onConnect() : (yield e.connect(),
+                            yield t.onConnect()),
+                            t.setDeviceTransferActive(!1)
+                        } catch (e) {
+                            throw t._isMounted && (t.setState({
+                                deviceConnected: !1,
+                                deviceTransferActive: !1
+                            }),
+                            t.setDeviceTransferActive(!1)),
+                            e.message
+                        }
+                    }
+                }),
+                this.disconnect = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , {deviceTransferActive: r} = t.state;
+                    if (!r) {
+                        t.setDeviceTransferActive(!0),
+                        t.stopChargeStatePolling();
+                        try {
+                            yield e.endSession(),
+                            yield e.disconnect()
+                        } catch (e) {
+                            throw e.message
+                        } finally {
+                            t._isMounted && t.setState({
+                                deviceConnected: !1,
+                                deviceTransferActive: !1,
+                                _deviceToken: null
+                            })
+                        }
+                    }
+                }),
+                this.reboot = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t;
+                    try {
+                        yield e.reboot(),
+                        t._isMounted && t.setState({
+                            deviceConnected: !1,
+                            deviceTransferActive: !1
+                        })
+                    } catch (e) {
+                        throw e.message
+                    }
+                }),
+                this.onConnect = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    if (t.activeRequests.has("onConnect"))
+                        return t.activeRequests.get("onConnect").promise;
+                    const e = new _utils_promises__WEBPACK_IMPORTED_MODULE_5__.C
+                      , {tracking: {trackEvent: r}} = t.props;
+                    t.activeRequests.set("onConnect", e),
+                    t.setDeviceTransferActive(!0);
+                    try {
+                        yield t.device.startSession(),
+                        yield(0,
+                        _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.wO)(250),
+                        t._isMounted && t.setState({
+                            deviceConnected: !0
+                        }),
+                        yield t.fetchDeviceAlbums(),
+                        yield t.fetchDeviceRecordedSlots(),
+                        yield t.fetchDeviceInfo(),
+                        yield t.fetchDeviceConfig(),
+                        yield t.fetchDeviceStorageInfo(),
+                        t.authenticateDevice();
+                        const o = (yield t.updateDeviceChargeState()).lastBt
+                          , a = null === o ? "None" : o ? o.split(new RegExp("(..)")).filter(Boolean).reverse().join(":") : "UNKNOWN";
+                        let n = 0;
+                        null !== t.state.deviceRecordedSlots && (n = t.state.deviceRecordedSlots.reduce((e,t)=>e + (t ? 1 : 0), 0)),
+                        r({
+                            event: "device_connected",
+                            data: _objectSpread(_objectSpread({}, t.state.deviceInfo), {}, {
+                                lastBluetoothAddress: a,
+                                recordings: n
+                            })
+                        }),
+                        "/" !== t.props.location.pathname && "/updating" !== t.props.location.pathname || t.props.history.push("/connect/stem")
+                    } catch (e) {
+                        throw r({
+                            error: {
+                                name: "on_connect",
+                                stack: "Failed to connect to device",
+                                message: JSON.stringify(e.message || e)
+                            }
+                        }),
+                        e.message
+                    } finally {
+                        t.setDeviceTransferActive(!1),
+                        e.resolve(!0),
+                        t.activeRequests.delete("onConnect")
+                    }
+                }),
+                this.onDisconnect = (()=>this.resetState()),
+                this.fetchDeviceInfo = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , r = yield e.getDeviceInfo();
+                    return t._isMounted && t.setState({
+                        deviceInfo: r
+                    }),
+                    r
+                }),
+                this.fetchDeviceConfig = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , r = yield e.getDeviceConfig();
+                    t._isMounted && t.setState({
+                        deviceConfig: r
+                    })
+                }),
+                this.fetchDeviceStorageInfo = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , r = yield e.getStorageInfo()
+                      , {free: o, size: a} = r;
+                    t._isMounted && t.setState({
+                        deviceStorageSize: a / t.conversionValue,
+                        deviceStorageUsed: (a - o) / t.conversionValue
+                    })
+                }),
+                this.authenticateDevice = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {deviceInfo: e} = t.state;
+                    if (null === e)
+                        return null;
+                    if ((0,
+                    _contexts_firmware_update_firmware_update_context__WEBPACK_IMPORTED_MODULE_6__.Hm)(e.appVersion, "1.0.1747"))
+                        return null;
+                    if (t.state._deviceToken)
+                        return t.state._deviceToken.promise;
+                    const {device: r} = t
+                      , {serialNumber: o} = e
+                      , {accountClient: a} = t.props
+                      , n = new _utils_promises__WEBPACK_IMPORTED_MODULE_5__.C;
+                    let s = null;
+                    t._isMounted && t.setState({
+                        _deviceToken: n
+                    });
+                    try {
+                        const e = yield a.requestDeviceChallenge(o);
+                        if (e.error)
+                            throw new Error(`Unable to authenticate device: ${e.error}`);
+                        let i;
+                        try {
+                            i = yield r.deviceAuth(e.challenge)
+                        } catch (e) {
+                            throw new Error(`Unable to authenticate device: ${e}`)
+                        }
+                        const c = yield a.completeDeviceChallenge(o, i);
+                        if (c.error)
+                            throw new Error(`Unable to authenticate device: ${c.error}`);
+                        s = c.token
+                    } catch (e) {
+                        return n.reject(e),
+                        t._isMounted && t.setState({
+                            _deviceToken: null
+                        }),
+                        n.promise
+                    }
+                    return n.resolve(s),
+                    n.promise
+                }),
+                this.updateDeviceChargeState = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , {soc: r, "last-bt": o} = yield e.getChargeState();
+                    return t._isMounted && t.setState({
+                        deviceChargeState: r
+                    }),
+                    {
+                        soc: r,
+                        lastBt: o
+                    }
+                }),
+                this.startChargeStatePolling = (()=>{
+                    this.chargeStateInterval || (this.chargeStateInterval = setInterval(()=>this.updateDeviceChargeState(), CHARGE_POLLING_INTERVAL))
+                }
+                ),
+                this.stopChargeStatePolling = (()=>{
+                    this.chargeStateInterval && (clearInterval(this.chargeStateInterval),
+                    this.chargeStateInterval = null)
+                }
+                ),
+                this.fetchDeviceRecordedSlots = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , r = yield e.getRecordedSlots()
+                      , o = Object.values(r);
+                    t._isMounted && t.setState({
+                        deviceRecordedSlots: o
+                    })
+                }),
+                this.setCover = ((e,t)=>(0,
+                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e, "Donda") ? _assets_images_album_art_donda_png__WEBPACK_IMPORTED_MODULE_8__ : (0,
+                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e, "Jesus is King") ? _assets_images_album_art_jesus_is_king_png__WEBPACK_IMPORTED_MODULE_9__ : (0,
+                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e, "Life of The Party") ? _assets_images_album_art_life_of_the_party_png__WEBPACK_IMPORTED_MODULE_11__ : (0,
+                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e, "Wash Us In The Blood") ? _assets_images_album_art_wash_us_in_the_blood_png__WEBPACK_IMPORTED_MODULE_10__ : t && (0,
+                _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(t, "RECORD") ? _assets_images_album_art_recordings_png__WEBPACK_IMPORTED_MODULE_12__ : _assets_images_album_art_blank_png__WEBPACK_IMPORTED_MODULE_7__),
+                this.fetchDeviceAlbums = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        const {device: r} = t
+                          , o = yield r.listTracks();
+                        if (e && e.aborted)
+                            throw t.setDeviceTransferActive(!1),
+                            new Error("Cancelled");
+                        const a = o.albums.reduce((e,r)=>{
+                            let o = Object.assign({}, r);
+                            o.title = (0,
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(o.id, "RECORD") ? "RECORDINGS" : o.title;
+                            const a = t.setCover(o.title, o.id)
+                              , n = Object.assign({
+                                cover: a
+                            }, o);
+                            return _objectSpread(_objectSpread({}, e), {}, {
+                                [o.id]: n
+                            })
+                        }
+                        , {});
+                        return t._isMounted && t.setState(e=>({
+                            deviceAlbums: a,
+                            deviceAlbumsUpdated: e.deviceAlbumsUpdated ? e.deviceAlbumsUpdated + 1 : 1
+                        })),
+                        a
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getDeviceFileSize = (e=>{
+                    switch (e.name.split(".").pop()) {
+                    case "mp3":
+                    case "mpga":
+                        return e.size * MAGIC_MP3_WAV_CONVERSION;
+                    case "wav":
+                        return e.size;
+                    default:
+                        return 2 * e.size
+                    }
+                }
+                ),
+                this.hasAvailableSpace = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        return (yield t.getRemainingSize()) > e.bass.file.size + e.vocals.file.size + e.drums.file.size + e.other.file.size
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getRemainingSize = (0,
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                    const {device: e} = t
+                      , r = yield e.getStorageInfo()
+                      , {free: o} = r;
+                    return 1e3 * o - 3 * Math.pow(1e3, 2)
+                }),
+                this.hasSpaceForTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        const {tracking: {trackEvent: r}} = t.props
+                          , o = (yield t.getRemainingSize()) > t.getDeviceFileSize(e.bass) + t.getDeviceFileSize(e.vocals) + t.getDeviceFileSize(e.drums) + t.getDeviceFileSize(e.other);
+                        return o || r({
+                            event: "device_full_adding_new_track",
+                            data: {
+                                track: {
+                                    title: e.title,
+                                    artist: e.artist,
+                                    duration: e.duration
+                                }
+                            }
+                        }),
+                        o
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.hasSpaceForAlbum = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                        if (r && r.aborted)
+                            throw new Error("[hasSpaceForAlbum] Cancelled");
+                        return (yield t.getRemainingSize()) > e.tracks.reduce((e,t)=>{
+                            return e + Object.values(t.metadata.stem_size).reduce((e,t)=>e + t, 0)
+                        }
+                        , 0)
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.uploadFirmwareUpdate = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        t.setDeviceTransferActive(!0);
+                        const {device: r} = t
+                          , {tracking: {trackEvent: o}} = t.props;
+                        try {
+                            yield r.uploadFirmwareUpdate(e),
+                            o({
+                                event: "firmware_update_success",
+                                data: {
+                                    file: e.name,
+                                    size: e.size
+                                }
+                            }),
+                            t.setDeviceTransferActive(!1)
+                        } catch (e) {
+                            throw o({
+                                error: {
+                                    name: "firware_update",
+                                    stack: "Failed to update firmware",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            t.setDeviceTransferActive(!1),
+                            e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateDeviceConfig = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        t.setDeviceTransferActive(!0);
+                        const {tracking: {trackEvent: r}} = t.props;
+                        try {
+                            yield t.device.updateDeviceConfig(e),
+                            r({
+                                event: "device_config_update_success"
+                            }),
+                            t.setDeviceTransferActive(!1)
+                        } catch (e) {
+                            throw r({
+                                error: {
+                                    name: "device_config_update",
+                                    stack: "Failed to update device config",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            t.setDeviceTransferActive(!1),
+                            e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getTrack = ((e,t)=>{
+                    const {deviceAlbums: r} = this.state;
+                    if (!(e in r))
+                        return null;
+                    let o = null;
+                    const a = r[e]
+                      , n = a.tracks.filter(e=>(0,
+                    _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, t));
+                    if (n.length > 0) {
+                        const {id: e, title: t, colors: r, bpm: s, meta_version: i, stems_version: c} = n[0];
+                        o = {
+                            id: e,
+                            title: t,
+                            colors: r,
+                            bpm: s,
+                            album: a.title,
+                            artist: a.artist,
+                            meta_version: i || null,
+                            stems_version: c || null,
+                            duration: 0,
+                            bass: null,
+                            vocals: null,
+                            drums: null,
+                            other: null
+                        }
+                    }
+                    return o
+                }
+                ),
+                this.addTrackSimple = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {device: a} = t;
+                        let n, s = null, i = !1;
+                        o && o(()=>{
+                            t.setDeviceTransferActive(!1),
+                            s && s.cancel(),
+                            i = !0
+                        }
+                        );
+                        try {
+                            if (s = a.addTrack(e, e=>r(e)),
+                            i)
+                                throw new Error("Cancelled");
+                            if (n = yield s.promise,
+                            i)
+                                throw new Error("Cancelled");
+                            if (yield t.fetchDeviceAlbums(),
+                            i)
+                                throw new Error("Cancelled");
+                            if (yield t.fetchDeviceStorageInfo(),
+                            i)
+                                throw new Error("Cancelled")
+                        } catch (e) {
+                            console.log("error", e),
+                            console.log("ERROR: ", e.message)
+                        } finally {
+                            t.setState({
+                                uploadProgress: null
+                            })
+                        }
+                        return n
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.setUploadProgressState = (e=>{
+                    this.setState({
+                        uploadProgress: e
+                    })
+                }
+                ),
+                this.addTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        if (t.setDeviceTransferActive(!0),
+                        !(yield t.hasAvailableSpace(e)))
+                            return console.error("No available space on device"),
+                            r(null),
+                            void t.setDeviceTransferActive(!1);
+                        const a = yield t.addTrackSimple(e, r, o);
+                        return t.setDeviceTransferActive(!1),
+                        a
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.editTrackMetadataSimple = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {device: a} = t;
+                        try {
+                            yield a.editTrackMetadata(e, r, o)
+                        } catch (e) {
+                            return console.error(e),
+                            t.setDeviceTransferActive(!1),
+                            void t.props.tracking.trackEvent({
+                                error: {
+                                    name: "edit_track",
+                                    stack: "Failed to edit track",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            })
+                        }
+                        yield t.fetchDeviceAlbums(),
+                        yield t.fetchDeviceStorageInfo()
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.editTrackMetadata = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        t.setDeviceTransferActive(!0),
+                        yield t.editTrackMetadataSimple(e, r, o),
+                        t.setDeviceTransferActive(!1)
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.deleteTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        const {tracking: {trackEvent: a}} = t.props;
+                        t.setDeviceTransferActive(!0);
+                        const {device: n} = t;
+                        try {
+                            yield n.deleteTrack(e, r),
+                            a({
+                                event: "track_deleted",
+                                data: {
+                                    albumid: e,
+                                    trackid: r
+                                }
+                            })
+                        } catch (e) {
+                            throw t.setDeviceTransferActive(!1),
+                            a({
+                                error: {
+                                    name: "delete_track",
+                                    stack: "Failed to delete track",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            e
+                        }
+                        yield t.fetchDeviceAlbums(o),
+                        yield t.fetchDeviceStorageInfo(),
+                        yield t.fetchDeviceRecordedSlots(),
+                        t.setDeviceTransferActive(!1)
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.deleteAlbum = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        const {tracking: {trackEvent: r}} = t.props
+                          , {deviceAlbums: o} = t.state;
+                        t.setDeviceTransferActive(!0);
+                        const {device: a} = t;
+                        try {
+                            var n;
+                            yield a.deleteAlbum(e),
+                            r({
+                                event: "album_deleted",
+                                data: {
+                                    albumId: e,
+                                    albumName: null === (n = o[e]) || void 0 === n ? void 0 : n.title
+                                }
+                            })
+                        } catch (e) {
+                            throw t.setDeviceTransferActive(!1),
+                            r({
+                                error: {
+                                    name: "delete_album",
+                                    stack: "Failed to delete album",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            e
+                        }
+                        yield t.fetchDeviceAlbums(),
+                        t.setDeviceTransferActive(!1)
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveTracksSimple = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        try {
+                            for (let r = 0; r < e.length; r++)
+                                yield t.moveTrack(e[r])
+                        } catch (e) {
+                            throw console.error(e),
+                            t.props.tracking.trackEvent({
+                                error: {
+                                    name: "move_tracks",
+                                    stack: "Failed to move track",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            t.setDeviceTransferActive(!1),
+                            e
+                        }
+                        yield t.fetchDeviceAlbums()
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveTracks = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        t.setDeviceTransferActive(!0),
+                        yield t.moveTracksSimple(e),
+                        t.setDeviceTransferActive(!1)
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveTrack = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({albumOld: e, trackOld: r, albumNew: o, trackNew: a}) {
+                        const {device: n} = t;
+                        try {
+                            yield n.moveTrack(e, r, o, a)
+                        } catch (e) {
+                            throw console.error(e),
+                            e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.getRecordedStem = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r=(()=>{}
+                    )) {
+                        const {device: o} = t;
+                        try {
+                            return o.downloadTrackStem("RECORD", "T1", e, r)
+                        } catch (e) {
+                            throw console.error(e),
+                            e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.addAlbum = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r="Unknown", o, a) {
+                        const {device: n} = t;
+                        try {
+                            const s = yield n.addAlbum(o || null, r, e, a);
+                            return yield t.fetchDeviceAlbums(),
+                            s
+                        } catch (o) {
+                            if (o.message && "Cancelled" !== o.message && ["jesus is king", "donda", "donda 2", "life of the party", "wash us in the blood"].includes(null === e || void 0 === e ? void 0 : e.toLowerCase())) {
+                                const o = "DONDA" === e ? "A2" : "A1";
+                                return yield t.deleteAlbum(o),
+                                yield t.addAlbum(e, r)
+                            }
+                            throw console.error(o),
+                            o
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveAlbumsSimple = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        try {
+                            for (let r = 0; r < e.length; r++)
+                                yield t.moveAlbum(e[r])
+                        } catch (e) {
+                            throw console.error(e),
+                            t.props.tracking.trackEvent({
+                                error: {
+                                    name: "move_albums",
+                                    stack: "Failed to move albums",
+                                    message: JSON.stringify(e.message || e)
+                                }
+                            }),
+                            t.setDeviceTransferActive(!1),
+                            e
+                        }
+                        yield t.fetchDeviceAlbums()
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveAlbums = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                        t.setDeviceTransferActive(!0),
+                        yield t.moveAlbumsSimple(e),
+                        t.setDeviceTransferActive(!1)
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.moveAlbum = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({oldId: e, newId: r}) {
+                        const {device: o} = t;
+                        try {
+                            yield o.renameAlbum(e, r)
+                        } catch (e) {
+                            throw console.error(e),
+                            e
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateAlbumTitle = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                        const {device: o} = t;
+                        try {
+                            yield o.updateAlbumTitle(e, r),
+                            yield t.fetchDeviceAlbums()
+                        } catch (e) {
+                            throw console.error(e),
+                            e
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.updateAlbumVersion = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                        const {device: o} = t;
+                        try {
+                            yield o.updateAlbumVersion(e, r),
+                            yield t.fetchDeviceAlbums()
+                        } catch (e) {
+                            throw console.error(e),
+                            e
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.setUploadFeedback = (e=>{
+                    this.setState({
+                        uploadFeedback: e
+                    })
+                }
+                ),
+                this.uploadStems = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                        try {
+                            t.setState({
+                                uploading: "uploading",
+                                uploadProgress: null,
+                                uploadingTrack: e,
+                                uploadFeedback: null,
+                                uploadCancelled: !1
+                            });
+                            const o = new _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__.f;
+                            t._isMounted && t.setState({
+                                cancelController: o
+                            });
+                            const a = yield t.addTrack(e, e=>t.setState({
+                                uploadProgress: Object.assign({}, e)
+                            }), o.register);
+                            if (void 0 === a)
+                                throw new Error("Upload cancelled (2)");
+                            t.setState({
+                                uploadedTrackLocation: a
+                            }),
+                            r.album !== t.state.deviceAlbums[a.album].title && (yield t.moveTrackToAlbum(a.album, a.id, r.album)),
+                            t.setState({
+                                uploading: "uploaded"
+                            })
+                        } catch (e) {
+                            if (e.message && "Cancelled" === e.message)
+                                throw t.setState({
+                                    uploadProgress: null,
+                                    uploading: !1,
+                                    uploadFeedback: "Upload cancelled",
+                                    uploadCancelled: !0
+                                }),
+                                t.setDeviceTransferActive(!1),
+                                new Error("Cancelled");
+                            if (e.message && "Upload cancelled (2)" === e.message)
+                                throw t.setState({
+                                    uploadProgress: null,
+                                    uploading: !1,
+                                    uploadFeedback: "Upload cancelled",
+                                    uploadCancelled: !0
+                                }),
+                                t.setDeviceTransferActive(!1),
+                                new Error("Cancelled");
+                            t.state.deviceConnected ? t.setState({
+                                uploading: "error",
+                                uploadFeedback: "Upload cancelled"
+                            }) : t.setState({
+                                uploading: "uploaded",
+                                uploadFeedback: "Uploaded"
+                            })
+                        } finally {
+                            t.setDeviceTransferActive(!1),
+                            t.setState({
+                                uploading: !1,
+                                uploadCancelled: !1
+                            })
+                        }
+                    });
+                    return function(t, r) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.resetUploadedTrackLocation = (()=>{
+                    this.setState({
+                        uploadedTrackLocation: null
+                    })
+                }
+                ),
+                this.moveTrackToAlbum = function() {
+                    var e = (0,
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                        let a, n, s = Object.values(t.state.deviceAlbums).find(e=>(0,
+                        _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, o));
+                        if (s) {
+                            const e = s.tracks.map(e=>parseInt(e.id.substring(1)));
+                            a = s.id,
+                            n = `T${Math.max(0, ...e) + 1}`
+                        } else
+                            a = yield t.addAlbum(o, void 0, void 0, "1"),
+                            n = "T1";
+                        return yield t.moveTracks([{
+                            albumOld: e,
+                            albumNew: a,
+                            trackOld: r,
+                            trackNew: n
+                        }]),
+                        {
+                            albumId: a,
+                            trackId: n
+                        }
+                    });
+                    return function(t, r, o) {
+                        return e.apply(this, arguments)
+                    }
+                }(),
+                this.device = new _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.FF,
+                this.device.onConnect(()=>{
+                    this.onConnect()
+                }
+                ),
+                this.device.onDisconnect(()=>{
+                    this.onDisconnect()
+                }
+                ),
+                this.activeRequests = new Map,
+                this.state = {
+                    deviceConnected: !1,
+                    deviceAlbums: {},
+                    deviceAlbumsUpdated: null,
+                    deviceInfo: null,
+                    deviceConfig: null,
+                    deviceRecordedSlots: null,
+                    deviceStorageUsed: null,
+                    deviceStorageSize: null,
+                    deviceChargeState: null,
+                    deviceTransferActive: !1,
+                    _deviceToken: null,
+                    deviceUpdating: !1,
+                    uploadProgress: null,
+                    uploading: !1,
+                    uploadedTrackLocation: null,
+                    uploadFeedback: null,
+                    uploadingTrack: null,
+                    cancelController: null,
+                    uploadCancelled: !1
+                }
+            }
+            componentDidMount() {
+                this._isMounted = !0,
+                window.location.hash && "#connect" === window.location.hash && this.setState({
+                    deviceConnected: !0,
+                    deviceAlbums: {},
+                    deviceAlbumsUpdated: null,
+                    deviceInfo: {
+                        appVersion: "1",
+                        bluetoothVersion: "1",
+                        bootloaderVersion: "1",
+                        serialNumber: "1"
+                    }
+                }),
+                this.device.findPairedDevice(),
+                window.addEventListener("beforeunload", this.beforeUnloadHandler, {
+                    capture: !0
+                })
+            }
+            componentWillUnmount() {
+                this.stopChargeStatePolling(),
+                window.removeEventListener("beforeunload", this.beforeUnloadHandler, {
+                    capture: !0
+                }),
+                this._isMounted = !1
+            }
+            render() {
+                const e = {
+                    webUSBClient: _objectSpread(_objectSpread({}, {
+                        connect: this.connect,
+                        disconnect: this.disconnect,
+                        reboot: this.reboot,
+                        setDeviceIsUpdating: this.setDeviceIsUpdating,
+                        setDeviceTransferActive: this.setDeviceTransferActive,
+                        uploadFirmwareUpdate: this.uploadFirmwareUpdate,
+                        getTrack: this.getTrack,
+                        addTrack: this.addTrack,
+                        addTrackSimple: this.addTrackSimple,
+                        editTrackMetadata: this.editTrackMetadata,
+                        editTrackMetadataSimple: this.editTrackMetadataSimple,
+                        deleteTrack: this.deleteTrack,
+                        moveTracks: this.moveTracks,
+                        moveTracksSimple: this.moveTracksSimple,
+                        getRecordedStem: this.getRecordedStem,
+                        updateDeviceChargeState: this.updateDeviceChargeState,
+                        updateDeviceConfig: this.updateDeviceConfig,
+                        startDeviceChargePolling: this.startChargeStatePolling,
+                        stopDeviceChargePolling: this.stopChargeStatePolling,
+                        addAlbum: this.addAlbum,
+                        deleteAlbum: this.deleteAlbum,
+                        moveAlbums: this.moveAlbums,
+                        moveAlbumsSimple: this.moveAlbumsSimple,
+                        updateAlbumTitle: this.updateAlbumTitle,
+                        updateAlbumVersion: this.updateAlbumVersion,
+                        setCover: this.setCover,
+                        fetchDeviceAlbums: this.fetchDeviceAlbums,
+                        fetchDeviceInfo: this.fetchDeviceInfo,
+                        getState: ()=>this.state,
+                        hasSpaceForTrack: this.hasSpaceForTrack,
+                        hasSpaceForAlbum: this.hasSpaceForAlbum,
+                        getRemainingSize: this.getRemainingSize,
+                        getDeviceFileSize: this.getDeviceFileSize,
+                        conversionValue: this.conversionValue,
+                        authenticateDevice: this.authenticateDevice,
+                        uploadStems: this.uploadStems,
+                        handleCancelUpload: this.handleCancelUpload,
+                        setUploadFeedback: this.setUploadFeedback,
+                        setUploadProgressState: this.setUploadProgressState,
+                        resetUploadedTrackLocation: this.resetUploadedTrackLocation
+                    }), this.state)
+                };
+                return react__WEBPACK_IMPORTED_MODULE_1__.createElement(WebUSBContext.Provider, {
+                    value: e
+                }, this.props.children)
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const __TEST__WebUSBProvider = WebUSBProvider
+          , _default = (0,
+        _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
+            module: "web_usb_provider"
+        })((0,
+        react_router_dom__WEBPACK_IMPORTED_MODULE_15__.withRouter)((0,
+        _account__WEBPACK_IMPORTED_MODULE_4__.o)(WebUSBProvider)))
+          , __WEBPACK_DEFAULT_EXPORT__ = _default;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(CHARGE_POLLING_INTERVAL, "CHARGE_POLLING_INTERVAL", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(MAGIC_MP3_WAV_CONVERSION, "MAGIC_MP3_WAV_CONVERSION", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(calculateTrackMoves, "calculateTrackMoves", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(calculateAlbumMoves, "calculateAlbumMoves", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(WebUSBContext, "WebUSBContext", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(WebUSBProvider, "WebUSBProvider", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(__TEST__WebUSBProvider, "__TEST__WebUSBProvider", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"),
+            e.register(_default, "default", "/home/vsts/work/1/s/src/contexts/webusb/webusb-context.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    b52edfef829e09f7985c: (module,__unused_webpack___webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8af190b70a6bc55c6f1b")
+          , react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("63f14ac74ce296f77f4d")
+          , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("260f3680b921ede7f717")
+          , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__)
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_22___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_22__)
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("eb88800281880750dee6")
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_21___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_21__)
+          , _sentry_tracing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("82d14b9db5598b921c79")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _utils_history__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("4f64e9a1f5202b774215")
+          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("f60aef9fa88f4e9ce07a")
+          , _contexts_trackapi__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("09e5b40f0abea70b7ff4")
+          , _contexts_firmware_update__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c1bece57111e2d76e639")
+          , _contexts_notifications__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("ceede5265ca6ca2cb4b1")
+          , _contexts_album_restore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("16c6bde65fb4831cea2e")
+          , _contexts_remix__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("04580fa4bddd672dfde3")
+          , _contexts_stems__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("d92624744e8fb7e743e8")
+          , _contexts_account__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _contexts_view_manager__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("3e17aee31846974e528a")
+          , _containers_App__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("909d96d96697555397ee")
+          , _file_loader_name_name_ext_assets_favicon_ico__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("2cc3443f170f92e6c07f")
+          , file_loader_name_htaccess_htaccess__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("49c109a56bd7c2e379fd")
+          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("77d9647920c06e8befd6")
+          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("c0326c9d650a633c92d0")
+          , _utils_themes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("957d24b63b1050799be8");
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const config = {
+            TARGET_ENV: "staging",
+            NODE_ENV: "staging",
+            KB_APP_VERSION: "1.1.2837",
+            KB_APP_REVISION: "6e54b7eceef135b192f8b46c04be9be116d16d07",
+            KB_APP_NAME: "stem-player-client",
+            KB_APP_TITLE: "STEMPLAYER - Staging",
+            KB_APP_URL: "https://staging-stemplatform.netlify.app",
+            KB_API_URL: "https://worldapi.nonprod.kano.me",
+            KB_CMS_URL: "https://staging.content.kano.me",
+            KB_FEED_URL: "https://feed.nonprod.kano.me",
+            KB_TRACKING_URL: "https://telemetry.nonprod.kano.me/batch",
+            KB_SHARING_URL: "https://staging.sharing.kano.me",
+            KB_AUTH_INTEGRATION_URL: "https://b.auth.kano.me/integration.js",
+            KB_AUTH_SIGNUP_URL: "https://b.auth.kano.me/index.html?env=staging#signup",
+            KB_AUTH_LOGIN_URL: "https://b.auth.kano.me/index.html?env=staging#login",
+            KB_KANO_WORLD_URL: "https://staging.world.kano.me",
+            KB_MAKE_ART_URL: "https://staging.art.kano.me",
+            KB_PIXEL_MOTION_URL: "https://staging.beta.pixel.kano.me",
+            KB_ARTOPIA_URL: "https://beta.artopia.app",
+            KB_ARTOPIA_ACCESSKEY_URL: "https://beta.artopia.app/?accesskey=kano-club",
+            KB_KANO_CODE_URL: "https://staging.code.kano.me",
+            KB_HOW_COMPUTERS_WORK_URL: "https://staging.computers.kano.me",
+            KB_KANO_CREATE_URL: "https://make-p5.netlify.app/",
+            KB_UWP_ROOT_PATH: "ms-appx-web:///WebApp",
+            KB_STEMIFY_API_URL: "https://api.sycamore-nonprod.kano.me",
+            KB_UPDATE_QUERY_ENDPOINT: "https://stemplayer-dl.sycamore-nonprod.kano.me/latest-firmware.json",
+            KB_FW_ENDPOINT: "https://stemplayer-dl.sycamore-nonprod.kano.me/latest-firmware.dfu",
+            KB_SHOPIFY_US_DOMAIN: "shop.sycamore-nonprod.kano.me",
+            KB_SHOPIFY_US_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
+            KB_SHOPIFY_UK_DOMAIN: "gb.shop.sycamore-nonprod.kano.me",
+            KB_SHOPIFY_UK_TOKEN: "e1b1b8c1927568fe33f9bd94dae06358",
+            KB_SENTRY_SAMPLE_RATE: "1.0",
+            KB_REPO_URL: "https://github.com/KanoComputing/stem-player"
+        }
+          , telemetryConfig = {
+            app: config.KB_APP_NAME,
+            appVersion: config.KB_APP_VERSION,
+            url: config.KB_TRACKING_URL,
+            env: config.TARGET_ENV,
+            hasCrossDomainStorage: !1
+        }
+          , font2Observer = new (fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default())("Helvetica Neue LT W05 65 Medium",{});
+        Promise.all([font2Observer.load()]).then(()=>{
+            document.body.classList.add("fontLoaded")
+        }
+        ),
+        _sentry_react__WEBPACK_IMPORTED_MODULE_21__.init({
+            dsn: "https://cceb14840d684b1baad838c0d88f5c42@o829757.ingest.sentry.io/5812480",
+            integrations: [new _sentry_tracing__WEBPACK_IMPORTED_MODULE_3__.jK.BrowserTracing],
+            environment: config.TARGET_ENV,
+            release: `${config.KB_APP_NAME}@${config.KB_APP_VERSION}`,
+            tracesSampleRate: parseFloat(config.KB_SENTRY_SAMPLE_RATE),
+            beforeSend(e) {
+                var t, r, o, a, n;
+                const s = null === (t = e.exception) || void 0 === t ? void 0 : null === (r = t.values) || void 0 === r ? void 0 : r[0];
+                return null !== s && void 0 !== s && null !== (o = s.value) && void 0 !== o && o.match(/ResizeObserver loop limit exceeded/i) ? null : null !== s && void 0 !== s && null !== (a = s.type) && void 0 !== a && a.match(/UnhandledRejection/) && null !== s && void 0 !== s && null !== (n = s.value) && void 0 !== n && n.match(/Non-Error promise rejection captured with value: undefined/) ? null : e
+            }
+        }),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.updateFromUrlParams(),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("background-shader-gradients") ? (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.light) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-dark") ? (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.dark) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-light") ? (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.light) : (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.default);
+        const MOUNT_NODE = document.getElementById("app")
+          , render = e=>{
+            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Router, {
+                history: _utils_history__WEBPACK_IMPORTED_MODULE_5__.Z
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__.Yi, {
+                providerConfig: telemetryConfig
+            }, ({trackUser: e})=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_account__WEBPACK_IMPORTED_MODULE_13__.u, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_webusb__WEBPACK_IMPORTED_MODULE_6__.Ye, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_stems__WEBPACK_IMPORTED_MODULE_12__.nZ, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_audio_engine__WEBPACK_IMPORTED_MODULE_18__.Z, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_remix__WEBPACK_IMPORTED_MODULE_11__.V, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_trackapi__WEBPACK_IMPORTED_MODULE_7__.G, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_firmware_update__WEBPACK_IMPORTED_MODULE_8__.E, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_album_restore__WEBPACK_IMPORTED_MODULE_10__._, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_notifications__WEBPACK_IMPORTED_MODULE_9__.JB, {
+                config: config
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_view_manager__WEBPACK_IMPORTED_MODULE_14__.d, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_containers_App__WEBPACK_IMPORTED_MODULE_15__.Z, {
+                config: config,
+                trackUser: e
+            }))))))))))))), e || MOUNT_NODE)
+        }
+        ;
+        if (window.Shell) {
+            class KashApp {
+                constructor() {
+                    this.root = void 0,
+                    this.root = document.createElement("div"),
+                    render(this.root)
+                }
+                __reactstandin__regenerateByEval(key, code) {
+                    this[key] = eval(code)
+                }
+            }
+            window.Shell.define(KashApp)
+        } else
+            render();
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(config, "config", "/home/vsts/work/1/s/src/index.tsx"),
+            e.register(telemetryConfig, "telemetryConfig", "/home/vsts/work/1/s/src/index.tsx"),
+            e.register(font2Observer, "font2Observer", "/home/vsts/work/1/s/src/index.tsx"),
+            e.register(MOUNT_NODE, "MOUNT_NODE", "/home/vsts/work/1/s/src/index.tsx"),
+            e.register(render, "render", "/home/vsts/work/1/s/src/index.tsx"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "1cbf6a093bab4cc54764": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            T: ()=>o
         }),
         e = r.hmd(e),
         function() {
@@ -5271,23 +10859,40 @@
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e, t, r) {
-            var o;
-            return function() {
-                var n = this
-                  , s = arguments
-                  , i = r && !o;
-                clearTimeout(o),
-                o = setTimeout(function() {
-                    o = null,
-                    r || e.apply(n, s)
-                }, t),
-                i && e.apply(n, s)
+        const o = (e,t,r)=>{
+            const o = []
+              , a = e=>{
+                if (0 === e.length)
+                    return;
+                let n = t;
+                for (const [t,s] of e.entries()) {
+                    const i = `id=${s}&`;
+                    if ((n += i).length >= r) {
+                        n = n.replace(i, "").slice(0, -1),
+                        o.push({
+                            url: n,
+                            items: e.slice(0, t)
+                        }),
+                        a(e.slice(t));
+                        break
+                    }
+                    if (t === e.length - 1) {
+                        o.push({
+                            url: n.slice(0, -1),
+                            items: e
+                        });
+                        break
+                    }
+                }
             }
+            ;
+            return a(e),
+            o
         }
+        ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "debounce", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/debounce.ts")
+            e && e.register(o, "returnPaginatedUrls", "/home/vsts/work/1/s/src/utils/api-request-pagination.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5295,8 +10900,210 @@
         }()
     }
     ,
-    "57e049c4a01887cb7df1": (e,t,r)=>{
+    "20096a37950a1cbbc5cd": (e,t,r)=>{
         "use strict";
+        r.d(t, {
+            H: ()=>o
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = (e,t)=>{
+            if (e.length !== t.length)
+                return !1;
+            for (let r = 0; r < e.length; r++)
+                if (e[r] !== t[r])
+                    return !1;
+            return !0
+        }
+        ;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(o, "areArraysEqual", "/home/vsts/work/1/s/src/utils/areArraysEqual.js")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    d6e61794281205c7e43a: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>a
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = ["audio/aiff", "audio/basic", "audio/flac", "audio/x-flac", "audio/it", "audio/L24", "audio/make.my.funk", "audio/make", "audio/mid", "audio/midi", "audio/mod", "audio/mp4", "audio/m4a", "audio/x-m4a", "audio/mpeg", "audio/mpeg3", "audio/nspaudio", "audio/ogg", "audio/s3m", "audio/tsp-audio", "audio/tsplayer", "audio/vnd.qcelp", "audio/vnd.rn-realaudio", "audio/vnd.wav", "audio/voc", "audio/vorbis", "audio/voxware", "audio/wav", "audio/x-adpcm", "audio/x-aiff", "audio/x-au", "audio/x-gsm", "audio/x-jam", "audio/x-liveaudio", "audio/x-mid", "audio/x-midi", "audio/x-mod", "audio/x-mpeg-3", "audio/x-mpeg", "audio/x-mpegurl", "audio/x-mpequrl", "audio/x-nspaudio", "audio/x-pn-realaudio-plugin", "audio/x-pn-realaudio", "audio/x-psid", "audio/x-realaudio", "audio/x-twinvq-plugin", "audio/x-twinvq", "audio/x-vnd.audioexplosion.mjuicemediafile", "audio/x-voc", "audio/x-wav", "audio/x-xm", "audio/xm"]
+          , a = o;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(o, "default", "/home/vsts/work/1/s/src/utils/audioMimeTypes.js")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "557b135c7198835d5410": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>c
+        });
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("eb88800281880750dee6");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const n = e=>new Promise(t=>setTimeout(t, e))
+          , s = function() {
+            var e = (0,
+            o.Z)(function*(e, t) {
+                const {maxRetries: r=5, retry: o=1, functionName: i=e.name} = null !== t && void 0 !== t ? t : {};
+                try {
+                    return yield e()
+                } catch (t) {
+                    var c;
+                    if (null !== t && void 0 !== t && null !== (c = t.message) && void 0 !== c && c.match(/user aborted/i))
+                        throw t;
+                    if (o === r)
+                        throw a.captureException(t),
+                        new Error(`${i} has been retried ${r} times.`);
+                    if (o <= r)
+                        return yield n(Math.pow(o, 6)),
+                        yield s(e, {
+                            maxRetries: r,
+                            retry: o + 1,
+                            functionName: i
+                        })
+                }
+            });
+            return function(t, r) {
+                return e.apply(this, arguments)
+            }
+        }()
+          , i = s
+          , c = i;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(n, "wait", "/home/vsts/work/1/s/src/utils/backOffRetry.ts"),
+            e.register(s, "backOffRetry", "/home/vsts/work/1/s/src/utils/backOffRetry.ts"),
+            e.register(i, "default", "/home/vsts/work/1/s/src/utils/backOffRetry.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "5347e167343c470dbdfe": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            G6: ()=>n,
+            qs: ()=>_,
+            gn: ()=>d,
+            nz: ()=>u,
+            fq: ()=>f
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = !!window.opr && !!window.opr.addons || !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0
+          , a = "undefined" !== typeof window.InstallTrigger
+          , n = /constructor/i.test(window.HTMLElement) || function(e) {
+            return "[object SafariRemoteNotification]" === (!window["safari"] || typeof window.safari !== "undefined" && window.safari.pushNotification).toString()
+        }()
+          , s = !!document.documentMode
+          , i = !s && !!window.StyleMedia
+          , c = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime || !!window.chrome.loadTimes)
+          , l = navigator.userAgent.match(/SamsungBrowser/i)
+          , _ = ()=>o ? "Opera" : l ? "Samsung" : a ? "Firefox" : n ? "Safari" : s ? "IE" : i ? "Edge" : c ? "Chrome" : void 0
+          , d = ()=>!!navigator.userAgent.match(/iphone|ipod|ipad/i)
+          , u = ()=>!!navigator.userAgent.match(/iphone|ipod|ipad/i) && !!navigator.userAgent.match("Version")
+          , f = ()=>!!window.navigator.userAgent.match(/Trident\/7\./i);
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(o, "isOpera", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(a, "isFirefox", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(n, "isSafari", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(s, "isIE", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(i, "isEdge", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(c, "isChrome", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(l, "isSamsung", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(_, "getBrowser", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(d, "isIOS", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(u, "isIOSSafari", "/home/vsts/work/1/s/src/utils/browser-detection.ts"),
+            e.register(f, "isIE11", "/home/vsts/work/1/s/src/utils/browser-detection.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "3145f0c7f3b91ffef7d2": (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            f: ()=>CancelController
+        }),
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        class CancelController {
+            constructor() {
+                this.methods = [],
+                this.cancelled = !1,
+                this.register = (e=>(this.methods.push(e),
+                this.cancelled))
+            }
+            cancel() {
+                this.cancelled = !0,
+                this.methods.map(e=>e())
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(CancelController, "CancelController", "/home/vsts/work/1/s/src/utils/cancel-controller.ts")
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    c90b79b40c6328f03c9e: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            lY: ()=>_,
+            ve: ()=>f,
+            vq: ()=>m,
+            oo: ()=>p,
+            lC: ()=>h,
+            dk: ()=>v
+        }),
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -5304,15 +11111,141 @@
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         function o(e) {
-            const t = e.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")
-              , r = decodeURIComponent(atob(t).split("").map(function(e) {
-                return "%" + ("00" + e.charCodeAt(0).toString(16)).slice(-2)
-            }).join(""));
-            return JSON.parse(r)
+            var t = "0123456789abcdef"
+              , r = e;
+            return 0 == r || isNaN(e) ? "00" : (r = Math.round(Math.min(Math.max(0, r), 255)),
+            t.charAt((r - r % 16) / 16) + t.charAt(r % 16))
         }
+        function a(e) {
+            return o(e[0]) + o(e[1]) + o(e[2])
+        }
+        function n(e) {
+            return "#" == e.charAt(0) ? e.substring(1, 7) : e
+        }
+        function s(e) {
+            var t = [];
+            return t[0] = parseInt(n(e).substring(0, 2), 16),
+            t[1] = parseInt(n(e).substring(2, 4), 16),
+            t[2] = parseInt(n(e).substring(4, 6), 16),
+            t
+        }
+        function i(e, t, r) {
+            r /= 100;
+            const o = t * Math.min(r, 1 - r) / 100
+              , a = t=>{
+                const a = (t + e / 30) % 12
+                  , n = r - o * Math.max(Math.min(a - 3, 9 - a, 1), -1);
+                return Math.round(255 * n).toString(16).padStart(2, "0")
+            }
+            ;
+            return `#${a(0)}${a(8)}${a(4)}`
+        }
+        const c = e=>{
+            let[t,r,o] = s(e);
+            return h(t, r, o)
+        }
+        ;
+        function l(e, t) {
+            return Math.floor(Math.random() * (t - e) + e)
+        }
+        function _() {
+            return i(l(0, 360), 100, 50)
+        }
+        function d() {
+            const e = l(0, 360)
+              , t = (e + l(55, 305)) % 360;
+            return [i(e, 100, 50), i(t, 100, 50)]
+        }
+        function u(e, t, r) {
+            var o = s(e)
+              , n = s(t)
+              , i = r
+              , c = 0
+              , l = [];
+            for (let e = 0; e < i; e++) {
+                var _ = [];
+                c += 1 / i,
+                _[0] = o[0] * c + (1 - c) * n[0],
+                _[1] = o[1] * c + (1 - c) * n[1],
+                _[2] = o[2] * c + (1 - c) * n[2],
+                l.push("#" + a(_))
+            }
+            return l
+        }
+        const f = (e,t,r)=>{
+            let o, a, n;
+            if (0 == t)
+                o = a = n = r;
+            else {
+                const s = (e,t,r)=>(r < 0 && (r += 1),
+                r > 1 && (r -= 1),
+                r < 1 / 6 ? e + 6 * (t - e) * r : r < .5 ? t : r < 2 / 3 ? e + (t - e) * (2 / 3 - r) * 6 : e)
+                  , i = r < .5 ? r * (1 + t) : r + t - r * t
+                  , c = 2 * r - i;
+                o = s(c, i, e + 1 / 3),
+                a = s(c, i, e),
+                n = s(c, i, e - 1 / 3)
+            }
+            return [Math.round(255 * o), Math.round(255 * a), Math.round(255 * n)]
+        }
+          , m = (e,t,r)=>"#" + ((1 << 24) + (e << 16) + (t << 8) + r).toString(16).slice(1)
+          , p = e=>{
+            const t = parseInt(e, 16);
+            return [t >> 16 & 255, t >> 8 & 255, 255 & t]
+        }
+          , h = (e,t,r)=>{
+            let o = e / 255
+              , a = t / 255
+              , n = r / 255;
+            const s = Math.max(o, a, n)
+              , i = Math.min(o, a, n);
+            let c = (s + i) / 2
+              , l = (s + i) / 2
+              , _ = (s + i) / 2;
+            if (s == i)
+                c = 0,
+                l = 0;
+            else {
+                const e = s - i;
+                switch (l = _ > .5 ? e / (2 - s - i) : e / (s + i),
+                s) {
+                case o:
+                    c = (a - n) / e + (a < n ? 6 : 0);
+                    break;
+                case a:
+                    c = (n - o) / e + 2;
+                    break;
+                case n:
+                    c = (o - a) / e + 4
+                }
+                c /= 6
+            }
+            return [Math.floor(360 * c), Math.floor(100 * l), Math.floor(100 * _)]
+        }
+          , v = (e,t,r)=>{
+            const [o,a,n] = e
+              , [s,i,c] = h(o, a, n)
+              , [l,_,d] = f(s / 360, i * t / 100, c * r / 100);
+            return [l, _, d]
+        }
+        ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "decodeJWT", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/decode-jwt.ts")
+            e && (e.register(o, "hex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(a, "convertToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(n, "trim", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(s, "hexToRGB", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(i, "hslToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(c, "hexToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(l, "getRandomInt", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(_, "getBrightHexColor", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(d, "getRandomColorPair", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(u, "getColorGradient", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(f, "hslToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(m, "rgbToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(p, "hexToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(h, "rgbToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(v, "changeSaturationAndLightnessRgb", "/home/vsts/work/1/s/src/utils/colors.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5320,110 +11253,34 @@
         }()
     }
     ,
-    "9a38b7a3df13ee9da38a": (e,t,r)=>{
-        "use strict";
-        var o = r("de098c4daf91477f9cbc");
-        e = r.hmd(e),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const n = (e,t)=>{
-            window.File && window.FileReader && window.FileList && window.Blob ? e() : t()
-        }
-          , s = function() {
-            var e = (0,
-            o.Z)(function*(e, t) {
-                if (window.Windows) {
-                    const r = new window.KanoComputing.KpcUwpCore.WinRT.Storage.FilePicker
-                      , o = yield r.openAsync(e);
-                    t && o && t(JSON.parse(o))
-                } else {
-                    const r = document.createElement("input");
-                    r.setAttribute("type", "file"),
-                    r.setAttribute("accept", e),
-                    r.style.display = "none",
-                    r.addEventListener("change", e=>{
-                        const o = e.target.files[0];
-                        if (o) {
-                            const e = new FileReader;
-                            e.onload = (e=>{
-                                const r = JSON.parse(e.target.result);
-                                t(r)
-                            }
-                            ),
-                            e.readAsText(o),
-                            document.body.removeChild(r)
-                        }
-                    }
-                    ),
-                    document.body.appendChild(r),
-                    r.click()
-                }
-            });
-            return function(t, r) {
-                return e.apply(this, arguments)
-            }
-        }()
-          , i = function() {
-            var e = (0,
-            o.Z)(function*(e, t, r) {
-                if (window.Windows) {
-                    const r = new window.KanoComputing.KpcUwpCore.WinRT.Storage.FilePicker;
-                    yield r.saveAsync(JSON.stringify(e), t)
-                } else {
-                    const r = new Blob([JSON.stringify(e)],{
-                        type: "text/plain;charset=utf-8"
-                    });
-                    if (window.navigator && window.navigator.msSaveBlob)
-                        window.navigator.msSaveBlob(r, t);
-                    else {
-                        const e = URL.createObjectURL(r)
-                          , o = document.createElement("a");
-                        o.style.display = "none",
-                        o.href = e,
-                        o.download = t,
-                        o.click(),
-                        URL.revokeObjectURL(e)
-                    }
-                }
-                r && r()
-            });
-            return function(t, r, o) {
-                return e.apply(this, arguments)
-            }
-        }();
-        !function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(n, "CheckBrowserCompatibility", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/files.tsx"),
-            e.register(s, "ImportFile", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/files.tsx"),
-            e.register(i, "ExportFile", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/files.tsx"))
-        }(),
-        function() {
-            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            t && t(e)
-        }()
-    }
-    ,
-    "5f3058187c365cf2ae9c": (e,t,r)=>{
+    b194d90914e83db0f428: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            V: ()=>o.v4,
-            d: ()=>n
-        });
-        var o = r("fd2b14d16115f6fe0bc5");
+            Z: ()=>n
+        }),
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const n = ()=>(0,
-        o.v4)().replace(/-/g, "");
+        function o(e, t, r, o) {
+            if (o && (e *= 100,
+            t = t.map(e=>100 * e),
+            r = r.map(e=>100 * e)),
+            e < t[0] || e > t[1])
+                return NaN;
+            var a = t[1] - t[0]
+              , n = r[1] - r[0];
+            const s = (e - t[0]) * n / a + r[0];
+            return o ? s / 100 : s
+        }
+        const a = o
+          , n = a;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(n, "idGen", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/ids.tsx")
+            e && (e.register(o, "convertToRange", "/home/vsts/work/1/s/src/utils/convertToRange.ts"),
+            e.register(a, "default", "/home/vsts/work/1/s/src/utils/convertToRange.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5431,9 +11288,13 @@
         }()
     }
     ,
-    "24c3468e1121a922f01a": (e,t,r)=>{
+    "4f28e23b4abf5c56b2d8": (e,t,r)=>{
         "use strict";
-        var o = r("de098c4daf91477f9cbc");
+        r.d(t, {
+            l: ()=>n
+        });
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("557b135c7198835d5410");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -5442,36 +11303,27 @@
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const n = function() {
             var e = (0,
-            o.Z)(function*(e) {
-                return fetch(e).then(e=>e.arrayBuffer()).then(e=>new Blob([new Uint8Array(e)],{
-                    type: "image/png"
-                })).catch(e=>{
-                    throw e
-                }
-                )
+            o.Z)(function*(e, t) {
+                const r = yield(0,
+                a.Z)((0,
+                o.Z)(function*() {
+                    return fetch(e, {
+                        signal: t
+                    })
+                }), {
+                    functionName: "downloadBlob"
+                });
+                if (!r.ok)
+                    throw new Error("Request failed");
+                return yield r.blob()
             });
-            return function(t) {
-                return e.apply(this, arguments)
-            }
-        }()
-          , s = function() {
-            var e = (0,
-            o.Z)(function*(e) {
-                return new Promise(t=>{
-                    const r = new FileReader;
-                    r.onload = (e=>t(e.target.result)),
-                    r.readAsDataURL(e)
-                }
-                )
-            });
-            return function(t) {
+            return function(t, r) {
                 return e.apply(this, arguments)
             }
         }();
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(n, "GetBlobFromImage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/images.tsx"),
-            e.register(s, "BlobToDataURL", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/images.tsx"))
+            e && e.register(n, "downloadBlob", "/home/vsts/work/1/s/src/utils/downloadBlob.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5479,7 +11331,359 @@
         }()
     }
     ,
-    f1b4809f4fa3c0611b78: (module,__webpack_exports__,__webpack_require__)=>{
+    ae7c73bc2a0288473236: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            S: ()=>s
+        });
+        var o = r("de098c4daf91477f9cbc")
+          , a = r("09bf4ee68fa3c88cf6b2")
+          , n = r("4f28e23b4abf5c56b2d8");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const s = function() {
+            var e = (0,
+            o.Z)(function*(e, t, r) {
+                const o = yield(0,
+                n.l)(e, r)
+                  , s = a.extension(o.type);
+                return new File([o],`${t}.${s}`)
+            });
+            return function(t, r, o) {
+                return e.apply(this, arguments)
+            }
+        }();
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(s, "downloadFile", "/home/vsts/work/1/s/src/utils/downloads.ts")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    c0326c9d650a633c92d0: (module,__webpack_exports__,__webpack_require__)=>{
+        "use strict";
+        __webpack_require__.d(__webpack_exports__, {
+            V: ()=>featureFlags
+        }),
+        module = __webpack_require__.hmd(module),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            e && e(module)
+        }();
+        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
+        }
+        ;
+        const FLAGS = ["theme-light", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water"]
+          , LOCAL_STORAGE_KEY = "spFeatureFlags";
+        class FeatureFlags {
+            constructor(e, t) {
+                this.flags = void 0,
+                this.on = void 0,
+                this.localStorageKey = void 0,
+                this.flags = e,
+                this.localStorageKey = t,
+                this.on = [];
+                const r = localStorage.getItem(this.localStorageKey);
+                if (r && r.length > 0) {
+                    const e = JSON.parse(r);
+                    Array.isArray(e) && (this.on = e)
+                }
+            }
+            updateFromUrlParams() {
+                const e = new URLSearchParams(location.search);
+                if (e.has("on")) {
+                    const t = e.get("on");
+                    this.setFlag(t)
+                }
+                if (e.has("off")) {
+                    const t = e.get("off");
+                    this.clearFlag(t)
+                }
+            }
+            setFlag(e) {
+                if (!this.flags.includes(e))
+                    throw new Error(`Unknown feature flag ${e}`);
+                this.on.includes(e) || (this.on.push(e),
+                this.commitFlags())
+            }
+            clearFlag(e) {
+                if (!this.flags.includes(e))
+                    throw new Error(`Unknown feature flag ${e}`);
+                this.on.includes(e) && (this.on = this.on.filter(t=>t !== e),
+                this.commitFlags())
+            }
+            clearAll() {
+                this.on = [],
+                this.commitFlags()
+            }
+            hasFlag(e) {
+                return this.flags.includes(e) && this.on.includes(e)
+            }
+            commitFlags() {
+                localStorage.setItem(this.localStorageKey, JSON.stringify(this.on))
+            }
+            __reactstandin__regenerateByEval(key, code) {
+                this[key] = eval(code)
+            }
+        }
+        const featureFlags = new FeatureFlags(FLAGS,LOCAL_STORAGE_KEY);
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(FLAGS, "FLAGS", "/home/vsts/work/1/s/src/utils/feature-flags.ts"),
+            e.register(LOCAL_STORAGE_KEY, "LOCAL_STORAGE_KEY", "/home/vsts/work/1/s/src/utils/feature-flags.ts"),
+            e.register(FeatureFlags, "FeatureFlags", "/home/vsts/work/1/s/src/utils/feature-flags.ts"),
+            e.register(featureFlags, "featureFlags", "/home/vsts/work/1/s/src/utils/feature-flags.ts"))
+        }(),
+        function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            e && e(module)
+        }()
+    }
+    ,
+    "3c15b862d899a16e9481": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            vJ: ()=>o,
+            ee: ()=>a,
+            $r: ()=>n
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = e=>{
+            var t;
+            let r = e.metadata && e.metadata.artists && e.metadata.artists.length > 0 ? e.metadata.artists[0] : null !== (t = e.metadata) && void 0 !== t && t.artist ? e.metadata.artist : e.artist ? e.artist : "";
+            return r
+        }
+          , a = e=>{
+            var t;
+            let r = null !== e && void 0 !== e && e.title ? e.title : null !== e && void 0 !== e && e.metadata && null !== e && void 0 !== e && e.metadata.title ? null === e || void 0 === e ? void 0 : null === (t = e.metadata) || void 0 === t ? void 0 : t.title : "";
+            return r
+        }
+          , n = (e,t)=>e;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(o, "filteredTrackArtist", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
+            e.register(a, "filterTrackTitle", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"),
+            e.register(n, "filteredTrackTitle", "/home/vsts/work/1/s/src/utils/filteredTrackMetadata.js"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    da23a0dbab1fa75005eb: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            hA: ()=>a,
+            kd: ()=>n,
+            Rx: ()=>s,
+            pG: ()=>i
+        });
+        var o = r("3f02c5877d4690b5563c");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const a = 120
+          , n = 1
+          , s = e=>{
+            if (void 0 === e)
+                return 180;
+            return -1 === (0,
+            o.Ee)(e, "1.0.1551") ? 180 : 250
+        }
+          , i = e=>{
+            switch (e) {
+            case 2:
+                return "TWO";
+            case 3:
+                return "THREE";
+            case 4:
+                return "FOUR";
+            default:
+                return ""
+            }
+        }
+        ;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(a, "DEFAULT_BPM", "/home/vsts/work/1/s/src/utils/forms.ts"),
+            e.register(n, "MIN_BPM", "/home/vsts/work/1/s/src/utils/forms.ts"),
+            e.register(s, "getMaxBpm", "/home/vsts/work/1/s/src/utils/forms.ts"),
+            e.register(i, "numberAsWord", "/home/vsts/work/1/s/src/utils/forms.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "4f64e9a1f5202b774215": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>s
+        });
+        var o = r("89fa59dfd48f288c4600");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const a = (0,
+        o.Z)()
+          , n = a
+          , s = n;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(a, "history", "/home/vsts/work/1/s/src/utils/history.ts"),
+            e.register(n, "default", "/home/vsts/work/1/s/src/utils/history.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    a251fa0b0449b11ba1dd: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            T: ()=>s
+        });
+        var o = r("c7b40aca13c4330396a9")
+          , a = r.n(o);
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        function n() {
+            return a()().replace(/-/g, "")
+        }
+        function s() {
+            return n().substring(0, 8)
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(n, "idGen", "/home/vsts/work/1/s/src/utils/ids.ts"),
+            e.register(s, "shortId", "/home/vsts/work/1/s/src/utils/ids.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    e2161c2bb2fb866f34ce: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            t: ()=>o
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        function o(e, t, r) {
+            return e * (1 - r) + t * r
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(o, "lerp", "/home/vsts/work/1/s/src/utils/lerp.ts")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    a60417c8351c73d4238a: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Rp: ()=>o,
+            BS: ()=>n
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        function o(e, t, r) {
+            if (r >= e.length) {
+                let t = r - e.length + 1;
+                for (; t--; )
+                    e.push(void 0)
+            }
+            const o = e.splice(t, 1)[0];
+            e.splice(r, 0, o)
+        }
+        const a = e=>{
+            if (!e.target)
+                return !1;
+            let t = e.target;
+            return "svg" === t.tagName ? t = e.target.parentNode : "path" === t.tagName && (t = e.target.parentNode.parentNode),
+            !("BUTTON" !== t.tagName || !t.classList.contains("buy-button__play"))
+        }
+        ;
+        function n(e, t) {
+            return e && "string" === typeof e ? e.substring(0, t) : e
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(o, "arrayMove", "/home/vsts/work/1/s/src/utils/misc.ts"),
+            e.register(a, "clickedPlayButton", "/home/vsts/work/1/s/src/utils/misc.ts"),
+            e.register(n, "maxLength", "/home/vsts/work/1/s/src/utils/misc.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "33f12881a4b6c417b540": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Z: ()=>a
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = e=>{
+            window.preventScroll && e.preventDefault()
+        }
+          , a = o;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(o, "default", "/home/vsts/work/1/s/src/utils/preventScrollHandler.js")
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "971fd0ff834a938d5a3d": (module,__webpack_exports__,__webpack_require__)=>{
         "use strict";
         __webpack_require__.d(__webpack_exports__, {
             C: ()=>DeferredPromise
@@ -5510,7 +11714,7 @@
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(DeferredPromise, "DeferredPromise", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/promises.ts")
+            e && e.register(DeferredPromise, "DeferredPromise", "/home/vsts/work/1/s/src/utils/promises.ts")
         }(),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5518,27 +11722,39 @@
         }()
     }
     ,
-    f490dda1e1d509b598a4: (e,t,r)=>{
+    "553c2c26a5c8a1e6fec3": (e,t,r)=>{
         "use strict";
+        r.d(t, {
+            s: ()=>a
+        });
+        var o = r("8af190b70a6bc55c6f1b");
+        function a() {
+            const e = (0,
+            o.useRef)(!1);
+            return (0,
+            o.useEffect)(function() {
+                return e.current = !0,
+                function() {
+                    e.current = !1
+                }
+            }, []),
+            (0,
+            o.useCallback)(function() {
+                return e.current
+            }, [e])
+        }
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
-        }();
-        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        const o = (e,t)=>{
-            const r = (t ? t.substring(1) : window.location.search.substring(1)).split("&");
-            for (var o = 0; o < r.length; o++) {
-                const t = r[o].split("=");
-                if (decodeURIComponent(t[0]) == e)
-                    return decodeURIComponent(t[1])
-            }
-            return null
+        }(),
+        ("undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+            return e
         }
-        ;
-        !function() {
+        )(a, "useRef{mountedRef}\nuseEffect{}\nuseCallback{}"),
+        function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "getQueryVariable", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/regex.ts")
+            e && e.register(a, "useMounted", "/home/vsts/work/1/s/src/utils/react-is-mounted.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5546,289 +11762,110 @@
         }()
     }
     ,
-    c3d218e3b357d5490975: (module,__webpack_exports__,__webpack_require__)=>{
+    "63922d5ff7825dcb0b86": (e,t,r)=>{
         "use strict";
-        __webpack_require__.d(__webpack_exports__, {
-            mM: ()=>LocalStorage,
-            Hh: ()=>getCookieStorage,
-            eR: ()=>CookieStorage,
-            PM: ()=>getCrossDomainStorage
-        });
-        var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("de098c4daf91477f9cbc")
-          , _cross_domain_storage_guest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a4655733f713b286a10c");
-        module = __webpack_require__.hmd(module),
+        r.d(t, {
+            b3: ()=>o,
+            xb: ()=>a,
+            vu: ()=>n
+        }),
+        e = r.hmd(e),
         function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
-            e && e(module)
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
         }();
-        var __signature__ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        function o(e) {
+            var t = document.createElement("a");
+            return t.href = e,
+            t.host && t.host != window.location.host
         }
-        ;
-        const CROSSDOMAIN_HOST_PER_ENVIRONMENT = {
-            production: "https://kano-cross-domain-storage.netlify.app"
-        };
-        class Storage {
-            constructor() {
-                var e = this;
-                this.env = void 0,
-                this.setKey = ((e,t)=>`${this.env}_${t ? `${t}_` : ""}${e}`),
-                this.read = ((e,t)=>{
-                    const r = this.setKey(e, t);
-                    return localStorage.getItem(r)
-                }
-                ),
-                this.write = ((e,t,r)=>{
-                    const o = this.setKey(e, r);
-                    localStorage.setItem(o, t)
-                }
-                ),
-                this.remove = function() {
-                    var t = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__.Z)(function*(t, r) {
-                        const o = e.setKey(t, r);
-                        return localStorage.removeItem(o)
-                    });
-                    return function(e, r) {
-                        return t.apply(this, arguments)
-                    }
-                }(),
-                this.env = "staging"
-            }
-            __reactstandin__regenerateByEval(key, code) {
-                this[key] = eval(code)
-            }
+        function a(e) {
+            return !e || 0 === e.length
         }
-        const _default = Storage;
-        var __WEBPACK_DEFAULT_EXPORT__ = _default;
-        const read = e=>localStorage.getItem(e)
-          , write = (e,t)=>{
-            localStorage.setItem(e, t)
+        function n(e) {
+            return !isNaN(Number(e))
         }
-          , remove = function() {
-            var e = (0,
-            _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__.Z)(function*(e) {
-                return localStorage.removeItem(e)
-            });
-            return function(t) {
-                return e.apply(this, arguments)
-            }
-        }()
-          , LocalStorage = {
-            read: read,
-            write: write,
-            remove: remove
-        };
-        function encode(e) {
-            return encodeURIComponent(e)
-        }
-        function decode(e) {
-            return decodeURIComponent(e)
-        }
-        function isArray(e) {
-            return e instanceof Array
-        }
-        const getCookieStorage = ()=>{
-            return {
-                read: function(e) {
-                    const t = !!e.name && `staging_${e.name}`;
-                    if (!t)
-                        return;
-                    const r = document.cookie.split(t + "=");
-                    return 2 === r.length ? decode(r.pop().split(";").shift()) : void 0
-                },
-                create: function(e) {
-                    const t = !!e.name && `staging_${e.name}`;
-                    if (e.value = e.value || "",
-                    e.expires = e.expires || !1,
-                    e.path = e.path || "/",
-                    e.domain = e.domain || "kano.me",
-                    "string" === typeof t) {
-                        const r = encode(t) + "=" + encode(e.value) + ";"
-                          , o = "path=" + e.path + ";"
-                          , n = e.domain ? "domain=" + e.domain + ";" : ""
-                          , s = e.secure ? "secure;" : ""
-                          , i = e.httpOnly ? "httpOnly;" : "";
-                        let a = "";
-                        if ("number" === typeof e.expires) {
-                            a = "expires=" + new Date((new Date).getTime() + 1e3 * parseInt(e.expires.toString(), 10) * 60 * 60 * 24).toUTCString() + ";"
-                        } else
-                            e.expires instanceof Date && (a = "expires=" + e.expires.toUTCString() + ";");
-                        return document.cookie = r + a + o + n + s + i,
-                        !0
-                    }
-                    return !1
-                },
-                keys: function() {
-                    const e = []
-                      , t = document.cookie ? document.cookie.split("; ") : [];
-                    let r = t.length;
-                    if (!t)
-                        return t;
-                    for (; r--; ) {
-                        let o = t[r].split("=");
-                        e.push(decode(o[0]))
-                    }
-                    return e
-                },
-                values: function() {
-                    const e = []
-                      , t = document.cookie ? document.cookie.split("; ") : [];
-                    let r = t.length;
-                    if (!t)
-                        return t;
-                    for (; r--; ) {
-                        let o = t[r].split("=");
-                        e.push(decode(o[1]))
-                    }
-                    return e
-                },
-                exists: function(e) {
-                    if (e && e.name)
-                        return !!this.read(e)
-                },
-                listAsString: function() {
-                    let e, t = "", r = document.cookie ? document.cookie.split("; ") : [], o = r.length;
-                    if (!r)
-                        return t;
-                    for (; o--; )
-                        t += [o] + " " + decode((e = r[o].split("="))[0]) + "=" + decode(e[1]) + "\n";
-                    return t.trim()
-                },
-                listAsObject: function() {
-                    let e, t = {}, r = document.cookie ? document.cookie.split("; ") : [], o = r.length;
-                    if (!r)
-                        return t;
-                    for (; o--; )
-                        t[decode((e = r[o].split("="))[0])] = decode(e[1]);
-                    return t
-                },
-                listAsArray: function() {
-                    let e, t = [], r = document.cookie ? document.cookie.split("; ") : [], o = r.length;
-                    if (!r)
-                        return t;
-                    for (; o--; )
-                        e = r[o].split("="),
-                        t.push({
-                            name: decode(e[0]),
-                            value: decode(e[1])
-                        });
-                    return t
-                },
-                listAs2dArray: function() {
-                    let e, t = [], r = document.cookie ? document.cookie.split("; ") : [], o = r.length;
-                    if (!r)
-                        return t;
-                    for (; o--; )
-                        e = r[o].split("="),
-                        t.push([decode(e[0]), decode(e[1])]);
-                    return t
-                },
-                remove: function(e) {
-                    if (e)
-                        return !!this.read(e) && this.create({
-                            name: e.name,
-                            value: "",
-                            expires: -1,
-                            path: e.path,
-                            domain: e.domain
-                        })
-                },
-                clear: function(e) {
-                    function t(e) {
-                        for (let t = 0; t < e.length; t++)
-                            this.remove({
-                                name: e[t]
-                            })
-                    }
-                    if (e)
-                        if (isArray(e.name)) {
-                            let r = e.name;
-                            t.call(this, r)
-                        } else
-                            this.remove(e);
-                    else {
-                        let e = this.keys();
-                        t.call(this, e)
-                    }
-                },
-                enabled: function() {
-                    if (navigator.cookieEnabled) {
-                        this.create({
-                            name: "test",
-                            value: "$0bee9a46d9d9f14cwjafa&45f&dg88"
-                        });
-                        let e = "$0bee9a46d9d9f14cwjafa&45f&dg88" === this.read({
-                            name: "test"
-                        });
-                        return this.remove({
-                            name: "test"
-                        }),
-                        e
-                    }
-                    return !1
-                },
-                get length() {
-                    return document.cookie.split("; ").length
-                }
-            }
-        }
-          , CookieStorage = getCookieStorage()
-          , getCrossDomainStorage = ()=>{
-            const e = CROSSDOMAIN_HOST_PER_ENVIRONMENT.staging || "https://staging-kano-cross-domain-storage.netlify.app";
-            let t = (0,
-            _cross_domain_storage_guest__WEBPACK_IMPORTED_MODULE_0__.a)(e)
-              , r = !1;
-            return {
-                read: e=>new Promise((o,n)=>{
-                    r && n(r),
-                    t.get(e, (e,t)=>e ? (console.log("cross-domain-storage: " + e),
-                    r = !0,
-                    n(e)) : o(t))
-                }
-                ),
-                write: (e,o)=>new Promise((n,s)=>{
-                    r && s(r),
-                    t.set(e, o, (e,t)=>e ? (console.log("cross-domain-storage: " + e),
-                    r = !0,
-                    s(e)) : n(t || o))
-                }
-                ),
-                remove: e=>new Promise((o,n)=>{
-                    r && n(r),
-                    t.remove(e, (t,s)=>t ? (console.log("cross-domain-storage: " + t),
-                    r = !0,
-                    n(t)) : o(s || e))
-                }
-                )
-            }
-        }
-          , CrossDomainStorage = getCrossDomainStorage();
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(CROSSDOMAIN_HOST_PER_ENVIRONMENT, "CROSSDOMAIN_HOST_PER_ENVIRONMENT", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(Storage, "Storage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(read, "read", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(write, "write", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(remove, "remove", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(LocalStorage, "LocalStorage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(encode, "encode", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(decode, "decode", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(isArray, "isArray", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(getCookieStorage, "getCookieStorage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(CookieStorage, "CookieStorage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(getCrossDomainStorage, "getCrossDomainStorage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(CrossDomainStorage, "CrossDomainStorage", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"),
-            e.register(_default, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/storage.tsx"))
+            e && (e.register(o, "validURL", "/home/vsts/work/1/s/src/utils/regex.ts"),
+            e.register(a, "isEmpty", "/home/vsts/work/1/s/src/utils/regex.ts"),
+            e.register(n, "isValidBpm", "/home/vsts/work/1/s/src/utils/regex.ts"))
         }(),
         function() {
-            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
-            e && e(module)
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
         }()
     }
     ,
-    fd982c4d772536042d90: (e,t,r)=>{
+    "5a530d159ab46bd0cea7": (e,t,r)=>{
         "use strict";
+        r.d(t, {
+            Z: ()=>n
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = ()=>{
+            const e = document.querySelectorAll(".ye-waveform--loading")
+              , t = document.querySelectorAll(".mini-player__stems--loading")
+              , r = document.querySelectorAll(".mini-player-shader__stems--loading");
+            e.length > 0 && e.forEach(e=>{
+                e.style.animationName = "none",
+                requestAnimationFrame(()=>{
+                    setTimeout(()=>{
+                        e.style.animationName = ""
+                    }
+                    , 0)
+                }
+                )
+            }
+            ),
+            t.length > 0 && t.forEach(e=>{
+                e.style.animationName = "none",
+                requestAnimationFrame(()=>{
+                    setTimeout(()=>{
+                        e.style.animationName = ""
+                    }
+                    , 0)
+                }
+                )
+            }
+            ),
+            r.length > 0 && r.forEach(e=>{
+                e.style.animationName = "none",
+                requestAnimationFrame(()=>{
+                    setTimeout(()=>{
+                        e.style.animationName = ""
+                    }
+                    , 0)
+                }
+                )
+            }
+            )
+        }
+          , a = o
+          , n = a;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(o, "restartLoadingAnimations", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"),
+            e.register(a, "default", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "957d24b63b1050799be8": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            yU: ()=>o,
+            Dc: ()=>a
+        }),
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -5836,35 +11873,31 @@
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const o = {
-            minute: "less than a minute",
-            minutes: "%d minutes",
-            hour: "less than an hour",
-            hours: "%d hours",
-            day: "1 day",
-            days: "%d days",
-            month: "1 month",
-            months: "%d months",
-            year: "1 year",
-            years: "%d years"
+            default: {
+                background: "#959595",
+                main: "#252525"
+            },
+            light: {
+                background: "white",
+                main: "#424145"
+            },
+            dark: {
+                background: "#6b7475",
+                main: "#a8a28a"
+            }
+        };
+        function a(e) {
+            document.documentElement.style.setProperty("--color-background", e.background),
+            document.documentElement.style.setProperty("--color-main", e.main)
         }
-          , n = (e,t,r=o)=>{
-            return r[e > 1 ? `${t}s` : t].replace(/%d/, `${e}`)
+        function n(e) {
+            document.documentElement.style.setProperty("--color-main", e)
         }
-          , s = (e,t=o)=>{
-            const r = /Z$/.test(e) ? e : `${e}Z`
-              , s = new Date(Date.parse(r))
-              , i = new Date
-              , a = Math.abs(Math.floor((i - s) / 1e3));
-            let u = Math.floor(a / 31536e3);
-            return u >= 1 ? n(u, "year", t) : (u = Math.floor(a / 2592e3)) >= 1 ? n(u, "month", t) : (u = Math.floor(a / 86400)) >= 1 ? n(u, "day", t) : (u = Math.floor(a / 3600)) >= 1 ? n(u, "hour", t) : (u = Math.floor(a / 60),
-            n(u, "minute", t))
-        }
-        ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "defaultLocales", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/timeago.ts"),
-            e.register(n, "timeAgo", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/timeago.ts"),
-            e.register(s, "timeSince", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/timeago.ts"))
+            e && (e.register(o, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(a, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(n, "setColor", "/home/vsts/work/1/s/src/utils/themes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5872,40 +11905,466 @@
         }()
     }
     ,
-    c30e015ff5e58ebe2ef1: (e,t,r)=>{
+    "6792dda0bcc4906dd1ad": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            D: ()=>s
-        });
-        var o = r("8af190b70a6bc55c6f1b");
+            $: ()=>o
+        }),
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var n = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
-            return e
-        }
-        ;
-        const s = e=>{
-            const t = (0,
-            o.useRef)();
-            return (0,
-            o.useEffect)(()=>{
-                t.current = e
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = (e,t,r)=>{
+            var o;
+            void 0 === t && (t = !1),
+            void 0 === r && (r = !1),
+            void 0 !== document.hidden ? o = {
+                hidden: "hidden",
+                visibilitychange: "visibilitychange"
+            } : void 0 !== document.webkitHidden ? o = {
+                hidden: "webkitHidden",
+                visibilitychange: "webkitvisibilitychange"
+            } : void 0 !== document.mozHidden ? o = {
+                hidden: "mozHidden",
+                visibilitychange: "mozvisibilitychange"
+            } : void 0 !== document.msHidden && (o = {
+                hidden: "msHidden",
+                visibilitychange: "msvisibilitychange"
+            });
+            const a = (e,t,r,o,a)=>{
+                for (var n = 0; n < t.length; ++n)
+                    e.addEventListener(t[n], r, {
+                        capture: o,
+                        passive: a
+                    })
             }
-            ),
-            t.current
+              , n = (e,t,r,o,a)=>{
+                for (var n = 0; n < t.length; ++n)
+                    e.removeEventListener(t[n], r, {
+                        capture: o,
+                        passive: a
+                    })
+            }
+              , s = ()=>{}
+            ;
+            var i = navigator.userAgent.toLowerCase()
+              , c = r || i.indexOf("iphone") >= 0 && i.indexOf("like iphone") < 0 || i.indexOf("ipad") >= 0 && i.indexOf("like ipad") < 0 || i.indexOf("ipod") >= 0 && i.indexOf("like ipod") < 0 || i.indexOf("mac os x") >= 0 && navigator.maxTouchPoints > 0;
+            console.log("unmute is ios: ", c);
+            var l = !0;
+            const _ = ()=>{
+                var e = !(!t && (o && document[o.hidden] || c && !document.hasFocus()));
+                e !== l && (l = e,
+                b(!1),
+                f())
+            }
+              , d = ()=>{
+                _()
+            }
+            ;
+            o && a(document, [o.visibilitychange], d, !0, !0);
+            const u = e=>{
+                e && e.target !== window || _()
+            }
+            ;
+            c && a(window, ["focus", "blur"], u, !0, !0);
+            const f = ()=>{
+                var t;
+                l ? "running" !== e.state && "closed" !== e.state && y && (t = e.resume()) && t.then(s, s).catch(s) : "running" === e.state && (t = e.suspend()) && t.then(s, s).catch(s)
+            }
+              , m = e=>{
+                e && e.unmute_handled || (e.unmute_handled = !0,
+                f())
+            }
+            ;
+            a(e, ["statechange"], m, !0, !0),
+            e.onstatechange || (e.onstatechange = m);
+            var p = null;
+            function h(e, t) {
+                for (var r = t; e > 1; e--)
+                    r += t;
+                return r
+            }
+            var v = "data:audio/mpeg;base64,//uQx" + h(23, "A") + "WGluZwAAAA8AAAACAAACcQCA" + h(16, "gICA") + h(66, "/") + "8AAABhTEFNRTMuMTAwA8MAAAAAAAAAABQgJAUHQQAB9AAAAnGMHkkI" + h(320, "A") + "//sQxAADgnABGiAAQBCqgCRMAAgEAH" + h(15, "/") + "7+n/9FTuQsQH//////2NG0jWUGlio5gLQTOtIoeR2WX////X4s9Atb/JRVCbBUpeRUq" + h(18, "/") + "9RUi0f2jn/+xDECgPCjAEQAABN4AAANIAAAAQVTEFNRTMuMTAw" + h(97, "V") + "Q==";
+            const b = e=>{
+                if (c)
+                    if (l) {
+                        if (e) {
+                            if (!p) {
+                                var t = document.createElement("div");
+                                t.innerHTML = "<audio x-webkit-airplay='deny'></audio>",
+                                (p = t.children.item(0)).controls = !1,
+                                p.disableRemotePlayback = !0,
+                                p.preload = "auto",
+                                p.src = v,
+                                p.loop = !0,
+                                p.load()
+                            }
+                            if (p.paused) {
+                                var r = p.play();
+                                r && r.then(s, E).catch(E)
+                            }
+                        }
+                    } else
+                        E()
+            }
+              , E = ()=>{
+                p && (p.src = "about:blank",
+                p.load(),
+                p = null)
+            }
+            ;
+            var g = ["click", "contextmenu", "auxclick", "dblclick", "mousedown", "mouseup", "touchend", "keydown", "keyup"]
+              , y = !1;
+            const P = ()=>{
+                y = !0,
+                b(!0),
+                f()
+            }
+            ;
+            return a(window, g, P, !0, !0),
+            {
+                dispose: ()=>{
+                    E(),
+                    o && n(document, [o.visibilitychange], d, !0, !0),
+                    c && n(window, ["focus", "blur"], u, !0, !0),
+                    n(window, g, P, !0, !0),
+                    n(e, ["statechange"], m, !0, !0),
+                    e.onstatechange === m && (e.onstatechange = null)
+                }
+            }
         }
         ;
-        n(s, "useRef{ref}\nuseEffect{}"),
-        function() {
+        !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(s, "usePrevious", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/src/utils/use-previous.tsx")
+            e && e.register(o, "unmute", "/home/vsts/work/1/s/src/utils/unmute.js")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
             t && t(e)
         }()
     }
-}]);
+    ,
+    "50adafd66d905a6a5399": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            Xb: ()=>c,
+            tJ: ()=>l
+        });
+        var o = r("990057777e9b2b7543e8")
+          , a = r("de098c4daf91477f9cbc")
+          , n = r("590e518eaa9efe3ab6d3");
+        function s(e, t) {
+            var r = Object.keys(e);
+            if (Object.getOwnPropertySymbols) {
+                var o = Object.getOwnPropertySymbols(e);
+                t && (o = o.filter(function(t) {
+                    return Object.getOwnPropertyDescriptor(e, t).enumerable
+                })),
+                r.push.apply(r, o)
+            }
+            return r
+        }
+        function i(e) {
+            for (var t = 1; t < arguments.length; t++) {
+                var r = null != arguments[t] ? arguments[t] : {};
+                t % 2 ? s(Object(r), !0).forEach(function(t) {
+                    (0,
+                    o.Z)(e, t, r[t])
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : s(Object(r)).forEach(function(t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
+                })
+            }
+            return e
+        }
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const c = function() {
+            var e = (0,
+            a.Z)(function*() {
+                if (navigator && navigator.usb) {
+                    const e = yield navigator.usb.getDevices();
+                    return e.length > 0 && !!e.map(e=>e.productName ? e.productName : null).find(e=>"STEM PLAYER" === e.toUpperCase())
+                }
+                return !1
+            });
+            return function() {
+                return e.apply(this, arguments)
+            }
+        }()
+          , l = function() {
+            var e = (0,
+            a.Z)(function*(e, t, r, o, a, s) {
+                const {fetchDeviceAlbums: c, deviceAlbums: l, deviceConnected: d} = s;
+                if (!d)
+                    return !1;
+                if ("" === e.trim())
+                    return !1;
+                if ("" === t.trim())
+                    return !1;
+                if ("" === r.trim())
+                    return !1;
+                if (!(0,
+                n.G5)(o))
+                    return !1;
+                if (!(0,
+                n.G5)(a))
+                    return !1;
+                yield c();
+                try {
+                    const n = yield _(e, s);
+                    if (null !== n) {
+                        const e = n.tracks[0]
+                          , c = i(i({}, e), {}, {
+                            title: t,
+                            artist: r,
+                            colors: [o, a]
+                        });
+                        yield s.editTrackMetadataSimple(n.id, e.id, c);
+                        yield s.fetchDeviceAlbums();
+                        return !0
+                    }
+                    return !1
+                } catch (e) {
+                    return console.error(e),
+                    !1
+                }
+            });
+            return function(t, r, o, a, n, s) {
+                return e.apply(this, arguments)
+            }
+        }()
+          , _ = function() {
+            var e = (0,
+            a.Z)(function*(e, t) {
+                const {fetchDeviceAlbums: r, deviceAlbums: o, deviceConnected: a} = t;
+                if (!1 === a)
+                    return null;
+                yield r();
+                const n = Object.values(o).find(t=>{
+                    if (t.tracks.filter(t=>t.global_id === e).length > 0)
+                        return t
+                }
+                );
+                if (void 0 === n)
+                    return null;
+                const s = n.tracks.filter(t=>t.global_id === e)
+                  , i = JSON.parse(JSON.stringify(n));
+                return i.tracks = JSON.parse(JSON.stringify(s)),
+                i
+            });
+            return function(t, r) {
+                return e.apply(this, arguments)
+            }
+        }();
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(c, "isConnectedInAnotherTab", "/home/vsts/work/1/s/src/utils/usb.ts"),
+            e.register(l, "editUserTrackMetadataWithTrackId", "/home/vsts/work/1/s/src/utils/usb.ts"),
+            e.register(_, "searchTrackLocationOnDevice", "/home/vsts/work/1/s/src/utils/usb.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "590e518eaa9efe3ab6d3": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            oH: ()=>o,
+            uo: ()=>a,
+            G5: ()=>n
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        function o(e) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
+        }
+        function a(e) {
+            return !!(e.length >= 8)
+        }
+        function n(e) {
+            if ("" === e.trim())
+                return !1;
+            if ("#" != e[0])
+                return !1;
+            if (4 != e.length && 7 != e.length)
+                return !1;
+            for (let t = 1; t < e.length; t++)
+                if (!(e[t].charCodeAt(0) <= "0".charCodeAt(0) && e[t].charCodeAt(0) <= 9 || e[t].charCodeAt(0) >= "a".charCodeAt(0) && e[t].charCodeAt(0) <= "f".charCodeAt(0) || e[t].charCodeAt(0) >= "A".charCodeAt(0) || e[t].charCodeAt(0) <= "F".charCodeAt(0)))
+                    return !1;
+            return !0
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(o, "validateEmail", "/home/vsts/work/1/s/src/utils/validate.ts"),
+            e.register(a, "validatePassword", "/home/vsts/work/1/s/src/utils/validate.ts"),
+            e.register(n, "validHexaCode", "/home/vsts/work/1/s/src/utils/validate.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "238af0e74d3daf256b28": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            lo: ()=>a,
+            f1: ()=>s,
+            tX: ()=>i,
+            xd: ()=>c,
+            Jb: ()=>l
+        });
+        var o = r("e2161c2bb2fb866f34ce");
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const a = [.1, .1];
+        function n(e) {
+            const t = {};
+            return Object.keys(e).map(r=>{
+                t[r] = e[r].map(e=>0 === e ? e : e / 100)
+            }
+            ),
+            t
+        }
+        function s(e) {
+            return e.map(e=>0 === e ? e : e / 100)
+        }
+        function i(e, t, r, o, a) {
+            if (a || 0 === r || t === r)
+                return 0;
+            if (e) {
+                const r = Math.round(t * o);
+                return r >= e.length ? 0 : e[r] / 100
+            }
+            return 0
+        }
+        function c(e, t) {
+            const r = e.length / t
+              , a = Math.floor(r / 10) || 1;
+            let n = [];
+            if (t <= 0)
+                return n;
+            if (!e || 0 === e.length) {
+                for (let e = 0; e < t; e += 1)
+                    n.push(0);
+                return n
+            }
+            if (e.length > t)
+                for (let o = 0; o < t; o += 1) {
+                    const t = Math.floor(o * r)
+                      , s = Math.floor(t + r);
+                    let i = 0;
+                    for (let r = t; r < s; r += a) {
+                        const t = (e[r] - 50) / 100;
+                        t > i && (i = t)
+                    }
+                    n.push(i)
+                }
+            else if (e.length < t)
+                for (let r = 0; r < t; r += 1) {
+                    const a = t / (e.length - 1)
+                      , s = Math.floor(r / a)
+                      , i = s * a
+                      , c = Math.min(i + a, t - 1) - i
+                      , l = (0,
+                    o.t)(e[s], e[s + 1], (r - i) / c);
+                    n.push(l)
+                }
+            else
+                n = e;
+            let s = 0;
+            for (let e = 0; e < n.length; e += 1) {
+                const t = n[e];
+                t > s && (s = t)
+            }
+            return s > 0 ? n.map(e=>e / s) : n
+        }
+        function l(e) {
+            return void 0 !== e && void 0 !== e.vocals.intensity
+        }
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && (e.register(a, "FALLBACK_WAVEFORM_DATA", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e.register(n, "parseFetchedWaveformData", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e.register(s, "parseFetchedWaveformDataIndividual", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e.register(i, "getIntensityAtMoment", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e.register(c, "getWaveformPeaks", "/home/vsts/work/1/s/src/utils/waveforms.ts"),
+            e.register(l, "isIntensityWaveform", "/home/vsts/work/1/s/src/utils/waveforms.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    "49c109a56bd7c2e379fd": (e,t,r)=>{
+        "use strict";
+        r.p
+    }
+    ,
+    "2cc3443f170f92e6c07f": (e,t,r)=>{
+        "use strict";
+        r.p
+    }
+    ,
+    "5fc49946715057305344": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAMAAAC9O9snAAAAM1BMVEVHcEzn5+eZmZk6Ojr///////8BAQH///////////8gICBaWlqAgIC/v79wcHDPz8+vr6/mwDFFAAAACnRSTlMA////kP//YJ/fL/cdewAAAjFJREFUeNrtm91yqzAMhCP5ZNv6l/d/2l4AJyIDLReZyZZZ3woNn7Etay18uxG2jy+29u/2cWdrn2ISk5jEdH0mMzYmB1CMiskBAImKKQEAMJiYZiRM+k5n5lMhW3eZbt1RxiftLWK6OpPVUgYXk2UAcCqmMu8txsTEuAcvTI2JqQMAsvHN8YkrFty9u93JmBTHxXR1JmuDjakCSNLm0uYv/U5Ue3ADAHQ+bV4VM8UkJmnznpJzMRn4tHmSNv+z2rzO2pxrjqeXpXQvjE9TlTYXk5jEJCYx7TC13h/phnkJ20XrvR2YjrRx7xY8esj4pl6PTM9MNQpsywDyiKYas8rfDuhL9Jg2HikmpY6no6sN05zArg+neKQ0bfKjfOK0yXc8ysZk8aX1gGlOghbP5dnFs0fTwIlMN8UOtsVjx7T0Nv/MlDZM4zEQ+7g/Dd3a/y1TjkyO54++YWo7Y5c3Y+fnx67GsbPYpdVkO6aDOb6+amyy/hId2wmRMmeeNc6udY7PBaNd004s8FI8ysg+jkyl/xoLvJQQPUp5LH/zFEwtmhTHxSQmMYlJTP/b8MbGVF72a8ilz8Sy6pynGm+ds3KtO0s5k9U2FMfFJKY3MI2UOeucXDGTuM7pTExZdc5zrfPlvpQaQXFcTJdnaj6R/V9gKRaMOJgY75Iw7nfS5id3O0ptXuj+O1QcF5OY3sDUEjLZfYSJ8N6GtPnfzVWcUZsT3r+jvKeoOC4mMYlJTO9h+gYFPa2rrt8HfgAAAABJRU5ErkJggg=="
+    }
+    ,
+    f82e462f9208bbad1e7d: e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
+    }
+    ,
+    "94e777f63eff622615ee": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWUAAAFlAQMAAAAJS2v4AAAAA1BMVEUAAACnej3aAAAAJ0lEQVR42u3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIAPA0AmAAEEUTbWAAAAAElFTkSuQmCC"
+    }
+    ,
+    "5c27a08769d295c50ba7": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
+    }
+    ,
+    fbf27e791db133ce7130: e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
+    }
+    ,
+    "6d601a08887d6ace5f82": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACTBAMAAAB4yzYmAAAAKlBMVEVHcEz////////////////////rMiP+6+n4savuSTvxZlr0hn370c71mJFl8R0cAAAABXRSTlMAQL/fn/FtsKQAAAH+SURBVGje7ZrBTsJAEIZ5B+Pdd/AFfInaBsrRoVA41oByBRM4U03UIw1oPKIE8ViVEI9i4tO43SEEWg7E/AmFzF44zPTr7rAz/+ymmQxuHByDxknm0ACNI0EJamso00OhLN/1QKgmUReECojKIJRP5KRvVsBYWX7JS9++knTeCsr8HaNQNaIGCPVMdJ2+dAaiZrgFXuDCbrR/JHF2G1UPUai8XwQKfUeEfjPUO9EAJfTBvSeJIygW+lEPKPTfOKEviNBvKvTFELWvvq4kcQQlqDUo+1W309Wh1s7pUBfPdiJfpmM2aGf7zeNnVlEzciMfn+6ifoqFvUbxtirH5XTChoAq+ow+LxtzlEnaSbkWuUdwuOvoJhqtMtcvZbDUM56u1pVllJpHZD1VP6EuwC7jC4mWRhlsZTgzjCy/vsmvX6CsOKr0b1RkbWjr6gI7iQU6OqLRe/OLBbqxsEcXHMrJ4eh2Obqx4pnl/6Opw66cK7yglbAb1oM+EV0+6odbPVbSl/hmaPEuGWlni52nT57koKAEtWZUYafUHCFPqahWLbWnVFSzPcGdUs3+jSSOoHjYfeQpdbDX6QxEAS/ogAXZqH5I4uw26hN2z5DD3X7MoEIPTOcyblYooQfe9QFvICUHd17og1sU6nzfhR77GQlK6POE+4ykHkriCEpQy6g/MGwBw1GBk80AAAAASUVORK5CYII="
+    }
+    ,
+    "9f2316eeebc9c27ecc70": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
+    }
+}, e=>{
+    e.O(0, [179], ()=>{
+        [1840, 6521, 5083, 9014, 6743, 327, 5908, 9945, 2868, 5009, 9713, 4958].map(e.E)
+    }
+    , 5);
+    var t = t=>e(e.s = t);
+    e.O(0, [3593, 4244, 2015, 8142, 2017, 3617, 1216, 9025, 5105, 9371, 9990, 562], ()=>(t("5b15df55c1316f23e9d0"),
+    t("b52edfef829e09f7985c")));
+    e.O()
+}
+]);
