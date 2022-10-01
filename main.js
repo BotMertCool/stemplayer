@@ -181,7 +181,7 @@
         const u = {
             "single-gradient": {
                 vs: _,
-                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 3000.));\n    total += smoothNoise(p*2.  + (uTime / 3000.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 3000.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 3000.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 3000.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.28) * 5.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 3000.));\n    total += smoothNoise(p*2.  + (uTime / 3000.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 3000.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 3000.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 3000.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.3) * 5.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             },
             gradients: {
                 vs: _,
@@ -525,8 +525,8 @@
                       , O = _(A, T)
                       , M = A.getUniformLocation(T, "uTime")
                       , D = A.getUniformLocation(T, "uTrackPosition")
-                      , w = A.getUniformLocation(T, "uResolution")
-                      , L = A.getUniformLocation(T, "uColor1")
+                      , L = A.getUniformLocation(T, "uResolution")
+                      , w = A.getUniformLocation(T, "uColor1")
                       , k = A.getUniformLocation(T, "uColor2")
                       , C = A.getUniformLocation(T, "uColor3")
                       , S = A.getUniformLocation(T, "uColor4")
@@ -535,16 +535,16 @@
                       , x = A.getUniformLocation(T, "uDrumsVolume")
                       , I = A.getUniformLocation(T, "uBassVolume")
                       , B = A.getUniformLocation(T, "uStoppedAt")
-                      , G = A.getUniformLocation(T, "uTrackSamples")
-                      , K = [A.getUniformLocation(T, "uVocals"), A.getUniformLocation(T, "uOther"), A.getUniformLocation(T, "uDrums"), A.getUniformLocation(T, "uBass")]
+                      , K = A.getUniformLocation(T, "uTrackSamples")
+                      , G = [A.getUniformLocation(T, "uVocals"), A.getUniformLocation(T, "uOther"), A.getUniformLocation(T, "uDrums"), A.getUniformLocation(T, "uBass")]
                       , W = t=>{
                         A.clearColor(0, 0, 0, 1),
                         A.clear(A.COLOR_BUFFER_BIT),
                         A.uniform1f(M, t),
-                        A.uniform2f(w, o.clientWidth, o.clientHeight);
+                        A.uniform2f(L, o.clientWidth, o.clientHeight);
                         const r = i.current
                           , n = f.current;
-                        if (A.uniform4f(L, .6, .6235, .6745, 1),
+                        if (A.uniform4f(w, .6, .6235, .6745, 1),
                         A.uniform4f(k, .8941, .8235, .815686, 1),
                         A.uniform4f(C, .90196, .70588, .63529, 1),
                         A.uniform4f(S, .6, .62745, .67843, 1),
@@ -564,12 +564,12 @@
                         A.uniform1f(I, y.current),
                         A.uniform1f(B, m.current)),
                         n) {
-                            A.uniform1f(G, r.waveformData.drums.intensity.length);
+                            A.uniform1f(K, r.waveformData.drums.intensity.length);
                             for (let e = 0; e < n.length; e += 1) {
                                 const t = n[e];
                                 A.activeTexture(A.TEXTURE0 + e),
                                 A.bindTexture(A.TEXTURE_2D, t),
-                                A.uniform1i(K[e], e)
+                                A.uniform1i(G[e], e)
                             }
                         }
                         A.drawArrays(A.TRIANGLES, 0, O),
@@ -1123,11 +1123,11 @@
             a.useState)(!1)
               , [M,D] = (0,
             a.useState)(!0)
-              , w = (0,
-            m.s)()
               , L = (0,
+            m.s)()
+              , w = (0,
             a.useRef)();
-            L.current = r;
+            w.current = r;
             const k = (0,
             a.useRef)();
             k.current = d;
@@ -1150,9 +1150,9 @@
             a.useRef)();
             (0,
             a.useEffect)(()=>(I = requestAnimationFrame(H),
-            document.addEventListener("keydown", K),
+            document.addEventListener("keydown", G),
             ()=>{
-                document.removeEventListener("keydown", K),
+                document.removeEventListener("keydown", G),
                 cancelAnimationFrame(I),
                 e.isNavigating && e.setIsNavigating(!1)
             }
@@ -1216,19 +1216,19 @@
                 I = requestAnimationFrame(H)
             }
             , [e.currentPosition]);
-            const G = (0,
+            const K = (0,
             a.useRef)();
-            G.current = e.getActiveQueue();
-            const K = t=>{
+            K.current = e.getActiveQueue();
+            const G = t=>{
                 if (!U.current) {
                     if (R.current && " " === t.key && (t.preventDefault(),
                     S.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
-                        const e = G.current[k.current + 1] ? G.current[k.current + 1] : G.current[0];
+                        const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
                         e && F(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
-                        const t = G.current[k.current - 1] ? G.current[k.current - 1] : G.current[G.current.length - 1];
+                        const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
                         t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
                     }
                 }
@@ -1236,13 +1236,13 @@
               , W = function() {
                 var r = (0,
                 o.Z)(function*() {
-                    const r = L.current;
-                    if (!w())
+                    const r = w.current;
+                    if (!L())
                         return;
                     let o;
-                    if (r === L.current) {
+                    if (r === w.current) {
                         if (e.activeQueue === _.$_.Official) {
-                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                            const a = yield t.getLatestStems(w.current, C.current.version, "mp3");
                             try {
                                 const n = yield t.getWaveformData(a["waveform-data"], r);
                                 o = e.generateTrack(C.current, a, n)
@@ -1252,12 +1252,12 @@
                         } else {
                             const r = e.generateTrack(C.current);
                             if (!r.waveformData) {
-                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
+                                const e = yield t.getWaveformData(C.current.waveforms_url, w.current);
                                 r.waveformData = e
                             }
                             o = r
                         }
-                        if (!w())
+                        if (!L())
                             return;
                         e.load(o)
                     }
@@ -1268,7 +1268,7 @@
                 }
             }()
               , H = ()=>{
-                if (w()) {
+                if (L()) {
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
@@ -1415,11 +1415,11 @@
             a.useState)(!1)
               , [M,D] = (0,
             a.useState)(!0)
-              , w = (0,
-            m.s)()
               , L = (0,
+            m.s)()
+              , w = (0,
             a.useRef)();
-            L.current = r;
+            w.current = r;
             const k = (0,
             a.useRef)();
             k.current = d;
@@ -1442,9 +1442,9 @@
             a.useRef)();
             (0,
             a.useEffect)(()=>(I = requestAnimationFrame(H),
-            document.addEventListener("keydown", K),
+            document.addEventListener("keydown", G),
             ()=>{
-                document.removeEventListener("keydown", K),
+                document.removeEventListener("keydown", G),
                 cancelAnimationFrame(I),
                 e.isNavigating && e.setIsNavigating(!1)
             }
@@ -1508,19 +1508,19 @@
                 I = requestAnimationFrame(H)
             }
             , [e.currentPosition]);
-            const G = (0,
+            const K = (0,
             a.useRef)();
-            G.current = e.getActiveQueue();
-            const K = t=>{
+            K.current = e.getActiveQueue();
+            const G = t=>{
                 if (!U.current) {
                     if (R.current && " " === t.key && (t.preventDefault(),
                     S.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
-                        const e = G.current[k.current + 1] ? G.current[k.current + 1] : G.current[0];
+                        const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
                         e && F(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
-                        const t = G.current[k.current - 1] ? G.current[k.current - 1] : G.current[G.current.length - 1];
+                        const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
                         t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
                     }
                 }
@@ -1528,13 +1528,13 @@
               , W = function() {
                 var r = (0,
                 o.Z)(function*() {
-                    const r = L.current;
-                    if (!w())
+                    const r = w.current;
+                    if (!L())
                         return;
                     let o;
-                    if (r === L.current) {
+                    if (r === w.current) {
                         if (e.activeQueue === _.$_.Official) {
-                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                            const a = yield t.getLatestStems(w.current, C.current.version, "mp3");
                             try {
                                 const n = yield t.getWaveformData(a["waveform-data"], r);
                                 o = e.generateTrack(C.current, a, n)
@@ -1544,12 +1544,12 @@
                         } else {
                             const r = e.generateTrack(C.current);
                             if (!r.waveformData) {
-                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
+                                const e = yield t.getWaveformData(C.current.waveforms_url, w.current);
                                 r.waveformData = e
                             }
                             o = r
                         }
-                        if (!w())
+                        if (!L())
                             return;
                         e.load(o)
                     }
@@ -1560,7 +1560,7 @@
                 }
             }()
               , H = ()=>{
-                if (w()) {
+                if (L()) {
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
@@ -2061,7 +2061,7 @@
                 return "804fe702b68cd889ff76"
             }
         })
-          , w = (0,
+          , L = (0,
         c.ZP)({
             resolved: {},
             chunkName: ()=>"components-DeviceFirmwareDemo",
@@ -2084,7 +2084,7 @@
                 return "92924b32b778a2c890d3"
             }
         })
-          , L = "Connect Stemplayer"
+          , w = "Connect Stemplayer"
           , k = function() {
             var e = (0,
             a.Z)(function*(e) {
@@ -2112,7 +2112,7 @@
             n.useState)(null)
               , [I,B] = (0,
             n.useState)(!1)
-              , [G,K] = (0,
+              , [K,G] = (0,
             n.useState)(null)
               , [W,H] = (0,
             n.useState)(null)
@@ -2143,7 +2143,7 @@
               , [ue,fe] = (0,
             n.useState)(null)
               , [me,pe] = (0,
-            n.useState)(L);
+            n.useState)(w);
             (0,
             n.useEffect)(()=>{
                 W && W.id && N && d.session ? (i(W),
@@ -2204,7 +2204,7 @@
                         let o = null;
                         const u = new b.f;
                         var n;
-                        if (K(u),
+                        if (G(u),
                         null !== M)
                             r({
                                 event: "track_split",
@@ -2297,7 +2297,7 @@
                             }
                         })),
                         te(!1),
-                        K(null)
+                        G(null)
                     }
                 });
                 return function(e) {
@@ -2307,7 +2307,7 @@
               , ve = ()=>{
                 T.current && (T.current.value = ""),
                 Z(null),
-                K(null),
+                G(null),
                 B(null),
                 q(""),
                 C(null),
@@ -2503,12 +2503,12 @@
                     (!M && !S && "" === V || M && null !== $) && (e.preventDefault(),
                     T.current.click())
                 }
-            }), !N && G && n.createElement(D, {
+            }), !N && K && n.createElement(D, {
                 text: "CANCEL",
                 className: "u-mx-auto stripped-device-firmware__button menu-item",
                 brackets: !0,
                 onClick: ()=>{
-                    G && (G.cancel(),
+                    K && (K.cancel(),
                     ne(null),
                     ve(),
                     F(null),
@@ -2541,7 +2541,7 @@
                 brackets: !0,
                 className: "u-mx-auto menu-item",
                 onClick: ()=>u.push("/account/login")
-            }), (!e.deviceTransferActive || ee) && n.createElement(w, {
+            }), (!e.deviceTransferActive || ee) && n.createElement(L, {
                 resetUpdateRestoreState: se,
                 setUpdateRestoreReset: ie,
                 deviceInfo: e.deviceInfo,
@@ -2572,8 +2572,8 @@
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(D, "Button", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(w, "StrippedDeviceFirmware", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(L, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(L, "StrippedDeviceFirmware", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(w, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(k, "createSilentTrack", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(C, "TrackUploadFormComp", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(S, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
@@ -3051,7 +3051,7 @@
     "85e7ca4a0fc033a5d848": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>w
+            _: ()=>L
         });
         var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
@@ -3659,7 +3659,7 @@
                 component: M
             }
         }
-          , w = [{
+          , L = [{
             path: ["/account/reset-password"],
             exact: !0,
             layers: [D.home, D.resetPassword],
@@ -3816,7 +3816,7 @@
             deviceRequired: !1,
             accessWithLoginSession: !0
         }];
-        w.unshift({
+        L.unshift({
             path: ["/dev"],
             exact: !0,
             layers: [D.home, D.devMenu],
@@ -3848,7 +3848,7 @@
             e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(D, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
+            e.register(L, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -5595,17 +5595,18 @@
             ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
         });
         var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
-          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("de098c4daf91477f9cbc")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("de098c4daf91477f9cbc")
           , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
           , _repository__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("9f8992917dda43cfdc1d")
           , _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("238af0e74d3daf256b28")
-          , react_page_visibility__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("065f3a895d559954cd46")
-          , react_page_visibility__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(react_page_visibility__WEBPACK_IMPORTED_MODULE_10__)
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("065f3a895d559954cd46")
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(react_page_visibility__WEBPACK_IMPORTED_MODULE_11__)
           , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("c0326c9d650a633c92d0")
           , _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("94e777f63eff622615ee")
           , _utils_lerp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("e2161c2bb2fb866f34ce")
-          , _utils_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c90b79b40c6328f03c9e");
+          , _utils_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c90b79b40c6328f03c9e")
+          , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("b61b44d5123c4032e9da");
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
@@ -5702,7 +5703,7 @@
                 this.getHasUserConsent = (()=>this.hasUserConsent),
                 this.load = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
                         t.stop(),
                         t.setState({
                             isLoading: !0,
@@ -6192,9 +6193,15 @@
                       , t = e[0].map((t,r)=>Math.floor((0,
                     _utils_lerp__WEBPACK_IMPORTED_MODULE_7__.t)(t, e[1][r], .5)))
                       , r = (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(t, 1, .6);
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(t, 1, .6)
+                      , a = ((0,
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(r[0], r[1], r[2]),
                     (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(r[0], r[1], r[2])
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(e[1], .3, .8))
+                      , n = (0,
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(a[0], a[1], a[2]);
+                    (0,
+                    _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_9__.g)(n)
                 }
             }
             setup() {
@@ -6309,7 +6316,7 @@
                 };
                 return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AudioEngineContext.Provider, {
                     value: e
-                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_page_visibility__WEBPACK_IMPORTED_MODULE_10___default(), {
+                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_page_visibility__WEBPACK_IMPORTED_MODULE_11___default(), {
                     onChange: e=>this.onVisibilityChange(e)
                 }), this.props.children)
             }
@@ -10694,28 +10701,29 @@
           , react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("63f14ac74ce296f77f4d")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("260f3680b921ede7f717")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__)
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("657c5d0bc31a26770cad")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_22___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_22__)
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("eb88800281880750dee6")
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_21___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_21__)
-          , _sentry_tracing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("82d14b9db5598b921c79")
-          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("8a5d22dd0b24a6092d3e")
-          , _utils_history__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("4f64e9a1f5202b774215")
-          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("f60aef9fa88f4e9ce07a")
-          , _contexts_trackapi__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("09e5b40f0abea70b7ff4")
-          , _contexts_firmware_update__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c1bece57111e2d76e639")
-          , _contexts_notifications__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("ceede5265ca6ca2cb4b1")
-          , _contexts_album_restore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("16c6bde65fb4831cea2e")
-          , _contexts_remix__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("04580fa4bddd672dfde3")
-          , _contexts_stems__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("d92624744e8fb7e743e8")
-          , _contexts_account__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("ad21e61587d47603cd1c")
-          , _contexts_view_manager__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("3e17aee31846974e528a")
-          , _containers_App__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("909d96d96697555397ee")
-          , _file_loader_name_name_ext_assets_favicon_ico__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("2cc3443f170f92e6c07f")
-          , file_loader_name_htaccess_htaccess__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("49c109a56bd7c2e379fd")
-          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("77d9647920c06e8befd6")
-          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("c0326c9d650a633c92d0")
-          , _utils_themes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("957d24b63b1050799be8");
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_23___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_23__)
+          , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("b61b44d5123c4032e9da")
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("eb88800281880750dee6")
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_22___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_22__)
+          , _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("82d14b9db5598b921c79")
+          , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("8a5d22dd0b24a6092d3e")
+          , _utils_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("4f64e9a1f5202b774215")
+          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("f60aef9fa88f4e9ce07a")
+          , _contexts_trackapi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("09e5b40f0abea70b7ff4")
+          , _contexts_firmware_update__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("c1bece57111e2d76e639")
+          , _contexts_notifications__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("ceede5265ca6ca2cb4b1")
+          , _contexts_album_restore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("16c6bde65fb4831cea2e")
+          , _contexts_remix__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("04580fa4bddd672dfde3")
+          , _contexts_stems__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("d92624744e8fb7e743e8")
+          , _contexts_account__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _contexts_view_manager__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("3e17aee31846974e528a")
+          , _containers_App__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("909d96d96697555397ee")
+          , _file_loader_name_name_ext_assets_favicon_ico__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("2cc3443f170f92e6c07f")
+          , file_loader_name_htaccess_htaccess__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("49c109a56bd7c2e379fd")
+          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("77d9647920c06e8befd6")
+          , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("c0326c9d650a633c92d0")
+          , _utils_themes__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("957d24b63b1050799be8");
         module = __webpack_require__.hmd(module),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10728,8 +10736,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2837",
-            KB_APP_REVISION: "6e54b7eceef135b192f8b46c04be9be116d16d07",
+            KB_APP_VERSION: "1.1.2846",
+            KB_APP_REVISION: "3c62e35bc983dfca83eebfc1265991d03ad165d5",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -10772,9 +10780,9 @@
             document.body.classList.add("fontLoaded")
         }
         ),
-        _sentry_react__WEBPACK_IMPORTED_MODULE_21__.init({
+        _sentry_react__WEBPACK_IMPORTED_MODULE_22__.init({
             dsn: "https://cceb14840d684b1baad838c0d88f5c42@o829757.ingest.sentry.io/5812480",
-            integrations: [new _sentry_tracing__WEBPACK_IMPORTED_MODULE_3__.jK.BrowserTracing],
+            integrations: [new _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__.jK.BrowserTracing],
             environment: config.TARGET_ENV,
             release: `${config.KB_APP_NAME}@${config.KB_APP_VERSION}`,
             tracesSampleRate: parseFloat(config.KB_SENTRY_SAMPLE_RATE),
@@ -10784,37 +10792,48 @@
                 return null !== s && void 0 !== s && null !== (o = s.value) && void 0 !== o && o.match(/ResizeObserver loop limit exceeded/i) ? null : null !== s && void 0 !== s && null !== (a = s.type) && void 0 !== a && a.match(/UnhandledRejection/) && null !== s && void 0 !== s && null !== (n = s.value) && void 0 !== n && n.match(/Non-Error promise rejection captured with value: undefined/) ? null : e
             }
         }),
-        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.updateFromUrlParams(),
-        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("background-shader-gradients") ? (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.light) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-dark") ? (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.dark) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_19__.V.hasFlag("theme-light") ? (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.light) : (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_20__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_20__.yU.default);
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.updateFromUrlParams(),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-single-gradient") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)("#ADABB2"),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-gradients") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)("#A8B1CE"),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-dark") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark.background),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-light") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light.background),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default.background),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default));
         const MOUNT_NODE = document.getElementById("app")
           , render = e=>{
-            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Router, {
-                history: _utils_history__WEBPACK_IMPORTED_MODULE_5__.Z
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__.Yi, {
+            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_23__.Router, {
+                history: _utils_history__WEBPACK_IMPORTED_MODULE_6__.Z
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__.Yi, {
                 providerConfig: telemetryConfig
-            }, ({trackUser: e})=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_account__WEBPACK_IMPORTED_MODULE_13__.u, {
+            }, ({trackUser: e})=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_account__WEBPACK_IMPORTED_MODULE_14__.u, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_webusb__WEBPACK_IMPORTED_MODULE_6__.Ye, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_webusb__WEBPACK_IMPORTED_MODULE_7__.Ye, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_stems__WEBPACK_IMPORTED_MODULE_12__.nZ, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_stems__WEBPACK_IMPORTED_MODULE_13__.nZ, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_audio_engine__WEBPACK_IMPORTED_MODULE_18__.Z, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_audio_engine__WEBPACK_IMPORTED_MODULE_19__.Z, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_remix__WEBPACK_IMPORTED_MODULE_11__.V, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_remix__WEBPACK_IMPORTED_MODULE_12__.V, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_trackapi__WEBPACK_IMPORTED_MODULE_7__.G, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_trackapi__WEBPACK_IMPORTED_MODULE_8__.G, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_firmware_update__WEBPACK_IMPORTED_MODULE_8__.E, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_firmware_update__WEBPACK_IMPORTED_MODULE_9__.E, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_album_restore__WEBPACK_IMPORTED_MODULE_10__._, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_album_restore__WEBPACK_IMPORTED_MODULE_11__._, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_notifications__WEBPACK_IMPORTED_MODULE_9__.JB, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_notifications__WEBPACK_IMPORTED_MODULE_10__.JB, {
                 config: config
-            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_view_manager__WEBPACK_IMPORTED_MODULE_14__.d, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_containers_App__WEBPACK_IMPORTED_MODULE_15__.Z, {
+            }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_view_manager__WEBPACK_IMPORTED_MODULE_15__.d, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_containers_App__WEBPACK_IMPORTED_MODULE_16__.Z, {
                 config: config,
                 trackUser: e
             }))))))))))))), e || MOUNT_NODE)
@@ -11853,6 +11872,31 @@
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(o, "restartLoadingAnimations", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"),
             e.register(a, "default", "/home/vsts/work/1/s/src/utils/restartLoadingAnimations.ts"))
+        }(),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
+            t && t(e)
+        }()
+    }
+    ,
+    b61b44d5123c4032e9da: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            g: ()=>o
+        }),
+        e = r.hmd(e),
+        function() {
+            var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
+            t && t(e)
+        }();
+        "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
+        const o = e=>{
+            document.getElementsByTagName("meta").namedItem("theme-color").setAttribute("content", e)
+        }
+        ;
+        !function() {
+            var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
+            e && e.register(o, "setThemeColor", "/home/vsts/work/1/s/src/utils/setThemeColor.ts")
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
