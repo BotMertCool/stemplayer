@@ -181,11 +181,11 @@
         const u = {
             "single-gradient": {
                 vs: _,
-                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.3) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.32) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             },
             gradients: {
                 vs: _,
-                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(.9,.9,.9,1.), .7);\nvec4 color2 = mix(uColor2, vec4(.9,.9,.9,1.), .7);\nvec4 color3 = mix(uColor1, vec4(.6,.6,.6,1.), .5);\nvec4 color4 = mix(uColor2, vec4(.6,.6,.6,1.), .5);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.22) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color4, uv.x);\n    vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(.9,.9,.9,1.), .7);\nvec4 color2 = mix(uColor2, vec4(.9,.9,.9,1.), .7);\nvec4 color3 = mix(uColor1, vec4(.6,.6,.6,1.), .5);\nvec4 color4 = mix(uColor2, vec4(.6,.6,.6,1.), .5);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.26) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color4, uv.x);\n    vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             }
         };
         function f(e, t, r) {
@@ -381,7 +381,7 @@
             },
             water: {
                 vs: s,
-                fs: "precision mediump float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .25;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.5*uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    // vec3 color1 = vec3(0.445,0.002,0.419);\n    // vec3 color2 = vec3(1.000,0.467,0.174);\n    vec3 color1 = uColor1.rgb;\n    vec3 color2 = uColor3.rgb;\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(uColor2.rgb, uColor4.rgb, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolate(float x, vec2 x0, vec2 x1, vec2 x2) {\n    return (((x - x1.x) * (x - x2.x)) / ((x0.x - x1.x) * (x0.x - x2.x))) * x0.y\n        + (((x - x0.x) * (x - x2.x)) / ((x1.x - x0.x) * (x1.x - x2.x))) * x1.y\n        + (((x - x0.x) * (x - x1.x)) / ((x2.x - x0.x) * (x2.x - x1.x))) * x2.y;\n}\n\nfloat interpolated(sampler2D buf, float t, float sampleIndex) {\n    float pi = 3.14159;\n    float acc = 0.;\n    float T = 1.;\n    for (float i = 0.; i < 3.; i++) {\n        float sample = getStemSample(buf, sampleIndex + i);\n        float sinArg = 1.;\n        if (sinArg == 0.) {\n            sinArg = (pi / T) * (t - i * T);\n        }\n        acc += sample * (sin(sinArg) / sinArg);\n    }\n\n    return acc;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    // sinc function reconstructing audio signal from samples?\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n    // float waveValue = interpolated(buf, rem, sampleNo);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.0006 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    gl_FragColor = noisyTexture(outUV, scaledTime);\n    // vec4 layer1 = mix(uColor1, uColor3, outUV.x);\n    // vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    // gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(texture2D(uVocals, vTexCoord));\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
+                fs: "precision mediump float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .14;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.8 * uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    // vec3 color1 = vec3(0.445,0.002,0.419);\n    // vec3 color2 = vec3(1.000,0.467,0.174);\n    vec3 color1 = uColor1.rgb;\n    vec3 color2 = uColor3.rgb;\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(uColor2.rgb, uColor4.rgb, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolate(float x, vec2 x0, vec2 x1, vec2 x2) {\n    return (((x - x1.x) * (x - x2.x)) / ((x0.x - x1.x) * (x0.x - x2.x))) * x0.y\n        + (((x - x0.x) * (x - x2.x)) / ((x1.x - x0.x) * (x1.x - x2.x))) * x1.y\n        + (((x - x0.x) * (x - x1.x)) / ((x2.x - x0.x) * (x2.x - x1.x))) * x2.y;\n}\n\nfloat interpolated(sampler2D buf, float t, float sampleIndex) {\n    float pi = 3.14159;\n    float acc = 0.;\n    float T = 1.;\n    for (float i = 0.; i < 3.; i++) {\n        float sample = getStemSample(buf, sampleIndex + i);\n        float sinArg = 1.;\n        if (sinArg == 0.) {\n            sinArg = (pi / T) * (t - i * T);\n        }\n        acc += sample * (sin(sinArg) / sinArg);\n    }\n\n    return acc;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    // sinc function reconstructing audio signal from samples?\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n    // float waveValue = interpolated(buf, rem, sampleNo);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength * 2.2, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.00045 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    gl_FragColor = noisyTexture(outUV, scaledTime);\n    // vec4 layer1 = mix(uColor1, uColor3, outUV.x);\n    // vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    // gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(texture2D(uVocals, vTexCoord));\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
             }
         };
         function l(e, t, r) {
@@ -536,8 +536,8 @@
                       , I = A.getUniformLocation(T, "uBassVolume")
                       , B = A.getUniformLocation(T, "uStoppedAt")
                       , K = A.getUniformLocation(T, "uTrackSamples")
-                      , G = [A.getUniformLocation(T, "uVocals"), A.getUniformLocation(T, "uOther"), A.getUniformLocation(T, "uDrums"), A.getUniformLocation(T, "uBass")]
-                      , W = t=>{
+                      , W = [A.getUniformLocation(T, "uVocals"), A.getUniformLocation(T, "uOther"), A.getUniformLocation(T, "uDrums"), A.getUniformLocation(T, "uBass")]
+                      , G = t=>{
                         A.clearColor(0, 0, 0, 1),
                         A.clear(A.COLOR_BUFFER_BIT),
                         A.uniform1f(M, t),
@@ -548,7 +548,7 @@
                         A.uniform4f(k, .8941, .8235, .815686, 1),
                         A.uniform4f(C, .90196, .70588, .63529, 1),
                         A.uniform4f(S, .6, .62745, .67843, 1),
-                        r && (A.uniform1f(D, e.getCurrentTime() / e.getDuration()),
+                        r ? (A.uniform1f(D, e.getCurrentTime() / e.getDuration()),
                         u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
                         e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
                         p.current > h.current ? p.current -= .033 : p.current < h.current && (p.current += .033),
@@ -562,21 +562,26 @@
                         A.uniform1f(U, v.current),
                         A.uniform1f(x, E.current),
                         A.uniform1f(I, y.current),
-                        A.uniform1f(B, m.current)),
+                        A.uniform1f(B, m.current)) : (A.uniform1f(D, 0),
+                        A.uniform1f(R, 0),
+                        A.uniform1f(U, 0),
+                        A.uniform1f(x, 0),
+                        A.uniform1f(I, 0),
+                        A.uniform1f(B, 0)),
                         n) {
                             A.uniform1f(K, r.waveformData.drums.intensity.length);
                             for (let e = 0; e < n.length; e += 1) {
                                 const t = n[e];
                                 A.activeTexture(A.TEXTURE0 + e),
                                 A.bindTexture(A.TEXTURE_2D, t),
-                                A.uniform1i(G[e], e)
+                                A.uniform1i(W[e], e)
                             }
                         }
                         A.drawArrays(A.TRIANGLES, 0, O),
-                        d = requestAnimationFrame(W)
+                        d = requestAnimationFrame(G)
                     }
                     ;
-                    W(0)
+                    G(0)
                 }
                 return ()=>{
                     window.removeEventListener("resize", t),
@@ -1150,9 +1155,9 @@
             a.useRef)();
             (0,
             a.useEffect)(()=>(I = requestAnimationFrame(H),
-            document.addEventListener("keydown", G),
+            document.addEventListener("keydown", W),
             ()=>{
-                document.removeEventListener("keydown", G),
+                document.removeEventListener("keydown", W),
                 cancelAnimationFrame(I),
                 e.isNavigating && e.setIsNavigating(!1)
             }
@@ -1219,7 +1224,7 @@
             const K = (0,
             a.useRef)();
             K.current = e.getActiveQueue();
-            const G = t=>{
+            const W = t=>{
                 if (!U.current) {
                     if (R.current && " " === t.key && (t.preventDefault(),
                     S.current === _.QK.Playing ? e.pause() : e.play()),
@@ -1233,7 +1238,7 @@
                     }
                 }
             }
-              , W = function() {
+              , G = function() {
                 var r = (0,
                 o.Z)(function*() {
                     const r = w.current;
@@ -1304,7 +1309,7 @@
             }
               , V = (0,
             a.useCallback)((0,
-            s.Ds)(W, 500), []);
+            s.Ds)(G, 500), []);
             return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && e.getHasPlayed() && a.createElement("div", {
                 className: "mini-player__topshade"
             }), a.createElement("div", {
@@ -1442,9 +1447,9 @@
             a.useRef)();
             (0,
             a.useEffect)(()=>(I = requestAnimationFrame(H),
-            document.addEventListener("keydown", G),
+            document.addEventListener("keydown", W),
             ()=>{
-                document.removeEventListener("keydown", G),
+                document.removeEventListener("keydown", W),
                 cancelAnimationFrame(I),
                 e.isNavigating && e.setIsNavigating(!1)
             }
@@ -1511,7 +1516,7 @@
             const K = (0,
             a.useRef)();
             K.current = e.getActiveQueue();
-            const G = t=>{
+            const W = t=>{
                 if (!U.current) {
                     if (R.current && " " === t.key && (t.preventDefault(),
                     S.current === _.QK.Playing ? e.pause() : e.play()),
@@ -1525,7 +1530,7 @@
                     }
                 }
             }
-              , W = function() {
+              , G = function() {
                 var r = (0,
                 o.Z)(function*() {
                     const r = w.current;
@@ -1596,7 +1601,7 @@
             }
               , V = (0,
             a.useCallback)((0,
-            s.Ds)(W, 500), []);
+            s.Ds)(G, 500), []);
             return a.createElement(a.Fragment, null, a.createElement("div", {
                 className: `mini-player-shader__container ${e.shouldHideMiniPlayer || !e.getHasPlayed() ? "mini-player-shader__container--hidden" : ""}`
             }, a.createElement("div", {
@@ -2112,9 +2117,9 @@
             n.useState)(null)
               , [I,B] = (0,
             n.useState)(!1)
-              , [K,G] = (0,
+              , [K,W] = (0,
             n.useState)(null)
-              , [W,H] = (0,
+              , [G,H] = (0,
             n.useState)(null)
               , [N,F] = (0,
             n.useState)(null)
@@ -2146,14 +2151,14 @@
             n.useState)(w);
             (0,
             n.useEffect)(()=>{
-                W && W.id && N && d.session ? (i(W),
-                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (F(null),
-                i(W),
+                G && G.id && N && d.session ? (i(G),
+                u.push(`/connect/stem/track/${G.id}`)) : G && !I && (F(null),
+                i(G),
                 (0,
-                v.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
+                v.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${G.id}`) : u.push("/connect/new"),
                 ve())
             }
-            , [W]),
+            , [G]),
             (0,
             n.useEffect)(()=>{
                 m && ve()
@@ -2204,7 +2209,7 @@
                         let o = null;
                         const u = new b.f;
                         var n;
-                        if (G(u),
+                        if (W(u),
                         null !== M)
                             r({
                                 event: "track_split",
@@ -2255,7 +2260,7 @@
                         if (e.deviceConnected) {
                             const t = yield e.hasSpaceForTrack(o);
                             l(),
-                            t ? (i(W),
+                            t ? (i(G),
                             H(v),
                             null !== M || null !== S ? f(o.id, !0, v) : f(o.id, !0)) : (c(!0),
                             Z("Importing"),
@@ -2297,7 +2302,7 @@
                             }
                         })),
                         te(!1),
-                        G(null)
+                        W(null)
                     }
                 });
                 return function(e) {
@@ -2307,7 +2312,7 @@
               , ve = ()=>{
                 T.current && (T.current.value = ""),
                 Z(null),
-                G(null),
+                W(null),
                 B(null),
                 q(""),
                 C(null),
@@ -3017,7 +3022,7 @@
                             })
                         })
                     }))
-                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                }))), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "blur-overlay"
                 })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null))
             }
@@ -3051,7 +3056,7 @@
     "85e7ca4a0fc033a5d848": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>L
+            _: ()=>w
         });
         var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
@@ -3569,7 +3574,30 @@
                 return "acbf6c7eb8d93a282a95"
             }
         })
-          , D = {
+          , D = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Signup",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>r.e(9036).then(r.bind(r, "9bd6c822ea00773daea4")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "9bd6c822ea00773daea4"
+            }
+        })
+          , L = {
             updating: {
                 id: "updating",
                 component: n
@@ -3657,169 +3685,179 @@
             devMenu: {
                 id: "dev-menu",
                 component: M
+            },
+            holoplayerSignup: {
+                id: "holoplayer-signup",
+                component: D
             }
         }
-          , L = [{
+          , w = [{
             path: ["/account/reset-password"],
             exact: !0,
-            layers: [D.home, D.resetPassword],
+            layers: [L.home, L.resetPassword],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/update-email"],
             exact: !0,
-            layers: [D.home, D.emailUpdated],
+            layers: [L.home, L.emailUpdated],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/password-change"],
             exact: !0,
-            layers: [D.home, D.passwordChange],
+            layers: [L.home, L.passwordChange],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/account/registration"],
             exact: !0,
-            layers: [D.home, D.registration],
+            layers: [L.home, L.registration],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/login"],
             exact: !0,
-            layers: [D.home, D.accountLogin],
+            layers: [L.home, L.accountLogin],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/factory-reset"],
             exact: !0,
-            layers: [D.home, D.platform, D.factoryReset],
+            layers: [L.home, L.platform, L.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config/factory-reset"],
             exact: !0,
-            layers: [D.home, D.platform, D.deviceConfig, D.factoryReset],
+            layers: [L.home, L.platform, L.deviceConfig, L.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config"],
             exact: !0,
-            layers: [D.home, D.platform, D.deviceConfig],
+            layers: [L.home, L.platform, L.deviceConfig],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/new"],
             exact: !0,
-            layers: [D.home, D.platform, D.stemUpload],
+            layers: [L.home, L.platform, L.stemUpload],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem"],
             exact: !0,
-            layers: [D.home, D.platform],
+            layers: [L.home, L.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem/album/:albumSlug", "/connect/stem/track/:trackId"],
             exact: !0,
-            layers: [D.home, D.platform],
+            layers: [L.home, L.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/controls"],
             exact: !0,
-            layers: [D.home, D.platform, D.controls],
+            layers: [L.home, L.platform, L.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/remix"],
             exact: !1,
-            layers: [D.home, D.remix],
+            layers: [L.home, L.remix],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq"],
             exact: !0,
-            layers: [D.home, D.faq],
+            layers: [L.home, L.faq],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq/controls", "/controls"],
             exact: !0,
-            layers: [D.home, D.faq, D.controls],
+            layers: [L.home, L.faq, L.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info"],
             exact: !0,
-            layers: [D.home, D.info],
+            layers: [L.home, L.info],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/terms"],
             exact: !0,
-            layers: [D.home, D.info, D.terms],
+            layers: [L.home, L.info, L.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/privacy"],
             exact: !0,
-            layers: [D.home, D.info, D.privacy],
+            layers: [L.home, L.info, L.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/refund"],
             exact: !0,
-            layers: [D.home, D.info, D.refund],
+            layers: [L.home, L.info, L.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/terms"],
             exact: !0,
-            layers: [D.home, D.terms],
+            layers: [L.home, L.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/privacy", "/privacy-policy"],
             exact: !0,
-            layers: [D.home, D.privacy],
+            layers: [L.home, L.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/refund", "/refund-policy"],
             exact: !0,
-            layers: [D.home, D.refund],
+            layers: [L.home, L.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/video"],
             exact: !0,
-            layers: [D.home, D.video],
+            layers: [L.home, L.video],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/music-videos"],
             exact: !0,
-            layers: [D.home, D.musicVideos],
+            layers: [L.home, L.musicVideos],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
+            path: ["/signup"],
+            exact: !0,
+            layers: [L.home, L.holoplayerSignup],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
             path: ["/updating"],
             exact: !0,
-            layers: [D.home, D.updating],
+            layers: [L.home, L.updating],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/"],
             exact: !0,
-            layers: [D.home],
+            layers: [L.home],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }];
-        L.unshift({
+        w.unshift({
             path: ["/dev"],
             exact: !0,
-            layers: [D.home, D.devMenu],
+            layers: [L.home, L.devMenu],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }),
@@ -3847,8 +3885,9 @@
             e.register(T, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(D, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(L, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
+            e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(L, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10736,8 +10775,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2851",
-            KB_APP_REVISION: "921460867912a9d088a0d4c0ea2eaf5d45d209a1",
+            KB_APP_VERSION: "1.1.2906",
+            KB_APP_REVISION: "b2479e88b00c639a303ab6cb108f233db0a9690d",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -10805,8 +10844,12 @@
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-light") ? ((0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light.background),
         (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : ((0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-grey") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey.background),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey)) : ((0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default.background),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.setFlag("background-shader-water"),
         (0,
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default));
         const MOUNT_NODE = document.getElementById("app")
@@ -11400,7 +11443,7 @@
             return e
         }
         ;
-        const FLAGS = ["theme-light", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water"]
+        const FLAGS = ["theme-light", "theme-grey", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water"]
           , LOCAL_STORAGE_KEY = "spFeatureFlags";
         class FeatureFlags {
             constructor(e, t) {
@@ -11918,6 +11961,10 @@
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const o = {
             default: {
+                background: "#747277",
+                main: "#252525"
+            },
+            grey: {
                 background: "#959595",
                 main: "#252525"
             },

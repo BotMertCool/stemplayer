@@ -21,12 +21,12 @@
         var e = [];
         r.O = ((t,a,o,n)=>{
             if (!a) {
-                var d = 1 / 0;
+                var c = 1 / 0;
                 for (s = 0; s < e.length; s++) {
-                    for (var [a,o,n] = e[s], c = !0, i = 0; i < a.length; i++)
-                        (!1 & n || d >= n) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (c = !1,
-                        n < d && (d = n));
-                    if (c) {
+                    for (var [a,o,n] = e[s], d = !0, i = 0; i < a.length; i++)
+                        (!1 & n || c >= n) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (d = !1,
+                        n < c && (c = n));
+                    if (d) {
                         e.splice(s--, 1);
                         var f = o();
                         void 0 !== f && (t = f)
@@ -99,8 +99,10 @@
         7452: "ConfirmEmailUpdate",
         7713: "components-ProductVideo",
         8317: "npm.file-saver",
+        8371: "ShopifyButtonDigitalAccess",
         8460: "HomePage",
         9014: "Info",
+        9036: "Signup",
         9295: "npm.react-side-effect",
         9322: "Remix",
         9642: "DevMenu",
@@ -112,7 +114,7 @@
         451: "13f7bab3229e2a6dbdbf",
         856: "c20abb82dda2cc56dde4",
         900: "1de3f30946e268a77a78",
-        1840: "7d7d8fe0dfb1b93dc358",
+        1840: "44314b95f74fc12ee4c4",
         1866: "c03e5d3de34543b82e3c",
         1918: "9cd6d4a024ad28751ff6",
         2868: "32d95b022f100564ab80",
@@ -130,7 +132,7 @@
         5735: "70ac1524b3ed6f50ba41",
         5779: "91bfe73698bd66213a1e",
         5908: "2ebfafce22cbd83c4b06",
-        6130: "2d46a160ce70dcdc63c2",
+        6130: "28a04caafdbad589be98",
         6150: "e0c30ce718927883ff3d",
         6521: "76844330d6e8e1800250",
         6630: "97c3cdf3a16506238c64",
@@ -139,13 +141,15 @@
         7452: "7055e6c07c5795209a00",
         7713: "7021eeb121e4c7eb999b",
         8317: "b4c35b8be722bd2463dd",
+        8371: "8e7f73b4c0c768e428f0",
         8445: "6df6dacb24115308ac14",
         8460: "aa3afb24a16d9adac967",
         9014: "582d57a829bbc3e4165f",
+        9036: "ecd6521a214978f6853f",
         9295: "bfe98caa5c71ff7974db",
         9322: "742b00116a95e29cd550",
-        9642: "6e8360489cf9ddb0d386",
-        9679: "23f5fe41dfc4db5bc882",
+        9642: "1beb77bfeab6cedf724d",
+        9679: "f179e82cb5919be96abd",
         9708: "f4dc577f1c2ee2b32bf5",
         9713: "482b24dd113d6260aacc",
         9945: "6247bec53f82b8de2c79"
@@ -169,6 +173,7 @@
         7713: "components-ProductVideo",
         8460: "HomePage",
         9014: "Info",
+        9036: "Signup",
         9322: "Remix",
         9642: "DevMenu",
         9679: "ShopifyButton",
@@ -199,39 +204,39 @@
             if (e[t])
                 e[t].push(a);
             else {
-                var d, c;
+                var c, d;
                 if (void 0 !== o)
                     for (var i = document.getElementsByTagName("script"), f = 0; f < i.length; f++) {
                         var s = i[f];
                         if (s.getAttribute("src") == t || s.getAttribute("data-webpack") == "blank-board:" + o) {
-                            d = s;
+                            c = s;
                             break
                         }
                     }
-                d || (c = !0,
-                (d = document.createElement("script")).charset = "utf-8",
-                d.timeout = 120,
-                r.nc && d.setAttribute("nonce", r.nc),
-                d.setAttribute("data-webpack", "blank-board:" + o),
-                d.src = t),
+                c || (d = !0,
+                (c = document.createElement("script")).charset = "utf-8",
+                c.timeout = 120,
+                r.nc && c.setAttribute("nonce", r.nc),
+                c.setAttribute("data-webpack", "blank-board:" + o),
+                c.src = t),
                 e[t] = [a];
                 var l = (r,a)=>{
-                    d.onerror = d.onload = null,
+                    c.onerror = c.onload = null,
                     clearTimeout(b);
                     var o = e[t];
                     if (delete e[t],
-                    d.parentNode && d.parentNode.removeChild(d),
+                    c.parentNode && c.parentNode.removeChild(c),
                     o && o.forEach(e=>e(a)),
                     r)
                         return r(a)
                 }
                   , b = setTimeout(l.bind(null, void 0, {
                     type: "timeout",
-                    target: d
+                    target: c
                 }), 12e4);
-                d.onerror = l.bind(null, d.onerror),
-                d.onload = l.bind(null, d.onload),
-                c && document.head.appendChild(d)
+                c.onerror = l.bind(null, c.onerror),
+                c.onload = l.bind(null, c.onload),
+                d && document.head.appendChild(c)
             }
         }
         )
@@ -256,15 +261,15 @@
               , n = r.p + o;
             if (((e,t)=>{
                 for (var r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                    var o = (d = r[a]).getAttribute("data-href") || d.getAttribute("href");
-                    if ("stylesheet" === d.rel && (o === e || o === t))
-                        return d
+                    var o = (c = r[a]).getAttribute("data-href") || c.getAttribute("href");
+                    if ("stylesheet" === c.rel && (o === e || o === t))
+                        return c
                 }
                 var n = document.getElementsByTagName("style");
                 for (a = 0; a < n.length; a++) {
-                    var d;
-                    if ((o = (d = n[a]).getAttribute("data-href")) === e || o === t)
-                        return d
+                    var c;
+                    if ((o = (c = n[a]).getAttribute("data-href")) === e || o === t)
+                        return c
                 }
             }
             )(o, n))
@@ -278,12 +283,12 @@
                     "load" === n.type)
                         r();
                     else {
-                        var d = n && ("load" === n.type ? "missing" : n.type)
-                          , c = n && n.target && n.target.href || t
-                          , i = new Error("Loading CSS chunk " + e + " failed.\n(" + c + ")");
+                        var c = n && ("load" === n.type ? "missing" : n.type)
+                          , d = n && n.target && n.target.href || t
+                          , i = new Error("Loading CSS chunk " + e + " failed.\n(" + d + ")");
                         i.code = "CSS_CHUNK_LOAD_FAILED",
-                        i.type = d,
-                        i.request = c,
+                        i.type = c,
+                        i.request = d,
                         o.parentNode.removeChild(o),
                         a(i)
                     }
@@ -320,6 +325,7 @@
                 8445: 1,
                 8460: 1,
                 9014: 1,
+                9036: 1,
                 9322: 1,
                 9642: 1,
                 9679: 1,
@@ -349,18 +355,18 @@
                 else if (3666 != t) {
                     var n = new Promise((r,a)=>o = e[t] = [r, a]);
                     a.push(o[2] = n);
-                    var d = r.p + r.u(t)
-                      , c = new Error;
-                    r.l(d, a=>{
+                    var c = r.p + r.u(t)
+                      , d = new Error;
+                    r.l(c, a=>{
                         if (r.o(e, t) && (0 !== (o = e[t]) && (e[t] = void 0),
                         o)) {
                             var n = a && ("load" === a.type ? "missing" : a.type)
-                              , d = a && a.target && a.target.src;
-                            c.message = "Loading chunk " + t + " failed.\n(" + n + ": " + d + ")",
-                            c.name = "ChunkLoadError",
-                            c.type = n,
-                            c.request = d,
-                            o[1](c)
+                              , c = a && a.target && a.target.src;
+                            d.message = "Loading chunk " + t + " failed.\n(" + n + ": " + c + ")",
+                            d.name = "ChunkLoadError",
+                            d.type = n,
+                            d.request = c,
+                            o[1](d)
                         }
                     }
                     , "chunk-" + t, t)
@@ -382,15 +388,15 @@
         ),
         r.O.j = (t=>0 === e[t]);
         var t = (t,a)=>{
-            var o, n, [d,c,i] = a, f = 0;
-            if (d.some(t=>0 !== e[t])) {
-                for (o in c)
-                    r.o(c, o) && (r.m[o] = c[o]);
+            var o, n, [c,d,i] = a, f = 0;
+            if (c.some(t=>0 !== e[t])) {
+                for (o in d)
+                    r.o(d, o) && (r.m[o] = d[o]);
                 if (i)
                     var s = i(r)
             }
-            for (t && t(a); f < d.length; f++)
-                n = d[f],
+            for (t && t(a); f < c.length; f++)
+                n = c[f],
                 r.o(e, n) && e[n] && e[n][0](),
                 e[n] = 0;
             return r.O(s)
