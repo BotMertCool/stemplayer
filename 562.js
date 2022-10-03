@@ -1706,8 +1706,8 @@
                 if (o >= 0 ? u = arguments[o] : e ? (u = {
                     TARGET_ENV: "staging",
                     NODE_ENV: "staging",
-                    KB_APP_VERSION: "1.1.2906",
-                    KB_APP_REVISION: "b2479e88b00c639a303ab6cb108f233db0a9690d",
+                    KB_APP_VERSION: "1.1.2909",
+                    KB_APP_REVISION: "87983ab7a7f97a16ceaa8808d07289653f75f1da",
                     KB_APP_NAME: "stem-player-client",
                     KB_APP_TITLE: "STEMPLAYER - Staging",
                     KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -5149,8 +5149,8 @@
             if (m(i) && (i = {
                 TARGET_ENV: "staging",
                 NODE_ENV: "staging",
-                KB_APP_VERSION: "1.1.2906",
-                KB_APP_REVISION: "b2479e88b00c639a303ab6cb108f233db0a9690d",
+                KB_APP_VERSION: "1.1.2909",
+                KB_APP_REVISION: "87983ab7a7f97a16ceaa8808d07289653f75f1da",
                 KB_APP_NAME: "stem-player-client",
                 KB_APP_TITLE: "STEMPLAYER - Staging",
                 KB_APP_URL: "https://staging-stemplatform.netlify.app",

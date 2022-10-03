@@ -529,8 +529,8 @@
                       , w = A.getUniformLocation(T, "uColor1")
                       , k = A.getUniformLocation(T, "uColor2")
                       , C = A.getUniformLocation(T, "uColor3")
-                      , S = A.getUniformLocation(T, "uColor4")
-                      , R = A.getUniformLocation(T, "uVocalsVolume")
+                      , R = A.getUniformLocation(T, "uColor4")
+                      , S = A.getUniformLocation(T, "uVocalsVolume")
                       , U = A.getUniformLocation(T, "uOtherVolume")
                       , x = A.getUniformLocation(T, "uDrumsVolume")
                       , I = A.getUniformLocation(T, "uBassVolume")
@@ -547,7 +547,7 @@
                         if (A.uniform4f(w, .6, .6235, .6745, 1),
                         A.uniform4f(k, .8941, .8235, .815686, 1),
                         A.uniform4f(C, .90196, .70588, .63529, 1),
-                        A.uniform4f(S, .6, .62745, .67843, 1),
+                        A.uniform4f(R, .6, .62745, .67843, 1),
                         r ? (A.uniform1f(D, e.getCurrentTime() / e.getDuration()),
                         u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
                         e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
@@ -558,12 +558,12 @@
                         E.current > g.current ? E.current -= .033 : E.current < g.current && (E.current += .033),
                         e.shouldMute(a.wA.Bass) ? 1 === P.current && (P.current = 0) : P.current = 1,
                         y.current > P.current ? y.current -= .033 : y.current < P.current && (y.current += .033),
-                        A.uniform1f(R, p.current),
+                        A.uniform1f(S, p.current),
                         A.uniform1f(U, v.current),
                         A.uniform1f(x, E.current),
                         A.uniform1f(I, y.current),
                         A.uniform1f(B, m.current)) : (A.uniform1f(D, 0),
-                        A.uniform1f(R, 0),
+                        A.uniform1f(S, 0),
                         A.uniform1f(U, 0),
                         A.uniform1f(x, 0),
                         A.uniform1f(I, 0),
@@ -1139,12 +1139,12 @@
             const C = (0,
             a.useRef)();
             C.current = b;
-            const S = (0,
-            a.useRef)();
-            S.current = e.playbackState;
             const R = (0,
             a.useRef)();
-            R.current = e.trackIsLoaded;
+            R.current = e.playbackState;
+            const S = (0,
+            a.useRef)();
+            S.current = e.trackIsLoaded;
             const U = (0,
             a.useRef)();
             U.current = e.shouldHideMiniPlayer;
@@ -1192,12 +1192,12 @@
                 e.currentTrack && (T && O(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === R.current && (D(!1),
+                    !0 === S.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== R.current && (D(!0),
+                !0 !== S.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1226,8 +1226,8 @@
             K.current = e.getActiveQueue();
             const W = t=>{
                 if (!U.current) {
-                    if (R.current && " " === t.key && (t.preventDefault(),
-                    S.current === _.QK.Playing ? e.pause() : e.play()),
+                    if (S.current && " " === t.key && (t.preventDefault(),
+                    R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
                         e && F(e.id || e.global_id)
@@ -1277,7 +1277,7 @@
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
-                        if (!e.getMutedStateForStem(t) && S.current !== _.QK.Stopped) {
+                        if (!e.getMutedStateForStem(t) && R.current !== _.QK.Stopped) {
                             const r = (0,
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
@@ -1290,7 +1290,7 @@
                         }
                     }
                     ),
-                    r < 1 && S.current === _.QK.Playing && (I = requestAnimationFrame(H))
+                    r < 1 && R.current === _.QK.Playing && (I = requestAnimationFrame(H))
                 }
             }
               , N = t=>{
@@ -1431,12 +1431,12 @@
             const C = (0,
             a.useRef)();
             C.current = b;
-            const S = (0,
-            a.useRef)();
-            S.current = e.playbackState;
             const R = (0,
             a.useRef)();
-            R.current = e.trackIsLoaded;
+            R.current = e.playbackState;
+            const S = (0,
+            a.useRef)();
+            S.current = e.trackIsLoaded;
             const U = (0,
             a.useRef)();
             U.current = e.shouldHideMiniPlayer;
@@ -1484,12 +1484,12 @@
                 e.currentTrack && (T && O(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === R.current && (D(!1),
+                    !0 === S.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== R.current && (D(!0),
+                !0 !== S.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1518,8 +1518,8 @@
             K.current = e.getActiveQueue();
             const W = t=>{
                 if (!U.current) {
-                    if (R.current && " " === t.key && (t.preventDefault(),
-                    S.current === _.QK.Playing ? e.pause() : e.play()),
+                    if (S.current && " " === t.key && (t.preventDefault(),
+                    R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
                         e && F(e.id || e.global_id)
@@ -1569,7 +1569,7 @@
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
-                        if (!e.getMutedStateForStem(t) && S.current !== _.QK.Stopped) {
+                        if (!e.getMutedStateForStem(t) && R.current !== _.QK.Stopped) {
                             const r = (0,
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player-shader__stems--${t}-container`).querySelector(".mini-player-shader__stems--stem");
@@ -1582,7 +1582,7 @@
                         }
                     }
                     ),
-                    r < 1 && S.current === _.QK.Playing && (I = requestAnimationFrame(H))
+                    r < 1 && R.current === _.QK.Playing && (I = requestAnimationFrame(H))
                 }
             }
               , N = t=>{
@@ -2111,7 +2111,7 @@
             n.useRef)(null)
               , [M,C] = (0,
             n.useState)(null)
-              , [S,R] = (0,
+              , [R,S] = (0,
             n.useState)(null)
               , [U,x] = (0,
             n.useState)(null)
@@ -2195,12 +2195,12 @@
                 var o = (0,
                 a.Z)(function*(o) {
                     o.preventDefault(),
-                    M || S || le(!0),
+                    M || R || le(!0),
                     H(null),
                     F(null),
                     B(!1),
                     ie(!0),
-                    null === M && "" === V && null === S && (console.error("Error: no file or url found"),
+                    null === M && "" === V && null === R && (console.error("Error: no file or url found"),
                     Z(null)),
                     Z("Splitting"),
                     ne("Splitting");
@@ -2221,7 +2221,7 @@
                                 }
                             }),
                             o = yield t.createTrackFromFile(M, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1);
-                        else if (null !== S) {
+                        else if (null !== R) {
                             var s;
                             r({
                                 event: "track_split",
@@ -2229,7 +2229,7 @@
                                     single_file: !1
                                 }
                             }),
-                            o = yield t.createTrackFromMultiFiles(S, e=>Z(e), null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
+                            o = yield t.createTrackFromMultiFiles(R, e=>Z(e), null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
                         } else {
                             var _;
                             r({
@@ -2241,7 +2241,7 @@
                             }),
                             o = yield t.createTrackFromLink(V, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
                         }
-                        if (null !== M || null === S) {
+                        if (null !== M || null === R) {
                             const e = Date.now();
                             r({
                                 event: "track_split_complete",
@@ -2262,7 +2262,7 @@
                             l(),
                             t ? (i(G),
                             H(v),
-                            null !== M || null !== S ? f(o.id, !0, v) : f(o.id, !0)) : (c(!0),
+                            null !== M || null !== R ? f(o.id, !0, v) : f(o.id, !0)) : (c(!0),
                             Z("Importing"),
                             F(o),
                             H(v),
@@ -2316,7 +2316,7 @@
                 B(null),
                 q(""),
                 C(null),
-                R(null),
+                S(null),
                 le(!1),
                 te(!1),
                 e.setDeviceTransferActive(!1),
@@ -2340,7 +2340,7 @@
                         } else
                             t.push(a)
                     }
-                    R(t)
+                    S(t)
                 });
                 return function(t) {
                     return e.apply(this, arguments)
@@ -2355,21 +2355,21 @@
                     e.preventDefault(),
                     ye(),
                     q(""),
-                    R(null),
+                    S(null),
                     C(null);
                     let t = null;
                     if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield be(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    R(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield be(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield be(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    R(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield be(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield be(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    R(null)),
+                    S(null)),
                     t) {
                         ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
                         z(null)) : (z("AUDIO FILES ONLY"),
                         C(null),
-                        R(null))
+                        S(null))
                     }
                 });
                 return function(t) {
@@ -2378,7 +2378,7 @@
             }()
               , ge = ()=>{
                 C(null),
-                R(null),
+                S(null),
                 z(null)
             }
               , ye = ()=>{
@@ -2438,7 +2438,7 @@
                 onSubmit: he
             }, n.createElement("div", {
                 className: "track-splitter__input menu-item"
-            }, !ce && !M && !S && n.createElement("label", {
+            }, !ce && !M && !R && n.createElement("label", {
                 htmlFor: "link-input",
                 className: `track-splitter__link-button ${Te() ? "" : "disabled"}`,
                 onClick: ()=>{
@@ -2448,7 +2448,7 @@
                 }
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, "LINK")), ce && !(M && M.name || S) && n.createElement(_.II, {
+            }, "LINK")), ce && !(M && M.name || R) && n.createElement(_.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
                 disabled: !Te(),
                 invalid: Y,
@@ -2474,15 +2474,15 @@
                 ref: h,
                 id: "link-input",
                 autoComplete: "off"
-            }), !ce && !M && !S && n.createElement("span", {
+            }), !ce && !M && !R && n.createElement("span", {
                 className: "track-splitter__text track-splitter__text--or"
             }, "or"), !ce && n.createElement(n.Fragment, null, n.createElement("label", {
                 htmlFor: "file",
-                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Te() ? "" : " disabled"}\n                                        ${M && M.name || S ? " track-splitter__input--full" : ""}\n                                    `
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Te() ? "" : " disabled"}\n                                        ${M && M.name || R ? " track-splitter__input--full" : ""}\n                                    `
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, M && M.name && M.name.toUpperCase(), S && `${(0,
-            E.pG)(U)} files selected`, null === M && null === S && "FILE")), n.createElement("input", {
+            }, M && M.name && M.name.toUpperCase(), R && `${(0,
+            E.pG)(U)} files selected`, null === M && null === R && "FILE")), n.createElement("input", {
                 className: "input--file",
                 type: "file",
                 id: "file",
@@ -2505,7 +2505,7 @@
                 disabled: !(()=>Ae() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
                 text: ae,
                 onClick: e=>{
-                    (!M && !S && "" === V || M && null !== $) && (e.preventDefault(),
+                    (!M && !R && "" === V || M && null !== $) && (e.preventDefault(),
                     T.current.click())
                 }
             }), !N && K && n.createElement(D, {
@@ -2560,8 +2560,8 @@
         }
         ;
         M(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
-        const S = C
-          , R = (0,
+        const R = C
+          , S = (0,
         l.j)({
             module: "trackUploadForm"
         })((0,
@@ -2572,7 +2572,7 @@
         m.J)((0,
         p.o)((0,
         h.q)(C))))))))
-          , U = R
+          , U = S
           , x = U;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
@@ -2581,8 +2581,8 @@
             e.register(w, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(k, "createSilentTrack", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(C, "TrackUploadFormComp", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(S, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(R, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(R, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(S, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(U, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
         }(),
         function() {
@@ -2607,52 +2607,60 @@
         }
         ;
         const n = ({layers: e, loaded: t})=>{
-            const [r,a] = (0,
+            const r = (0,
+            o.useRef)()
+              , [a,n] = (0,
             o.useState)([])
-              , [n,s] = (0,
+              , [s,i] = (0,
             o.useState)(null);
             (0,
             o.useEffect)(()=>{
-                if (e.length === r.length + 1)
+                if (e.length === a.length + 1)
                     ;
-                else if (e.length === r.length - 1) {
+                else if (e.length === a.length - 1) {
                     let t = !1;
-                    for (let o = 0; o < e.length; o += 1)
-                        e[o].id !== r[o].id && (t = !0);
+                    for (let r = 0; r < e.length; r += 1)
+                        e[r].id !== a[r].id && (t = !0);
                     if (!t)
-                        return s("removing"),
+                        return i("removing"),
                         void setTimeout(()=>{
-                            s(null),
-                            a(e)
+                            i(null),
+                            n(e)
                         }
                         , 250)
                 }
-                a(e)
+                n(e)
             }
-            , [e]);
-            const i = [];
+            , [e]),
+            (0,
+            o.useEffect)(()=>{
+                r.current && r.current.scrollTo(0, 0)
+            }
+            , [a]);
+            const c = [];
             for (let e = 0; e < 8; e += 1) {
-                var c;
-                const a = "removing" === n ? -1 : 0
-                  , s = Math.min(1, (1 + e - a) / r.length);
-                let l = "";
-                e - a < r.length - 1 ? l = "below" : e - a > r.length - 1 && (l = "above");
+                var l;
+                const r = "removing" === s ? -1 : 0
+                  , n = Math.min(1, (1 + e - r) / a.length);
+                let i = "";
+                e - r < a.length - 1 ? i = "below" : e - r > a.length - 1 && (i = "above");
                 const _ = o.createElement("div", {
-                    className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === e ? "base" : "overlay"}\n                    ye-layers__layer--${l}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
+                    className: `\n                    ye-layers__layer\n                    ye-layers__layer--${0 === e ? "base" : "overlay"}\n                    ye-layers__layer--${i}\n                    ${t ? "" : "ye-layers__layer--loading"}`,
                     style: {
-                        transform: s < 1 ? `scale(${s})` : void 0,
-                        opacity: s < 1 ? s : void 0
+                        transform: n < 1 ? `scale(${n})` : void 0,
+                        opacity: n < 1 ? n : void 0
                     },
                     key: e
-                }, null === (c = r[e]) || void 0 === c ? void 0 : c.component);
-                i.push(_)
+                }, null === (l = a[e]) || void 0 === l ? void 0 : l.component);
+                c.push(_)
             }
             return o.createElement("div", {
+                ref: r,
                 className: "ye-layers"
-            }, i)
+            }, c)
         }
         ;
-        a(n, "useState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}"),
+        a(n, "useRef{rootRef}\nuseState{[displayedLayers, setDisplayedLayers]([])}\nuseState{[layerTransition, setLayerTransition](null)}\nuseEffect{}\nuseEffect{}"),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(8, "AVAILABLE_LAYERS", "/home/vsts/work/1/s/src/components/YeLayers/index.tsx"),
@@ -10775,8 +10783,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2906",
-            KB_APP_REVISION: "b2479e88b00c639a303ab6cb108f233db0a9690d",
+            KB_APP_VERSION: "1.1.2909",
+            KB_APP_REVISION: "87983ab7a7f97a16ceaa8808d07289653f75f1da",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
