@@ -22,22 +22,22 @@
         r.O = ((t,a,o,n)=>{
             if (!a) {
                 var c = 1 / 0;
-                for (s = 0; s < e.length; s++) {
-                    for (var [a,o,n] = e[s], d = !0, i = 0; i < a.length; i++)
+                for (f = 0; f < e.length; f++) {
+                    for (var [a,o,n] = e[f], d = !0, i = 0; i < a.length; i++)
                         (!1 & n || c >= n) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (d = !1,
                         n < c && (c = n));
                     if (d) {
-                        e.splice(s--, 1);
-                        var f = o();
-                        void 0 !== f && (t = f)
+                        e.splice(f--, 1);
+                        var s = o();
+                        void 0 !== s && (t = s)
                     }
                 }
                 return t
             }
             n = n || 0;
-            for (var s = e.length; s > 0 && e[s - 1][2] > n; s--)
-                e[s] = e[s - 1];
-            e[s] = [a, o, n]
+            for (var f = e.length; f > 0 && e[f - 1][2] > n; f--)
+                e[f] = e[f - 1];
+            e[f] = [a, o, n]
         }
         )
     }
@@ -99,13 +99,11 @@
         7452: "ConfirmEmailUpdate",
         7713: "components-ProductVideo",
         8317: "npm.file-saver",
-        8371: "ShopifyButtonDigitalAccess",
         8460: "HomePage",
         9014: "Info",
         9036: "Signup",
         9295: "npm.react-side-effect",
         9322: "Remix",
-        9642: "DevMenu",
         9679: "ShopifyButton",
         9708: "npm.ios-inner-height",
         9945: "Video"
@@ -114,12 +112,12 @@
         451: "13f7bab3229e2a6dbdbf",
         856: "c20abb82dda2cc56dde4",
         900: "1de3f30946e268a77a78",
-        1840: "44314b95f74fc12ee4c4",
+        1840: "336d1414b80228d6760d",
         1866: "c03e5d3de34543b82e3c",
         1918: "9cd6d4a024ad28751ff6",
         2868: "32d95b022f100564ab80",
         3383: "4c9483c0e228f2f61b55",
-        3693: "0e26f9650c3ebafac976",
+        3693: "453a335deb2490d26856",
         3754: "9bd39e973ae0c7792483",
         3775: "7b0397b9a63e07f82e43",
         3930: "6b4e3276f218f6f845e4",
@@ -127,12 +125,12 @@
         4771: "d6d8c5de0ba2d2afdca2",
         4958: "124a9706c70acabae79c",
         5009: "1ead0778779e281ccc70",
-        5083: "550ad6251df41f00b318",
+        5083: "ce96461d3a50d04a896f",
         5508: "521494634b39c402bc77",
         5735: "70ac1524b3ed6f50ba41",
         5779: "91bfe73698bd66213a1e",
         5908: "2ebfafce22cbd83c4b06",
-        6130: "28a04caafdbad589be98",
+        6130: "eafee0f57c030eec2007",
         6150: "e0c30ce718927883ff3d",
         6521: "76844330d6e8e1800250",
         6630: "97c3cdf3a16506238c64",
@@ -141,14 +139,12 @@
         7452: "7055e6c07c5795209a00",
         7713: "7021eeb121e4c7eb999b",
         8317: "b4c35b8be722bd2463dd",
-        8371: "8e7f73b4c0c768e428f0",
-        8445: "6df6dacb24115308ac14",
-        8460: "aa3afb24a16d9adac967",
-        9014: "582d57a829bbc3e4165f",
-        9036: "b74f18506edbcb328ebf",
+        8445: "d04c631a1e7afa99ce56",
+        8460: "c3190b5053097fbed776",
+        9014: "1635904ab5b30fcbac6a",
+        9036: "c7bc948167082b3cdcc9",
         9295: "bfe98caa5c71ff7974db",
         9322: "742b00116a95e29cd550",
-        9642: "1beb77bfeab6cedf724d",
         9679: "f179e82cb5919be96abd",
         9708: "f4dc577f1c2ee2b32bf5",
         9713: "482b24dd113d6260aacc",
@@ -175,7 +171,6 @@
         9014: "Info",
         9036: "Signup",
         9322: "Remix",
-        9642: "DevMenu",
         9679: "ShopifyButton",
         9945: "Video"
     }[e] || e) + ".css"),
@@ -206,10 +201,10 @@
             else {
                 var c, d;
                 if (void 0 !== o)
-                    for (var i = document.getElementsByTagName("script"), f = 0; f < i.length; f++) {
-                        var s = i[f];
-                        if (s.getAttribute("src") == t || s.getAttribute("data-webpack") == "blank-board:" + o) {
-                            c = s;
+                    for (var i = document.getElementsByTagName("script"), s = 0; s < i.length; s++) {
+                        var f = i[s];
+                        if (f.getAttribute("src") == t || f.getAttribute("data-webpack") == "blank-board:" + o) {
+                            c = f;
                             break
                         }
                     }
@@ -327,7 +322,6 @@
                 9014: 1,
                 9036: 1,
                 9322: 1,
-                9642: 1,
                 9679: 1,
                 9713: 1,
                 9945: 1
@@ -388,18 +382,18 @@
         ),
         r.O.j = (t=>0 === e[t]);
         var t = (t,a)=>{
-            var o, n, [c,d,i] = a, f = 0;
+            var o, n, [c,d,i] = a, s = 0;
             if (c.some(t=>0 !== e[t])) {
                 for (o in d)
                     r.o(d, o) && (r.m[o] = d[o]);
                 if (i)
-                    var s = i(r)
+                    var f = i(r)
             }
-            for (t && t(a); f < c.length; f++)
-                n = c[f],
+            for (t && t(a); s < c.length; s++)
+                n = c[s],
                 r.o(e, n) && e[n] && e[n][0](),
                 e[n] = 0;
-            return r.O(s)
+            return r.O(f)
         }
           , a = self.webpackChunkblank_board = self.webpackChunkblank_board || [];
         a.forEach(t.bind(null, 0)),

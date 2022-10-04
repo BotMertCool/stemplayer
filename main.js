@@ -2634,9 +2634,15 @@
             , [e]),
             (0,
             o.useEffect)(()=>{
-                r.current && r.current.scrollTo(0, 0)
+                let e = setTimeout(()=>{
+                    r.current && 0 !== r.current.scrollTop && r.current.scrollTo(0, 0)
+                }
+                , 100);
+                return ()=>{
+                    clearTimeout(e)
+                }
             }
-            , [a]);
+            );
             const c = [];
             for (let e = 0; e < 8; e += 1) {
                 var l;
@@ -3064,7 +3070,7 @@
     "85e7ca4a0fc033a5d848": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>w
+            _: ()=>L
         });
         var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
@@ -3562,29 +3568,6 @@
           , M = (0,
         o.ZP)({
             resolved: {},
-            chunkName: ()=>"DevMenu",
-            isReady(e) {
-                const t = this.resolve(e);
-                return !0 === this.resolved[t] && !!r.m[t]
-            },
-            importAsync: ()=>Promise.all([r.e(1840), r.e(9642)]).then(r.bind(r, "acbf6c7eb8d93a282a95")),
-            requireAsync(e) {
-                const t = this.resolve(e);
-                return this.resolved[t] = !1,
-                this.importAsync(e).then(e=>(this.resolved[t] = !0,
-                e))
-            },
-            requireSync(e) {
-                const t = this.resolve(e);
-                return r(t)
-            },
-            resolve() {
-                return "acbf6c7eb8d93a282a95"
-            }
-        })
-          , D = (0,
-        o.ZP)({
-            resolved: {},
             chunkName: ()=>"Signup",
             isReady(e) {
                 const t = this.resolve(e);
@@ -3605,7 +3588,7 @@
                 return "9bd6c822ea00773daea4"
             }
         })
-          , L = {
+          , D = {
             updating: {
                 id: "updating",
                 component: n
@@ -3690,186 +3673,175 @@
                 id: "platform",
                 component: O
             },
-            devMenu: {
-                id: "dev-menu",
-                component: M
-            },
             holoplayerSignup: {
                 id: "holoplayer-signup",
-                component: D
+                component: M
             }
         }
-          , w = [{
+          , L = [{
             path: ["/account/reset-password"],
             exact: !0,
-            layers: [L.home, L.resetPassword],
+            layers: [D.home, D.resetPassword],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/update-email"],
             exact: !0,
-            layers: [L.home, L.emailUpdated],
+            layers: [D.home, D.emailUpdated],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/password-change"],
             exact: !0,
-            layers: [L.home, L.passwordChange],
+            layers: [D.home, D.passwordChange],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/account/registration"],
             exact: !0,
-            layers: [L.home, L.registration],
+            layers: [D.home, D.registration],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/login"],
             exact: !0,
-            layers: [L.home, L.accountLogin],
+            layers: [D.home, D.accountLogin],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/factory-reset"],
             exact: !0,
-            layers: [L.home, L.platform, L.factoryReset],
+            layers: [D.home, D.platform, D.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config/factory-reset"],
             exact: !0,
-            layers: [L.home, L.platform, L.deviceConfig, L.factoryReset],
+            layers: [D.home, D.platform, D.deviceConfig, D.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config"],
             exact: !0,
-            layers: [L.home, L.platform, L.deviceConfig],
+            layers: [D.home, D.platform, D.deviceConfig],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/new"],
             exact: !0,
-            layers: [L.home, L.platform, L.stemUpload],
+            layers: [D.home, D.platform, D.stemUpload],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem"],
             exact: !0,
-            layers: [L.home, L.platform],
+            layers: [D.home, D.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem/album/:albumSlug", "/connect/stem/track/:trackId"],
             exact: !0,
-            layers: [L.home, L.platform],
+            layers: [D.home, D.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/controls"],
             exact: !0,
-            layers: [L.home, L.platform, L.controls],
+            layers: [D.home, D.platform, D.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/remix"],
             exact: !1,
-            layers: [L.home, L.remix],
+            layers: [D.home, D.remix],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq"],
             exact: !0,
-            layers: [L.home, L.faq],
+            layers: [D.home, D.faq],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq/controls", "/controls"],
             exact: !0,
-            layers: [L.home, L.faq, L.controls],
+            layers: [D.home, D.faq, D.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info"],
             exact: !0,
-            layers: [L.home, L.info],
+            layers: [D.home, D.info],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/terms"],
             exact: !0,
-            layers: [L.home, L.info, L.terms],
+            layers: [D.home, D.info, D.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/privacy"],
             exact: !0,
-            layers: [L.home, L.info, L.privacy],
+            layers: [D.home, D.info, D.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/refund"],
             exact: !0,
-            layers: [L.home, L.info, L.refund],
+            layers: [D.home, D.info, D.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/terms"],
             exact: !0,
-            layers: [L.home, L.terms],
+            layers: [D.home, D.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/privacy", "/privacy-policy"],
             exact: !0,
-            layers: [L.home, L.privacy],
+            layers: [D.home, D.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/refund", "/refund-policy"],
             exact: !0,
-            layers: [L.home, L.refund],
+            layers: [D.home, D.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/video"],
             exact: !0,
-            layers: [L.home, L.video],
+            layers: [D.home, D.video],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/music-videos"],
             exact: !0,
-            layers: [L.home, L.musicVideos],
+            layers: [D.home, D.musicVideos],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/signup"],
             exact: !0,
-            layers: [L.home, L.holoplayerSignup],
+            layers: [D.home, D.holoplayerSignup],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/updating"],
             exact: !0,
-            layers: [L.home, L.updating],
+            layers: [D.home, D.updating],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/"],
             exact: !0,
-            layers: [L.home],
+            layers: [D.home],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }];
-        w.unshift({
-            path: ["/dev"],
-            exact: !0,
-            layers: [L.home, L.devMenu],
-            deviceRequired: !1,
-            accessWithLoginSession: !1
-        }),
-        function() {
+        !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(n, "LoadableUpdating", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(s, "LoadableRemix", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
@@ -3892,10 +3864,9 @@
             e.register(A, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(T, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(L, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
+            e.register(M, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(D, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(L, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -10783,8 +10754,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2909",
-            KB_APP_REVISION: "87983ab7a7f97a16ceaa8808d07289653f75f1da",
+            KB_APP_VERSION: "1.1.2931",
+            KB_APP_REVISION: "5136c7590f8f1274a4723ebfaaa4f83ed446a017",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
