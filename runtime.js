@@ -3,41 +3,41 @@
     var e = {}
       , t = {};
     function r(a) {
-        var o = t[a];
-        if (void 0 !== o)
-            return o.exports;
-        var n = t[a] = {
+        var n = t[a];
+        if (void 0 !== n)
+            return n.exports;
+        var o = t[a] = {
             id: a,
             loaded: !1,
             exports: {}
         };
-        return e[a].call(n.exports, n, n.exports, r),
-        n.loaded = !0,
-        n.exports
+        return e[a].call(o.exports, o, o.exports, r),
+        o.loaded = !0,
+        o.exports
     }
     r.m = e,
     r.amdO = {},
     (()=>{
         var e = [];
-        r.O = ((t,a,o,n)=>{
+        r.O = ((t,a,n,o)=>{
             if (!a) {
                 var c = 1 / 0;
                 for (f = 0; f < e.length; f++) {
-                    for (var [a,o,n] = e[f], d = !0, i = 0; i < a.length; i++)
-                        (!1 & n || c >= n) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (d = !1,
-                        n < c && (c = n));
+                    for (var [a,n,o] = e[f], d = !0, i = 0; i < a.length; i++)
+                        (!1 & o || c >= o) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (d = !1,
+                        o < c && (c = o));
                     if (d) {
                         e.splice(f--, 1);
-                        var s = o();
+                        var s = n();
                         void 0 !== s && (t = s)
                     }
                 }
                 return t
             }
-            n = n || 0;
-            for (var f = e.length; f > 0 && e[f - 1][2] > n; f--)
+            o = o || 0;
+            for (var f = e.length; f > 0 && e[f - 1][2] > o; f--)
                 e[f] = e[f - 1];
-            e[f] = [a, o, n]
+            e[f] = [a, n, o]
         }
         )
     }
@@ -104,6 +104,7 @@
         9036: "Signup",
         9295: "npm.react-side-effect",
         9322: "Remix",
+        9642: "DevMenu",
         9679: "ShopifyButton",
         9708: "npm.ios-inner-height",
         9945: "Video"
@@ -125,7 +126,7 @@
         4771: "d6d8c5de0ba2d2afdca2",
         4958: "124a9706c70acabae79c",
         5009: "1ead0778779e281ccc70",
-        5083: "ce96461d3a50d04a896f",
+        5083: "006860e673abbf7f29b6",
         5508: "521494634b39c402bc77",
         5735: "70ac1524b3ed6f50ba41",
         5779: "91bfe73698bd66213a1e",
@@ -141,10 +142,11 @@
         8317: "b4c35b8be722bd2463dd",
         8445: "d04c631a1e7afa99ce56",
         8460: "c3190b5053097fbed776",
-        9014: "1635904ab5b30fcbac6a",
+        9014: "a3e1a7a0c3f65a3b7c81",
         9036: "c7bc948167082b3cdcc9",
         9295: "bfe98caa5c71ff7974db",
         9322: "742b00116a95e29cd550",
+        9642: "1beb77bfeab6cedf724d",
         9679: "f179e82cb5919be96abd",
         9708: "f4dc577f1c2ee2b32bf5",
         9713: "482b24dd113d6260aacc",
@@ -171,6 +173,7 @@
         9014: "Info",
         9036: "Signup",
         9322: "Remix",
+        9642: "DevMenu",
         9679: "ShopifyButton",
         9945: "Video"
     }[e] || e) + ".css"),
@@ -195,15 +198,15 @@
     r.o = ((e,t)=>Object.prototype.hasOwnProperty.call(e, t)),
     (()=>{
         var e = {};
-        r.l = ((t,a,o,n)=>{
+        r.l = ((t,a,n,o)=>{
             if (e[t])
                 e[t].push(a);
             else {
                 var c, d;
-                if (void 0 !== o)
+                if (void 0 !== n)
                     for (var i = document.getElementsByTagName("script"), s = 0; s < i.length; s++) {
                         var f = i[s];
-                        if (f.getAttribute("src") == t || f.getAttribute("data-webpack") == "blank-board:" + o) {
+                        if (f.getAttribute("src") == t || f.getAttribute("data-webpack") == "blank-board:" + n) {
                             c = f;
                             break
                         }
@@ -212,16 +215,16 @@
                 (c = document.createElement("script")).charset = "utf-8",
                 c.timeout = 120,
                 r.nc && c.setAttribute("nonce", r.nc),
-                c.setAttribute("data-webpack", "blank-board:" + o),
+                c.setAttribute("data-webpack", "blank-board:" + n),
                 c.src = t),
                 e[t] = [a];
                 var l = (r,a)=>{
                     c.onerror = c.onload = null,
                     clearTimeout(b);
-                    var o = e[t];
+                    var n = e[t];
                     if (delete e[t],
                     c.parentNode && c.parentNode.removeChild(c),
-                    o && o.forEach(e=>e(a)),
+                    n && n.forEach(e=>e(a)),
                     r)
                         return r(a)
                 }
@@ -252,47 +255,47 @@
     r.p = "/",
     (()=>{
         var e = e=>new Promise((t,a)=>{
-            var o = r.miniCssF(e)
-              , n = r.p + o;
+            var n = r.miniCssF(e)
+              , o = r.p + n;
             if (((e,t)=>{
                 for (var r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) {
-                    var o = (c = r[a]).getAttribute("data-href") || c.getAttribute("href");
-                    if ("stylesheet" === c.rel && (o === e || o === t))
+                    var n = (c = r[a]).getAttribute("data-href") || c.getAttribute("href");
+                    if ("stylesheet" === c.rel && (n === e || n === t))
                         return c
                 }
-                var n = document.getElementsByTagName("style");
-                for (a = 0; a < n.length; a++) {
+                var o = document.getElementsByTagName("style");
+                for (a = 0; a < o.length; a++) {
                     var c;
-                    if ((o = (c = n[a]).getAttribute("data-href")) === e || o === t)
+                    if ((n = (c = o[a]).getAttribute("data-href")) === e || n === t)
                         return c
                 }
             }
-            )(o, n))
+            )(n, o))
                 return t();
             ((e,t,r,a)=>{
-                var o = document.createElement("link");
-                o.rel = "stylesheet",
-                o.type = "text/css";
-                o.onerror = o.onload = (n=>{
-                    if (o.onerror = o.onload = null,
-                    "load" === n.type)
+                var n = document.createElement("link");
+                n.rel = "stylesheet",
+                n.type = "text/css";
+                n.onerror = n.onload = (o=>{
+                    if (n.onerror = n.onload = null,
+                    "load" === o.type)
                         r();
                     else {
-                        var c = n && ("load" === n.type ? "missing" : n.type)
-                          , d = n && n.target && n.target.href || t
+                        var c = o && ("load" === o.type ? "missing" : o.type)
+                          , d = o && o.target && o.target.href || t
                           , i = new Error("Loading CSS chunk " + e + " failed.\n(" + d + ")");
                         i.code = "CSS_CHUNK_LOAD_FAILED",
                         i.type = c,
                         i.request = d,
-                        o.parentNode.removeChild(o),
+                        n.parentNode.removeChild(n),
                         a(i)
                     }
                 }
                 ),
-                o.href = t,
-                document.head.appendChild(o)
+                n.href = t,
+                document.head.appendChild(n)
             }
-            )(e, n, t, a)
+            )(e, o, t, a)
         }
         )
           , t = {
@@ -322,6 +325,7 @@
                 9014: 1,
                 9036: 1,
                 9322: 1,
+                9642: 1,
                 9679: 1,
                 9713: 1,
                 9945: 1
@@ -342,25 +346,25 @@
             3666: 0
         };
         r.f.j = ((t,a)=>{
-            var o = r.o(e, t) ? e[t] : void 0;
-            if (0 !== o)
-                if (o)
-                    a.push(o[2]);
+            var n = r.o(e, t) ? e[t] : void 0;
+            if (0 !== n)
+                if (n)
+                    a.push(n[2]);
                 else if (3666 != t) {
-                    var n = new Promise((r,a)=>o = e[t] = [r, a]);
-                    a.push(o[2] = n);
+                    var o = new Promise((r,a)=>n = e[t] = [r, a]);
+                    a.push(n[2] = o);
                     var c = r.p + r.u(t)
                       , d = new Error;
                     r.l(c, a=>{
-                        if (r.o(e, t) && (0 !== (o = e[t]) && (e[t] = void 0),
-                        o)) {
-                            var n = a && ("load" === a.type ? "missing" : a.type)
+                        if (r.o(e, t) && (0 !== (n = e[t]) && (e[t] = void 0),
+                        n)) {
+                            var o = a && ("load" === a.type ? "missing" : a.type)
                               , c = a && a.target && a.target.src;
-                            d.message = "Loading chunk " + t + " failed.\n(" + n + ": " + c + ")",
+                            d.message = "Loading chunk " + t + " failed.\n(" + o + ": " + c + ")",
                             d.name = "ChunkLoadError",
-                            d.type = n,
+                            d.type = o,
                             d.request = c,
-                            o[1](d)
+                            n[1](d)
                         }
                     }
                     , "chunk-" + t, t)
@@ -382,17 +386,17 @@
         ),
         r.O.j = (t=>0 === e[t]);
         var t = (t,a)=>{
-            var o, n, [c,d,i] = a, s = 0;
+            var n, o, [c,d,i] = a, s = 0;
             if (c.some(t=>0 !== e[t])) {
-                for (o in d)
-                    r.o(d, o) && (r.m[o] = d[o]);
+                for (n in d)
+                    r.o(d, n) && (r.m[n] = d[n]);
                 if (i)
                     var f = i(r)
             }
             for (t && t(a); s < c.length; s++)
-                n = c[s],
-                r.o(e, n) && e[n] && e[n][0](),
-                e[n] = 0;
+                o = c[s],
+                r.o(e, o) && e[o] && e[o][0](),
+                e[o] = 0;
             return r.O(f)
         }
           , a = self.webpackChunkblank_board = self.webpackChunkblank_board || [];
