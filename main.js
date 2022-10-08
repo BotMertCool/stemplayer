@@ -159,7 +159,7 @@
     cc0255108d6122cbc66a: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>b
+            Z: ()=>v
         });
         var o = r("8af190b70a6bc55c6f1b")
           , a = r("6515cd559c65eab0c80c")
@@ -241,7 +241,7 @@
             const h = (0,
             o.useRef)();
             h.current = e.playbackState;
-            const v = (0,
+            const b = (0,
             o.useRef)(p);
             return (0,
             o.useEffect)(()=>{
@@ -259,65 +259,65 @@
                 let p;
                 o.width = o.clientWidth,
                 o.height = o.clientHeight;
-                var b = o.getContext("webgl");
-                if (b) {
-                    _.current = b,
+                var v = o.getContext("webgl");
+                if (v) {
+                    _.current = v,
                     t();
                     const n = u[r]
-                      , E = f(b, n.vs, n.fs)
-                      , g = m(b, E)
-                      , y = b.getUniformLocation(E, "uTime")
-                      , P = b.getUniformLocation(E, "uResolution")
-                      , A = b.getUniformLocation(E, "uColor1")
-                      , T = b.getUniformLocation(E, "uColor2");
-                    let O = 0
+                      , E = f(v, n.vs, n.fs)
+                      , g = m(v, E)
+                      , A = v.getUniformLocation(E, "uTime")
+                      , y = v.getUniformLocation(E, "uResolution")
+                      , P = v.getUniformLocation(E, "uColor1")
+                      , O = v.getUniformLocation(E, "uColor2");
+                    let T = 0
                       , M = !1;
                     const D = t=>{
-                        b.clearColor(0, 0, 0, 1),
-                        b.clear(b.COLOR_BUFFER_BIT),
-                        b.uniform1f(y, t),
-                        b.uniform2f(P, o.clientWidth, o.clientHeight);
+                        v.clearColor(0, 0, 0, 1),
+                        v.clear(v.COLOR_BUFFER_BIT),
+                        v.uniform1f(A, t),
+                        v.uniform2f(y, o.clientWidth, o.clientHeight);
                         const r = d.current;
                         if (r) {
                             const t = r.colors.map(e=>(0,
                             i.oo)(e.substring(1)).map(e=>e / 255))
-                              , n = v.current.every((e,r)=>(0,
+                              , n = b.current.every((e,r)=>(0,
                             l.H)(e, t[r]));
                             n || M || (M = !0,
-                            O = 0),
-                            M && (O += .002,
-                            v.current = v.current.map((e,r)=>{
+                            T = 0),
+                            M && (T += .002,
+                            b.current = b.current.map((e,r)=>{
                                 const o = t[r];
                                 return e.map((e,t)=>(0,
-                                c.t)(e, o[t], O))
+                                c.t)(e, o[t], T))
                             }
                             ),
                             n && (M = !1,
-                            O = 0)),
-                            O >= 1 && (M = !1,
-                            O = 0,
-                            v.current = t);
+                            T = 0)),
+                            T >= 1 && (M = !1,
+                            T = 0,
+                            b.current = t);
                             const _ = document.querySelectorAll(".ye-waveform");
                             Object.values(a.wA).forEach((t,n)=>{
                                 const i = t.charAt(0).toUpperCase() + t.slice(1)
-                                  , c = b.getUniformLocation(E, `uAmplitude${i}`)
-                                  , l = b.getUniformLocation(E, `uWaveformYPos${i}`);
+                                  , c = v.getUniformLocation(E, `uAmplitude${i}`)
+                                  , l = v.getUniformLocation(E, `uWaveformYPos${i}`);
                                 if (_.length) {
                                     const e = _[n].getBoundingClientRect().top + _[n].clientHeight / 2
                                       , t = (o.clientHeight / 2 - e) / (o.clientHeight / 2);
-                                    b.uniform1f(l, t)
+                                    v.uniform1f(l, t)
                                 }
                                 let d;
                                 d = e.shouldMute(t) || h.current !== a.QK.Playing ? 0 : (0,
                                 s.tX)(r.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), r.waveformData[t].fps),
-                                b.uniform1f(c, d)
+                                v.uniform1f(c, d)
                             }
                             )
                         }
-                        const [n,_] = v.current;
-                        b.uniform4f(A, n[0], n[1], n[2], 1),
-                        b.uniform4f(T, _[0], _[1], _[2], 1),
-                        b.drawArrays(b.TRIANGLES, 0, g),
+                        const [n,_] = b.current;
+                        v.uniform4f(P, n[0], n[1], n[2], 1),
+                        v.uniform4f(O, _[0], _[1], _[2], 1),
+                        v.drawArrays(v.TRIANGLES, 0, g),
                         p = requestAnimationFrame(D)
                     }
                     ;
@@ -338,9 +338,9 @@
         }
         ;
         d(h, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseEffect{}");
-        const v = (0,
+        const b = (0,
         n.f)(h)
-          , b = v;
+          , v = b;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(u, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
@@ -348,7 +348,7 @@
             e.register(m, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
             e.register(p, "defaultBackgroundColorsRgbPercent", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
             e.register(h, "BackgroundShader", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(v, "default", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"))
+            e.register(b, "default", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -460,17 +460,17 @@
             o.useRef)(1)
               , h = (0,
             o.useRef)(0)
-              , v = (0,
-            o.useRef)(1)
               , b = (0,
+            o.useRef)(1)
+              , v = (0,
             o.useRef)(0)
               , E = (0,
             o.useRef)(1)
               , g = (0,
             o.useRef)(0)
-              , y = (0,
+              , A = (0,
             o.useRef)(1)
-              , P = (0,
+              , y = (0,
             o.useRef)(0);
             return (0,
             o.useRef)().current = e.playbackState,
@@ -519,87 +519,87 @@
                 ;
                 window.addEventListener("resize", t);
                 const o = n.current;
-                let A;
+                let P;
                 o.width = o.clientWidth,
                 o.height = o.clientHeight;
-                var T = o.getContext("webgl");
-                if (T) {
-                    s.current = T,
+                var O = o.getContext("webgl");
+                if (O) {
+                    s.current = O,
                     t();
                     const n = c[r]
-                      , O = l(T, n.vs, n.fs)
-                      , M = _(T, O)
-                      , D = T.getUniformLocation(O, "uTime")
-                      , L = T.getUniformLocation(O, "uTrackPosition")
-                      , w = T.getUniformLocation(O, "uResolution")
-                      , k = T.getUniformLocation(O, "uColor1")
-                      , C = T.getUniformLocation(O, "uColor2")
-                      , R = T.getUniformLocation(O, "uColor3")
-                      , S = T.getUniformLocation(O, "uColor4")
-                      , U = T.getUniformLocation(O, "uVocalsVolume")
-                      , x = T.getUniformLocation(O, "uOtherVolume")
-                      , I = T.getUniformLocation(O, "uDrumsVolume")
-                      , B = T.getUniformLocation(O, "uBassVolume")
-                      , K = T.getUniformLocation(O, "uStoppedAt")
-                      , G = T.getUniformLocation(O, "uTrackSamples")
-                      , W = [T.getUniformLocation(O, "uVocals"), T.getUniformLocation(O, "uOther"), T.getUniformLocation(O, "uDrums"), T.getUniformLocation(O, "uBass")]
+                      , T = l(O, n.vs, n.fs)
+                      , M = _(O, T)
+                      , D = O.getUniformLocation(T, "uTime")
+                      , L = O.getUniformLocation(T, "uTrackPosition")
+                      , w = O.getUniformLocation(T, "uResolution")
+                      , k = O.getUniformLocation(T, "uColor1")
+                      , C = O.getUniformLocation(T, "uColor2")
+                      , R = O.getUniformLocation(T, "uColor3")
+                      , S = O.getUniformLocation(T, "uColor4")
+                      , U = O.getUniformLocation(T, "uVocalsVolume")
+                      , x = O.getUniformLocation(T, "uOtherVolume")
+                      , I = O.getUniformLocation(T, "uDrumsVolume")
+                      , B = O.getUniformLocation(T, "uBassVolume")
+                      , K = O.getUniformLocation(T, "uStoppedAt")
+                      , G = O.getUniformLocation(T, "uTrackSamples")
+                      , W = [O.getUniformLocation(T, "uVocals"), O.getUniformLocation(T, "uOther"), O.getUniformLocation(T, "uDrums"), O.getUniformLocation(T, "uBass")]
                       , H = [];
                     for (const e of ["vocals", "other", "drums", "bass"]) {
-                        const e = d(T, [], T.RGBA, 128, 128);
+                        const e = d(O, [], O.RGBA, 128, 128);
                         H.push(e)
                     }
                     f.current = H;
                     const N = t=>{
-                        T.clearColor(0, 0, 0, 1),
-                        T.clear(T.COLOR_BUFFER_BIT),
-                        T.uniform1f(D, t),
-                        T.uniform2f(w, o.clientWidth, o.clientHeight);
+                        O.clearColor(0, 0, 0, 1),
+                        O.clear(O.COLOR_BUFFER_BIT),
+                        O.uniform1f(D, t),
+                        O.uniform2f(w, o.clientWidth, o.clientHeight);
                         const r = i.current
                           , n = f.current;
-                        if (T.uniform4f(k, .6, .6235, .6745, 1),
-                        T.uniform4f(C, .8941, .8235, .815686, 1),
-                        T.uniform4f(R, .90196, .70588, .63529, 1),
-                        T.uniform4f(S, .6, .62745, .67843, 1),
-                        r ? (T.uniform1f(L, e.getCurrentTime() / e.getDuration()),
+                        if (O.uniform4f(k, .6, .6235, .6745, 1),
+                        O.uniform4f(C, .8941, .8235, .815686, 1),
+                        O.uniform4f(R, .90196, .70588, .63529, 1),
+                        O.uniform4f(S, .6, .62745, .67843, 1),
+                        r ? (O.uniform1f(L, e.getCurrentTime() / e.getDuration()),
                         u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
                         e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
                         p.current > h.current ? p.current -= .033 : p.current < h.current && (p.current += .033),
-                        e.shouldMute(a.wA.Other) ? 1 === b.current && (b.current = 0) : b.current = 1,
-                        v.current > b.current ? v.current -= .033 : v.current < b.current && (v.current += .033),
+                        e.shouldMute(a.wA.Other) ? 1 === v.current && (v.current = 0) : v.current = 1,
+                        b.current > v.current ? b.current -= .033 : b.current < v.current && (b.current += .033),
                         e.shouldMute(a.wA.Drums) ? 1 === g.current && (g.current = 0) : g.current = 1,
                         E.current > g.current ? E.current -= .033 : E.current < g.current && (E.current += .033),
-                        e.shouldMute(a.wA.Bass) ? 1 === P.current && (P.current = 0) : P.current = 1,
-                        y.current > P.current ? y.current -= .033 : y.current < P.current && (y.current += .033),
-                        T.uniform1f(U, p.current),
-                        T.uniform1f(x, v.current),
-                        T.uniform1f(I, E.current),
-                        T.uniform1f(B, y.current),
-                        T.uniform1f(K, m.current)) : (T.uniform1f(L, 0),
-                        T.uniform1f(U, 0),
-                        T.uniform1f(x, 0),
-                        T.uniform1f(I, 0),
-                        T.uniform1f(B, 0),
-                        T.uniform1f(K, 0)),
+                        e.shouldMute(a.wA.Bass) ? 1 === y.current && (y.current = 0) : y.current = 1,
+                        A.current > y.current ? A.current -= .033 : A.current < y.current && (A.current += .033),
+                        O.uniform1f(U, p.current),
+                        O.uniform1f(x, b.current),
+                        O.uniform1f(I, E.current),
+                        O.uniform1f(B, A.current),
+                        O.uniform1f(K, m.current)) : (O.uniform1f(L, 0),
+                        O.uniform1f(U, 0),
+                        O.uniform1f(x, 0),
+                        O.uniform1f(I, 0),
+                        O.uniform1f(B, 0),
+                        O.uniform1f(K, 0)),
                         n) {
                             let e = 0;
                             r && (e = r.waveformData.drums.intensity.length),
-                            T.uniform1f(G, e);
+                            O.uniform1f(G, e);
                             for (let e = 0; e < n.length; e += 1) {
                                 const t = n[e];
-                                T.activeTexture(T.TEXTURE0 + e),
-                                T.bindTexture(T.TEXTURE_2D, t),
-                                T.uniform1i(W[e], e)
+                                O.activeTexture(O.TEXTURE0 + e),
+                                O.bindTexture(O.TEXTURE_2D, t),
+                                O.uniform1i(W[e], e)
                             }
                         }
-                        T.drawArrays(T.TRIANGLES, 0, M),
-                        A = requestAnimationFrame(N)
+                        O.drawArrays(O.TRIANGLES, 0, M),
+                        P = requestAnimationFrame(N)
                     }
                     ;
                     N(0)
                 }
                 return ()=>{
                     window.removeEventListener("resize", t),
-                    A && cancelAnimationFrame(A)
+                    P && cancelAnimationFrame(P)
                 }
             }
             , []),
@@ -678,9 +678,9 @@
         }, "."), o.createElement("span", {
             className: "dots__dot--3"
         }, "."))
-          , c = ({icon: e, text: t=!1, type: r="button", onClick: a, onMouseDown: n, onMouseLeave: c, onMouseUp: l, onTouchMove: _, onTouchStart: d, onTouchEnd: u, disabled: f=!1, loading: m=!1, active: p=!1, hideTextWhenLoading: h=!1, className: v, size: b="", brackets: E=!1, dots: g=!1, id: y})=>o.createElement("button", {
-            className: `button\n            ${m ? " button--loading" : ""}\n            ${b ? ` button--${b}` : ""}\n            ${f ? " disabled" : ""}\n            ${p ? " button--active" : ""}\n            ${e ? " button--icon" : ""}\n            ${t ? " button--text" : " button--no-text"}\n            ${v ? ` ${v}` : ""}\n        `,
-            id: y && y,
+          , c = ({icon: e, text: t=!1, type: r="button", onClick: a, onMouseDown: n, onMouseLeave: c, onMouseUp: l, onTouchMove: _, onTouchStart: d, onTouchEnd: u, disabled: f=!1, loading: m=!1, active: p=!1, hideTextWhenLoading: h=!1, className: b, size: v="", brackets: E=!1, dots: g=!1, id: A})=>o.createElement("button", {
+            className: `button\n            ${m ? " button--loading" : ""}\n            ${v ? ` button--${v}` : ""}\n            ${f ? " disabled" : ""}\n            ${p ? " button--active" : ""}\n            ${e ? " button--icon" : ""}\n            ${t ? " button--text" : " button--no-text"}\n            ${b ? ` ${b}` : ""}\n        `,
+            id: A && A,
             type: r,
             onClick: a && !m ? a : void 0,
             onMouseDown: n && !m ? n : void 0,
@@ -719,7 +719,7 @@
         });
         var o = r("990057777e9b2b7543e8")
           , a = r("8af190b70a6bc55c6f1b")
-          , n = r("2f0f179fdd043e994433")
+          , n = r("5bed4c2c2c85e5553a5d")
           , s = r("c90b79b40c6328f03c9e")
           , i = r("f60aef9fa88f4e9ce07a")
           , c = r("abf12094d6dd744112a4");
@@ -756,12 +756,12 @@
         }
         ;
         const u = (0,
-        a.forwardRef)(({min: e=null, max: t=null, maxLength: r=null, type: o="text", className: n="", invalid: s, placeholder: i="", value: c="", onChange: l, onInput: _, onBlur: d, autoFocus: u, disabled: f=!1, readOnly: m=!1, id: p, style: h, modifier: v, autoComplete: b, size: E, autoCapitalize: g},y)=>a.createElement("input", {
+        a.forwardRef)(({min: e=null, max: t=null, maxLength: r=null, type: o="text", className: n="", invalid: s, placeholder: i="", value: c="", onChange: l, onInput: _, onBlur: d, autoFocus: u, disabled: f=!1, readOnly: m=!1, id: p, style: h, modifier: b, autoComplete: v, size: E, autoCapitalize: g},A)=>a.createElement("input", {
             min: e && e,
             max: t && t,
             maxLength: r && r,
             type: o,
-            className: `input${v ? ` input--${v}` : ""}${s ? " input--invalid" : ""} ${n}`,
+            className: `input${b ? ` input--${b}` : ""}${s ? " input--invalid" : ""} ${n}`,
             placeholder: i,
             value: c,
             onChange: l,
@@ -769,12 +769,12 @@
             onInput: _,
             disabled: f,
             readOnly: m,
-            ref: y,
+            ref: A,
             id: p && p,
             style: h,
             size: E,
             "data-lpignore": "true",
-            autoComplete: b,
+            autoComplete: v,
             autoFocus: u && u,
             autoCapitalize: g
         }))
@@ -809,28 +809,28 @@
             a.useState)(!1)
               , [p,h] = (0,
             a.useState)(!0)
-              , [v,b] = (0,
+              , [b,v] = (0,
             a.useState)(!0)
               , E = (0,
             a.useRef)(null)
               , g = (0,
             a.useRef)(null)
-              , y = (0,
+              , A = (0,
             a.useRef)(null)
+              , y = e=>{
+                var t;
+                null === (t = g.current) || void 0 === t || t.addEventListener("mousemove", T),
+                T(e)
+            }
               , P = e=>{
                 var t;
-                null === (t = g.current) || void 0 === t || t.addEventListener("mousemove", O),
-                O(e)
+                null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T)
             }
-              , A = e=>{
+              , O = e=>{
                 var t;
-                null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O)
+                1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T))
             }
-              , T = e=>{
-                var t;
-                1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O))
-            }
-              , O = t=>{
+              , T = t=>{
                 if (0 === t.button) {
                     const o = t.currentTarget
                       , a = Math.atan2(t.offsetY - o.height / 2, t.offsetX - o.width / 2)
@@ -883,23 +883,23 @@
                         e.stroke()
                     }
                 }
-                return g.current.addEventListener("mousedown", P),
-                g.current.addEventListener("mouseenter", T),
-                g.current.addEventListener("mouseup", A),
+                return g.current.addEventListener("mousedown", y),
+                g.current.addEventListener("mouseenter", O),
+                g.current.addEventListener("mouseup", P),
                 ()=>{
                     var e, t, r;
-                    null === (e = g.current) || void 0 === e || e.removeEventListener("mousedown", P),
-                    null === (t = g.current) || void 0 === t || t.removeEventListener("mouseenter", T),
-                    null === (r = g.current) || void 0 === r || r.removeEventListener("mouseup", A)
+                    null === (e = g.current) || void 0 === e || e.removeEventListener("mousedown", y),
+                    null === (t = g.current) || void 0 === t || t.removeEventListener("mouseenter", O),
+                    null === (r = g.current) || void 0 === r || r.removeEventListener("mouseup", P)
                 }
             }
             , [g, f]),
             (0,
             a.useEffect)(()=>{
                 if (h(!0),
-                !y.current)
+                !A.current)
                     return;
-                const e = y.current.getContext("2d");
+                const e = A.current.getContext("2d");
                 e.clearRect(0, 0, 210, 210),
                 e.imageSmoothingEnabled = !1;
                 const r = (0,
@@ -922,7 +922,7 @@
                 e.arc(l, _, 14, 0, 2 * Math.PI),
                 e.stroke()
             }
-            , [y, t, f]),
+            , [A, t, f]),
             (0,
             a.useEffect)(()=>{
                 if (!E.current)
@@ -940,8 +940,8 @@
             , [E, f]),
             (0,
             a.useEffect)(()=>{
-                b(!0),
-                null != g.current && f && b(!1)
+                v(!0),
+                null != g.current && f && v(!1)
             }
             , [g, f]),
             a.createElement("div", {
@@ -963,7 +963,7 @@
                 }
             }), f && a.createElement("div", {
                 className: "input-color__picker"
-            }, v && a.createElement("div", {
+            }, b && a.createElement("div", {
                 className: "input-color__picker-loader"
             }, a.createElement(c.default, {
                 size: "small"
@@ -977,7 +977,7 @@
                 }
             }), p && a.createElement("canvas", {
                 className: "input-color__canvas  input-color__canvas--overlay",
-                ref: y,
+                ref: A,
                 width: 210,
                 height: 210
             }), a.createElement("div", {
@@ -1102,7 +1102,7 @@
     "7e15fd75b6f1cbf7b3fd": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>y
+            Z: ()=>A
         });
         var o = r("de098c4daf91477f9cbc")
           , a = r("8af190b70a6bc55c6f1b")
@@ -1123,22 +1123,22 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var v = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var b = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const b = ({audioEngine: e, stemsClient: t})=>{
+        const v = ({audioEngine: e, stemsClient: t})=>{
             const [r,l] = (0,
             a.useState)()
-              , [d,v] = (0,
+              , [d,b] = (0,
             a.useState)()
-              , [b,E] = (0,
+              , [v,E] = (0,
             a.useState)()
-              , [g,y] = (0,
+              , [g,A] = (0,
             a.useState)("")
-              , [P,A] = (0,
+              , [y,P] = (0,
             a.useState)("")
-              , [T,O] = (0,
+              , [O,T] = (0,
             a.useState)(!1)
               , [M,D] = (0,
             a.useState)(!0)
@@ -1152,7 +1152,7 @@
             k.current = d;
             const C = (0,
             a.useRef)();
-            C.current = b;
+            C.current = v;
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
@@ -1192,10 +1192,10 @@
                         f.ee)(e)
                           , n = (0,
                         f.$r)(a, r);
-                        v(o),
+                        b(o),
                         E(e),
-                        y(n),
-                        A(r)
+                        A(n),
+                        P(r)
                     } else
                         e.currentTrack && l(e.currentTrack.id)
                 }
@@ -1203,7 +1203,7 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (T && O(!1),
+                e.currentTrack && (O && T(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
                     !0 === S.current && (D(!1),
@@ -1226,7 +1226,7 @@
                     e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
                 else {
                     const t = e.getActiveQueue()[d + 1];
-                    t && F(t.id || t.global_id)
+                    t && V(t.id || t.global_id)
                 }
             }
             , [e.playbackState]),
@@ -1244,11 +1244,11 @@
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
-                        e && F(e.id || e.global_id)
+                        e && V(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
                         const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : V(t.id || t.global_id))
                     }
                 }
             }
@@ -1296,7 +1296,7 @@
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
                             if (o) {
-                                O(!0);
+                                T(!0);
                                 const e = (0,
                                 u.Z)(r, [0, 1], [.3, 1], !0);
                                 o.style.transform = `scale(${e})`
@@ -1312,16 +1312,16 @@
                 t.stopPropagation(),
                 x.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , F = t=>{
+              , V = t=>{
                 (0,
                 p.Z)(),
                 l(t),
                 e.setIsNavigating(!0),
                 e.stop(),
-                V(),
-                T && O(!1)
+                F(),
+                O && T(!1)
             }
-              , V = (0,
+              , F = (0,
             a.useCallback)((0,
             s.Ds)(W, 500), []);
             return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && e.getHasPlayed() && a.createElement("div", {
@@ -1361,27 +1361,27 @@
                 className: "mini-player__track-info--title"
             }, g && g.length ? g : "Untitled"), a.createElement("p", {
                 className: "mini-player__track-info--artist"
-            }, P))), a.createElement("div", {
+            }, y))), a.createElement("div", {
                 className: "mini-player__scrubber-container",
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(i.Z, null)), a.createElement("div", {
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(c.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: F,
+                goToTrackCb: V,
                 trackIndex: d
             }))))
         }
         ;
-        v(b, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
-        const E = b
+        b(v, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
+        const E = v
           , g = (0,
         d.E9)((0,
-        l.f)(b))
-          , y = g;
+        l.f)(v))
+          , A = g;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(b, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e && (e.register(v, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
             e.register(E, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
             e.register(g, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
         }(),
@@ -1394,7 +1394,7 @@
     abfe2b08803905e2fbf1: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>y
+            Z: ()=>A
         });
         var o = r("de098c4daf91477f9cbc")
           , a = r("8af190b70a6bc55c6f1b")
@@ -1415,22 +1415,22 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var v = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var b = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const b = ({audioEngine: e, stemsClient: t})=>{
+        const v = ({audioEngine: e, stemsClient: t})=>{
             const [r,l] = (0,
             a.useState)()
-              , [d,v] = (0,
+              , [d,b] = (0,
             a.useState)()
-              , [b,E] = (0,
+              , [v,E] = (0,
             a.useState)()
-              , [g,y] = (0,
+              , [g,A] = (0,
             a.useState)("")
-              , [P,A] = (0,
+              , [y,P] = (0,
             a.useState)("")
-              , [T,O] = (0,
+              , [O,T] = (0,
             a.useState)(!1)
               , [M,D] = (0,
             a.useState)(!0)
@@ -1444,7 +1444,7 @@
             k.current = d;
             const C = (0,
             a.useRef)();
-            C.current = b;
+            C.current = v;
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
@@ -1484,10 +1484,10 @@
                         f.ee)(e)
                           , n = (0,
                         f.$r)(a, r);
-                        v(o),
+                        b(o),
                         E(e),
-                        y(n),
-                        A(r)
+                        A(n),
+                        P(r)
                     } else
                         e.currentTrack && l(e.currentTrack.id)
                 }
@@ -1495,7 +1495,7 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (T && O(!1),
+                e.currentTrack && (O && T(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
                     !0 === S.current && (D(!1),
@@ -1518,7 +1518,7 @@
                     e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
                 else {
                     const t = e.getActiveQueue()[d + 1];
-                    t && F(t.id || t.global_id)
+                    t && V(t.id || t.global_id)
                 }
             }
             , [e.playbackState]),
@@ -1536,11 +1536,11 @@
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
-                        e && F(e.id || e.global_id)
+                        e && V(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
                         const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : V(t.id || t.global_id))
                     }
                 }
             }
@@ -1588,7 +1588,7 @@
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player-shader__stems--${t}-container`).querySelector(".mini-player-shader__stems--stem");
                             if (o) {
-                                O(!0);
+                                T(!0);
                                 const e = (0,
                                 u.Z)(r, [0, 1], [.3, 1], !0);
                                 o.style.transform = `scale(${e})`
@@ -1604,16 +1604,16 @@
                 t.stopPropagation(),
                 x.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , F = t=>{
+              , V = t=>{
                 (0,
                 p.Z)(),
                 l(t),
                 e.setIsNavigating(!0),
                 e.stop(),
-                V(),
-                T && O(!1)
+                F(),
+                O && T(!1)
             }
-              , V = (0,
+              , F = (0,
             a.useCallback)((0,
             s.Ds)(W, 500), []);
             return a.createElement(a.Fragment, null, a.createElement("div", {
@@ -1653,27 +1653,27 @@
                 className: "mini-player-shader__track-info--title"
             }, g && g.length ? g : "Untitled"), a.createElement("p", {
                 className: "mini-player-shader__track-info--artist"
-            }, P))), a.createElement("div", {
+            }, y))), a.createElement("div", {
                 className: "mini-player-shader__scrubber-container",
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(i.Z, null)), a.createElement("div", {
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(c.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: F,
+                goToTrackCb: V,
                 trackIndex: d
             })))))
         }
         ;
-        v(b, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
-        const E = b
+        b(v, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
+        const E = v
           , g = (0,
         d.E9)((0,
-        l.f)(b))
-          , y = g;
+        l.f)(v))
+          , A = g;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(b, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"),
+            e && (e.register(v, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"),
             e.register(E, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"),
             e.register(g, "default", "/home/vsts/work/1/s/src/components/MiniPlayerShader/index.tsx"))
         }(),
@@ -1723,18 +1723,18 @@
                     }
                 }
             }
-              , v = ()=>{
+              , b = ()=>{
                 p.current && m(null)
             }
             ;
-            let b, E, g;
-            return _ && window.screen.width > 600 ? (b = 25,
+            let v, E, g;
+            return _ && window.screen.width > 600 ? (v = 25,
             E = 57,
-            g = 33) : _ ? (b = 26,
+            g = 33) : _ ? (v = 26,
             E = 59,
-            g = 35) : window.screen.width > 600 ? (b = 30,
+            g = 35) : window.screen.width > 600 ? (v = 30,
             E = 68,
-            g = 40) : (b = 33,
+            g = 40) : (v = 33,
             E = 74,
             g = 44),
             o.createElement("div", {
@@ -1744,7 +1744,7 @@
             }, o.createElement(a.default, {
                 className: "player-controls__prev-button",
                 onMouseDown: ()=>m("prev"),
-                onMouseLeave: v,
+                onMouseLeave: b,
                 onMouseUp: e=>h(e, "prev"),
                 onTouchStart: ()=>m("prev"),
                 onTouchMove: ()=>m(null),
@@ -1753,20 +1753,20 @@
                 className: "player-controls__next-button",
                 onMouseDown: ()=>m("next"),
                 onMouseUp: e=>h(e, "next"),
-                onMouseLeave: v,
+                onMouseLeave: b,
                 onTouchStart: ()=>m("next"),
                 onTouchMove: ()=>m(null),
                 onTouchEnd: e=>h(e, "next")
             }), o.createElement("span", {
                 className: "player-controls__prev-next-icon"
             }, "next" === p.current ? o.createElement(s.mE, {
-                height: b,
+                height: v,
                 width: E
             }) : "prev" === p.current ? o.createElement(s.ry, {
-                height: b,
+                height: v,
                 width: E
             }) : o.createElement(s._z, {
-                height: b,
+                height: v,
                 width: E
             }))), o.createElement(a.default, {
                 id: "play-button",
@@ -1834,23 +1834,23 @@
             const h = (0,
             o.useRef)();
             h.current = r;
-            const v = (0,
+            const b = (0,
             o.useRef)();
             (0,
-            o.useEffect)(()=>(v.current = !0,
+            o.useEffect)(()=>(b.current = !0,
             ()=>{
-                v.current = !1,
+                b.current = !1,
                 cancelAnimationFrame(u)
             }
             ), []),
             (0,
             o.useEffect)(()=>{
-                e.playbackState === a.QK.Playing ? u = requestAnimationFrame(b) : e.playbackState === a.QK.Stopped && n(0)
+                e.playbackState === a.QK.Playing ? u = requestAnimationFrame(v) : e.playbackState === a.QK.Stopped && n(0)
             }
             , [e.playbackState]),
             (0,
             o.useEffect)(()=>{
-                e.playbackState === a.QK.Paused && (u = requestAnimationFrame(b))
+                e.playbackState === a.QK.Paused && (u = requestAnimationFrame(v))
             }
             , [e.currentPosition]),
             (0,
@@ -1858,13 +1858,13 @@
                 e.trackIsLoaded || n(0)
             }
             , [e.trackIsLoaded]);
-            const b = ()=>{
-                if (v.current && m.current !== a.QK.Stopped) {
+            const v = ()=>{
+                if (b.current && m.current !== a.QK.Stopped) {
                     const t = e.getCurrentPositionPercent()
                       , r = new Date;
                     !p.current && r.getTime() - f.getTime() > 1e3 / 3 && (n(t),
                     f = r),
-                    t < 1 && (m.current === a.QK.Playing || p.current || t !== h.current) && requestAnimationFrame(b)
+                    t < 1 && (m.current === a.QK.Playing || p.current || t !== h.current) && requestAnimationFrame(v)
                 }
             }
               , E = e=>{
@@ -2018,14 +2018,14 @@
           , m = r("c1bece57111e2d76e639")
           , p = r("ad21e61587d47603cd1c")
           , h = r("3e17aee31846974e528a")
-          , v = r("5347e167343c470dbdfe")
-          , b = r("3145f0c7f3b91ffef7d2")
+          , b = r("5347e167343c470dbdfe")
+          , v = r("3145f0c7f3b91ffef7d2")
           , E = r("da23a0dbab1fa75005eb")
           , g = r("63922d5ff7825dcb0b86")
-          , y = r("50adafd66d905a6a5399")
-          , P = r("3029aafe6858c31fb8c9")
-          , A = r("d6e61794281205c7e43a");
-        function T(e, t) {
+          , A = r("50adafd66d905a6a5399")
+          , y = r("3029aafe6858c31fb8c9")
+          , P = r("d6e61794281205c7e43a");
+        function O(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
                 var o = Object.getOwnPropertySymbols(e);
@@ -2036,13 +2036,13 @@
             }
             return r
         }
-        function O(e) {
+        function T(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? T(Object(r), !0).forEach(function(t) {
+                t % 2 ? O(Object(r), !0).forEach(function(t) {
                     (0,
                     o.Z)(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : T(Object(r)).forEach(function(t) {
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : O(Object(r)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                 })
             }
@@ -2121,7 +2121,7 @@
           , C = ({webUSBClient: e, trackApiClient: t, tracking: {trackEvent: r}, albumRestoreClient: {restoreError: o, resetState: s}, viewManagerClient: {setNewTrack: i, setDeviceFullUploadError: c}, unloadAudioEngineTrackCb: l, accountClient: d, history: u, newTrackUploadedCb: f, closeClicked: m, fetchUserLibraryWaveforms: p})=>{
             const h = (0,
             n.useRef)(null)
-              , T = (0,
+              , O = (0,
             n.useRef)(null)
               , [M,C] = (0,
             n.useState)(null)
@@ -2135,15 +2135,15 @@
             n.useState)(null)
               , [W,H] = (0,
             n.useState)(null)
-              , [N,F] = (0,
+              , [N,V] = (0,
             n.useState)(null)
-              , [V,q] = (0,
+              , [F,q] = (0,
             n.useState)("")
               , [j,Z] = (0,
             n.useState)(null)
-              , [$,z] = (0,
+              , [$,Q] = (0,
             n.useState)(null)
-              , [Y,Q] = (0,
+              , [z,Y] = (0,
             n.useState)(!1)
               , [J,X] = (0,
             n.useState)(null)
@@ -2166,16 +2166,16 @@
             (0,
             n.useEffect)(()=>{
                 W && W.id && N && d.session ? (i(W),
-                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (F(null),
+                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (V(null),
                 i(W),
                 (0,
-                v.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
-                ve())
+                b.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
+                be())
             }
             , [W]),
             (0,
             n.useEffect)(()=>{
-                m && ve()
+                m && be()
             }
             , [m]),
             (0,
@@ -2211,17 +2211,17 @@
                     o.preventDefault(),
                     M || R || le(!0),
                     H(null),
-                    F(null),
+                    V(null),
                     B(!1),
                     ie(!0),
-                    null === M && "" === V && null === R && (console.error("Error: no file or url found"),
+                    null === M && "" === F && null === R && (console.error("Error: no file or url found"),
                     Z(null)),
                     Z("Splitting"),
                     ne("Splitting");
                     const a = Date.now();
                     try {
                         let o = null;
-                        const u = new b.f;
+                        const u = new v.f;
                         var n;
                         if (G(u),
                         null !== M)
@@ -2234,7 +2234,7 @@
                                     single_file: !0
                                 }
                             }),
-                            o = yield t.createTrackFromFile(M, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1);
+                            o = yield t.createTrackFromFile(M, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1);
                         else if (null !== R) {
                             var s;
                             r({
@@ -2243,17 +2243,17 @@
                                     single_file: !1
                                 }
                             }),
-                            o = yield t.createTrackFromMultiFiles(R, e=>Z(e), null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
+                            o = yield t.createTrackFromMultiFiles(R, e=>Z(e), null === (s = d.session) || void 0 === s ? void 0 : s.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1)
                         } else {
                             var _;
                             r({
                                 event: "track_split",
                                 data: {
                                     type: "url",
-                                    url: `${V}`
+                                    url: `${F}`
                                 }
                             }),
-                            o = yield t.createTrackFromLink(V, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === P.L4.High || !1)
+                            o = yield t.createTrackFromLink(F, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1)
                         }
                         if (null !== M || null === R) {
                             const e = Date.now();
@@ -2268,27 +2268,27 @@
                         }
                         const m = yield t.getTracks([o.id])
                           , h = yield p(m[o.id])
-                          , v = O(O({}, o), {}, {
+                          , b = T(T({}, o), {}, {
                             waveformData: h
                         });
                         if (e.deviceConnected) {
                             const t = yield e.hasSpaceForTrack(o);
                             l(),
                             t ? (i(W),
-                            H(v),
-                            null !== M || null !== R ? f(o.id, !0, v) : f(o.id, !0)) : (c(!0),
+                            H(b),
+                            null !== M || null !== R ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
                             Z("Importing"),
-                            F(o),
-                            H(v),
+                            V(o),
+                            H(b),
                             f(o.id, !1)),
-                            ve()
+                            be()
                         } else
-                            i(v),
-                            H(v),
+                            i(b),
+                            H(b),
                             f(o.id, !1),
-                            ve()
+                            be()
                     } catch (e) {
-                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Q(!0),
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Y(!0),
                         X("Upload failed - reconnect Stemplayer"),
                         Z("Try again"),
                         r({
@@ -2297,7 +2297,7 @@
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : e.message && "Cancelled" !== e.message ? (Q(!0),
+                        })) : e.message && "Cancelled" !== e.message ? (Y(!0),
                         X(e.message),
                         Z("Try again"),
                         r({
@@ -2306,7 +2306,7 @@
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : (ve(),
+                        })) : (be(),
                         Z("Upload cancelled"),
                         r({
                             error: {
@@ -2323,8 +2323,8 @@
                     return o.apply(this, arguments)
                 }
             }()
-              , ve = ()=>{
-                T.current && (T.current.value = ""),
+              , be = ()=>{
+                O.current && (O.current.value = ""),
                 Z(null),
                 G(null),
                 B(null),
@@ -2336,7 +2336,7 @@
                 e.setDeviceTransferActive(!1),
                 ie(!0)
             }
-              , be = function() {
+              , ve = function() {
                 var e = (0,
                 a.Z)(function*(e) {
                     x(e.length);
@@ -2367,21 +2367,21 @@
                         return;
                     o && s(),
                     e.preventDefault(),
-                    ye(),
+                    Ae(),
                     q(""),
                     S(null),
                     C(null);
                     let t = null;
-                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield be(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    S(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield be(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    S(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield be(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
                     S(null)),
                     t) {
                         ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
-                        z(null)) : (z("AUDIO FILES ONLY"),
+                        Q(null)) : (Q("AUDIO FILES ONLY"),
                         C(null),
                         S(null))
                     }
@@ -2393,28 +2393,28 @@
               , ge = ()=>{
                 C(null),
                 S(null),
-                z(null)
+                Q(null)
             }
-              , ye = ()=>{
-                z(null),
-                Q(!1),
+              , Ae = ()=>{
+                Q(null),
+                Y(!1),
                 X(null),
                 B(!1),
                 Z(null)
             }
             ;
-            let Pe = V.replace(/^https?\:\/\/(www\.)?/i, "");
-            Pe.match(/^w?w?w?\.?$/i) && (Pe = V);
-            const Ae = ()=>!e.deviceTransferActive && !ee
-              , Te = ()=>Ae() && [null, "Upload cancelled", "Try again"].includes(j)
-              , Oe = ()=>{
+            let ye = F.replace(/^https?\:\/\/(www\.)?/i, "");
+            ye.match(/^w?w?w?\.?$/i) && (ye = F);
+            const Pe = ()=>!e.deviceTransferActive && !ee
+              , Oe = ()=>Pe() && [null, "Upload cancelled", "Try again"].includes(j)
+              , Te = ()=>{
                 u.push("/connect/config")
             }
               , Me = function() {
                 var t = (0,
                 a.Z)(function*() {
                     const t = (0,
-                    v.qs)();
+                    b.qs)();
                     if ("Use Chrome or Edge" !== ("Chrome" !== t && "Edge" !== t && "Use Chrome or Edge"))
                         if (e.deviceConnected)
                             try {
@@ -2428,7 +2428,7 @@
                                 yield e.connect()
                             } catch (e) {
                                 const t = yield(0,
-                                y.Xb)();
+                                A.Xb)();
                                 pe(t ? "Connected in another tab" : "Failed to connect")
                             }
                     else
@@ -2454,24 +2454,24 @@
                 className: "track-splitter__input menu-item"
             }, !ce && !M && !R && n.createElement("label", {
                 htmlFor: "link-input",
-                className: `track-splitter__link-button ${Te() ? "" : "disabled"}`,
+                className: `track-splitter__link-button ${Oe() ? "" : "disabled"}`,
                 onClick: ()=>{
-                    "Upload cancelled" === j && (ve(),
+                    "Upload cancelled" === j && (be(),
                     le(!0)),
-                    Te() && le(!0)
+                    Oe() && le(!0)
                 }
             }, n.createElement("span", {
                 className: "track-splitter__text"
             }, "LINK")), ce && !(M && M.name || R) && n.createElement(_.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
-                disabled: !Te(),
-                invalid: Y,
+                disabled: !Oe(),
+                invalid: z,
                 modifier: "url",
                 placeholder: "ENTER LINK",
-                value: Pe,
+                value: ye,
                 onChange: e=>{
                     o && s(),
-                    ye(),
+                    Ae(),
                     M && ge();
                     const t = e.target.value.trim()
                       , r = (0,
@@ -2479,12 +2479,12 @@
                     q(r),
                     (0,
                     g.xb)(r) || (0,
-                    g.b3)(r) ? Y && (Q(!1),
-                    X(null)) : (Q(!0),
+                    g.b3)(r) ? z && (Y(!1),
+                    X(null)) : (Y(!0),
                     X("Input not valid link"))
                 }
                 ,
-                onBlur: ()=>0 === Pe.length && le(!1),
+                onBlur: ()=>0 === ye.length && le(!1),
                 ref: h,
                 id: "link-input",
                 autoComplete: "off"
@@ -2492,7 +2492,7 @@
                 className: "track-splitter__text track-splitter__text--or"
             }, "or"), !ce && n.createElement(n.Fragment, null, n.createElement("label", {
                 htmlFor: "file",
-                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Te() ? "" : " disabled"}\n                                        ${M && M.name || R ? " track-splitter__input--full" : ""}\n                                    `
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Oe() ? "" : " disabled"}\n                                        ${M && M.name || R ? " track-splitter__input--full" : ""}\n                                    `
             }, n.createElement("span", {
                 className: "track-splitter__text"
             }, M && M.name && M.name.toUpperCase(), R && `${(0,
@@ -2502,10 +2502,10 @@
                 id: "file",
                 name: "file",
                 multiple: !0,
-                disabled: !Te(),
-                accept: [...A.Z, "video/mp4"].join(", "),
+                disabled: !Oe(),
+                accept: [...P.Z, "video/mp4"].join(", "),
                 onChange: Ee,
-                ref: T
+                ref: O
             }))), "Try again" === j && n.createElement(D, {
                 text: `${J || "Error uploading track"}`,
                 className: "u-mx-auto",
@@ -2516,11 +2516,11 @@
                 hideTextWhenLoading: !0,
                 brackets: "No available space on device" !== ae,
                 dots: ["Splitting", "Formatting", "Uploading", "Importing"].includes(ae),
-                disabled: !(()=>Ae() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
+                disabled: !(()=>Pe() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
                 text: ae,
                 onClick: e=>{
-                    (!M && !R && "" === V || M && null !== $) && (e.preventDefault(),
-                    T.current.click())
+                    (!M && !R && "" === F || M && null !== $) && (e.preventDefault(),
+                    O.current.click())
                 }
             }), !N && K && n.createElement(D, {
                 text: "CANCEL",
@@ -2529,8 +2529,8 @@
                 onClick: ()=>{
                     K && (K.cancel(),
                     ne(null),
-                    ve(),
-                    F(null),
+                    be(),
+                    V(null),
                     Z("Upload cancelled"),
                     setTimeout(()=>{
                         Z(null),
@@ -2543,20 +2543,20 @@
                 }
             })), !ee && !re && n.createElement(D, {
                 text: "Config",
-                disabled: !Ae(),
+                disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Oe()
+                onClick: ()=>Te()
             }), !e.deviceConnected && !(0,
-            v.gn)() && n.createElement(D, {
+            b.gn)() && n.createElement(D, {
                 text: me,
-                disabled: !Ae(),
+                disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
                 onClick: ()=>Me()
             }), !d.session && n.createElement(D, {
                 text: "Login",
-                disabled: !Ae(),
+                disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
                 onClick: ()=>u.push("/account/login")
@@ -2564,11 +2564,11 @@
                 resetUpdateRestoreState: se,
                 setUpdateRestoreReset: ie,
                 deviceInfo: e.deviceInfo,
-                disabled: !Ae(),
+                disabled: !Pe(),
                 updatingCallback: e=>te(e),
                 resetErrorState: _e,
                 updateErrorCb: e=>fe(e),
-                updateCompleteCb: ()=>Oe(),
+                updateCompleteCb: ()=>Te(),
                 hasUpdateCb: oe
             }))
         }
@@ -3372,7 +3372,7 @@
                 return "3227868004d09282c22f"
             }
         })
-          , v = (0,
+          , b = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Terms",
@@ -3395,7 +3395,7 @@
                 return "b7167979877d5e17bee1"
             }
         })
-          , b = (0,
+          , v = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"PrivacyPolicy",
@@ -3464,7 +3464,7 @@
                 return "0da2ab9a3c2d27b3b747"
             }
         })
-          , y = (0,
+          , A = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"MusicVideos",
@@ -3487,7 +3487,7 @@
                 return "eeaff95f5d41d43ad9fb"
             }
         })
-          , P = (0,
+          , y = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"FactoryReset",
@@ -3510,7 +3510,7 @@
                 return "9ce1b3c31aa3a4f16c2c"
             }
         })
-          , A = (0,
+          , P = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"DeviceConfig",
@@ -3533,7 +3533,7 @@
                 return "d00aef4a5b07cfed0869"
             }
         })
-          , T = (0,
+          , O = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"StemUpload",
@@ -3556,7 +3556,7 @@
                 return "eee9a4037fce6f3bba79"
             }
         })
-          , O = (0,
+          , T = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Platform",
@@ -3676,11 +3676,11 @@
             },
             terms: {
                 id: "terms",
-                component: v
+                component: b
             },
             privacy: {
                 id: "privacy",
-                component: b
+                component: v
             },
             refund: {
                 id: "refund",
@@ -3692,23 +3692,23 @@
             },
             musicVideos: {
                 id: "music-videos",
-                component: y
+                component: A
             },
             factoryReset: {
                 id: "factory-reset",
-                component: P
+                component: y
             },
             deviceConfig: {
                 id: "device-config",
-                component: A
+                component: P
             },
             stemUpload: {
                 id: "stem-upload",
-                component: T
+                component: O
             },
             platform: {
                 id: "platform",
-                component: O
+                component: T
             },
             devMenu: {
                 id: "dev-menu",
@@ -3903,15 +3903,15 @@
             e.register(m, "LoadableControls", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(p, "LoadableFaq", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(h, "LoadableInfo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(v, "LoadableTerms", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(b, "LoadablePrivacy", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(b, "LoadableTerms", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(v, "LoadablePrivacy", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(E, "LoadableRefund", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(g, "LoadableVideo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(y, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(P, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(A, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(T, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(A, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(y, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(P, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(O, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(T, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(L, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
@@ -4663,7 +4663,7 @@
             OZ: ()=>AlbumRestoreContext,
             ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
         });
-        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8"), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("de098c4daf91477f9cbc"), react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b"), _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e"), _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433"), _webusb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("f60aef9fa88f4e9ce07a"), _stems__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("d92624744e8fb7e743e8"), _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("a7b043367627a4b04036"), _utils_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("a60417c8351c73d4238a"), _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("557b135c7198835d5410"), _dec, _class, _temp;
+        var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8"), _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("de098c4daf91477f9cbc"), react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b"), _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e"), _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("5bed4c2c2c85e5553a5d"), _webusb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("f60aef9fa88f4e9ce07a"), _stems__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("d92624744e8fb7e743e8"), _webusb_webusb_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("a7b043367627a4b04036"), _utils_misc__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("a60417c8351c73d4238a"), _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("557b135c7198835d5410"), _dec, _class, _temp;
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
@@ -4913,7 +4913,7 @@
                         }
                         );
                         const h = u || m || p.length > 0
-                          , v = p.length > 0 || r.version != e.version || _.length > 0 || d.length > 0;
+                          , b = p.length > 0 || r.version != e.version || _.length > 0 || d.length > 0;
                         t.setState(t=>{
                             const {albumsStatus: r} = t;
                             return r[a] = {
@@ -4922,7 +4922,7 @@
                                 latestTrackIds: o,
                                 albumId: e.id,
                                 moveOrAddTracks: u || m,
-                                updateAlbumAvailable: v,
+                                updateAlbumAvailable: b,
                                 restoreAlbumAvailable: h,
                                 metaUpdate: d,
                                 stemsUpdate: _,
@@ -5000,7 +5000,7 @@
                         const {tracking: {trackEvent: n}, webUSBClient: {setDeviceTransferActive: s, fetchDeviceAlbums: i, addAlbum: c, moveAlbums: l, updateAlbumVersion: _, deviceInfo: d, deviceAlbums: u, deviceStorageUsed: f}} = t.props
                           , {albumsStatus: m, latestAlbums: p} = t.state
                           , h = m[e]
-                          , v = p[e];
+                          , b = p[e];
                         if (!h.restoreAlbumAvailable && !h.updateAlbumAvailable)
                             return;
                         n({
@@ -5016,7 +5016,7 @@
                             restoreError: !1,
                             trackRestore: null
                         });
-                        const b = new AbortController;
+                        const v = new AbortController;
                         r && r(()=>{
                             n({
                                 event: `user_cancelled_album_${o ? "update" : "restore"}`,
@@ -5025,7 +5025,7 @@
                                     serialNumber: d.serialNumber
                                 }
                             }),
-                            b.abort(),
+                            v.abort(),
                             t.restoreCancelled = !0,
                             t.cancelInterval(),
                             t.setState({
@@ -5036,7 +5036,7 @@
                         );
                         try {
                             if (h.restoreAlbumAvailable && !h.albumId) {
-                                yield c(e, v.artist);
+                                yield c(e, b.artist);
                                 const t = yield i()
                                   , r = Object.keys(t).sort().filter(e=>!(0,
                                 _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(e, "RECORD")).map(e=>t[e])
@@ -5051,16 +5051,16 @@
                             if (t.restoreCancelled)
                                 throw new Error("Cancelled");
                             if (h.moveOrAddTracks) {
-                                if (yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal),
-                                yield t.moveMissingTracks(e, b.signal),
-                                yield t.moveBadTracks(e, b.signal),
-                                yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal),
-                                yield t.addMissingTracks(e, r, b.signal, a),
+                                if (yield t.clearAlbumWithTracks(tempAlbumBadTrack, v.signal),
+                                yield t.moveMissingTracks(e, v.signal),
+                                yield t.moveBadTracks(e, v.signal),
+                                yield t.clearAlbumWithTracks(tempAlbumBadTrack, v.signal),
+                                yield t.addMissingTracks(e, r, v.signal, a),
                                 t.restoreCancelled)
                                     throw new Error("Cancelled");
-                                yield t.restoreAlbumOrder(e, b.signal)
+                                yield t.restoreAlbumOrder(e, v.signal)
                             }
-                            h.updateAlbumAvailable && h.stemsUpdate && h.stemsUpdate.length > 0 && (yield t.updateAlbumStems(e, r, b.signal, a));
+                            h.updateAlbumAvailable && h.stemsUpdate && h.stemsUpdate.length > 0 && (yield t.updateAlbumStems(e, r, v.signal, a));
                             let {metaUpdate: o} = h;
                             const n = function() {
                                 var t = (0,
@@ -5086,9 +5086,9 @@
                             let d = yield i();
                             const u = Object.values(d).find(t=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(t.title, e));
-                            u && (yield _(u.id, v.version))
+                            u && (yield _(u.id, b.version))
                         } catch (e) {
-                            throw e.message.match(/cancelled/i) ? yield t.clearAlbumWithTracks(tempAlbumBadTrack, b.signal) : t.setState({
+                            throw e.message.match(/cancelled/i) ? yield t.clearAlbumWithTracks(tempAlbumBadTrack, v.signal) : t.setState({
                                 restoreError: !0
                             }),
                             e
@@ -5257,30 +5257,30 @@
                         const {webUSBClient: {addTrackSimple: n, fetchDeviceAlbums: s, setDeviceTransferActive: i, deviceInfo: c, deleteTrack: l, deviceAlbums: _}, stemsClient: {getLatestStems: d, hasSpaceForStems: u, getSizeOfStems: f}} = t.props
                           , {latestAlbums: m, albumsStatus: p} = t.state
                           , h = p[e];
-                        let v = !1;
+                        let b = !1;
                         r && r(()=>{
-                            v = !0
+                            b = !0
                         }
                         );
-                        const b = h.restoreAlbumAvailable && h.latestTrackIds && h.latestTrackIds.reverse().find(e=>!h.trackIds.includes(e));
+                        const v = h.restoreAlbumAvailable && h.latestTrackIds && h.latestTrackIds.reverse().find(e=>!h.trackIds.includes(e));
                         if (i(!0),
-                        b) {
+                        v) {
                             const i = m[e].tracks.find(e=>(0,
-                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, b));
+                            _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, v));
                             let c = "wav";
                             i.formats && i.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (c = "mp3");
-                            const p = yield d(b, i.version, c, i.subscription_required, o, !0);
-                            if (o.aborted || v)
+                            const p = yield d(v, i.version, c, i.subscription_required, o, !0);
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             const E = yield t.downloadStemsWithProgress(i, p.stems, o);
-                            if (o.aborted || v)
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             if (!(yield u(E, i.metadata.title))) {
                                 const e = f(E);
                                 yield t.waitUntilUserHasSpace(a, e)
                             }
                             const g = {
-                                id: `T${h.latestTrackIds.reverse().indexOf(b) + 1}`,
+                                id: `T${h.latestTrackIds.reverse().indexOf(v) + 1}`,
                                 global_id: i.id,
                                 meta_version: i.metadata.version,
                                 stems_version: i.stems_version,
@@ -5311,20 +5311,20 @@
                                     format: c
                                 }
                             }
-                              , y = m[e].tracks.findIndex(e=>e.id === i.id)
-                              , P = Object.keys(_).find(t=>_[t].title === e);
-                            if (o.aborted || v)
+                              , A = m[e].tracks.findIndex(e=>e.id === i.id)
+                              , y = Object.keys(_).find(t=>_[t].title === e);
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
-                            if (-1 !== y) {
-                                const e = `T${y + 1}`;
+                            if (-1 !== A) {
+                                const e = `T${A + 1}`;
                                 try {
-                                    yield l(P, e, o)
+                                    yield l(y, e, o)
                                 } catch (e) {
                                     if (e && "Cancelled" === e.message)
                                         throw e
                                 }
                             }
-                            if (o.aborted || v)
+                            if (o.aborted || b)
                                 throw new Error("Cancelled");
                             if (yield n(g, e=>{
                                 const r = e ? downloadProgressPercent / 100 + (100 - downloadProgressPercent) / 100 * e.total : 1;
@@ -5339,7 +5339,7 @@
                             }
                             , r),
                             yield s(),
-                            o.aborted || v)
+                            o.aborted || b)
                                 throw new Error("Cancelled");
                             yield t.addMissingTracks(e, r, o, a)
                         } else
@@ -5451,12 +5451,12 @@
                             i(!0);
                             const p = f[e].tracks.find(e=>(0,
                             _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.O8)(e.id, h.global_id));
-                            let v = "wav";
-                            p.formats && p.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (v = "mp3");
-                            const b = yield _(h.global_id, p.version, v, p.subscription_required, o, !0);
+                            let b = "wav";
+                            p.formats && p.formats.includes("mp3") && "mp3" === selectedUpdateRestoreCodec && (b = "mp3");
+                            const v = yield _(h.global_id, p.version, b, p.subscription_required, o, !0);
                             if (o.aborted)
                                 throw new Error("Cancelled");
-                            const E = yield t.downloadStemsWithProgress(p, b, o);
+                            const E = yield t.downloadStemsWithProgress(p, v, o);
                             if (o.aborted)
                                 throw new Error("Cancelled");
                             if (!(yield d(E, p.metadata.title))) {
@@ -5480,19 +5480,19 @@
                                 }),
                                 vocals: {
                                     file: E.vocals,
-                                    format: v
+                                    format: b
                                 },
                                 bass: {
                                     file: E.bass,
-                                    format: v
+                                    format: b
                                 },
                                 drums: {
                                     file: E.drums,
-                                    format: v
+                                    format: b
                                 },
                                 other: {
                                     file: E.other,
-                                    format: v
+                                    format: b
                                 }
                             };
                             if (o.aborted)
@@ -5662,18 +5662,23 @@
             ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
         });
         var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
-          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("de098c4daf91477f9cbc")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("de098c4daf91477f9cbc")
           , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
           , _repository__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("9f8992917dda43cfdc1d")
           , _utils_waveforms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("238af0e74d3daf256b28")
-          , react_page_visibility__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("065f3a895d559954cd46")
-          , react_page_visibility__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(react_page_visibility__WEBPACK_IMPORTED_MODULE_11__)
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("065f3a895d559954cd46")
+          , react_page_visibility__WEBPACK_IMPORTED_MODULE_16___default = __webpack_require__.n(react_page_visibility__WEBPACK_IMPORTED_MODULE_16__)
           , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("c0326c9d650a633c92d0")
-          , _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("94e777f63eff622615ee")
-          , _utils_lerp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("e2161c2bb2fb866f34ce")
-          , _utils_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("c90b79b40c6328f03c9e")
-          , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("b61b44d5123c4032e9da");
+          , _utils_lerp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("e2161c2bb2fb866f34ce")
+          , _utils_colors__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("c90b79b40c6328f03c9e")
+          , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("b61b44d5123c4032e9da")
+          , _assets_images_album_art_sp_logo_sp_logo_96_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("9eb170d7c5000dac8fd6")
+          , _assets_images_album_art_sp_logo_sp_logo_128_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("a87a3620bcdc8bcede82")
+          , _assets_images_album_art_sp_logo_sp_logo_192_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("76464ae046d8581913da")
+          , _assets_images_album_art_sp_logo_sp_logo_256_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("0986e48731cd117d741e")
+          , _assets_images_album_art_sp_logo_sp_logo_384_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("f79c0e8d8cc00d078e63")
+          , _assets_images_album_art_sp_logo_sp_logo_512_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("b966f52c481692c934b9");
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
@@ -5770,7 +5775,7 @@
                 this.getHasUserConsent = (()=>this.hasUserConsent),
                 this.load = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         t.stop(),
                         t.setState({
                             isLoading: !0,
@@ -6079,27 +6084,27 @@
                         artist: e.artist,
                         album: e.album,
                         artwork: [{
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_96_png__WEBPACK_IMPORTED_MODULE_9__,
                             sizes: "96x96",
                             type: "image/png"
                         }, {
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_128_png__WEBPACK_IMPORTED_MODULE_10__,
                             sizes: "128x128",
                             type: "image/png"
                         }, {
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_192_png__WEBPACK_IMPORTED_MODULE_11__,
                             sizes: "192x192",
                             type: "image/png"
                         }, {
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_256_png__WEBPACK_IMPORTED_MODULE_12__,
                             sizes: "256x256",
                             type: "image/png"
                         }, {
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_384_png__WEBPACK_IMPORTED_MODULE_13__,
                             sizes: "384x384",
                             type: "image/png"
                         }, {
-                            src: _assets_images_album_art_donda2_png__WEBPACK_IMPORTED_MODULE_6__,
+                            src: _assets_images_album_art_sp_logo_sp_logo_512_png__WEBPACK_IMPORTED_MODULE_14__,
                             sizes: "512x512",
                             type: "image/png"
                         }]
@@ -6223,19 +6228,22 @@
                     }
                 }
                 ),
-                this.updateTrackMetaData = ((e,t,r,o,a)=>{
-                    const n = this.state.userQueue;
-                    if (n) {
-                        const o = n.findIndex(t=>{
+                this.updateTrackMetaData = ((e,t,r,o,a,n)=>{
+                    const s = this.state.userQueue;
+                    if (s) {
+                        const o = s.findIndex(t=>{
                             return (t.id ? t.id : t.global_id) === e
                         }
                         );
+                        let a = !1;
                         if (-1 !== o) {
-                            const e = n[o];
-                            e.metadata.title = t,
-                            e.metadata.artist = r
+                            const e = s[o];
+                            t !== e.metadata.title && (e.metadata.title = t,
+                            a = !0),
+                            r !== e.metadata.artist && (e.metadata.artist = r,
+                            a = !0)
                         }
-                        this.setState({
+                        a && n && this.setState({
                             currentTrackMetadataUpdated: this.state.currentTrackMetadataUpdated + 1
                         })
                     }
@@ -6256,19 +6264,19 @@
                 t.playbackState !== AudioEnginePlaybackState.Ended && r === AudioEnginePlaybackState.Ended && this.stop(),
                 o && o !== t.currentTrack && _utils_feature_flags__WEBPACK_IMPORTED_MODULE_5__.V.hasFlag("background-shader-gradients")) {
                     const e = o.colors.map(e=>(0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.oo)(e.substring(1)))
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.oo)(e.substring(1)))
                       , t = e[0].map((t,r)=>Math.floor((0,
-                    _utils_lerp__WEBPACK_IMPORTED_MODULE_7__.t)(t, e[1][r], .5)))
+                    _utils_lerp__WEBPACK_IMPORTED_MODULE_6__.t)(t, e[1][r], .5)))
                       , r = (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(t, 1, .6)
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.dk)(t, 1, .6)
                       , a = ((0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(r[0], r[1], r[2]),
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.vq)(r[0], r[1], r[2]),
                     (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.dk)(e[1], .3, .8))
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.dk)(e[1], .3, .8))
                       , n = (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_8__.vq)(a[0], a[1], a[2]);
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.vq)(a[0], a[1], a[2]);
                     (0,
-                    _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_9__.g)(n)
+                    _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_8__.g)(n)
                 }
             }
             setup() {
@@ -6383,7 +6391,7 @@
                 };
                 return react__WEBPACK_IMPORTED_MODULE_1__.createElement(AudioEngineContext.Provider, {
                     value: e
-                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_page_visibility__WEBPACK_IMPORTED_MODULE_11___default(), {
+                }, react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_page_visibility__WEBPACK_IMPORTED_MODULE_16___default(), {
                     onChange: e=>this.onVisibilityChange(e)
                 }), this.props.children)
             }
@@ -8581,7 +8589,7 @@
           , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("de098c4daf91477f9cbc")
           , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
-          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433")
+          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("5bed4c2c2c85e5553a5d")
           , _stems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("d92624744e8fb7e743e8")
           , _utils_ids__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("a251fa0b0449b11ba1dd")
           , _utils_colors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("c90b79b40c6328f03c9e")
@@ -8903,33 +8911,33 @@
                                 fallback_track_title: e.name
                             }, a, l.signal)
                               , {id: f} = u
-                              , {metadata: {album: m, artist: p, duration: h, title: v, bpm: b}, stems: E} = yield t.getReadyTrack(f, n, l.signal);
+                              , {metadata: {album: m, artist: p, duration: h, title: b, bpm: v}, stems: E} = yield t.getReadyTrack(f, n, l.signal);
                             if (_)
                                 throw new Error("Cancelled");
                             const g = t.state.userLibraryTrackIds.some(e=>e == f);
                             if (!s && g)
                                 throw new Error("Duplicate Track");
-                            const y = {
+                            const A = {
                                 track_id: f,
                                 color1: (0,
                                 _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)(),
                                 color2: (0,
                                 _utils_colors__WEBPACK_IMPORTED_MODULE_6__.lY)()
                             };
-                            !g && a && t.addTrackToUserLibrary([y], a),
+                            !g && a && t.addTrackToUserLibrary([A], a),
                             r && r("Importing");
-                            const P = yield i(E, l.signal);
+                            const y = yield i(E, l.signal);
                             return _objectSpread(_objectSpread({
-                                id: y.track_id,
+                                id: A.track_id,
                                 album: m,
                                 artist: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(p, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.h1),
                                 duration: h,
                                 title: (0,
-                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(v || e.name, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
-                                bpm: b
-                            }, P), {}, {
-                                colors: [y.color1, y.color2]
+                                _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(b || e.name, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
+                                bpm: v
+                            }, y), {}, {
+                                colors: [A.color1, A.color2]
                             })
                         } catch (e) {
                             if (e.name && "AbortError" === e.name)
@@ -8976,7 +8984,7 @@
                                 throw new Error("Duplicate Track");
                             "ready" !== o.status ? _ = yield t.getReadyTrack(d, n, c.signal) : (_ = o,
                             n && !t.trackHasHighQualityStems(_) && (_ = yield t.getReadyTrack(d, n, c.signal)));
-                            const {metadata: {album: f, artist: m, duration: p, title: h, bpm: v}, stems: b} = _;
+                            const {metadata: {album: f, artist: m, duration: p, title: h, bpm: b}, stems: v} = _;
                             if (l)
                                 throw new Error("Cancelled");
                             const E = {
@@ -8988,7 +8996,7 @@
                             };
                             !u && a && t.addTrackToUserLibrary([E], a),
                             r && r("Importing");
-                            const g = yield s(b, c.signal);
+                            const g = yield s(v, c.signal);
                             return _objectSpread(_objectSpread({
                                 id: E.track_id,
                                 album: f,
@@ -8997,7 +9005,7 @@
                                 duration: p,
                                 title: (0,
                                 _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(h, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
-                                bpm: v
+                                bpm: b
                             }, g), {}, {
                                 colors: [E.color1, E.color2],
                                 metadata: _.metadata
@@ -9588,12 +9596,12 @@
             ZP: ()=>__WEBPACK_DEFAULT_EXPORT__
         });
         var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("990057777e9b2b7543e8")
-          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("de098c4daf91477f9cbc")
+          , _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("de098c4daf91477f9cbc")
           , react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("8af190b70a6bc55c6f1b")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("657c5d0bc31a26770cad")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_15___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_15__)
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_16___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_16__)
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("8a5d22dd0b24a6092d3e")
-          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2f0f179fdd043e994433")
+          , _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("5bed4c2c2c85e5553a5d")
           , _account__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("ad21e61587d47603cd1c")
           , _utils_promises__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("971fd0ff834a938d5a3d")
           , _contexts_firmware_update_firmware_update_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("3f02c5877d4690b5563c")
@@ -9603,7 +9611,8 @@
           , _assets_images_album_art_wash_us_in_the_blood_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("9f2316eeebc9c27ecc70")
           , _assets_images_album_art_life_of_the_party_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("fbf27e791db133ce7130")
           , _assets_images_album_art_recordings_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("6d601a08887d6ace5f82")
-          , _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("3145f0c7f3b91ffef7d2");
+          , _utils_cancel_controller__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("3145f0c7f3b91ffef7d2")
+          , _kano_stem_player_webusb_build_device__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("b2b922375814bbdc5154");
         function ownKeys(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
@@ -9799,7 +9808,7 @@
                 }
                 ),
                 this.connect = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , {deviceTransferActive: r} = t.state;
                     if (!r) {
@@ -9819,7 +9828,7 @@
                     }
                 }),
                 this.disconnect = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , {deviceTransferActive: r} = t.state;
                     if (!r) {
@@ -9840,7 +9849,7 @@
                     }
                 }),
                 this.reboot = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t;
                     try {
                         yield e.reboot(),
@@ -9853,7 +9862,7 @@
                     }
                 }),
                 this.onConnect = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     if (t.activeRequests.has("onConnect"))
                         return t.activeRequests.get("onConnect").promise;
                     const e = new _utils_promises__WEBPACK_IMPORTED_MODULE_5__.C
@@ -9902,7 +9911,7 @@
                 }),
                 this.onDisconnect = (()=>this.resetState()),
                 this.fetchDeviceInfo = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getDeviceInfo();
                     return t._isMounted && t.setState({
@@ -9911,7 +9920,7 @@
                     r
                 }),
                 this.fetchDeviceConfig = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getDeviceConfig();
                     t._isMounted && t.setState({
@@ -9919,7 +9928,7 @@
                     })
                 }),
                 this.fetchDeviceStorageInfo = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getStorageInfo()
                       , {free: o, size: a} = r;
@@ -9929,7 +9938,7 @@
                     })
                 }),
                 this.authenticateDevice = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {deviceInfo: e} = t.state;
                     if (null === e)
                         return null;
@@ -9971,7 +9980,7 @@
                     n.promise
                 }),
                 this.updateDeviceChargeState = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , {soc: r, "last-bt": o} = yield e.getChargeState();
                     return t._isMounted && t.setState({
@@ -9992,7 +10001,7 @@
                 }
                 ),
                 this.fetchDeviceRecordedSlots = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getRecordedSlots()
                       , o = Object.values(r);
@@ -10008,7 +10017,7 @@
                 _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.o7)(t, "RECORD") ? _assets_images_album_art_recordings_png__WEBPACK_IMPORTED_MODULE_12__ : _assets_images_album_art_blank_png__WEBPACK_IMPORTED_MODULE_7__),
                 this.fetchDeviceAlbums = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         const {device: r} = t
                           , o = yield r.listTracks();
                         if (e && e.aborted)
@@ -10051,7 +10060,7 @@
                 ),
                 this.hasAvailableSpace = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         return (yield t.getRemainingSize()) > e.bass.file.size + e.vocals.file.size + e.drums.file.size + e.other.file.size
                     });
                     return function(t) {
@@ -10059,7 +10068,7 @@
                     }
                 }(),
                 this.getRemainingSize = (0,
-                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*() {
+                _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*() {
                     const {device: e} = t
                       , r = yield e.getStorageInfo()
                       , {free: o} = r;
@@ -10067,7 +10076,7 @@
                 }),
                 this.hasSpaceForTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         const {tracking: {trackEvent: r}} = t.props
                           , o = (yield t.getRemainingSize()) > t.getDeviceFileSize(e.bass) + t.getDeviceFileSize(e.vocals) + t.getDeviceFileSize(e.drums) + t.getDeviceFileSize(e.other);
                         return o || r({
@@ -10088,7 +10097,7 @@
                 }(),
                 this.hasSpaceForAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r) {
                         if (r && r.aborted)
                             throw new Error("[hasSpaceForAlbum] Cancelled");
                         return (yield t.getRemainingSize()) > e.tracks.reduce((e,t)=>{
@@ -10102,7 +10111,7 @@
                 }(),
                 this.uploadFirmwareUpdate = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         t.setDeviceTransferActive(!0);
                         const {device: r} = t
                           , {tracking: {trackEvent: o}} = t.props;
@@ -10134,7 +10143,7 @@
                 }(),
                 this.updateDeviceConfig = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         t.setDeviceTransferActive(!0);
                         const {tracking: {trackEvent: r}} = t.props;
                         try {
@@ -10190,7 +10199,7 @@
                 ),
                 this.addTrackSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         const {device: a} = t;
                         let n, s = null, i = !1;
                         o && o(()=>{
@@ -10234,7 +10243,7 @@
                 ),
                 this.addTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         if (t.setDeviceTransferActive(!0),
                         !(yield t.hasAvailableSpace(e)))
                             return console.error("No available space on device"),
@@ -10250,7 +10259,7 @@
                 }(),
                 this.editTrackMetadataSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         const {device: a} = t;
                         try {
                             yield a.editTrackMetadata(e, r, o)
@@ -10274,7 +10283,7 @@
                 }(),
                 this.editTrackMetadata = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         t.setDeviceTransferActive(!0),
                         yield t.editTrackMetadataSimple(e, r, o),
                         t.setDeviceTransferActive(!1)
@@ -10285,7 +10294,7 @@
                 }(),
                 this.deleteTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         const {tracking: {trackEvent: a}} = t.props;
                         t.setDeviceTransferActive(!0);
                         const {device: n} = t;
@@ -10320,7 +10329,7 @@
                 }(),
                 this.deleteAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         const {tracking: {trackEvent: r}} = t.props
                           , {deviceAlbums: o} = t.state;
                         t.setDeviceTransferActive(!0);
@@ -10355,7 +10364,7 @@
                 }(),
                 this.moveTracksSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         try {
                             for (let r = 0; r < e.length; r++)
                                 yield t.moveTrack(e[r])
@@ -10379,7 +10388,7 @@
                 }(),
                 this.moveTracks = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         t.setDeviceTransferActive(!0),
                         yield t.moveTracksSimple(e),
                         t.setDeviceTransferActive(!1)
@@ -10390,7 +10399,7 @@
                 }(),
                 this.moveTrack = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({albumOld: e, trackOld: r, albumNew: o, trackNew: a}) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*({albumOld: e, trackOld: r, albumNew: o, trackNew: a}) {
                         const {device: n} = t;
                         try {
                             yield n.moveTrack(e, r, o, a)
@@ -10405,7 +10414,7 @@
                 }(),
                 this.getRecordedStem = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r=(()=>{}
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r=(()=>{}
                     )) {
                         const {device: o} = t;
                         try {
@@ -10421,7 +10430,7 @@
                 }(),
                 this.addAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r="Unknown", o, a) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r=_kano_stem_player_webusb_build_device__WEBPACK_IMPORTED_MODULE_14__.nP, o, a) {
                         const {device: n} = t;
                         try {
                             const s = yield n.addAlbum(o || null, r, e, a);
@@ -10443,7 +10452,7 @@
                 }(),
                 this.moveAlbumsSimple = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         try {
                             for (let r = 0; r < e.length; r++)
                                 yield t.moveAlbum(e[r])
@@ -10467,7 +10476,7 @@
                 }(),
                 this.moveAlbums = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e) {
                         t.setDeviceTransferActive(!0),
                         yield t.moveAlbumsSimple(e),
                         t.setDeviceTransferActive(!1)
@@ -10478,7 +10487,7 @@
                 }(),
                 this.moveAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*({oldId: e, newId: r}) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*({oldId: e, newId: r}) {
                         const {device: o} = t;
                         try {
                             yield o.renameAlbum(e, r)
@@ -10493,7 +10502,7 @@
                 }(),
                 this.updateAlbumTitle = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r) {
                         const {device: o} = t;
                         try {
                             yield o.updateAlbumTitle(e, r),
@@ -10509,7 +10518,7 @@
                 }(),
                 this.updateAlbumVersion = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r) {
                         const {device: o} = t;
                         try {
                             yield o.updateAlbumVersion(e, r),
@@ -10531,7 +10540,7 @@
                 ),
                 this.uploadStems = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r) {
                         try {
                             t.setState({
                                 uploading: "uploading",
@@ -10602,7 +10611,7 @@
                 ),
                 this.moveTrackToAlbum = function() {
                     var e = (0,
-                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_14__.Z)(function*(e, r, o) {
+                    _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_15__.Z)(function*(e, r, o) {
                         let a, n, s = Object.values(t.state.deviceAlbums).find(e=>(0,
                         _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.qP)(e.title, o));
                         if (s) {
@@ -10742,7 +10751,7 @@
         _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_2__.j)({
             module: "web_usb_provider"
         })((0,
-        react_router_dom__WEBPACK_IMPORTED_MODULE_15__.withRouter)((0,
+        react_router_dom__WEBPACK_IMPORTED_MODULE_16__.withRouter)((0,
         _account__WEBPACK_IMPORTED_MODULE_4__.o)(WebUSBProvider)))
           , __WEBPACK_DEFAULT_EXPORT__ = _default;
         !function() {
@@ -10803,8 +10812,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.2994",
-            KB_APP_REVISION: "9a61acd47aa1bbfa82445d3c14518ea274fce60c",
+            KB_APP_VERSION: "1.1.3055",
+            KB_APP_REVISION: "2412bb6561cf34fba3e93c16865f6f0f01e71535",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -11192,7 +11201,7 @@
             vq: ()=>m,
             oo: ()=>p,
             lC: ()=>h,
-            dk: ()=>v
+            dk: ()=>b
         }),
         e = r.hmd(e),
         function() {
@@ -11312,7 +11321,7 @@
             }
             return [Math.floor(360 * c), Math.floor(100 * l), Math.floor(100 * _)]
         }
-          , v = (e,t,r)=>{
+          , b = (e,t,r)=>{
             const [o,a,n] = e
               , [s,i,c] = h(o, a, n)
               , [l,_,d] = f(s / 360, i * t / 100, c * r / 100);
@@ -11335,7 +11344,7 @@
             e.register(m, "rgbToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
             e.register(p, "hexToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
             e.register(h, "rgbToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(v, "changeSaturationAndLightnessRgb", "/home/vsts/work/1/s/src/utils/colors.ts"))
+            e.register(b, "changeSaturationAndLightnessRgb", "/home/vsts/work/1/s/src/utils/colors.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -11471,7 +11480,7 @@
             return e
         }
         ;
-        const FLAGS = ["theme-light", "theme-grey", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water"]
+        const FLAGS = ["theme-light", "theme-grey", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water", "sync-user-library-to-device"]
           , LOCAL_STORAGE_KEY = "spFeatureFlags";
         class FeatureFlags {
             constructor(e, t) {
@@ -12075,7 +12084,7 @@
             const _ = ()=>{
                 var e = !(!t && (o && document[o.hidden] || c && !document.hasFocus()));
                 e !== l && (l = e,
-                b(!1),
+                v(!1),
                 f())
             }
               , d = ()=>{
@@ -12090,7 +12099,7 @@
             c && a(window, ["focus", "blur"], u, !0, !0);
             const f = ()=>{
                 var t;
-                l ? "running" !== e.state && "closed" !== e.state && y && (t = e.resume()) && t.then(s, s).catch(s) : "running" === e.state && (t = e.suspend()) && t.then(s, s).catch(s)
+                l ? "running" !== e.state && "closed" !== e.state && A && (t = e.resume()) && t.then(s, s).catch(s) : "running" === e.state && (t = e.suspend()) && t.then(s, s).catch(s)
             }
               , m = e=>{
                 e && e.unmute_handled || (e.unmute_handled = !0,
@@ -12105,8 +12114,8 @@
                     r += t;
                 return r
             }
-            var v = "data:audio/mpeg;base64,//uQx" + h(23, "A") + "WGluZwAAAA8AAAACAAACcQCA" + h(16, "gICA") + h(66, "/") + "8AAABhTEFNRTMuMTAwA8MAAAAAAAAAABQgJAUHQQAB9AAAAnGMHkkI" + h(320, "A") + "//sQxAADgnABGiAAQBCqgCRMAAgEAH" + h(15, "/") + "7+n/9FTuQsQH//////2NG0jWUGlio5gLQTOtIoeR2WX////X4s9Atb/JRVCbBUpeRUq" + h(18, "/") + "9RUi0f2jn/+xDECgPCjAEQAABN4AAANIAAAAQVTEFNRTMuMTAw" + h(97, "V") + "Q==";
-            const b = e=>{
+            var b = "data:audio/mpeg;base64,//uQx" + h(23, "A") + "WGluZwAAAA8AAAACAAACcQCA" + h(16, "gICA") + h(66, "/") + "8AAABhTEFNRTMuMTAwA8MAAAAAAAAAABQgJAUHQQAB9AAAAnGMHkkI" + h(320, "A") + "//sQxAADgnABGiAAQBCqgCRMAAgEAH" + h(15, "/") + "7+n/9FTuQsQH//////2NG0jWUGlio5gLQTOtIoeR2WX////X4s9Atb/JRVCbBUpeRUq" + h(18, "/") + "9RUi0f2jn/+xDECgPCjAEQAABN4AAANIAAAAQVTEFNRTMuMTAw" + h(97, "V") + "Q==";
+            const v = e=>{
                 if (c)
                     if (l) {
                         if (e) {
@@ -12116,7 +12125,7 @@
                                 (p = t.children.item(0)).controls = !1,
                                 p.disableRemotePlayback = !0,
                                 p.preload = "auto",
-                                p.src = v,
+                                p.src = b,
                                 p.loop = !0,
                                 p.load()
                             }
@@ -12135,20 +12144,20 @@
             }
             ;
             var g = ["click", "contextmenu", "auxclick", "dblclick", "mousedown", "mouseup", "touchend", "keydown", "keyup"]
-              , y = !1;
-            const P = ()=>{
-                y = !0,
-                b(!0),
+              , A = !1;
+            const y = ()=>{
+                A = !0,
+                v(!0),
                 f()
             }
             ;
-            return a(window, g, P, !0, !0),
+            return a(window, g, y, !0, !0),
             {
                 dispose: ()=>{
                     E(),
                     o && n(document, [o.visibilitychange], d, !0, !0),
                     c && n(window, ["focus", "blur"], u, !0, !0),
-                    n(window, g, P, !0, !0),
+                    n(window, g, y, !0, !0),
                     n(e, ["statechange"], m, !0, !0),
                     e.onstatechange === m && (e.onstatechange = null)
                 }
@@ -12169,7 +12178,8 @@
         "use strict";
         r.d(t, {
             Xb: ()=>c,
-            tJ: ()=>l
+            tJ: ()=>l,
+            SJ: ()=>d
         });
         var o = r("990057777e9b2b7543e8")
           , a = r("de098c4daf91477f9cbc")
@@ -12244,9 +12254,8 @@
                             artist: r,
                             colors: [o, a]
                         });
-                        yield s.editTrackMetadataSimple(n.id, e.id, c);
-                        yield s.fetchDeviceAlbums();
-                        return !0
+                        return yield s.editTrackMetadata(n.id, e.id, c),
+                        !0
                     }
                     return !1
                 } catch (e) {
@@ -12280,12 +12289,49 @@
             return function(t, r) {
                 return e.apply(this, arguments)
             }
+        }()
+          , d = function() {
+            var e = (0,
+            a.Z)(function*(e, t, r) {
+                const o = [];
+                let n = !1;
+                return e.forEach(function() {
+                    var e = (0,
+                    a.Z)(function*(e) {
+                        if (void 0 !== e.deviceTrackInfoForReference && null !== e.deviceTrackInfoForReference && void 0 !== e.libraryTrackInfoForReference && null !== e.libraryTrackInfoForReference) {
+                            const a = e.deviceTrackInfoForReference
+                              , s = e.libraryTrackInfoForReference;
+                            let c = !1;
+                            const l = i({}, a);
+                            s.track_title !== a.title && null !== s.track_title && (c = !0,
+                            l.title = s.track_title),
+                            s.artist !== a.artist && null !== s.artist && (c = !0,
+                            l.artist = s.artist),
+                            (s.color1 !== a.colors[0] || s.color2 !== a.colors[1] && null !== s.color1 && null !== s.color2) && (c = !0,
+                            l.colors = [s.color1, s.color2]),
+                            c && (n || (r(!0),
+                            n = !0),
+                            o.push(l),
+                            yield t(l.albumId, l.trackId, l))
+                        }
+                    });
+                    return function(t) {
+                        return e.apply(this, arguments)
+                    }
+                }()),
+                n && r(!1),
+                o
+            });
+            return function(t, r, o) {
+                return e.apply(this, arguments)
+            }
         }();
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(c, "isConnectedInAnotherTab", "/home/vsts/work/1/s/src/utils/usb.ts"),
             e.register(l, "editUserTrackMetadataWithTrackId", "/home/vsts/work/1/s/src/utils/usb.ts"),
-            e.register(_, "searchTrackLocationOnDevice", "/home/vsts/work/1/s/src/utils/usb.ts"))
+            e.register(_, "searchTrackLocationOnDevice", "/home/vsts/work/1/s/src/utils/usb.ts"),
+            e.register(d, "calculateSyncUserLibrary", "/home/vsts/work/1/s/src/utils/usb.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -12452,11 +12498,6 @@
         e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
     }
     ,
-    "94e777f63eff622615ee": e=>{
-        "use strict";
-        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWUAAAFlAQMAAAAJS2v4AAAAA1BMVEUAAACnej3aAAAAJ0lEQVR42u3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIAPA0AmAAEEUTbWAAAAAElFTkSuQmCC"
-    }
-    ,
     "5c27a08769d295c50ba7": e=>{
         "use strict";
         e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
@@ -12470,6 +12511,36 @@
     "6d601a08887d6ace5f82": e=>{
         "use strict";
         e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACTBAMAAAB4yzYmAAAAKlBMVEVHcEz////////////////////rMiP+6+n4savuSTvxZlr0hn370c71mJFl8R0cAAAABXRSTlMAQL/fn/FtsKQAAAH+SURBVGje7ZrBTsJAEIZ5B+Pdd/AFfInaBsrRoVA41oByBRM4U03UIw1oPKIE8ViVEI9i4tO43SEEWg7E/AmFzF44zPTr7rAz/+ymmQxuHByDxknm0ACNI0EJamso00OhLN/1QKgmUReECojKIJRP5KRvVsBYWX7JS9++knTeCsr8HaNQNaIGCPVMdJ2+dAaiZrgFXuDCbrR/JHF2G1UPUai8XwQKfUeEfjPUO9EAJfTBvSeJIygW+lEPKPTfOKEviNBvKvTFELWvvq4kcQQlqDUo+1W309Wh1s7pUBfPdiJfpmM2aGf7zeNnVlEzciMfn+6ifoqFvUbxtirH5XTChoAq+ow+LxtzlEnaSbkWuUdwuOvoJhqtMtcvZbDUM56u1pVllJpHZD1VP6EuwC7jC4mWRhlsZTgzjCy/vsmvX6CsOKr0b1RkbWjr6gI7iQU6OqLRe/OLBbqxsEcXHMrJ4eh2Obqx4pnl/6Opw66cK7yglbAb1oM+EV0+6odbPVbSl/hmaPEuGWlni52nT57koKAEtWZUYafUHCFPqahWLbWnVFSzPcGdUs3+jSSOoHjYfeQpdbDX6QxEAS/ogAXZqH5I4uw26hN2z5DD3X7MoEIPTOcyblYooQfe9QFvICUHd17og1sU6nzfhR77GQlK6POE+4ykHkriCEpQy6g/MGwBw1GBk80AAAAASUVORK5CYII="
+    }
+    ,
+    a87a3620bcdc8bcede82: e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAAG1BMVEUAAAD///8qKirn5+dgYGAKCgqdnZ0WFhbKyspAmfw5AAAA30lEQVRo3u2YPQrCQBCFHzE/9bghpIyK9hEPoIh9CB4g8QTBG6Tw3haLWqV6mJDwvnLZGXZn386DAYQQQogRud/IBH3OxQdmBZUgMeu4I1xP0kFQkAnabGId0AnoK/BFXADsZ6K/M68DtqXxTXUBHB5cfFS6alod0Cega4BIOhrfCTvfyJMCiPa/9S2AJ4C68nsG36xPvZVc8go799VgbA1CeyEoj37PEKE5L97Szmit+axvbI2VpYgtQ2jujwnoK9BFFLJ32bvsfZh6CfY+f3/X/EDzA80PND8QQggxS95IcyVUDKO7fgAAAABJRU5ErkJggg=="
+    }
+    ,
+    "76464ae046d8581913da": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADABAMAAACg8nE0AAAAJFBMVEUAAAD///8kJCRAQEAMDAzo6OhSUlKfn5+IiIi5ubnNzc1ubm4SKgFiAAABi0lEQVR42u3avU4CQRQF4JNlVJTq+INhadbGQhtMjLFco/ZqTGwVYmyh0JrEF5A3UJ9AfUKrhbghBiXHZeV8FQUzN+wOd+6dDGBmZmZmZmZWlLsH7fxVsi8NsEWuSgPckPVy/4Jl8kkaINxfpf4r2ZSO97XzV843WtIAp+SlNMAeuVbuAPJHJH/J8mVqc0C+Zao3/eDCq/jiV16+2zw4fNTOXyPfpLnoqPS5SF54rZDP0gDRoJGI90w3mWZlsZ2MuqWoDQBRJ58z2gAQOikAHCSjUZNVV4006/fCgH0A73z9+p0euwBueQFgh83hqEmTfjfrWJfIOlAhG/mdrQlEZAxgQLayURPpkWdZ6l8gN4EqyTSXtmOgRjJBINnPRs1EgCB/RPKXPGaZhvHL9OR3yxQIYz/+YJSZTWP3Qzv/InktDSA/Ny1/hyN/RNFLLO5wosQtzr+nbmPljbj8KEGeKv7iaHldGkB9pKY/FLR54PtFs5CLfL/IzPeLCi+8fL+o+GVqZmZmZmZm9o1PQ+tJv3eZrrkAAAAASUVORK5CYII="
+    }
+    ,
+    "0986e48731cd117d741e": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEABAMAAACuXLVVAAAAHlBMVEUAAAD///8tLS2oqKhpaWkdHR0ODg7n5+dMTExKSkq3eRUqAAABV0lEQVR42u3Zu0pDURAF0INK1HIbIdgl4AeYRlsVCz8jYGNpsLKzEGut/F2LPIjRCFFkCK5VH+Ye7uPcYU9rAAAAAAAAbLats/t+6QZek6PK63fGSW9UuIG9JHks3MBOkpz/5ztQ/g6UfwX15wBQ7/iy9vo3yWnpBoZJt/QkTpLKs7i8HyjfQPkjKH8J6z/D8oMIKCegEFAIKAQUAgpAQCGgEFAIKAQUAPCnOk/PH/94t9ejSRty1f/ux7i8bF5nXW/pvSz+8/fHeWittc4w3dHq1uDTslmdn7RbB4tdz2Dafm0nOVndHC0vm9dZ13YmFed933BacfBlxZXLZnXWtpukt9j5jpPctdYukhyubpCXl83qbN4Gyh9B+UtY/hnWH0QAsBFMz03PTc9Nz03PAdNz03PTc9Nz03OgnIBCQCGgEFAIKAABhYBCQCGgEFAAAAAAAADwe++DMWLR3aTgHgAAAABJRU5ErkJggg=="
+    }
+    ,
+    f79c0e8d8cc00d078e63: e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAAGABAMAAABW6aiMAAAAIVBMVEUAAAD///8aGhp+fn60tLQ/Pz/19fWhoaFhYWHQ0NDj4+NZRzKrAAADHklEQVR42u3dv2/TQBjGcWOT/mB7oE1JpyCgQCeCYKc0EmtDJQYmDAtsFHXoWDHQlTCwB4n/k+Hy46xWiRobHY/y/UypEuXudXzx9e71mywDAAAAAAAAAAAAAAAAAAAAAAAAAADAso5fePf/u/TJuf83JemlcQA9Sbrj2/+8lKR21zaAQpKkp95DwHkQ2AewHgL4YhvARgjg3DaAbChJHd/+Z3uS9ME4gNZQ6hwZB5AVvz77XgUAAABqaj0/tJ7L5SfSTtc4gFuS9Ns4gBNJ2jEeAeF/Yt9RwMIWAaz6KWQ/iO2/RrN99wuZ/VTCfjIHAABQh/smn/02q/1Gt3uqgX2yh326DQtbqdkvbNmnXdonvvqnHtsnf/un3wMAgKQevvHu/wPplXP/i1JqnxsHMJCkbd/+5yNJ2u3aBsDCVmrcyccYqMn+W8j+OhCuxNabZO5zIf/ZKAAAAAAA/u73z6aPKzdXXfSfTR8/Pj3rzn+b4/4sfWXj9HD66vzi9bcr22pKUUo/J43Ft7c9iVZ+WiPpz9y3eSTp6+RthtLHyRPvpN2jK9pqzIGk9riF+E75Vilpa/yi3sIUv1G01Pg2Wrku4ty0uK2mhGXaH+GP+BbPzWj5NuT4zUuVXo9Xq4eSdDc83ouyAyttNWVNs0NUucm2J0l6n2XZZDtga87bDDRbLA05me3ZQZ98HHFbjQktd6KWx6fKMOrSvfDEnGHci/q2GR2HPDy+famtxvSiw1XZdymjLg0W3v98EH1Ga9FxGH+o25faIoBrnUI3lj6Fsn9+CtkPYvuv0crFZX/pC1me7ELmP5Wwn8wBAAAAAIBroThMYhSHSYx7aFKjOExqFIdJjuIwyVEcBgAArLQWxWGSKkrvnyemOExqLGylRnEYxkBNFIdJjuIw6bnPRgEAQFLue2Tuu5T2+8TuO/X2uRL8zDsB1MTCVnLueaP+mbv2udP22esAAAB1VAr5GKqUUnIUV2W0FJcTsxwBCyvn/edY2CKAVT+F7Aex/ddopSqjJfuphP1kDgAAAAAAAAAAAAAAAAAAAAAAAAAAALX8Bd42svDeufydAAAAAElFTkSuQmCC"
+    }
+    ,
+    b966f52c481692c934b9: e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIABAMAAAAGVsnJAAAAElBMVEUAAAD///82Njbx8fHMzMyamprN2Sk8AAACnUlEQVR42u3cTU4qQRiGUYO4AATnGHQu6gL8iXM17n8tijSGVMcuatCE5D1n5k2lkO/SCu2TOjsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgH/cvj5+Jj//m9mPl9znP1lvBjBfxg5gNft1HzuA5+0AFrFXwKyTeg1c7AbwHjqA6W4AT6EDON8N4M4AXAJ+CPo16I2Qt8I+DPk4nCf9hggAAAAkEkgIJAQSAgmBhEBCIBE6AIGEQEIgIZAQSAgkBBICieQbAgIJAAAAyCOQEEgIJAQSAgmBhEAidAACCYGEQEIgIZAQSAgkBBLJNwQEEgAAAJBHICGQEEgIJAQSAgmBROgABBICCYGEQEIgIZAQSAgkkm8ICCQAAAAAAACAUzb5enhb7v9D+UfO6oJBzbv1Foz9/Ddpx2LvEcs/c1cXDGrerbdgbKsi7OiFDtUFg+Nt3m115NBk+w3sfQdl6lJdcMB4G3brLRjbtMz7ytipumBQ827TY+eG190DXu7+B8rcrbpg8PXVvFu5YHQf3QNedV/3gsfqgiHtu5ULRte9BP9eg73ktbrgkAvs8N3KBaNbdw84777uRc/VBUPadysXGIBLwA9Bvwa9EfJW2IchH4fdEAEAAAAAAABOhaO1Ha3taG1Hazta29HajtYOHYCjtR2t7WhtR2s7WtvR2o7WdrR28g0BR2sDAABAHoGEQEIgIZAQSAgkBBKhAxBICCQEEgIJgYRAQiAhkEi+ISCQAAAAgDwCCYGEQEIgIZAQSAgkQgcgkBBICCQEEgIJgYRAQiCRfENAIAEAAAB5BBICCYGEQEIgIZAQSIQOQCAhkBBICCQEEgIJgYRAIvmGgEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZ8A8ub2MHWEKO1AAAAAElFTkSuQmCC"
+    }
+    ,
+    "9eb170d7c5000dac8fd6": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgBAMAAAAQtmoLAAAAIVBMVEUAAAD///+fn59dXV2Pj484ODgiIiIODg7CwsJ6enrv7+/TxUymAAAAr0lEQVRYw2NgGAWjYBQMQZDRRqIGRSESNUyUJFEDs8GgC6USdxI1OIrQWgPJTqI9IDniSE4aJCc+kpM37QFbAIkaDIVpHUpRS0cLQqxRpcnA7lLAMCmBwQgaaZxqDMyqDKzKICksgEPQgEXQgVmwgVVwATTyJBgSpQq4BAOAUtTQQLKThmGsJAy2DMROcgZiLxh0wUqyH0guZkiOB9aAQRdKo+2l0fbSKBgFo4COAAB5xh3kQnDEUQAAAABJRU5ErkJggg=="
     }
     ,
     "9f2316eeebc9c27ecc70": e=>{

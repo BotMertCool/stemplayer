@@ -1,14 +1,1324 @@
 (self.webpackChunkblank_board = self.webpackChunkblank_board || []).push([[8142], {
-    "2f0f179fdd043e994433": (e,t,r)=>{
+    b2b922375814bbdc5154: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            FF: ()=>x,
-            h1: ()=>O,
-            Kz: ()=>T,
-            o7: ()=>p,
-            qP: ()=>m,
-            wO: ()=>h,
-            O8: ()=>b
+            nP: ()=>c,
+            FF: ()=>l
+        });
+        var o = r("fc3f305ca5af6d428015")
+          , n = function() {
+            function e() {
+                this.queue = Promise.resolve()
+            }
+            return e.prototype.queueTask = function(e, t, r) {
+                void 0 === r && (r = 0);
+                var n, s, i = t || e;
+                o.kg.debug("Queuing task", i);
+                var a = new Promise(function(e, t) {
+                    n = e,
+                    s = t
+                }
+                );
+                return this.queue = this.queue.then(function() {
+                    o.kg.debug("Starting task", i);
+                    var a = !1;
+                    return r > 0 && setTimeout(function() {
+                        if (!a) {
+                            var e = "task" + (t ? " " + t : "") + " timed out after " + r + "ms";
+                            o.kg.error(e),
+                            a = !0,
+                            s(new Error(e))
+                        }
+                    }, r),
+                    e().then(function(e) {
+                        o.kg.debug("Task finished", i),
+                        n(e)
+                    }).catch(function(e) {
+                        o.kg.debug("Task failed", i),
+                        s(e)
+                    }).finally(function() {
+                        a = !0
+                    })
+                }),
+                a
+            }
+            ,
+            e
+        }()
+          , s = r("c06425711428c102cd57")
+          , i = r("a8a8948619489f84f5bf")
+          , a = function() {
+            return (a = Object.assign || function(e) {
+                for (var t, r = 1, o = arguments.length; r < o; r++)
+                    for (var n in t = arguments[r])
+                        Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
+                return e
+            }
+            ).apply(this, arguments)
+        }
+          , u = function(e, t, r, o) {
+            return new (r || (r = Promise))(function(n, s) {
+                function i(e) {
+                    try {
+                        u(o.next(e))
+                    } catch (e) {
+                        s(e)
+                    }
+                }
+                function a(e) {
+                    try {
+                        u(o.throw(e))
+                    } catch (e) {
+                        s(e)
+                    }
+                }
+                function u(e) {
+                    var t;
+                    e.done ? n(e.value) : (t = e.value,
+                    t instanceof r ? t : new r(function(e) {
+                        e(t)
+                    }
+                    )).then(i, a)
+                }
+                u((o = o.apply(e, t || [])).next())
+            }
+            )
+        }
+          , d = function(e, t) {
+            var r, o, n, s, i = {
+                label: 0,
+                sent: function() {
+                    if (1 & n[0])
+                        throw n[1];
+                    return n[1]
+                },
+                trys: [],
+                ops: []
+            };
+            return s = {
+                next: a(0),
+                throw: a(1),
+                return: a(2)
+            },
+            "function" === typeof Symbol && (s[Symbol.iterator] = function() {
+                return this
+            }
+            ),
+            s;
+            function a(s) {
+                return function(a) {
+                    return function(s) {
+                        if (r)
+                            throw new TypeError("Generator is already executing.");
+                        for (; i; )
+                            try {
+                                if (r = 1,
+                                o && (n = 2 & s[0] ? o.return : s[0] ? o.throw || ((n = o.return) && n.call(o),
+                                0) : o.next) && !(n = n.call(o, s[1])).done)
+                                    return n;
+                                switch (o = 0,
+                                n && (s = [2 & s[0], n.value]),
+                                s[0]) {
+                                case 0:
+                                case 1:
+                                    n = s;
+                                    break;
+                                case 4:
+                                    return i.label++,
+                                    {
+                                        value: s[1],
+                                        done: !1
+                                    };
+                                case 5:
+                                    i.label++,
+                                    o = s[1],
+                                    s = [0];
+                                    continue;
+                                case 7:
+                                    s = i.ops.pop(),
+                                    i.trys.pop();
+                                    continue;
+                                default:
+                                    if (!(n = (n = i.trys).length > 0 && n[n.length - 1]) && (6 === s[0] || 2 === s[0])) {
+                                        i = 0;
+                                        continue
+                                    }
+                                    if (3 === s[0] && (!n || s[1] > n[0] && s[1] < n[3])) {
+                                        i.label = s[1];
+                                        break
+                                    }
+                                    if (6 === s[0] && i.label < n[1]) {
+                                        i.label = n[1],
+                                        n = s;
+                                        break
+                                    }
+                                    if (n && i.label < n[2]) {
+                                        i.label = n[2],
+                                        i.ops.push(s);
+                                        break
+                                    }
+                                    n[2] && i.ops.pop(),
+                                    i.trys.pop();
+                                    continue
+                                }
+                                s = t.call(e, i)
+                            } catch (e) {
+                                s = [6, e],
+                                o = 0
+                            } finally {
+                                r = n = 0
+                            }
+                        if (5 & s[0])
+                            throw s[1];
+                        return {
+                            value: s[0] ? s[1] : void 0,
+                            done: !0
+                        }
+                    }([s, a])
+                }
+            }
+        }
+          , c = "Unknown"
+          , l = function() {
+            function e() {
+                this.taskQueue = new n,
+                this.usb = new s.m$
+            }
+            return e.prototype.queueTask = function(e, t, r) {
+                return void 0 === r && (r = 0),
+                this.taskQueue.queueTask(e, t, r)
+            }
+            ,
+            e.prototype.findPairedDevice = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return e.usb.findPairedDevice()
+                        }, "findPairedDevice")]
+                    })
+                })
+            }
+            ,
+            e.prototype.connect = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return e.usb.ensureDevice()
+                        }, "connect")]
+                    })
+                })
+            }
+            ,
+            e.prototype.disconnect = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return e.usb.reset()
+                        }, "disconnect")]
+                    })
+                })
+            }
+            ,
+            Object.defineProperty(e.prototype, "connected", {
+                get: function() {
+                    return this.usb.connected
+                },
+                enumerable: !1,
+                configurable: !0
+            }),
+            e.prototype.startSession = function() {
+                return u(this, void 0, void 0, function() {
+                    var e, t = this;
+                    return d(this, function(r) {
+                        switch (r.label) {
+                        case 0:
+                            return r.trys.push([0, 3, , 5]),
+                            [4, this.queueTask(function() {
+                                return t.usb.startSession()
+                            }, "startSession", 5e3)];
+                        case 1:
+                            return r.sent(),
+                            [4, this.queueTask(function() {
+                                return t.deviceMigration()
+                            }, "deviceCheck")];
+                        case 2:
+                            return [2, r.sent()];
+                        case 3:
+                            return e = r.sent(),
+                            o.kg.error("startSession failed", e),
+                            o.kg.debug("Trying to reboot"),
+                            [4, this.usb.reboot()];
+                        case 4:
+                            return r.sent(),
+                            [3, 5];
+                        case 5:
+                            return [2]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.endSession = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return e.usb.endSession()
+                        }, "endSession")]
+                    })
+                })
+            }
+            ,
+            e.prototype.onConnect = function(e) {
+                this.usb.onConnect(e)
+            }
+            ,
+            e.prototype.onDisconnect = function(e) {
+                this.usb.onDisconnect(e)
+            }
+            ,
+            e.prototype.reboot = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return e.usb.reboot()
+                        }, "reboot")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getDeviceInfo = function() {
+                return u(this, void 0, void 0, function() {
+                    var e, t = this;
+                    return d(this, function(r) {
+                        switch (r.label) {
+                        case 0:
+                            return [4, this.queueTask(function() {
+                                return t.usb.getDeviceInfo()
+                            }, "getDeviceInfo")];
+                        case 1:
+                            return [2, {
+                                bootloaderVersion: (e = r.sent()).blver,
+                                bluetoothVersion: e.btver,
+                                appVersion: e.appver,
+                                serialNumber: e.sn
+                            }]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.getStorageInfo = function() {
+                return u(this, void 0, void 0, function() {
+                    var e, t = this;
+                    return d(this, function(r) {
+                        switch (r.label) {
+                        case 0:
+                            return [4, this.queueTask(function() {
+                                return t.usb.getStorageInfo()
+                            }, "getStorageInfo")];
+                        case 1:
+                            return e = r.sent(),
+                            [2, {
+                                size: parseInt(e.size),
+                                free: parseInt(e.free)
+                            }]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.listTracks = function(e) {
+                return void 0 === e && (e = !1),
+                u(this, void 0, void 0, function() {
+                    var t, r = this;
+                    return d(this, function(n) {
+                        return t = function() {
+                            return u(r, void 0, void 0, function() {
+                                var e, t, r, n, s, a, u, l, f, _, h, v;
+                                return d(this, function(d) {
+                                    switch (d.label) {
+                                    case 0:
+                                        return o.kg.debug("listTracks: before getTrackList"),
+                                        [4, this.usb.getTrackList()];
+                                    case 1:
+                                        e = d.sent(),
+                                        o.kg.debug("listTracks: after getTrackList"),
+                                        t = {},
+                                        r = {},
+                                        n = 0,
+                                        d.label = 2;
+                                    case 2:
+                                        if (!(n < e.l.length))
+                                            return [3, 11];
+                                        s = e.l[n],
+                                        a = s.a,
+                                        r[a] = r[a] || {},
+                                        d.label = 3;
+                                    case 3:
+                                        return d.trys.push([3, 5, , 6]),
+                                        o.kg.debug("listTracks: before getAlbumConfig for " + a),
+                                        u = t,
+                                        l = a,
+                                        [4, this.usb.getAlbumConfig(a)];
+                                    case 4:
+                                        return u[l] = d.sent(),
+                                        o.kg.debug("listTracks: received albumConfig", t[a]),
+                                        [3, 6];
+                                    case 5:
+                                        return d.sent(),
+                                        [3, 6];
+                                    case 6:
+                                        f = 0,
+                                        d.label = 7;
+                                    case 7:
+                                        return f < s.c.length ? (_ = s.c[f].t,
+                                        o.kg.debug("listTracks: before getTrackInfo for " + _),
+                                        h = r[a],
+                                        v = _,
+                                        [4, this.usb.getTrackInfo(a, _)]) : [3, 10];
+                                    case 8:
+                                        h[v] = d.sent(),
+                                        o.kg.debug("listTracks: received trackInfo for " + _, r[a][_]),
+                                        d.label = 9;
+                                    case 9:
+                                        return f += 1,
+                                        [3, 7];
+                                    case 10:
+                                        return n += 1,
+                                        [3, 2];
+                                    case 11:
+                                        return o.kg.debug("listTracks: formatting result"),
+                                        [2, {
+                                            albums: e.l.map(function(e) {
+                                                var o, n;
+                                                return {
+                                                    id: e.a,
+                                                    version: t[e.a] ? t[e.a].version : null,
+                                                    artist: (null === (o = t[e.a]) || void 0 === o ? void 0 : o.artist) || c,
+                                                    title: (null === (n = t[e.a]) || void 0 === n ? void 0 : n.title) || "Unknown",
+                                                    tracks: e.c.map(function(o) {
+                                                        var n, s = null;
+                                                        t[e.a] && (s = null === (n = t[e.a].tracks) || void 0 === n ? void 0 : n.find(function(e) {
+                                                            return (0,
+                                                            i.O8)(e.id, o.t)
+                                                        }));
+                                                        var a = r[e.a][o.t].metadata
+                                                          , u = (null === a || void 0 === a ? void 0 : a.global_id) || (null === s || void 0 === s ? void 0 : s.global_id) || "Unknown"
+                                                          , d = (null === a || void 0 === a ? void 0 : a.meta_version) || (null === s || void 0 === s ? void 0 : s.meta_version) || "1"
+                                                          , c = (null === a || void 0 === a ? void 0 : a.stems_version) || (null === s || void 0 === s ? void 0 : s.stems_version) || "1"
+                                                          , l = (null === a || void 0 === a ? void 0 : a.artist) || (null === s || void 0 === s ? void 0 : s.artist) || ""
+                                                          , f = (null === a || void 0 === a ? void 0 : a.title) || (null === s || void 0 === s ? void 0 : s.title) || "Unknown";
+                                                        return {
+                                                            id: o.t,
+                                                            bpm: r[e.a][o.t].tempos[0].tempo_bpm,
+                                                            colors: r[e.a][o.t].TrackColour,
+                                                            TrackGain_dB: r[e.a][o.t].TrackGain_dB,
+                                                            title: f,
+                                                            global_id: u,
+                                                            meta_version: d,
+                                                            stems_version: c,
+                                                            artist: l
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }]
+                                    }
+                                })
+                            })
+                        }
+                        ,
+                        [2, e ? t() : this.queueTask(t, "listTracks")]
+                    })
+                })
+            }
+            ,
+            e.prototype.uploadFirmwareUpdate = function(e, t) {
+                return u(this, void 0, void 0, function() {
+                    var r, o, n, s = this;
+                    return d(this, function(i) {
+                        return r = e.name,
+                        o = e.size,
+                        n = {
+                            size: o,
+                            type: "config.txt" === r ? "device-config" : "dfu",
+                            name: r
+                        },
+                        [2, this.queueTask(function() {
+                            return s.usb.uploadFile(n, e, t).promise
+                        }, "uploadFirmwareUpdate")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getDeviceConfig = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return u(e, void 0, void 0, function() {
+                                var e, t;
+                                return d(this, function(r) {
+                                    switch (r.label) {
+                                    case 0:
+                                        e = null,
+                                        r.label = 1;
+                                    case 1:
+                                        return r.trys.push([1, 3, , 4]),
+                                        [4, this.usb.getDeviceConfig()];
+                                    case 2:
+                                        return e = r.sent(),
+                                        [3, 4];
+                                    case 3:
+                                        if (!((t = r.sent())instanceof Error) || !t.message.startsWith("Parsing device config failed"))
+                                            throw t;
+                                        return [3, 4];
+                                    case 4:
+                                        return [2, e]
+                                    }
+                                })
+                            })
+                        }, "getDeviceConfig")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getAlbums = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        return [2, this.queueTask(function() {
+                            return u(e, void 0, void 0, function() {
+                                var e, t, r, o, n, s;
+                                return d(this, function(i) {
+                                    switch (i.label) {
+                                    case 0:
+                                        return [4, this.usb.getTrackList()];
+                                    case 1:
+                                        e = i.sent(),
+                                        t = e.l.map(function(e) {
+                                            return e.a
+                                        }),
+                                        r = t.map(function(e) {
+                                            return {
+                                                id: e,
+                                                title: void 0,
+                                                artist: void 0
+                                            }
+                                        }),
+                                        o = 0,
+                                        i.label = 2;
+                                    case 2:
+                                        return o < t.length ? (n = t[o],
+                                        [4, this.getOrGenerateAlbumConfig(n)]) : [3, 5];
+                                    case 3:
+                                        (s = i.sent()) && (r[o].artist = s.artist,
+                                        r[o].title = s.title),
+                                        i.label = 4;
+                                    case 4:
+                                        return o += 1,
+                                        [3, 2];
+                                    case 5:
+                                        return [2, r]
+                                    }
+                                })
+                            })
+                        }, "getAlbums")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getNextAvailableAlbumId = function(e) {
+                return "A" + (e.reduce(function(e, t) {
+                    var r = t.id.match(/a([0-9]+)/i)
+                      , o = 0;
+                    return r && (o = parseInt(r[1])),
+                    Math.max(e, o)
+                }, 0) + 1)
+            }
+            ,
+            e.prototype.ensureAlbum = function(e, t, r) {
+                return void 0 === t && (t = c),
+                u(this, void 0, void 0, function() {
+                    var o, n, s, a;
+                    return d(this, function(u) {
+                        switch (u.label) {
+                        case 0:
+                            return [4, this.getAlbums()];
+                        case 1:
+                            return o = u.sent(),
+                            (n = o.find(function(r) {
+                                return (0,
+                                i.qP)(r.title, e) && (t === c || r.artist === t)
+                            })) ? [2, n.id] : (s = this.getNextAvailableAlbumId(o),
+                            a = r || "1",
+                            [4, this.addAlbum(s, t, e, a)]);
+                        case 2:
+                            return u.sent(),
+                            [2, s]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.generateDefaultAlbumConfig = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t, r;
+                    return d(this, function(o) {
+                        switch (o.label) {
+                        case 0:
+                            return [4, this.listTracks(!0)];
+                        case 1:
+                            if (t = o.sent(),
+                            !(r = t.albums.find(function(t) {
+                                return (0,
+                                i.o7)(t.id, e)
+                            })))
+                                throw new Error("Album " + e + " not found.");
+                            return [2, {
+                                id: e,
+                                version: r.version || null,
+                                artist: r.artist,
+                                title: r.title,
+                                tracks: null
+                            }]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.getOrGenerateAlbumConfig = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t, r;
+                    return d(this, function(n) {
+                        switch (n.label) {
+                        case 0:
+                            t = null,
+                            n.label = 1;
+                        case 1:
+                            return n.trys.push([1, 3, , 4]),
+                            [4, this.usb.getAlbumConfig(e)];
+                        case 2:
+                            return t = n.sent(),
+                            [3, 4];
+                        case 3:
+                            if (!((r = n.sent())instanceof Error) || !r.message.startsWith("Parsing album info failed"))
+                                throw r;
+                            return [3, 4];
+                        case 4:
+                            return t ? [3, 6] : (o.kg.debug("Generating default album config for " + e),
+                            [4, this.generateDefaultAlbumConfig(e)]);
+                        case 5:
+                            t = n.sent(),
+                            n.label = 6;
+                        case 6:
+                            return [2, t]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.updateAlbumTitle = function(e, t, r) {
+                return u(this, void 0, void 0, function() {
+                    var o = this;
+                    return d(this, function(n) {
+                        return [2, this.queueTask(function() {
+                            return u(o, void 0, void 0, function() {
+                                var o;
+                                return d(this, function(n) {
+                                    switch (n.label) {
+                                    case 0:
+                                        return [4, this.getOrGenerateAlbumConfig(e)];
+                                    case 1:
+                                        return (o = n.sent()).title = t,
+                                        r && (o.artist = r),
+                                        [4, this.usb.uploadAlbumConfig(e, o)];
+                                    case 2:
+                                        return n.sent(),
+                                        [2, o]
+                                    }
+                                })
+                            })
+                        }, "updateAlbumTitle")]
+                    })
+                })
+            }
+            ,
+            e.prototype.updateAlbumVersion = function(e, t) {
+                return u(this, void 0, void 0, function() {
+                    var r = this;
+                    return d(this, function(o) {
+                        return [2, this.queueTask(function() {
+                            return u(r, void 0, void 0, function() {
+                                var r;
+                                return d(this, function(o) {
+                                    switch (o.label) {
+                                    case 0:
+                                        return [4, this.getOrGenerateAlbumConfig(e)];
+                                    case 1:
+                                        return (r = o.sent()).version = t,
+                                        [4, this.usb.uploadAlbumConfig(e, r)];
+                                    case 2:
+                                        return o.sent(),
+                                        [2, r]
+                                    }
+                                })
+                            })
+                        }, "updateAlbumVersion")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getNextTrackId = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t = this;
+                    return d(this, function(r) {
+                        return [2, this.queueTask(function() {
+                            return u(t, void 0, void 0, function() {
+                                var t, r;
+                                return d(this, function(o) {
+                                    switch (o.label) {
+                                    case 0:
+                                        return [4, this.usb.getTrackList()];
+                                    case 1:
+                                        if (t = o.sent(),
+                                        !(r = t.l.find(function(t) {
+                                            return (0,
+                                            i.o7)(t.a, e)
+                                        })))
+                                            throw new Error("Album " + r + " not found");
+                                        return [2, "t" + (r.c.reduce(function(e, t) {
+                                            var r = t.t.match(/t([0-9]+)/i)
+                                              , o = 0;
+                                            return r && (o = parseInt(r[1])),
+                                            Math.max(e, o)
+                                        }, 0) + 1)]
+                                    }
+                                })
+                            })
+                        }, "getNextTrackId")]
+                    })
+                })
+            }
+            ,
+            e.prototype.addTrack = function(e, t) {
+                var r = this
+                  , n = null
+                  , a = !1
+                  , c = {
+                    total: 0,
+                    vocals: 0,
+                    bass: 0,
+                    drums: 0,
+                    other: 0,
+                    config: 0
+                };
+                function l(e, r) {
+                    c[e] = r,
+                    c.total = Math.floor((100 * c.vocals + 100 * c.bass + 100 * c.drums + 100 * c.other + 1 * c.config) / 401 * 100) / 100,
+                    Number.isNaN(c.total) && (o.kg.debug("updateProgress isNan"),
+                    c.total = 0),
+                    t && t(c)
+                }
+                return {
+                    promise: new Promise(function(t, c) {
+                        return u(r, void 0, void 0, function() {
+                            var r, f, _, h, v, p, b, m = this;
+                            return d(this, function(g) {
+                                switch (g.label) {
+                                case 0:
+                                    return g.trys.push([0, 5, , 6]),
+                                    [4, this.ensureAlbum(e.album, e.getMetadata().artist, e.album_version)];
+                                case 1:
+                                    return r = g.sent(),
+                                    (_ = e.id) ? [3, 3] : [4, this.getNextTrackId(r)];
+                                case 2:
+                                    _ = g.sent(),
+                                    g.label = 3;
+                                case 3:
+                                    return f = _,
+                                    h = e.global_id || (0,
+                                    i.k$)(),
+                                    v = e.meta_version || "1",
+                                    p = e.stems_version || "1",
+                                    [4, this.queueTask(function() {
+                                        return u(m, void 0, void 0, function() {
+                                            var u, _, b, m, g, k, y, E, w;
+                                            return d(this, function(O) {
+                                                switch (O.label) {
+                                                case 0:
+                                                    if (a)
+                                                        return c(new Error("Cancelled")),
+                                                        [2];
+                                                    u = [{
+                                                        id: s.Le.vocals,
+                                                        stem: e.vocals,
+                                                        type: "vocals"
+                                                    }, {
+                                                        id: s.Le.bass,
+                                                        stem: e.bass,
+                                                        type: "bass"
+                                                    }, {
+                                                        id: s.Le.drums,
+                                                        stem: e.drums,
+                                                        type: "drums"
+                                                    }, {
+                                                        id: s.Le.other,
+                                                        stem: e.other,
+                                                        type: "other"
+                                                    }],
+                                                    _ = function(e) {
+                                                        return d(this, function(t) {
+                                                            switch (t.label) {
+                                                            case 0:
+                                                                return [4, (n = b.usb.uploadStem(f, r, u[e].id, u[e].stem.file, u[e].stem.format, function(t) {
+                                                                    return l(u[e].type, t)
+                                                                })).promise];
+                                                            case 1:
+                                                                return t.sent(),
+                                                                n = null,
+                                                                a ? (o.kg.debug("addTrack chain cancelled"),
+                                                                c(new Error("Cancelled")),
+                                                                [2, {
+                                                                    value: void 0
+                                                                }]) : [2]
+                                                            }
+                                                        })
+                                                    }
+                                                    ,
+                                                    b = this,
+                                                    m = 0,
+                                                    O.label = 1;
+                                                case 1:
+                                                    return m < u.length ? [5, _(m)] : [3, 4];
+                                                case 2:
+                                                    if ("object" === typeof (g = O.sent()))
+                                                        return [2, g.value];
+                                                    O.label = 3;
+                                                case 3:
+                                                    return m += 1,
+                                                    [3, 1];
+                                                case 4:
+                                                    if (k = e.getMetadata(),
+                                                    y = k.trackConfig,
+                                                    (null === (E = null === k || void 0 === k ? void 0 : k.artist) || void 0 === E ? void 0 : E.length) > s.h1)
+                                                        throw new Error("Track artist longer than " + s.h1 + " characters");
+                                                    if ((null === (w = null === y || void 0 === y ? void 0 : y.title) || void 0 === w ? void 0 : w.length) > s.h1)
+                                                        throw new Error("Track title longer than " + s.Kz + " characters");
+                                                    if (!k.trackConfig.bpm && !k.trackConfig.temposConfig)
+                                                        throw new Error("Track config error: Either bpm or temposConfig required");
+                                                    if (!Array.isArray(k.trackConfig.colors) || 2 !== k.trackConfig.colors.length || !(0,
+                                                    i.K_)(k.trackConfig.colors[0]) || !(0,
+                                                    i.K_)(k.trackConfig.colors[1]))
+                                                        throw new Error("Track config error: Invalid colors");
+                                                    if (k.trackConfig.TrackGain_dB && !(0,
+                                                    i.hj)(k.trackConfig.TrackGain_dB))
+                                                        throw new Error("Track config error: TrackGain_dB must be a number");
+                                                    return [4, this.usb.uploadTrackConfig(f, r, {
+                                                        TrackColour: y.colors,
+                                                        tempos: y.temposConfig || [{
+                                                            time_ms: 0,
+                                                            tempo_bpm: y.bpm
+                                                        }],
+                                                        TrackGain_dB: y.TrackGain_dB,
+                                                        metadata: {
+                                                            artist: k.artist,
+                                                            title: y.title,
+                                                            global_id: h,
+                                                            meta_version: v,
+                                                            stems_version: p
+                                                        }
+                                                    })];
+                                                case 5:
+                                                    return O.sent(),
+                                                    l("config", 100),
+                                                    t({
+                                                        album: r,
+                                                        id: f
+                                                    }),
+                                                    [2]
+                                                }
+                                            })
+                                        })
+                                    }, "uploadStems")];
+                                case 4:
+                                    return g.sent(),
+                                    [3, 6];
+                                case 5:
+                                    return "Cancelled" === (b = g.sent()).message && c(b),
+                                    c(new Error("addTrack failed: " + b)),
+                                    [3, 6];
+                                case 6:
+                                    return [2]
+                                }
+                            })
+                        })
+                    }
+                    ),
+                    cancel: function() {
+                        a = !0,
+                        n && n.cancel()
+                    }
+                }
+            }
+            ,
+            e.prototype.downloadTrackStem = function(e, t, r, o) {
+                var n = this
+                  , s = !1
+                  , i = null;
+                return {
+                    promise: this.queueTask(function() {
+                        return u(n, void 0, void 0, function() {
+                            return d(this, function(n) {
+                                return s ? [2, Promise.reject(new Error("Cancelled"))] : [2, (i = this.usb.downloadStem(e, t, r, o)).promise]
+                            })
+                        })
+                    }, "downloadTrackStem"),
+                    cancel: function() {
+                        s = !0,
+                        i && i.cancel()
+                    }
+                }
+            }
+            ,
+            e.prototype.editTrackMetadata = function(e, t, r) {
+                var o, n;
+                return u(this, void 0, void 0, function() {
+                    var i, a = this;
+                    return d(this, function(c) {
+                        switch (c.label) {
+                        case 0:
+                            if (c.trys.push([0, 2, , 3]),
+                            !r.bpm && 0 !== r.bpm && !r.temposConfig)
+                                throw new Error("Either `bpm` or `temposConfig` required");
+                            if ((null === (o = null === r || void 0 === r ? void 0 : r.artist) || void 0 === o ? void 0 : o.length) > s.h1)
+                                throw new Error("Track artist longer than " + s.h1 + " characters");
+                            if ((null === (n = null === r || void 0 === r ? void 0 : r.title) || void 0 === n ? void 0 : n.length) > s.h1)
+                                throw new Error("Track title longer than " + s.Kz + " characters");
+                            return [4, this.queueTask(function() {
+                                return u(a, void 0, void 0, function() {
+                                    return d(this, function(o) {
+                                        return [2, this.usb.uploadTrackConfig(t, e, {
+                                            TrackColour: r.colors,
+                                            tempos: r.temposConfig || [{
+                                                time_ms: 0,
+                                                tempo_bpm: r.bpm
+                                            }],
+                                            TrackGain_dB: r.TrackGain_dB,
+                                            metadata: {
+                                                artist: r.artist,
+                                                title: r.title,
+                                                global_id: r.global_id,
+                                                meta_version: r.meta_version,
+                                                stems_version: r.stems_version
+                                            }
+                                        })]
+                                    })
+                                })
+                            }, "uploadTrackConfig")];
+                        case 1:
+                            return c.sent(),
+                            [3, 3];
+                        case 2:
+                            throw i = c.sent(),
+                            new Error("Track edit failed: " + i);
+                        case 3:
+                            return [2]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.deleteTrack = function(e, t) {
+                return u(this, void 0, void 0, function() {
+                    var r = this;
+                    return d(this, function(o) {
+                        return [2, this.queueTask(function() {
+                            return u(r, void 0, void 0, function() {
+                                var r, o, n;
+                                return d(this, function(s) {
+                                    switch (s.label) {
+                                    case 0:
+                                        return s.trys.push([0, 5, , 6]),
+                                        [4, this.usb.deleteTrack(e, t)];
+                                    case 1:
+                                        return s.sent(),
+                                        [4, this.listTracks(!0)];
+                                    case 2:
+                                        return r = s.sent(),
+                                        (o = r.albums.find(function(t) {
+                                            return (0,
+                                            i.o7)(t.id, e)
+                                        })) && 0 === o.tracks.length ? [4, this.usb.deleteAlbum(e)] : [3, 4];
+                                    case 3:
+                                        s.sent(),
+                                        s.label = 4;
+                                    case 4:
+                                        return [3, 6];
+                                    case 5:
+                                        throw n = s.sent(),
+                                        new Error("Deleting track failed: " + n);
+                                    case 6:
+                                        return [2]
+                                    }
+                                })
+                            })
+                        }, "deleteTrack")]
+                    })
+                })
+            }
+            ,
+            e.prototype.addAlbum = function(e, t, r, o) {
+                return u(this, void 0, void 0, function() {
+                    var n, s, i = this;
+                    return d(this, function(a) {
+                        switch (a.label) {
+                        case 0:
+                            return (n = e) ? [3, 2] : (s = this.getNextAvailableAlbumId,
+                            [4, this.getAlbums()]);
+                        case 1:
+                            n = s.apply(this, [a.sent()]),
+                            a.label = 2;
+                        case 2:
+                            return [2, this.queueTask(function() {
+                                return u(i, void 0, void 0, function() {
+                                    return d(this, function(e) {
+                                        switch (e.label) {
+                                        case 0:
+                                            return [4, this.usb.addAlbum(n.toUpperCase())];
+                                        case 1:
+                                            return e.sent(),
+                                            [4, this.usb.uploadAlbumConfig(n, {
+                                                id: n.toUpperCase(),
+                                                artist: t,
+                                                title: r,
+                                                version: o || null,
+                                                tracks: null
+                                            })];
+                                        case 2:
+                                            return e.sent(),
+                                            [2, n]
+                                        }
+                                    })
+                                })
+                            }, "addAlbum")]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.deleteAlbum = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t = this;
+                    return d(this, function(r) {
+                        return [2, this.queueTask(function() {
+                            return t.usb.deleteAlbum(e)
+                        }, "deleteAlbum")]
+                    })
+                })
+            }
+            ,
+            e.prototype.renameAlbum = function(e, t) {
+                return u(this, void 0, void 0, function() {
+                    var r = this;
+                    return d(this, function(o) {
+                        return [2, this.queueTask(function() {
+                            return u(r, void 0, void 0, function() {
+                                var r;
+                                return d(this, function(o) {
+                                    switch (o.label) {
+                                    case 0:
+                                        return [4, this.getOrGenerateAlbumConfig(e)];
+                                    case 1:
+                                        return r = o.sent(),
+                                        [4, this.usb.renameAlbum(e, t)];
+                                    case 2:
+                                        return o.sent(),
+                                        r.id = t,
+                                        [4, this.usb.uploadAlbumConfig(t, r)];
+                                    case 3:
+                                        return o.sent(),
+                                        [2]
+                                    }
+                                })
+                            })
+                        }, "renameAlbum")]
+                    })
+                })
+            }
+            ,
+            e.prototype.moveTrack = function(e, t, r, n) {
+                return u(this, void 0, void 0, function() {
+                    var s = this;
+                    return d(this, function(a) {
+                        return [2, this.queueTask(function() {
+                            return u(s, void 0, void 0, function() {
+                                var s, a;
+                                return d(this, function(u) {
+                                    switch (u.label) {
+                                    case 0:
+                                        return [4, this.usb.moveTrack(e, t, r, n)];
+                                    case 1:
+                                        return u.sent(),
+                                        e === r ? [3, 4] : [4, this.listTracks(!0)];
+                                    case 2:
+                                        return s = u.sent(),
+                                        (a = s.albums.find(function(t) {
+                                            return (0,
+                                            i.o7)(t.id, e)
+                                        })) && 0 === a.tracks.length ? (o.kg.debug("moveTrack - caused album delete"),
+                                        [4, this.usb.deleteAlbum(e)]) : [3, 4];
+                                    case 3:
+                                        u.sent(),
+                                        u.label = 4;
+                                    case 4:
+                                        return [2]
+                                    }
+                                })
+                            })
+                        }, "moveTrack")]
+                    })
+                })
+            }
+            ,
+            e.prototype.getRecordedSlots = function() {
+                return u(this, void 0, void 0, function() {
+                    var e, t = this;
+                    return d(this, function(r) {
+                        switch (r.label) {
+                        case 0:
+                            return [4, this.queueTask(function() {
+                                return u(t, void 0, void 0, function() {
+                                    return d(this, function(e) {
+                                        switch (e.label) {
+                                        case 0:
+                                            return [4, this.usb.getRecordedSlots()];
+                                        case 1:
+                                            return [2, e.sent()]
+                                        }
+                                    })
+                                })
+                            }, "getRecordedSlots")];
+                        case 1:
+                            return [2, {
+                                slot1: (e = r.sent())["slot-1"],
+                                slot2: e["slot-2"],
+                                slot3: e["slot-3"],
+                                slot4: e["slot-4"]
+                            }]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.getChargeState = function() {
+                return u(this, void 0, void 0, function() {
+                    var e = this;
+                    return d(this, function(t) {
+                        switch (t.label) {
+                        case 0:
+                            return [4, this.queueTask(function() {
+                                return u(e, void 0, void 0, function() {
+                                    return d(this, function(e) {
+                                        switch (e.label) {
+                                        case 0:
+                                            return [4, this.usb.getChargeState()];
+                                        case 1:
+                                            return [2, e.sent()]
+                                        }
+                                    })
+                                })
+                            }, "getChargeState")];
+                        case 1:
+                            return [2, t.sent()]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.updateDeviceConfig = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t = this;
+                    return d(this, function(r) {
+                        return [2, this.queueTask(function() {
+                            return u(t, void 0, void 0, function() {
+                                var t;
+                                return d(this, function(r) {
+                                    switch (r.label) {
+                                    case 0:
+                                        return t = {
+                                            name: "Stem Player Configuration",
+                                            parameters: e
+                                        },
+                                        [4, this.usb.uploadDeviceConfig(t, function() {})];
+                                    case 1:
+                                        return r.sent(),
+                                        [2]
+                                    }
+                                })
+                            })
+                        }, "updateDeviceConfig")]
+                    })
+                })
+            }
+            ,
+            e.prototype.deviceMigration = function() {
+                return u(this, void 0, void 0, function() {
+                    var e, t, r, n, s, u, c, l, f;
+                    return d(this, function(_) {
+                        switch (_.label) {
+                        case 0:
+                            return [4, this.usb.getTrackList()];
+                        case 1:
+                            e = _.sent(),
+                            t = 0,
+                            _.label = 2;
+                        case 2:
+                            if (!(t < e.l.length))
+                                return [3, 16];
+                            if (r = e.l[t],
+                            n = r.a,
+                            s = void 0,
+                            (0,
+                            i.o7)(n, "RECORD"))
+                                return [3, 15];
+                            _.label = 3;
+                        case 3:
+                            return _.trys.push([3, 5, , 6]),
+                            [4, this.usb.getAlbumConfig(n)];
+                        case 4:
+                            return s = _.sent(),
+                            [3, 6];
+                        case 5:
+                            return _.sent(),
+                            [3, 6];
+                        case 6:
+                            if (!s)
+                                return [3, 15];
+                            _.label = 7;
+                        case 7:
+                            if (_.trys.push([7, 14, , 15]),
+                            null === s.tracks)
+                                return [3, 13];
+                            o.kg.info("Converting " + n + " (" + s.title + ") to the new format..."),
+                            u = function(e) {
+                                var t, o, u, l;
+                                return d(this, function(d) {
+                                    switch (d.label) {
+                                    case 0:
+                                        return t = r.c[e].t,
+                                        [4, c.usb.getTrackInfo(n, t)];
+                                    case 1:
+                                        return o = d.sent(),
+                                        u = s.tracks.find(function(e) {
+                                            return (0,
+                                            i.O8)(e.id, t)
+                                        }),
+                                        l = void 0,
+                                        l = a(a({}, o), u ? {
+                                            metadata: {
+                                                title: u.title,
+                                                artist: u.artist,
+                                                global_id: u.global_id,
+                                                meta_version: u.meta_version,
+                                                stems_version: u.stems_version
+                                            }
+                                        } : {
+                                            metadata: {
+                                                title: "Unknown",
+                                                global_id: "Unknown",
+                                                meta_version: "1",
+                                                stems_version: "1"
+                                            }
+                                        }),
+                                        [4, c.usb.uploadTrackConfig(t, n, l)];
+                                    case 2:
+                                        return d.sent(),
+                                        [2]
+                                    }
+                                })
+                            }
+                            ,
+                            c = this,
+                            l = 0,
+                            _.label = 8;
+                        case 8:
+                            return l < r.c.length ? [5, u(l)] : [3, 11];
+                        case 9:
+                            _.sent(),
+                            _.label = 10;
+                        case 10:
+                            return l += 1,
+                            [3, 8];
+                        case 11:
+                            return s.tracks = null,
+                            [4, this.usb.uploadAlbumConfig(n, s)];
+                        case 12:
+                            _.sent(),
+                            _.label = 13;
+                        case 13:
+                            return [3, 15];
+                        case 14:
+                            return f = _.sent(),
+                            o.kg.error("Album conversion failed: " + f),
+                            [3, 15];
+                        case 15:
+                            return t += 1,
+                            [3, 2];
+                        case 16:
+                            return [2]
+                        }
+                    })
+                })
+            }
+            ,
+            e.prototype.deviceAuth = function(e) {
+                return u(this, void 0, void 0, function() {
+                    var t = this;
+                    return d(this, function(r) {
+                        return [2, this.queueTask(function() {
+                            return u(t, void 0, void 0, function() {
+                                return d(this, function(t) {
+                                    return [2, this.usb.deviceAuth(e)]
+                                })
+                            })
+                        }, "deviceAuth")]
+                    })
+                })
+            }
+            ,
+            e
+        }()
+    }
+    ,
+    "5bed4c2c2c85e5553a5d": (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            FF: ()=>o.FF,
+            h1: ()=>n.h1,
+            Kz: ()=>n.Kz,
+            o7: ()=>s.o7,
+            qP: ()=>s.qP,
+            wO: ()=>s.wO,
+            O8: ()=>s.O8
+        });
+        var o = r("b2b922375814bbdc5154")
+          , n = r("c06425711428c102cd57")
+          , s = r("a8a8948619489f84f5bf");
+        r("fc3f305ca5af6d428015")
+    }
+    ,
+    fc3f305ca5af6d428015: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            B$: ()=>o,
+            hw: ()=>a,
+            kg: ()=>c
         });
         var o, n = function(e, t) {
             for (var r = 0, o = t.length, n = e.length; r < o; r++,
@@ -61,46 +1371,17 @@
                 return d.apply(void 0, n(["error"], e))
             }
         }
-          , l = function() {
-            function e() {
-                this.queue = Promise.resolve()
-            }
-            return e.prototype.queueTask = function(e, t, r) {
-                void 0 === r && (r = 0);
-                var o, n, s = t || e;
-                c.debug("Queuing task", s);
-                var i = new Promise(function(e, t) {
-                    o = e,
-                    n = t
-                }
-                );
-                return this.queue = this.queue.then(function() {
-                    c.debug("Starting task", s);
-                    var i = !1;
-                    return r > 0 && setTimeout(function() {
-                        if (!i) {
-                            var e = "task" + (t ? " " + t : "") + " timed out after " + r + "ms";
-                            c.error(e),
-                            i = !0,
-                            n(new Error(e))
-                        }
-                    }, r),
-                    e().then(function(e) {
-                        c.debug("Task finished", s),
-                        o(e)
-                    }).catch(function(e) {
-                        c.debug("Task failed", s),
-                        n(e)
-                    }).finally(function() {
-                        i = !0
-                    })
-                }),
-                i
-            }
-            ,
-            e
-        }()
-          , _ = function(e, t, r, o) {
+    }
+    ,
+    c06425711428c102cd57: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            h1: ()=>d,
+            Kz: ()=>c,
+            Le: ()=>o,
+            m$: ()=>w
+        });
+        var o, n, s = r("fc3f305ca5af6d428015"), i = r("a8a8948619489f84f5bf"), a = function(e, t, r, o) {
             return new (r || (r = Promise))(function(n, s) {
                 function i(e) {
                     try {
@@ -127,8 +1408,7 @@
                 u((o = o.apply(e, t || [])).next())
             }
             )
-        }
-          , f = function(e, t) {
+        }, u = function(e, t) {
             var r, o, n, s, i = {
                 label: 0,
                 sent: function() {
@@ -221,153 +1501,7 @@
                     }([s, a])
                 }
             }
-        };
-        function h(e) {
-            return _(this, void 0, void 0, function() {
-                return f(this, function(t) {
-                    return [2, new Promise(function(t) {
-                        return setTimeout(t, e)
-                    }
-                    )]
-                })
-            })
-        }
-        function v(e, t) {
-            return (e ? e.toUpperCase() : e) === (t ? t.toUpperCase() : t)
-        }
-        function p(e, t) {
-            return v(e, t)
-        }
-        function b(e, t) {
-            return v(e, t)
-        }
-        function m(e, t) {
-            return v(e, t)
-        }
-        function g(e) {
-            return /^#[0-9A-F]{6}$/i.test(e)
-        }
-        var k, y, E = function(e, t, r, o) {
-            return new (r || (r = Promise))(function(n, s) {
-                function i(e) {
-                    try {
-                        u(o.next(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function a(e) {
-                    try {
-                        u(o.throw(e))
-                    } catch (e) {
-                        s(e)
-                    }
-                }
-                function u(e) {
-                    var t;
-                    e.done ? n(e.value) : (t = e.value,
-                    t instanceof r ? t : new r(function(e) {
-                        e(t)
-                    }
-                    )).then(i, a)
-                }
-                u((o = o.apply(e, t || [])).next())
-            }
-            )
-        }, w = function(e, t) {
-            var r, o, n, s, i = {
-                label: 0,
-                sent: function() {
-                    if (1 & n[0])
-                        throw n[1];
-                    return n[1]
-                },
-                trys: [],
-                ops: []
-            };
-            return s = {
-                next: a(0),
-                throw: a(1),
-                return: a(2)
-            },
-            "function" === typeof Symbol && (s[Symbol.iterator] = function() {
-                return this
-            }
-            ),
-            s;
-            function a(s) {
-                return function(a) {
-                    return function(s) {
-                        if (r)
-                            throw new TypeError("Generator is already executing.");
-                        for (; i; )
-                            try {
-                                if (r = 1,
-                                o && (n = 2 & s[0] ? o.return : s[0] ? o.throw || ((n = o.return) && n.call(o),
-                                0) : o.next) && !(n = n.call(o, s[1])).done)
-                                    return n;
-                                switch (o = 0,
-                                n && (s = [2 & s[0], n.value]),
-                                s[0]) {
-                                case 0:
-                                case 1:
-                                    n = s;
-                                    break;
-                                case 4:
-                                    return i.label++,
-                                    {
-                                        value: s[1],
-                                        done: !1
-                                    };
-                                case 5:
-                                    i.label++,
-                                    o = s[1],
-                                    s = [0];
-                                    continue;
-                                case 7:
-                                    s = i.ops.pop(),
-                                    i.trys.pop();
-                                    continue;
-                                default:
-                                    if (!(n = (n = i.trys).length > 0 && n[n.length - 1]) && (6 === s[0] || 2 === s[0])) {
-                                        i = 0;
-                                        continue
-                                    }
-                                    if (3 === s[0] && (!n || s[1] > n[0] && s[1] < n[3])) {
-                                        i.label = s[1];
-                                        break
-                                    }
-                                    if (6 === s[0] && i.label < n[1]) {
-                                        i.label = n[1],
-                                        n = s;
-                                        break
-                                    }
-                                    if (n && i.label < n[2]) {
-                                        i.label = n[2],
-                                        i.ops.push(s);
-                                        break
-                                    }
-                                    n[2] && i.ops.pop(),
-                                    i.trys.pop();
-                                    continue
-                                }
-                                s = t.call(e, i)
-                            } catch (e) {
-                                s = [6, e],
-                                o = 0
-                            } finally {
-                                r = n = 0
-                            }
-                        if (5 & s[0])
-                            throw s[1];
-                        return {
-                            value: s[0] ? s[1] : void 0,
-                            done: !0
-                        }
-                    }([s, a])
-                }
-            }
-        }, O = 250, T = 250, L = {
+        }, d = 250, c = 250, l = {
             1: "other",
             2: "vocals",
             3: "bass",
@@ -378,7 +1512,7 @@
             e[e.vocals = 2] = "vocals",
             e[e.bass = 3] = "bass",
             e[e.drums = 4] = "drums"
-        }(k || (k = {})),
+        }(o || (o = {})),
         function(e) {
             e[e.ACK = 0] = "ACK",
             e[e.NAK = 1] = "NAK",
@@ -389,8 +1523,8 @@
             e[e.FILE_HEADER = 6] = "FILE_HEADER",
             e[e.FILE_BODY = 7] = "FILE_BODY",
             e[e.ABORT = 8] = "ABORT"
-        }(y || (y = {}));
-        var C, P = ["ACK", "NAK", "CONNECT", "DISCONNECT", "CONTROL", "RESPONSE", "FILE_HEADER", "FILE_BODY", "ABORT"];
+        }(n || (n = {}));
+        var f, _ = ["ACK", "NAK", "CONNECT", "DISCONNECT", "CONTROL", "RESPONSE", "FILE_HEADER", "FILE_BODY", "ABORT"];
         !function(e) {
             e[e.REBOOT = 0] = "REBOOT",
             e[e.VERSION = 1] = "VERSION",
@@ -411,46 +1545,46 @@
             e[e.MOVE_TRACK = 16] = "MOVE_TRACK",
             e[e.GET_STATE_OF_CHARGE = 17] = "GET_STATE_OF_CHARGE",
             e[e.CHALLENGE = 18] = "CHALLENGE"
-        }(C || (C = {}));
-        var D, G = ["REBOOT", "VERSION", "GET_STORAGE_INFO", "GET_TRACKS_INFO", "GET_DEVICE_CONFIG", "GET_ALBUM_CONFIG", "GET_TRACK_CONFIG", "GET_ALBUM_COVER", "ADD_ALBUM", "DELETE_ALBUM", "DELETE_TRACK", "GET_MUSIC_FILE", "GET_RECORDING_SLOTS", "GET_RECORDING", "DELETE_RECORDING", "RENAME_ALBUM", "MOVE_TRACK", "GET_STATE_OF_CHARGE", "CHALLENGE"];
+        }(f || (f = {}));
+        var h, v = ["REBOOT", "VERSION", "GET_STORAGE_INFO", "GET_TRACKS_INFO", "GET_DEVICE_CONFIG", "GET_ALBUM_CONFIG", "GET_TRACK_CONFIG", "GET_ALBUM_COVER", "ADD_ALBUM", "DELETE_ALBUM", "DELETE_TRACK", "GET_MUSIC_FILE", "GET_RECORDING_SLOTS", "GET_RECORDING", "DELETE_RECORDING", "RENAME_ALBUM", "MOVE_TRACK", "GET_STATE_OF_CHARGE", "CHALLENGE"];
         !function(e) {
             e[e.BUSY = 0] = "BUSY",
             e[e.SYNTAX_ERROR = 1] = "SYNTAX_ERROR",
             e[e.STATE_ERROR = 2] = "STATE_ERROR",
             e[e.RESOURCE_ERROR = 3] = "RESOURCE_ERROR"
-        }(D || (D = {}));
-        var M = ["BUSY", "SYNTAX_ERROR", "STATE_ERROR", "RESOURCE_ERROR"]
-          , S = [];
-        function R(e, t, r) {
-            if (a <= o.DEBUG) {
-                var n = {
+        }(h || (h = {}));
+        var p = ["BUSY", "SYNTAX_ERROR", "STATE_ERROR", "RESOURCE_ERROR"]
+          , b = [];
+        function m(e, t, r) {
+            if (s.hw <= s.B$.DEBUG) {
+                var o = {
                     transfer: e,
                     type: t.type,
                     success: r
                 };
                 switch (t.type) {
-                case y.CONTROL:
-                case y.RESPONSE:
-                    n.operation = t.payload[0];
-                case y.NAK:
-                    n.error = t.payload[0]
+                case n.CONTROL:
+                case n.RESPONSE:
+                    o.operation = t.payload[0];
+                case n.NAK:
+                    o.error = t.payload[0]
                 }
-                S.push(n)
+                b.push(o)
             }
         }
-        if (a <= o.DEBUG) {
-            var A = function() {
-                for (var e = [], t = 0, r = S; t < r.length; t++) {
+        if (s.hw <= s.B$.DEBUG) {
+            var g = function() {
+                for (var e = [], t = 0, r = b; t < r.length; t++) {
                     var o = r[t]
-                      , n = "" + ("in" === o.transfer ? " " : "") + o.transfer.toUpperCase() + ": " + P[o.type];
-                    void 0 !== o.operation ? n += " " + G[o.operation] : void 0 !== o.error && (n += " " + M[o.error]),
+                      , n = "" + ("in" === o.transfer ? " " : "") + o.transfer.toUpperCase() + ": " + _[o.type];
+                    void 0 !== o.operation ? n += " " + v[o.operation] : void 0 !== o.error && (n += " " + p[o.error]),
                     void 0 !== o.success && (n += o.success ? "" : " [FAIL]"),
                     e.push(n)
                 }
                 return e
             };
             window.printStemPlayerPacketLog = function() {
-                for (var e = 0, t = A(); e < t.length; e++) {
+                for (var e = 0, t = g(); e < t.length; e++) {
                     var r = t[e];
                     console.log(r)
                 }
@@ -459,7 +1593,7 @@
             window.downloadStemPlayerPacketLog = function() {
                 var e, t, r;
                 e = "stem-player-packet-log.txt",
-                t = A().join("\n"),
+                t = g().join("\n"),
                 (r = document.createElement("a")).setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(t)),
                 r.setAttribute("download", e),
                 r.style.display = "none",
@@ -468,42 +1602,42 @@
                 document.body.removeChild(r)
             }
         }
-        function I(e) {
+        function k(e) {
             if (e < 0 || e > 65535)
                 throw new Error("Invalid packet length.");
             return [255 & e, e >> 8 & 255]
         }
-        function H(e, t) {
+        function y(e, t) {
             return (t << 8) + e
         }
-        function U(e, t) {
+        function E(e, t) {
             var r = String.fromCharCode(e) + JSON.stringify(t) + "\0";
             return (new TextEncoder).encode(r)
         }
-        var N = function() {
+        var w = function() {
             function e() {
                 var e = this;
-                this.sendReceivePacket = function(t, r, o, n) {
-                    return new Promise(function(s) {
-                        return E(e, void 0, void 0, function() {
+                this.sendReceivePacket = function(t, r, o, s) {
+                    return new Promise(function(i) {
+                        return a(e, void 0, void 0, function() {
                             var e;
-                            return w(this, function(i) {
-                                switch (i.label) {
+                            return u(this, function(a) {
+                                switch (a.label) {
                                 case 0:
-                                    return i.trys.push([0, 2, , 3]),
+                                    return a.trys.push([0, 2, , 3]),
                                     [4, this.sendPacket(t)];
                                 case 1:
-                                    return i.sent(),
-                                    s(null),
+                                    return a.sent(),
+                                    i(null),
                                     [3, 3];
                                 case 2:
-                                    return e = i.sent(),
+                                    return e = a.sent(),
                                     console.error(e),
-                                    n("file upload error: transfering block at position " + (r - o) + " failed."),
+                                    s("file upload error: transfering block at position " + (r - o) + " failed."),
                                     [2];
                                 case 3:
                                     return this.receivePacket().then(function(e) {
-                                        e.type === y.ACK || n("file upload error: transfering file block at postition " + (r - o) + " failed. failed.")
+                                        e.type === n.ACK || s("file upload error: transfering file block at postition " + (r - o) + " failed. failed.")
                                     }),
                                     [2]
                                 }
@@ -513,26 +1647,26 @@
                     )
                 }
                 ,
-                this.sendAndAcknowledgeReceivePacket = function(t, r, o, n) {
-                    return E(e, void 0, void 0, function() {
+                this.sendAndAcknowledgeReceivePacket = function(t, r, o, s) {
+                    return a(e, void 0, void 0, function() {
                         var e;
-                        return w(this, function(s) {
-                            switch (s.label) {
+                        return u(this, function(i) {
+                            switch (i.label) {
                             case 0:
-                                return s.trys.push([0, 2, , 3]),
+                                return i.trys.push([0, 2, , 3]),
                                 [4, this.sendPacket(t)];
                             case 1:
-                                return s.sent(),
+                                return i.sent(),
                                 [3, 3];
                             case 2:
-                                return e = s.sent(),
+                                return e = i.sent(),
                                 console.error(e),
-                                n("file upload error: transfering block at position " + (r - o) + " failed."),
+                                s("file upload error: transfering block at position " + (r - o) + " failed."),
                                 [2];
                             case 3:
                                 return [4, this.receivePacket()];
                             case 4:
-                                return s.sent().type !== y.ACK ? (n("file upload error: transfering file block at postition " + (r - o) + " failed. failed."),
+                                return i.sent().type !== n.ACK ? (s("file upload error: transfering file block at postition " + (r - o) + " failed. failed."),
                                 [2]) : [2]
                             }
                         })
@@ -552,11 +1686,12 @@
                 configurable: !0
             }),
             e.prototype.onUSBConnect = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(e) {
                         switch (e.label) {
                         case 0:
-                            return this.usb ? [3, 2] : [4, h(2e3)];
+                            return this.usb ? [3, 2] : [4, (0,
+                            i.wO)(2e3)];
                         case 1:
                             e.sent(),
                             this.findPairedDevice(),
@@ -569,9 +1704,9 @@
             }
             ,
             e.prototype.onUSBDisconnect = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t = this;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return this.usb ? [4, navigator.usb.getDevices()] : [3, 2];
@@ -595,8 +1730,8 @@
             }
             ,
             e.prototype.ensureDevice = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(e) {
                         switch (e.label) {
                         case 0:
                             if (this.usb) {
@@ -617,8 +1752,8 @@
             }
             ,
             e.prototype.openConnection = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(e) {
                         switch (e.label) {
                         case 0:
                             return this.usb ? [4, this.usb.open()] : [3, 5];
@@ -630,7 +1765,8 @@
                             [4, this.usb.claimInterface(0)];
                         case 3:
                             return e.sent(),
-                            [4, h(500)];
+                            [4, (0,
+                            i.wO)(500)];
                         case 4:
                             return e.sent(),
                             this.onConnectHandler && this.onConnectHandler(),
@@ -643,9 +1779,9 @@
             }
             ,
             e.prototype.findPairedDevice = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return navigator && navigator.usb ? [4, navigator.usb.getDevices()] : [3, 2];
@@ -663,42 +1799,42 @@
             ,
             e.prototype.requestDevice = function(e) {
                 return void 0 === e && (e = !1),
-                E(this, void 0, void 0, function() {
+                a(this, void 0, void 0, function() {
                     var t, r, o, n;
-                    return w(this, function(s) {
-                        switch (s.label) {
+                    return u(this, function(i) {
+                        switch (i.label) {
                         case 0:
                             if (!this.usb)
                                 return [3, 9];
                             if (!e)
                                 return [3, 8];
-                            s.label = 1;
+                            i.label = 1;
                         case 1:
-                            return s.trys.push([1, 3, , 4]),
+                            return i.trys.push([1, 3, , 4]),
                             [4, this.endSession()];
                         case 2:
-                            return s.sent(),
+                            return i.sent(),
                             [3, 4];
                         case 3:
-                            return t = s.sent(),
-                            c.error("Error ignored while disconnecting: " + t),
+                            return t = i.sent(),
+                            s.kg.error("Error ignored while disconnecting: " + t),
                             [3, 4];
                         case 4:
-                            return s.trys.push([4, 6, , 7]),
+                            return i.trys.push([4, 6, , 7]),
                             [4, this.reset()];
                         case 5:
-                            return s.sent(),
+                            return i.sent(),
                             [3, 7];
                         case 6:
-                            return r = s.sent(),
-                            c.error("Error ignored while disconnecting: " + r),
+                            return r = i.sent(),
+                            s.kg.error("Error ignored while disconnecting: " + r),
                             [3, 7];
                         case 7:
                             return [3, 9];
                         case 8:
                             throw new Error("Device already initialised.");
                         case 9:
-                            return s.trys.push([9, 11, , 12]),
+                            return i.trys.push([9, 11, , 12]),
                             o = this,
                             [4, navigator.usb.requestDevice({
                                 filters: [{
@@ -706,10 +1842,10 @@
                                 }]
                             })];
                         case 10:
-                            return o.usb = s.sent(),
+                            return o.usb = i.sent(),
                             [3, 12];
                         case 11:
-                            if ("NotFoundError" !== (n = s.sent()).name)
+                            if ("NotFoundError" !== (n = i.sent()).name)
                                 throw n;
                             return [3, 12];
                         case 12:
@@ -720,8 +1856,8 @@
             }
             ,
             e.prototype.reset = function() {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(e) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(e) {
                         switch (e.label) {
                         case 0:
                             if (!this.usb)
@@ -756,17 +1892,17 @@
             }
             ,
             e.prototype.startSession = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e;
-                    return w(this, function(t) {
+                    return u(this, function(t) {
                         switch (t.label) {
                         case 0:
-                            return c.debug("startSession called"),
+                            return s.kg.debug("startSession called"),
                             [4, this.ensureDevice()];
                         case 1:
                             return t.sent(),
                             [4, this.sendPacket({
-                                type: y.CONNECT,
+                                type: n.CONNECT,
                                 payload: []
                             })];
                         case 2:
@@ -774,8 +1910,8 @@
                             [4, this.receivePacket()];
                         case 3:
                             if (e = t.sent(),
-                            c.debug("startSession respose received", P[e.type]),
-                            e.type !== y.ACK)
+                            s.kg.debug("startSession respose received", _[e.type]),
+                            e.type !== n.ACK)
                                 throw new Error("`startSession` failed.");
                             return [2]
                         }
@@ -784,17 +1920,17 @@
             }
             ,
             e.prototype.endSession = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e;
-                    return w(this, function(t) {
+                    return u(this, function(t) {
                         switch (t.label) {
                         case 0:
-                            return c.debug("endSession called"),
+                            return s.kg.debug("endSession called"),
                             [4, this.ensureDevice()];
                         case 1:
                             return t.sent(),
                             [4, this.sendPacket({
-                                type: y.DISCONNECT,
+                                type: n.DISCONNECT,
                                 payload: []
                             })];
                         case 2:
@@ -802,8 +1938,8 @@
                             [4, this.receivePacket()];
                         case 3:
                             if (e = t.sent(),
-                            c.debug("endSession respose received", P[e.type]),
-                            e.type !== y.ACK)
+                            s.kg.debug("endSession respose received", _[e.type]),
+                            e.type !== n.ACK)
                                 throw new Error("`endSession` failed.");
                             return [2]
                         }
@@ -812,140 +1948,140 @@
             }
             ,
             e.prototype.reboot = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e;
-                    return w(this, function(t) {
+                    return u(this, function(t) {
                         switch (t.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return t.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.REBOOT]
+                                type: n.CONTROL,
+                                payload: [f.REBOOT]
                             })];
                         case 2:
                             return t.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            return (e = t.sent()).type !== y.RESPONSE ? [3, 5] : e.payload[0] === C.REBOOT ? [2] : [4, this.reset()];
+                            return (e = t.sent()).type !== n.RESPONSE ? [3, 5] : e.payload[0] === f.REBOOT ? [2] : [4, this.reset()];
                         case 4:
                             return t.sent(),
                             [2];
                         case 5:
-                            throw new Error("`control` operation " + C.REBOOT + " failed.")
+                            throw new Error("`control` operation " + f.REBOOT + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.getDeviceInfo = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.VERSION]
+                                type: n.CONTROL,
+                                payload: [f.VERSION]
                             })];
                         case 2:
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if ((e = r.sent()).type === y.RESPONSE && e.payload[0] === C.VERSION)
+                            if ((e = r.sent()).type === n.RESPONSE && e.payload[0] === f.VERSION)
                                 return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
                                 [2, JSON.parse(t)];
-                            throw new Error("`control` operation " + C.VERSION + " failed.")
+                            throw new Error("`control` operation " + f.VERSION + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.getStorageInfo = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
-                            c.debug("getStorageInfo: sending"),
+                            s.kg.debug("getStorageInfo: sending"),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_STORAGE_INFO]
+                                type: n.CONTROL,
+                                payload: [f.GET_STORAGE_INFO]
                             })];
                         case 2:
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
                             if (e = r.sent(),
-                            c.debug("getStorageInfo: res", e),
-                            e.type === y.RESPONSE) {
-                                if (e.payload[0] === C.GET_STORAGE_INFO)
+                            s.kg.debug("getStorageInfo: res", e),
+                            e.type === n.RESPONSE) {
+                                if (e.payload[0] === f.GET_STORAGE_INFO)
                                     return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
-                                    c.debug("getStorageInfo return", t),
+                                    s.kg.debug("getStorageInfo return", t),
                                     [2, JSON.parse(t)]
                             } else
-                                c.error("getStorageInfo: Received " + P[e.type]);
-                            throw new Error("`control` operation " + G[C.GET_STORAGE_INFO] + " failed.")
+                                s.kg.error("getStorageInfo: Received " + _[e.type]);
+                            throw new Error("`control` operation " + v[f.GET_STORAGE_INFO] + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.getTrackList = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t, r;
-                    return w(this, function(o) {
+                    return u(this, function(o) {
                         switch (o.label) {
                         case 0:
-                            return c.debug("getTrackList: before ensure device"),
+                            return s.kg.debug("getTrackList: before ensure device"),
                             [4, this.ensureDevice()];
                         case 1:
                             return o.sent(),
-                            c.debug("getTrackList: after ensure device"),
-                            c.debug("getTrackList: sending " + P[y.CONTROL] + ": " + G[C.GET_TRACKS_INFO]),
+                            s.kg.debug("getTrackList: after ensure device"),
+                            s.kg.debug("getTrackList: sending " + _[n.CONTROL] + ": " + v[f.GET_TRACKS_INFO]),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_TRACKS_INFO]
+                                type: n.CONTROL,
+                                payload: [f.GET_TRACKS_INFO]
                             })];
                         case 2:
                             return o.sent(),
-                            c.debug("getTrackList: listening for response"),
+                            s.kg.debug("getTrackList: listening for response"),
                             [4, this.receivePacket()];
                         case 3:
                             if (e = o.sent(),
-                            c.debug("getTrackList: response received"),
-                            e.type === y.RESPONSE) {
-                                if (e.payload[0] === C.GET_TRACKS_INFO)
+                            s.kg.debug("getTrackList: response received"),
+                            e.type === n.RESPONSE) {
+                                if (e.payload[0] === f.GET_TRACKS_INFO)
                                     return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
                                     r = JSON.parse(t),
-                                    c.debug("getTrackList: response", r),
+                                    s.kg.debug("getTrackList: response", r),
                                     [2, r]
                             } else
-                                c.error("getTrackList: Received " + P[e.type]);
-                            throw new Error("`control` operation " + G[C.GET_TRACKS_INFO] + " failed.")
+                                s.kg.error("getTrackList: Received " + _[e.type]);
+                            throw new Error("`control` operation " + v[f.GET_TRACKS_INFO] + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.deleteTrack = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(r) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.DELETE_TRACK, {
+                                type: n.CONTROL,
+                                payload: E(f.DELETE_TRACK, {
                                     album: e,
                                     track: t
                                 })
@@ -954,7 +2090,7 @@
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if (r.sent().type !== y.RESPONSE)
+                            if (r.sent().type !== n.RESPONSE)
                                 throw new Error("`deleteTrack` failed.");
                             return [2]
                         }
@@ -963,62 +2099,62 @@
             }
             ,
             e.prototype.getTrackInfo = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    var r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
+                return a(this, void 0, void 0, function() {
+                    var r, o, s, i;
+                    return u(this, function(a) {
+                        switch (a.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
-                            return i.sent(),
+                            return a.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.GET_TRACK_CONFIG, {
+                                type: n.CONTROL,
+                                payload: E(f.GET_TRACK_CONFIG, {
                                     album: e,
                                     track: t
                                 })
                             })];
                         case 2:
-                            return i.sent(),
+                            return a.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            return (r = i.sent()).type !== y.RESPONSE ? [3, 8] : r.payload[0] !== C.GET_TRACK_CONFIG ? [3, 8] : [4, this.sendPacket({
-                                type: y.ACK,
+                            return (r = a.sent()).type !== n.RESPONSE ? [3, 8] : r.payload[0] !== f.GET_TRACK_CONFIG ? [3, 8] : [4, this.sendPacket({
+                                type: n.ACK,
                                 payload: []
                             })];
                         case 4:
-                            i.sent(),
-                            i.label = 5;
+                            a.sent(),
+                            a.label = 5;
                         case 5:
-                            return i.trys.push([5, 7, , 8]),
+                            return a.trys.push([5, 7, , 8]),
                             [4, this.downloadFile().promise];
                         case 6:
-                            return o = i.sent(),
-                            0 === (n = (new TextDecoder).decode(o.data)).charCodeAt(n.length - 1) && (n = n.substr(0, n.length - 1)),
-                            [2, JSON.parse(n)];
+                            return o = a.sent(),
+                            0 === (s = (new TextDecoder).decode(o.data)).charCodeAt(s.length - 1) && (s = s.substr(0, s.length - 1)),
+                            [2, JSON.parse(s)];
                         case 7:
-                            throw s = i.sent(),
-                            console.error(s),
-                            new Error("Getting track info failed: " + s);
+                            throw i = a.sent(),
+                            console.error(i),
+                            new Error("Getting track info failed: " + i);
                         case 8:
-                            throw new Error("`control` operation " + C.GET_TRACK_CONFIG + " failed.")
+                            throw new Error("`control` operation " + f.GET_TRACK_CONFIG + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.addAlbum = function(e) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(t) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(t) {
                         switch (t.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return t.sent(),
-                            c.debug("addAlbum", e),
+                            s.kg.debug("addAlbum", e),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.ADD_ALBUM, {
+                                type: n.CONTROL,
+                                payload: E(f.ADD_ALBUM, {
                                     album: e
                                 })
                             })];
@@ -1026,7 +2162,7 @@
                             return t.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if (t.sent().type !== y.RESPONSE)
+                            if (t.sent().type !== n.RESPONSE)
                                 throw new Error("`addAlbum` failed.");
                             return [2]
                         }
@@ -1035,17 +2171,17 @@
             }
             ,
             e.prototype.deleteAlbum = function(e) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(t) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(t) {
                         switch (t.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return t.sent(),
-                            c.debug("deleteAlbum", e),
+                            s.kg.debug("deleteAlbum", e),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.DELETE_ALBUM, {
+                                type: n.CONTROL,
+                                payload: E(f.DELETE_ALBUM, {
                                     album: e
                                 })
                             })];
@@ -1053,7 +2189,7 @@
                             return t.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if (t.sent().type !== y.RESPONSE)
+                            if (t.sent().type !== n.RESPONSE)
                                 throw new Error("`deleteAlbum` failed.");
                             return [2]
                         }
@@ -1062,38 +2198,38 @@
             }
             ,
             e.prototype.getDeviceConfig = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t, r, o;
-                    return w(this, function(n) {
-                        switch (n.label) {
+                    return u(this, function(s) {
+                        switch (s.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
-                            return n.sent(),
+                            return s.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_DEVICE_CONFIG]
+                                type: n.CONTROL,
+                                payload: [f.GET_DEVICE_CONFIG]
                             })];
                         case 2:
-                            return n.sent(),
+                            return s.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            return (e = n.sent()).type !== y.RESPONSE ? [3, 10] : e.payload[0] !== C.GET_DEVICE_CONFIG ? [3, 9] : [4, this.sendPacket({
-                                type: y.ACK,
+                            return (e = s.sent()).type !== n.RESPONSE ? [3, 10] : e.payload[0] !== f.GET_DEVICE_CONFIG ? [3, 9] : [4, this.sendPacket({
+                                type: n.ACK,
                                 payload: []
                             })];
                         case 4:
-                            n.sent(),
+                            s.sent(),
                             t = null,
-                            n.label = 5;
+                            s.label = 5;
                         case 5:
-                            return n.trys.push([5, 7, , 8]),
+                            return s.trys.push([5, 7, , 8]),
                             [4, this.downloadFile().promise];
                         case 6:
-                            return t = n.sent(),
+                            return t = s.sent(),
                             [3, 8];
                         case 7:
-                            throw r = n.sent(),
+                            throw r = s.sent(),
                             new Error("Getting device config failed: " + r);
                         case 8:
                             try {
@@ -1102,76 +2238,76 @@
                             } catch (e) {
                                 throw new Error("Parsing device config failed: " + e)
                             }
-                            n.label = 9;
+                            s.label = 9;
                         case 9:
                             return [3, 11];
                         case 10:
-                            if (e.type === y.NAK && e.payload[0] === D.RESOURCE_ERROR)
+                            if (e.type === n.NAK && e.payload[0] === h.RESOURCE_ERROR)
                                 return [2, null];
-                            n.label = 11;
+                            s.label = 11;
                         case 11:
-                            throw new Error("`control` operation " + C.GET_DEVICE_CONFIG + " failed.")
+                            throw new Error("`control` operation " + f.GET_DEVICE_CONFIG + " failed.")
                         }
                     })
                 })
             }
             ,
             e.prototype.getAlbumConfig = function(e) {
-                return E(this, void 0, void 0, function() {
-                    var t, r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
+                return a(this, void 0, void 0, function() {
+                    var t, r, o, s, i;
+                    return u(this, function(a) {
+                        switch (a.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
-                            return i.sent(),
+                            return a.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.GET_ALBUM_CONFIG, {
+                                type: n.CONTROL,
+                                payload: E(f.GET_ALBUM_CONFIG, {
                                     album: e
                                 })
                             })];
                         case 2:
-                            return i.sent(),
+                            return a.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            return (t = i.sent()).type !== y.RESPONSE ? [3, 10] : t.payload[0] !== C.GET_ALBUM_CONFIG ? [3, 9] : [4, this.sendPacket({
-                                type: y.ACK,
+                            return (t = a.sent()).type !== n.RESPONSE ? [3, 10] : t.payload[0] !== f.GET_ALBUM_CONFIG ? [3, 9] : [4, this.sendPacket({
+                                type: n.ACK,
                                 payload: []
                             })];
                         case 4:
-                            i.sent(),
+                            a.sent(),
                             r = null,
-                            i.label = 5;
+                            a.label = 5;
                         case 5:
-                            return i.trys.push([5, 7, , 8]),
+                            return a.trys.push([5, 7, , 8]),
                             [4, this.downloadFile().promise];
                         case 6:
-                            return r = i.sent(),
+                            return r = a.sent(),
                             [3, 8];
                         case 7:
-                            throw o = i.sent(),
+                            throw o = a.sent(),
                             new Error("Getting album info failed: " + o);
                         case 8:
                             try {
-                                return n = (new TextDecoder).decode(r.data),
-                                (s = JSON.parse(n)).id && (s.id = s.id.toUpperCase()),
-                                s.tracks && s.tracks.forEach(function(e) {
+                                return s = (new TextDecoder).decode(r.data),
+                                (i = JSON.parse(s)).id && (i.id = i.id.toUpperCase()),
+                                i.tracks && i.tracks.forEach(function(e) {
                                     e.id && (e.id = e.id.toUpperCase())
                                 }),
-                                [2, s]
+                                [2, i]
                             } catch (e) {
                                 throw new Error("Parsing album info failed: " + e)
                             }
-                            i.label = 9;
+                            a.label = 9;
                         case 9:
                             return [3, 11];
                         case 10:
-                            if (t.type === y.NAK && t.payload[0] === D.RESOURCE_ERROR)
+                            if (t.type === n.NAK && t.payload[0] === h.RESOURCE_ERROR)
                                 return [2, null];
-                            i.label = 11;
+                            a.label = 11;
                         case 11:
-                            throw new Error("`control` operation " + C.GET_ALBUM_CONFIG + " failed.")
+                            throw new Error("`control` operation " + f.GET_ALBUM_CONFIG + " failed.")
                         }
                     })
                 })
@@ -1181,77 +2317,79 @@
                 var t = this
                   , r = !1;
                 return {
-                    promise: new Promise(function(o, n) {
-                        return E(t, void 0, void 0, function() {
-                            var t, s, i, a, u, d, c, l, _, f, v, p;
-                            return w(this, function(b) {
-                                switch (b.label) {
+                    promise: new Promise(function(o, s) {
+                        return a(t, void 0, void 0, function() {
+                            var t, a, d, c, l, f, _, h, v, p, b, m;
+                            return u(this, function(u) {
+                                switch (u.label) {
                                 case 0:
-                                    return b.trys.push([0, 12, , 13]),
+                                    return u.trys.push([0, 12, , 13]),
                                     [4, this.receivePacket()];
                                 case 1:
-                                    if ((t = b.sent()).type !== y.FILE_HEADER)
+                                    if ((t = u.sent()).type !== n.FILE_HEADER)
                                         throw new Error("Receiving file failed: Expected FILE_HEADER");
-                                    return s = (new TextDecoder).decode(t.payload.slice(0, t.payload.length - 1)),
-                                    i = JSON.parse(s),
+                                    return a = (new TextDecoder).decode(t.payload.slice(0, t.payload.length - 1)),
+                                    d = JSON.parse(a),
                                     [4, this.sendPacket({
-                                        type: y.ACK,
+                                        type: n.ACK,
                                         payload: []
                                     })];
                                 case 2:
-                                    b.sent(),
-                                    a = 0,
-                                    u = new Uint8Array(i.size),
-                                    d = Date.now(),
+                                    u.sent(),
+                                    c = 0,
+                                    l = new Uint8Array(d.size),
+                                    f = Date.now(),
                                     e && e(0),
-                                    b.label = 3;
+                                    u.label = 3;
                                 case 3:
                                     return [4, this.receivePacket()];
                                 case 4:
-                                    return (c = b.sent()).type !== y.FILE_BODY ? (n("Receiving file failed: Expected FILE_BODY"),
-                                    [2]) : (l = H(c.payload[0], c.payload[1]),
-                                    _ = c.payload.slice(5, l + 2 + 3),
-                                    u.set(_, a),
-                                    a += l,
-                                    f = Date.now(),
-                                    e && f - d > 250 && (v = Math.round(a / i.size * 100) / 100,
-                                    e(Math.min(v, 1)),
-                                    d = f),
-                                    a >= i.size ? [3, 11] : r ? [4, h(250)] : [3, 9]);
+                                    return (_ = u.sent()).type !== n.FILE_BODY ? (s("Receiving file failed: Expected FILE_BODY"),
+                                    [2]) : (h = y(_.payload[0], _.payload[1]),
+                                    v = _.payload.slice(5, h + 2 + 3),
+                                    l.set(v, c),
+                                    c += h,
+                                    p = Date.now(),
+                                    e && p - f > 250 && (b = Math.round(c / d.size * 100) / 100,
+                                    e(Math.min(b, 1)),
+                                    f = p),
+                                    c >= d.size ? [3, 11] : r ? [4, (0,
+                                    i.wO)(250)] : [3, 9]);
                                 case 5:
-                                    return b.sent(),
+                                    return u.sent(),
                                     [4, this.sendPacket({
-                                        type: y.ABORT,
+                                        type: n.ABORT,
                                         payload: []
                                     })];
                                 case 6:
-                                    return b.sent(),
+                                    return u.sent(),
                                     [4, this.receivePacket()];
                                 case 7:
-                                    return b.sent().type !== y.ACK ? (n(new Error("Cancelling download failed")),
-                                    [2]) : [4, h(250)];
+                                    return u.sent().type !== n.ACK ? (s(new Error("Cancelling download failed")),
+                                    [2]) : [4, (0,
+                                    i.wO)(250)];
                                 case 8:
-                                    return b.sent(),
-                                    n(new Error("Cancelled")),
+                                    return u.sent(),
+                                    s(new Error("Cancelled")),
                                     [2];
                                 case 9:
                                     return [4, this.sendPacket({
-                                        type: y.ACK,
+                                        type: n.ACK,
                                         payload: []
                                     })];
                                 case 10:
-                                    return b.sent(),
+                                    return u.sent(),
                                     [3, 3];
                                 case 11:
                                     return o({
-                                        size: i.size,
-                                        type: i.type,
-                                        data: u
+                                        size: d.size,
+                                        type: d.type,
+                                        data: l
                                     }),
                                     [3, 13];
                                 case 12:
-                                    return p = b.sent(),
-                                    n(p),
+                                    return m = u.sent(),
+                                    s(m),
                                     [3, 13];
                                 case 13:
                                     return [2]
@@ -1268,98 +2406,100 @@
             ,
             e.prototype.uploadFile = function(e, t, r) {
                 var o = this;
-                c.debug("Upload file called", e, t.name);
-                var n = !1;
+                s.kg.debug("Upload file called", e, t.name);
+                var d = !1;
                 return {
-                    promise: new Promise(function(s, i) {
-                        return E(o, void 0, void 0, function() {
-                            var o, a, u, d, l, _, f = this;
-                            return w(this, function(v) {
-                                switch (v.label) {
+                    promise: new Promise(function(c, l) {
+                        return a(o, void 0, void 0, function() {
+                            var o, f, _, h, v, p, b = this;
+                            return u(this, function(m) {
+                                switch (m.label) {
                                 case 0:
                                     return o = JSON.stringify(e) + "\0",
-                                    a = new TextEncoder,
-                                    u = a.encode(o),
-                                    d = {
-                                        type: y.FILE_HEADER,
-                                        payload: u
+                                    f = new TextEncoder,
+                                    _ = f.encode(o),
+                                    h = {
+                                        type: n.FILE_HEADER,
+                                        payload: _
                                     },
-                                    c.debug("before send header"),
-                                    [4, this.sendPacket(d)];
+                                    s.kg.debug("before send header"),
+                                    [4, this.sendPacket(h)];
                                 case 1:
-                                    return v.sent(),
-                                    c.debug("after send header"),
+                                    return m.sent(),
+                                    s.kg.debug("after send header"),
                                     [4, this.receivePacket()];
                                 case 2:
-                                    return l = v.sent(),
-                                    c.debug("header res", l),
-                                    l.type !== y.ACK ? (c.error("Response: ", l),
-                                    i(new Error("file upload error: sending `file-header` failed.")),
-                                    [2]) : ((_ = new FileReader).addEventListener("load", function(t) {
-                                        return E(f, void 0, void 0, function() {
-                                            var o, a, u, d, l, _, f, v, p, b, m;
-                                            return w(this, function(g) {
-                                                switch (g.label) {
+                                    return v = m.sent(),
+                                    s.kg.debug("header res", v),
+                                    v.type !== n.ACK ? (s.kg.error("Response: ", v),
+                                    l(new Error("file upload error: sending `file-header` failed.")),
+                                    [2]) : ((p = new FileReader).addEventListener("load", function(t) {
+                                        return a(b, void 0, void 0, function() {
+                                            var o, a, f, _, h, v, p, b, m, g, y;
+                                            return u(this, function(u) {
+                                                switch (u.label) {
                                                 case 0:
                                                     o = t.target.result,
                                                     a = new Uint8Array(o),
-                                                    u = e.size,
-                                                    d = Date.now(),
+                                                    f = e.size,
+                                                    _ = Date.now(),
                                                     r && r(0),
-                                                    g.label = 1;
+                                                    u.label = 1;
                                                 case 1:
-                                                    if (!(u > 0))
+                                                    if (!(f > 0))
                                                         return [3, 8];
-                                                    for (l = Math.min(u, 8192),
-                                                    _ = I(l),
-                                                    (f = new Uint8Array(l + 2 + 3))[0] = _[0],
-                                                    f[1] = _[1],
-                                                    v = 0; v < l; v += 1)
-                                                        f[5 + v] = a[e.size - u + v];
-                                                    return n && u > l ? [4, h(250)] : [3, 6];
+                                                    for (h = Math.min(f, 8192),
+                                                    v = k(h),
+                                                    (p = new Uint8Array(h + 2 + 3))[0] = v[0],
+                                                    p[1] = v[1],
+                                                    b = 0; b < h; b += 1)
+                                                        p[5 + b] = a[e.size - f + b];
+                                                    return d && f > h ? [4, (0,
+                                                    i.wO)(250)] : [3, 6];
                                                 case 2:
-                                                    return g.sent(),
+                                                    return u.sent(),
                                                     [4, this.sendPacket({
-                                                        type: y.ABORT,
+                                                        type: n.ABORT,
                                                         payload: []
                                                     })];
                                                 case 3:
-                                                    return g.sent(),
+                                                    return u.sent(),
                                                     [4, this.receivePacket()];
                                                 case 4:
-                                                    return g.sent().type !== y.ACK ? (i(new Error("Cancelling upload failed")),
-                                                    [2]) : [4, h(250)];
+                                                    return u.sent().type !== n.ACK ? (l(new Error("Cancelling upload failed")),
+                                                    [2]) : [4, (0,
+                                                    i.wO)(250)];
                                                 case 5:
-                                                    return g.sent(),
-                                                    i(new Error("Cancelled")),
+                                                    return u.sent(),
+                                                    l(new Error("Cancelled")),
                                                     [2];
                                                 case 6:
-                                                    return p = {
-                                                        type: y.FILE_BODY,
-                                                        payload: f
+                                                    return m = {
+                                                        type: n.FILE_BODY,
+                                                        payload: p
                                                     },
-                                                    [4, this.sendReceivePacket(p, e.size, u, i)];
+                                                    [4, this.sendReceivePacket(m, e.size, f, l)];
                                                 case 7:
-                                                    return g.sent(),
-                                                    b = Date.now(),
-                                                    r && b - d > 250 && (m = Math.round((e.size - u) / e.size * 100) / 100,
-                                                    r(m),
-                                                    d = b),
-                                                    u -= l,
+                                                    return u.sent(),
+                                                    g = Date.now(),
+                                                    r && g - _ > 250 && (y = Math.round((e.size - f) / e.size * 100) / 100,
+                                                    r(y),
+                                                    _ = g),
+                                                    f -= h,
                                                     [3, 1];
                                                 case 8:
                                                     return r && r(1),
-                                                    c.debug("file transfer complete"),
-                                                    s(),
+                                                    s.kg.debug("file transfer complete"),
+                                                    c(),
                                                     [2]
                                                 }
                                             })
                                         })
                                     }),
-                                    _.addEventListener("error", function() {
+                                    p.addEventListener("error", function() {
                                         throw new Error("file upload error: reading source file failed.")
                                     }),
-                                    _.readAsArrayBuffer(t),
+                                    p.readAsArrayBuffer(t),
                                     [2])
                                 }
                             })
@@ -1367,135 +2507,135 @@
                     }
                     ),
                     cancel: function() {
-                        n = !0
+                        d = !0
                     }
                 }
             }
             ,
-            e.prototype.uploadStem = function(e, t, r, o, n, s) {
+            e.prototype.uploadStem = function(e, t, r, o, n, i) {
                 void 0 === n && (n = "wav");
-                var i = o.size;
-                c.debug("uploadStem", e);
-                var a = {
-                    size: i,
+                var a = o.size;
+                s.kg.debug("uploadStem", e);
+                var u = {
+                    size: a,
                     type: "mp3" === n ? "stem-audio-mp3" : "stem-audio",
                     track: e,
                     album: t,
                     stem: r
                 };
-                return this.uploadFile(a, o, s)
+                return this.uploadFile(u, o, i)
             }
             ,
             e.prototype.uploadTrackConfig = function(e, t, r, o) {
-                return E(this, void 0, void 0, function() {
-                    var n, s, i, a, u;
-                    return w(this, function(d) {
+                return a(this, void 0, void 0, function() {
+                    var n, i, a, d, c;
+                    return u(this, function(u) {
                         if (n = new TextEncoder,
-                        (s = JSON.stringify(r, null, 2)).length > 1024)
-                            throw new Error("Track config too big: " + s.length + "B");
-                        return i = n.encode(s),
-                        a = new File([i, "\0"],"trackconfig.json"),
-                        u = {
-                            size: a.size,
+                        (i = JSON.stringify(r, null, 2)).length > 1024)
+                            throw new Error("Track config too big: " + i.length + "B");
+                        return a = n.encode(i),
+                        d = new File([a, "\0"],"trackconfig.json"),
+                        c = {
+                            size: d.size,
                             type: "track-config",
                             track: e,
                             album: t
                         },
-                        c.debug("uploadTrackConfig", u, r),
-                        [2, this.uploadFile(u, a, o).promise]
+                        s.kg.debug("uploadTrackConfig", c, r),
+                        [2, this.uploadFile(c, d, o).promise]
                     })
                 })
             }
             ,
             e.prototype.uploadAlbumConfig = function(e, t, r) {
-                return E(this, void 0, void 0, function() {
-                    var o, n, s, i;
-                    return w(this, function(a) {
+                return a(this, void 0, void 0, function() {
+                    var o, n, i, a;
+                    return u(this, function(u) {
                         return o = new TextEncoder,
                         t.id = t.id.toUpperCase(),
                         n = o.encode(JSON.stringify(t, null, 2)),
-                        s = new File([n],"albumconfig.json"),
-                        i = {
-                            size: s.size,
+                        i = new File([n],"albumconfig.json"),
+                        a = {
+                            size: i.size,
                             type: "album-config",
                             album: e
                         },
-                        c.debug("Upload album config: ", i, t),
-                        [2, this.uploadFile(i, s, r).promise]
+                        s.kg.debug("Upload album config: ", a, t),
+                        [2, this.uploadFile(a, i, r).promise]
                     })
                 })
             }
             ,
             e.prototype.uploadDeviceConfig = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    var r, o, n, s;
-                    return w(this, function(i) {
+                return a(this, void 0, void 0, function() {
+                    var r, o, n, i;
+                    return u(this, function(a) {
                         return r = new TextEncoder,
                         o = r.encode(JSON.stringify(e, null, 2)),
                         n = new File([o],"config.txt"),
-                        s = {
+                        i = {
                             size: n.size,
                             type: "device-config"
                         },
-                        c.debug("uploadDeviceConfig", s, n),
-                        [2, this.uploadFile(s, n, t).promise]
+                        s.kg.debug("uploadDeviceConfig", i, n),
+                        [2, this.uploadFile(i, n, t).promise]
                     })
                 })
             }
             ,
             e.prototype.downloadStem = function(e, t, r, o) {
-                var n = this
-                  , s = null;
+                var s = this
+                  , i = null;
                 return {
-                    promise: new Promise(function(i, a) {
-                        return E(n, void 0, void 0, function() {
-                            var n, u, d, c, l;
-                            return w(this, function(_) {
-                                switch (_.label) {
+                    promise: new Promise(function(d, c) {
+                        return a(s, void 0, void 0, function() {
+                            var s, a, _, h, v;
+                            return u(this, function(u) {
+                                switch (u.label) {
                                 case 0:
-                                    return _.trys.push([0, 9, , 10]),
+                                    return u.trys.push([0, 9, , 10]),
                                     [4, this.ensureDevice()];
                                 case 1:
-                                    return _.sent(),
+                                    return u.sent(),
                                     [4, this.sendPacket({
-                                        type: y.CONTROL,
-                                        payload: U(C.GET_MUSIC_FILE, {
+                                        type: n.CONTROL,
+                                        payload: E(f.GET_MUSIC_FILE, {
                                             album: e,
                                             track: t,
                                             stem: r
                                         })
                                     })];
                                 case 2:
-                                    return _.sent(),
+                                    return u.sent(),
                                     [4, this.receivePacket()];
                                 case 3:
-                                    return (n = _.sent()).type !== y.RESPONSE ? [3, 8] : n.payload[0] !== C.GET_MUSIC_FILE ? [3, 8] : [4, this.sendPacket({
-                                        type: y.ACK,
+                                    return (s = u.sent()).type !== n.RESPONSE ? [3, 8] : s.payload[0] !== f.GET_MUSIC_FILE ? [3, 8] : [4, this.sendPacket({
+                                        type: n.ACK,
                                         payload: []
                                     })];
                                 case 4:
-                                    _.sent(),
-                                    _.label = 5;
+                                    u.sent(),
+                                    u.label = 5;
                                 case 5:
-                                    return _.trys.push([5, 7, , 8]),
-                                    [4, (s = this.downloadFile(o)).promise];
+                                    return u.trys.push([5, 7, , 8]),
+                                    [4, (i = this.downloadFile(o)).promise];
                                 case 6:
-                                    return u = _.sent(),
-                                    d = new File([u.data],L[r] + ".wav"),
-                                    i(d),
+                                    return a = u.sent(),
+                                    _ = new File([a.data],l[r] + ".wav"),
+                                    d(_),
                                     [2];
                                 case 7:
-                                    if ("Cancelled" === (c = _.sent()).message)
-                                        return a(c),
+                                    if ("Cancelled" === (h = u.sent()).message)
+                                        return c(h),
                                         [2];
-                                    throw c;
+                                    throw h;
                                 case 8:
-                                    return a(new Error("`control` operation " + C.GET_MUSIC_FILE + " failed.")),
+                                    return c(new Error("`control` operation " + f.GET_MUSIC_FILE + " failed.")),
                                     [3, 10];
                                 case 9:
-                                    return l = _.sent(),
-                                    console.error(l),
-                                    a(new Error("Getting stem failed: " + l)),
+                                    return v = u.sent(),
+                                    console.error(v),
+                                    c(new Error("Getting stem failed: " + v)),
                                     [2];
                                 case 10:
                                     return [2]
@@ -1505,34 +2645,34 @@
                     }
                     ),
                     cancel: function() {
-                        if (!s)
+                        if (!i)
                             throw new Error("Unable to cancel: transfer not started yet");
-                        s.cancel()
+                        i.cancel()
                     }
                 }
             }
             ,
             e.prototype.getRecordedSlots = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
-                            c.debug("getRecordedSlots - started"),
+                            s.kg.debug("getRecordedSlots - started"),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_RECORDING_SLOTS]
+                                type: n.CONTROL,
+                                payload: [f.GET_RECORDING_SLOTS]
                             })];
                         case 2:
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
                             if (e = r.sent(),
-                            c.debug("getRecordedSlots", e),
-                            e.type === y.RESPONSE && e.payload[0] === C.GET_RECORDING_SLOTS)
+                            s.kg.debug("getRecordedSlots", e),
+                            e.type === n.RESPONSE && e.payload[0] === f.GET_RECORDING_SLOTS)
                                 return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
                                 [2, JSON.parse(t)];
                             throw new Error("`getRecordedSlots` failed.")
@@ -1542,16 +2682,16 @@
             }
             ,
             e.prototype.renameAlbum = function(e, t) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(r) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.RENAME_ALBUM, {
+                                type: n.CONTROL,
+                                payload: E(f.RENAME_ALBUM, {
                                     "album-old": e,
                                     "album-new": t
                                 })
@@ -1560,7 +2700,7 @@
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if (r.sent().type !== y.RESPONSE)
+                            if (r.sent().type !== n.RESPONSE)
                                 throw new Error("`renameAlbum` failed.");
                             return [2]
                         }
@@ -1569,17 +2709,17 @@
             }
             ,
             e.prototype.moveTrack = function(e, t, r, o) {
-                return E(this, void 0, void 0, function() {
-                    return w(this, function(n) {
-                        switch (n.label) {
+                return a(this, void 0, void 0, function() {
+                    return u(this, function(i) {
+                        switch (i.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
-                            return n.sent(),
-                            c.debug("moveTrack - started", e, t, r, o),
+                            return i.sent(),
+                            s.kg.debug("moveTrack - started", e, t, r, o),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.MOVE_TRACK, {
+                                type: n.CONTROL,
+                                payload: E(f.MOVE_TRACK, {
                                     "album-old": e,
                                     "album-new": r,
                                     "track-old": t,
@@ -1587,12 +2727,12 @@
                                 })
                             })];
                         case 2:
-                            return n.sent(),
+                            return i.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if (n.sent().type !== y.RESPONSE)
+                            if (i.sent().type !== n.RESPONSE)
                                 throw new Error("`moveTrack` - failed.");
-                            return c.debug("moveTrack - complete"),
+                            return s.kg.debug("moveTrack - complete"),
                             [2]
                         }
                     })
@@ -1600,23 +2740,23 @@
             }
             ,
             e.prototype.getChargeState = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t;
-                    return w(this, function(r) {
+                    return u(this, function(r) {
                         switch (r.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return r.sent(),
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: [C.GET_STATE_OF_CHARGE]
+                                type: n.CONTROL,
+                                payload: [f.GET_STATE_OF_CHARGE]
                             })];
                         case 2:
                             return r.sent(),
                             [4, this.receivePacket()];
                         case 3:
-                            if ((e = r.sent()).type === y.RESPONSE && e.payload[0] === C.GET_STATE_OF_CHARGE)
+                            if ((e = r.sent()).type === n.RESPONSE && e.payload[0] === f.GET_STATE_OF_CHARGE)
                                 return t = (new TextDecoder).decode(e.payload.slice(1, e.payload.length - 1)),
                                 [2, JSON.parse(t)];
                             throw new Error("`getChargeState` failed.")
@@ -1626,19 +2766,19 @@
             }
             ,
             e.prototype.deviceAuth = function(e) {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var t, r;
-                    return w(this, function(o) {
+                    return u(this, function(o) {
                         switch (o.label) {
                         case 0:
                             return [4, this.ensureDevice()];
                         case 1:
                             return o.sent(),
-                            c.debug("getChallengeResponse - start"),
-                            e = (2147483648 & (n = e)) > 0 ? n - 4294967296 & 4294967295 : 4294967295 & n,
+                            s.kg.debug("getChallengeResponse - start"),
+                            e = (2147483648 & (i = e)) > 0 ? i - 4294967296 & 4294967295 : 4294967295 & i,
                             [4, this.sendPacket({
-                                type: y.CONTROL,
-                                payload: U(C.CHALLENGE, {
+                                type: n.CONTROL,
+                                payload: E(f.CHALLENGE, {
                                     challenge: e
                                 })
                             })];
@@ -1647,27 +2787,27 @@
                             [4, this.receivePacket()];
                         case 3:
                             if (t = o.sent(),
-                            c.debug("getChallengeResponse: res", t),
-                            t.type === y.RESPONSE && t.payload[0] === C.CHALLENGE)
+                            s.kg.debug("getChallengeResponse: res", t),
+                            t.type === n.RESPONSE && t.payload[0] === f.CHALLENGE)
                                 return r = (new TextDecoder).decode(t.payload.slice(1, t.payload.length - 1)),
-                                c.debug("getChallengeResponse: validated payload", JSON.parse(r)),
+                                s.kg.debug("getChallengeResponse: validated payload", JSON.parse(r)),
                                 [2, JSON.parse(r).response];
-                            throw new Error("`control` operation " + C.CHALLENGE + " failed.")
+                            throw new Error("`control` operation " + f.CHALLENGE + " failed.")
                         }
-                        var n
+                        var i
                     })
                 })
             }
             ,
             e.prototype.sendPacket = function(e) {
-                return E(this, void 0, void 0, function() {
-                    var t, r, o, n, s;
-                    return w(this, function(i) {
-                        switch (i.label) {
+                return a(this, void 0, void 0, function() {
+                    var t, r, o, i, a;
+                    return u(this, function(u) {
+                        switch (u.label) {
                         case 0:
                             t = function(e) {
                                 var t = e.payload.length + 1
-                                  , r = I(t)
+                                  , r = k(t)
                                   , o = 2 + t;
                                 o % 64 === 0 && (o += 1);
                                 var n = new Uint8Array(o);
@@ -1678,33 +2818,33 @@
                                 n
                             }(e),
                             o = void 0,
-                            i.label = 1;
+                            u.label = 1;
                         case 1:
-                            i.trys.push([1, 6, 7, 8]),
-                            e.type === y.FILE_HEADER && (c.debug("about to send file-header"),
-                            c.debug(e.payload.length, t)),
-                            i.label = 2;
+                            u.trys.push([1, 6, 7, 8]),
+                            e.type === n.FILE_HEADER && (s.kg.debug("about to send file-header"),
+                            s.kg.debug(e.payload.length, t)),
+                            u.label = 2;
                         case 2:
-                            return i.trys.push([2, 4, , 5]),
+                            return u.trys.push([2, 4, , 5]),
                             [4, this.usb.transferOut(1, t)];
                         case 3:
-                            return r = i.sent(),
-                            e.type === y.FILE_HEADER && c.debug("file-header sent", r),
+                            return r = u.sent(),
+                            e.type === n.FILE_HEADER && s.kg.debug("file-header sent", r),
                             [3, 5];
                         case 4:
-                            throw "NotFoundError" === (n = i.sent()).name && this.reset(),
-                            n;
+                            throw "NotFoundError" === (i = u.sent()).name && this.reset(),
+                            i;
                         case 5:
                             if ("ok" !== r.status)
                                 throw new Error("USB data transfer failed.");
                             return o = !0,
                             [3, 8];
                         case 6:
-                            throw s = i.sent(),
+                            throw a = u.sent(),
                             o = !1,
-                            s;
+                            a;
                         case 7:
-                            return R("out", e, o),
+                            return m("out", e, o),
                             [7];
                         case 8:
                             return [2]
@@ -1714,9 +2854,9 @@
             }
             ,
             e.prototype.receivePacket = function() {
-                return E(this, void 0, void 0, function() {
+                return a(this, void 0, void 0, function() {
                     var e, t, r, o;
-                    return w(this, function(n) {
+                    return u(this, function(n) {
                         switch (n.label) {
                         case 0:
                             return n.trys.push([0, 2, , 3]),
@@ -1731,8 +2871,8 @@
                             if ("ok" !== e.status)
                                 throw new Error("USB data transfer failed.");
                             return r = new Uint8Array(e.data.buffer),
-                            R("in", o = function(e) {
-                                var t = H(e[0], e[1])
+                            m("in", o = function(e) {
+                                var t = y(e[0], e[1])
                                   , r = {
                                     type: e[2],
                                     payload: []
@@ -1748,16 +2888,50 @@
             ,
             e
         }()
-          , B = function() {
-            return (B = Object.assign || function(e) {
-                for (var t, r = 1, o = arguments.length; r < o; r++)
-                    for (var n in t = arguments[r])
-                        Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
-                return e
+    }
+    ,
+    a8a8948619489f84f5bf: (e,t,r)=>{
+        "use strict";
+        r.d(t, {
+            wO: ()=>(function(e) {
+                return o(this, void 0, void 0, function() {
+                    return n(this, function(t) {
+                        return [2, new Promise(function(t) {
+                            return setTimeout(t, e)
+                        }
+                        )]
+                    })
+                })
             }
-            ).apply(this, arguments)
-        }
-          , j = function(e, t, r, o) {
+            ),
+            o7: ()=>(function(e, t) {
+                return s(e, t)
+            }
+            ),
+            O8: ()=>(function(e, t) {
+                return s(e, t)
+            }
+            ),
+            qP: ()=>(function(e, t) {
+                return s(e, t)
+            }
+            ),
+            k$: ()=>(function() {
+                return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function(e) {
+                    return (e ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> e / 4).toString(16)
+                })
+            }
+            ),
+            K_: ()=>(function(e) {
+                return /^#[0-9A-F]{6}$/i.test(e)
+            }
+            ),
+            hj: ()=>(function(e) {
+                return Number(e) === e
+            }
+            )
+        });
+        var o = function(e, t, r, o) {
             return new (r || (r = Promise))(function(n, s) {
                 function i(e) {
                     try {
@@ -1785,7 +2959,7 @@
             }
             )
         }
-          , K = function(e, t) {
+          , n = function(e, t) {
             var r, o, n, s, i = {
                 label: 0,
                 sent: function() {
@@ -1878,1114 +3052,10 @@
                     }([s, a])
                 }
             }
+        };
+        function s(e, t) {
+            return (e ? e.toUpperCase() : e) === (t ? t.toUpperCase() : t)
         }
-          , x = function() {
-            function e() {
-                this.taskQueue = new l,
-                this.usb = new N
-            }
-            return e.prototype.queueTask = function(e, t, r) {
-                return void 0 === r && (r = 0),
-                this.taskQueue.queueTask(e, t, r)
-            }
-            ,
-            e.prototype.findPairedDevice = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.findPairedDevice()
-                        }, "findPairedDevice")]
-                    })
-                })
-            }
-            ,
-            e.prototype.connect = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.ensureDevice()
-                        }, "connect")]
-                    })
-                })
-            }
-            ,
-            e.prototype.disconnect = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.reset()
-                        }, "disconnect")]
-                    })
-                })
-            }
-            ,
-            Object.defineProperty(e.prototype, "connected", {
-                get: function() {
-                    return this.usb.connected
-                },
-                enumerable: !1,
-                configurable: !0
-            }),
-            e.prototype.startSession = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return r.trys.push([0, 3, , 5]),
-                            [4, this.queueTask(function() {
-                                return t.usb.startSession()
-                            }, "startSession", 5e3)];
-                        case 1:
-                            return r.sent(),
-                            [4, this.queueTask(function() {
-                                return t.deviceMigration()
-                            }, "deviceCheck")];
-                        case 2:
-                            return [2, r.sent()];
-                        case 3:
-                            return e = r.sent(),
-                            c.error("startSession failed", e),
-                            c.debug("Trying to reboot"),
-                            [4, this.usb.reboot()];
-                        case 4:
-                            return r.sent(),
-                            [3, 5];
-                        case 5:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.endSession = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.endSession()
-                        }, "endSession")]
-                    })
-                })
-            }
-            ,
-            e.prototype.onConnect = function(e) {
-                this.usb.onConnect(e)
-            }
-            ,
-            e.prototype.onDisconnect = function(e) {
-                this.usb.onDisconnect(e)
-            }
-            ,
-            e.prototype.reboot = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return e.usb.reboot()
-                        }, "reboot")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceInfo = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return t.usb.getDeviceInfo()
-                            }, "getDeviceInfo")];
-                        case 1:
-                            return [2, {
-                                bootloaderVersion: (e = r.sent()).blver,
-                                bluetoothVersion: e.btver,
-                                appVersion: e.appver,
-                                serialNumber: e.sn
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getStorageInfo = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return t.usb.getStorageInfo()
-                            }, "getStorageInfo")];
-                        case 1:
-                            return e = r.sent(),
-                            [2, {
-                                size: parseInt(e.size),
-                                free: parseInt(e.free)
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.listTracks = function(e) {
-                return void 0 === e && (e = !1),
-                j(this, void 0, void 0, function() {
-                    var t, r = this;
-                    return K(this, function(o) {
-                        return t = function() {
-                            return j(r, void 0, void 0, function() {
-                                var e, t, r, o, n, s, i, a, u, d, l, _;
-                                return K(this, function(f) {
-                                    switch (f.label) {
-                                    case 0:
-                                        return c.debug("listTracks: before getTrackList"),
-                                        [4, this.usb.getTrackList()];
-                                    case 1:
-                                        e = f.sent(),
-                                        c.debug("listTracks: after getTrackList"),
-                                        t = {},
-                                        r = {},
-                                        o = 0,
-                                        f.label = 2;
-                                    case 2:
-                                        if (!(o < e.l.length))
-                                            return [3, 11];
-                                        n = e.l[o],
-                                        s = n.a,
-                                        r[s] = r[s] || {},
-                                        f.label = 3;
-                                    case 3:
-                                        return f.trys.push([3, 5, , 6]),
-                                        c.debug("listTracks: before getAlbumConfig for " + s),
-                                        i = t,
-                                        a = s,
-                                        [4, this.usb.getAlbumConfig(s)];
-                                    case 4:
-                                        return i[a] = f.sent(),
-                                        c.debug("listTracks: received albumConfig", t[s]),
-                                        [3, 6];
-                                    case 5:
-                                        return f.sent(),
-                                        [3, 6];
-                                    case 6:
-                                        u = 0,
-                                        f.label = 7;
-                                    case 7:
-                                        return u < n.c.length ? (d = n.c[u].t,
-                                        c.debug("listTracks: before getTrackInfo for " + d),
-                                        l = r[s],
-                                        _ = d,
-                                        [4, this.usb.getTrackInfo(s, d)]) : [3, 10];
-                                    case 8:
-                                        l[_] = f.sent(),
-                                        c.debug("listTracks: received trackInfo for " + d, r[s][d]),
-                                        f.label = 9;
-                                    case 9:
-                                        return u += 1,
-                                        [3, 7];
-                                    case 10:
-                                        return o += 1,
-                                        [3, 2];
-                                    case 11:
-                                        return c.debug("listTracks: formatting result"),
-                                        [2, {
-                                            albums: e.l.map(function(e) {
-                                                var o, n;
-                                                return {
-                                                    id: e.a,
-                                                    version: t[e.a] ? t[e.a].version : null,
-                                                    artist: (null === (o = t[e.a]) || void 0 === o ? void 0 : o.artist) || "Unknown",
-                                                    title: (null === (n = t[e.a]) || void 0 === n ? void 0 : n.title) || "Unknown",
-                                                    tracks: e.c.map(function(o) {
-                                                        var n, s = null;
-                                                        t[e.a] && (s = null === (n = t[e.a].tracks) || void 0 === n ? void 0 : n.find(function(e) {
-                                                            return b(e.id, o.t)
-                                                        }));
-                                                        var i = r[e.a][o.t].metadata
-                                                          , a = (null === i || void 0 === i ? void 0 : i.global_id) || (null === s || void 0 === s ? void 0 : s.global_id) || "Unknown"
-                                                          , u = (null === i || void 0 === i ? void 0 : i.meta_version) || (null === s || void 0 === s ? void 0 : s.meta_version) || "1"
-                                                          , d = (null === i || void 0 === i ? void 0 : i.stems_version) || (null === s || void 0 === s ? void 0 : s.stems_version) || "1"
-                                                          , c = (null === i || void 0 === i ? void 0 : i.artist) || (null === s || void 0 === s ? void 0 : s.artist) || ""
-                                                          , l = (null === i || void 0 === i ? void 0 : i.title) || (null === s || void 0 === s ? void 0 : s.title) || "Unknown";
-                                                        return {
-                                                            id: o.t,
-                                                            bpm: r[e.a][o.t].tempos[0].tempo_bpm,
-                                                            colors: r[e.a][o.t].TrackColour,
-                                                            TrackGain_dB: r[e.a][o.t].TrackGain_dB,
-                                                            title: l,
-                                                            global_id: a,
-                                                            meta_version: u,
-                                                            stems_version: d,
-                                                            artist: c
-                                                        }
-                                                    })
-                                                }
-                                            })
-                                        }]
-                                    }
-                                })
-                            })
-                        }
-                        ,
-                        [2, e ? t() : this.queueTask(t, "listTracks")]
-                    })
-                })
-            }
-            ,
-            e.prototype.uploadFirmwareUpdate = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r, o, n, s = this;
-                    return K(this, function(i) {
-                        return r = e.name,
-                        o = e.size,
-                        n = {
-                            size: o,
-                            type: "config.txt" === r ? "device-config" : "dfu",
-                            name: r
-                        },
-                        [2, this.queueTask(function() {
-                            return s.usb.uploadFile(n, e, t).promise
-                        }, "uploadFirmwareUpdate")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getDeviceConfig = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return j(e, void 0, void 0, function() {
-                                var e, t;
-                                return K(this, function(r) {
-                                    switch (r.label) {
-                                    case 0:
-                                        e = null,
-                                        r.label = 1;
-                                    case 1:
-                                        return r.trys.push([1, 3, , 4]),
-                                        [4, this.usb.getDeviceConfig()];
-                                    case 2:
-                                        return e = r.sent(),
-                                        [3, 4];
-                                    case 3:
-                                        if (!((t = r.sent())instanceof Error) || !t.message.startsWith("Parsing device config failed"))
-                                            throw t;
-                                        return [3, 4];
-                                    case 4:
-                                        return [2, e]
-                                    }
-                                })
-                            })
-                        }, "getDeviceConfig")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getAlbums = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        return [2, this.queueTask(function() {
-                            return j(e, void 0, void 0, function() {
-                                var e, t, r, o, n, s;
-                                return K(this, function(i) {
-                                    switch (i.label) {
-                                    case 0:
-                                        return [4, this.usb.getTrackList()];
-                                    case 1:
-                                        e = i.sent(),
-                                        t = e.l.map(function(e) {
-                                            return e.a
-                                        }),
-                                        r = t.map(function(e) {
-                                            return {
-                                                id: e,
-                                                title: void 0,
-                                                artist: void 0
-                                            }
-                                        }),
-                                        o = 0,
-                                        i.label = 2;
-                                    case 2:
-                                        return o < t.length ? (n = t[o],
-                                        [4, this.getOrGenerateAlbumConfig(n)]) : [3, 5];
-                                    case 3:
-                                        (s = i.sent()) && (r[o].artist = s.artist,
-                                        r[o].title = s.title),
-                                        i.label = 4;
-                                    case 4:
-                                        return o += 1,
-                                        [3, 2];
-                                    case 5:
-                                        return [2, r]
-                                    }
-                                })
-                            })
-                        }, "getAlbums")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getNextAvailableAlbumId = function(e) {
-                return "A" + (e.reduce(function(e, t) {
-                    var r = t.id.match(/a([0-9]+)/i)
-                      , o = 0;
-                    return r && (o = parseInt(r[1])),
-                    Math.max(e, o)
-                }, 0) + 1)
-            }
-            ,
-            e.prototype.ensureAlbum = function(e, t, r) {
-                return void 0 === t && (t = "Unknown"),
-                j(this, void 0, void 0, function() {
-                    var o, n, s, i;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            return [4, this.getAlbums()];
-                        case 1:
-                            return o = a.sent(),
-                            (n = o.find(function(r) {
-                                return m(r.title, e) && ("Unknown" === t || r.artist === t)
-                            })) ? [2, n.id] : (s = this.getNextAvailableAlbumId(o),
-                            i = r || "1",
-                            [4, this.addAlbum(s, t, e, i)]);
-                        case 2:
-                            return a.sent(),
-                            [2, s]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.generateDefaultAlbumConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t, r;
-                    return K(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            return [4, this.listTracks(!0)];
-                        case 1:
-                            if (t = o.sent(),
-                            !(r = t.albums.find(function(t) {
-                                return p(t.id, e)
-                            })))
-                                throw new Error("Album " + e + " not found.");
-                            return [2, {
-                                id: e,
-                                version: r.version || null,
-                                artist: r.artist,
-                                title: r.title,
-                                tracks: null
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getOrGenerateAlbumConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t, r;
-                    return K(this, function(o) {
-                        switch (o.label) {
-                        case 0:
-                            t = null,
-                            o.label = 1;
-                        case 1:
-                            return o.trys.push([1, 3, , 4]),
-                            [4, this.usb.getAlbumConfig(e)];
-                        case 2:
-                            return t = o.sent(),
-                            [3, 4];
-                        case 3:
-                            if (!((r = o.sent())instanceof Error) || !r.message.startsWith("Parsing album info failed"))
-                                throw r;
-                            return [3, 4];
-                        case 4:
-                            return t ? [3, 6] : (c.debug("Generating default album config for " + e),
-                            [4, this.generateDefaultAlbumConfig(e)]);
-                        case 5:
-                            t = o.sent(),
-                            o.label = 6;
-                        case 6:
-                            return [2, t]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.updateAlbumTitle = function(e, t, r) {
-                return j(this, void 0, void 0, function() {
-                    var o = this;
-                    return K(this, function(n) {
-                        return [2, this.queueTask(function() {
-                            return j(o, void 0, void 0, function() {
-                                var o;
-                                return K(this, function(n) {
-                                    switch (n.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return (o = n.sent()).title = t,
-                                        r && (o.artist = r),
-                                        [4, this.usb.uploadAlbumConfig(e, o)];
-                                    case 2:
-                                        return n.sent(),
-                                        [2, o]
-                                    }
-                                })
-                            })
-                        }, "updateAlbumTitle")]
-                    })
-                })
-            }
-            ,
-            e.prototype.updateAlbumVersion = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return (r = o.sent()).version = t,
-                                        [4, this.usb.uploadAlbumConfig(e, r)];
-                                    case 2:
-                                        return o.sent(),
-                                        [2, r]
-                                    }
-                                })
-                            })
-                        }, "updateAlbumVersion")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getNextTrackId = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                var t, r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.usb.getTrackList()];
-                                    case 1:
-                                        if (t = o.sent(),
-                                        !(r = t.l.find(function(t) {
-                                            return p(t.a, e)
-                                        })))
-                                            throw new Error("Album " + r + " not found");
-                                        return [2, "t" + (r.c.reduce(function(e, t) {
-                                            var r = t.t.match(/t([0-9]+)/i)
-                                              , o = 0;
-                                            return r && (o = parseInt(r[1])),
-                                            Math.max(e, o)
-                                        }, 0) + 1)]
-                                    }
-                                })
-                            })
-                        }, "getNextTrackId")]
-                    })
-                })
-            }
-            ,
-            e.prototype.addTrack = function(e, t) {
-                var r = this
-                  , o = null
-                  , n = !1
-                  , s = {
-                    total: 0,
-                    vocals: 0,
-                    bass: 0,
-                    drums: 0,
-                    other: 0,
-                    config: 0
-                };
-                function i(e, r) {
-                    s[e] = r,
-                    s.total = Math.floor((100 * s.vocals + 100 * s.bass + 100 * s.drums + 100 * s.other + 1 * s.config) / 401 * 100) / 100,
-                    Number.isNaN(s.total) && (c.debug("updateProgress isNan"),
-                    s.total = 0),
-                    t && t(s)
-                }
-                return {
-                    promise: new Promise(function(t, s) {
-                        return j(r, void 0, void 0, function() {
-                            var r, a, u, d, l, _, f, h = this;
-                            return K(this, function(v) {
-                                switch (v.label) {
-                                case 0:
-                                    return v.trys.push([0, 5, , 6]),
-                                    [4, this.ensureAlbum(e.album, e.getMetadata().artist, e.album_version)];
-                                case 1:
-                                    return r = v.sent(),
-                                    (u = e.id) ? [3, 3] : [4, this.getNextTrackId(r)];
-                                case 2:
-                                    u = v.sent(),
-                                    v.label = 3;
-                                case 3:
-                                    return a = u,
-                                    d = e.global_id || ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function(e) {
-                                        return (e ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> e / 4).toString(16)
-                                    }),
-                                    l = e.meta_version || "1",
-                                    _ = e.stems_version || "1",
-                                    [4, this.queueTask(function() {
-                                        return j(h, void 0, void 0, function() {
-                                            var u, f, h, v, p, b, m, y, E;
-                                            return K(this, function(w) {
-                                                switch (w.label) {
-                                                case 0:
-                                                    if (n)
-                                                        return s(new Error("Cancelled")),
-                                                        [2];
-                                                    u = [{
-                                                        id: k.vocals,
-                                                        stem: e.vocals,
-                                                        type: "vocals"
-                                                    }, {
-                                                        id: k.bass,
-                                                        stem: e.bass,
-                                                        type: "bass"
-                                                    }, {
-                                                        id: k.drums,
-                                                        stem: e.drums,
-                                                        type: "drums"
-                                                    }, {
-                                                        id: k.other,
-                                                        stem: e.other,
-                                                        type: "other"
-                                                    }],
-                                                    f = function(e) {
-                                                        return K(this, function(t) {
-                                                            switch (t.label) {
-                                                            case 0:
-                                                                return [4, (o = h.usb.uploadStem(a, r, u[e].id, u[e].stem.file, u[e].stem.format, function(t) {
-                                                                    return i(u[e].type, t)
-                                                                })).promise];
-                                                            case 1:
-                                                                return t.sent(),
-                                                                o = null,
-                                                                n ? (c.debug("addTrack chain cancelled"),
-                                                                s(new Error("Cancelled")),
-                                                                [2, {
-                                                                    value: void 0
-                                                                }]) : [2]
-                                                            }
-                                                        })
-                                                    }
-                                                    ,
-                                                    h = this,
-                                                    v = 0,
-                                                    w.label = 1;
-                                                case 1:
-                                                    return v < u.length ? [5, f(v)] : [3, 4];
-                                                case 2:
-                                                    if ("object" === typeof (p = w.sent()))
-                                                        return [2, p.value];
-                                                    w.label = 3;
-                                                case 3:
-                                                    return v += 1,
-                                                    [3, 1];
-                                                case 4:
-                                                    if (b = e.getMetadata(),
-                                                    m = b.trackConfig,
-                                                    (null === (y = null === b || void 0 === b ? void 0 : b.artist) || void 0 === y ? void 0 : y.length) > O)
-                                                        throw new Error("Track artist longer than " + O + " characters");
-                                                    if ((null === (E = null === m || void 0 === m ? void 0 : m.title) || void 0 === E ? void 0 : E.length) > O)
-                                                        throw new Error("Track title longer than " + T + " characters");
-                                                    if (!b.trackConfig.bpm && !b.trackConfig.temposConfig)
-                                                        throw new Error("Track config error: Either bpm or temposConfig required");
-                                                    if (!Array.isArray(b.trackConfig.colors) || 2 !== b.trackConfig.colors.length || !g(b.trackConfig.colors[0]) || !g(b.trackConfig.colors[1]))
-                                                        throw new Error("Track config error: Invalid colors");
-                                                    if (b.trackConfig.TrackGain_dB && (L = b.trackConfig.TrackGain_dB,
-                                                    Number(L) !== L))
-                                                        throw new Error("Track config error: TrackGain_dB must be a number");
-                                                    return [4, this.usb.uploadTrackConfig(a, r, {
-                                                        TrackColour: m.colors,
-                                                        tempos: m.temposConfig || [{
-                                                            time_ms: 0,
-                                                            tempo_bpm: m.bpm
-                                                        }],
-                                                        TrackGain_dB: m.TrackGain_dB,
-                                                        metadata: {
-                                                            artist: b.artist,
-                                                            title: m.title,
-                                                            global_id: d,
-                                                            meta_version: l,
-                                                            stems_version: _
-                                                        }
-                                                    })];
-                                                case 5:
-                                                    return w.sent(),
-                                                    i("config", 100),
-                                                    t({
-                                                        album: r,
-                                                        id: a
-                                                    }),
-                                                    [2]
-                                                }
-                                                var L
-                                            })
-                                        })
-                                    }, "uploadStems")];
-                                case 4:
-                                    return v.sent(),
-                                    [3, 6];
-                                case 5:
-                                    return "Cancelled" === (f = v.sent()).message && s(f),
-                                    s(new Error("addTrack failed: " + f)),
-                                    [3, 6];
-                                case 6:
-                                    return [2]
-                                }
-                            })
-                        })
-                    }
-                    ),
-                    cancel: function() {
-                        n = !0,
-                        o && o.cancel()
-                    }
-                }
-            }
-            ,
-            e.prototype.downloadTrackStem = function(e, t, r, o) {
-                var n = this
-                  , s = !1
-                  , i = null;
-                return {
-                    promise: this.queueTask(function() {
-                        return j(n, void 0, void 0, function() {
-                            return K(this, function(n) {
-                                return s ? [2, Promise.reject(new Error("Cancelled"))] : [2, (i = this.usb.downloadStem(e, t, r, o)).promise]
-                            })
-                        })
-                    }, "downloadTrackStem"),
-                    cancel: function() {
-                        s = !0,
-                        i && i.cancel()
-                    }
-                }
-            }
-            ,
-            e.prototype.editTrackMetadata = function(e, t, r) {
-                var o, n;
-                return j(this, void 0, void 0, function() {
-                    var s, i = this;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            if (a.trys.push([0, 2, , 3]),
-                            !r.bpm && 0 !== r.bpm && !r.temposConfig)
-                                throw new Error("Either `bpm` or `temposConfig` required");
-                            if ((null === (o = null === r || void 0 === r ? void 0 : r.artist) || void 0 === o ? void 0 : o.length) > O)
-                                throw new Error("Track artist longer than " + O + " characters");
-                            if ((null === (n = null === r || void 0 === r ? void 0 : r.title) || void 0 === n ? void 0 : n.length) > O)
-                                throw new Error("Track title longer than " + T + " characters");
-                            return [4, this.queueTask(function() {
-                                return j(i, void 0, void 0, function() {
-                                    return K(this, function(o) {
-                                        return [2, this.usb.uploadTrackConfig(t, e, {
-                                            TrackColour: r.colors,
-                                            tempos: r.temposConfig || [{
-                                                time_ms: 0,
-                                                tempo_bpm: r.bpm
-                                            }],
-                                            TrackGain_dB: r.TrackGain_dB,
-                                            metadata: {
-                                                artist: r.artist,
-                                                title: r.title,
-                                                global_id: r.global_id,
-                                                meta_version: r.meta_version,
-                                                stems_version: r.stems_version
-                                            }
-                                        })]
-                                    })
-                                })
-                            }, "uploadTrackConfig")];
-                        case 1:
-                            return a.sent(),
-                            [3, 3];
-                        case 2:
-                            throw s = a.sent(),
-                            new Error("Track edit failed: " + s);
-                        case 3:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteTrack = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r, o, n;
-                                return K(this, function(s) {
-                                    switch (s.label) {
-                                    case 0:
-                                        return s.trys.push([0, 5, , 6]),
-                                        [4, this.usb.deleteTrack(e, t)];
-                                    case 1:
-                                        return s.sent(),
-                                        [4, this.listTracks(!0)];
-                                    case 2:
-                                        return r = s.sent(),
-                                        (o = r.albums.find(function(t) {
-                                            return p(t.id, e)
-                                        })) && 0 === o.tracks.length ? [4, this.usb.deleteAlbum(e)] : [3, 4];
-                                    case 3:
-                                        s.sent(),
-                                        s.label = 4;
-                                    case 4:
-                                        return [3, 6];
-                                    case 5:
-                                        throw n = s.sent(),
-                                        new Error("Deleting track failed: " + n);
-                                    case 6:
-                                        return [2]
-                                    }
-                                })
-                            })
-                        }, "deleteTrack")]
-                    })
-                })
-            }
-            ,
-            e.prototype.addAlbum = function(e, t, r, o) {
-                return j(this, void 0, void 0, function() {
-                    var n, s, i = this;
-                    return K(this, function(a) {
-                        switch (a.label) {
-                        case 0:
-                            return (n = e) ? [3, 2] : (s = this.getNextAvailableAlbumId,
-                            [4, this.getAlbums()]);
-                        case 1:
-                            n = s.apply(this, [a.sent()]),
-                            a.label = 2;
-                        case 2:
-                            return [2, this.queueTask(function() {
-                                return j(i, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.addAlbum(n.toUpperCase())];
-                                        case 1:
-                                            return e.sent(),
-                                            [4, this.usb.uploadAlbumConfig(n, {
-                                                id: n.toUpperCase(),
-                                                artist: t,
-                                                title: r,
-                                                version: o || null,
-                                                tracks: null
-                                            })];
-                                        case 2:
-                                            return e.sent(),
-                                            [2, n]
-                                        }
-                                    })
-                                })
-                            }, "addAlbum")]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deleteAlbum = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return t.usb.deleteAlbum(e)
-                        }, "deleteAlbum")]
-                    })
-                })
-            }
-            ,
-            e.prototype.renameAlbum = function(e, t) {
-                return j(this, void 0, void 0, function() {
-                    var r = this;
-                    return K(this, function(o) {
-                        return [2, this.queueTask(function() {
-                            return j(r, void 0, void 0, function() {
-                                var r;
-                                return K(this, function(o) {
-                                    switch (o.label) {
-                                    case 0:
-                                        return [4, this.getOrGenerateAlbumConfig(e)];
-                                    case 1:
-                                        return r = o.sent(),
-                                        [4, this.usb.renameAlbum(e, t)];
-                                    case 2:
-                                        return o.sent(),
-                                        r.id = t,
-                                        [4, this.usb.uploadAlbumConfig(t, r)];
-                                    case 3:
-                                        return o.sent(),
-                                        [2]
-                                    }
-                                })
-                            })
-                        }, "renameAlbum")]
-                    })
-                })
-            }
-            ,
-            e.prototype.moveTrack = function(e, t, r, o) {
-                return j(this, void 0, void 0, function() {
-                    var n = this;
-                    return K(this, function(s) {
-                        return [2, this.queueTask(function() {
-                            return j(n, void 0, void 0, function() {
-                                var n, s;
-                                return K(this, function(i) {
-                                    switch (i.label) {
-                                    case 0:
-                                        return [4, this.usb.moveTrack(e, t, r, o)];
-                                    case 1:
-                                        return i.sent(),
-                                        e === r ? [3, 4] : [4, this.listTracks(!0)];
-                                    case 2:
-                                        return n = i.sent(),
-                                        (s = n.albums.find(function(t) {
-                                            return p(t.id, e)
-                                        })) && 0 === s.tracks.length ? (c.debug("moveTrack - caused album delete"),
-                                        [4, this.usb.deleteAlbum(e)]) : [3, 4];
-                                    case 3:
-                                        i.sent(),
-                                        i.label = 4;
-                                    case 4:
-                                        return [2]
-                                    }
-                                })
-                            })
-                        }, "moveTrack")]
-                    })
-                })
-            }
-            ,
-            e.prototype.getRecordedSlots = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t = this;
-                    return K(this, function(r) {
-                        switch (r.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return j(t, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.getRecordedSlots()];
-                                        case 1:
-                                            return [2, e.sent()]
-                                        }
-                                    })
-                                })
-                            }, "getRecordedSlots")];
-                        case 1:
-                            return [2, {
-                                slot1: (e = r.sent())["slot-1"],
-                                slot2: e["slot-2"],
-                                slot3: e["slot-3"],
-                                slot4: e["slot-4"]
-                            }]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.getChargeState = function() {
-                return j(this, void 0, void 0, function() {
-                    var e = this;
-                    return K(this, function(t) {
-                        switch (t.label) {
-                        case 0:
-                            return [4, this.queueTask(function() {
-                                return j(e, void 0, void 0, function() {
-                                    return K(this, function(e) {
-                                        switch (e.label) {
-                                        case 0:
-                                            return [4, this.usb.getChargeState()];
-                                        case 1:
-                                            return [2, e.sent()]
-                                        }
-                                    })
-                                })
-                            }, "getChargeState")];
-                        case 1:
-                            return [2, t.sent()]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.updateDeviceConfig = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                var t;
-                                return K(this, function(r) {
-                                    switch (r.label) {
-                                    case 0:
-                                        return t = {
-                                            name: "Stem Player Configuration",
-                                            parameters: e
-                                        },
-                                        [4, this.usb.uploadDeviceConfig(t, function() {})];
-                                    case 1:
-                                        return r.sent(),
-                                        [2]
-                                    }
-                                })
-                            })
-                        }, "updateDeviceConfig")]
-                    })
-                })
-            }
-            ,
-            e.prototype.deviceMigration = function() {
-                return j(this, void 0, void 0, function() {
-                    var e, t, r, o, n, s, i, a, u;
-                    return K(this, function(d) {
-                        switch (d.label) {
-                        case 0:
-                            return [4, this.usb.getTrackList()];
-                        case 1:
-                            e = d.sent(),
-                            t = 0,
-                            d.label = 2;
-                        case 2:
-                            if (!(t < e.l.length))
-                                return [3, 16];
-                            if (r = e.l[t],
-                            o = r.a,
-                            n = void 0,
-                            p(o, "RECORD"))
-                                return [3, 15];
-                            d.label = 3;
-                        case 3:
-                            return d.trys.push([3, 5, , 6]),
-                            [4, this.usb.getAlbumConfig(o)];
-                        case 4:
-                            return n = d.sent(),
-                            [3, 6];
-                        case 5:
-                            return d.sent(),
-                            [3, 6];
-                        case 6:
-                            if (!n)
-                                return [3, 15];
-                            d.label = 7;
-                        case 7:
-                            if (d.trys.push([7, 14, , 15]),
-                            null === n.tracks)
-                                return [3, 13];
-                            c.info("Converting " + o + " (" + n.title + ") to the new format..."),
-                            s = function(e) {
-                                var t, s, a, u;
-                                return K(this, function(d) {
-                                    switch (d.label) {
-                                    case 0:
-                                        return t = r.c[e].t,
-                                        [4, i.usb.getTrackInfo(o, t)];
-                                    case 1:
-                                        return s = d.sent(),
-                                        a = n.tracks.find(function(e) {
-                                            return b(e.id, t)
-                                        }),
-                                        u = void 0,
-                                        u = B(B({}, s), a ? {
-                                            metadata: {
-                                                title: a.title,
-                                                artist: a.artist,
-                                                global_id: a.global_id,
-                                                meta_version: a.meta_version,
-                                                stems_version: a.stems_version
-                                            }
-                                        } : {
-                                            metadata: {
-                                                title: "Unknown",
-                                                global_id: "Unknown",
-                                                meta_version: "1",
-                                                stems_version: "1"
-                                            }
-                                        }),
-                                        [4, i.usb.uploadTrackConfig(t, o, u)];
-                                    case 2:
-                                        return d.sent(),
-                                        [2]
-                                    }
-                                })
-                            }
-                            ,
-                            i = this,
-                            a = 0,
-                            d.label = 8;
-                        case 8:
-                            return a < r.c.length ? [5, s(a)] : [3, 11];
-                        case 9:
-                            d.sent(),
-                            d.label = 10;
-                        case 10:
-                            return a += 1,
-                            [3, 8];
-                        case 11:
-                            return n.tracks = null,
-                            [4, this.usb.uploadAlbumConfig(o, n)];
-                        case 12:
-                            d.sent(),
-                            d.label = 13;
-                        case 13:
-                            return [3, 15];
-                        case 14:
-                            return u = d.sent(),
-                            c.error("Album conversion failed: " + u),
-                            [3, 15];
-                        case 15:
-                            return t += 1,
-                            [3, 2];
-                        case 16:
-                            return [2]
-                        }
-                    })
-                })
-            }
-            ,
-            e.prototype.deviceAuth = function(e) {
-                return j(this, void 0, void 0, function() {
-                    var t = this;
-                    return K(this, function(r) {
-                        return [2, this.queueTask(function() {
-                            return j(t, void 0, void 0, function() {
-                                return K(this, function(t) {
-                                    return [2, this.usb.deviceAuth(e)]
-                                })
-                            })
-                        }, "deviceAuth")]
-                    })
-                })
-            }
-            ,
-            e
-        }()
     }
     ,
     a48309e68714456ffccb: (e,t,r)=>{
@@ -3285,11 +3355,11 @@
             r.WrappedComponent = e,
             d()(r, e)
         }
-        const _ = l;
+        const f = l;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(l, "withOfflineClient", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/hoc.tsx"),
-            e.register(_, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/hoc.tsx"))
+            e.register(f, "default", "/home/vsts/work/1/s/node_modules/@kano/kbc-telemetry/src/offlineClient/hoc.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -4270,8 +4340,8 @@
           , d = r("8af190b70a6bc55c6f1b")
           , c = r("5ef9de3df8d92ea0e41c")
           , l = r.n(c)
-          , _ = r("750be1a664aacea1e4b5")
-          , f = r("96473cd9242fc2a39f3f")
+          , f = r("750be1a664aacea1e4b5")
+          , _ = r("96473cd9242fc2a39f3f")
           , h = r("76e801c56e29117c1f5c");
         function v(e, t) {
             var r = Object.keys(e);
@@ -4308,11 +4378,11 @@
         function g(e, t) {
             return function(...r) {
                 return (0,
-                f.default)(e, t)(...r)
+                _.default)(e, t)(...r)
             }
         }
-        const k = _.j
-          , y = _.rS;
+        const k = f.j
+          , y = f.rS;
         function E(e) {
             const t = `withTelemetry(${e.displayName || e.name})`
               , r = t=>{
@@ -4505,37 +4575,37 @@
                 u = l(u, d, h, v, e[r + 13], 5, -1444681467),
                 v = l(v, u, d, h, e[r + 2], 9, -51403784),
                 h = l(h, v, u, d, e[r + 7], 14, 1735328473),
-                u = _(u, d = l(d, h, v, u, e[r + 12], 20, -1926607734), h, v, e[r + 5], 4, -378558),
-                v = _(v, u, d, h, e[r + 8], 11, -2022574463),
-                h = _(h, v, u, d, e[r + 11], 16, 1839030562),
-                d = _(d, h, v, u, e[r + 14], 23, -35309556),
-                u = _(u, d, h, v, e[r + 1], 4, -1530992060),
-                v = _(v, u, d, h, e[r + 4], 11, 1272893353),
-                h = _(h, v, u, d, e[r + 7], 16, -155497632),
-                d = _(d, h, v, u, e[r + 10], 23, -1094730640),
-                u = _(u, d, h, v, e[r + 13], 4, 681279174),
-                v = _(v, u, d, h, e[r], 11, -358537222),
-                h = _(h, v, u, d, e[r + 3], 16, -722521979),
-                d = _(d, h, v, u, e[r + 6], 23, 76029189),
-                u = _(u, d, h, v, e[r + 9], 4, -640364487),
-                v = _(v, u, d, h, e[r + 12], 11, -421815835),
-                h = _(h, v, u, d, e[r + 15], 16, 530742520),
-                u = f(u, d = _(d, h, v, u, e[r + 2], 23, -995338651), h, v, e[r], 6, -198630844),
-                v = f(v, u, d, h, e[r + 7], 10, 1126891415),
-                h = f(h, v, u, d, e[r + 14], 15, -1416354905),
-                d = f(d, h, v, u, e[r + 5], 21, -57434055),
-                u = f(u, d, h, v, e[r + 12], 6, 1700485571),
-                v = f(v, u, d, h, e[r + 3], 10, -1894986606),
-                h = f(h, v, u, d, e[r + 10], 15, -1051523),
-                d = f(d, h, v, u, e[r + 1], 21, -2054922799),
-                u = f(u, d, h, v, e[r + 8], 6, 1873313359),
-                v = f(v, u, d, h, e[r + 15], 10, -30611744),
-                h = f(h, v, u, d, e[r + 6], 15, -1560198380),
-                d = f(d, h, v, u, e[r + 13], 21, 1309151649),
-                u = f(u, d, h, v, e[r + 4], 6, -145523070),
-                v = f(v, u, d, h, e[r + 11], 10, -1120210379),
-                h = f(h, v, u, d, e[r + 2], 15, 718787259),
-                d = f(d, h, v, u, e[r + 9], 21, -343485551),
+                u = f(u, d = l(d, h, v, u, e[r + 12], 20, -1926607734), h, v, e[r + 5], 4, -378558),
+                v = f(v, u, d, h, e[r + 8], 11, -2022574463),
+                h = f(h, v, u, d, e[r + 11], 16, 1839030562),
+                d = f(d, h, v, u, e[r + 14], 23, -35309556),
+                u = f(u, d, h, v, e[r + 1], 4, -1530992060),
+                v = f(v, u, d, h, e[r + 4], 11, 1272893353),
+                h = f(h, v, u, d, e[r + 7], 16, -155497632),
+                d = f(d, h, v, u, e[r + 10], 23, -1094730640),
+                u = f(u, d, h, v, e[r + 13], 4, 681279174),
+                v = f(v, u, d, h, e[r], 11, -358537222),
+                h = f(h, v, u, d, e[r + 3], 16, -722521979),
+                d = f(d, h, v, u, e[r + 6], 23, 76029189),
+                u = f(u, d, h, v, e[r + 9], 4, -640364487),
+                v = f(v, u, d, h, e[r + 12], 11, -421815835),
+                h = f(h, v, u, d, e[r + 15], 16, 530742520),
+                u = _(u, d = f(d, h, v, u, e[r + 2], 23, -995338651), h, v, e[r], 6, -198630844),
+                v = _(v, u, d, h, e[r + 7], 10, 1126891415),
+                h = _(h, v, u, d, e[r + 14], 15, -1416354905),
+                d = _(d, h, v, u, e[r + 5], 21, -57434055),
+                u = _(u, d, h, v, e[r + 12], 6, 1700485571),
+                v = _(v, u, d, h, e[r + 3], 10, -1894986606),
+                h = _(h, v, u, d, e[r + 10], 15, -1051523),
+                d = _(d, h, v, u, e[r + 1], 21, -2054922799),
+                u = _(u, d, h, v, e[r + 8], 6, 1873313359),
+                v = _(v, u, d, h, e[r + 15], 10, -30611744),
+                h = _(h, v, u, d, e[r + 6], 15, -1560198380),
+                d = _(d, h, v, u, e[r + 13], 21, 1309151649),
+                u = _(u, d, h, v, e[r + 4], 6, -145523070),
+                v = _(v, u, d, h, e[r + 11], 10, -1120210379),
+                h = _(h, v, u, d, e[r + 2], 15, 718787259),
+                d = _(d, h, v, u, e[r + 9], 21, -343485551),
                 u = a(u, o),
                 d = a(d, n),
                 h = a(h, s),
@@ -4568,10 +4638,10 @@
         function l(e, t, r, o, n, s, i) {
             return d(t & o | r & ~o, e, t, n, s, i)
         }
-        function _(e, t, r, o, n, s, i) {
+        function f(e, t, r, o, n, s, i) {
             return d(t ^ r ^ o, e, t, n, s, i)
         }
-        function f(e, t, r, o, n, s, i) {
+        function _(e, t, r, o, n, s, i) {
             return d(r ^ (t | ~o), e, t, n, s, i)
         }
         Object.defineProperty(t, "__esModule", {
@@ -4592,8 +4662,8 @@
             e.register(d, "md5cmn", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
             e.register(c, "md5ff", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
             e.register(l, "md5gg", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(_, "md5hh", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
-            e.register(f, "md5ii", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
+            e.register(f, "md5hh", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
+            e.register(_, "md5ii", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"),
             e.register(h, "_default", "/home/vsts/work/1/s/node_modules/@kano/kbc-utils/node_modules/uuid/dist/md5-browser.js"))
         }(),
         function() {
@@ -4679,25 +4749,25 @@
             d[u - 1][14] = Math.floor(d[u - 1][14]),
             d[u - 1][15] = 8 * (e.length - 1) & 4294967295;
             for (i = 0; i < u; i++) {
-                for (var l = new Array(80), _ = 0; _ < 16; _++)
-                    l[_] = d[i][_];
-                for (_ = 16; _ < 80; _++)
-                    l[_] = n(l[_ - 3] ^ l[_ - 8] ^ l[_ - 14] ^ l[_ - 16], 1);
-                var f = r[0]
+                for (var l = new Array(80), f = 0; f < 16; f++)
+                    l[f] = d[i][f];
+                for (f = 16; f < 80; f++)
+                    l[f] = n(l[f - 3] ^ l[f - 8] ^ l[f - 14] ^ l[f - 16], 1);
+                var _ = r[0]
                   , h = r[1]
                   , v = r[2]
                   , p = r[3]
                   , b = r[4];
-                for (_ = 0; _ < 80; _++) {
-                    var m = Math.floor(_ / 20)
-                      , g = n(f, 5) + o(m, h, v, p) + b + t[m] + l[_] >>> 0;
+                for (f = 0; f < 80; f++) {
+                    var m = Math.floor(f / 20)
+                      , g = n(_, 5) + o(m, h, v, p) + b + t[m] + l[f] >>> 0;
                     b = p,
                     p = v,
                     v = n(h, 30) >>> 0,
-                    h = f,
-                    f = g
+                    h = _,
+                    _ = g
                 }
-                r[0] = r[0] + f >>> 0,
+                r[0] = r[0] + _ >>> 0,
                 r[1] = r[1] + h >>> 0,
                 r[2] = r[2] + v >>> 0,
                 r[3] = r[3] + p >>> 0,
@@ -4749,22 +4819,22 @@
             var a = t && r || 0
               , c = t || []
               , l = (e = e || {}).node || o
-              , _ = void 0 !== e.clockseq ? e.clockseq : n;
-            if (null == l || null == _) {
-                var f = e.random || (e.rng || s.default)();
-                null == l && (l = o = [1 | f[0], f[1], f[2], f[3], f[4], f[5]]),
-                null == _ && (_ = n = 16383 & (f[6] << 8 | f[7]))
+              , f = void 0 !== e.clockseq ? e.clockseq : n;
+            if (null == l || null == f) {
+                var _ = e.random || (e.rng || s.default)();
+                null == l && (l = o = [1 | _[0], _[1], _[2], _[3], _[4], _[5]]),
+                null == f && (f = n = 16383 & (_[6] << 8 | _[7]))
             }
             var h = void 0 !== e.msecs ? e.msecs : (new Date).getTime()
               , v = void 0 !== e.nsecs ? e.nsecs : d + 1
               , p = h - u + (v - d) / 1e4;
-            if (p < 0 && void 0 === e.clockseq && (_ = _ + 1 & 16383),
+            if (p < 0 && void 0 === e.clockseq && (f = f + 1 & 16383),
             (p < 0 || h > u) && void 0 === e.nsecs && (v = 0),
             v >= 1e4)
                 throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
             u = h,
             d = v,
-            n = _;
+            n = f;
             var b = (1e4 * (268435455 & (h += 122192928e5)) + v) % 4294967296;
             c[a++] = b >>> 24 & 255,
             c[a++] = b >>> 16 & 255,
@@ -4775,8 +4845,8 @@
             c[a++] = 255 & m,
             c[a++] = m >>> 24 & 15 | 16,
             c[a++] = m >>> 16 & 255,
-            c[a++] = _ >>> 8 | 128,
-            c[a++] = 255 & _;
+            c[a++] = f >>> 8 | 128,
+            c[a++] = 255 & f;
             for (var g = 0; g < 6; ++g)
                 c[a + g] = l[g];
             return t || (0,
@@ -5165,8 +5235,8 @@
               , a = []
               , c = !1
               , l = !0
-              , _ = void 0
-              , f = new s.C
+              , f = void 0
+              , _ = new s.C
               , h = document.createElement("iframe");
             function v() {
                 t.appendChild(h),
@@ -5199,7 +5269,7 @@
                     c || "connect" === t || a.push([t, o, s, i]);
                     var u = d();
                     n && "function" === typeof i && (n[u] = i),
-                    (yield f.promise) && r.postMessage({
+                    (yield _.promise) && r.postMessage({
                         method: t,
                         key: o,
                         value: s,
@@ -5209,18 +5279,18 @@
             }
             function g() {
                 if (c)
-                    for (clearTimeout(_); a.length; )
+                    for (clearTimeout(f); a.length; )
                         b.apply(void 0, i(a.pop()));
                 else
                     b("connect"),
-                    _ = setTimeout(g, 125)
+                    f = setTimeout(g, 125)
             }
             return h.src = e,
             h.width = "0",
             h.height = "0",
             h.style.display = "none",
             h.onload = function() {
-                f.resolve(!0)
+                _.resolve(!0)
             }
             ,
             v(),
@@ -5237,7 +5307,7 @@
                     b("remove", e, null, t)
                 },
                 close: function() {
-                    clearTimeout(_),
+                    clearTimeout(f),
                     window.removeEventListener("message", p),
                     h.parentNode.removeChild(h),
                     c = !1,

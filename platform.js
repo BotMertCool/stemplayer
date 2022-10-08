@@ -674,11 +674,11 @@
                 }
             }
             ;
-            let x;
-            return x = c > 0 ? i ? " marquee__left-and-right-gradients" : " marquee__right-gradient" : "",
+            let A;
+            return A = c > 0 ? i ? " marquee__left-and-right-gradients" : " marquee__right-gradient" : "",
             n.createElement("div", {
                 id: e,
-                className: `marquee${x}`
+                className: `marquee${A}`
             }, n.createElement("div", {
                 id: t,
                 className: `\n                    marquee__text\n                    ${c > 0 ? "marquee__scrolling-text" : ""}\n                    ${i ? "marquee__prevent-animation" : ""}\n                `,
@@ -741,9 +741,9 @@
             l.useState)(!1)
               , [L,R] = (0,
             l.useState)(!1)
-              , [M,x] = (0,
+              , [M,A] = (0,
             l.useState)(!1)
-              , [A,I] = (0,
+              , [x,I] = (0,
             l.useState)(null)
               , [H,D] = (0,
             l.useState)(!1)
@@ -847,7 +847,7 @@
                 var e = (0,
                 n.Z)(function*(e) {
                     try {
-                        x(!0),
+                        A(!0),
                         I(e - 1);
                         const t = `Recording ${e}`
                           , a = yield c(e)
@@ -867,7 +867,7 @@
                         }),
                         D(!0)
                     } finally {
-                        x(!1)
+                        A(!1)
                     }
                 });
                 return function(t) {
@@ -929,8 +929,8 @@
             }), l.createElement(i.default, {
                 className: "tracks-modal__button tracks-modal__button--delete",
                 brackets: !0,
-                text: H ? "Error downloading recording" : M && A === t ? "DOWNLOADING" : "DOWNLOAD",
-                dots: M && A === t,
+                text: H ? "Error downloading recording" : M && x === t ? "DOWNLOADING" : "DOWNLOAD",
+                dots: M && x === t,
                 onClick: ()=>N(t + 1),
                 disabled: null !== T
             })))))))
@@ -989,8 +989,8 @@
           , L = a.n(_)
           , R = a("17aa6fdf924ccf52ca13")
           , M = a("8ead6f50f91046b8f3b4")
-          , x = a("c90b79b40c6328f03c9e")
-          , A = a("2f0f179fdd043e994433");
+          , A = a("c90b79b40c6328f03c9e")
+          , x = a("5bed4c2c2c85e5553a5d");
         e = a.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -1069,9 +1069,9 @@
             Re.current = _.playbackState;
             const Me = (0,
             c.useRef)()
-              , xe = (0,
-            c.useRef)(le)
               , Ae = (0,
+            c.useRef)(le)
+              , xe = (0,
             c.useRef)()
               , Ie = (0,
             c.useRef)();
@@ -1132,14 +1132,14 @@
                       , o = (0,
                     p.$r)(r, l);
                     re(n),
-                    xe.current = n;
+                    Ae.current = n;
                     const c = o && o.length ? o : "Untitled";
                     ce(c),
                     ie(l),
                     ue(t && t.metadata.colors ? t.metadata.colors[0] : (0,
-                    x.lY)()),
+                    A.lY)()),
                     me(t && t.metadata.colors ? t.metadata.colors[1] : (0,
-                    x.lY)())
+                    A.lY)())
                 }
             }
             , [ee, _.currentTrack]);
@@ -1179,17 +1179,17 @@
                         return;
                     let e;
                     if (a) {
-                        const t = yield m.getLatestStems(we.current, xe.current.version, "mp3");
+                        const t = yield m.getLatestStems(we.current, Ae.current.version, "mp3");
                         try {
                             const a = yield m.getWaveformData(t["waveform-data"], we.current);
-                            e = _.generateTrack(xe.current, t, a)
+                            e = _.generateTrack(Ae.current, t, a)
                         } catch (a) {
-                            e = _.generateTrack(xe.current, t)
+                            e = _.generateTrack(Ae.current, t)
                         }
                     } else {
-                        const t = _.generateTrack(xe.current);
+                        const t = _.generateTrack(Ae.current);
                         if (void 0 === t.waveformData) {
-                            const e = yield m.getWaveformData(xe.current.waveforms_url, we.current);
+                            const e = yield m.getWaveformData(Ae.current.waveforms_url, we.current);
                             t.waveformData = e
                         }
                         e = t
@@ -1226,7 +1226,7 @@
                 const e = new Date
                   , t = ()=>{
                     const a = new Date;
-                    Ae.current.scrollTo && Ae.current.scrollTo(0, Ae.current.offsetHeight),
+                    xe.current.scrollTo && xe.current.scrollTo(0, xe.current.offsetHeight),
                     a.getTime() - e.getTime() < 330 ? He = requestAnimationFrame(t) : (cancelAnimationFrame(He),
                     He = null)
                 }
@@ -1357,14 +1357,14 @@
                             color1: de,
                             color2: fe
                         };
-                        yield w.updateTrackToUserLibrary([e], I.session.AccessToken),
-                        _.updateTrackMetaData(ee, oe, se, "", "")
+                        yield w.updateTrackToUserLibrary([e], I.session.AccessToken)
                     }
                     k.deviceConnected && t.on_device && (0,
                     S.tJ)(ee, oe, se, de, fe, k).then(e=>{
                         e || console.error(`error: failed to update metadata on track ${ee}`)
                     }
                     ),
+                    _.updateTrackMetaData(ee, oe, se, "", "", !0),
                     Ee(!1),
                     ye.current = !1,
                     Se(!1)
@@ -1386,7 +1386,7 @@
                     ke && (!De || He ? De = Ie.current.getBoundingClientRect().top : De < Ie.current.getBoundingClientRect().top && Ce(!1))
                 }
                 ,
-                ref: Ae
+                ref: xe
             }, c.createElement("div", {
                 className: `track-play__landing ${k.deviceConnected || !a ? "track-play__landing--no-padding-bottom" : ""}`
             }, c.createElement(H, {
@@ -1415,14 +1415,14 @@
                         value: oe,
                         error: !1,
                         required: !0,
-                        maxLength: A.Kz + 7
+                        maxLength: x.Kz + 7
                     },
                     artist: {
                         name: "artist",
                         value: se,
                         error: !1,
                         required: !0,
-                        maxLength: A.h1 + 8
+                        maxLength: x.h1 + 8
                     },
                     bpm: {
                         name: "bpm",
@@ -1561,7 +1561,7 @@
     ,
     "09d9bad7de4a87f81f73": (e,t,a)=>{
         a.d(t, {
-            Z: ()=>y
+            Z: ()=>T
         });
         var n = a("de098c4daf91477f9cbc")
           , l = a("990057777e9b2b7543e8")
@@ -1576,8 +1576,9 @@
           , m = a("6515cd559c65eab0c80c")
           , b = a("804fe702b68cd889ff76")
           , g = a("cb6379a7591a4fbcd384")
-          , v = a("8390a660195ca787c81e");
-        function p(e, t) {
+          , v = a("8390a660195ca787c81e")
+          , p = a("b2b922375814bbdc5154");
+        function k(e, t) {
             var a = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
                 var n = Object.getOwnPropertySymbols(e);
@@ -1588,13 +1589,13 @@
             }
             return a
         }
-        function k(e) {
+        function C(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var a = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? p(Object(a), !0).forEach(function(t) {
+                t % 2 ? k(Object(a), !0).forEach(function(t) {
                     (0,
                     l.Z)(e, t, a[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a)) : p(Object(a)).forEach(function(t) {
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a)) : k(Object(a)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(a, t))
                 })
             }
@@ -1605,38 +1606,38 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var C = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var h = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const h = ({tracks: e, tracksOnDevice: t, deleting: a, albumId: l, albumSlug: o, albumTitle: c, albumList: s, albumVersion: i, handleRemove: d, handleDeleteUserTrack: u, webUSBClient: {deviceConnected: f, uploadCancelled: p, uploadProgress: C, uploadingTrack: h, deviceTransferActive: E, uploading: y, handleCancelUpload: T}, isOfficialAlbum: S, playAlbumClicked: w, closeAlbumPlay: _, audioEngine: L, match: R, viewManagerClient: M, visibleAlbumSlug: x, openTrackPlay: A, addTrackToDevice: I, handleCancelTrackUpload: H, deletingKey: D, addingKey: G, downloadingTracks: O, uploadText: Z, cancelController: N, removeClickedOnce: U, handleRemoveClicked: P, removingKey: F, updateRemovingKey: $})=>{
-            var j;
-            const [q,B] = (0,
+        const E = ({tracks: e, tracksOnDevice: t, deleting: a, albumId: l, albumSlug: o, albumTitle: c, albumList: s, albumVersion: i, handleRemove: d, handleDeleteUserTrack: u, webUSBClient: {deviceConnected: f, uploadCancelled: k, uploadProgress: h, uploadingTrack: E, deviceTransferActive: y, uploading: T, handleCancelUpload: S}, isOfficialAlbum: w, playAlbumClicked: _, closeAlbumPlay: L, audioEngine: R, match: M, viewManagerClient: A, visibleAlbumSlug: x, openTrackPlay: I, addTrackToDevice: H, handleCancelTrackUpload: D, deletingKey: G, addingKey: O, downloadingTracks: Z, uploadText: N, cancelController: U, removeClickedOnce: P, handleRemoveClicked: F, removingKey: $, updateRemovingKey: j})=>{
+            var q;
+            const [B,K] = (0,
             r.useState)(null)
-              , [K,W] = (0,
+              , [W,V] = (0,
             r.useState)([])
-              , [V,Q] = (0,
+              , [Q,z] = (0,
             r.useState)(null)
-              , [z,Y] = (0,
+              , [Y,J] = (0,
             r.useState)([])
-              , [J,X] = (0,
+              , [X,ee] = (0,
             r.useState)(!1)
-              , [ee,te] = (0,
+              , [te,ae] = (0,
             r.useState)("")
-              , [ae,ne] = (0,
+              , [ne,le] = (0,
             r.useState)(-1)
-              , le = (0,
+              , re = (0,
             r.useRef)();
-            let re;
-            const oe = null === (j = le.current) || void 0 === j ? void 0 : j.scrollHeight;
-            S && s && (re = s.map(e=>e.tracks).flat());
-            const [ce,se] = (0,
+            let oe;
+            const ce = null === (q = re.current) || void 0 === q ? void 0 : q.scrollHeight;
+            w && s && (oe = s.map(e=>e.tracks).flat());
+            const [se,ie] = (0,
             r.useState)(!1);
             (0,
             r.useEffect)(()=>{
-                X(x === o);
+                ee(x === o);
                 const e = setTimeout(()=>{
-                    se(!0)
+                    ie(!0)
                 }
                 , 500);
                 return ()=>clearTimeout(e)
@@ -1644,40 +1645,40 @@
             , [x, o]),
             (0,
             r.useEffect)(()=>{
-                z && z.length > 0 && (p || null === C) && Y([])
+                Y && Y.length > 0 && (k || null === h) && J([])
             }
-            , [p, C]),
+            , [k, h]),
             (0,
             r.useEffect)(()=>{
-                if (h && h.album === c && S) {
+                if (E && E.album === c && w) {
                     let t = null;
-                    const a = e.findIndex(e=>e.id === h.global_id);
-                    t = k(k({}, e.find(e=>e.id === h.global_id)), {}, {
+                    const a = e.findIndex(e=>e.id === E.global_id);
+                    t = C(C({}, e.find(e=>e.id === E.global_id)), {}, {
                         albumTitle: c,
                         trackIndex: a
                     }),
-                    Y([t])
+                    J([t])
                 }
             }
-            , [h, J]),
+            , [E, X]),
             (0,
             r.useEffect)(()=>{
-                if (w && w.id === K[0].id) {
-                    M.navigate(`/connect/stem/track/${w.id}`);
-                    const e = S ? m.$_.Official : m.$_.User;
-                    L.setActiveQueue(e)
+                if (_ && _.id === W[0].id) {
+                    A.navigate(`/connect/stem/track/${_.id}`);
+                    const e = w ? m.$_.Official : m.$_.User;
+                    R.setActiveQueue(e)
                 }
             }
-            , [w]),
+            , [_]),
             (0,
             r.useEffect)(()=>{
-                null === V && _ && _()
+                null === Q && L && L()
             }
-            , [V]),
+            , [Q]),
             (0,
             r.useEffect)(()=>{
                 const e = e=>{
-                    "[ DELETE? ]" !== e.target.innerText && B(null)
+                    "[ DELETE? ]" !== e.target.innerText && K(null)
                 }
                 ;
                 return window.addEventListener("click", e),
@@ -1701,129 +1702,129 @@
                     }
                 }
                 )),
-                W(a)
+                V(a)
             }
             , [e, t]),
             (0,
             r.useEffect)(()=>{
-                const {trackId: e} = R.params;
-                if (!K)
+                const {trackId: e} = M.params;
+                if (!W)
                     return;
-                const t = K.find(t=>{
+                const t = W.find(t=>{
                     const a = t.id || t.global_id;
                     return null !== a && void 0 !== a && a === e
                 }
                 );
-                if (Q(t || null),
-                t && A(k(k({}, t), {}, {
+                if (z(t || null),
+                t && I(C(C({}, t), {}, {
                     albumId: l && l.length > 0 ? l : "",
-                    isOfficialAlbum: S,
+                    isOfficialAlbum: w,
                     albumTitle: c,
                     albumVersion: i,
-                    key: ee,
+                    key: te,
                     albumSlug: o && o.length > 0 ? o : ""
                 })),
                 t) {
-                    const e = S ? m.$_.Official : m.$_.User;
-                    L.setActiveQueue(e)
+                    const e = w ? m.$_.Official : m.$_.User;
+                    R.setActiveQueue(e)
                 }
             }
-            , [R, K]),
+            , [M, W]),
             (0,
             r.useEffect)(()=>{
-                if (K && (0 === L.officialQueue.length && void 0 !== re && L.createQueue(re, m.$_.Official),
-                0 === L.userQueue.length)) {
-                    const e = K.filter(e=>void 0 !== e.stems).reduce((e,t)=>{
+                if (W && (0 === R.officialQueue.length && void 0 !== oe && R.createQueue(oe, m.$_.Official),
+                0 === R.userQueue.length)) {
+                    const e = W.filter(e=>void 0 !== e.stems).reduce((e,t)=>{
                         let a;
                         return (a = t.global_id ? e.find(e=>e.global_id === t.global_id) : e.find(e=>e.id === t.id)) ? e : e.concat([t])
                     }
                     , []);
-                    L.createQueue(e, m.$_.User)
+                    R.createQueue(e, m.$_.User)
                 }
             }
-            , [K]),
+            , [W]),
             (0,
             r.useEffect)(()=>{
                 const e = (0,
                 v.Ds)(()=>{
-                    ne(Math.floor(1e3 * Math.random()))
+                    le(Math.floor(1e3 * Math.random()))
                 }
                 , 100);
                 return window.addEventListener("resize", e),
                 ()=>window.removeEventListener("resize", e)
             }
             , []);
-            const ie = function() {
+            const de = function() {
                 var e = (0,
                 n.Z)(function*(e, t) {
-                    if (q === t) {
-                        const t = L.userQueue
+                    if (B === t) {
+                        const t = R.userQueue
                           , a = t.findIndex(t=>{
                             return (t.id ? t.id : t.global_id) === e.id
                         }
                         );
                         t.splice(a, 1),
-                        L.createQueue(t, m.$_.User),
-                        L.trackIsLoaded && e.id === L.currentTrack.id && L.unload(),
+                        R.createQueue(t, m.$_.User),
+                        R.trackIsLoaded && e.id === R.currentTrack.id && R.unload(),
                         u(e.album, e.id, !0)
                     } else
-                        B(t)
+                        K(t)
                 });
                 return function(t, a) {
                     return e.apply(this, arguments)
                 }
             }()
-              , de = function() {
+              , ue = function() {
                 var e = (0,
                 n.Z)(function*(e, t) {
                     var a, n;
-                    te(t),
-                    L.trackIsLoaded && L.playbackState === m.QK.Paused && e.id === (null === (a = L.currentTrack) || void 0 === a ? void 0 : a.id) && L.play(),
-                    (null === (n = L.currentTrack) || void 0 === n ? void 0 : n.id) !== e.id && L.unmuteAll(),
-                    L.setActiveQueue(S ? m.$_.Official : m.$_.User),
-                    M.navigate(`/connect/stem/track/${e.id || e.global_id}`)
+                    ae(t),
+                    R.trackIsLoaded && R.playbackState === m.QK.Paused && e.id === (null === (a = R.currentTrack) || void 0 === a ? void 0 : a.id) && R.play(),
+                    (null === (n = R.currentTrack) || void 0 === n ? void 0 : n.id) !== e.id && R.unmuteAll(),
+                    R.setActiveQueue(w ? m.$_.Official : m.$_.User),
+                    A.navigate(`/connect/stem/track/${e.id || e.global_id}`)
                 });
                 return function(t, a) {
                     return e.apply(this, arguments)
                 }
             }()
-              , ue = (e,t)=>{
+              , fe = (e,t)=>{
                 var n, o, s, i;
                 const u = e.metadata.title;
                 let m = u && u.length ? u : e && e.uploadingTrackData && e && e.uploadingTrackData.title ? e.uploadingTrackData.title : "Untitled";
                 const v = !(!e.global_id && !e.on_device)
-                  , p = f && !S && !v || !S && !f
-                  , k = ((e,t,a)=>t ? `${t}_${e.id}` : e.albumId && e.trackId ? `${e.albumId}_${e.trackId}` : e.metadata && e.metadata.album ? `${e.metadata.album}_${e.id}` : `TRACK${a}_${e.id}`)(e, l, t)
-                  , w = O.includes(k)
-                  , _ = void 0 === e.showOpsButton || e.showOpsButton;
-                let L = null
-                  , R = null;
-                const M = V && V.id ? V.id : V && V.global_id ? V.global_id : null
+                  , k = f && !w && !v || !w && !f
+                  , C = ((e,t,a)=>t ? `${t}_${e.id}` : e.albumId && e.trackId ? `${e.albumId}_${e.trackId}` : e.metadata && e.metadata.album ? `${e.metadata.album}_${e.id}` : `TRACK${a}_${e.id}`)(e, l, t)
+                  , _ = Z.includes(C)
+                  , L = void 0 === e.showOpsButton || e.showOpsButton;
+                let R = null
+                  , M = null;
+                const A = Q && Q.id ? Q.id : Q && Q.global_id ? Q.global_id : null
                   , x = e && e.id ? e.id : e && e.global_id ? e.global_id : null;
-                if (V && M === x)
-                    if (S) {
-                        const e = K.findIndex(e=>e.id === V.id);
-                        L = 0 === e ? null : K[e - 1],
-                        R = e === K.length - 1 ? null : K[e + 1]
+                if (Q && A === x)
+                    if (w) {
+                        const e = W.findIndex(e=>e.id === Q.id);
+                        R = 0 === e ? null : W[e - 1],
+                        M = e === W.length - 1 ? null : W[e + 1]
                     } else {
-                        const e = K.filter(e=>void 0 !== e.stems)
-                          , t = e.findIndex(e=>V.global_id ? e.global_id === V.global_id : e.id === V.id);
-                        e.length >= 2 && (L = 0 === t ? null : e[t - 1],
-                        R = t === e.length - 1 ? null : e[t + 1])
+                        const e = W.filter(e=>void 0 !== e.stems)
+                          , t = e.findIndex(e=>Q.global_id ? e.global_id === Q.global_id : e.id === Q.id);
+                        e.length >= 2 && (R = 0 === t ? null : e[t - 1],
+                        M = t === e.length - 1 ? null : e[t + 1])
                     }
-                const A = (e,t)=>{
+                const I = (e,t)=>{
                     let a = !1;
-                    return f && null !== C && !1 !== y && ((!h.global_id || h.global_id !== e.id || e.albumId || e.trackId) && (S || h.global_id || 0 !== t) || (a = !0)),
+                    return f && null !== h && !1 !== T && ((!E.global_id || E.global_id !== e.id || e.albumId || e.trackId) && (w || E.global_id || 0 !== t) || (a = !0)),
                     a
                 }
                 ;
-                let j = e.artist ? e.artist : null !== (n = e.metadata) && void 0 !== n && n.artists ? null === (o = e.metadata) || void 0 === o ? void 0 : o.artists[0] : null !== (s = e.metadata) && void 0 !== s && s.artist ? null === (i = e.metadata) || void 0 === i ? void 0 : i.artist : e.uploadingTrackData && e.uploadingTrackData.artist ? e.uploadingTrackData.artist : e.deviceTrackInfoForReference && e.deviceTrackInfoForReference.artist ? e.deviceTrackInfoForReference.artist : "Unknown"
-                  , B = !1;
-                S || (B = !0);
-                let W = !1
-                  , Q = `${j}`
-                  , z = `${m}`;
-                if (!S) {
+                let q = e.artist ? e.artist : null !== (n = e.metadata) && void 0 !== n && n.artists ? null === (o = e.metadata) || void 0 === o ? void 0 : o.artists[0] : null !== (s = e.metadata) && void 0 !== s && s.artist ? null === (i = e.metadata) || void 0 === i ? void 0 : i.artist : e.uploadingTrackData && e.uploadingTrackData.artist ? e.uploadingTrackData.artist : p.nP
+                  , K = !1;
+                w || (K = !0);
+                let V = !1
+                  , z = `${q}`
+                  , Y = `${m}`;
+                if (!w) {
                     const e = ((e,t)=>{
                         let a = !0;
                         const n = '400 normal 26px "Helvetica Neue LT W05 65 Medium", Helvetica, Arial, sans-serif';
@@ -1852,67 +1853,67 @@
                             renderAritstAsBlock: a
                         }
                     }
-                    )(j, m);
-                    Q = e.trackArtist,
-                    z = e.trackTitle,
-                    W = e.renderAritstAsBlock
+                    )(q, m);
+                    z = e.trackArtist,
+                    Y = e.trackTitle,
+                    V = e.renderAritstAsBlock
                 }
                 return r.createElement("div", {
                     className: "tracks-modal__track",
-                    key: k
+                    key: C
                 }, r.createElement("div", {
-                    className: `${S ? "tracks-modal__button-group--inline" : "tracks-modal__user-track"}`
-                }, B && r.createElement("span", {
-                    className: `${S ? "" : "artist-title"} ${W ? "artist-title--block" : ""}`
-                }, Q, " \u2013", " "), r.createElement("span", {
-                    className: `${S ? "" : "track-title"}`
-                }, z)), r.createElement("div", {
-                    className: `button-group ${S ? "tracks-modal__button-group--inline" : "tracks-modal__button-group--block"}`
-                }, (S || !!e.stems) && r.createElement(b.default, {
+                    className: `${w ? "tracks-modal__button-group--inline" : "tracks-modal__user-track"}`
+                }, K && r.createElement("span", {
+                    className: `${w ? "" : "artist-title"} ${V ? "artist-title--block" : ""}`
+                }, z, " \u2013", " "), r.createElement("span", {
+                    className: `${w ? "" : "track-title"}`
+                }, Y)), r.createElement("div", {
+                    className: `button-group ${w ? "tracks-modal__button-group--inline" : "tracks-modal__button-group--block"}`
+                }, (w || !!e.stems) && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
                     disabled: null !== a,
                     text: "PLAY",
-                    onClick: ()=>de(e, k)
-                }), p && r.createElement(b.default, {
+                    onClick: ()=>ue(e, C)
+                }), k && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
-                    disabled: null !== a || E || !1 !== y,
-                    dots: D === k,
-                    text: D === k ? "DELETING" : `DELETE${q === k ? "?" : ""}`,
-                    onClick: ()=>ie(e, k)
+                    disabled: null !== a || y || !1 !== T,
+                    dots: G === C,
+                    text: G === C ? "DELETING" : `DELETE${B === C ? "?" : ""}`,
+                    onClick: ()=>de(e, C)
                 }), f && v && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
-                    disabled: null !== a || E,
-                    dots: F === k,
-                    text: F === k ? "REMOVING" : `REMOVE${U === k ? "?" : ""}`,
+                    disabled: null !== a || y,
+                    dots: $ === C,
+                    text: $ === C ? "REMOVING" : `REMOVE${P === C ? "?" : ""}`,
                     onClick: ()=>{
-                        U === k ? ($(k),
-                        l ? d(l, e.device_id, e.title, e.metadata.artist, e.id) : d(e.albumId, e.trackId, e.title, e.deviceTrackInfoForReference.artist, e.global_id)) : P(k)
+                        P === C ? (j(C),
+                        l ? d(l, e.device_id, e.title, e.metadata.artist, e.id) : d(e.albumId, e.trackId, e.title, e.deviceTrackInfoForReference.artist, e.global_id)) : F(C)
                     }
-                }), _ && f && !v && !A(e, t) && r.createElement(b.default, {
+                }), L && f && !v && !I(e, t) && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
-                    dots: G === k && ("Uploading" === Z || "Cancelling" === Z),
-                    disabled: "Uploading" === Z || E,
-                    text: G === k && "ADD" !== Z ? Z : "ADD",
-                    onClick: ()=>I(e, k, S, c)
-                }), A(e, t) && r.createElement(r.Fragment, null, r.createElement(b.default, {
-                    text: C && (null === C || void 0 === C ? void 0 : C.total) > 0 && (null === C || void 0 === C ? void 0 : C.total) <= 1 ? `Uploading ${Math.floor(100 * C.total)}%` : "Uploading",
+                    dots: O === C && ("Uploading" === N || "Cancelling" === N),
+                    disabled: "Uploading" === N || y,
+                    text: O === C && "ADD" !== N ? N : "ADD",
+                    onClick: ()=>H(e, C, w, c)
+                }), I(e, t) && r.createElement(r.Fragment, null, r.createElement(b.default, {
+                    text: h && (null === h || void 0 === h ? void 0 : h.total) > 0 && (null === h || void 0 === h ? void 0 : h.total) <= 1 ? `Uploading ${Math.floor(100 * h.total)}%` : "Uploading",
                     disabled: !0,
                     brackets: !0
                 }), r.createElement(b.default, {
                     text: "CANCEL",
                     brackets: !0,
                     className: "button--transparent",
-                    onClick: ()=>T()
-                })), f && E && N && G === k && !A(e, t) && r.createElement(b.default, {
+                    onClick: ()=>S()
+                })), f && y && U && O === C && !I(e, t) && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     brackets: !0,
                     text: "CANCEL",
-                    onClick: ()=>H()
-                }), w && r.createElement(b.default, {
+                    onClick: ()=>D()
+                }), _ && r.createElement(b.default, {
                     className: "tracks-modal__button n u-my-none",
                     text: "downloading",
                     dots: !0,
@@ -1920,19 +1921,19 @@
                 })))
             }
             ;
-            return r.createElement(r.Fragment, null, !J && r.createElement(r.Fragment, null, z.map(e=>ue(e, e.trackIndex))), r.createElement("div", {
-                className: `${ce ? "animation" : ""} collapse ${x === o && "show"} ${S ? "" : "user-album"}`,
-                "data-resize-seed": S ? "" : ae
+            return r.createElement(r.Fragment, null, !X && r.createElement(r.Fragment, null, Y.map(e=>fe(e, e.trackIndex))), r.createElement("div", {
+                className: `${se ? "animation" : ""} collapse ${x === o && "show"} ${w ? "" : "user-album"}`,
+                "data-resize-seed": w ? "" : ne
             }, r.createElement("div", {
-                ref: le,
+                ref: re,
                 style: {
-                    maxHeight: `${oe}px`
+                    maxHeight: `${ce}px`
                 }
-            }, K.map((e,t)=>ue(e, t)))))
+            }, W.map((e,t)=>fe(e, t)))))
         }
         ;
-        C(h, "useState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[fullTracks, setFullTracks]([])}\nuseState{[showTrackPlay, setShowTrackPlay](null)}\nuseState{[surfaceUploadingOfficialTrack, setSurfaceUploadingOfficialTrack]([])}\nuseState{[tracksVisible, setTracksVisible](false)}\nuseState{[trackKey, setTrackKey]('')}\nuseState{[resizeSeed, setResizeSeed](-1)}\nuseRef{albumRef}\nuseState{[albumAnimation, setAlbumAnimation](false)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
-        const E = (0,
+        h(E, "useState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[fullTracks, setFullTracks]([])}\nuseState{[showTrackPlay, setShowTrackPlay](null)}\nuseState{[surfaceUploadingOfficialTrack, setSurfaceUploadingOfficialTrack]([])}\nuseState{[tracksVisible, setTracksVisible](false)}\nuseState{[trackKey, setTrackKey]('')}\nuseState{[resizeSeed, setResizeSeed](-1)}\nuseRef{albumRef}\nuseState{[albumAnimation, setAlbumAnimation](false)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const y = (0,
         d.j)({
             module: "ye_tracks_list"
         })((0,
@@ -1941,12 +1942,12 @@
         u.E9)((0,
         c.MM)((0,
         s.C)((0,
-        f.f)(h)))))))
-          , y = E;
+        f.f)(E)))))))
+          , T = y;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(h, "YeTracksList", "/home/vsts/work/1/s/src/components/YeTracksList/index.tsx"),
-            e.register(E, "default", "/home/vsts/work/1/s/src/components/YeTracksList/index.tsx"))
+            e && (e.register(E, "YeTracksList", "/home/vsts/work/1/s/src/components/YeTracksList/index.tsx"),
+            e.register(y, "default", "/home/vsts/work/1/s/src/components/YeTracksList/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -1957,9 +1958,9 @@
     d8233878ff089243fc65: (e,t,a)=>{
         a.r(t),
         a.d(t, {
-            DEFAULT_USER_ACTION: ()=>O,
-            __TEST__Platform: ()=>$,
-            default: ()=>B
+            DEFAULT_USER_ACTION: ()=>U,
+            __TEST__Platform: ()=>B,
+            default: ()=>V
         });
         var n = a("990057777e9b2b7543e8")
           , l = a("de098c4daf91477f9cbc")
@@ -1976,20 +1977,23 @@
           , g = a("d33789936ad161eefce0")
           , v = a("3e17aee31846974e528a")
           , p = a("d92624744e8fb7e743e8")
-          , k = a("3145f0c7f3b91ffef7d2")
-          , C = a("ebc575412187b075d992")
-          , h = a("971fd0ff834a938d5a3d")
-          , E = a("553c2c26a5c8a1e6fec3")
-          , y = a("c90b79b40c6328f03c9e")
-          , T = a("ce16b3e367caf5294973")
-          , S = a("b9c0e8fa969ba99eb812")
-          , w = a("d00f6f0661f634dfc203")
-          , _ = a("371760fd96b575cf2118")
-          , L = a("09d9bad7de4a87f81f73")
-          , R = a("9c2db445b2a1a7a1cf6d")
-          , M = a("25995a7ae5cc79b4f4a4")
-          , x = a.n(M);
-        function A(e, t) {
+          , k = a("50adafd66d905a6a5399")
+          , C = a("3145f0c7f3b91ffef7d2")
+          , h = a("ebc575412187b075d992")
+          , E = a("971fd0ff834a938d5a3d")
+          , y = a("553c2c26a5c8a1e6fec3")
+          , T = a("c90b79b40c6328f03c9e")
+          , S = a("ce16b3e367caf5294973")
+          , w = a("b9c0e8fa969ba99eb812")
+          , _ = a("d00f6f0661f634dfc203")
+          , L = a("371760fd96b575cf2118")
+          , R = a("09d9bad7de4a87f81f73")
+          , M = a("c0326c9d650a633c92d0")
+          , A = a("9c2db445b2a1a7a1cf6d")
+          , x = a("25995a7ae5cc79b4f4a4")
+          , I = a.n(x)
+          , H = a("b2b922375814bbdc5154");
+        function D(e, t) {
             var a = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
                 var n = Object.getOwnPropertySymbols(e);
@@ -2000,13 +2004,13 @@
             }
             return a
         }
-        function I(e) {
+        function G(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var a = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? A(Object(a), !0).forEach(function(t) {
+                t % 2 ? D(Object(a), !0).forEach(function(t) {
                     (0,
                     n.Z)(e, t, a[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a)) : A(Object(a)).forEach(function(t) {
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a)) : D(Object(a)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(a, t))
                 })
             }
@@ -2017,12 +2021,12 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var H = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var O = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const D = (0,
-        R.ZP)({
+        const Z = (0,
+        A.ZP)({
             resolved: {},
             chunkName: ()=>"components-Button",
             isReady(e) {
@@ -2044,8 +2048,8 @@
                 return "804fe702b68cd889ff76"
             }
         })
-          , G = (0,
-        R.ZP)({
+          , N = (0,
+        A.ZP)({
             resolved: {},
             chunkName: ()=>"components-CloseButton",
             isReady(e) {
@@ -2067,79 +2071,75 @@
                 return "b437601f9c395dc20abb"
             }
         })
-          , O = "Connect";
-        let Z = !1
-          , N = null;
-        const U = ["Donda 2", "Donda (Deluxe)", "Donda", "Jesus Is King", "Life of The Party", "Wash Us In The Blood", "RECORD", "RECORDINGS"];
-        let P = new AbortController;
-        const F = ({webUSBClient: {deleteTrack: e, deviceAlbums: t, deviceAlbumsUpdated: a, deviceTransferActive: n, deviceUpdating: o, deviceConnected: c, deleteAlbum: s, hasSpaceForAlbum: i, uploadCancelled: d, uploadingTrack: u, uploadedTrackLocation: f, deviceInfo: m, setDeviceTransferActive: b, setDeviceIsUpdating: v, disconnect: R, resetUploadedTrackLocation: M, fetchDeviceAlbums: A, hasSpaceForTrack: H, uploadStems: O, setUploadProgressState: F, uploadProgress: $}, trackApiClient: {getTracks: j, getUserAccountTracks: q, deleteUserAccountTracks: B, setUserLibraryTrackIds: K, userLibraryTrackIds: W}, tracking: {trackEvent: V}, firmwareUpdateClient: {hasCrucialUpdate: Q, getAvailableUpdates: z}, accountClient: Y, history: J, audioEngine: X, albumRestoreClient: ee, match: te, viewManagerClient: ae, stemsClient: ne})=>{
-            const [le,re] = (0,
+          , U = "Connect";
+        let P = !1
+          , F = null;
+        const $ = ["Donda 2", "Donda (Deluxe)", "Donda", "Jesus Is King", "Life of The Party", "Wash Us In The Blood", "RECORD", "RECORDINGS"];
+        let j = new AbortController;
+        const q = ({webUSBClient: {deleteTrack: e, deviceAlbums: t, deviceAlbumsUpdated: a, deviceTransferActive: n, deviceUpdating: o, deviceConnected: c, deleteAlbum: s, hasSpaceForAlbum: i, uploadCancelled: d, uploadingTrack: u, uploadedTrackLocation: f, deviceInfo: m, setDeviceTransferActive: b, setDeviceIsUpdating: v, disconnect: A, resetUploadedTrackLocation: x, fetchDeviceAlbums: D, hasSpaceForTrack: O, uploadStems: U, setUploadProgressState: q, uploadProgress: B, editTrackMetadataSimple: K}, trackApiClient: {getTracks: W, getUserAccountTracks: V, deleteUserAccountTracks: Q, setUserLibraryTrackIds: z, userLibraryTrackIds: Y}, tracking: {trackEvent: J}, firmwareUpdateClient: {hasCrucialUpdate: X, getAvailableUpdates: ee}, accountClient: te, history: ae, audioEngine: ne, albumRestoreClient: le, match: re, viewManagerClient: oe, stemsClient: ce})=>{
+            const [se,ie] = (0,
             r.useState)(null)
-              , [oe,ce] = (0,
-            r.useState)([])
-              , [se,ie] = (0,
-            r.useState)([])
               , [de,ue] = (0,
             r.useState)([])
               , [fe,me] = (0,
-            r.useState)(null)
+            r.useState)([])
               , [be,ge] = (0,
-            r.useState)(null)
+            r.useState)([])
               , [ve,pe] = (0,
             r.useState)(null)
               , [ke,Ce] = (0,
-            r.useState)(!1)
+            r.useState)(null)
               , [he,Ee] = (0,
             r.useState)(null)
               , [ye,Te] = (0,
-            r.useState)(null)
-              , [Se,we] = (0,
             r.useState)(!1)
+              , [Se,we] = (0,
+            r.useState)(null)
               , [_e,Le] = (0,
             r.useState)(null)
               , [Re,Me] = (0,
             r.useState)(!1)
-              , [xe,Ae] = (0,
+              , [Ae,xe] = (0,
             r.useState)(null)
               , [Ie,He] = (0,
-            r.useState)(null)
+            r.useState)(!1)
               , [De,Ge] = (0,
             r.useState)(null)
               , [Oe,Ze] = (0,
-            r.useState)(!1)
+            r.useState)(null)
               , [Ne,Ue] = (0,
+            r.useState)(null)
+              , [Pe,Fe] = (0,
+            r.useState)(!1)
+              , [$e,je] = (0,
             r.useState)({
                 text: "",
                 dots: !1
             })
-              , [Pe,Fe] = (0,
-            r.useState)(null)
-              , [$e,je] = (0,
-            r.useState)(!1)
               , [qe,Be] = (0,
             r.useState)(null)
               , [Ke,We] = (0,
-            r.useState)(null)
-              , [Ve,Qe] = (0,
             r.useState)(!1)
+              , [Ve,Qe] = (0,
+            r.useState)(null)
               , [ze,Ye] = (0,
             r.useState)(null)
               , [Je,Xe] = (0,
-            r.useState)(null)
+            r.useState)(!1)
               , [et,tt] = (0,
-            r.useState)(!1)
+            r.useState)(null)
               , [at,nt] = (0,
-            r.useState)(!1)
+            r.useState)(null)
               , [lt,rt] = (0,
             r.useState)(!1)
               , [ot,ct] = (0,
-            r.useState)(!0)
+            r.useState)(!1)
               , [st,it] = (0,
-            r.useState)(!0)
+            r.useState)(!1)
               , [dt,ut] = (0,
-            r.useState)(!1)
+            r.useState)(!0)
               , [ft,mt] = (0,
-            r.useState)(!1)
+            r.useState)(!0)
               , [bt,gt] = (0,
             r.useState)(!1)
               , [vt,pt] = (0,
@@ -2147,33 +2147,39 @@
               , [kt,Ct] = (0,
             r.useState)(!1)
               , [ht,Et] = (0,
-            r.useState)(null)
+            r.useState)(!1)
               , [yt,Tt] = (0,
-            r.useState)("")
+            r.useState)(!1)
               , [St,wt] = (0,
-            r.useState)("")
+            r.useState)(null)
               , [_t,Lt] = (0,
             r.useState)("")
               , [Rt,Mt] = (0,
-            r.useState)(null)
-              , [xt,At] = (0,
-            r.useState)(null)
+            r.useState)("")
+              , [At,xt] = (0,
+            r.useState)("")
               , [It,Ht] = (0,
             r.useState)(null)
               , [Dt,Gt] = (0,
+            r.useState)(null)
+              , [Ot,Zt] = (0,
+            r.useState)(null)
+              , [Nt,Ut] = (0,
             r.useState)([])
-              , Ot = (0,
-            E.s)()
-              , Zt = (0,
+              , Pt = (0,
+            y.s)()
+              , Ft = (0,
             r.useRef)()
-              , Nt = (0,
+              , $t = (0,
             r.useRef)()
-              , Ut = (0,
+              , jt = (0,
             r.useRef)();
-            Ut.current = Dt,
+            jt.current = Nt;
+            const qt = (0,
+            r.useRef)(!1);
             (0,
             r.useEffect)(()=>{
-                Pt()
+                Bt()
             }
             , []),
             (0,
@@ -2185,10 +2191,10 @@
                         var a = (0,
                         l.Z)(function*() {
                             try {
-                                const a = yield z(t.signal);
-                                Q(a, m) && e && Q(a, m) && it(!0)
+                                const a = yield ee(t.signal);
+                                X(a, m) && e && X(a, m) && mt(!0)
                             } finally {
-                                e && it(!1)
+                                e && mt(!1)
                             }
                         });
                         return function() {
@@ -2197,7 +2203,7 @@
                     }
                     )()()
                 } else
-                    e && it(!1);
+                    e && mt(!1);
                 return ()=>{
                     e = !1,
                     t.abort()
@@ -2210,27 +2216,27 @@
                 if (e && e.length > 0 && e[0].tracks.length > 0) {
                     const t = e[0].id
                       , a = e[0].tracks[0].id;
-                    ge(`${t}_${a}`)
+                    Ce(`${t}_${a}`)
                 }
             }
             , []),
             (0,
             r.useEffect)(()=>{
-                Y.session || c || J.push("/")
+                te.session || c || ae.push("/")
             }
             , [c]),
             (0,
             r.useEffect)(()=>{
-                if (!c && oe && oe.length > 0)
-                    return ce([]),
-                    void nt(!1)
+                !c && de && de.length > 0 && (ue([]),
+                qt.current = !1,
+                ct(!1))
             }
             , [c]),
             (0,
             r.useEffect)(()=>{
-                if (0 === Object.values(t).length && !at)
+                if (0 === Object.values(t).length && !ot)
                     return;
-                const e = Object.values(t).filter(e=>!U.includes(e.title))
+                const e = Object.values(t).filter(e=>!$.includes(e.title))
                   , a = e && e.reduce((e,t)=>t.title === g.VW ? [...e] : [...e, ...t.tracks.map(e=>({
                     title: e.title,
                     artist: e.artist,
@@ -2240,33 +2246,33 @@
                     colors: e.colors,
                     bpm: e.bpm
                 }))], []);
-                Ot && (ce(a.reverse()),
-                ut(!0),
-                Y.session || mt(!0),
-                at || nt(!0))
+                Pt && (ue(a.reverse()),
+                gt(!0),
+                te.session || pt(!0),
+                ot || ct(!0))
             }
             , [t, a]),
             (0,
             r.useEffect)(()=>{
-                Pt()
+                Bt()
             }
             , []),
             (0,
             r.useEffect)(()=>{
-                Pt()
+                Bt()
             }
-            , [X.currentTrackMetadataUpdated]);
-            const Pt = function() {
+            , [ne.currentTrackMetadataUpdated]);
+            const Bt = function() {
                 var e = (0,
                 l.Z)(function*() {
                     try {
-                        const e = Y.session ? yield q(Y.session.AccessToken) : [];
-                        ie(e),
-                        rt(!0),
-                        mt(!0),
-                        c || ut(!0)
+                        const e = te.session ? yield V(te.session.AccessToken) : [];
+                        me(e),
+                        it(!0),
+                        pt(!0),
+                        c || gt(!0)
                     } catch (e) {
-                        rt(!0)
+                        it(!0)
                     }
                 });
                 return function() {
@@ -2275,99 +2281,99 @@
             }();
             (0,
             r.useEffect)(()=>{
-                if (ae.newTrack && Ve && !f) {
-                    const {newTrack: e} = ae;
-                    Y.session ? Y.session : ue([e])
+                if (oe.newTrack && Je && !f) {
+                    const {newTrack: e} = oe;
+                    te.session ? te.session : ge([e])
                 } else
-                    ae.newTrack && Ve && f && (Qe(!1),
-                    Xe(null),
-                    M(),
-                    ae.setNewTrack(null),
-                    ue([]),
-                    A(),
-                    Y.session && Pt())
+                    oe.newTrack && Je && f && (Xe(!1),
+                    nt(null),
+                    x(),
+                    oe.setNewTrack(null),
+                    ge([]),
+                    D(),
+                    te.session && Bt())
             }
-            , [ae.newTrack, f, Ve, Je]),
+            , [oe.newTrack, f, Je, at]),
             (0,
             r.useEffect)(()=>{
-                d && (Qe(!1),
-                Xe(null),
-                M(),
-                ae.setNewTrack(null),
-                ue([]),
-                jt())
+                d && (Xe(!1),
+                nt(null),
+                x(),
+                oe.setNewTrack(null),
+                ge([]),
+                Vt())
             }
             , [d]),
             (0,
             r.useEffect)(()=>{
-                jt()
+                Vt()
             }
-            , [oe, se, de]),
+            , [de, fe, be]),
             (0,
             r.useEffect)(()=>{
                 if (c && f && f.album && f.id) {
-                    const {newTrack: e} = ae;
-                    if (!Je && e && le)
-                        return A(),
-                        ae.setNewTrack(null),
-                        void M()
+                    const {newTrack: e} = oe;
+                    if (!at && e && se)
+                        return D(),
+                        oe.setNewTrack(null),
+                        void x()
                 }
             }
             , [f]),
             (0,
             r.useEffect)(()=>{
-                const {newTrack: e} = ae;
-                e && Ve && Je && u && f && (Qe(!1),
-                Xe(null),
-                M(),
-                ae.setNewTrack(null))
+                const {newTrack: e} = oe;
+                e && Je && at && u && f && (Xe(!1),
+                nt(null),
+                x(),
+                oe.setNewTrack(null))
             }
-            , [Je, f]),
+            , [at, f]),
             (0,
             r.useEffect)(()=>{
-                if (ee && ee.latestAlbums && Object.keys(ee.latestAlbums).length < 4 && ee.fetchLatestAlbums(),
-                ee.trackRestore && Ke) {
-                    const e = Ke.find(e=>e.globalId === ee.trackRestore.id);
+                if (le && le.latestAlbums && Object.keys(le.latestAlbums).length < 4 && le.fetchLatestAlbums(),
+                le.trackRestore && ze) {
+                    const e = ze.find(e=>e.globalId === le.trackRestore.id);
                     e && !e.started && (e.started = !0,
-                    We([...Ke]))
+                    Ye([...ze]))
                 }
             }
-            , [ee]),
+            , [le]),
             (0,
             r.useEffect)(()=>{
-                if (Ke && ee.trackRestore) {
-                    const e = Ke.length
-                      , t = Ke.filter(e=>e.started).length
-                      , a = Math.max(0, Math.min(1, ee.trackRestore.progress))
+                if (ze && le.trackRestore) {
+                    const e = ze.length
+                      , t = ze.filter(e=>e.started).length
+                      , a = Math.max(0, Math.min(1, le.trackRestore.progress))
                       , n = Math.floor(100 * a);
-                    Ue({
-                        text: `${Re ? "UPDATING" : "UPLOADING"} ${t}/${e} tracks`,
+                    je({
+                        text: `${Ie ? "UPDATING" : "UPLOADING"} ${t}/${e} tracks`,
                         dots: !1
                     });
-                    let l = `${ee.trackRestore.title} ${n}%`;
-                    Ye(l)
+                    let l = `${le.trackRestore.title} ${n}%`;
+                    tt(l)
                 }
             }
-            , [Ke, ee, ee.trackRestore]),
+            , [ze, le, le.trackRestore]),
             (0,
             r.useEffect)(()=>{
                 const e = Math.random();
-                Zt.current = e,
-                0 !== Object.keys(ee.latestAlbums).length && Promise.all(Object.values(ee.latestAlbums).map(function() {
+                Ft.current = e,
+                0 !== Object.keys(le.latestAlbums).length && Promise.all(Object.values(le.latestAlbums).map(function() {
                     var e = (0,
                     l.Z)(function*(e) {
                         var a;
                         let n, l, r = !1, o = !0;
                         var s;
                         c && t && (n = Object.values(t).find(t=>t.title === e.title),
-                        l = ee.albumsStatus[null === (s = n) || void 0 === s ? void 0 : s.title],
-                        (r = Vt(e.title)) || (o = yield i(e)));
+                        l = le.albumsStatus[null === (s = n) || void 0 === s ? void 0 : s.title],
+                        (r = Xt(e.title)) || (o = yield i(e)));
                         return {
                             title: e.title,
                             artist: e.artist,
                             version: e.version,
                             hasAlbum: r,
-                            hasFullAlbum: Vt(e.title) && Qt(e.tracks.length),
+                            hasFullAlbum: Xt(e.title) && ea(e.tracks.length),
                             hasSpaceForAlbum: o,
                             tracks: e.tracks,
                             deviceData: n || {
@@ -2375,7 +2381,7 @@
                             },
                             hasUpdate: (null === (a = l) || void 0 === a ? void 0 : a.updateAlbumAvailable) || !1,
                             albumId: n && n.id ? n.id : e.title,
-                            albumSlug: x()(e.title, {
+                            albumSlug: I()(e.title, {
                                 lower: !0
                             }),
                             requiresSubscription: !1
@@ -2385,87 +2391,104 @@
                         return e.apply(this, arguments)
                     }
                 }())).then(t=>{
-                    t.sort((e,t)=>U.indexOf(e.title) - U.indexOf(t.title)),
-                    e === Zt.current && me(t)
+                    t.sort((e,t)=>$.indexOf(e.title) - $.indexOf(t.title)),
+                    e === Ft.current && pe(t)
                 }
                 )
             }
-            , [t, a, ee.latestAlbums, ee.albumsStatusUpdated, c]),
+            , [t, a, le.latestAlbums, le.albumsStatusUpdated, c]),
             (0,
             r.useEffect)(()=>{
                 if (t && Object.values(t).length) {
-                    const e = Object.values(t).filter(e=>U.includes(e.title) && "RECORD" !== e.id);
-                    pe(e)
+                    const e = Object.values(t).filter(e=>$.includes(e.title) && "RECORD" !== e.id);
+                    Ee(e)
                 }
             }
             , [t]),
             (0,
             r.useEffect)(()=>{
-                const {albumSlug: e, trackId: t} = te.params;
-                if (!fe)
+                const {albumSlug: e, trackId: t} = re.params;
+                if (!ve)
                     return;
                 if (!e && !t)
-                    return void Ee(null);
+                    return void we(null);
                 let a;
-                (a = t ? fe.find(e=>e.tracks.find(e=>e.id === t)) : fe.find(t=>t.albumSlug === e)) && he !== a.albumSlug && setTimeout(()=>{
-                    Ot() && Ee(a.albumSlug)
+                (a = t ? ve.find(e=>e.tracks.find(e=>e.id === t)) : ve.find(t=>t.albumSlug === e)) && Se !== a.albumSlug && setTimeout(()=>{
+                    Pt() && we(a.albumSlug)
                 }
                 , 1e3)
             }
-            , [te, fe]),
+            , [re, ve]),
             (0,
             r.useEffect)(()=>{
-                if (fe && fe.length > 0) {
-                    const e = fe.map(e=>e.tracks).flat();
+                if (ve && ve.length > 0) {
+                    const e = ve.map(e=>e.tracks).flat();
                     (0,
-                    p.o9)(e, e[0].id, 80, ne)
+                    p.o9)(e, e[0].id, 80, ce)
                 }
             }
-            , [fe]),
+            , [ve]),
             (0,
             r.useEffect)(()=>{
-                !Y.session && le && le.length > 0 && c && Y.userLoggedOut && le.some(e=>!e.on_device) && (Y.setUserLoggedOut(!1),
-                ie([]))
+                !te.session && se && se.length > 0 && c && te.userLoggedOut && se.some(e=>!e.on_device) && (te.setUserLoggedOut(!1),
+                me([]),
+                qt.current = !1)
             }
-            , [Y]),
+            , [te]),
             (0,
             r.useEffect)(()=>{
-                const e = c && oe && oe.length > 0;
-                null !== le && ft && dt && !st && (e && le.some(e=>e.on_device) && Y.session && le.some(e=>e.on_library) ? Ft() : !e && Y.session && le && le.length ? Ft() : !Y.session && oe && (oe.length > 0 && le && le.length > 0 || 0 === oe.length && le && 0 === le.length) ? Ft() : e && Y.session && se && 0 === se.length ? Ft() : (se && 0 === se.length && le && 0 === le.length && c && oe && 0 === oe.length || se && 0 === se.length && le && 0 === le.length && !c && lt) && Ft())
+                const e = c && de && de.length > 0;
+                null !== se && vt && bt && !ft && (e && se.some(e=>e.on_device) && te.session && se.some(e=>e.on_library) ? Kt() : !e && te.session && se && se.length ? Kt() : !te.session && de && (de.length > 0 && se && se.length > 0 || 0 === de.length && se && 0 === se.length) ? Kt() : e && te.session && fe && 0 === fe.length ? Kt() : (fe && 0 === fe.length && se && 0 === se.length && c && de && 0 === de.length || fe && 0 === fe.length && se && 0 === se.length && !c && st) && Kt())
             }
-            , [ft, dt, st, le]);
-            const Ft = ()=>{
-                ct(!1),
-                gt(!0)
+            , [vt, bt, ft, se]);
+            const Kt = ()=>{
+                ut(!1),
+                Ct(!0)
             }
-              , $t = (0,
+              , Wt = (0,
             r.useRef)()
-              , jt = function() {
+              , Vt = function() {
                 var e = (0,
                 l.Z)(function*() {
                     const e = Math.random();
-                    $t.current = e;
-                    const t = [...oe];
+                    Wt.current = e;
+                    const t = [...de];
                     let a = t.map(e=>e.global_id);
-                    const n = se.map(e=>e.track_id)
+                    const n = fe.map(e=>e.track_id)
                       , l = [...a, ...n.filter(e=>!a.includes(e))];
-                    K([...new Set(l)]);
-                    const r = yield j(l);
+                    z([...new Set(l)]);
+                    const r = yield W(l);
                     let o = []
-                      , c = [];
+                      , s = [];
                     for (const e in r)
-                        r[e].error ? o.push(e) : c.push(e);
-                    const s = e=>(null !== e.libraryTrackInfoForReference.track_title && "" !== e.libraryTrackInfoForReference.track_title && (e.metadata.title = e.libraryTrackInfoForReference.track_title),
+                        r[e].error ? o.push(e) : s.push(e);
+                    const i = e=>(null !== e.libraryTrackInfoForReference.track_title && "" !== e.libraryTrackInfoForReference.track_title && (e.metadata.title = e.libraryTrackInfoForReference.track_title),
                     null !== e.libraryTrackInfoForReference.artist && "" !== e.libraryTrackInfoForReference.artist && (e.metadata.artist = e.libraryTrackInfoForReference.artist),
                     null !== e.libraryTrackInfoForReference.color1 && "" !== e.libraryTrackInfoForReference.color1 && null !== e.libraryTrackInfoForReference.color2 && "" !== e.libraryTrackInfoForReference.color2 && (e.metadata.colors = [e.libraryTrackInfoForReference.color1, e.libraryTrackInfoForReference.color2]),
                     e)
-                      , i = e=>(null !== e.deviceTrackInfoForReference.title && "" !== e.deviceTrackInfoForReference.title && (e.metadata.title = e.deviceTrackInfoForReference.title),
-                    null !== e.deviceTrackInfoForReference.artist && "" !== e.deviceTrackInfoForReference.artist && (e.metadata.artist = e.deviceTrackInfoForReference.artist),
-                    null !== e.deviceTrackInfoForReference.colors && (e.metadata.colors = [e.deviceTrackInfoForReference.colors[0], e.deviceTrackInfoForReference.colors[1]]),
-                    e);
-                    let d = [];
+                      , d = e=>{
+                        try {
+                            null !== e.deviceTrackInfoForReference.title && "" !== e.deviceTrackInfoForReference.title && (e.metadata.title = e.deviceTrackInfoForReference.title),
+                            null !== e.deviceTrackInfoForReference.artist && "" !== e.deviceTrackInfoForReference.artist && (e.metadata.artist = e.deviceTrackInfoForReference.artist),
+                            null !== e.deviceTrackInfoForReference.colors && void 0 !== e.deviceTrackInfoForReference.colors && (e.metadata.colors = [e.deviceTrackInfoForReference.colors[0], e.deviceTrackInfoForReference.colors[1]])
+                        } catch (e) {
+                            console.error(e)
+                        }
+                        return e
+                    }
+                      , u = e=>{
+                        try {
+                            void 0 !== e.metadata.title && null !== e.metadata.title || (e.metadata.title = "Untitled"),
+                            void 0 !== e.metadata.artist && null !== e.metadata.artist || (e.metadata.artist = "Unknown Artist")
+                        } catch (e) {
+                            console.error(e)
+                        }
+                        return e
+                    }
+                    ;
+                    let f = [];
                     for (const e of l)
-                        if (c.includes(e))
+                        if (s.includes(e))
                             try {
                                 let l;
                                 if (a.includes(e)) {
@@ -2473,30 +2496,31 @@
                                     l = t.splice(a, 1)[0]
                                 }
                                 let o = {};
-                                ae.newTrack && e === ae.newTrack.id && (o = {
-                                    title: ae.newTrack.title,
-                                    artist: ae.newTrack.artist
+                                oe.newTrack && e === oe.newTrack.id && (o = {
+                                    title: oe.newTrack.title,
+                                    artist: oe.newTrack.artist
                                 });
-                                let c = I(I({}, r[e]), {}, {
+                                let c = G(G({}, r[e]), {}, {
                                     on_library: n.includes(e),
                                     on_device: a.includes(e),
                                     deviceTrackInfoForReference: l,
-                                    uploadingTrackData: ae.newTrack && e === ae.newTrack.id ? o : null
+                                    uploadingTrackData: oe.newTrack && e === oe.newTrack.id ? o : null
                                 });
                                 l && (c.albumId = l.albumId,
                                 c.trackId = l.trackId,
                                 c.global_id = l.global_id),
-                                c.showOpsButton = at;
-                                const u = se.filter(t=>t.track_id === e);
-                                c.libraryTrackInfoForReference = u.length > 0 ? I({}, u[0]) : null,
-                                null !== c.libraryTrackInfoForReference ? c = s(c) : null !== c.deviceTrackInfoForReference && (c = i(c)),
-                                d.push(c),
+                                c.showOpsButton = ot;
+                                const s = fe.filter(t=>t.track_id === e);
+                                c.libraryTrackInfoForReference = s.length > 0 ? G({}, s[0]) : null,
+                                null !== c.libraryTrackInfoForReference && void 0 !== c.deviceTrackInfoForReference ? c = i(c = d(c)) : null !== c.libraryTrackInfoForReference ? c = i(c) : void 0 !== c.deviceTrackInfoForReference && (c = d(c)),
+                                c = u(c),
+                                f.push(c),
                                 a = t.map(e=>e.global_id)
                             } catch (t) {
                                 console.error(`fail fetching waveform for ${e}`)
                             }
                         else if (o.includes(e)) {
-                            const t = oe.filter(t=>t.global_id === e);
+                            const t = de.filter(t=>t.global_id === e);
                             if (0 !== t.length) {
                                 const e = t[0];
                                 let l = {
@@ -2513,80 +2537,89 @@
                                 l.albumId = e.albumId,
                                 l.trackId = e.trackId,
                                 l.global_id = e.global_id,
-                                l.showOpsButton = at,
+                                l.showOpsButton = ot,
                                 l.libraryTrackInfoForReference = null,
-                                null !== l.deviceTrackInfoForReference && (l = i(l)),
-                                d.push(l)
+                                null !== l.deviceTrackInfoForReference && (l = d(l)),
+                                l = u(l),
+                                f.push(l)
                             } else
                                 0
                         }
-                    if (d = [...de, ...d],
-                    le && le.length > 0 && lt) {
-                        const e = le.map(e=>e.id);
-                        d.sort((t,a)=>e.indexOf(t.id) - e.indexOf(a.id))
+                    if (f = [...be, ...f],
+                    se && se.length > 0 && st) {
+                        const e = se.map(e=>e.id);
+                        f.sort((t,a)=>e.indexOf(t.id) - e.indexOf(a.id))
                     }
-                    Ot() && e === $t.current && re(d)
+                    Pt() && e === Wt.current && (f.forEach(e=>{
+                        var t, a;
+                        ne.updateTrackMetaData(e.id, null !== (t = e.metadata) && void 0 !== t && t.title ? e.metadata.title : "", null !== (a = e.metadata) && void 0 !== a && a.artist ? e.metadata.artist : "", "", "", !1)
+                    }
+                    ),
+                    ie(f),
+                    M.V.hasFlag("sync-user-library-to-device") && !qt.current && de.length > 0 && fe.length > 0 && c && ((0,
+                    k.SJ)(f, K, b),
+                    qt.current = !0))
                 });
                 return function() {
                     return e.apply(this, arguments)
                 }
             }()
-              , qt = function() {
+              , Qt = function() {
                 var a = (0,
                 l.Z)(function*(a) {
-                    if (De === a) {
-                        Ae(a),
-                        He(a),
-                        je(!1);
+                    if (Ne === a) {
+                        Ge(a),
+                        Ze(a),
+                        We(!1);
                         const n = Object.values(t).find(e=>e.title === a).id;
                         try {
                             if (t[n].tracks.length > 0)
                                 for (const a of t[n].tracks)
-                                    yield e(n, a.id, P.signal);
+                                    yield e(n, a.id, j.signal);
                             else
                                 yield s(n)
                         } catch (e) {
                             console.error(e)
                         } finally {
-                            N && (N.resolve(),
-                            N = null,
-                            P = new AbortController)
+                            F && (F.resolve(),
+                            F = null,
+                            j = new AbortController)
                         }
-                        Ae(null),
-                        He(null)
+                        Ge(null),
+                        Ze(null)
                     } else
-                        Ge(a)
+                        Ue(a)
                 });
                 return function(e) {
                     return a.apply(this, arguments)
                 }
             }()
-              , Bt = function() {
+              , zt = function() {
                 var t = (0,
                 l.Z)(function*(t, a, n) {
-                    if (n && Y.session) {
-                        yield B([a], Y.session.AccessToken),
-                        Pt();
-                        const e = W.filter(e=>e !== a);
-                        K(e)
+                    if (n && te.session) {
+                        yield Q([a], te.session.AccessToken),
+                        Bt();
+                        const e = Y.filter(e=>e !== a);
+                        z(e)
                     } else
                         yield e(t, a),
-                        A()
+                        D()
                 });
                 return function(e, a, n) {
                     return t.apply(this, arguments)
                 }
             }()
-              , Kt = function() {
+              , Yt = function() {
                 var e = (0,
                 l.Z)(function*() {
-                    if (J.push("/"),
-                    Be(null),
+                    if (ae.push("/"),
+                    Qe(null),
                     b(!1),
                     v(!1),
                     c)
                         try {
-                            yield R()
+                            yield A()
                         } catch (e) {
                             console.error(`Error: ${e}`)
                         }
@@ -2598,21 +2631,21 @@
             (0,
             r.useEffect)(()=>{
                 let e = "ADD";
-                e = Rt || (null !== $ ? `\n            ADDING TO DEVICE ${Math.floor(100 * $.total) <= 100 ? Math.floor(100 * $.total) : "100"}%` : "ADD"),
-                Lt(e)
+                e = It || (null !== B ? `\n            ADDING TO DEVICE ${Math.floor(100 * B.total) <= 100 ? Math.floor(100 * B.total) : "100"}%` : "ADD"),
+                xt(e)
             }
-            , [Rt, $]),
+            , [It, B]),
             (0,
             r.useEffect)(()=>{
-                Oe || n || (At(null),
-                Ht(""))
+                Pe || n || (Gt(null),
+                Zt(""))
             }
-            , [Oe, n]);
-            const Wt = function() {
+            , [Pe, n]);
+            const Jt = function() {
                 var t = (0,
                 l.Z)(function*(t, a, n, l, r) {
-                    Ze(!0),
-                    De === be || "RECORD" !== t ? (V({
+                    Fe(!0),
+                    Ne === ke || "RECORD" !== t ? (J({
                         event: "user_track_deleted",
                         data: {
                             trackId: a,
@@ -2621,65 +2654,65 @@
                             global_id: r
                         }
                     }),
-                    He(be),
+                    Ze(ke),
                     yield e(t, a),
-                    He(null),
-                    Ze(!1),
-                    A()) : Ge(be)
+                    Ze(null),
+                    Fe(!1),
+                    D()) : Ue(ke)
                 });
                 return function(e, a, n, l, r) {
                     return t.apply(this, arguments)
                 }
             }()
-              , Vt = e=>{
+              , Xt = e=>{
                 if (c && t)
                     return !!Object.values(t).find(t=>t.title === e)
             }
-              , Qt = e=>!!Object.values(t).find(t=>t.tracks.length === e)
-              , zt = function() {
+              , ea = e=>!!Object.values(t).find(t=>t.tracks.length === e)
+              , ta = function() {
                 var e = (0,
                 l.Z)(function*(e) {
                     if (!e.waveforms_url)
                         return;
-                    return yield ne.getWaveformData(e.waveforms_url, e.id || e.global_id)
+                    return yield ce.getWaveformData(e.waveforms_url, e.id || e.global_id)
                 });
                 return function(t) {
                     return e.apply(this, arguments)
                 }
             }()
-              , Yt = e=>{
+              , aa = e=>{
                 let t = "/connect/stem";
-                te.params.albumSlug !== e && (t = `/connect/stem/album/${e}`),
-                ae.navigate(t)
+                re.params.albumSlug !== e && (t = `/connect/stem/album/${e}`),
+                oe.navigate(t)
             }
-              , Jt = function() {
+              , na = function() {
                 var e = (0,
                 l.Z)(function*() {
-                    yield Pt()
+                    yield Bt()
                 });
                 return function() {
                     return e.apply(this, arguments)
                 }
             }();
-            const Xt = function() {
+            const la = function() {
                 var e = (0,
                 l.Z)(function*(e, t) {
-                    const {albumsStatus: a, startAlbumRestoreAndUpdate: n} = ee;
-                    Me(!!t),
-                    je(!1),
-                    Z = !1,
-                    Fe(null),
-                    Ue({
+                    const {albumsStatus: a, startAlbumRestoreAndUpdate: n} = le;
+                    He(!!t),
+                    We(!1),
+                    P = !1,
+                    Be(null),
+                    je({
                         text: `${t ? "UPDATING" : "UPLOADING"} ${e}`,
                         dots: !0
                     }),
-                    we(!0),
-                    Le(e);
+                    Me(!0),
+                    xe(e);
                     try {
-                        const t = new k.f;
-                        ea(),
+                        const t = new C.f;
+                        ra(),
                         function(e) {
-                            const {albumsStatus: t} = ee
+                            const {albumsStatus: t} = le
                               , a = t[e]
                               , n = [];
                             if (a.restoreAlbumAvailable)
@@ -2694,87 +2727,87 @@
                                         globalId: e.global_id,
                                         started: !1
                                     });
-                            We(n)
+                            Ye(n)
                         }(e),
-                        Be(t),
-                        (a[e].restoreAlbumAvailable || a[e].updateAlbumAvailable) && (ea(),
+                        Qe(t),
+                        (a[e].restoreAlbumAvailable || a[e].updateAlbumAvailable) && (ra(),
                         yield n(e, t.register, a[e].updateAlbumAvailable, e=>{
                             throw new Error("Not enough space")
                         }
                         )),
-                        we(!1)
+                        Me(!1)
                     } catch (e) {
-                        return e.message && (e.message.match(/cancelled/i) || "The user aborted a request." === e.message) ? void we(!1) : e.message && "Not enough space" === e.message ? void Fe(e.message) : (console.log(e),
-                        void Fe("Something went wrong"))
+                        return e.message && (e.message.match(/cancelled/i) || "The user aborted a request." === e.message) ? void Me(!1) : e.message && "Not enough space" === e.message ? void Be(e.message) : (console.log(e),
+                        void Be("Something went wrong"))
                     } finally {
-                        N && (N.resolve(),
-                        N = null),
-                        We(null)
+                        F && (F.resolve(),
+                        F = null),
+                        Ye(null)
                     }
                 });
                 return function(t, a) {
                     return e.apply(this, arguments)
                 }
             }();
-            function ea() {
-                if (Z)
-                    throw Z = !1,
+            function ra() {
+                if (P)
+                    throw P = !1,
                     new Error("Cancelled")
             }
-            const ta = function() {
+            const oa = function() {
                 var e = (0,
                 l.Z)(function*() {
-                    je(!0),
-                    N = new h.C,
-                    P.abort(),
-                    yield N.promise,
-                    je(!1),
-                    Ae(null),
-                    Ge(null)
+                    We(!0),
+                    F = new E.C,
+                    j.abort(),
+                    yield F.promise,
+                    We(!1),
+                    Ge(null),
+                    Ue(null)
                 });
                 return function() {
                     return e.apply(this, arguments)
                 }
             }();
-            function aa() {
-                return (aa = (0,
+            function ca() {
+                return (ca = (0,
                 l.Z)(function*() {
-                    const {resetErrorState: e} = ee;
-                    N = new h.C,
-                    je(!0),
-                    Z = !0,
-                    qe && qe.cancel(),
-                    yield N.promise,
+                    const {resetErrorState: e} = le;
+                    F = new E.C,
+                    We(!0),
+                    P = !0,
+                    Ve && Ve.cancel(),
+                    yield F.promise,
                     e()
                 })).apply(this, arguments)
             }
             Object.values(t).filter(e=>g.xU.includes(e.title)).sort((e,t)=>g.xU.indexOf(e.title) - g.xU.indexOf(t.title));
-            const na = function() {
+            const sa = function() {
                 var e = (0,
                 l.Z)(function*(e, t, a, n) {
                     var l, r, o;
-                    Qe(!0);
+                    Xe(!0);
                     const {metadata: {bpm: c}} = e
                       , s = e.title ? e.title : null === (l = e.metadata) || void 0 === l ? void 0 : l.title
-                      , i = e.artist ? e.artist : null !== (r = e.metadata) && void 0 !== r && r.artists ? null === (o = e.metadata) || void 0 === o ? void 0 : o.artists[0] : "Unknown"
+                      , i = e.artist ? e.artist : null !== (r = e.metadata) && void 0 !== r && r.artists ? null === (o = e.metadata) || void 0 === o ? void 0 : o.artists[0] : H.nP
                       , d = a ? e.metadata.tempos : c
                       , u = a ? e.metadata.color : [(0,
-                    y.lY)(), (0,
-                    y.lY)()];
-                    Tt(t),
-                    wt("");
+                    T.lY)(), (0,
+                    T.lY)()];
+                    Lt(t),
+                    Mt("");
                     try {
-                        const t = new k.f
+                        const t = new C.f
                           , l = new AbortController;
                         let r;
-                        if (Lt("Uploading"),
-                        Mt(null),
-                        Be(t),
+                        if (xt("Uploading"),
+                        Ht(null),
+                        Qe(t),
                         a)
-                            r = yield ne.fetchAndDownloadLatestStems(e.id, e.version, "mp3", e.subscription_required);
+                            r = yield ce.fetchAndDownloadLatestStems(e.id, e.version, "mp3", e.subscription_required);
                         else {
                             const {stems: t} = e;
-                            r = yield ne.downloadStems(t, l.signal)
+                            r = yield ce.downloadStems(t, l.signal)
                         }
                         const o = {
                             global_id: e.id ? e.id : e.global_id,
@@ -2821,16 +2854,16 @@
                             drums: r.drums,
                             other: r.other
                         };
-                        if (!(yield H(c)))
-                            return F(null),
-                            Mt("NOT ENOUGH SPACE"),
+                        if (!(yield O(c)))
+                            return q(null),
+                            Ht("NOT ENOUGH SPACE"),
                             void setTimeout(()=>{
-                                Mt(null),
-                                Tt(""),
-                                wt("")
+                                Ht(null),
+                                Lt(""),
+                                Mt("")
                             }
                             , 2e3);
-                        if (V({
+                        if (J({
                             event: "stem_upload_started",
                             data: {
                                 albumTitle: n,
@@ -2844,8 +2877,8 @@
                                 bpm: c.bpm,
                                 colors: c.colors
                             };
-                            yield O(o, e),
-                            yield ee.restoreAlbumOrder(n, l.signal)
+                            yield U(o, e),
+                            yield le.restoreAlbumOrder(n, l.signal)
                         } else {
                             const e = {
                                 album: c.album,
@@ -2853,254 +2886,254 @@
                                 bpm: c.bpm,
                                 colors: c.colors
                             };
-                            yield O(o, e)
+                            yield U(o, e)
                         }
-                        F(null),
-                        Tt(""),
-                        wt(""),
-                        Mt(null),
-                        Tt(null)
+                        q(null),
+                        Lt(""),
+                        Mt(""),
+                        Ht(null),
+                        Lt(null)
                     } catch (e) {
-                        if (a || Qe(!1),
+                        if (a || Xe(!1),
                         e && e.message && "Cancelled" === e.message)
                             return console.log(e),
-                            Tt(""),
-                            F(null),
+                            Lt(""),
+                            q(null),
                             setTimeout(()=>{
-                                Mt(null)
+                                Ht(null)
                             }
                             , 2e3),
-                            void V({
+                            void J({
                                 error: {
                                     name: "stem_upload_cancelled",
                                     stack: "Cancelled uploading stem",
                                     message: JSON.stringify(e.message || e)
                                 }
                             });
-                        Mt("Error adding stem"),
+                        Ht("Error adding stem"),
                         console.log(e),
                         setTimeout(()=>{
-                            Tt(""),
-                            F(null),
-                            Mt(null)
+                            Lt(""),
+                            q(null),
+                            Ht(null)
                         }
                         , 2e3)
                     } finally {
-                        a && Qe(!1)
+                        a && Xe(!1)
                     }
                 });
                 return function(t, a, n, l) {
                     return e.apply(this, arguments)
                 }
             }();
-            return r.createElement(r.Fragment, null, ht && r.createElement(T.u, {
-                open: !!ht
-            }, r.createElement(S.Z, {
+            return r.createElement(r.Fragment, null, St && r.createElement(S.u, {
+                open: !!St
+            }, r.createElement(w.Z, {
                 closeCallback: ()=>{
-                    ht.albumSlug ? ae.navigate(`/connect/stem/album/${ht.albumSlug}`) : ae.navigate("/connect/stem"),
-                    Et(null)
+                    St.albumSlug ? oe.navigate(`/connect/stem/album/${St.albumSlug}`) : oe.navigate("/connect/stem"),
+                    wt(null)
                 }
                 ,
-                albumId: ht.albumId,
-                track: ht || {},
-                isTrackOnDevice: ht && (ht.global_id || ht.on_device),
-                isOfficialAlbum: ht.isOfficialAlbum,
-                changeTrackCb: e=>ae.navigate(`/connect/stem/track/${e}`),
-                addTrackToDeviceHandler: na,
+                albumId: St.albumId,
+                track: St || {},
+                isTrackOnDevice: St && (St.global_id || St.on_device),
+                isOfficialAlbum: St.isOfficialAlbum,
+                changeTrackCb: e=>oe.navigate(`/connect/stem/track/${e}`),
+                addTrackToDeviceHandler: sa,
                 handleRemoveClick: (e,t)=>{
-                    xt === t ? (Ht(t),
-                    e.albumId ? Wt(e.albumId, e.device_id, e.title, e.artist, e.id) : Wt(e.albumId, e.trackId, e.title, e.metadata.artist, e.global_id)) : At(t)
+                    Dt === t ? (Zt(t),
+                    e.albumId ? Jt(e.albumId, e.device_id, e.title, e.artist, e.id) : Jt(e.albumId, e.trackId, e.title, e.metadata.artist, e.global_id)) : Gt(t)
                 }
                 ,
                 handleCancelTrackUpload: ()=>{
-                    qe && (Mt("Cancelling"),
-                    qe.cancel(),
-                    V({
+                    Ve && (Ht("Cancelling"),
+                    Ve.cancel(),
+                    J({
                         event: "track_upload_cancelled"
                     }))
                 }
                 ,
-                handleDeleteUserTrack: Bt,
-                uploadText: _t,
-                iOSfirstAttemptRef: Nt,
+                handleDeleteUserTrack: zt,
+                uploadText: At,
+                iOSfirstAttemptRef: $t,
                 updateDownloadingTracks: e=>(e=>{
-                    Gt("add" === e ? [...Ut.current, ht.key] : Ut.current.filter(e=>e !== ht.key))
+                    Ut("add" === e ? [...jt.current, St.key] : jt.current.filter(e=>e !== St.key))
                 }
                 )(e),
-                filterTrackTitle: ht,
-                removingKey: It,
-                removeClickedOnce: xt,
-                removingTrack: Oe,
-                deviceTracks: ht.isOfficialAlbum ? ve : oe,
-                feedback: Rt
+                filterTrackTitle: St,
+                removingKey: Ot,
+                removeClickedOnce: Dt,
+                removingTrack: Pe,
+                deviceTracks: St.isOfficialAlbum ? he : de,
+                feedback: It
             })), r.createElement("div", {
                 className: "col-centered track-splitter",
                 id: "track-splitter-top"
-            }, !le || ot && r.createElement(w.Z, null), r.createElement("div", {
-                className: X.currentTrack || X.isNavigating ? "tracks-modal__padding-bottom" : ""
-            }, Se ? r.createElement(r.Fragment, null, Pe ? r.createElement(r.Fragment, null, Pe && "Not enough space" == Pe ? r.createElement(r.Fragment, null, r.createElement("p", {
+            }, !se || dt && r.createElement(_.Z, null), r.createElement("div", {
+                className: ne.currentTrack || ne.isNavigating ? "tracks-modal__padding-bottom" : ""
+            }, Re ? r.createElement(r.Fragment, null, qe ? r.createElement(r.Fragment, null, qe && "Not enough space" == qe ? r.createElement(r.Fragment, null, r.createElement("p", {
                 className: "u-mb-none"
-            }, "Not enough space"), r.createElement("p", null, "Delete tracks and try again"), r.createElement(D, {
+            }, "Not enough space"), r.createElement("p", null, "Delete tracks and try again"), r.createElement(Z, {
                 brackets: !0,
                 text: "BACK",
                 disabled: n,
                 onClick: ()=>{
-                    we(!1)
+                    Me(!1)
                 }
-            })) : r.createElement(r.Fragment, null, r.createElement(D, {
-                text: Pe || Ne.text,
+            })) : r.createElement(r.Fragment, null, r.createElement(Z, {
+                text: qe || $e.text,
                 brackets: !1,
-                dots: Ne.dots
-            }), r.createElement(D, {
+                dots: $e.dots
+            }), r.createElement(Z, {
                 brackets: !0,
                 text: "Try Again",
-                onClick: ()=>Xt(_e, Re)
+                onClick: ()=>la(Ae, Ie)
             }))) : r.createElement("div", {
                 className: "col-centered"
-            }, r.createElement(D, {
-                text: Pe || Ne.text,
+            }, r.createElement(Z, {
+                text: qe || $e.text,
                 brackets: !1,
-                dots: Ne.dots
-            }), ze && "" !== ze && r.createElement("p", null, ze), r.createElement(D, {
+                dots: $e.dots
+            }), et && "" !== et && r.createElement("p", null, et), r.createElement(Z, {
                 brackets: !0,
-                text: $e ? "Cancelling" : "Cancel",
-                onClick: $e ? void 0 : function() {
-                    return aa.apply(this, arguments)
+                text: Ke ? "Cancelling" : "Cancel",
+                onClick: Ke ? void 0 : function() {
+                    return ca.apply(this, arguments)
                 }
-            }))) : r.createElement(r.Fragment, null, !et && r.createElement(r.Fragment, null, !ot && le && le.length >= 0 && r.createElement(r.Fragment, null, r.createElement(G, {
+            }))) : r.createElement(r.Fragment, null, !lt && r.createElement(r.Fragment, null, !dt && se && se.length >= 0 && r.createElement(r.Fragment, null, r.createElement(N, {
                 disabled: (()=>{
                     let e = !1;
-                    return he || (e = !le && !le.length || null !== qe || null === qe && !(()=>!n && !o)()),
+                    return Se || (e = !se && !se.length || null !== Ve || null === Ve && !(()=>!n && !o)()),
                     e
                 }
                 )(),
                 onClick: ()=>{
-                    he ? Yt(he) : Kt(),
-                    Ce(!0)
+                    Se ? aa(Se) : Yt(),
+                    Te(!0)
                 }
             }), r.createElement("div", {
                 className: "u-mb-medium"
             })), r.createElement("div", {
-                className: `tracks-modal__list ${!ot && le && le.length > 0 ? " tracks-modal__list--padding" : ""}`
-            }, !ot && le && le.length >= 0 && r.createElement(r.Fragment, null, fe && fe.map(e=>r.createElement("div", {
+                className: `tracks-modal__list ${!dt && se && se.length > 0 ? " tracks-modal__list--padding" : ""}`
+            }, !dt && se && se.length >= 0 && r.createElement(r.Fragment, null, ve && ve.map(e=>r.createElement("div", {
                 key: e.title,
                 id: e.title.split(" ").join("")
             }, r.createElement(r.Fragment, null, r.createElement("div", {
                 className: "tracks-modal__track"
             }, r.createElement("div", {
                 className: "button-group"
-            }, r.createElement(D, {
+            }, r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
                 text: e.title,
                 onClick: ()=>{
-                    Ee(e.albumSlug),
-                    Yt(e.albumSlug)
+                    we(e.albumSlug),
+                    aa(e.albumSlug)
                 }
-            }), r.createElement(D, {
+            }), r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
                 brackets: !0,
-                text: he === e.albumSlug ? "HIDE" : "SHOW",
+                text: Se === e.albumSlug ? "HIDE" : "SHOW",
                 onClick: ()=>{
-                    Ee(e.albumSlug),
-                    Yt(e.albumSlug)
+                    we(e.albumSlug),
+                    aa(e.albumSlug)
                 }
-            }), r.createElement(D, {
+            }), r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
                 brackets: !0,
                 text: "PLAY",
-                onClick: ()=>Te(e.tracks[0])
-            }), c && t && r.createElement(r.Fragment, null, (!e.hasFullAlbum && null === xe || e.hasUpdate && xe !== e.title || (e.hasAlbum && e.deviceData.tracks.length > 0 || xe === e.title) && !$e) && r.createElement(D, {
+                onClick: ()=>Le(e.tracks[0])
+            }), c && t && r.createElement(r.Fragment, null, (!e.hasFullAlbum && null === De || e.hasUpdate && De !== e.title || (e.hasAlbum && e.deviceData.tracks.length > 0 || De === e.title) && !Ke) && r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
                 brackets: !0,
                 text: e.hasSpaceForAlbum ? (e.hasUpdate,
                 "ADD") : "NOT ENOUGH SPACE",
-                disabled: Ve || !e.hasSpaceForAlbum || null !== xe && null !== Ie || n,
-                onClick: ()=>Xt(e.title, e.hasUpdate)
-            }), (e.hasAlbum && e.deviceData.tracks.length > 0 || xe === e.title) && !$e && r.createElement(D, {
+                disabled: Je || !e.hasSpaceForAlbum || null !== De && null !== Oe || n,
+                onClick: ()=>la(e.title, e.hasUpdate)
+            }), (e.hasAlbum && e.deviceData.tracks.length > 0 || De === e.title) && !Ke && r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
-                brackets: xe !== e.title,
-                dots: xe === e.title,
-                disabled: null !== xe && null !== Ie || n,
-                text: xe === e.title ? "Removing" : `Remove${De === e.title ? "?" : ""}`,
-                onClick: ()=>qt(e.title)
-            }), xe === e.title && r.createElement(D, {
+                brackets: De !== e.title,
+                dots: De === e.title,
+                disabled: null !== De && null !== Oe || n,
+                text: De === e.title ? "Removing" : `Remove${Ne === e.title ? "?" : ""}`,
+                onClick: ()=>Qt(e.title)
+            }), De === e.title && r.createElement(Z, {
                 className: "tracks-modal__button u-my-none",
                 brackets: !0,
-                dots: $e,
-                text: $e ? "Cancelling" : "CANCEL",
-                onClick: ()=>ta()
-            })))), r.createElement(L.Z, {
+                dots: Ke,
+                text: Ke ? "Cancelling" : "CANCEL",
+                onClick: ()=>oa()
+            })))), r.createElement(R.Z, {
                 isOfficialAlbum: !0,
                 tracks: e.tracks,
                 tracksOnDevice: e.deviceData.tracks,
                 albumId: e.albumId,
                 albumSlug: e.albumSlug,
-                albumList: fe,
+                albumList: ve,
                 albumVersion: e.version,
                 albumTitle: e.title,
-                handleRemove: Wt,
-                playAlbumClicked: ye,
-                closeAlbumPlay: ()=>Te(null),
-                visibleAlbumSlug: he,
-                openTrackPlay: e=>Et(e),
-                addTrackToDevice: na,
-                deleting: Ie,
-                deletingKey: St,
-                addingKey: yt,
-                downloadingTracks: Dt,
-                uploadText: _t,
-                removingKey: It,
-                updateRemovingKey: e=>Ht(e),
-                handleRemoveClicked: e=>At(e),
-                removeClickedOnce: xt
-            })))), r.createElement(_.ZP, {
-                fetchUserLibraryWaveforms: e=>zt(e),
+                handleRemove: Jt,
+                playAlbumClicked: _e,
+                closeAlbumPlay: ()=>Le(null),
+                visibleAlbumSlug: Se,
+                openTrackPlay: e=>wt(e),
+                addTrackToDevice: sa,
+                deleting: Oe,
+                deletingKey: Rt,
+                addingKey: _t,
+                downloadingTracks: Nt,
+                uploadText: At,
+                removingKey: Ot,
+                updateRemovingKey: e=>Zt(e),
+                handleRemoveClicked: e=>Gt(e),
+                removeClickedOnce: Dt
+            })))), r.createElement(L.ZP, {
+                fetchUserLibraryWaveforms: e=>ta(e),
                 newTrackUploadedCb: (e,t,a)=>{
-                    Qe(t),
-                    (e && Y.session || e && !a) && (K([e, ...W]),
-                    Jt()),
-                    a && Xe(a)
+                    Xe(t),
+                    (e && te.session || e && !a) && (z([e, ...Y]),
+                    na()),
+                    a && nt(a)
                 }
                 ,
                 unloadAudioEngineTrackCb: ()=>{
-                    X.currentTrack && J.location.pathname.includes("track") && (X.unload(),
-                    J.push("/connect/stem"))
+                    ne.currentTrack && ae.location.pathname.includes("track") && (ne.unload(),
+                    ae.push("/connect/stem"))
                 }
                 ,
-                closeClicked: ke
+                closeClicked: ye
             }), r.createElement("div", {
                 className: "u-mb-medium"
-            }), le && le.length > 0 && r.createElement("div", {
+            }), se && se.length > 0 && r.createElement("div", {
                 className: "tracks-modal__list tracks-modal__albums"
             }, r.createElement("h2", {
                 className: "tracks-modal__track"
-            }, "Library"), r.createElement(L.Z, {
+            }, "Library"), r.createElement(R.Z, {
                 isOfficialAlbum: !1,
                 albumTitle: "OTHER",
-                tracks: le,
-                handleDeleteUserTrack: Bt,
-                handleRemove: Wt,
-                openTrackPlay: e=>Et(e),
-                addTrackToDevice: na,
-                deleting: Ie,
-                deletingKey: St,
-                addingKey: yt,
-                downloadingTracks: Dt,
-                uploadText: _t,
-                removingKey: It,
-                updateRemovingKey: e=>Ht(e),
-                handleRemoveClicked: e=>At(e),
-                removeClickedOnce: xt
-            }))))), bt && r.createElement(r.Fragment, null, r.createElement(C.p6, {
-                sharingRecordingCb: e=>tt(e)
+                tracks: se,
+                handleDeleteUserTrack: zt,
+                handleRemove: Jt,
+                openTrackPlay: e=>wt(e),
+                addTrackToDevice: sa,
+                deleting: Oe,
+                deletingKey: Rt,
+                addingKey: _t,
+                downloadingTracks: Nt,
+                uploadText: At,
+                removingKey: Ot,
+                updateRemovingKey: e=>Zt(e),
+                handleRemoveClicked: e=>Gt(e),
+                removeClickedOnce: Dt
+            }))))), kt && r.createElement(r.Fragment, null, r.createElement(h.p6, {
+                sharingRecordingCb: e=>rt(e)
             }), r.createElement("div", {
                 className: "u-mb-medium"
             }))))))
         }
         ;
-        H(F, "useState{[tracks, setTracks](null)}\nuseState{[deviceTracks, setDeviceTracks]([])}\nuseState{[libraryTracks, setLibraryTracks]([])}\nuseState{[pendingTracks, setPendingTracks]([])}\nuseState{[albumList, setAlbumList](null)}\nuseState{[recordingsKey, setRecordingsKey](null)}\nuseState{[officialDeviceTracks, setOfficialDeviceTracks](null)}\nuseState{[closeClicked, setCloseClicked](false)}\nuseState{[visibleAlbumSlug, setVisibleAlbumSlug](null)}\nuseState{[playAlbumClicked, setPlayAlbumClicked](null)}\nuseState{[addingAlbum, setAddingAlbum](false)}\nuseState{[addingAlbumTitle, setAddingAlbumTitle](null)}\nuseState{[isUpdatingAlbum, setIsUpdatingAlbum](false)}\nuseState{[isAlbumDeleting, setIsAlbumDeleting](null)}\nuseState{[deletingAlbumTitle, setDeletingAlbumTitle](null)}\nuseState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[removingTrack, setRemovingTrack](false)}\nuseState{[status, setStatus]({ text: '', dots: false })}\nuseState{[error, setError](null)}\nuseState{[cancelling, setCancelling](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[restoreProgress, setRestoreProgress](null)}\nuseState{[trackUploading, setTrackUploading](false)}\nuseState{[trackTitleUploading, setTrackTitleUploading](null)}\nuseState{[uploadingFileTrackData, setUploadingFileTrackData](null)}\nuseState{[sharingRecording, setSharingRecording](false)}\nuseState{[deviceTracksFirstLoadedAfterConnect, setDeviceTracksFirstLoadedAfterConnect](false)}\nuseState{[userLibraryFirstLoaded, setUserLibraryFirstLoaded](false)}\nuseState{[displayStemLoadingIcon, setDisplayStemLoadingIcon](true)}\nuseState{[checkingForCrucialUpdates, setCheckingForCrucialUpdates](true)}\nuseState{[deviceTracksLoaded, setDeviceTracksLoaded](false)}\nuseState{[userLibraryLoaded, setuserLibraryLoaded](false)}\nuseState{[displayRecordings, setDisplayRecordings](false)}\nuseState{[loadingDeviceTracks, setLoadingDeviceTracks](false)}\nuseState{[loadingDeviceTracksAfterLogin, setLoadingDeviceTracksAfterLogin](false)}\nuseState{[openTrackPlay, setOpenTrackPlay](null)}\nuseState{[addingKey, setAddingKey]('')}\nuseState{[deletingKey, setDeletingKey]('')}\nuseState{[uploadText, setUploadText]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[removeClickedOnce, setRemoveClickedOnce](null)}\nuseState{[removingKey, setRemovingKey](null)}\nuseState{[downloadingTracks, setDownloadingTracks]([])}\nuseMounted{isMounted}\nuseRef{needleRef2}\nuseRef{iOSfirstAttemptRef}\nuseRef{downloadingTracksRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{needleRef}\nuseEffect{}\nuseEffect{}", ()=>[E.s]);
-        const $ = F
-          , j = (0,
+        O(q, "useState{[tracks, setTracks](null)}\nuseState{[deviceTracks, setDeviceTracks]([])}\nuseState{[libraryTracks, setLibraryTracks]([])}\nuseState{[pendingTracks, setPendingTracks]([])}\nuseState{[albumList, setAlbumList](null)}\nuseState{[recordingsKey, setRecordingsKey](null)}\nuseState{[officialDeviceTracks, setOfficialDeviceTracks](null)}\nuseState{[closeClicked, setCloseClicked](false)}\nuseState{[visibleAlbumSlug, setVisibleAlbumSlug](null)}\nuseState{[playAlbumClicked, setPlayAlbumClicked](null)}\nuseState{[addingAlbum, setAddingAlbum](false)}\nuseState{[addingAlbumTitle, setAddingAlbumTitle](null)}\nuseState{[isUpdatingAlbum, setIsUpdatingAlbum](false)}\nuseState{[isAlbumDeleting, setIsAlbumDeleting](null)}\nuseState{[deletingAlbumTitle, setDeletingAlbumTitle](null)}\nuseState{[deleteClickedOnce, setDeleteClickedOnce](null)}\nuseState{[removingTrack, setRemovingTrack](false)}\nuseState{[status, setStatus]({ text: '', dots: false })}\nuseState{[error, setError](null)}\nuseState{[cancelling, setCancelling](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[restoreProgress, setRestoreProgress](null)}\nuseState{[trackUploading, setTrackUploading](false)}\nuseState{[trackTitleUploading, setTrackTitleUploading](null)}\nuseState{[uploadingFileTrackData, setUploadingFileTrackData](null)}\nuseState{[sharingRecording, setSharingRecording](false)}\nuseState{[deviceTracksFirstLoadedAfterConnect, setDeviceTracksFirstLoadedAfterConnect](false)}\nuseState{[userLibraryFirstLoaded, setUserLibraryFirstLoaded](false)}\nuseState{[displayStemLoadingIcon, setDisplayStemLoadingIcon](true)}\nuseState{[checkingForCrucialUpdates, setCheckingForCrucialUpdates](true)}\nuseState{[deviceTracksLoaded, setDeviceTracksLoaded](false)}\nuseState{[userLibraryLoaded, setuserLibraryLoaded](false)}\nuseState{[displayRecordings, setDisplayRecordings](false)}\nuseState{[loadingDeviceTracks, setLoadingDeviceTracks](false)}\nuseState{[loadingDeviceTracksAfterLogin, setLoadingDeviceTracksAfterLogin](false)}\nuseState{[openTrackPlay, setOpenTrackPlay](null)}\nuseState{[addingKey, setAddingKey]('')}\nuseState{[deletingKey, setDeletingKey]('')}\nuseState{[uploadText, setUploadText]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[removeClickedOnce, setRemoveClickedOnce](null)}\nuseState{[removingKey, setRemovingKey](null)}\nuseState{[downloadingTracks, setDownloadingTracks]([])}\nuseMounted{isMounted}\nuseRef{needleRef2}\nuseRef{iOSfirstAttemptRef}\nuseRef{downloadingTracksRef}\nuseRef{syncUserLibraryToDeviceRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{needleRef}\nuseEffect{}\nuseEffect{}", ()=>[y.s]);
+        const B = q
+          , K = (0,
         s.j)({
             module: "platform"
         })((0,
@@ -3112,22 +3145,22 @@
         b.o)((0,
         f.f)((0,
         v.q)((0,
-        p.E9)(F))))))))))
-          , q = j
-          , B = q;
+        p.E9)(q))))))))))
+          , W = K
+          , V = W;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(D, "Button", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(G, "CloseButton", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(O, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(Z, "cancelled", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(N, "exitNotification", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(U, "RESERVED_ALBUMS", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(P, "abortController", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(F, "PlatformComp", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register($, "__TEST__Platform", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(j, "Platform", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
-            e.register(q, "default", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"))
+            e && (e.register(Z, "Button", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(N, "CloseButton", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(U, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(P, "cancelled", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(F, "exitNotification", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register($, "RESERVED_ALBUMS", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(j, "abortController", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(q, "PlatformComp", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(B, "__TEST__Platform", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(K, "Platform", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"),
+            e.register(W, "default", "/home/vsts/work/1/s/src/containers/Platform/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
