@@ -15,11 +15,11 @@
           , _loadable_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("9c2db445b2a1a7a1cf6d")
           , react_helmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("0d7f0986bcd2f33d8a2a")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("8a5d22dd0b24a6092d3e")
-          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("f60aef9fa88f4e9ce07a")
-          , _utils_browser_detection__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("5347e167343c470dbdfe")
-          , _contexts_account__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("ad21e61587d47603cd1c")
-          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("77d9647920c06e8befd6")
-          , _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("8390a660195ca787c81e");
+          , _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("8390a660195ca787c81e")
+          , _contexts_webusb__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("f60aef9fa88f4e9ce07a")
+          , _utils_browser_detection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("5347e167343c470dbdfe")
+          , _contexts_account__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("ad21e61587d47603cd1c")
+          , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("77d9647920c06e8befd6");
         module = __webpack_require__.hmd(module),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -79,15 +79,30 @@
             constructor(e) {
                 super(e),
                 this.debouncedUpdateHeight = (0,
-                _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_9__.Ds)(this.updateAppHeight, 250),
+                _kano_kbc_utils__WEBPACK_IMPORTED_MODULE_5__.Ds)(this.updateAppHeight, 250),
                 this.onVideoLoaded = (()=>{
+                    const {tracking: {trackEvent: e}} = this.props;
                     this.props.onLoaded(),
                     this.props.onImagesLoaded(),
                     this.setState({
                         loading: !1,
                         imagesLoaded: !0
                     }),
-                    document.body.classList.add("loaded")
+                    document.body.classList.add("loaded"),
+                    e({
+                        event: "images_loaded"
+                    })
+                }
+                ),
+                this.nextProduct = (()=>{
+                    const {currentProductIndex: e} = this.state
+                      , {products: _} = this.props
+                      , t = e + 1;
+                    t >= _.length ? this.setState({
+                        currentProductIndex: 0
+                    }) : this.setState({
+                        currentProductIndex: t
+                    })
                 }
                 ),
                 this.state = {
@@ -95,9 +110,10 @@
                     pause: !1,
                     imagesLoaded: !1,
                     isIPhone: (0,
-                    _utils_browser_detection__WEBPACK_IMPORTED_MODULE_6__.gn)() && window.innerWidth < 600 && ios_inner_height__WEBPACK_IMPORTED_MODULE_1___default()() > 700,
+                    _utils_browser_detection__WEBPACK_IMPORTED_MODULE_7__.gn)() && window.innerWidth < 600 && ios_inner_height__WEBPACK_IMPORTED_MODULE_1___default()() > 700,
                     isIOSSafari: (0,
-                    _utils_browser_detection__WEBPACK_IMPORTED_MODULE_6__.nz)()
+                    _utils_browser_detection__WEBPACK_IMPORTED_MODULE_7__.nz)(),
+                    currentProductIndex: 0
                 }
             }
             updateAppHeight() {
@@ -116,38 +132,38 @@
                 window.removeEventListener("resize", this.debouncedUpdateHeight),
                 window.removeEventListener("orientationchange", this.debouncedUpdateHeight)
             }
-            componentDidUpdate(e, _, t) {
-                const {history: r, audioEngine: o} = this.props;
-                "/" === r.location.pathname && o.trackIsLoaded && o.unload()
-            }
             render() {
-                const {imagesLoaded: e, loading: _, isIPhone: t, isIOSSafari: r} = this.state
-                  , {isUK: o, hidden: a, config: n} = this.props;
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                    className: `home-wrapper${a ? " home-wrapper--hidden" : ""}`
-                }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_3__.ql, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", null, n.KB_APP_TITLE), react__WEBPACK_IMPORTED_MODULE_0__.createElement("meta", {
+                const {imagesLoaded: e, loading: _, isIPhone: t, isIOSSafari: r, currentProductIndex: o} = this.state
+                  , {isUK: a, hidden: n, config: i, products: d, audioEngine: c} = this.props;
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                    className: `home-wrapper${n ? " home-wrapper--hidden" : ""}${c.currentTrack || c.isNavigating ? " home-wrapper__padding-bottom" : ""}`
+                }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_3__.ql, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("title", null, i.KB_APP_TITLE), react__WEBPACK_IMPORTED_MODULE_0__.createElement("meta", {
                     name: "twitter:title",
-                    content: n.KB_APP_TITLE
+                    content: i.KB_APP_TITLE
                 }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("meta", {
                     property: "og:title",
-                    content: n.KB_APP_TITLE
+                    content: i.KB_APP_TITLE
                 }), react__WEBPACK_IMPORTED_MODULE_0__.createElement("meta", {
                     property: "og:url",
-                    content: n.KB_APP_URL
+                    content: i.KB_APP_URL
                 })), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: `home${_ ? "" : " home--loaded"}${t ? " home--iphone" : ""}`
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: `player player--show${t && r ? " player--iphone-safari" : ""}`,
                     onClick: ()=>this.props.history.push("/video")
-                }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductVideo, {
+                }, d.map((e,_)=>react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductVideo, {
+                    key: e.sku,
+                    product: e,
+                    isVisible: _ === o,
                     onVideoLoadedCb: this.onVideoLoaded
-                })), react__WEBPACK_IMPORTED_MODULE_0__.createElement(Menu, {
-                    config: this.props.config,
-                    isUK: o,
+                }))), react__WEBPACK_IMPORTED_MODULE_0__.createElement(Menu, {
+                    config: i,
+                    products: d,
+                    isUK: a,
+                    currentProductIndex: o,
                     imagesLoaded: e,
-                    classList: "home__buy",
-                    onConnectClicked: ()=>this.props.connectToDevice()
-                }))))
+                    onNextProductClicked: this.nextProduct
+                })))
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -157,10 +173,10 @@
         _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_4__.j)({
             module: "home"
         })((0,
-        _contexts_account__WEBPACK_IMPORTED_MODULE_7__.o)((0,
-        _contexts_webusb__WEBPACK_IMPORTED_MODULE_5__.MM)((0,
+        _contexts_account__WEBPACK_IMPORTED_MODULE_8__.o)((0,
+        _contexts_webusb__WEBPACK_IMPORTED_MODULE_6__.MM)((0,
         react_router_dom__WEBPACK_IMPORTED_MODULE_11__.withRouter)((0,
-        _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_8__.f)(HomePageComp)))))
+        _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_9__.f)(HomePageComp)))))
           , _default = HomePage
           , __WEBPACK_DEFAULT_EXPORT__ = _default;
         !function() {

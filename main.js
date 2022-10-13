@@ -269,9 +269,9 @@
                       , A = v.getUniformLocation(E, "uTime")
                       , y = v.getUniformLocation(E, "uResolution")
                       , P = v.getUniformLocation(E, "uColor1")
-                      , O = v.getUniformLocation(E, "uColor2");
+                      , M = v.getUniformLocation(E, "uColor2");
                     let T = 0
-                      , M = !1;
+                      , O = !1;
                     const D = t=>{
                         v.clearColor(0, 0, 0, 1),
                         v.clear(v.COLOR_BUFFER_BIT),
@@ -283,18 +283,18 @@
                             i.oo)(e.substring(1)).map(e=>e / 255))
                               , n = b.current.every((e,r)=>(0,
                             l.H)(e, t[r]));
-                            n || M || (M = !0,
+                            n || O || (O = !0,
                             T = 0),
-                            M && (T += .002,
+                            O && (T += .002,
                             b.current = b.current.map((e,r)=>{
                                 const o = t[r];
                                 return e.map((e,t)=>(0,
                                 c.t)(e, o[t], T))
                             }
                             ),
-                            n && (M = !1,
+                            n && (O = !1,
                             T = 0)),
-                            T >= 1 && (M = !1,
+                            T >= 1 && (O = !1,
                             T = 0,
                             b.current = t);
                             const _ = document.querySelectorAll(".ye-waveform");
@@ -316,7 +316,7 @@
                         }
                         const [n,_] = b.current;
                         v.uniform4f(P, n[0], n[1], n[2], 1),
-                        v.uniform4f(O, _[0], _[1], _[2], 1),
+                        v.uniform4f(M, _[0], _[1], _[2], 1),
                         v.drawArrays(v.TRIANGLES, 0, g),
                         p = requestAnimationFrame(D)
                     }
@@ -522,45 +522,45 @@
                 let P;
                 o.width = o.clientWidth,
                 o.height = o.clientHeight;
-                var O = o.getContext("webgl");
-                if (O) {
-                    s.current = O,
+                var M = o.getContext("webgl");
+                if (M) {
+                    s.current = M,
                     t();
                     const n = c[r]
-                      , T = l(O, n.vs, n.fs)
-                      , M = _(O, T)
-                      , D = O.getUniformLocation(T, "uTime")
-                      , L = O.getUniformLocation(T, "uTrackPosition")
-                      , w = O.getUniformLocation(T, "uResolution")
-                      , k = O.getUniformLocation(T, "uColor1")
-                      , C = O.getUniformLocation(T, "uColor2")
-                      , R = O.getUniformLocation(T, "uColor3")
-                      , S = O.getUniformLocation(T, "uColor4")
-                      , U = O.getUniformLocation(T, "uVocalsVolume")
-                      , x = O.getUniformLocation(T, "uOtherVolume")
-                      , I = O.getUniformLocation(T, "uDrumsVolume")
-                      , B = O.getUniformLocation(T, "uBassVolume")
-                      , K = O.getUniformLocation(T, "uStoppedAt")
-                      , G = O.getUniformLocation(T, "uTrackSamples")
-                      , W = [O.getUniformLocation(T, "uVocals"), O.getUniformLocation(T, "uOther"), O.getUniformLocation(T, "uDrums"), O.getUniformLocation(T, "uBass")]
+                      , T = l(M, n.vs, n.fs)
+                      , O = _(M, T)
+                      , D = M.getUniformLocation(T, "uTime")
+                      , L = M.getUniformLocation(T, "uTrackPosition")
+                      , w = M.getUniformLocation(T, "uResolution")
+                      , k = M.getUniformLocation(T, "uColor1")
+                      , C = M.getUniformLocation(T, "uColor2")
+                      , R = M.getUniformLocation(T, "uColor3")
+                      , U = M.getUniformLocation(T, "uColor4")
+                      , S = M.getUniformLocation(T, "uVocalsVolume")
+                      , x = M.getUniformLocation(T, "uOtherVolume")
+                      , I = M.getUniformLocation(T, "uDrumsVolume")
+                      , B = M.getUniformLocation(T, "uBassVolume")
+                      , K = M.getUniformLocation(T, "uStoppedAt")
+                      , G = M.getUniformLocation(T, "uTrackSamples")
+                      , W = [M.getUniformLocation(T, "uVocals"), M.getUniformLocation(T, "uOther"), M.getUniformLocation(T, "uDrums"), M.getUniformLocation(T, "uBass")]
                       , H = [];
                     for (const e of ["vocals", "other", "drums", "bass"]) {
-                        const e = d(O, [], O.RGBA, 128, 128);
+                        const e = d(M, [], M.RGBA, 128, 128);
                         H.push(e)
                     }
                     f.current = H;
                     const N = t=>{
-                        O.clearColor(0, 0, 0, 1),
-                        O.clear(O.COLOR_BUFFER_BIT),
-                        O.uniform1f(D, t),
-                        O.uniform2f(w, o.clientWidth, o.clientHeight);
+                        M.clearColor(0, 0, 0, 1),
+                        M.clear(M.COLOR_BUFFER_BIT),
+                        M.uniform1f(D, t),
+                        M.uniform2f(w, o.clientWidth, o.clientHeight);
                         const r = i.current
                           , n = f.current;
-                        if (O.uniform4f(k, .6, .6235, .6745, 1),
-                        O.uniform4f(C, .8941, .8235, .815686, 1),
-                        O.uniform4f(R, .90196, .70588, .63529, 1),
-                        O.uniform4f(S, .6, .62745, .67843, 1),
-                        r ? (O.uniform1f(L, e.getCurrentTime() / e.getDuration()),
+                        if (M.uniform4f(k, .6, .6235, .6745, 1),
+                        M.uniform4f(C, .8941, .8235, .815686, 1),
+                        M.uniform4f(R, .90196, .70588, .63529, 1),
+                        M.uniform4f(U, .6, .62745, .67843, 1),
+                        r ? (M.uniform1f(L, e.getCurrentTime() / e.getDuration()),
                         u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
                         e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
                         p.current > h.current ? p.current -= .033 : p.current < h.current && (p.current += .033),
@@ -570,28 +570,28 @@
                         E.current > g.current ? E.current -= .033 : E.current < g.current && (E.current += .033),
                         e.shouldMute(a.wA.Bass) ? 1 === y.current && (y.current = 0) : y.current = 1,
                         A.current > y.current ? A.current -= .033 : A.current < y.current && (A.current += .033),
-                        O.uniform1f(U, p.current),
-                        O.uniform1f(x, b.current),
-                        O.uniform1f(I, E.current),
-                        O.uniform1f(B, A.current),
-                        O.uniform1f(K, m.current)) : (O.uniform1f(L, 0),
-                        O.uniform1f(U, 0),
-                        O.uniform1f(x, 0),
-                        O.uniform1f(I, 0),
-                        O.uniform1f(B, 0),
-                        O.uniform1f(K, 0)),
+                        M.uniform1f(S, p.current),
+                        M.uniform1f(x, b.current),
+                        M.uniform1f(I, E.current),
+                        M.uniform1f(B, A.current),
+                        M.uniform1f(K, m.current)) : (M.uniform1f(L, 0),
+                        M.uniform1f(S, 0),
+                        M.uniform1f(x, 0),
+                        M.uniform1f(I, 0),
+                        M.uniform1f(B, 0),
+                        M.uniform1f(K, 0)),
                         n) {
                             let e = 0;
                             r && (e = r.waveformData.drums.intensity.length),
-                            O.uniform1f(G, e);
+                            M.uniform1f(G, e);
                             for (let e = 0; e < n.length; e += 1) {
                                 const t = n[e];
-                                O.activeTexture(O.TEXTURE0 + e),
-                                O.bindTexture(O.TEXTURE_2D, t),
-                                O.uniform1i(W[e], e)
+                                M.activeTexture(M.TEXTURE0 + e),
+                                M.bindTexture(M.TEXTURE_2D, t),
+                                M.uniform1i(W[e], e)
                             }
                         }
-                        O.drawArrays(O.TRIANGLES, 0, M),
+                        M.drawArrays(M.TRIANGLES, 0, O),
                         P = requestAnimationFrame(N)
                     }
                     ;
@@ -826,7 +826,7 @@
                 var t;
                 null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T)
             }
-              , O = e=>{
+              , M = e=>{
                 var t;
                 1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T))
             }
@@ -847,7 +847,7 @@
                     r(f, e)
                 }
             }
-              , M = (t,o)=>{
+              , O = (t,o)=>{
                 const a = t.target.value;
                 let n;
                 if ((n = "" === a ? 0 : parseInt(a) && parseInt(a) > 255 ? 255 : parseInt(a)) && n <= 255 || 0 === n) {
@@ -884,12 +884,12 @@
                     }
                 }
                 return g.current.addEventListener("mousedown", y),
-                g.current.addEventListener("mouseenter", O),
+                g.current.addEventListener("mouseenter", M),
                 g.current.addEventListener("mouseup", P),
                 ()=>{
                     var e, t, r;
                     null === (e = g.current) || void 0 === e || e.removeEventListener("mousedown", y),
-                    null === (t = g.current) || void 0 === t || t.removeEventListener("mouseenter", O),
+                    null === (t = g.current) || void 0 === t || t.removeEventListener("mouseenter", M),
                     null === (r = g.current) || void 0 === r || r.removeEventListener("mouseup", P)
                 }
             }
@@ -986,15 +986,15 @@
                 className: "input-color__value"
             }, a.createElement(u, {
                 value: `${i[0]}`,
-                onChange: e=>M(e, 0),
+                onChange: e=>O(e, 0),
                 className: "input-color__box"
             }), a.createElement(u, {
                 value: `${i[1]}`,
-                onChange: e=>M(e, 1),
+                onChange: e=>O(e, 1),
                 className: "input-color__box"
             }), a.createElement(u, {
                 value: `${i[2]}`,
-                onChange: e=>M(e, 2),
+                onChange: e=>O(e, 2),
                 className: "input-color__box"
             })), a.createElement(u, {
                 value: `${_}`,
@@ -1138,9 +1138,9 @@
             a.useState)("")
               , [y,P] = (0,
             a.useState)("")
-              , [O,T] = (0,
+              , [M,T] = (0,
             a.useState)(!1)
-              , [M,D] = (0,
+              , [O,D] = (0,
             a.useState)(!0)
               , L = (0,
             m.s)()
@@ -1156,12 +1156,12 @@
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
-            const S = (0,
-            a.useRef)();
-            S.current = e.trackIsLoaded;
             const U = (0,
             a.useRef)();
-            U.current = e.shouldHideMiniPlayer;
+            U.current = e.trackIsLoaded;
+            const S = (0,
+            a.useRef)();
+            S.current = e.shouldHideMiniPlayer;
             const x = (0,
             n.useHistory)();
             let I;
@@ -1203,15 +1203,15 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (O && T(!1),
+                e.currentTrack && (M && T(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === S.current && (D(!1),
+                    !0 === U.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== S.current && (D(!0),
+                !0 !== U.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1226,7 +1226,7 @@
                     e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
                 else {
                     const t = e.getActiveQueue()[d + 1];
-                    t && V(t.id || t.global_id)
+                    t && F(t.id || t.global_id)
                 }
             }
             , [e.playbackState]),
@@ -1239,16 +1239,16 @@
             a.useRef)();
             K.current = e.getActiveQueue();
             const G = t=>{
-                if (!U.current) {
-                    if (S.current && " " === t.key && (t.preventDefault(),
+                if (!S.current) {
+                    if (U.current && " " === t.key && (t.preventDefault(),
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
-                        e && V(e.id || e.global_id)
+                        e && F(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
                         const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : V(t.id || t.global_id))
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
                     }
                 }
             }
@@ -1312,16 +1312,16 @@
                 t.stopPropagation(),
                 x.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , V = t=>{
+              , F = t=>{
                 (0,
                 p.Z)(),
                 l(t),
                 e.setIsNavigating(!0),
                 e.stop(),
-                F(),
-                O && T(!1)
+                V(),
+                M && T(!1)
             }
-              , F = (0,
+              , V = (0,
             a.useCallback)((0,
             s.Ds)(W, 500), []);
             return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && e.getHasPlayed() && a.createElement("div", {
@@ -1334,7 +1334,7 @@
                 onClick: N
             }, a.createElement("div", {
                 ref: B,
-                className: `mini-player__stems ${M ? "mini-player__stems--loading" : ""}`
+                className: `mini-player__stems ${O ? "mini-player__stems--loading" : ""}`
             }, (()=>Object.values(_.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
                   , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
@@ -1368,7 +1368,7 @@
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(c.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: V,
+                goToTrackCb: F,
                 trackIndex: d
             }))))
         }
@@ -1430,9 +1430,9 @@
             a.useState)("")
               , [y,P] = (0,
             a.useState)("")
-              , [O,T] = (0,
+              , [M,T] = (0,
             a.useState)(!1)
-              , [M,D] = (0,
+              , [O,D] = (0,
             a.useState)(!0)
               , L = (0,
             m.s)()
@@ -1448,12 +1448,12 @@
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
-            const S = (0,
-            a.useRef)();
-            S.current = e.trackIsLoaded;
             const U = (0,
             a.useRef)();
-            U.current = e.shouldHideMiniPlayer;
+            U.current = e.trackIsLoaded;
+            const S = (0,
+            a.useRef)();
+            S.current = e.shouldHideMiniPlayer;
             const x = (0,
             n.useHistory)();
             let I;
@@ -1495,15 +1495,15 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (O && T(!1),
+                e.currentTrack && (M && T(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === S.current && (D(!1),
+                    !0 === U.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== S.current && (D(!0),
+                !0 !== U.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1518,7 +1518,7 @@
                     e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
                 else {
                     const t = e.getActiveQueue()[d + 1];
-                    t && V(t.id || t.global_id)
+                    t && F(t.id || t.global_id)
                 }
             }
             , [e.playbackState]),
@@ -1531,16 +1531,16 @@
             a.useRef)();
             K.current = e.getActiveQueue();
             const G = t=>{
-                if (!U.current) {
-                    if (S.current && " " === t.key && (t.preventDefault(),
+                if (!S.current) {
+                    if (U.current && " " === t.key && (t.preventDefault(),
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
-                        e && V(e.id || e.global_id)
+                        e && F(e.id || e.global_id)
                     }
                     if ("ArrowLeft" === t.key) {
                         const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : V(t.id || t.global_id))
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
                     }
                 }
             }
@@ -1604,16 +1604,16 @@
                 t.stopPropagation(),
                 x.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , V = t=>{
+              , F = t=>{
                 (0,
                 p.Z)(),
                 l(t),
                 e.setIsNavigating(!0),
                 e.stop(),
-                F(),
-                O && T(!1)
+                V(),
+                M && T(!1)
             }
-              , F = (0,
+              , V = (0,
             a.useCallback)((0,
             s.Ds)(W, 500), []);
             return a.createElement(a.Fragment, null, a.createElement("div", {
@@ -1626,7 +1626,7 @@
                 onClick: N
             }, a.createElement("div", {
                 ref: B,
-                className: `mini-player-shader__stems ${M ? "mini-player-shader__stems--loading" : ""}`
+                className: `mini-player-shader__stems ${O ? "mini-player-shader__stems--loading" : ""}`
             }, (()=>Object.values(_.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
                   , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
@@ -1660,7 +1660,7 @@
                 onTouchEnd: e=>e.stopPropagation()
             }, a.createElement(c.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: V,
+                goToTrackCb: F,
                 trackIndex: d
             })))))
         }
@@ -2025,7 +2025,7 @@
           , A = r("50adafd66d905a6a5399")
           , y = r("3029aafe6858c31fb8c9")
           , P = r("d6e61794281205c7e43a");
-        function O(e, t) {
+        function M(e, t) {
             var r = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
                 var o = Object.getOwnPropertySymbols(e);
@@ -2039,10 +2039,10 @@
         function T(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var r = null != arguments[t] ? arguments[t] : {};
-                t % 2 ? O(Object(r), !0).forEach(function(t) {
+                t % 2 ? M(Object(r), !0).forEach(function(t) {
                     (0,
                     o.Z)(e, t, r[t])
-                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : O(Object(r)).forEach(function(t) {
+                }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : M(Object(r)).forEach(function(t) {
                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                 })
             }
@@ -2053,7 +2053,7 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var M = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var O = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
@@ -2121,13 +2121,13 @@
           , C = ({webUSBClient: e, trackApiClient: t, tracking: {trackEvent: r}, albumRestoreClient: {restoreError: o, resetState: s}, viewManagerClient: {setNewTrack: i, setDeviceFullUploadError: c}, unloadAudioEngineTrackCb: l, accountClient: d, history: u, newTrackUploadedCb: f, closeClicked: m, fetchUserLibraryWaveforms: p})=>{
             const h = (0,
             n.useRef)(null)
-              , O = (0,
+              , M = (0,
             n.useRef)(null)
-              , [M,C] = (0,
+              , [O,C] = (0,
             n.useState)(null)
-              , [R,S] = (0,
+              , [R,U] = (0,
             n.useState)(null)
-              , [U,x] = (0,
+              , [S,x] = (0,
             n.useState)(null)
               , [I,B] = (0,
             n.useState)(!1)
@@ -2135,17 +2135,17 @@
             n.useState)(null)
               , [W,H] = (0,
             n.useState)(null)
-              , [N,V] = (0,
+              , [N,F] = (0,
             n.useState)(null)
-              , [F,q] = (0,
+              , [V,q] = (0,
             n.useState)("")
               , [j,Z] = (0,
             n.useState)(null)
-              , [$,Q] = (0,
+              , [Q,z] = (0,
             n.useState)(null)
-              , [z,Y] = (0,
+              , [Y,J] = (0,
             n.useState)(!1)
-              , [J,X] = (0,
+              , [X,$] = (0,
             n.useState)(null)
               , [ee,te] = (0,
             n.useState)(!1)
@@ -2166,7 +2166,7 @@
             (0,
             n.useEffect)(()=>{
                 W && W.id && N && d.session ? (i(W),
-                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (V(null),
+                u.push(`/connect/stem/track/${W.id}`)) : W && !I && (F(null),
                 i(W),
                 (0,
                 b.gn)() || !e.deviceConnected ? u.push(`/connect/stem/track/${W.id}`) : u.push("/connect/new"),
@@ -2180,9 +2180,9 @@
             , [m]),
             (0,
             n.useEffect)(()=>{
-                (o || ue) && (ce || M) && de(!0)
+                (o || ue) && (ce || O) && de(!0)
             }
-            , [M, ce, o, ue]),
+            , [O, ce, o, ue]),
             (0,
             n.useEffect)(()=>{
                 ee && de(!1)
@@ -2196,9 +2196,9 @@
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
-                ne($ || "Upload")
+                ne(Q || "Upload")
             }
-            , [$]),
+            , [Q]),
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
@@ -2209,12 +2209,12 @@
                 var o = (0,
                 a.Z)(function*(o) {
                     o.preventDefault(),
-                    M || R || le(!0),
+                    O || R || le(!0),
                     H(null),
-                    V(null),
+                    F(null),
                     B(!1),
                     ie(!0),
-                    null === M && "" === F && null === R && (console.error("Error: no file or url found"),
+                    null === O && "" === V && null === R && (console.error("Error: no file or url found"),
                     Z(null)),
                     Z("Splitting"),
                     ne("Splitting");
@@ -2224,17 +2224,17 @@
                         const u = new v.f;
                         var n;
                         if (G(u),
-                        null !== M)
+                        null !== O)
                             r({
                                 event: "track_split",
                                 data: {
-                                    name: M.name,
-                                    size: M.size,
-                                    type: M.type,
+                                    name: O.name,
+                                    size: O.size,
+                                    type: O.type,
                                     single_file: !0
                                 }
                             }),
-                            o = yield t.createTrackFromFile(M, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1);
+                            o = yield t.createTrackFromFile(O, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1);
                         else if (null !== R) {
                             var s;
                             r({
@@ -2250,12 +2250,12 @@
                                 event: "track_split",
                                 data: {
                                     type: "url",
-                                    url: `${F}`
+                                    url: `${V}`
                                 }
                             }),
-                            o = yield t.createTrackFromLink(F, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1)
+                            o = yield t.createTrackFromLink(V, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1)
                         }
-                        if (null !== M || null === R) {
+                        if (null !== O || null === R) {
                             const e = Date.now();
                             r({
                                 event: "track_split_complete",
@@ -2276,9 +2276,9 @@
                             l(),
                             t ? (i(W),
                             H(b),
-                            null !== M || null !== R ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
+                            null !== O || null !== R ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
                             Z("Importing"),
-                            V(o),
+                            F(o),
                             H(b),
                             f(o.id, !1)),
                             be()
@@ -2288,8 +2288,8 @@
                             f(o.id, !1),
                             be()
                     } catch (e) {
-                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Y(!0),
-                        X("Upload failed - reconnect Stemplayer"),
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (J(!0),
+                        $("Upload failed - reconnect Stemplayer"),
                         Z("Try again"),
                         r({
                             error: {
@@ -2297,8 +2297,8 @@
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : e.message && "Cancelled" !== e.message ? (Y(!0),
-                        X(e.message),
+                        })) : e.message && "Cancelled" !== e.message ? (J(!0),
+                        $(e.message),
                         Z("Try again"),
                         r({
                             error: {
@@ -2324,13 +2324,13 @@
                 }
             }()
               , be = ()=>{
-                O.current && (O.current.value = ""),
+                M.current && (M.current.value = ""),
                 Z(null),
                 G(null),
                 B(null),
                 q(""),
                 C(null),
-                S(null),
+                U(null),
                 le(!1),
                 te(!1),
                 e.setDeviceTransferActive(!1),
@@ -2354,7 +2354,7 @@
                         } else
                             t.push(a)
                     }
-                    S(t)
+                    U(t)
                 });
                 return function(t) {
                     return e.apply(this, arguments)
@@ -2369,21 +2369,21 @@
                     e.preventDefault(),
                     Ae(),
                     q(""),
-                    S(null),
+                    U(null),
                     C(null);
                     let t = null;
-                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (Q("UPLOAD UP TO 4 FILES"),
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    S(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (Q("UPLOAD UP TO 4 FILES"),
+                    U(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    S(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (Q("UPLOAD UP TO 4 FILES"),
+                    U(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    S(null)),
+                    U(null)),
                     t) {
                         ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
-                        Q(null)) : (Q("AUDIO FILES ONLY"),
+                        z(null)) : (z("AUDIO FILES ONLY"),
                         C(null),
-                        S(null))
+                        U(null))
                     }
                 });
                 return function(t) {
@@ -2392,25 +2392,25 @@
             }()
               , ge = ()=>{
                 C(null),
-                S(null),
-                Q(null)
+                U(null),
+                z(null)
             }
               , Ae = ()=>{
-                Q(null),
-                Y(!1),
-                X(null),
+                z(null),
+                J(!1),
+                $(null),
                 B(!1),
                 Z(null)
             }
             ;
-            let ye = F.replace(/^https?\:\/\/(www\.)?/i, "");
-            ye.match(/^w?w?w?\.?$/i) && (ye = F);
+            let ye = V.replace(/^https?\:\/\/(www\.)?/i, "");
+            ye.match(/^w?w?w?\.?$/i) && (ye = V);
             const Pe = ()=>!e.deviceTransferActive && !ee
-              , Oe = ()=>Pe() && [null, "Upload cancelled", "Try again"].includes(j)
+              , Me = ()=>Pe() && [null, "Upload cancelled", "Try again"].includes(j)
               , Te = ()=>{
                 u.push("/connect/config")
             }
-              , Me = function() {
+              , Oe = function() {
                 var t = (0,
                 a.Z)(function*() {
                     const t = (0,
@@ -2452,62 +2452,62 @@
                 onSubmit: he
             }, n.createElement("div", {
                 className: "track-splitter__input menu-item"
-            }, !ce && !M && !R && n.createElement("label", {
+            }, !ce && !O && !R && n.createElement("label", {
                 htmlFor: "link-input",
-                className: `track-splitter__link-button ${Oe() ? "" : "disabled"}`,
+                className: `track-splitter__link-button ${Me() ? "" : "disabled"}`,
                 onClick: ()=>{
                     "Upload cancelled" === j && (be(),
                     le(!0)),
-                    Oe() && le(!0)
+                    Me() && le(!0)
                 }
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, "LINK")), ce && !(M && M.name || R) && n.createElement(_.II, {
+            }, "LINK")), ce && !(O && O.name || R) && n.createElement(_.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
-                disabled: !Oe(),
-                invalid: z,
+                disabled: !Me(),
+                invalid: Y,
                 modifier: "url",
                 placeholder: "ENTER LINK",
                 value: ye,
                 onChange: e=>{
                     o && s(),
                     Ae(),
-                    M && ge();
+                    O && ge();
                     const t = e.target.value.trim()
                       , r = (0,
                     g.xb)(t) || t.match(/^https?:\/\//i) ? t : `https://${t}`;
                     q(r),
                     (0,
                     g.xb)(r) || (0,
-                    g.b3)(r) ? z && (Y(!1),
-                    X(null)) : (Y(!0),
-                    X("Input not valid link"))
+                    g.b3)(r) ? Y && (J(!1),
+                    $(null)) : (J(!0),
+                    $("Input not valid link"))
                 }
                 ,
                 onBlur: ()=>0 === ye.length && le(!1),
                 ref: h,
                 id: "link-input",
                 autoComplete: "off"
-            }), !ce && !M && !R && n.createElement("span", {
+            }), !ce && !O && !R && n.createElement("span", {
                 className: "track-splitter__text track-splitter__text--or"
             }, "or"), !ce && n.createElement(n.Fragment, null, n.createElement("label", {
                 htmlFor: "file",
-                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Oe() ? "" : " disabled"}\n                                        ${M && M.name || R ? " track-splitter__input--full" : ""}\n                                    `
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Me() ? "" : " disabled"}\n                                        ${O && O.name || R ? " track-splitter__input--full" : ""}\n                                    `
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, M && M.name && M.name.toUpperCase(), R && `${(0,
-            E.pG)(U)} files selected`, null === M && null === R && "FILE")), n.createElement("input", {
+            }, O && O.name && O.name.toUpperCase(), R && `${(0,
+            E.pG)(S)} files selected`, null === O && null === R && "FILE")), n.createElement("input", {
                 className: "input--file",
                 type: "file",
                 id: "file",
                 name: "file",
                 multiple: !0,
-                disabled: !Oe(),
+                disabled: !Me(),
                 accept: [...P.Z, "video/mp4"].join(", "),
                 onChange: Ee,
-                ref: O
+                ref: M
             }))), "Try again" === j && n.createElement(D, {
-                text: `${J || "Error uploading track"}`,
+                text: `${X || "Error uploading track"}`,
                 className: "u-mx-auto",
                 disabled: !0
             }), n.createElement(D, {
@@ -2519,8 +2519,8 @@
                 disabled: !(()=>Pe() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
                 text: ae,
                 onClick: e=>{
-                    (!M && !R && "" === F || M && null !== $) && (e.preventDefault(),
-                    O.current.click())
+                    (!O && !R && "" === V || O && null !== Q) && (e.preventDefault(),
+                    M.current.click())
                 }
             }), !N && K && n.createElement(D, {
                 text: "CANCEL",
@@ -2530,7 +2530,7 @@
                     K && (K.cancel(),
                     ne(null),
                     be(),
-                    V(null),
+                    F(null),
                     Z("Upload cancelled"),
                     setTimeout(()=>{
                         Z(null),
@@ -2553,7 +2553,7 @@
                 disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Me()
+                onClick: ()=>Oe()
             }), !d.session && n.createElement(D, {
                 text: "Login",
                 disabled: !Pe(),
@@ -2573,9 +2573,9 @@
             }))
         }
         ;
-        M(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        O(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
         const R = C
-          , S = (0,
+          , U = (0,
         l.j)({
             module: "trackUploadForm"
         })((0,
@@ -2586,8 +2586,8 @@
         m.J)((0,
         p.o)((0,
         h.q)(C))))))))
-          , U = S
-          , x = U;
+          , S = U
+          , x = S;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(D, "Button", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
@@ -2596,8 +2596,8 @@
             e.register(k, "createSilentTrack", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(C, "TrackUploadFormComp", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(R, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(S, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(U, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
+            e.register(U, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(S, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -2629,6 +2629,17 @@
             o.useState)(null);
             (0,
             o.useEffect)(()=>{
+                let e = setTimeout(()=>{
+                    r.current && 0 !== r.current.scrollTop && r.current.scrollTo(0, 0)
+                }
+                , 100);
+                return ()=>{
+                    clearTimeout(e)
+                }
+            }
+            ),
+            (0,
+            o.useEffect)(()=>{
                 if (e.length === a.length + 1)
                     ;
                 else if (e.length === a.length - 1) {
@@ -2641,22 +2652,11 @@
                             i(null),
                             n(e)
                         }
-                        , 250)
+                        , 300)
                 }
                 n(e)
             }
-            , [e]),
-            (0,
-            o.useEffect)(()=>{
-                let e = setTimeout(()=>{
-                    r.current && 0 !== r.current.scrollTop && r.current.scrollTo(0, 0)
-                }
-                , 100);
-                return ()=>{
-                    clearTimeout(e)
-                }
-            }
-            );
+            , [e]);
             const c = [];
             for (let e = 0; e < 8; e += 1) {
                 var l;
@@ -2761,19 +2761,20 @@
                 this._isMounted = !1
             }
             render() {
-                const {config: e} = this.props
-                  , {routes: t, loading: r} = this.state;
-                let o;
-                return _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-single-gradient") ? o = "single-gradient" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-gradients") ? o = "gradients" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-ripples") ? o = "ripples" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-water") && (o = "water"),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, o && "ripples" !== o && "water" !== o && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader__WEBPACK_IMPORTED_MODULE_7__.Z, {
-                    loading: r,
-                    type: o
-                }), o && ("ripples" === o || "water" === o) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader2__WEBPACK_IMPORTED_MODULE_8__.Z, {
-                    loading: r,
-                    type: o
+                const {config: e, products: t} = this.props
+                  , {routes: r, loading: o} = this.state;
+                let a;
+                return _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-single-gradient") ? a = "single-gradient" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-gradients") ? a = "gradients" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-ripples") ? a = "ripples" : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_9__.V.hasFlag("background-shader-water") && (a = "water"),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, a && "ripples" !== a && "water" !== a && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader__WEBPACK_IMPORTED_MODULE_7__.Z, {
+                    loading: o,
+                    type: a
+                }), a && ("ripples" === a || "water" === a) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_BackgroundShader2__WEBPACK_IMPORTED_MODULE_8__.Z, {
+                    loading: o,
+                    type: a
                 }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ViewManager__WEBPACK_IMPORTED_MODULE_2__.Z, {
-                    routes: t,
+                    routes: r,
                     config: e,
+                    products: t,
                     onViewLoaded: this.handleOnViewLoaded
                 }))
             }
@@ -3021,22 +3022,23 @@
             }
             render() {
                 const {isUK: e, route: t, match: r} = this.state
-                  , {config: o, audioEngine: a, viewManagerClient: {modals: n}} = this.props
-                  , s = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(n);
+                  , {config: o, products: a, audioEngine: n, viewManagerClient: {modals: s}} = this.props
+                  , i = ((null === t || void 0 === t ? void 0 : t.layers) || []).concat(s);
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                    className: `main${a.currentTrack || a.isNavigating ? " main__mini-player" : ""}`,
+                    className: `main${n.currentTrack || n.isNavigating ? " main__mini-player" : ""}`,
                     id: "main"
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "content"
                 }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_YeLayers__WEBPACK_IMPORTED_MODULE_6__.o, {
                     loaded: this.state.viewLoaded,
-                    layers: s.map(t=>({
+                    layers: i.map(t=>({
                         id: t.id,
                         component: react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
                             computedMatch: r,
                             children: r=>t.component ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(t.component, (0,
                             _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_13__.Z)({}, r, {
                                 config: o,
+                                products: a,
                                 isUK: e,
                                 onLoaded: this.setViewLoaded,
                                 onImagesLoaded: this.setHomeImagesLoaded,
@@ -3050,9 +3052,9 @@
                             })
                         })
                     }))
-                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "blur-overlay"
-                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (a.currentTrack || a.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null))
+                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null))
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -3533,7 +3535,7 @@
                 return "d00aef4a5b07cfed0869"
             }
         })
-          , O = (0,
+          , M = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"StemUpload",
@@ -3579,7 +3581,7 @@
                 return "d8233878ff089243fc65"
             }
         })
-          , M = (0,
+          , O = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"DevMenu",
@@ -3704,7 +3706,7 @@
             },
             stemUpload: {
                 id: "stem-upload",
-                component: O
+                component: M
             },
             platform: {
                 id: "platform",
@@ -3712,7 +3714,7 @@
             },
             devMenu: {
                 id: "dev-menu",
-                component: M
+                component: O
             },
             holoplayerSignup: {
                 id: "holoplayer-signup",
@@ -3881,6 +3883,12 @@
             layers: [L.home],
             deviceRequired: !1,
             accessWithLoginSession: !0
+        }, {
+            path: ["/signup"],
+            exact: !0,
+            layers: [L.home, L.holoplayerSignup],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
         }];
         w.unshift({
             path: ["/dev"],
@@ -3910,9 +3918,9 @@
             e.register(A, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(y, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(P, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(O, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(M, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(T, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(M, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(O, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(L, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
@@ -10771,17 +10779,17 @@
         }()
     }
     ,
-    b52edfef829e09f7985c: (module,__unused_webpack___webpack_exports__,__webpack_require__)=>{
+    b52edfef829e09f7985c: (module,__webpack_exports__,__webpack_require__)=>{
         "use strict";
         var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8af190b70a6bc55c6f1b")
           , react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("63f14ac74ce296f77f4d")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("260f3680b921ede7f717")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__)
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("657c5d0bc31a26770cad")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_23___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_23__)
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_31___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_31__)
           , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("b61b44d5123c4032e9da")
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("eb88800281880750dee6")
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_22___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_22__)
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("eb88800281880750dee6")
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_30___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_30__)
           , _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("82d14b9db5598b921c79")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("8a5d22dd0b24a6092d3e")
           , _utils_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("4f64e9a1f5202b774215")
@@ -10799,7 +10807,15 @@
           , file_loader_name_htaccess_htaccess__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("49c109a56bd7c2e379fd")
           , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("77d9647920c06e8befd6")
           , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("c0326c9d650a633c92d0")
-          , _utils_themes__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("957d24b63b1050799be8");
+          , _utils_themes__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("957d24b63b1050799be8")
+          , _assets_images_pngs_sp_product_shot_original_thumb_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("03543f3dc851e02a8736")
+          , _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("4e7d0f412453ab5a3ce2")
+          , _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("79c16640587b1d45f7d2")
+          , _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("54a05401abd45f5271ae")
+          , _assets_images_pngs_sp_product_shot_clear_thumb_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("117b6ff7c3b9a02b04ed")
+          , _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("a919c400c9d519b5448e")
+          , _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("9a6bc0a08b0ae70ba64d")
+          , _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("39c18a378dbea19771d5");
         module = __webpack_require__.hmd(module),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10812,8 +10828,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3055",
-            KB_APP_REVISION: "2412bb6561cf34fba3e93c16865f6f0f01e71535",
+            KB_APP_VERSION: "1.1.3079",
+            KB_APP_REVISION: "5eebf9fdf90173c20a4054eb8357e95ce4d794a1",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -10851,12 +10867,73 @@
             env: config.TARGET_ENV,
             hasCrossDomainStorage: !1
         }
+          , products = [{
+            name: "CLEAR STEMPLAYER",
+            color: "CLEAR",
+            sku: "1016C",
+            assets: {
+                thumb: _assets_images_pngs_sp_product_shot_clear_thumb_png__WEBPACK_IMPORTED_MODULE_26__,
+                image: _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_27__,
+                videoMov: _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_28__,
+                videoWebM: _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_29__
+            },
+            purchaseData: {
+                uk: {
+                    id: "7290651115697",
+                    html_id: "product-component-1660743000760",
+                    price: "\xa3200",
+                    moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                },
+                us: {
+                    id: "7374962851996",
+                    html_id: "product-component-1660743051424",
+                    price: "$200",
+                    moneyFormat: "%24%7B%7Bamount%7D%7D"
+                },
+                dev: {
+                    id: "7610750992546",
+                    html_id: "product-component-1660571250200",
+                    price: "$200",
+                    moneyFormat: "%24%7B%7Bamount%7D%7D"
+                }
+            }
+        }, {
+            name: "STEMPLAYER",
+            color: "BROWN",
+            sku: "1016",
+            assets: {
+                thumb: _assets_images_pngs_sp_product_shot_original_thumb_png__WEBPACK_IMPORTED_MODULE_22__,
+                image: _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_23__,
+                videoMov: _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_24__,
+                videoWebM: _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_25__
+            },
+            purchaseData: {
+                uk: {
+                    id: "6762869194929",
+                    html_id: "product-component-1624464889316",
+                    price: "\xa3200",
+                    moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                },
+                us: {
+                    id: "6804650524828",
+                    html_id: "product-component-1624465060899",
+                    price: "$200",
+                    moneyFormat: "%24%7B%7Bamount%7D%7D"
+                },
+                dev: {
+                    id: "6148012408994",
+                    html_id: "product-component-1623765396005",
+                    price: "$200",
+                    moneyFormat: "%24%7B%7Bamount%7D%7D"
+                }
+            }
+        }]
           , font2Observer = new (fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default())("Helvetica Neue LT W05 65 Medium",{});
         Promise.all([font2Observer.load()]).then(()=>{
             document.body.classList.add("fontLoaded")
         }
         ),
-        _sentry_react__WEBPACK_IMPORTED_MODULE_22__.init({
+        _sentry_react__WEBPACK_IMPORTED_MODULE_30__.init({
             dsn: "https://cceb14840d684b1baad838c0d88f5c42@o829757.ingest.sentry.io/5812480",
             integrations: [new _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__.jK.BrowserTracing],
             environment: config.TARGET_ENV,
@@ -10869,7 +10946,10 @@
             }
         }),
         _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.updateFromUrlParams(),
-        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-single-gradient") ? ((0,
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-water") ? ((0,
+        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark_grey.background),
+        (0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark_grey)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-single-gradient") ? ((0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)("#ADABB2"),
         (0,
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-gradients") ? ((0,
@@ -10886,12 +10966,11 @@
         (0,
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey)) : ((0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default.background),
-        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.setFlag("background-shader-water"),
         (0,
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default));
         const MOUNT_NODE = document.getElementById("app")
           , render = e=>{
-            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_23__.Router, {
+            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_31__.Router, {
                 history: _utils_history__WEBPACK_IMPORTED_MODULE_6__.Z
             }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__.Yi, {
                 providerConfig: telemetryConfig
@@ -10915,6 +10994,7 @@
                 config: config
             }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_contexts_view_manager__WEBPACK_IMPORTED_MODULE_15__.d, null, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_containers_App__WEBPACK_IMPORTED_MODULE_16__.Z, {
                 config: config,
+                products: products,
                 trackUser: e
             }))))))))))))), e || MOUNT_NODE)
         }
@@ -10937,6 +11017,7 @@
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(config, "config", "/home/vsts/work/1/s/src/index.tsx"),
             e.register(telemetryConfig, "telemetryConfig", "/home/vsts/work/1/s/src/index.tsx"),
+            e.register(products, "products", "/home/vsts/work/1/s/src/index.tsx"),
             e.register(font2Observer, "font2Observer", "/home/vsts/work/1/s/src/index.tsx"),
             e.register(MOUNT_NODE, "MOUNT_NODE", "/home/vsts/work/1/s/src/index.tsx"),
             e.register(render, "render", "/home/vsts/work/1/s/src/index.tsx"))
@@ -11987,8 +12068,8 @@
     "957d24b63b1050799be8": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            yU: ()=>o,
-            Dc: ()=>a
+            yU: ()=>i,
+            Dc: ()=>c
         }),
         e = r.hmd(e),
         function() {
@@ -11997,35 +12078,44 @@
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
         const o = {
-            default: {
-                background: "#747277",
-                main: "#252525"
-            },
-            grey: {
-                background: "#959595",
-                main: "#252525"
-            },
-            light: {
-                background: "white",
-                main: "#252525"
-            },
-            dark: {
-                background: "#000000",
-                main: "#525252"
-            }
+            background: "#747277",
+            main: "#252525"
+        }
+          , a = {
+            background: "#959595",
+            main: "#252525"
+        }
+          , n = {
+            background: "white",
+            main: "#252525"
+        }
+          , s = {
+            background: "#000000",
+            main: "#525252"
+        }
+          , i = {
+            dark_grey: o,
+            grey: a,
+            light: n,
+            dark: s,
+            default: s
         };
-        function a(e) {
+        function c(e) {
             document.documentElement.style.setProperty("--color-background", e.background),
             document.documentElement.style.setProperty("--color-main", e.main)
         }
-        function n(e) {
+        function l(e) {
             document.documentElement.style.setProperty("--color-main", e)
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(a, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(n, "setColor", "/home/vsts/work/1/s/src/utils/themes.ts"))
+            e && (e.register(o, "THEME_DARK_GREY", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(a, "THEME_GREY", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(n, "THEME_LIGHT", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(s, "THEME_DARK", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(i, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(c, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(l, "setColor", "/home/vsts/work/1/s/src/utils/themes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -12546,6 +12636,46 @@
     "9f2316eeebc9c27ecc70": e=>{
         "use strict";
         e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
+    }
+    ,
+    "117b6ff7c3b9a02b04ed": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,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"
+    }
+    ,
+    a919c400c9d519b5448e: (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "d47cfcd7d25bfc4b12b6.png"
+    }
+    ,
+    "03543f3dc851e02a8736": e=>{
+        "use strict";
+        e.exports = "data:image/png;base64,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"
+    }
+    ,
+    "4e7d0f412453ab5a3ce2": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "a212fb46ab59a379f4ae.png"
+    }
+    ,
+    "79c16640587b1d45f7d2": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "4d479297b872e40cb7ad.mov"
+    }
+    ,
+    "54a05401abd45f5271ae": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "4ff0dc9163f32f29321b.webm"
+    }
+    ,
+    "9a6bc0a08b0ae70ba64d": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "756a183a8192ba28b67d.mov"
+    }
+    ,
+    "39c18a378dbea19771d5": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "96a22ea7e6c4c3d04886.webm"
     }
 }, e=>{
     e.O(0, [179], ()=>{

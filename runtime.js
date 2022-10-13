@@ -22,12 +22,12 @@
         r.O = ((t,a,n,o)=>{
             if (!a) {
                 var c = 1 / 0;
-                for (l = 0; l < e.length; l++) {
-                    for (var [a,n,o] = e[l], d = !0, i = 0; i < a.length; i++)
+                for (f = 0; f < e.length; f++) {
+                    for (var [a,n,o] = e[f], d = !0, i = 0; i < a.length; i++)
                         (!1 & o || c >= o) && Object.keys(r.O).every(e=>r.O[e](a[i])) ? a.splice(i--, 1) : (d = !1,
                         o < c && (c = o));
                     if (d) {
-                        e.splice(l--, 1);
+                        e.splice(f--, 1);
                         var s = n();
                         void 0 !== s && (t = s)
                     }
@@ -35,9 +35,9 @@
                 return t
             }
             o = o || 0;
-            for (var l = e.length; l > 0 && e[l - 1][2] > o; l--)
-                e[l] = e[l - 1];
-            e[l] = [a, n, o]
+            for (var f = e.length; f > 0 && e[f - 1][2] > o; f--)
+                e[f] = e[f - 1];
+            e[f] = [a, n, o]
         }
         )
     }
@@ -116,9 +116,9 @@
         1840: "336d1414b80228d6760d",
         1866: "c03e5d3de34543b82e3c",
         1918: "9cd6d4a024ad28751ff6",
-        2868: "32d95b022f100564ab80",
+        2868: "aeaa0e666484a9d05fc8",
         3383: "4c9483c0e228f2f61b55",
-        3693: "453a335deb2490d26856",
+        3693: "0e010719cf7e3d93a6e2",
         3754: "9bd39e973ae0c7792483",
         3775: "7b0397b9a63e07f82e43",
         3930: "25c7a26446c9cbd5e49c",
@@ -126,31 +126,31 @@
         4771: "d6d8c5de0ba2d2afdca2",
         4958: "124a9706c70acabae79c",
         5009: "1ead0778779e281ccc70",
-        5083: "006860e673abbf7f29b6",
+        5083: "1893a59829e162fc5431",
         5508: "521494634b39c402bc77",
         5735: "70ac1524b3ed6f50ba41",
         5779: "91bfe73698bd66213a1e",
         5908: "2ebfafce22cbd83c4b06",
-        6130: "de20aa4429b473a869dd",
+        6130: "fdbcbf1bd295eacb6478",
         6150: "e0c30ce718927883ff3d",
         6521: "76844330d6e8e1800250",
         6630: "97c3cdf3a16506238c64",
         6743: "fc7507a783f3381102f6",
-        7203: "4242dc5128a997f60db4",
+        7203: "ba77d219361fd504b94a",
         7452: "7055e6c07c5795209a00",
-        7713: "7021eeb121e4c7eb999b",
+        7713: "9f054e430c5e3001af50",
         8317: "b4c35b8be722bd2463dd",
-        8445: "d04c631a1e7afa99ce56",
-        8460: "c3190b5053097fbed776",
-        9014: "a3e1a7a0c3f65a3b7c81",
-        9036: "c7bc948167082b3cdcc9",
+        8445: "814b765348097e6a777b",
+        8460: "2a54befdaeb35cc6c841",
+        9014: "a2f29e55c6c41c88466b",
+        9036: "65f473c942e006665f65",
         9295: "bfe98caa5c71ff7974db",
         9322: "742b00116a95e29cd550",
         9642: "ab95fa58e9641ceed535",
-        9679: "f179e82cb5919be96abd",
+        9679: "3f96848e17a29c1fc65e",
         9708: "f4dc577f1c2ee2b32bf5",
         9713: "482b24dd113d6260aacc",
-        9945: "6247bec53f82b8de2c79"
+        9945: "5374146b4572f60d9c13"
     }[e] + ".chunk.js"),
     r.miniCssF = (e=>({
         327: "PrivacyPolicy",
@@ -205,9 +205,9 @@
                 var c, d;
                 if (void 0 !== n)
                     for (var i = document.getElementsByTagName("script"), s = 0; s < i.length; s++) {
-                        var l = i[s];
-                        if (l.getAttribute("src") == t || l.getAttribute("data-webpack") == "blank-board:" + n) {
-                            c = l;
+                        var f = i[s];
+                        if (f.getAttribute("src") == t || f.getAttribute("data-webpack") == "blank-board:" + n) {
+                            c = f;
                             break
                         }
                     }
@@ -218,9 +218,9 @@
                 c.setAttribute("data-webpack", "blank-board:" + n),
                 c.src = t),
                 e[t] = [a];
-                var f = (r,a)=>{
+                var l = (r,a)=>{
                     c.onerror = c.onload = null,
-                    clearTimeout(b);
+                    clearTimeout(u);
                     var n = e[t];
                     if (delete e[t],
                     c.parentNode && c.parentNode.removeChild(c),
@@ -228,12 +228,12 @@
                     r)
                         return r(a)
                 }
-                  , b = setTimeout(f.bind(null, void 0, {
+                  , u = setTimeout(l.bind(null, void 0, {
                     type: "timeout",
                     target: c
                 }), 12e4);
-                c.onerror = f.bind(null, c.onerror),
-                c.onload = f.bind(null, c.onload),
+                c.onerror = l.bind(null, c.onerror),
+                c.onload = l.bind(null, c.onload),
                 d && document.head.appendChild(c)
             }
         }
@@ -391,13 +391,13 @@
                 for (n in d)
                     r.o(d, n) && (r.m[n] = d[n]);
                 if (i)
-                    var l = i(r)
+                    var f = i(r)
             }
             for (t && t(a); s < c.length; s++)
                 o = c[s],
                 r.o(e, o) && e[o] && e[o][0](),
                 e[o] = 0;
-            return r.O(l)
+            return r.O(f)
         }
           , a = self.webpackChunkblank_board = self.webpackChunkblank_board || [];
         a.forEach(t.bind(null, 0)),
