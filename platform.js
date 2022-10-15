@@ -1057,25 +1057,27 @@
             c.useRef)(!1)
               , [Te,Se] = (0,
             c.useState)(!1)
-              , we = (0,
-            c.useRef)(ee)
-              , _e = (0,
-            c.useRef)(ae)
+              , [we,_e] = (0,
+            c.useState)(!1)
               , Le = (0,
+            c.useRef)(ee)
+              , Re = (0,
+            c.useRef)(ae)
+              , Me = (0,
             c.useRef)();
-            Le.current = _.trackIsLoaded;
-            const Re = (0,
+            Me.current = _.trackIsLoaded;
+            const Ae = (0,
             c.useRef)();
-            Re.current = _.playbackState;
-            const Me = (0,
-            c.useRef)()
-              , Ae = (0,
-            c.useRef)(le)
-              , xe = (0,
+            Ae.current = _.playbackState;
+            const xe = (0,
             c.useRef)()
               , Ie = (0,
+            c.useRef)(le)
+              , He = (0,
+            c.useRef)()
+              , De = (0,
             c.useRef)();
-            let He, De = null;
+            let Ge, Oe = null;
             (0,
             c.useEffect)(()=>{
                 if ($ && $.length > 0 && k.uploadedTrackLocation) {
@@ -1099,7 +1101,7 @@
             c.useEffect)(()=>{
                 const e = t && t.id ? t.id : t.global_id;
                 void 0 !== e && (te(e),
-                we.current = e)
+                Le.current = e)
             }
             , [t]),
             (0,
@@ -1114,15 +1116,15 @@
                     if (-1 !== a)
                         n = e[a],
                         ne(a),
-                        _e.current = a;
+                        Re.current = a;
                     else {
                         const e = _.userQueue;
                         e.unshift(t),
                         _.createQueue(e, i.$_.User),
                         te((n = t).id),
-                        we.current = n.id,
+                        Le.current = n.id,
                         ne(0),
-                        _e.current = 0
+                        Re.current = 0
                     }
                     const l = (0,
                     p.vJ)(n).length > 0 ? (0,
@@ -1132,7 +1134,7 @@
                       , o = (0,
                     p.$r)(r, l);
                     re(n),
-                    Ae.current = n;
+                    Ie.current = n;
                     const c = o && o.length ? o : "Untitled";
                     ce(c),
                     ie(l),
@@ -1143,16 +1145,16 @@
                 }
             }
             , [ee, _.currentTrack]);
-            const Ge = (0,
+            const Ze = (0,
             g.s)();
             (0,
             c.useEffect)(()=>{
                 var e;
-                return document.addEventListener("keydown", Ue),
+                return document.addEventListener("keydown", Fe),
                 _.setShouldHideMiniPlayer(!0),
                 null === _.activeQueue && _.setActiveQueue(a ? i.$_.Official : i.$_.User),
                 _.trackIsLoaded && ee === (null === (e = _.currentTrack) || void 0 === e ? void 0 : e.id) && !1 !== _.getHasPlayed() || (_.stop(),
-                Oe()),
+                Ne()),
                 (0,
                 b.nz)() && (history.pushState(null, null, location.href),
                 window.onpopstate = function(e) {
@@ -1160,45 +1162,45 @@
                 }
                 ),
                 ()=>{
-                    document.removeEventListener("keydown", Ue),
+                    document.removeEventListener("keydown", Fe),
                     _.setShouldHideMiniPlayer(!1),
                     window.onpopstate = null,
-                    cancelAnimationFrame(He)
+                    cancelAnimationFrame(Ge)
                 }
             }
             , []),
             (0,
             c.useEffect)(()=>{
-                ke ? Ne() : De && (De = null)
+                ke ? Pe() : Oe && (Oe = null)
             }
             , [ke]);
-            const Oe = function() {
+            const Ne = function() {
                 var e = (0,
                 n.Z)(function*() {
-                    if (!Ge())
+                    if (!Ze())
                         return;
                     let e;
                     if (a) {
-                        const t = yield m.getLatestStems(we.current, Ae.current.version, "mp3");
+                        const t = yield m.getLatestStems(Le.current, Ie.current.version, "mp3");
                         try {
-                            const a = yield m.getWaveformData(t["waveform-data"], we.current);
-                            e = _.generateTrack(Ae.current, t, a)
+                            const a = yield m.getWaveformData(t["waveform-data"], Le.current);
+                            e = _.generateTrack(Ie.current, t, a)
                         } catch (a) {
-                            e = _.generateTrack(Ae.current, t)
+                            e = _.generateTrack(Ie.current, t)
                         }
                     } else {
-                        const t = _.generateTrack(Ae.current);
+                        const t = _.generateTrack(Ie.current);
                         if (void 0 === t.waveformData) {
-                            const e = yield m.getWaveformData(Ae.current.waveforms_url, we.current);
+                            const e = yield m.getWaveformData(Ie.current.waveforms_url, Le.current);
                             t.waveformData = e
                         }
                         e = t
                     }
-                    if (Ge() && (_.load(e),
+                    if (Ze() && (_.load(e),
                     a)) {
                         const e = _.getActiveQueue();
                         e && e.length > 0 && (0,
-                        d.o9)(e, we.current, 6, m)
+                        d.o9)(e, Le.current, 6, m)
                     }
                 });
                 return function() {
@@ -1211,54 +1213,54 @@
                     if (!0 === he)
                         return;
                     const t = _.getActiveQueue()[ae + 1];
-                    t ? Pe(t.id || t.global_id) : e()
+                    t ? $e(t.id || t.global_id) : e()
                 }
             }
             , [_.playbackState]);
-            const Ze = (0,
+            const Ue = (0,
             l.D9)(k.deviceConnected);
             (0,
             c.useEffect)(()=>{
-                !Ze || k.deviceConnected || a || _.trackIsLoaded && _.playbackState === i.QK.Playing && _.pause()
+                !Ue || k.deviceConnected || a || _.trackIsLoaded && _.playbackState === i.QK.Playing && _.pause()
             }
             , [k.deviceConnected]);
-            const Ne = ()=>{
+            const Pe = ()=>{
                 const e = new Date
                   , t = ()=>{
                     const a = new Date;
-                    xe.current.scrollTo && xe.current.scrollTo(0, xe.current.offsetHeight),
-                    a.getTime() - e.getTime() < 330 ? He = requestAnimationFrame(t) : (cancelAnimationFrame(He),
-                    He = null)
+                    He.current.scrollTo && He.current.scrollTo(0, He.current.offsetHeight),
+                    a.getTime() - e.getTime() < 330 ? Ge = requestAnimationFrame(t) : (cancelAnimationFrame(Ge),
+                    Ge = null)
                 }
                 ;
-                He = requestAnimationFrame(t)
+                Ge = requestAnimationFrame(t)
             }
-              , Ue = e=>{
+              , Fe = e=>{
                 if (!0 === ye.current)
                     return;
-                Le.current && " " === e.key && (e.preventDefault(),
-                Re.current === i.QK.Playing ? _.pause() : _.play());
+                Me.current && " " === e.key && (e.preventDefault(),
+                Ae.current === i.QK.Playing ? _.pause() : _.play());
                 const t = _.getActiveQueue();
                 if ("ArrowRight" === e.key) {
-                    const e = t[_e.current + 1] ? t[_e.current + 1] : t[0];
-                    e && Pe(e.id || e.global_id)
+                    const e = t[Re.current + 1] ? t[Re.current + 1] : t[0];
+                    e && $e(e.id || e.global_id)
                 }
                 if ("ArrowLeft" === e.key) {
-                    const e = t[_e.current - 1] ? t[_e.current - 1] : t[t.length - 1];
-                    e && (_.getCurrentTime() >= 3 ? _.seekTo(0) : Pe(e.id || e.global_id))
+                    const e = t[Re.current - 1] ? t[Re.current - 1] : t[t.length - 1];
+                    e && (_.getCurrentTime() >= 3 ? _.seekTo(0) : $e(e.id || e.global_id))
                 }
             }
-              , Pe = e=>{
+              , $e = e=>{
                 a || (ce(""),
                 ie("")),
                 (0,
                 C.Z)(),
-                we.current = e,
+                Le.current = e,
                 D(e),
                 _.stop(),
-                Ke()
+                Ve()
             }
-              , Fe = function() {
+              , je = function() {
                 var e = (0,
                 n.Z)(function*() {
                     ge ? yield U(t, t.key) : s(t, null, a, t.albumTitle)
@@ -1267,23 +1269,23 @@
                     return e.apply(this, arguments)
                 }
             }()
-              , $e = (0,
+              , qe = (0,
             c.useCallback)(()=>{
                 var e;
                 return F ? "REMOVING" : "ADD" !== u && (null === (e = k.uploadingTrack) || void 0 === e ? void 0 : e.global_id) === t.id ? u : "NOT ENOUGH SPACE" === j ? "NOT ENOUGH SPACE" : ge ? `REMOVE FROM DEVICE${P ? "?" : ""}` : "ADD TO DEVICE"
             }
             , [ge, F, u, P])
-              , je = (0,
+              , Be = (0,
             c.useCallback)(e=>{
                 "[ REMOVE FROM DEVICE ]" !== e.target.innerHTML && V && Q(!1)
             }
             , [V])
-              , qe = (0,
+              , Ke = (0,
             c.useCallback)((0,
             n.Z)(function*() {
                 const e = _.getActiveQueue()
                   , t = e.findIndex(e=>{
-                    return (e.id ? e.id : e.global_id) === we.current
+                    return (e.id ? e.id : e.global_id) === Le.current
                 }
                 );
                 ve(t);
@@ -1317,19 +1319,19 @@
                     (0,
                     r.saveAs)(t, `${c}.zip`),
                     ve(null),
-                    Ge() && X("downloaded")
+                    Ze() && X("downloaded")
                 } catch (e) {
                     console.error(e),
-                    Ge() && (ve(null),
+                    Ze() && (ve(null),
                     X("download failed"))
                 }
                 f("remove", a, o, t),
-                Ge() && setTimeout(()=>{
+                Ze() && setTimeout(()=>{
                     X("download")
                 }
                 , 3e3)
             }), [])
-              , Be = (0,
+              , We = (0,
             c.useCallback)(()=>{
                 G(!1),
                 N(null),
@@ -1337,15 +1339,15 @@
                 e()
             }
             , [_.trackIsLoaded])
-              , Ke = (0,
+              , Ve = (0,
             c.useCallback)((0,
-            l.Ds)(Oe, 500), []);
+            l.Ds)(Ne, 500), []);
             (0,
             c.useEffect)(()=>{
                 he && Ce(!1)
             }
             , [he]);
-            const We = function() {
+            const Qe = function() {
                 var e = (0,
                 n.Z)(function*() {
                     if (Se(!0),
@@ -1373,25 +1375,29 @@
                     return e.apply(this, arguments)
                 }
             }()
-              , Ve = null === (q = Ie.current) || void 0 === q ? void 0 : q.getBoundingClientRect().height
-              , Qe = (0,
+              , ze = null === (q = De.current) || void 0 === q ? void 0 : q.getBoundingClientRect().height
+              , Ye = (0,
             c.useRef)()
-              , ze = null === (B = Qe.current) || void 0 === B ? void 0 : B.getBoundingClientRect().height;
+              , Je = null === (B = Ye.current) || void 0 === B ? void 0 : B.getBoundingClientRect().height;
             return c.createElement("div", {
-                className: "track-play",
-                onClick: je,
+                className: `track-play ${we ? "track-play--hidden" : ""}`,
+                onClick: Be,
+                onDoubleClick: ()=>{
+                    _e(!we)
+                }
+                ,
                 onScroll: e=>{
                     e.preventDefault(),
                     e.stopPropagation(),
-                    ke && (!De || He ? De = Ie.current.getBoundingClientRect().top : De < Ie.current.getBoundingClientRect().top && Ce(!1))
+                    ke && (!Oe || Ge ? Oe = De.current.getBoundingClientRect().top : Oe < De.current.getBoundingClientRect().top && Ce(!1))
                 }
                 ,
-                ref: xe
+                ref: He
             }, c.createElement("div", {
                 className: `track-play__landing ${k.deviceConnected || !a ? "track-play__landing--no-padding-bottom" : ""}`
             }, c.createElement(H, {
                 disabled: "Cancelling" === u,
-                onClick: Be
+                onClick: We
             }), c.createElement(c.Fragment, null, !he && c.createElement("div", {
                 className: `track-play__marquee-container ${a ? "" : "track-play__marquee-container--library-titles"}`
             }, !a && se && c.createElement(R.Z, {
@@ -1460,17 +1466,17 @@
             })), c.createElement("div", {
                 className: `track-play__track-edit-metadata-form ${he ? "" : "track-play__track-edit-metadata-form--hidden"}`,
                 style: he ? {
-                    height: ze + "px"
+                    height: Je + "px"
                 } : {}
             }, c.createElement("div", {
                 className: "track-play__track-edit-metadata-form__container",
-                ref: Qe
+                ref: Ye
             }, c.createElement(E.default, {
                 text: Te ? "Saving" : "Save",
                 brackets: !0,
                 dots: Te,
                 disabled: !1,
-                onClick: We
+                onClick: Qe
             }))), c.createElement(h.Z, {
                 stems: t.stems,
                 isReadOnly: !0,
@@ -1479,7 +1485,7 @@
                 className: "track-play__error"
             }, z), !z && c.createElement(c.Fragment, null, c.createElement(y.Z, {
                 trackIndex: ae,
-                goToTrackCb: Pe,
+                goToTrackCb: $e,
                 uploadText: u,
                 deviceTransferActive: k.deviceTransferActive,
                 closeCallback: e
@@ -1488,11 +1494,11 @@
             }, "DEVICE FULL"), Z && null !== k.uploadProgress && (null === (K = k.uploadingTrack) || void 0 === K ? void 0 : K.global_id) === t.id && c.createElement("div", {
                 className: "track-play__button-group"
             }, c.createElement(E.default, {
-                text: $e(),
+                text: qe(),
                 brackets: "ADD" === u && !F,
                 dots: "Uploading" === u || F || "Cancelling" === u,
                 disabled: "ADD" !== u || F || "downloading" === J || !1 !== k.uploading,
-                onClick: Fe
+                onClick: je
             }), c.createElement(E.default, {
                 text: "CANCEL",
                 brackets: !0,
@@ -1501,20 +1507,20 @@
             })), c.createElement(T.Z, {
                 showHiddenMenuCb: ()=>Ce(!ke)
             }), c.createElement("div", {
-                ref: Me,
+                ref: xe,
                 className: `track-play__hidden-menu${ke ? "" : " track-play__hidden-menu--hidden"}`,
                 style: ke ? {
-                    height: Ve + "px"
+                    height: ze + "px"
                 } : {}
             }, c.createElement("div", {
                 className: "track-play__button-group",
-                ref: Ie
+                ref: De
             }, null === Z && c.createElement(c.Fragment, null, k.deviceConnected && !O && c.createElement(E.default, {
-                text: $e(),
+                text: qe(),
                 brackets: "ADD" === u && !F,
                 dots: "Uploading" === u || F || "Cancelling" === u,
                 disabled: "ADD" !== u || F || "downloading" === J || !1 !== k.uploading,
-                onClick: Fe
+                onClick: je
             }), (null === (W = k.uploadingTrack) || void 0 === W ? void 0 : W.global_id) === t.id && "uploading" === k.uploading && null !== k.uploadProgress && c.createElement(E.default, {
                 text: "CANCEL",
                 brackets: !0,
@@ -1525,7 +1531,7 @@
                 brackets: "download" === J && ae !== be,
                 dots: ae === be,
                 disabled: "download" !== J || ae === be || !1 !== k.uploading,
-                onClick: qe
+                onClick: Ke
             }), c.createElement(E.default, {
                 text: "EDIT",
                 brackets: !0,
@@ -1536,7 +1542,7 @@
             })))))))))
         }
         ;
-        I(D, "useState{[isDeleteClicked, setIsDeleteClicked](false)}\nuseState{[error, setError]('')}\nuseState{[downloadText, setDownloadText]('download')}\nuseState{[trackId, setTrackId](track.id || track.global_id)}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack](track)}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[trackColor1, setTrackColor1]('')}\nuseState{[trackColor2, setTrackColor2]('')}\nuseState{[downloadingTrackIndex, setDownloadingTrackIndex](null)}\nuseState{[trackFoundOnDevice, setTrackFoundOnDevice](false)}\nuseState{[showHiddenMenu, setShowHiddenMenu](false)}\nuseState{[showEditMode, setShowEditMode](false)}\nuseRef{showEditModeRef}\nuseState{[isSaving, setIsSaving](false)}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{trackIsLoadedRef}\nuseRef{playbackStateRef}\nuseRef{hiddenMenuRef}\nuseRef{currentTrackRef}\nuseRef{trackPlayRef}\nuseRef{buttonGroupRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseMounted{isMounted}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nusePrevious{usePreviousDeviceConnected}\nuseEffect{}\nuseCallback{setAddOrRemoveText}\nuseCallback{handleModalClick}\nuseCallback{downloadStems}\nuseCallback{handleBackClick}\nuseCallback{debouncedLoadToAudioEngine}\nuseEffect{}\nuseRef{trackMetadataFormRef}", ()=>[g.s, l.D9]);
+        I(D, "useState{[isDeleteClicked, setIsDeleteClicked](false)}\nuseState{[error, setError]('')}\nuseState{[downloadText, setDownloadText]('download')}\nuseState{[trackId, setTrackId](track.id || track.global_id)}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack](track)}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[trackColor1, setTrackColor1]('')}\nuseState{[trackColor2, setTrackColor2]('')}\nuseState{[downloadingTrackIndex, setDownloadingTrackIndex](null)}\nuseState{[trackFoundOnDevice, setTrackFoundOnDevice](false)}\nuseState{[showHiddenMenu, setShowHiddenMenu](false)}\nuseState{[showEditMode, setShowEditMode](false)}\nuseRef{showEditModeRef}\nuseState{[isSaving, setIsSaving](false)}\nuseState{[isHidden, setIsHidden](false)}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{trackIsLoadedRef}\nuseRef{playbackStateRef}\nuseRef{hiddenMenuRef}\nuseRef{currentTrackRef}\nuseRef{trackPlayRef}\nuseRef{buttonGroupRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseMounted{isMounted}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nusePrevious{usePreviousDeviceConnected}\nuseEffect{}\nuseCallback{setAddOrRemoveText}\nuseCallback{handleModalClick}\nuseCallback{downloadStems}\nuseCallback{handleBackClick}\nuseCallback{debouncedLoadToAudioEngine}\nuseEffect{}\nuseRef{trackMetadataFormRef}", ()=>[g.s, l.D9]);
         const G = D
           , O = (0,
         k.o)((0,
@@ -2299,7 +2305,6 @@
                 d && (Xe(!1),
                 nt(null),
                 x(),
-                oe.setNewTrack(null),
                 ve([]),
                 Vt())
             }

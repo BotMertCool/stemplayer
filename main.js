@@ -270,8 +270,8 @@
                       , y = v.getUniformLocation(E, "uResolution")
                       , P = v.getUniformLocation(E, "uColor1")
                       , M = v.getUniformLocation(E, "uColor2");
-                    let T = 0
-                      , O = !1;
+                    let O = 0
+                      , T = !1;
                     const D = t=>{
                         v.clearColor(0, 0, 0, 1),
                         v.clear(v.COLOR_BUFFER_BIT),
@@ -283,19 +283,19 @@
                             i.oo)(e.substring(1)).map(e=>e / 255))
                               , n = b.current.every((e,r)=>(0,
                             l.H)(e, t[r]));
-                            n || O || (O = !0,
-                            T = 0),
-                            O && (T += .002,
+                            n || T || (T = !0,
+                            O = 0),
+                            T && (O += .002,
                             b.current = b.current.map((e,r)=>{
                                 const o = t[r];
                                 return e.map((e,t)=>(0,
-                                c.t)(e, o[t], T))
+                                c.t)(e, o[t], O))
                             }
                             ),
-                            n && (O = !1,
-                            T = 0)),
-                            T >= 1 && (O = !1,
-                            T = 0,
+                            n && (T = !1,
+                            O = 0)),
+                            O >= 1 && (T = !1,
+                            O = 0,
                             b.current = t);
                             const _ = document.querySelectorAll(".ye-waveform");
                             Object.values(a.wA).forEach((t,n)=>{
@@ -359,32 +359,33 @@
     "611644a0797bcf6f7bf2": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>m
+            Z: ()=>p
         });
         var o = r("8af190b70a6bc55c6f1b")
           , a = r("6515cd559c65eab0c80c")
-          , n = r("77d9647920c06e8befd6");
-        const s = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
+          , n = r("77d9647920c06e8befd6")
+          , s = r("c90b79b40c6328f03c9e");
+        const i = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var i = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var c = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const c = {
+        const l = {
             ripples: {
-                vs: s,
+                vs: i,
                 fs: "precision mediump float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .25;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.5*uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    vec3 color1 = vec3(0.445,0.002,0.419);\n    vec3 color2 = vec3(1.000,0.467,0.174);\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(color1, color2, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolate(float x, vec2 x0, vec2 x1, vec2 x2) {\n    return (((x - x1.x) * (x - x2.x)) / ((x0.x - x1.x) * (x0.x - x2.x))) * x0.y\n        + (((x - x0.x) * (x - x2.x)) / ((x1.x - x0.x) * (x1.x - x2.x))) * x1.y\n        + (((x - x0.x) * (x - x1.x)) / ((x2.x - x0.x) * (x2.x - x1.x))) * x2.y;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.0006 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    // gl_FragColor = noisyTexture(outUV, scaledTime);\n    vec4 layer1 = mix(uColor1, uColor3, outUV.x);\n    vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(texture2D(uVocals, vTexCoord));\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
             },
             water: {
-                vs: s,
-                fs: "precision highp float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color2 = mix(uColor2, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color3 = mix(uColor3, vec4(1.0,1.0,1.0,1.0), 0.0);\nvec4 color4 = mix(uColor4, vec4(1.0,1.0,1.0,1.0), 0.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\nfloat noise (in vec2 _st) {\n    vec2 i = floor(_st);\n    vec2 f = fract(_st);\n\n    // Four corners in 2D of a tile\n    float a = random(i);\n    float b = random(i + vec2(1.0, 0.0));\n    float c = random(i + vec2(0.0, 1.0));\n    float d = random(i + vec2(1.0, 1.0));\n\n    vec2 u = f * f * (3. - 2.0 * f);\n\n    return mix(a, b, u.x) +\n            (c - a)* u.y * (1. - u.x) +\n            (d - b) * u.x * u.y;\n}\n\n#define NUM_OCTAVES 2\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .14;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.8 * uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime );\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    // vec3 color1 = vec3(0.445,0.002,0.419);\n    // vec3 color2 = vec3(1.000,0.467,0.174);\n    vec3 color1 = uColor1.rgb;\n    vec3 color2 = uColor3.rgb;\n    //vec3 color3 = vec3(0.413,0.524,0.880);\n    // vec3 colorB1 = vec3(1.0, 1.0, 1.0);\n    // vec3 colorB2 = vec3(1.0, 1.0, 1.0);\n    // vec3 color1 = vec3(1.0, .25, .25);\n    // vec3 color2 = vec3(.25, .25, 1.0);\n    // vec3 color1 = uColor1.xyz;\n    // vec3 color2 = uColor2.xyz;\n    //vec3 color3 = vec3(.5, 0.5, 0.5);\n    vec3 color3 = mix(uColor2.rgb, uColor4.rgb, /*sin(uv.x + scaledTime) + cos(uv.y + scaledTime)*/uv.x);\n\n    color = mix(color1, color2, clamp((f*f),0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x),0.480, 0.92));\n\n    st = st/coef;\n\n\n    vec3 finalColor = vec3(f*1.9*color);\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\n// float getData(int index) {\n//     for (int i=0; i<240; i++) {\n//         if (i == index) return uDrumsStemSamples[i];\n//     }\n//     return 1.;\n// }\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(pos - uv);\n    // float dist = (1.0 - l) * 100.0;\n    // float index = floor(dist);\n    // float rem = dist - floor(dist);\n    // float nextIndex = index + 1.;\n\n    // int sampleIndex = int(floor((1.0 - l) * 30.0));\n    // float waveValue = mix(getData(int(index)), getData(int(nextIndex)), rem);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 120. + (1. - l + lOffset) * 120.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    // sinc function reconstructing audio signal from samples?\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n    // float waveValue = interpolated(buf, rem, sampleNo);\n\n    // float waveValue = interpolate(\n    //     0.5 + l,\n    //     vec2(0., getStemSample(buf, sampleNo)),\n    //     vec2(1., getStemSample(buf, sampleNo + 1.0)),\n    //     vec2(2., getStemSample(buf, sampleNo + 2.0))\n    // );\n    // float waveValue = getStemSample(buf, sampleNo);\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue; // * 0.5 + 0.5;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    //value = pow(value, 1.5);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = max(0.0, 0.75 - l * 0.75);\n    return value * attenuation * fade * volume;\n    // return (value + (1.0 - value) * value2 * 0.02) * attenuation;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength + 0.5, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength * 2.2, time, buf, volume);\n\n    // #if DEBUG == 1\n    //    \tfragColor = vec4(normal, 1.0);\n    // \treturn;\n    // #endif\n\n    vec2 finalUV = uv + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.00045 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // vec2 distortedUV = scaledVTexCoord;\n    vec2 distortedUV = scaledVTexCoord;\n\n\n    vec2 vocalsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 0.), 55., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(scaledVTexCoord, vec2(1. * aspectRatio, .5), 55., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(scaledVTexCoord, vec2(.5 * aspectRatio, 1.), 55., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(scaledVTexCoord, vec2(0. * aspectRatio, .5), 55., scaledTime, uBass, uBassVolume);\n    vec2 distortedUV1 = mix(vocalsUv, otherUv, scaledVTexCoord);\n    vec2 distortedUV2 = mix(drumsUv, bassUv, scaledVTexCoord);\n    distortedUV = mix(distortedUV1, distortedUV2, scaledVTexCoord);\n\n\n\n\n    // distortedUV = ripple(distortedUV, vec2(0.5 * aspectRatio, 1.), 25., scaledTime, uDrums);\n    // distortedUV = ripple(distortedUV, vec2(0., 0.5), 25., scaledTime, uBass);\n\n    // vec2 rippleUVDrums = ripple(scaledVTexCoord, vec2(0.*aspectRatio, 0.), 35.0 * uAmplitudeDrums, scaledTime);\n    // vec2 rippleUVBass = ripple(rippleUVDrums, vec2(1.*aspectRatio, 1.), 35.0 * uAmplitudeBass, scaledTime);\n    // vec2 rippleUVVocals = ripple(scaledVTexCoord, vec2(0.5, 0.), 25.0, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(1.*aspectRatio, 0.), 35.0 * uAmplitudeOther, scaledTime);\n    // vec2 rippleUVOther = ripple(rippleUVVocals, vec2(0.5, 1.), 25.0, scaledTime);\n    // vec2 rippleUVL1 = mix(rippleUVBass, rippleUVDrums, 0.5);\n    // vec2 rippleUVL2 = mix(rippleUVVocals, rippleUVOther, 0.5);\n    // vec2 rippleUV = (rippleUVDrums + rippleUVBass + rippleUVOther + rippleUVVocals); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // vec2 rippleUV = ripple(scaledVTexCoord, vec2(0.5*aspectRatio, 0.5), 10.0, scaledTime); //mix(rippleUVL1, rippleUVL2, 0.5);\n    // gl_FragColor = cornerGradient(scaledVTexCoord, uColor1, uColor2, uColor3, uColor4, 0.5, 0.5);\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    gl_FragColor = noisyTexture(outUV, scaledTime);\n\n    // GOOD\n    // vec4 layer1 = mix(uColor1, uColor3, sin(vTexCoord.x * scaledTime));\n    // gl_FragColor = layer1;\n\n\n\n\n    // vec4 layer2 = mix(uColor1, uColor3, outUV.y);\n    // gl_FragColor = mix(layer1, layer2, sin(scaledTime));\n    // gl_FragColor = vec4(1., 0., 0., 1.);\n\n    // gl_FragColor = vec4(getData(int(floor(vTexCoord.x * 240.))), 0.0, 0.0, 1.0);\n    // gl_FragColor = vec4(\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     getStemSample(uVocals, floor(uTrackPosition * uTrackSamples)),\n    //     1.0\n    // );\n}\n"
+                vs: i,
+                fs: "precision highp float;\n\nuniform float uTime;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform float uDrumsStemSamples[240];\n\nuniform sampler2D uVocals;\nuniform sampler2D uOther;\nuniform sampler2D uDrums;\nuniform sampler2D uBass;\n\nuniform float uTrackPosition;\nuniform float uTrackSamples;\n\nuniform float uVocalsVolume;\nuniform float uOtherVolume;\nuniform float uDrumsVolume;\nuniform float uBassVolume;\nuniform float uStoppedAt;\n\nuniform float uNoiseAmount;\n\nvarying vec2 vTexCoord;\n\n#define sinc(x) sin(3.1416*(x)+1e-20) / (3.1416*(x)+1e-20)\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\n// Author: blackpolygon\n// Title: Turbulence\n// Date: December 2016\n\n// Based on the example from @patriciogv for Fractal Brownian Motion\n// https://thebookofshaders.com/13/\n\n\n#define PI 3.14159265359\n#define TWO_PI 6.28318530718\n\nfloat random (in vec2 _st) {\n    return fract(sin(dot(_st.xy, vec2(12.9898,78.233))) * 43758.54531237);\n}\n\n// Based on Morgan McGuire @morgan3d\n// https://www.shadertoy.com/view/4dS3Wd\n// float noise (in vec2 _st) {\n//     vec2 i = floor(_st);\n//     vec2 f = fract(_st);\n\n//     // Four corners in 2D of a tile\n//     float a = random(i);\n//     float b = random(i + vec2(1.0, 0.0));\n//     float c = random(i + vec2(0.0, 1.0));\n//     float d = random(i + vec2(1.0, 1.0));\n\n//     vec2 u = f * f * (3. - 2.0 * f);\n\n//     return mix(a, b, u.x) +\n//             (c - a)* u.y * (1. - u.x) +\n//             (d - b) * u.x * u.y;\n// }\n\nfloat mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}\nvec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}\nvec4 perm(vec4 x){return mod289(((x * 34.0) + 1.0) * x);}\n\nfloat noise(vec2 p){\n    vec3 a = floor(vec3(1.0, p.xy));\n    vec3 d = vec3(1.0, p.xy) - a;\n    d = d * d * (3.0 - 2.0 * d);\n\n    vec4 b = a.xxyy + vec4(0.0, 1.0, 0.0, 1.0);\n    vec4 k1 = perm(b.xyxy);\n    vec4 k2 = perm(k1.xyxy + b.zzww);\n\n    vec4 c = k2 + a.zzzz;\n    vec4 k3 = perm(c);\n    vec4 k4 = perm(c + 1.0);\n\n    vec4 o1 = fract(k3 * (1.0 / 41.0));\n    vec4 o2 = fract(k4 * (1.0 / 41.0));\n\n    vec4 o3 = o2 * d.z + o1 * (1.0 - d.z);\n    vec2 o4 = o3.yw * d.x + o3.xz * (1.0 - d.x);\n\n    float res =  o4.y * d.y + o4.x * (1.0 - d.y);\n    return res;\n}\n\n\n\n#define NUM_OCTAVES 5\n\nfloat fbm ( in vec2 _st) {\n    float v = 0.0;\n    float a = 0.5;\n    vec2 shift = vec2(20.0);\n    // Rotate to reduce axial bias\n    mat2 rot = mat2(cos(0.5), sin(0.5),\n                    -sin(0.5), cos(0.50));\n    for (int i = 0; i < NUM_OCTAVES; ++i) {\n        v += a * noise(_st);\n        _st = rot * _st * 2.2 + shift;\n        a *= 0.5;\n    }\n    return v;\n}\n\nvec4 noisyTexture(vec2 uv, float scaledTime) {\n    // (fragCoord.xy - 0.5*iResolution.xy )/min(iResolution.x,iResolution.y)\n    float coef = .05;\n    vec2 fragCoord = uv * uResolution;\n    vec2 st = (fragCoord.xy - 0.5 * uResolution.xy ) / min(uResolution.x, uResolution.y);\n    st *= coef;\n\n    vec3 color = vec3(0.);\n    vec2 a = vec2(0.);\n    vec2 b = vec2(0.);\n    vec2 c = vec2(60.,800.);\n\n    a.x = fbm( st);\n    a.y = fbm( st + vec2(1.0));\n\n    b.x = fbm( st + 4.*a);\n    b.y = fbm( st);\n\n    c.x = fbm( st + 7.0*b + vec2(10.7,.2)+ 0.215*scaledTime);\n    c.y = fbm( st + 3.944*b + vec2(.3,12.8)+ 0.16*scaledTime);\n\n    float f = fbm(st+b+c);\n\n    vec3 color1 = uColor1.rgb;\n    vec3 color2 = uColor2.rgb;\n\n    float gradientMix = uResolution.x / uResolution.y;\n    if (uResolution.y > uResolution.x) {\n        gradientMix = uResolution.y / uResolution.x;\n    }\n\n    vec3 color3 = mix(color1.rgb, color2.rgb, (uv.x + uv.y) / gradientMix);\n\n    color = mix(color1, color2, clamp((f*f), 0.2, 1.0));\n    color = mix(color, color3, clamp(length(c.x), 0.480, 0.92));\n\n    st = st/coef;\n\n    vec3 preNoiseColor = vec3(f*1.9*color);\n\n    float randOffset = (random(uv * scaledTime) * 2. - 1.0) * uNoiseAmount;\n    vec3 uniformNoise = vec3(randOffset);\n\n    vec3 finalColor = preNoiseColor + uniformNoise;\n\n    return vec4( finalColor, 1.);\n}\n\n\n\nfloat clamp01(float v)\n{\n    return clamp(v, 0.0, 1.0);\n}\n\nfloat getStemSample(sampler2D buffer, float sampleNo) {\n    float pixelNo = sampleNo / 4.;\n    float bufferPos = floor(pixelNo);\n    float row = floor(bufferPos / 128.);\n    float column = bufferPos - row * 128.;\n    float sampleOffset = floor((pixelNo - floor(pixelNo)) * 4.);\n\n    vec4 pixel = texture2D(buffer, vec2(column / 128., row / 128.));\n\n    if (sampleOffset == 0.0) {\n        return pixel.r;\n    } else if (sampleOffset == 1.0) {\n        return pixel.g;\n    } else if (sampleOffset == 2.0) {\n        return pixel.b;\n    } else if (sampleOffset == 3.0) {\n        return pixel.a;\n    }\n\n    return 0.5;\n}\n\nfloat interpolatedSample(sampler2D buf, float rawSampleNo) {\n    const float windowSize = 200.;\n    float sampleNo = floor(rawSampleNo);\n    float windowStart = max(0.0, sampleNo - windowSize / 2.0);\n    float windowEnd = windowStart + windowSize;\n\n    float xt = 0.0;\n    float n = windowStart;\n    for (float nOff = 0.; nOff < windowSize; nOff += 1.0) {\n        n = windowStart + nOff;\n        xt = xt + (getStemSample(buf, n) * sinc(rawSampleNo - n));\n    }\n\n    return xt;\n}\n\nfloat distortionHeight(vec2 uv, vec2 pos, float time, sampler2D buf, float volume)\n{\n\tfloat l = length(uv - pos);\n\n    // Smoothly stops the playback\n    float lOffset = 0.;\n    float fade = 1.0;\n    if (uStoppedAt > 0.) {\n        lOffset = min(1., (uTime - uStoppedAt) / 500.);\n        fade = max(0., 1. - (uTime - uStoppedAt) / 500.);\n    }\n    float rawSampleNo = uTrackPosition * uTrackSamples - 150. + (1. - l + lOffset) * 150.;\n    if (rawSampleNo < 0.0) {\n        return 0.0;\n    }\n\n    float sampleNo = floor(rawSampleNo);\n    float rem = rawSampleNo - sampleNo;\n    float nextSampleNo = sampleNo + 1.;\n    float waveValue = mix(getStemSample(buf, sampleNo), getStemSample(buf, nextSampleNo), rem);\n    // float waveValue = interpolatedSample(buf, rawSampleNo);\n\n    // float waveValue = sin(l * 30.0 - time * 5.0);\n\n    float value = waveValue;\n    // float value2 = sin(l * 150.0 - time * 30.0) * 0.5 + 0.5;\n    // value = pow(value, 2.);\n    //value2 = pow(value2, 10.0);\n\n    float attenuation = exp(-7.*l); //max(0.0001, 0.9 - l * 0.9);\n    return value * attenuation * fade * volume;\n}\n\nvec3 distortionNormal(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 offset = vec3(1.0 / uResolution.xy, 0.0);\n \tfloat p = distortionHeight(uv, pos, time, buf, volume);\n    float h1 = distortionHeight(uv + offset.xz, pos, time, buf, volume);\n    float v1 = distortionHeight(uv + offset.zy, pos, time, buf, volume);\n\n    vec2 delta = p - vec2(h1, v1);\n    return vec3(delta * strength, 1.0);\n}\n\nvec2 ripple(vec2 uv, vec2 pos, float strength, float time, sampler2D buf, float volume)\n{\n    vec3 normal = distortionNormal(uv, pos, strength, time, buf, volume);\n\n    vec2 finalUV = (uv) + normal.xy * 0.5;\n\n    return finalUV;\n}\n\n\n\nvoid main() {\n    float scaledTime = 0.00020 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    vec2 distortedUV = scaledVTexCoord;\n\n\n    vec2 vocalsUv = ripple(distortedUV, vec2(.5 * aspectRatio, 0.), 120., scaledTime, uVocals, uVocalsVolume);\n    vec2 otherUv = ripple(vocalsUv, vec2(1. * aspectRatio, .5), 120., scaledTime, uOther, uOtherVolume);\n    vec2 drumsUv = ripple(otherUv, vec2(.5 * aspectRatio, 1.), 120., scaledTime, uDrums, uDrumsVolume);\n    vec2 bassUv = ripple(drumsUv, vec2(0. * aspectRatio, .5), 120., scaledTime, uBass, uBassVolume);\n    distortedUV = bassUv;\n\n    vec2 outUV = scaledVTexCoord;\n    if (uTrackPosition > 0.) {\n        outUV = distortedUV;\n    }\n\n    gl_FragColor = noisyTexture(outUV, scaledTime);\n}\n"
             }
         };
-        function l(e, t, r) {
+        function _(e, t, r) {
             const o = e.createShader(e.VERTEX_SHADER)
               , a = e.createShader(e.FRAGMENT_SHADER);
             if (e.shaderSource(o, t),
@@ -408,7 +409,7 @@
             } else
                 console.error("ERROR linking program", e.getProgramInfoLog(n))
         }
-        function _(e, t) {
+        function d(e, t) {
             const r = new Float32Array([-1, 1, 1, 1, 1, -1, -1, 1, 1, -1, -1, -1])
               , o = e.createBuffer();
             e.bindBuffer(e.ARRAY_BUFFER, o),
@@ -424,7 +425,7 @@
             e.vertexAttribPointer(n, 2, e.FLOAT, !1, 0, 0),
             r.length / 2
         }
-        function d(e, t, r, o, a) {
+        function u(e, t, r, o, a) {
             const n = t.slice();
             for (let e = 0; e < n.length; e += 1)
                 n[e] = Math.floor(n[e] / 100 * 255);
@@ -442,70 +443,74 @@
             e.bindTexture(e.TEXTURE_2D, null),
             i
         }
-        i(l, "useProgram{}");
-        const u = ({audioEngine: e, loading: t, type: r})=>{
+        c(_, "useProgram{}");
+        const f = ({audioEngine: e, loading: t, type: r})=>{
             const n = (0,
-            o.useRef)()
-              , s = (0,
             o.useRef)()
               , i = (0,
             o.useRef)()
-              , u = (0,
+              , c = (0,
             o.useRef)()
               , f = (0,
-            o.useRef)(null)
+            o.useRef)()
               , m = (0,
-            o.useRef)(0)
+            o.useRef)(null)
               , p = (0,
-            o.useRef)(1)
+            o.useRef)(null)
               , h = (0,
-            o.useRef)(0)
+            o.useRef)(null)
               , b = (0,
-            o.useRef)(1)
+            o.useRef)(0)
               , v = (0,
-            o.useRef)(0)
+            o.useRef)(1)
               , E = (0,
-            o.useRef)(1)
-              , g = (0,
             o.useRef)(0)
-              , A = (0,
+              , g = (0,
             o.useRef)(1)
+              , A = (0,
+            o.useRef)(0)
               , y = (0,
+            o.useRef)(1)
+              , P = (0,
+            o.useRef)(0)
+              , M = (0,
+            o.useRef)(1)
+              , O = (0,
             o.useRef)(0);
             return (0,
             o.useRef)().current = e.playbackState,
             (0,
             o.useEffect)(()=>{
-                u.current = e
+                f.current = e
             }
             , [e]),
             (0,
             o.useEffect)(()=>{
                 const {currentTrack: t} = e;
-                i.current = t;
-                const r = f.current
-                  , o = s.current;
+                c.current = t;
+                const r = h.current
+                  , o = i.current;
                 if (!o)
                     return;
                 if (r) {
-                    f.current = null;
+                    h.current = null;
                     for (const e of r)
                         o.deleteTexture(e)
                 }
                 const a = [];
                 if (t)
                     for (const e of ["vocals", "other", "drums", "bass"]) {
-                        const r = d(o, t.waveformData[e].intensity, o.RGBA, 128, 128);
+                        const r = u(o, t.waveformData[e].intensity, o.RGBA, 128, 128);
                         a.push(r)
                     }
                 else
                     for (const e of ["vocals", "other", "drums", "bass"]) {
-                        const e = d(o, [], o.RGBA, 128, 128);
+                        const e = u(o, [], o.RGBA, 128, 128);
                         a.push(e)
                     }
-                f.current = a
+                h.current = a
             }
-            , [e.currentTrack, s.current]),
+            , [e.currentTrack, i.current]),
             (0,
             o.useEffect)(()=>{
                 const t = ()=>{
@@ -514,92 +519,112 @@
                       , r = e.clientHeight;
                     (e.width !== t || e.height !== r) && (e.width = t,
                     e.height = r),
-                    s.current.viewport(0, 0, e.clientWidth, e.clientHeight)
+                    i.current.viewport(0, 0, e.clientWidth, e.clientHeight)
                 }
                 ;
                 window.addEventListener("resize", t);
                 const o = n.current;
-                let P;
+                let T;
                 o.width = o.clientWidth,
                 o.height = o.clientHeight;
-                var M = o.getContext("webgl");
-                if (M) {
-                    s.current = M,
+                let D = 0;
+                {
+                    const e = new Proxy(new URLSearchParams(window.location.search),{
+                        get: (e,t)=>e.get(t)
+                    });
+                    D = parseFloat(e.noise),
+                    isNaN(D) && (D = 0);
+                    let t = e.color1
+                      , r = e.color2;
+                    t && (m.current = (0,
+                    s.oo)(t).map(e=>e / 255)),
+                    r && (p.current = (0,
+                    s.oo)(r).map(e=>e / 255))
+                }
+                var w = o.getContext("webgl");
+                if (w) {
+                    i.current = w,
                     t();
-                    const n = c[r]
-                      , T = l(M, n.vs, n.fs)
-                      , O = _(M, T)
-                      , D = M.getUniformLocation(T, "uTime")
-                      , L = M.getUniformLocation(T, "uTrackPosition")
-                      , w = M.getUniformLocation(T, "uResolution")
-                      , k = M.getUniformLocation(T, "uColor1")
-                      , C = M.getUniformLocation(T, "uColor2")
-                      , R = M.getUniformLocation(T, "uColor3")
-                      , U = M.getUniformLocation(T, "uColor4")
-                      , S = M.getUniformLocation(T, "uVocalsVolume")
-                      , x = M.getUniformLocation(T, "uOtherVolume")
-                      , I = M.getUniformLocation(T, "uDrumsVolume")
-                      , B = M.getUniformLocation(T, "uBassVolume")
-                      , K = M.getUniformLocation(T, "uStoppedAt")
-                      , G = M.getUniformLocation(T, "uTrackSamples")
-                      , W = [M.getUniformLocation(T, "uVocals"), M.getUniformLocation(T, "uOther"), M.getUniformLocation(T, "uDrums"), M.getUniformLocation(T, "uBass")]
-                      , H = [];
+                    const n = l[r]
+                      , s = _(w, n.vs, n.fs)
+                      , L = d(w, s)
+                      , k = w.getUniformLocation(s, "uTime")
+                      , C = w.getUniformLocation(s, "uTrackPosition")
+                      , R = w.getUniformLocation(s, "uResolution")
+                      , S = w.getUniformLocation(s, "uNoiseAmount")
+                      , U = w.getUniformLocation(s, "uColor1")
+                      , x = w.getUniformLocation(s, "uColor2")
+                      , I = w.getUniformLocation(s, "uVocalsVolume")
+                      , B = w.getUniformLocation(s, "uOtherVolume")
+                      , K = w.getUniformLocation(s, "uDrumsVolume")
+                      , G = w.getUniformLocation(s, "uBassVolume")
+                      , W = w.getUniformLocation(s, "uStoppedAt")
+                      , H = w.getUniformLocation(s, "uTrackSamples")
+                      , N = [w.getUniformLocation(s, "uVocals"), w.getUniformLocation(s, "uOther"), w.getUniformLocation(s, "uDrums"), w.getUniformLocation(s, "uBass")]
+                      , F = [];
                     for (const e of ["vocals", "other", "drums", "bass"]) {
-                        const e = d(M, [], M.RGBA, 128, 128);
-                        H.push(e)
+                        const e = u(w, [], w.RGBA, 128, 128);
+                        F.push(e)
                     }
-                    f.current = H;
-                    const N = t=>{
-                        M.clearColor(0, 0, 0, 1),
-                        M.clear(M.COLOR_BUFFER_BIT),
-                        M.uniform1f(D, t),
-                        M.uniform2f(w, o.clientWidth, o.clientHeight);
-                        const r = i.current
-                          , n = f.current;
-                        if (M.uniform4f(k, .6, .6235, .6745, 1),
-                        M.uniform4f(C, .8941, .8235, .815686, 1),
-                        M.uniform4f(R, .90196, .70588, .63529, 1),
-                        M.uniform4f(U, .6, .62745, .67843, 1),
-                        r ? (M.uniform1f(L, e.getCurrentTime() / e.getDuration()),
-                        u.current.playbackState !== a.QK.Playing ? 0 === m.current && (m.current = t) : m.current = 0,
-                        e.shouldMute(a.wA.Vocals) ? 1 === h.current && (h.current = 0) : h.current = 1,
-                        p.current > h.current ? p.current -= .033 : p.current < h.current && (p.current += .033),
-                        e.shouldMute(a.wA.Other) ? 1 === v.current && (v.current = 0) : v.current = 1,
-                        b.current > v.current ? b.current -= .033 : b.current < v.current && (b.current += .033),
-                        e.shouldMute(a.wA.Drums) ? 1 === g.current && (g.current = 0) : g.current = 1,
-                        E.current > g.current ? E.current -= .033 : E.current < g.current && (E.current += .033),
-                        e.shouldMute(a.wA.Bass) ? 1 === y.current && (y.current = 0) : y.current = 1,
-                        A.current > y.current ? A.current -= .033 : A.current < y.current && (A.current += .033),
-                        M.uniform1f(S, p.current),
-                        M.uniform1f(x, b.current),
-                        M.uniform1f(I, E.current),
-                        M.uniform1f(B, A.current),
-                        M.uniform1f(K, m.current)) : (M.uniform1f(L, 0),
-                        M.uniform1f(S, 0),
-                        M.uniform1f(x, 0),
-                        M.uniform1f(I, 0),
-                        M.uniform1f(B, 0),
-                        M.uniform1f(K, 0)),
+                    h.current = F;
+                    const V = t=>{
+                        w.clearColor(0, 0, 0, 1),
+                        w.clear(w.COLOR_BUFFER_BIT),
+                        w.uniform1f(k, t),
+                        w.uniform2f(R, o.clientWidth, o.clientHeight);
+                        const r = c.current
+                          , n = h.current;
+                        if (m.current) {
+                            const e = m.current;
+                            w.uniform4f(U, e[0], e[1], e[2], 1)
+                        } else
+                            w.uniform4f(U, .6, .6235, .6745, 1);
+                        if (p.current) {
+                            const e = p.current;
+                            w.uniform4f(x, e[0], e[1], e[2], 1)
+                        } else
+                            w.uniform4f(x, .90196, .70588, .63529, 1);
+                        if (w.uniform1f(S, D),
+                        r ? (w.uniform1f(C, e.getCurrentTime() / e.getDuration()),
+                        f.current.playbackState !== a.QK.Playing ? 0 === b.current && (b.current = t) : b.current = 0,
+                        e.shouldMute(a.wA.Vocals) ? 1 === E.current && (E.current = 0) : E.current = 1,
+                        v.current > E.current ? v.current -= .033 : v.current < E.current && (v.current += .033),
+                        e.shouldMute(a.wA.Other) ? 1 === A.current && (A.current = 0) : A.current = 1,
+                        g.current > A.current ? g.current -= .033 : g.current < A.current && (g.current += .033),
+                        e.shouldMute(a.wA.Drums) ? 1 === P.current && (P.current = 0) : P.current = 1,
+                        y.current > P.current ? y.current -= .033 : y.current < P.current && (y.current += .033),
+                        e.shouldMute(a.wA.Bass) ? 1 === O.current && (O.current = 0) : O.current = 1,
+                        M.current > O.current ? M.current -= .033 : M.current < O.current && (M.current += .033),
+                        w.uniform1f(I, v.current),
+                        w.uniform1f(B, g.current),
+                        w.uniform1f(K, y.current),
+                        w.uniform1f(G, M.current),
+                        w.uniform1f(W, b.current)) : (w.uniform1f(C, 0),
+                        w.uniform1f(I, 0),
+                        w.uniform1f(B, 0),
+                        w.uniform1f(K, 0),
+                        w.uniform1f(G, 0),
+                        w.uniform1f(W, 0)),
                         n) {
                             let e = 0;
                             r && (e = r.waveformData.drums.intensity.length),
-                            M.uniform1f(G, e);
+                            w.uniform1f(H, e);
                             for (let e = 0; e < n.length; e += 1) {
                                 const t = n[e];
-                                M.activeTexture(M.TEXTURE0 + e),
-                                M.bindTexture(M.TEXTURE_2D, t),
-                                M.uniform1i(W[e], e)
+                                w.activeTexture(w.TEXTURE0 + e),
+                                w.bindTexture(w.TEXTURE_2D, t),
+                                w.uniform1i(N[e], e)
                             }
                         }
-                        M.drawArrays(M.TRIANGLES, 0, O),
-                        P = requestAnimationFrame(N)
+                        w.drawArrays(w.TRIANGLES, 0, L),
+                        T = requestAnimationFrame(V)
                     }
                     ;
-                    N(0)
+                    V(0)
                 }
                 return ()=>{
                     window.removeEventListener("resize", t),
-                    P && cancelAnimationFrame(P)
+                    T && cancelAnimationFrame(T)
                 }
             }
             , []),
@@ -611,18 +636,18 @@
             }))
         }
         ;
-        i(u, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{audioEngineRef}\nuseRef{texturesRef}\nuseRef{stoppedAtRef}\nuseRef{vocalsVolumeRef}\nuseRef{vocalsNewVolumeRef}\nuseRef{otherVolumeRef}\nuseRef{otherNewVolumeRef}\nuseRef{drumsVolumeRef}\nuseRef{drumsNewVolumeRef}\nuseRef{bassVolumeRef}\nuseRef{bassNewVolumeRef}\nuseRef{playbackStateRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
-        const f = (0,
-        n.f)(u)
-          , m = f;
+        c(f, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{audioEngineRef}\nuseRef{color1Ref}\nuseRef{color2Ref}\nuseRef{texturesRef}\nuseRef{stoppedAtRef}\nuseRef{vocalsVolumeRef}\nuseRef{vocalsNewVolumeRef}\nuseRef{otherVolumeRef}\nuseRef{otherNewVolumeRef}\nuseRef{drumsVolumeRef}\nuseRef{drumsNewVolumeRef}\nuseRef{bassVolumeRef}\nuseRef{bassNewVolumeRef}\nuseRef{playbackStateRef}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        const m = (0,
+        n.f)(f)
+          , p = m;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(c, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
-            e.register(l, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
-            e.register(_, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
-            e.register(d, "textureFromPixelArray", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
-            e.register(u, "BackgroundShader2", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
-            e.register(f, "default", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"))
+            e && (e.register(l, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(_, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(d, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(u, "textureFromPixelArray", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(f, "BackgroundShader2", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"),
+            e.register(m, "default", "/home/vsts/work/1/s/src/components/BackgroundShader2/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -819,18 +844,18 @@
             a.useRef)(null)
               , y = e=>{
                 var t;
-                null === (t = g.current) || void 0 === t || t.addEventListener("mousemove", T),
-                T(e)
+                null === (t = g.current) || void 0 === t || t.addEventListener("mousemove", O),
+                O(e)
             }
               , P = e=>{
                 var t;
-                null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T)
+                null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O)
             }
               , M = e=>{
                 var t;
-                1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", T))
+                1 !== e.buttons && (null === (t = g.current) || void 0 === t || t.removeEventListener("mousemove", O))
             }
-              , T = t=>{
+              , O = t=>{
                 if (0 === t.button) {
                     const o = t.currentTarget
                       , a = Math.atan2(t.offsetY - o.height / 2, t.offsetX - o.width / 2)
@@ -847,7 +872,7 @@
                     r(f, e)
                 }
             }
-              , O = (t,o)=>{
+              , T = (t,o)=>{
                 const a = t.target.value;
                 let n;
                 if ((n = "" === a ? 0 : parseInt(a) && parseInt(a) > 255 ? 255 : parseInt(a)) && n <= 255 || 0 === n) {
@@ -986,15 +1011,15 @@
                 className: "input-color__value"
             }, a.createElement(u, {
                 value: `${i[0]}`,
-                onChange: e=>O(e, 0),
+                onChange: e=>T(e, 0),
                 className: "input-color__box"
             }), a.createElement(u, {
                 value: `${i[1]}`,
-                onChange: e=>O(e, 1),
+                onChange: e=>T(e, 1),
                 className: "input-color__box"
             }), a.createElement(u, {
                 value: `${i[2]}`,
-                onChange: e=>O(e, 2),
+                onChange: e=>T(e, 2),
                 className: "input-color__box"
             })), a.createElement(u, {
                 value: `${_}`,
@@ -1138,15 +1163,15 @@
             a.useState)("")
               , [y,P] = (0,
             a.useState)("")
-              , [M,T] = (0,
+              , [M,O] = (0,
             a.useState)(!1)
-              , [O,D] = (0,
+              , [T,D] = (0,
             a.useState)(!0)
-              , L = (0,
-            m.s)()
               , w = (0,
+            m.s)()
+              , L = (0,
             a.useRef)();
-            w.current = r;
+            L.current = r;
             const k = (0,
             a.useRef)();
             k.current = d;
@@ -1156,12 +1181,12 @@
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
-            const U = (0,
-            a.useRef)();
-            U.current = e.trackIsLoaded;
             const S = (0,
             a.useRef)();
-            S.current = e.shouldHideMiniPlayer;
+            S.current = e.trackIsLoaded;
+            const U = (0,
+            a.useRef)();
+            U.current = e.shouldHideMiniPlayer;
             const x = (0,
             n.useHistory)();
             let I;
@@ -1203,15 +1228,15 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (M && T(!1),
+                e.currentTrack && (M && O(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === U.current && (D(!1),
+                    !0 === S.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== U.current && (D(!0),
+                !0 !== S.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1239,8 +1264,8 @@
             a.useRef)();
             K.current = e.getActiveQueue();
             const G = t=>{
-                if (!S.current) {
-                    if (U.current && " " === t.key && (t.preventDefault(),
+                if (!U.current) {
+                    if (S.current && " " === t.key && (t.preventDefault(),
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
@@ -1255,13 +1280,13 @@
               , W = function() {
                 var r = (0,
                 o.Z)(function*() {
-                    const r = w.current;
-                    if (!L())
+                    const r = L.current;
+                    if (!w())
                         return;
                     let o;
-                    if (r === w.current) {
+                    if (r === L.current) {
                         if (e.activeQueue === _.$_.Official) {
-                            const a = yield t.getLatestStems(w.current, C.current.version, "mp3");
+                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
                             try {
                                 const n = yield t.getWaveformData(a["waveform-data"], r);
                                 o = e.generateTrack(C.current, a, n)
@@ -1271,12 +1296,12 @@
                         } else {
                             const r = e.generateTrack(C.current);
                             if (!r.waveformData) {
-                                const e = yield t.getWaveformData(C.current.waveforms_url, w.current);
+                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
                                 r.waveformData = e
                             }
                             o = r
                         }
-                        if (!L())
+                        if (!w())
                             return;
                         e.load(o)
                     }
@@ -1287,7 +1312,7 @@
                 }
             }()
               , H = ()=>{
-                if (L()) {
+                if (w()) {
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
@@ -1296,7 +1321,7 @@
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
                             if (o) {
-                                T(!0);
+                                O(!0);
                                 const e = (0,
                                 u.Z)(r, [0, 1], [.3, 1], !0);
                                 o.style.transform = `scale(${e})`
@@ -1319,7 +1344,7 @@
                 e.setIsNavigating(!0),
                 e.stop(),
                 V(),
-                M && T(!1)
+                M && O(!1)
             }
               , V = (0,
             a.useCallback)((0,
@@ -1334,7 +1359,7 @@
                 onClick: N
             }, a.createElement("div", {
                 ref: B,
-                className: `mini-player__stems ${O ? "mini-player__stems--loading" : ""}`
+                className: `mini-player__stems ${T ? "mini-player__stems--loading" : ""}`
             }, (()=>Object.values(_.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
                   , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
@@ -1430,15 +1455,15 @@
             a.useState)("")
               , [y,P] = (0,
             a.useState)("")
-              , [M,T] = (0,
+              , [M,O] = (0,
             a.useState)(!1)
-              , [O,D] = (0,
+              , [T,D] = (0,
             a.useState)(!0)
-              , L = (0,
-            m.s)()
               , w = (0,
+            m.s)()
+              , L = (0,
             a.useRef)();
-            w.current = r;
+            L.current = r;
             const k = (0,
             a.useRef)();
             k.current = d;
@@ -1448,12 +1473,12 @@
             const R = (0,
             a.useRef)();
             R.current = e.playbackState;
-            const U = (0,
-            a.useRef)();
-            U.current = e.trackIsLoaded;
             const S = (0,
             a.useRef)();
-            S.current = e.shouldHideMiniPlayer;
+            S.current = e.trackIsLoaded;
+            const U = (0,
+            a.useRef)();
+            U.current = e.shouldHideMiniPlayer;
             const x = (0,
             n.useHistory)();
             let I;
@@ -1495,15 +1520,15 @@
             , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (M && T(!1),
+                e.currentTrack && (M && O(!1),
                 l(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === U.current && (D(!1),
+                    !0 === S.current && (D(!1),
                     B.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== U.current && (D(!0),
+                !0 !== S.current && (D(!0),
                 null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
                 s.Ds)(t, 50, !0)));
                 return ()=>{
@@ -1531,8 +1556,8 @@
             a.useRef)();
             K.current = e.getActiveQueue();
             const G = t=>{
-                if (!S.current) {
-                    if (U.current && " " === t.key && (t.preventDefault(),
+                if (!U.current) {
+                    if (S.current && " " === t.key && (t.preventDefault(),
                     R.current === _.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
                         const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
@@ -1547,13 +1572,13 @@
               , W = function() {
                 var r = (0,
                 o.Z)(function*() {
-                    const r = w.current;
-                    if (!L())
+                    const r = L.current;
+                    if (!w())
                         return;
                     let o;
-                    if (r === w.current) {
+                    if (r === L.current) {
                         if (e.activeQueue === _.$_.Official) {
-                            const a = yield t.getLatestStems(w.current, C.current.version, "mp3");
+                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
                             try {
                                 const n = yield t.getWaveformData(a["waveform-data"], r);
                                 o = e.generateTrack(C.current, a, n)
@@ -1563,12 +1588,12 @@
                         } else {
                             const r = e.generateTrack(C.current);
                             if (!r.waveformData) {
-                                const e = yield t.getWaveformData(C.current.waveforms_url, w.current);
+                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
                                 r.waveformData = e
                             }
                             o = r
                         }
-                        if (!L())
+                        if (!w())
                             return;
                         e.load(o)
                     }
@@ -1579,7 +1604,7 @@
                 }
             }()
               , H = ()=>{
-                if (L()) {
+                if (w()) {
                     var t;
                     const r = e.getCurrentPositionPercent();
                     null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
@@ -1588,7 +1613,7 @@
                             h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player-shader__stems--${t}-container`).querySelector(".mini-player-shader__stems--stem");
                             if (o) {
-                                T(!0);
+                                O(!0);
                                 const e = (0,
                                 u.Z)(r, [0, 1], [.3, 1], !0);
                                 o.style.transform = `scale(${e})`
@@ -1611,7 +1636,7 @@
                 e.setIsNavigating(!0),
                 e.stop(),
                 V(),
-                M && T(!1)
+                M && O(!1)
             }
               , V = (0,
             a.useCallback)((0,
@@ -1626,7 +1651,7 @@
                 onClick: N
             }, a.createElement("div", {
                 ref: B,
-                className: `mini-player-shader__stems ${O ? "mini-player-shader__stems--loading" : ""}`
+                className: `mini-player-shader__stems ${T ? "mini-player-shader__stems--loading" : ""}`
             }, (()=>Object.values(_.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
                   , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
@@ -2036,7 +2061,7 @@
             }
             return r
         }
-        function T(e) {
+        function O(e) {
             for (var t = 1; t < arguments.length; t++) {
                 var r = null != arguments[t] ? arguments[t] : {};
                 t % 2 ? M(Object(r), !0).forEach(function(t) {
@@ -2053,7 +2078,7 @@
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var O = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var T = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
@@ -2080,7 +2105,7 @@
                 return "804fe702b68cd889ff76"
             }
         })
-          , L = (0,
+          , w = (0,
         c.ZP)({
             resolved: {},
             chunkName: ()=>"components-DeviceFirmwareDemo",
@@ -2103,7 +2128,7 @@
                 return "92924b32b778a2c890d3"
             }
         })
-          , w = "Connect Stemplayer"
+          , L = "Connect Stemplayer"
           , k = function() {
             var e = (0,
             a.Z)(function*(e) {
@@ -2123,11 +2148,11 @@
             n.useRef)(null)
               , M = (0,
             n.useRef)(null)
-              , [O,C] = (0,
+              , [T,C] = (0,
             n.useState)(null)
-              , [R,U] = (0,
+              , [R,S] = (0,
             n.useState)(null)
-              , [S,x] = (0,
+              , [U,x] = (0,
             n.useState)(null)
               , [I,B] = (0,
             n.useState)(!1)
@@ -2141,7 +2166,7 @@
             n.useState)("")
               , [j,Z] = (0,
             n.useState)(null)
-              , [Q,z] = (0,
+              , [z,Q] = (0,
             n.useState)(null)
               , [Y,J] = (0,
             n.useState)(!1)
@@ -2162,7 +2187,7 @@
               , [ue,fe] = (0,
             n.useState)(null)
               , [me,pe] = (0,
-            n.useState)(w);
+            n.useState)(L);
             (0,
             n.useEffect)(()=>{
                 W && W.id && N && d.session ? (i(W),
@@ -2180,9 +2205,9 @@
             , [m]),
             (0,
             n.useEffect)(()=>{
-                (o || ue) && (ce || O) && de(!0)
+                (o || ue) && (ce || T) && de(!0)
             }
-            , [O, ce, o, ue]),
+            , [T, ce, o, ue]),
             (0,
             n.useEffect)(()=>{
                 ee && de(!1)
@@ -2196,9 +2221,9 @@
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
-                ne(Q || "Upload")
+                ne(z || "Upload")
             }
-            , [Q]),
+            , [z]),
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
@@ -2209,12 +2234,12 @@
                 var o = (0,
                 a.Z)(function*(o) {
                     o.preventDefault(),
-                    O || R || le(!0),
+                    T || R || le(!0),
                     H(null),
                     F(null),
                     B(!1),
                     ie(!0),
-                    null === O && "" === V && null === R && (console.error("Error: no file or url found"),
+                    null === T && "" === V && null === R && (console.error("Error: no file or url found"),
                     Z(null)),
                     Z("Splitting"),
                     ne("Splitting");
@@ -2224,17 +2249,17 @@
                         const u = new v.f;
                         var n;
                         if (G(u),
-                        null !== O)
+                        null !== T)
                             r({
                                 event: "track_split",
                                 data: {
-                                    name: O.name,
-                                    size: O.size,
-                                    type: O.type,
+                                    name: T.name,
+                                    size: T.size,
+                                    type: T.type,
                                     single_file: !0
                                 }
                             }),
-                            o = yield t.createTrackFromFile(O, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1);
+                            o = yield t.createTrackFromFile(T, e=>Z(e), u.register, null === (n = d.session) || void 0 === n ? void 0 : n.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1);
                         else if (null !== R) {
                             var s;
                             r({
@@ -2255,7 +2280,7 @@
                             }),
                             o = yield t.createTrackFromLink(V, e=>Z(e), u.register, null === (_ = d.session) || void 0 === _ ? void 0 : _.AccessToken, e.deviceConnected && e.deviceConfig.parameters.SplitterPreference === y.L4.High || !1)
                         }
-                        if (null !== O || null === R) {
+                        if (null !== T || null === R) {
                             const e = Date.now();
                             r({
                                 event: "track_split_complete",
@@ -2268,7 +2293,7 @@
                         }
                         const m = yield t.getTracks([o.id])
                           , h = yield p(m[o.id])
-                          , b = T(T({}, o), {}, {
+                          , b = O(O({}, o), {}, {
                             waveformData: h
                         });
                         if (e.deviceConnected) {
@@ -2276,7 +2301,7 @@
                             l(),
                             t ? (i(W),
                             H(b),
-                            null !== O || null !== R ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
+                            null !== T || null !== R ? f(o.id, !0, b) : f(o.id, !0)) : (c(!0),
                             Z("Importing"),
                             F(o),
                             H(b),
@@ -2330,7 +2355,7 @@
                 B(null),
                 q(""),
                 C(null),
-                U(null),
+                S(null),
                 le(!1),
                 te(!1),
                 e.setDeviceTransferActive(!1),
@@ -2354,7 +2379,7 @@
                         } else
                             t.push(a)
                     }
-                    U(t)
+                    S(t)
                 });
                 return function(t) {
                     return e.apply(this, arguments)
@@ -2369,21 +2394,21 @@
                     e.preventDefault(),
                     Ae(),
                     q(""),
-                    U(null),
+                    S(null),
                     C(null);
                     let t = null;
-                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (z("UPLOAD UP TO 4 FILES"),
+                    if ("dataTransfer"in e ? e.dataTransfer.items ? 1 === e.dataTransfer.items.length ? "file" === e.dataTransfer.items[0].kind && (t = e.dataTransfer.items[0].getAsFile()) : e.dataTransfer.items.length <= 4 ? yield ve(e.dataTransfer.items) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    U(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.dataTransfer.files.length ? t = e.dataTransfer.files[0] : e.dataTransfer.files.length <= 4 ? yield ve(e.dataTransfer.files) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    U(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (z("UPLOAD UP TO 4 FILES"),
+                    S(null)) : 1 === e.target.files.length ? t = e.target.files[0] : e.target.files.length <= 4 ? yield ve(e.target.files) : (Q("UPLOAD UP TO 4 FILES"),
                     C(null),
-                    U(null)),
+                    S(null)),
                     t) {
                         ["audio/", "video/mp4"].some(e=>t.type.includes(e)) ? (C(t),
-                        z(null)) : (z("AUDIO FILES ONLY"),
+                        Q(null)) : (Q("AUDIO FILES ONLY"),
                         C(null),
-                        U(null))
+                        S(null))
                     }
                 });
                 return function(t) {
@@ -2392,11 +2417,11 @@
             }()
               , ge = ()=>{
                 C(null),
-                U(null),
-                z(null)
+                S(null),
+                Q(null)
             }
               , Ae = ()=>{
-                z(null),
+                Q(null),
                 J(!1),
                 $(null),
                 B(!1),
@@ -2407,10 +2432,10 @@
             ye.match(/^w?w?w?\.?$/i) && (ye = V);
             const Pe = ()=>!e.deviceTransferActive && !ee
               , Me = ()=>Pe() && [null, "Upload cancelled", "Try again"].includes(j)
-              , Te = ()=>{
+              , Oe = ()=>{
                 u.push("/connect/config")
             }
-              , Oe = function() {
+              , Te = function() {
                 var t = (0,
                 a.Z)(function*() {
                     const t = (0,
@@ -2452,7 +2477,7 @@
                 onSubmit: he
             }, n.createElement("div", {
                 className: "track-splitter__input menu-item"
-            }, !ce && !O && !R && n.createElement("label", {
+            }, !ce && !T && !R && n.createElement("label", {
                 htmlFor: "link-input",
                 className: `track-splitter__link-button ${Me() ? "" : "disabled"}`,
                 onClick: ()=>{
@@ -2462,7 +2487,7 @@
                 }
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, "LINK")), ce && !(O && O.name || R) && n.createElement(_.II, {
+            }, "LINK")), ce && !(T && T.name || R) && n.createElement(_.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
                 disabled: !Me(),
                 invalid: Y,
@@ -2472,7 +2497,7 @@
                 onChange: e=>{
                     o && s(),
                     Ae(),
-                    O && ge();
+                    T && ge();
                     const t = e.target.value.trim()
                       , r = (0,
                     g.xb)(t) || t.match(/^https?:\/\//i) ? t : `https://${t}`;
@@ -2488,15 +2513,15 @@
                 ref: h,
                 id: "link-input",
                 autoComplete: "off"
-            }), !ce && !O && !R && n.createElement("span", {
+            }), !ce && !T && !R && n.createElement("span", {
                 className: "track-splitter__text track-splitter__text--or"
             }, "or"), !ce && n.createElement(n.Fragment, null, n.createElement("label", {
                 htmlFor: "file",
-                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Me() ? "" : " disabled"}\n                                        ${O && O.name || R ? " track-splitter__input--full" : ""}\n                                    `
+                className: `\n                                        track-splitter__input--file\n                                        track-splitter__link-button\n                                        ${Me() ? "" : " disabled"}\n                                        ${T && T.name || R ? " track-splitter__input--full" : ""}\n                                    `
             }, n.createElement("span", {
                 className: "track-splitter__text"
-            }, O && O.name && O.name.toUpperCase(), R && `${(0,
-            E.pG)(S)} files selected`, null === O && null === R && "FILE")), n.createElement("input", {
+            }, T && T.name && T.name.toUpperCase(), R && `${(0,
+            E.pG)(U)} files selected`, null === T && null === R && "FILE")), n.createElement("input", {
                 className: "input--file",
                 type: "file",
                 id: "file",
@@ -2515,11 +2540,11 @@
                 className: "u-mx-auto menu-item",
                 hideTextWhenLoading: !0,
                 brackets: "No available space on device" !== ae,
-                dots: ["Splitting", "Formatting", "Uploading", "Importing"].includes(ae),
+                dots: ["Splitting", "Formatting", "Uploading", "Importing", "Adding to Library"].includes(ae),
                 disabled: !(()=>Pe() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
                 text: ae,
                 onClick: e=>{
-                    (!O && !R && "" === V || O && null !== Q) && (e.preventDefault(),
+                    (!T && !R && "" === V || T && null !== z) && (e.preventDefault(),
                     M.current.click())
                 }
             }), !N && K && n.createElement(D, {
@@ -2546,21 +2571,21 @@
                 disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Te()
+                onClick: ()=>Oe()
             }), !e.deviceConnected && !(0,
             b.gn)() && n.createElement(D, {
                 text: me,
                 disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
-                onClick: ()=>Oe()
+                onClick: ()=>Te()
             }), !d.session && n.createElement(D, {
                 text: "Login",
                 disabled: !Pe(),
                 brackets: !0,
                 className: "u-mx-auto menu-item",
                 onClick: ()=>u.push("/account/login")
-            }), (!e.deviceTransferActive || ee) && n.createElement(L, {
+            }), (!e.deviceTransferActive || ee) && n.createElement(w, {
                 resetUpdateRestoreState: se,
                 setUpdateRestoreReset: ie,
                 deviceInfo: e.deviceInfo,
@@ -2568,14 +2593,14 @@
                 updatingCallback: e=>te(e),
                 resetErrorState: _e,
                 updateErrorCb: e=>fe(e),
-                updateCompleteCb: ()=>Te(),
+                updateCompleteCb: ()=>Oe(),
                 hasUpdateCb: oe
             }))
         }
         ;
-        O(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
+        T(C, "useRef{textInputRef}\nuseRef{fileUploadInputRef}\nuseState{[file, setFile](null)}\nuseState{[multiFile, setMultiFile](null)}\nuseState{[multiFileLength, setMultiFileLength](null)}\nuseState{[cancelled, setCancelled](false)}\nuseState{[cancelController, setCancelController](null)}\nuseState{[track, setTrack](null)}\nuseState{[noRoomTrack, setNoRoomTrack](null)}\nuseState{[inputValue, setInputValue]('')}\nuseState{[feedback, setFeedback](null)}\nuseState{[dragError, setDragError](null)}\nuseState{[inputError, setInputError](false)}\nuseState{[inputErrorMessage, setInputErrorMessage](null)}\nuseState{[isUpdating, setIsUpdating](false)}\nuseState{[hasUpdate, setHasUpdate](false)}\nuseState{[uploadText, setUploadText]('Upload')}\nuseState{[updateRestoreReset, setUpdateRestoreReset](false)}\nuseState{[showUrlInput, setShowUrlInput](false)}\nuseState{[resetErrorState, setResetErrorState](false)}\nuseState{[updateError, setUpdateError](null)}\nuseState{[userActionText, setUserActionText](DEFAULT_USER_ACTION)}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}");
         const R = C
-          , U = (0,
+          , S = (0,
         l.j)({
             module: "trackUploadForm"
         })((0,
@@ -2586,18 +2611,18 @@
         m.J)((0,
         p.o)((0,
         h.q)(C))))))))
-          , S = U
-          , x = S;
+          , U = S
+          , x = U;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(D, "Button", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(L, "StrippedDeviceFirmware", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(w, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(w, "StrippedDeviceFirmware", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(L, "DEFAULT_USER_ACTION", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(k, "createSilentTrack", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(C, "TrackUploadFormComp", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
             e.register(R, "__TEST__TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(U, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
-            e.register(S, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
+            e.register(S, "TrackUploadForm", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"),
+            e.register(U, "default", "/home/vsts/work/1/s/src/components/TrackUploadForm/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -3086,7 +3111,7 @@
     "85e7ca4a0fc033a5d848": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>w
+            _: ()=>L
         });
         var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
@@ -3558,7 +3583,7 @@
                 return "eee9a4037fce6f3bba79"
             }
         })
-          , T = (0,
+          , O = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Platform",
@@ -3581,7 +3606,7 @@
                 return "d8233878ff089243fc65"
             }
         })
-          , O = (0,
+          , T = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"DevMenu",
@@ -3627,7 +3652,7 @@
                 return "9bd6c822ea00773daea4"
             }
         })
-          , L = {
+          , w = {
             updating: {
                 id: "updating",
                 component: n
@@ -3710,190 +3735,190 @@
             },
             platform: {
                 id: "platform",
-                component: T
+                component: O
             },
             devMenu: {
                 id: "dev-menu",
-                component: O
+                component: T
             },
             holoplayerSignup: {
                 id: "holoplayer-signup",
                 component: D
             }
         }
-          , w = [{
+          , L = [{
             path: ["/account/reset-password"],
             exact: !0,
-            layers: [L.home, L.resetPassword],
+            layers: [w.home, w.resetPassword],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/update-email"],
             exact: !0,
-            layers: [L.home, L.emailUpdated],
+            layers: [w.home, w.emailUpdated],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/password-change"],
             exact: !0,
-            layers: [L.home, L.passwordChange],
+            layers: [w.home, w.passwordChange],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/account/registration"],
             exact: !0,
-            layers: [L.home, L.registration],
+            layers: [w.home, w.registration],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/login"],
             exact: !0,
-            layers: [L.home, L.accountLogin],
+            layers: [w.home, w.accountLogin],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/factory-reset"],
             exact: !0,
-            layers: [L.home, L.platform, L.factoryReset],
+            layers: [w.home, w.platform, w.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config/factory-reset"],
             exact: !0,
-            layers: [L.home, L.platform, L.deviceConfig, L.factoryReset],
+            layers: [w.home, w.platform, w.deviceConfig, w.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config"],
             exact: !0,
-            layers: [L.home, L.platform, L.deviceConfig],
+            layers: [w.home, w.platform, w.deviceConfig],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/new"],
             exact: !0,
-            layers: [L.home, L.platform, L.stemUpload],
+            layers: [w.home, w.platform, w.stemUpload],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem"],
             exact: !0,
-            layers: [L.home, L.platform],
+            layers: [w.home, w.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem/album/:albumSlug", "/connect/stem/track/:trackId"],
             exact: !0,
-            layers: [L.home, L.platform],
+            layers: [w.home, w.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/controls"],
             exact: !0,
-            layers: [L.home, L.platform, L.controls],
+            layers: [w.home, w.platform, w.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/remix"],
             exact: !1,
-            layers: [L.home, L.remix],
+            layers: [w.home, w.remix],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq"],
             exact: !0,
-            layers: [L.home, L.faq],
+            layers: [w.home, w.faq],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq/controls", "/controls"],
             exact: !0,
-            layers: [L.home, L.faq, L.controls],
+            layers: [w.home, w.faq, w.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info"],
             exact: !0,
-            layers: [L.home, L.info],
+            layers: [w.home, w.info],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/terms"],
             exact: !0,
-            layers: [L.home, L.info, L.terms],
+            layers: [w.home, w.info, w.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/privacy"],
             exact: !0,
-            layers: [L.home, L.info, L.privacy],
+            layers: [w.home, w.info, w.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/refund"],
             exact: !0,
-            layers: [L.home, L.info, L.refund],
+            layers: [w.home, w.info, w.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/terms"],
             exact: !0,
-            layers: [L.home, L.terms],
+            layers: [w.home, w.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/privacy", "/privacy-policy"],
             exact: !0,
-            layers: [L.home, L.privacy],
+            layers: [w.home, w.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/refund", "/refund-policy"],
             exact: !0,
-            layers: [L.home, L.refund],
+            layers: [w.home, w.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/video"],
             exact: !0,
-            layers: [L.home, L.video],
+            layers: [w.home, w.video],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/music-videos"],
             exact: !0,
-            layers: [L.home, L.musicVideos],
+            layers: [w.home, w.musicVideos],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/signup"],
             exact: !0,
-            layers: [L.home, L.holoplayerSignup],
+            layers: [w.home, w.holoplayerSignup],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/updating"],
             exact: !0,
-            layers: [L.home, L.updating],
+            layers: [w.home, w.updating],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/"],
             exact: !0,
-            layers: [L.home],
+            layers: [w.home],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/signup"],
             exact: !0,
-            layers: [L.home, L.holoplayerSignup],
+            layers: [w.home, w.holoplayerSignup],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }];
-        w.unshift({
+        L.unshift({
             path: ["/dev"],
             exact: !0,
-            layers: [L.home, L.devMenu],
+            layers: [w.home, w.devMenu],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }),
@@ -3919,11 +3944,11 @@
             e.register(y, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(P, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(M, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(T, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(O, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(T, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(L, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(w, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
+            e.register(w, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(L, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -8842,7 +8867,7 @@
                         for (let o = 0; o < e.length; o++) {
                             const a = s[o]
                               , n = e[o];
-                            r("Uploading");
+                            r("Adding to Library");
                             try {
                                 const {audio_file_id: e, upload_url: r} = yield t.createAudioUpload(i.signal);
                                 yield t.uploadFile(r, n, i.signal),
@@ -8877,11 +8902,8 @@
                         } catch (e) {
                             console.log("error", e)
                         }
-                        return {
-                            vocals: e[0],
-                            bass: e[1],
-                            drums: e[2],
-                            other: e[3],
+                        const {stemsClient: {downloadStems: d}} = t.props;
+                        return _objectSpread(_objectSpread({}, yield d(_.stems, i.signal)), {}, {
                             id: _.id,
                             album: "Other",
                             artist: "Other",
@@ -8889,7 +8911,7 @@
                             _utils_misc__WEBPACK_IMPORTED_MODULE_7__.BS)(n, _kano_stem_player_webusb__WEBPACK_IMPORTED_MODULE_3__.Kz),
                             bpm: 90,
                             colors: _.colors
-                        }
+                        })
                     });
                     return function(t, r, o, a) {
                         return e.apply(this, arguments)
@@ -10587,7 +10609,6 @@
                                 throw t.setState({
                                     uploadProgress: null,
                                     uploading: !1,
-                                    uploadFeedback: "Upload cancelled",
                                     uploadCancelled: !0
                                 }),
                                 t.setDeviceTransferActive(!1),
@@ -10828,8 +10849,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3079",
-            KB_APP_REVISION: "5eebf9fdf90173c20a4054eb8357e95ce4d794a1",
+            KB_APP_VERSION: "1.1.3101",
+            KB_APP_REVISION: "37fa3c49689e11a8bf7191188c6322e351e7d964",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -12670,12 +12691,12 @@
     ,
     "9a6bc0a08b0ae70ba64d": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "756a183a8192ba28b67d.mov"
+        e.exports = r.p + "69cecfc9d5bf53bc9fc9.mov"
     }
     ,
     "39c18a378dbea19771d5": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "96a22ea7e6c4c3d04886.webm"
+        e.exports = r.p + "350b1d1480f378b2b5aa.webm"
     }
 }, e=>{
     e.O(0, [179], ()=>{
