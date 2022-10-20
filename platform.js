@@ -1372,7 +1372,7 @@
                         null !== (yield(0,
                         S.tJ)(ee, oe, se, de, fe, k)) ? console.error(`error: failed to update metadata on track ${ee}`) : e = !0
                     }
-                    e ? (_.updateTrackMetaData(ee, oe, se, "", "", !0),
+                    e ? (_.updateTrackMetaData(ee, oe, se, de, fe, !0),
                     Ee(!1),
                     ye.current = !1,
                     et(!1)) : et(!0),
@@ -2572,7 +2572,7 @@
                     }
                     Pt() && e === Wt.current && (f.forEach(e=>{
                         var t, a;
-                        ne.updateTrackMetaData(e.id, null !== (t = e.metadata) && void 0 !== t && t.title ? e.metadata.title : "", null !== (a = e.metadata) && void 0 !== a && a.artist ? e.metadata.artist : "", "", "", !1)
+                        ne.updateTrackMetaData(e.id, null !== (t = e.metadata) && void 0 !== t && t.title ? e.metadata.title : "", null !== (a = e.metadata) && void 0 !== a && a.artist ? e.metadata.artist : "", e.metadata.colors ? e.metadata.colors[0] : "", e.metadata.colors ? e.metadata.colors[1] : "", !1)
                     }
                     ),
                     ie(f),

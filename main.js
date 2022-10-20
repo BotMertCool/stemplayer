@@ -159,36 +159,34 @@
     cc0255108d6122cbc66a: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>v
+            Z: ()=>h
         });
         var o = r("8af190b70a6bc55c6f1b")
-          , a = r("6515cd559c65eab0c80c")
-          , n = r("77d9647920c06e8befd6")
-          , s = r("238af0e74d3daf256b28")
-          , i = r("c90b79b40c6328f03c9e")
-          , c = r("e2161c2bb2fb866f34ce")
-          , l = r("20096a37950a1cbbc5cd");
-        const _ = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
+          , a = r("77d9647920c06e8befd6")
+          , n = r("c90b79b40c6328f03c9e")
+          , s = r("e2161c2bb2fb866f34ce")
+          , i = r("20096a37950a1cbbc5cd");
+        const c = "precision mediump float;\n\nattribute vec4 aPosition;\nattribute vec2 aTexCoord;\nvarying vec2 vTexCoord;\n\nvoid main() {\n    gl_Position = aPosition;\n\n    vTexCoord = aTexCoord;\n}";
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var d = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var l = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const u = {
+        const _ = {
             "single-gradient": {
-                vs: _,
+                vs: c,
                 fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = vec4(0.6, 0.6235, 0.6745, 1.0);\nvec4 color2 = vec4(0.8941, 0.8235, 0.815686, 1.0);\nvec4 color3 = vec4(0.90196, 0.70588, 0.63529, 1.0);\nvec4 color4 = vec4(0.6, 0.62745, 0.67843, 1.0);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.32) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color3, uv.y);\n    vec4 layer2 = mix(color2, color4, uv.x);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             },
             gradients: {
-                vs: _,
-                fs: "precision mediump float;\n\nuniform float uTime;\nuniform float uAmplitudeDrums;\nuniform float uAmplitudeVocals;\nuniform float uAmplitudeBass;\nuniform float uAmplitudeOther;\nuniform float uWaveformYPosDrums;\nuniform float uWaveformYPosVocals;\nuniform float uWaveformYPosBass;\nuniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(uColor1, vec4(.9,.9,.9,1.), .7);\nvec4 color2 = mix(uColor2, vec4(.9,.9,.9,1.), .7);\nvec4 color3 = mix(uColor1, vec4(.6,.6,.6,1.), .5);\nvec4 color4 = mix(uColor2, vec4(.6,.6,.6,1.), .5);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // pixel position normalised to [-1, 1]\n\tvec2 cPos = -1. + 2.0 * vTexCoord;\n    cPos.x *= aspectRatio;\n    cPos.y += uWaveformYPosVocals;\n    // distance of current pixel from center\n\tfloat cLength = length(cPos);\n\n\tvec2 cPos2 = -1. + 2.0 * vTexCoord;\n    cPos2.x *= aspectRatio;\n    cPos2.y += uWaveformYPosOther;\n\n\tfloat cLength2 = length(cPos2);\n\n\tvec2 cPos3 = -1. + 2.0 * vTexCoord;\n    cPos3.x *= aspectRatio;\n    cPos3.y += uWaveformYPosBass;\n\tfloat cLength3 = length(cPos3);\n\n\tvec2 cPos4 = -1. + 2.0 * vTexCoord;\n    cPos4.x *= aspectRatio;\n    cPos4.y += uWaveformYPosDrums;\n\n\tfloat cLength4 = length(cPos4);\n\n\tvec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    vec2 p = mix(scaledVTexCoord, uv, 0.26) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    vec4 layer1 = mix(color1, color4, uv.x);\n    vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+                vs: c,
+                fs: "precision mediump float;\n\nuniform float uTime;\n// uniform float uAmplitudeDrums;\n// uniform float uAmplitudeVocals;\n// uniform float uAmplitudeBass;\n// uniform float uAmplitudeOther;\n// uniform float uWaveformYPosDrums;\n// uniform float uWaveformYPosVocals;\n// uniform float uWaveformYPosBass;\n// uniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(vec4(.7,.7,.7,1.), uColor1, .25);\nvec4 color2 = mix(vec4(.7,.7,.7,1.), uColor2, .25);\nvec4 color3 = mix(vec4(.6,.6,.6,1.), uColor1, .3);\nvec4 color4 = mix(vec4(.6,.6,.6,1.), uColor2, .3);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // // pixel position normalised to [-1, 1]\n\t// vec2 cPos = -1. + 2.0 * vTexCoord;\n    // cPos.x *= aspectRatio;\n    // cPos.y += uWaveformYPosVocals;\n    // // distance of current pixel from center\n\t// float cLength = length(cPos);\n\n\t// vec2 cPos2 = -1. + 2.0 * vTexCoord;\n    // cPos2.x *= aspectRatio;\n    // cPos2.y += uWaveformYPosOther;\n\n\t// float cLength2 = length(cPos2);\n\n\t// vec2 cPos3 = -1. + 2.0 * vTexCoord;\n    // cPos3.x *= aspectRatio;\n    // cPos3.y += uWaveformYPosBass;\n\t// float cLength3 = length(cPos3);\n\n\t// vec2 cPos4 = -1. + 2.0 * vTexCoord;\n    // cPos4.x *= aspectRatio;\n    // cPos4.y += uWaveformYPosDrums;\n\n\t// float cLength4 = length(cPos4);\n\n\t// vec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    // vec2 p = mix(scaledVTexCoord, uv, 0.26) * 6.;\n    vec2 p = mix(scaledVTexCoord, scaledVTexCoord, 0.26) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    // vec4 layer1 = mix(color1, color4, uv.x);\n    // vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layer1 = mix(color1, color4, scaledVTexCoord.x);\n    vec4 layer2 = mix(color2, color3, scaledVTexCoord.y);\n\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             }
         };
-        function f(e, t, r) {
+        function d(e, t, r) {
             const o = e.createShader(e.VERTEX_SHADER)
               , a = e.createShader(e.FRAGMENT_SHADER);
             if (e.shaderSource(o, t),
@@ -212,7 +210,7 @@
             } else
                 console.error("ERROR linking program", e.getProgramInfoLog(n))
         }
-        function m(e, t) {
+        function u(e, t) {
             const r = new Float32Array([-1, 1, 1, 1, 1, -1, -1, 1, 1, -1, -1, -1])
               , o = e.createBuffer();
             e.bindBuffer(e.ARRAY_BUFFER, o),
@@ -228,104 +226,88 @@
             e.vertexAttribPointer(n, 2, e.FLOAT, !1, 0, 0),
             r.length / 2
         }
-        d(f, "useProgram{}");
-        const p = [[1, .2666, 0], [.2509, .4392, .8392]]
-          , h = ({audioEngine: e, loading: t, type: r})=>{
-            const n = (0,
+        l(d, "useProgram{}");
+        const f = [[1, .2666, 0], [.2509, .4392, .8392]]
+          , m = ({audioEngine: e, loading: t, type: r})=>{
+            const a = (0,
             o.useRef)()
-              , _ = (0,
+              , c = (0,
             o.useRef)()
-              , d = (0,
+              , l = (0,
             o.useRef)();
-            d.current = e.currentTrack;
-            const h = (0,
-            o.useRef)();
-            h.current = e.playbackState;
-            const b = (0,
-            o.useRef)(p);
+            l.current = e.currentTrack,
+            (0,
+            o.useRef)().current = e.playbackState;
+            const m = (0,
+            o.useRef)(f);
             return (0,
             o.useEffect)(()=>{
-                const t = ()=>{
-                    const e = n.current
+                const e = ()=>{
+                    const e = a.current
                       , t = e.clientWidth
                       , r = e.clientHeight;
                     (e.width !== t || e.height !== r) && (e.width = t,
                     e.height = r),
-                    _.current.viewport(0, 0, e.clientWidth, e.clientHeight)
+                    c.current.viewport(0, 0, e.clientWidth, e.clientHeight)
                 }
                 ;
-                window.addEventListener("resize", t);
-                const o = n.current;
-                let p;
-                o.width = o.clientWidth,
-                o.height = o.clientHeight;
-                var v = o.getContext("webgl");
-                if (v) {
-                    _.current = v,
-                    t();
-                    const n = u[r]
-                      , E = f(v, n.vs, n.fs)
-                      , g = m(v, E)
-                      , A = v.getUniformLocation(E, "uTime")
-                      , y = v.getUniformLocation(E, "uResolution")
-                      , P = v.getUniformLocation(E, "uColor1")
-                      , M = v.getUniformLocation(E, "uColor2");
-                    let O = 0
-                      , T = !1;
-                    const D = t=>{
-                        v.clearColor(0, 0, 0, 1),
-                        v.clear(v.COLOR_BUFFER_BIT),
-                        v.uniform1f(A, t),
-                        v.uniform2f(y, o.clientWidth, o.clientHeight);
-                        const r = d.current;
+                window.addEventListener("resize", e);
+                const t = a.current;
+                let o;
+                t.width = t.clientWidth,
+                t.height = t.clientHeight;
+                var f = t.getContext("webgl");
+                if (f) {
+                    c.current = f,
+                    e();
+                    const a = _[r]
+                      , p = d(f, a.vs, a.fs)
+                      , h = u(f, p)
+                      , b = f.getUniformLocation(p, "uTime")
+                      , v = f.getUniformLocation(p, "uResolution")
+                      , E = f.getUniformLocation(p, "uColor1")
+                      , g = f.getUniformLocation(p, "uColor2");
+                    let A = 0
+                      , y = !1;
+                    const P = e=>{
+                        f.clearColor(0, 0, 0, 1),
+                        f.clear(f.COLOR_BUFFER_BIT),
+                        f.uniform1f(b, e),
+                        f.uniform2f(v, t.clientWidth, t.clientHeight);
+                        const r = l.current;
                         if (r) {
-                            const t = r.colors.map(e=>(0,
-                            i.oo)(e.substring(1)).map(e=>e / 255))
-                              , n = b.current.every((e,r)=>(0,
-                            l.H)(e, t[r]));
-                            n || T || (T = !0,
-                            O = 0),
-                            T && (O += .002,
-                            b.current = b.current.map((e,r)=>{
-                                const o = t[r];
-                                return e.map((e,t)=>(0,
-                                c.t)(e, o[t], O))
+                            const e = r.colors.map(e=>(0,
+                            n.oo)(e.substring(1)).map(e=>e / 255))
+                              , t = m.current.every((t,r)=>(0,
+                            i.Y)(t, e[r], .001));
+                            t || y || (y = !0,
+                            A = 0),
+                            y && (A += .008,
+                            m.current = m.current.map((t,r)=>{
+                                const o = e[r];
+                                return t.map((e,t)=>(0,
+                                s.t)(e, o[t], A))
                             }
                             ),
-                            n && (T = !1,
-                            O = 0)),
-                            O >= 1 && (T = !1,
-                            O = 0,
-                            b.current = t);
-                            const _ = document.querySelectorAll(".ye-waveform");
-                            Object.values(a.wA).forEach((t,n)=>{
-                                const i = t.charAt(0).toUpperCase() + t.slice(1)
-                                  , c = v.getUniformLocation(E, `uAmplitude${i}`)
-                                  , l = v.getUniformLocation(E, `uWaveformYPos${i}`);
-                                if (_.length) {
-                                    const e = _[n].getBoundingClientRect().top + _[n].clientHeight / 2
-                                      , t = (o.clientHeight / 2 - e) / (o.clientHeight / 2);
-                                    v.uniform1f(l, t)
-                                }
-                                let d;
-                                d = e.shouldMute(t) || h.current !== a.QK.Playing ? 0 : (0,
-                                s.tX)(r.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), r.waveformData[t].fps),
-                                v.uniform1f(c, d)
-                            }
-                            )
+                            t && (y = !1,
+                            A = 0,
+                            m.current = e)),
+                            A >= 1 && (y = !1,
+                            A = 0,
+                            m.current = e)
                         }
-                        const [n,_] = b.current;
-                        v.uniform4f(P, n[0], n[1], n[2], 1),
-                        v.uniform4f(M, _[0], _[1], _[2], 1),
-                        v.drawArrays(v.TRIANGLES, 0, g),
-                        p = requestAnimationFrame(D)
+                        const [a,c] = m.current;
+                        f.uniform4f(E, a[0], a[1], a[2], 1),
+                        f.uniform4f(g, c[0], c[1], c[2], 1),
+                        f.drawArrays(f.TRIANGLES, 0, h),
+                        o = requestAnimationFrame(P)
                     }
                     ;
-                    D(0)
+                    P(0)
                 }
                 return ()=>{
-                    window.removeEventListener("resize", t),
-                    p && cancelAnimationFrame(p)
+                    window.removeEventListener("resize", e),
+                    o && cancelAnimationFrame(o)
                 }
             }
             , []),
@@ -333,22 +315,22 @@
                 className: `background-shader ${t ? "loading" : ""}`
             }, o.createElement("canvas", {
                 className: "background-shader__canvas",
-                ref: n
+                ref: a
             }))
         }
         ;
-        d(h, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseEffect{}");
-        const b = (0,
-        n.f)(h)
-          , v = b;
+        l(m, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseEffect{}");
+        const p = (0,
+        a.f)(m)
+          , h = p;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(u, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(f, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(m, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(p, "defaultBackgroundColorsRgbPercent", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(h, "BackgroundShader", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
-            e.register(b, "default", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"))
+            e && (e.register(_, "SHADERS", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(d, "initShaders", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(u, "initVertexBuffers", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(f, "defaultBackgroundColorsRgbPercent", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(m, "BackgroundShader", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"),
+            e.register(p, "default", "/home/vsts/work/1/s/src/components/BackgroundShader/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -2128,7 +2110,7 @@
                 return "92924b32b778a2c890d3"
             }
         })
-          , L = "Connect Stemplayer"
+          , L = "Connect Stem1"
           , k = function() {
             var e = (0,
             a.Z)(function*(e) {
@@ -2314,7 +2296,7 @@
                             be()
                     } catch (e) {
                         e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (J(!0),
-                        $("Upload failed - reconnect Stemplayer"),
+                        $("Upload failed - reconnect Stem1"),
                         Z("Try again"),
                         r({
                             error: {
@@ -3077,9 +3059,9 @@
                             })
                         })
                     }))
-                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null), (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null, (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
                     className: "blur-overlay"
-                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null))
+                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null)))
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -6262,23 +6244,30 @@
                 }
                 ),
                 this.updateTrackMetaData = ((e,t,r,o,a,n)=>{
-                    const s = this.state.userQueue;
+                    const s = this.state.userQueue
+                      , {currentTrack: i} = this.state;
                     if (s) {
-                        const o = s.findIndex(t=>{
+                        const c = s.findIndex(t=>{
                             return (t.id ? t.id : t.global_id) === e
                         }
                         );
-                        let a = !1;
-                        if (-1 !== o) {
-                            const e = s[o];
-                            t !== e.metadata.title && (e.metadata.title = t,
-                            a = !0),
-                            r !== e.metadata.artist && (e.metadata.artist = r,
-                            a = !0)
+                        let l = !1;
+                        if (-1 !== c) {
+                            const _ = s[c]
+                              , d = i;
+                            t !== _.metadata.title && (d && d.id === e ? d.title = t : _.metadata.title = t,
+                            l = !0),
+                            r !== _.metadata.artist && (d && d.id === e ? d.artist = r : _.metadata.artist = r,
+                            l = !0),
+                            o === _.metadata.colors[0] && a === _.metadata.colors[1] || "" === o || "" === a || (d && d.id === e ? d.colors = [o, a] : _.colors = [o, a],
+                            l = !0),
+                            l && n && (d && d.id === e && this.setState({
+                                currentTrack: i
+                            }),
+                            this.setState({
+                                currentTrackMetadataUpdated: this.state.currentTrackMetadataUpdated + 1
+                            }))
                         }
-                        a && n && this.setState({
-                            currentTrackMetadataUpdated: this.state.currentTrackMetadataUpdated + 1
-                        })
                     }
                 }
                 ),
@@ -10849,8 +10838,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3114",
-            KB_APP_REVISION: "e65205ad95b04fa48db86dc5607f763630ef02f2",
+            KB_APP_VERSION: "1.1.3139",
+            KB_APP_REVISION: "4648fd3de79efd2f271a62848fd6b92f0fe866d8",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -10889,7 +10878,7 @@
             hasCrossDomainStorage: !1
         }
           , products = [{
-            name: "CLEAR STEMPLAYER",
+            name: "CLEAR STEM1",
             color: "CLEAR",
             sku: "1016C",
             assets: {
@@ -10919,7 +10908,7 @@
                 }
             }
         }, {
-            name: "STEMPLAYER",
+            name: "STEM1",
             color: "BROWN",
             sku: "1016",
             assets: {
@@ -10985,7 +10974,8 @@
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-grey") ? ((0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey.background),
         (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey)) : ((0,
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey)) : (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-off") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.setFlag("background-shader-gradients"),
+        (0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default.background),
         (0,
         _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default));
@@ -11104,7 +11094,7 @@
     "20096a37950a1cbbc5cd": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            H: ()=>o
+            Y: ()=>a
         }),
         e = r.hmd(e),
         function() {
@@ -11120,10 +11110,19 @@
                     return !1;
             return !0
         }
+          , a = (e,t,r)=>{
+            if (e.length !== t.length)
+                return !1;
+            for (let o = 0; o < e.length; o++)
+                if (Math.abs(e[o] - t[o]) > r)
+                    return !1;
+            return !0
+        }
         ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && e.register(o, "areArraysEqual", "/home/vsts/work/1/s/src/utils/areArraysEqual.js")
+            e && (e.register(o, "areArraysEqual", "/home/vsts/work/1/s/src/utils/areArraysEqual.js"),
+            e.register(a, "areNumArraysBasicallyEqual", "/home/vsts/work/1/s/src/utils/areArraysEqual.js"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -11582,7 +11581,7 @@
             return e
         }
         ;
-        const FLAGS = ["theme-light", "theme-grey", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water", "sync-user-library-to-device"]
+        const FLAGS = ["theme-light", "theme-grey", "theme-dark", "background-shader-single-gradient", "background-shader-gradients", "background-shader-ripples", "background-shader-water", "background-shader-off", "sync-user-library-to-device"]
           , LOCAL_STORAGE_KEY = "spFeatureFlags";
         class FeatureFlags {
             constructor(e, t) {
@@ -12119,7 +12118,7 @@
             grey: a,
             light: n,
             dark: s,
-            default: s
+            default: n
         };
         function c(e) {
             document.documentElement.style.setProperty("--color-background", e.background),
