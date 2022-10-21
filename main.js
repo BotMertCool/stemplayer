@@ -183,7 +183,7 @@
             },
             gradients: {
                 vs: c,
-                fs: "precision mediump float;\n\nuniform float uTime;\n// uniform float uAmplitudeDrums;\n// uniform float uAmplitudeVocals;\n// uniform float uAmplitudeBass;\n// uniform float uAmplitudeOther;\n// uniform float uWaveformYPosDrums;\n// uniform float uWaveformYPosVocals;\n// uniform float uWaveformYPosBass;\n// uniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\n// uniform vec4 uColor3;\n// uniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\nvec4 color1 = mix(vec4(.7,.7,.7,1.), uColor1, .25);\nvec4 color2 = mix(vec4(.7,.7,.7,1.), uColor2, .25);\nvec4 color3 = mix(vec4(.6,.6,.6,1.), uColor1, .3);\nvec4 color4 = mix(vec4(.6,.6,.6,1.), uColor2, .3);\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // // pixel position normalised to [-1, 1]\n\t// vec2 cPos = -1. + 2.0 * vTexCoord;\n    // cPos.x *= aspectRatio;\n    // cPos.y += uWaveformYPosVocals;\n    // // distance of current pixel from center\n\t// float cLength = length(cPos);\n\n\t// vec2 cPos2 = -1. + 2.0 * vTexCoord;\n    // cPos2.x *= aspectRatio;\n    // cPos2.y += uWaveformYPosOther;\n\n\t// float cLength2 = length(cPos2);\n\n\t// vec2 cPos3 = -1. + 2.0 * vTexCoord;\n    // cPos3.x *= aspectRatio;\n    // cPos3.y += uWaveformYPosBass;\n\t// float cLength3 = length(cPos3);\n\n\t// vec2 cPos4 = -1. + 2.0 * vTexCoord;\n    // cPos4.x *= aspectRatio;\n    // cPos4.y += uWaveformYPosDrums;\n\n\t// float cLength4 = length(cPos4);\n\n\t// vec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    // vec2 p = mix(scaledVTexCoord, uv, 0.26) * 6.;\n    vec2 p = mix(scaledVTexCoord, scaledVTexCoord, 0.26) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    // vec4 layer1 = mix(color1, color4, uv.x);\n    // vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layer1 = mix(color1, color4, scaledVTexCoord.x);\n    vec4 layer2 = mix(color2, color3, scaledVTexCoord.y);\n\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
+                fs: "precision mediump float;\n\nuniform float uTime;\n// uniform float uAmplitudeDrums;\n// uniform float uAmplitudeVocals;\n// uniform float uAmplitudeBass;\n// uniform float uAmplitudeOther;\n// uniform float uWaveformYPosDrums;\n// uniform float uWaveformYPosVocals;\n// uniform float uWaveformYPosBass;\n// uniform float uWaveformYPosOther;\nuniform vec2 uResolution;\nuniform vec4 uColor1;\nuniform vec4 uColor2;\nuniform vec4 uColor3;\nuniform vec4 uColor4;\n\nvarying vec2 vTexCoord;\n\n// vec4 color1 = mix(vec4(.7,.7,.7,1.), uColor1, .25);\n// vec4 color2 = mix(vec4(.7,.7,.7,1.), uColor2, .25);\n// vec4 color3 = mix(vec4(.6,.6,.6,1.), uColor1, .3);\n// vec4 color4 = mix(vec4(.6,.6,.6,1.), uColor2, .3);\nvec4 color1 = uColor1;\nvec4 color2 = uColor2;\nvec4 color3 = uColor3;\nvec4 color4 = uColor4;\n\nvec4 cornerGradient(vec2 uv, vec4 c1, vec4 c2, vec4 c3, vec4 c4, float xBalance, float yBalance) {\n    vec4 col = mix(\n        mix(c1, c2, uv.y * yBalance),\n        mix(c3, c4, uv.y * yBalance),\n        uv.x * xBalance\n    );\n\n    return col;\n}\n\nfloat random(float p) {\n    return fract(sin(p)*6000.);\n}\n\nfloat noise(vec2 p) {\n    return random(p.x + p.y*20000.);\n}\n\nvec2 sw(vec2 p) {return vec2( floor(p.x) , floor(p.y) );}\nvec2 se(vec2 p) {return vec2( ceil(p.x)  , floor(p.y) );}\nvec2 nw(vec2 p) {return vec2( floor(p.x) , ceil(p.y)  );}\nvec2 ne(vec2 p) {return vec2( ceil(p.x)  , ceil(p.y)  );}\n\nfloat smoothNoise(vec2 p) {\n    // get color\n    vec2 inter = smoothstep(0., 1., fract(p));\n    float s = mix(noise(sw(p)), noise(se(p)), inter.x);\n    float n = mix(noise(nw(p)), noise(ne(p)), inter.x);\n    return mix(s, n, inter.y);\n    return noise(nw(p));\n}\n\nfloat movingNoise(vec2 p) {\n    float total = 0.0;\n    total += smoothNoise(p     - (uTime / 2500.));\n    total += smoothNoise(p*2.  + (uTime / 2500.)) / 2.;\n    total += smoothNoise(p*4.  - (uTime / 2500.)) / 4.;\n    total += smoothNoise(p*8.  + (uTime / 2500.)) / 8.;\n    total += smoothNoise(p*16. - (uTime / 2500.)) / 16.;\n    total /= 1. + 1./2. + 1./4. + 1./8. + 1./16.;\n    return total;\n}\n\nfloat nestedNoise(vec2 p) {\n    float x = movingNoise(p);\n    float y = movingNoise(p + 1000.);\n    return movingNoise(p + vec2(x, y));\n}\n\nvoid main() {\n    float scaledTime = 0.0003 * uTime;\n    float aspectRatio = uResolution.x / uResolution.y;\n    vec2 scaledVTexCoord = vec2(vTexCoord.x * aspectRatio, vTexCoord.y);\n\n    // // pixel position normalised to [-1, 1]\n\t// vec2 cPos = -1. + 2.0 * vTexCoord;\n    // cPos.x *= aspectRatio;\n    // cPos.y += uWaveformYPosVocals;\n    // // distance of current pixel from center\n\t// float cLength = length(cPos);\n\n\t// vec2 cPos2 = -1. + 2.0 * vTexCoord;\n    // cPos2.x *= aspectRatio;\n    // cPos2.y += uWaveformYPosOther;\n\n\t// float cLength2 = length(cPos2);\n\n\t// vec2 cPos3 = -1. + 2.0 * vTexCoord;\n    // cPos3.x *= aspectRatio;\n    // cPos3.y += uWaveformYPosBass;\n\t// float cLength3 = length(cPos3);\n\n\t// vec2 cPos4 = -1. + 2.0 * vTexCoord;\n    // cPos4.x *= aspectRatio;\n    // cPos4.y += uWaveformYPosDrums;\n\n\t// float cLength4 = length(cPos4);\n\n\t// vec2 uv = vTexCoord + (((cPos / (cLength))) * cos(cLength * (20. * uAmplitudeVocals)) * 0.03) + (((cPos2 / (cLength2))) * cos(cLength2 * (20. * uAmplitudeOther)) * 0.03) + (((cPos3 / (cLength3))) * cos(cLength3 * (20. * uAmplitudeBass)) * 0.03) + (((cPos4 / (cLength4))) * cos(cLength4 * (20. * uAmplitudeDrums)) * 0.03);\n\n    // vec2 p = mix(scaledVTexCoord, uv, 0.26) * 6.;\n    vec2 p = mix(scaledVTexCoord, scaledVTexCoord, 0.26) * 6.;\n\n    float brightness = nestedNoise(p);\n\n    vec4 col = vec4(brightness, brightness, brightness, 1.0) * 0.7;\n\n    // vec4 layer1 = mix(color1, color4, uv.x);\n    // vec4 layer2 = mix(color2, color3, uv.y);\n\n    vec4 layer1 = mix(color1, color4, scaledVTexCoord.x);\n    vec4 layer2 = mix(color2, color3, scaledVTexCoord.y);\n\n\n    vec4 layers = mix(layer1, layer2, brightness);\n\n    gl_FragColor = layers;\n}\n"
             }
         };
         function d(e, t, r) {
@@ -227,7 +227,7 @@
             r.length / 2
         }
         l(d, "useProgram{}");
-        const f = [[1, .2666, 0], [.2509, .4392, .8392]]
+        const f = [[.2475, .3529, .3529], [.6275, .7333, .7412]]
           , m = ({audioEngine: e, loading: t, type: r})=>{
             const a = (0,
             o.useRef)()
@@ -239,7 +239,9 @@
             (0,
             o.useRef)().current = e.playbackState;
             const m = (0,
-            o.useRef)(f);
+            o.useRef)(f)
+              , p = (0,
+            o.useRef)(!0);
             return (0,
             o.useEffect)(()=>{
                 const e = ()=>{
@@ -261,49 +263,73 @@
                     c.current = f,
                     e();
                     const a = _[r]
-                      , p = d(f, a.vs, a.fs)
-                      , h = u(f, p)
-                      , b = f.getUniformLocation(p, "uTime")
-                      , v = f.getUniformLocation(p, "uResolution")
-                      , E = f.getUniformLocation(p, "uColor1")
-                      , g = f.getUniformLocation(p, "uColor2");
-                    let A = 0
-                      , y = !1;
-                    const P = e=>{
+                      , h = d(f, a.vs, a.fs)
+                      , b = u(f, h)
+                      , v = f.getUniformLocation(h, "uTime")
+                      , E = f.getUniformLocation(h, "uResolution")
+                      , g = f.getUniformLocation(h, "uColor1")
+                      , A = f.getUniformLocation(h, "uColor2")
+                      , y = f.getUniformLocation(h, "uColor3")
+                      , P = f.getUniformLocation(h, "uColor4");
+                    let M = 0
+                      , O = !1
+                      , T = 1;
+                    const D = e=>{
                         f.clearColor(0, 0, 0, 1),
                         f.clear(f.COLOR_BUFFER_BIT),
-                        f.uniform1f(b, e),
-                        f.uniform2f(v, t.clientWidth, t.clientHeight);
+                        f.uniform1f(v, e),
+                        f.uniform2f(E, t.clientWidth, t.clientHeight);
                         const r = l.current;
+                        let a, c, _, d;
+                        const [u,h] = m.current;
                         if (r) {
                             const e = r.colors.map(e=>(0,
                             n.oo)(e.substring(1)).map(e=>e / 255))
                               , t = m.current.every((t,r)=>(0,
                             i.Y)(t, e[r], .001));
-                            t || y || (y = !0,
-                            A = 0),
-                            y && (A += .008,
+                            t || O || (O = !0,
+                            M = 0),
+                            O && (M += .008,
                             m.current = m.current.map((t,r)=>{
                                 const o = e[r];
                                 return t.map((e,t)=>(0,
-                                s.t)(e, o[t], A))
+                                s.t)(e, o[t], M))
                             }
                             ),
-                            t && (y = !1,
-                            A = 0,
-                            m.current = e)),
-                            A >= 1 && (y = !1,
-                            A = 0,
-                            m.current = e)
-                        }
-                        const [a,c] = m.current;
-                        f.uniform4f(E, a[0], a[1], a[2], 1),
-                        f.uniform4f(g, c[0], c[1], c[2], 1),
-                        f.drawArrays(f.TRIANGLES, 0, h),
-                        o = requestAnimationFrame(P)
+                            p.current && (T = (0,
+                            s.t)(T, .3, M)),
+                            t && (O = !1,
+                            M = 0,
+                            m.current = e,
+                            p.current = !1)),
+                            M >= 1 && (O = !1,
+                            M = 0,
+                            m.current = e,
+                            p.current = !1);
+                            const o = p.current ? T : .3;
+                            a = (0,
+                            n.Dk)([.7, .7, .7], u, o),
+                            c = (0,
+                            n.Dk)([.7, .7, .7], h, o),
+                            _ = (0,
+                            n.Dk)([.6, .6, .6], u, o),
+                            d = (0,
+                            n.Dk)([.6, .6, .6], h, o)
+                        } else
+                            a = u,
+                            c = h,
+                            _ = u,
+                            d = h,
+                            p.current || (p.current = !0);
+                        f.uniform4f(g, a[0], a[1], a[2], 1),
+                        f.uniform4f(A, c[0], c[1], c[2], 1),
+                        f.uniform4f(y, _[0], _[1], _[2], 1),
+                        f.uniform4f(P, d[0], d[1], d[2], 1),
+                        f.drawArrays(f.TRIANGLES, 0, b),
+                        o = requestAnimationFrame(D)
                     }
                     ;
-                    P(0)
+                    D(0)
                 }
                 return ()=>{
                     window.removeEventListener("resize", e),
@@ -319,7 +345,7 @@
             }))
         }
         ;
-        l(m, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseEffect{}");
+        l(m, "useRef{canvasRef}\nuseRef{glRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{backgroundColorsRgbPercentRef}\nuseRef{isDefaultColorsRef}\nuseEffect{}");
         const p = (0,
         a.f)(m)
           , h = p;
@@ -2148,11 +2174,11 @@
             n.useState)("")
               , [j,Z] = (0,
             n.useState)(null)
-              , [z,Q] = (0,
+              , [$,Q] = (0,
             n.useState)(null)
-              , [Y,J] = (0,
+              , [z,Y] = (0,
             n.useState)(!1)
-              , [X,$] = (0,
+              , [J,X] = (0,
             n.useState)(null)
               , [ee,te] = (0,
             n.useState)(!1)
@@ -2203,9 +2229,9 @@
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
-                ne(z || "Upload")
+                ne($ || "Upload")
             }
-            , [z]),
+            , [$]),
             (0,
             n.useEffect)(()=>{
                 ne("Upload"),
@@ -2295,8 +2321,8 @@
                             f(o.id, !1),
                             be()
                     } catch (e) {
-                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (J(!0),
-                        $("Upload failed - reconnect Stem1"),
+                        e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Y(!0),
+                        X("Upload failed - reconnect Stem1"),
                         Z("Try again"),
                         r({
                             error: {
@@ -2304,8 +2330,8 @@
                                 stack: "Failed to split track",
                                 message: JSON.stringify(e.message)
                             }
-                        })) : e.message && "Cancelled" !== e.message ? (J(!0),
-                        $(e.message),
+                        })) : e.message && "Cancelled" !== e.message ? (Y(!0),
+                        X(e.message),
                         Z("Try again"),
                         r({
                             error: {
@@ -2404,8 +2430,8 @@
             }
               , Ae = ()=>{
                 Q(null),
-                J(!1),
-                $(null),
+                Y(!1),
+                X(null),
                 B(!1),
                 Z(null)
             }
@@ -2472,7 +2498,7 @@
             }, "LINK")), ce && !(T && T.name || R) && n.createElement(_.II, {
                 className: "track-splitter__input-url track-splitter__text track-splitter__input-url--show",
                 disabled: !Me(),
-                invalid: Y,
+                invalid: z,
                 modifier: "url",
                 placeholder: "ENTER LINK",
                 value: ye,
@@ -2486,9 +2512,9 @@
                     q(r),
                     (0,
                     g.xb)(r) || (0,
-                    g.b3)(r) ? Y && (J(!1),
-                    $(null)) : (J(!0),
-                    $("Input not valid link"))
+                    g.b3)(r) ? z && (Y(!1),
+                    X(null)) : (Y(!0),
+                    X("Input not valid link"))
                 }
                 ,
                 onBlur: ()=>0 === ye.length && le(!1),
@@ -2514,7 +2540,7 @@
                 onChange: Ee,
                 ref: M
             }))), "Try again" === j && n.createElement(D, {
-                text: `${X || "Error uploading track"}`,
+                text: `${J || "Error uploading track"}`,
                 className: "u-mx-auto",
                 disabled: !0
             }), n.createElement(D, {
@@ -2526,7 +2552,7 @@
                 disabled: !(()=>Pe() && [null, "Try again"].includes(j) && "No available space on device" !== ae)(),
                 text: ae,
                 onClick: e=>{
-                    (!T && !R && "" === V || T && null !== z) && (e.preventDefault(),
+                    (!T && !R && "" === V || T && null !== $) && (e.preventDefault(),
                     M.current.click())
                 }
             }), !N && K && n.createElement(D, {
@@ -3006,6 +3032,10 @@
             updateRoute() {
                 const {viewManagerClient: e, webUSBClient: t} = this.props
                   , {newTrack: r} = e;
+                if (location.pathname.includes("/account/registration")) {
+                    const t = location.search;
+                    e.navigate(`/${t}`)
+                }
                 "/connect/new" === location.pathname && null === r && e.navigate("/connect/stem");
                 for (const r of this.props.routes) {
                     const o = (0,
@@ -3059,9 +3089,7 @@
                             })
                         })
                     }))
-                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null, (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-                    className: "blur-overlay"
-                })), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null)))
+                })), "production" !== o.TARGET_ENV ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(DevMenuTrigger, null) : null, (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water")) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayerShader__WEBPACK_IMPORTED_MODULE_8__.Z, null)), !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-gradients") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-single-gradient") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-ripples") && !_utils_feature_flags__WEBPACK_IMPORTED_MODULE_11__.V.hasFlag("background-shader-water") && (n.currentTrack || n.isNavigating) && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MiniPlayer__WEBPACK_IMPORTED_MODULE_9__.Z, null)))
             }
             __reactstandin__regenerateByEval(key, code) {
                 this[key] = eval(code)
@@ -3093,7 +3121,7 @@
     "85e7ca4a0fc033a5d848": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            _: ()=>L
+            _: ()=>R
         });
         var o = r("9c2db445b2a1a7a1cf6d");
         e = r.hmd(e),
@@ -3228,7 +3256,7 @@
                 const t = this.resolve(e);
                 return !0 === this.resolved[t] && !!r.m[t]
             },
-            importAsync: ()=>r.e(6150).then(r.bind(r, "55593ed3885f6c11ec50")),
+            importAsync: ()=>Promise.all([r.e(4640), r.e(6150)]).then(r.bind(r, "55593ed3885f6c11ec50")),
             requireAsync(e) {
                 const t = this.resolve(e);
                 return this.resolved[t] = !1,
@@ -3297,7 +3325,7 @@
                 const t = this.resolve(e);
                 return !0 === this.resolved[t] && !!r.m[t]
             },
-            importAsync: ()=>Promise.all([r.e(5779), r.e(4513), r.e(9295), r.e(9708), r.e(8460)]).then(r.bind(r, "c109a9d128dff7bfbd45")),
+            importAsync: ()=>Promise.all([r.e(5779), r.e(4513), r.e(9295), r.e(9708), r.e(5316), r.e(8460)]).then(r.bind(r, "c109a9d128dff7bfbd45")),
             requireAsync(e) {
                 const t = this.resolve(e);
                 return this.resolved[t] = !1,
@@ -3366,7 +3394,7 @@
                 const t = this.resolve(e);
                 return !0 === this.resolved[t] && !!r.m[t]
             },
-            importAsync: ()=>Promise.all([r.e(1840), r.e(9014)]).then(r.bind(r, "3227868004d09282c22f")),
+            importAsync: ()=>Promise.all([r.e(1840), r.e(5316), r.e(2792), r.e(9014)]).then(r.bind(r, "3227868004d09282c22f")),
             requireAsync(e) {
                 const t = this.resolve(e);
                 return this.resolved[t] = !1,
@@ -3382,6 +3410,75 @@
             }
         })
           , b = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Info-stem1",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(5316), r.e(2792), r.e(9855)]).then(r.bind(r, "e0084f21055b8f2f433d")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "e0084f21055b8f2f433d"
+            }
+        })
+          , v = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Info-stem2",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(5316), r.e(2792), r.e(6027)]).then(r.bind(r, "820bcc934fedf1a9a884")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "820bcc934fedf1a9a884"
+            }
+        })
+          , E = (0,
+        o.ZP)({
+            resolved: {},
+            chunkName: ()=>"Info-stem3",
+            isReady(e) {
+                const t = this.resolve(e);
+                return !0 === this.resolved[t] && !!r.m[t]
+            },
+            importAsync: ()=>Promise.all([r.e(1840), r.e(5316), r.e(2792), r.e(407)]).then(r.bind(r, "c7e6ea7fa93fdc4d8403")),
+            requireAsync(e) {
+                const t = this.resolve(e);
+                return this.resolved[t] = !1,
+                this.importAsync(e).then(e=>(this.resolved[t] = !0,
+                e))
+            },
+            requireSync(e) {
+                const t = this.resolve(e);
+                return r(t)
+            },
+            resolve() {
+                return "c7e6ea7fa93fdc4d8403"
+            }
+        })
+          , g = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Terms",
@@ -3404,7 +3501,7 @@
                 return "b7167979877d5e17bee1"
             }
         })
-          , v = (0,
+          , A = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"PrivacyPolicy",
@@ -3427,7 +3524,7 @@
                 return "4dc3bf1b60601d50c9e1"
             }
         })
-          , E = (0,
+          , y = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"RefundPolicy",
@@ -3450,7 +3547,7 @@
                 return "2016e39a85fa248e4004"
             }
         })
-          , g = (0,
+          , P = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Video",
@@ -3473,7 +3570,7 @@
                 return "0da2ab9a3c2d27b3b747"
             }
         })
-          , A = (0,
+          , M = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"MusicVideos",
@@ -3496,7 +3593,7 @@
                 return "eeaff95f5d41d43ad9fb"
             }
         })
-          , y = (0,
+          , O = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"FactoryReset",
@@ -3519,7 +3616,7 @@
                 return "9ce1b3c31aa3a4f16c2c"
             }
         })
-          , P = (0,
+          , T = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"DeviceConfig",
@@ -3542,7 +3639,7 @@
                 return "d00aef4a5b07cfed0869"
             }
         })
-          , M = (0,
+          , D = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"StemUpload",
@@ -3565,7 +3662,7 @@
                 return "eee9a4037fce6f3bba79"
             }
         })
-          , O = (0,
+          , w = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Platform",
@@ -3588,7 +3685,7 @@
                 return "d8233878ff089243fc65"
             }
         })
-          , T = (0,
+          , L = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"DevMenu",
@@ -3611,7 +3708,7 @@
                 return "acbf6c7eb8d93a282a95"
             }
         })
-          , D = (0,
+          , k = (0,
         o.ZP)({
             resolved: {},
             chunkName: ()=>"Signup",
@@ -3634,7 +3731,7 @@
                 return "9bd6c822ea00773daea4"
             }
         })
-          , w = {
+          , C = {
             updating: {
                 id: "updating",
                 component: n
@@ -3683,224 +3780,254 @@
                 id: "info",
                 component: h
             },
+            infoStem1: {
+                id: "infoStem1",
+                component: b
+            },
+            infoStem2: {
+                id: "infoStem2",
+                component: v
+            },
+            infoStem3: {
+                id: "infoStem3",
+                component: E
+            },
             terms: {
                 id: "terms",
-                component: b
+                component: g
             },
             privacy: {
                 id: "privacy",
-                component: v
+                component: A
             },
             refund: {
                 id: "refund",
-                component: E
+                component: y
             },
             video: {
                 id: "video",
-                component: g
+                component: P
             },
             musicVideos: {
                 id: "music-videos",
-                component: A
+                component: M
             },
             factoryReset: {
                 id: "factory-reset",
-                component: y
+                component: O
             },
             deviceConfig: {
                 id: "device-config",
-                component: P
+                component: T
             },
             stemUpload: {
                 id: "stem-upload",
-                component: M
+                component: D
             },
             platform: {
                 id: "platform",
-                component: O
+                component: w
             },
             devMenu: {
                 id: "dev-menu",
-                component: T
+                component: L
             },
             holoplayerSignup: {
                 id: "holoplayer-signup",
-                component: D
+                component: k
             }
         }
-          , L = [{
+          , R = [{
             path: ["/account/reset-password"],
             exact: !0,
-            layers: [w.home, w.resetPassword],
+            layers: [C.home, C.resetPassword],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/update-email"],
             exact: !0,
-            layers: [w.home, w.emailUpdated],
+            layers: [C.home, C.emailUpdated],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/password-change"],
             exact: !0,
-            layers: [w.home, w.passwordChange],
+            layers: [C.home, C.passwordChange],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/account/registration"],
             exact: !0,
-            layers: [w.home, w.registration],
+            layers: [C.home, C.registration],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/account/login"],
             exact: !0,
-            layers: [w.home, w.accountLogin],
+            layers: [C.home, C.accountLogin],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/factory-reset"],
             exact: !0,
-            layers: [w.home, w.platform, w.factoryReset],
+            layers: [C.home, C.platform, C.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config/factory-reset"],
             exact: !0,
-            layers: [w.home, w.platform, w.deviceConfig, w.factoryReset],
+            layers: [C.home, C.platform, C.deviceConfig, C.factoryReset],
             deviceRequired: !0,
             accessWithLoginSession: !1
         }, {
             path: ["/connect/config"],
             exact: !0,
-            layers: [w.home, w.platform, w.deviceConfig],
+            layers: [C.home, C.platform, C.deviceConfig],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/new"],
             exact: !0,
-            layers: [w.home, w.platform, w.stemUpload],
+            layers: [C.home, C.platform, C.stemUpload],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem"],
             exact: !0,
-            layers: [w.home, w.platform],
+            layers: [C.home, C.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/connect/stem/album/:albumSlug", "/connect/stem/track/:trackId"],
             exact: !0,
-            layers: [w.home, w.platform],
+            layers: [C.home, C.platform],
             deviceRequired: !0,
             accessWithLoginSession: !0
         }, {
             path: ["/controls"],
             exact: !0,
-            layers: [w.home, w.platform, w.controls],
+            layers: [C.home, C.platform, C.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/remix"],
             exact: !1,
-            layers: [w.home, w.remix],
+            layers: [C.home, C.remix],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq"],
             exact: !0,
-            layers: [w.home, w.faq],
+            layers: [C.home, C.faq],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/faq/controls", "/controls"],
             exact: !0,
-            layers: [w.home, w.faq, w.controls],
+            layers: [C.home, C.faq, C.controls],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info"],
             exact: !0,
-            layers: [w.home, w.info],
+            layers: [C.home, C.info],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/terms"],
             exact: !0,
-            layers: [w.home, w.info, w.terms],
+            layers: [C.home, C.info, C.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/privacy"],
             exact: !0,
-            layers: [w.home, w.info, w.privacy],
+            layers: [C.home, C.info, C.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/info/refund"],
             exact: !0,
-            layers: [w.home, w.info, w.refund],
+            layers: [C.home, C.info, C.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
+            path: ["/stem1"],
+            exact: !0,
+            layers: [C.home, C.infoStem1],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/stem2"],
+            exact: !0,
+            layers: [C.home, C.infoStem2],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
+            path: ["/stem3"],
+            exact: !0,
+            layers: [C.home, C.infoStem3],
+            deviceRequired: !1,
+            accessWithLoginSession: !1
+        }, {
             path: ["/terms"],
             exact: !0,
-            layers: [w.home, w.terms],
+            layers: [C.home, C.terms],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/privacy", "/privacy-policy"],
             exact: !0,
-            layers: [w.home, w.privacy],
+            layers: [C.home, C.privacy],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/refund", "/refund-policy"],
             exact: !0,
-            layers: [w.home, w.refund],
+            layers: [C.home, C.refund],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/video"],
             exact: !0,
-            layers: [w.home, w.video],
+            layers: [C.home, C.video],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/music-videos"],
             exact: !0,
-            layers: [w.home, w.musicVideos],
+            layers: [C.home, C.musicVideos],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/signup"],
             exact: !0,
-            layers: [w.home, w.holoplayerSignup],
+            layers: [C.home, C.holoplayerSignup],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/updating"],
             exact: !0,
-            layers: [w.home, w.updating],
+            layers: [C.home, C.updating],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }, {
             path: ["/"],
             exact: !0,
-            layers: [w.home],
+            layers: [C.home],
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
             path: ["/signup"],
             exact: !0,
-            layers: [w.home, w.holoplayerSignup],
+            layers: [C.home, C.holoplayerSignup],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }];
-        L.unshift({
+        R.unshift({
             path: ["/dev"],
             exact: !0,
-            layers: [w.home, w.devMenu],
+            layers: [C.home, C.devMenu],
             deviceRequired: !1,
             accessWithLoginSession: !1
         }),
@@ -3918,19 +4045,22 @@
             e.register(m, "LoadableControls", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(p, "LoadableFaq", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
             e.register(h, "LoadableInfo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(b, "LoadableTerms", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(v, "LoadablePrivacy", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(E, "LoadableRefund", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(g, "LoadableVideo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(A, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(y, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(P, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(M, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(O, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(T, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(D, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(w, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
-            e.register(L, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
+            e.register(b, "LoadableInfoStem1", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(v, "LoadableInfoStem2", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(E, "LoadableInfoStem3", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(g, "LoadableTerms", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(A, "LoadablePrivacy", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(y, "LoadableRefund", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(P, "LoadableVideo", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(M, "LoadableMusicVideos", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(O, "LoadableFactoryReset", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(T, "LoadableDeviceConfig", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(D, "LoadableStemUpload", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(w, "LoadablePlatform", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(L, "LoadableDevMenu", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(k, "LoadableSignup", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(C, "views", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"),
+            e.register(R, "routes", "/home/vsts/work/1/s/src/containers/ViewManager/routes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -6294,7 +6424,7 @@
                       , a = ((0,
                     _utils_colors__WEBPACK_IMPORTED_MODULE_7__.vq)(r[0], r[1], r[2]),
                     (0,
-                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.dk)(e[1], .3, .8))
+                    _utils_colors__WEBPACK_IMPORTED_MODULE_7__.Dk)([.7, .7, .7], e[1].map(e=>e / 255), .25).map(e=>Math.round(255 * e)))
                       , n = (0,
                     _utils_colors__WEBPACK_IMPORTED_MODULE_7__.vq)(a[0], a[1], a[2]);
                     (0,
@@ -8344,37 +8474,36 @@
                 this.getMultipleWaveformData = function() {
                     var e = (0,
                     _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*(e, r) {
-                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}} = t.props
-                          , n = "https://d1qsqh3utn6cwx.cloudfront.net/waveform-data.json";
+                        const {webUSBClient: {deviceInfo: o, authenticateDevice: a}} = t.props;
                         try {
-                            let s = void 0;
+                            let n = void 0;
                             if (e || t.props.accountClient.session)
-                                s = {
+                                n = {
                                     Authorization: `bearer ${t.props.accountClient.session.AccessToken}`
                                 };
                             else if (o) {
                                 const e = yield a();
-                                s = {
+                                n = {
                                     Authorization: `bearer ${e}`
                                 }
                             }
-                            const i = yield(0,
+                            const s = yield(0,
                             _utils_backOffRetry__WEBPACK_IMPORTED_MODULE_5__.Z)((0,
                             _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_7__.Z)(function*() {
-                                return fetch(n, {
-                                    headers: s,
+                                return fetch("", {
+                                    headers: n,
                                     signal: r
                                 })
                             }), {
                                 functionName: "getMultipleWaveformData"
                             })
-                              , c = yield i.json();
-                            t.addDataIntoCache("stemplayer", n, JSON.stringify(c));
-                            for (const e in c)
-                                t.updateCachedWaveform(e, null, c[e]);
-                            return c
+                              , i = yield s.json();
+                            t.addDataIntoCache("stemplayer", "", JSON.stringify(i));
+                            for (const e in i)
+                                t.updateCachedWaveform(e, null, i[e]);
+                            return i
                         } catch (e) {
-                            throw new Error(`Failed to get waveform ${n}, ${e}`)
+                            throw new Error(`Failed to get waveform , ${e}`)
                         }
                     });
                     return function(t, r) {
@@ -8450,8 +8579,7 @@
                 ),
                 this.apiUrl = `${e.config.KB_STEMIFY_API_URL}/content`,
                 this.cachedWaveform = {},
-                this.cachedPresignedUrl = {},
-                this.getMultipleWaveformData()
+                this.cachedPresignedUrl = {}
             }
             render() {
                 const e = {
@@ -10795,11 +10923,11 @@
           , react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("63f14ac74ce296f77f4d")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("260f3680b921ede7f717")
           , fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(fontfaceobserver__WEBPACK_IMPORTED_MODULE_2__)
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("657c5d0bc31a26770cad")
-          , react_router_dom__WEBPACK_IMPORTED_MODULE_31___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_31__)
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("657c5d0bc31a26770cad")
+          , react_router_dom__WEBPACK_IMPORTED_MODULE_35___default = __webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_35__)
           , _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("b61b44d5123c4032e9da")
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("eb88800281880750dee6")
-          , _sentry_react__WEBPACK_IMPORTED_MODULE_30___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_30__)
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("eb88800281880750dee6")
+          , _sentry_react__WEBPACK_IMPORTED_MODULE_34___default = __webpack_require__.n(_sentry_react__WEBPACK_IMPORTED_MODULE_34__)
           , _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("82d14b9db5598b921c79")
           , _kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("8a5d22dd0b24a6092d3e")
           , _utils_history__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("4f64e9a1f5202b774215")
@@ -10818,14 +10946,18 @@
           , _contexts_audio_engine__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("77d9647920c06e8befd6")
           , _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("c0326c9d650a633c92d0")
           , _utils_themes__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("957d24b63b1050799be8")
-          , _assets_images_pngs_sp_product_shot_original_thumb_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("03543f3dc851e02a8736")
-          , _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("4e7d0f412453ab5a3ce2")
-          , _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("79c16640587b1d45f7d2")
-          , _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("54a05401abd45f5271ae")
-          , _assets_images_pngs_sp_product_shot_clear_thumb_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("117b6ff7c3b9a02b04ed")
-          , _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("a919c400c9d519b5448e")
-          , _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("9a6bc0a08b0ae70ba64d")
-          , _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("39c18a378dbea19771d5");
+          , _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("4e7d0f412453ab5a3ce2")
+          , _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("79c16640587b1d45f7d2")
+          , _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("54a05401abd45f5271ae")
+          , _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("a919c400c9d519b5448e")
+          , _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("9a6bc0a08b0ae70ba64d")
+          , _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("39c18a378dbea19771d5")
+          , _assets_images_pngs_stem2_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("8ed0923a100357405e8d")
+          , _assets_video_stem2_mov__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("45732eb854ce2086c6c4")
+          , _assets_video_stem2_webm__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("57824cf347a208deb857")
+          , _assets_images_pngs_stem3_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("1e823c716368cec13261")
+          , _assets_video_stem3_mov__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("43f58c71e2d23d4ca2ae")
+          , _assets_video_stem3_webm__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("5ae5f712193f2ccd9912");
         module = __webpack_require__.hmd(module),
         function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
@@ -10838,8 +10970,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3139",
-            KB_APP_REVISION: "4648fd3de79efd2f271a62848fd6b92f0fe866d8",
+            KB_APP_VERSION: "1.1.3179",
+            KB_APP_REVISION: "9313c3477e3e37bc38126ebe1c4a27602bcd2937",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -10878,72 +11010,137 @@
             hasCrossDomainStorage: !1
         }
           , products = [{
-            name: "CLEAR STEM1",
-            color: "CLEAR",
-            sku: "1016C",
-            assets: {
-                thumb: _assets_images_pngs_sp_product_shot_clear_thumb_png__WEBPACK_IMPORTED_MODULE_26__,
-                image: _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_27__,
-                videoMov: _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_28__,
-                videoWebM: _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_29__
-            },
-            purchaseData: {
-                uk: {
-                    id: "7290651115697",
-                    html_id: "product-component-1660743000760",
-                    price: "\xa3200",
-                    moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
-                },
-                us: {
-                    id: "7374962851996",
-                    html_id: "product-component-1660743051424",
-                    price: "$200",
-                    moneyFormat: "%24%7B%7Bamount%7D%7D"
-                },
-                dev: {
-                    id: "7610750992546",
-                    html_id: "product-component-1660571250200",
-                    price: "$200",
-                    moneyFormat: "%24%7B%7Bamount%7D%7D"
-                }
-            }
-        }, {
             name: "STEM1",
-            color: "BROWN",
-            sku: "1016",
-            assets: {
-                thumb: _assets_images_pngs_sp_product_shot_original_thumb_png__WEBPACK_IMPORTED_MODULE_22__,
-                image: _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_23__,
-                videoMov: _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_24__,
-                videoWebM: _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_25__
-            },
-            purchaseData: {
-                uk: {
-                    id: "6762869194929",
-                    html_id: "product-component-1624464889316",
-                    price: "\xa3200",
-                    moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+            variants: [{
+                name: "CLEAR STEM1",
+                sku: "1016C",
+                isAvailable: !0,
+                assets: {
+                    image: _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_25__,
+                    videoMov: _assets_video_clear_11_mov__WEBPACK_IMPORTED_MODULE_26__,
+                    videoWebM: _assets_video_clear_11_webm__WEBPACK_IMPORTED_MODULE_27__
                 },
-                us: {
-                    id: "6804650524828",
-                    html_id: "product-component-1624465060899",
-                    price: "$200",
-                    moneyFormat: "%24%7B%7Bamount%7D%7D"
-                },
-                dev: {
-                    id: "6148012408994",
-                    html_id: "product-component-1623765396005",
-                    price: "$200",
-                    moneyFormat: "%24%7B%7Bamount%7D%7D"
+                purchaseData: {
+                    uk: {
+                        id: "7290651115697",
+                        html_id: "product-component-1660743000760",
+                        price: "200 GBP",
+                        moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                    },
+                    us: {
+                        id: "7374962851996",
+                        html_id: "product-component-1660743051424",
+                        price: "200 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    },
+                    dev: {
+                        id: "7610750992546",
+                        html_id: "product-component-1660571250200",
+                        price: "200 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    }
                 }
-            }
+            }, {
+                name: "TAN STEM1",
+                sku: "1016",
+                isAvailable: !0,
+                assets: {
+                    image: _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_22__,
+                    videoMov: _assets_video_brown_11_mov__WEBPACK_IMPORTED_MODULE_23__,
+                    videoWebM: _assets_video_brown_11_webm__WEBPACK_IMPORTED_MODULE_24__
+                },
+                purchaseData: {
+                    uk: {
+                        id: "6762869194929",
+                        html_id: "product-component-1624464889316",
+                        price: "200 GBP",
+                        moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                    },
+                    us: {
+                        id: "6804650524828",
+                        html_id: "product-component-1624465060899",
+                        price: "200 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    },
+                    dev: {
+                        id: "6148012408994",
+                        html_id: "product-component-1623765396005",
+                        price: "200 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    }
+                }
+            }]
+        }, {
+            name: "STEM2",
+            variants: [{
+                name: "STEM2",
+                sku: "1017",
+                isAvailable: !1,
+                assets: {
+                    image: _assets_images_pngs_stem2_png__WEBPACK_IMPORTED_MODULE_28__,
+                    videoMov: _assets_video_stem2_mov__WEBPACK_IMPORTED_MODULE_29__,
+                    videoWebM: _assets_video_stem2_webm__WEBPACK_IMPORTED_MODULE_30__
+                },
+                purchaseData: {
+                    uk: {
+                        id: "",
+                        html_id: "",
+                        price: "300 GBP",
+                        moneyFormat: ""
+                    },
+                    us: {
+                        id: "",
+                        html_id: "",
+                        price: "300 USD",
+                        moneyFormat: ""
+                    },
+                    dev: {
+                        id: "7705894944930",
+                        html_id: "product-component-1666347257452",
+                        price: "300 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    }
+                }
+            }]
+        }, {
+            name: "STEM3",
+            variants: [{
+                name: "STEM3",
+                sku: "1018",
+                isAvailable: !1,
+                assets: {
+                    image: _assets_images_pngs_stem3_png__WEBPACK_IMPORTED_MODULE_31__,
+                    videoMov: _assets_video_stem3_mov__WEBPACK_IMPORTED_MODULE_32__,
+                    videoWebM: _assets_video_stem3_webm__WEBPACK_IMPORTED_MODULE_33__
+                },
+                purchaseData: {
+                    uk: {
+                        id: "",
+                        html_id: "",
+                        price: "600 GBP",
+                        moneyFormat: ""
+                    },
+                    us: {
+                        id: "",
+                        html_id: "",
+                        price: "600 USD",
+                        moneyFormat: ""
+                    },
+                    dev: {
+                        id: "7705895403682",
+                        html_id: "product-component-1666347115894",
+                        price: "600 USD",
+                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                    }
+                }
+            }]
         }]
           , font2Observer = new (fontfaceobserver__WEBPACK_IMPORTED_MODULE_2___default())("Helvetica Neue LT W05 65 Medium",{});
         Promise.all([font2Observer.load()]).then(()=>{
             document.body.classList.add("fontLoaded")
         }
         ),
-        _sentry_react__WEBPACK_IMPORTED_MODULE_30__.init({
+        _sentry_react__WEBPACK_IMPORTED_MODULE_34__.init({
             dsn: "https://cceb14840d684b1baad838c0d88f5c42@o829757.ingest.sentry.io/5812480",
             integrations: [new _sentry_tracing__WEBPACK_IMPORTED_MODULE_4__.jK.BrowserTracing],
             environment: config.TARGET_ENV,
@@ -10956,32 +11153,16 @@
             }
         }),
         _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.updateFromUrlParams(),
-        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-water") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark_grey.background),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark_grey)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-single-gradient") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)("#ADABB2"),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-gradients") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)("#A8B1CE"),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-dark") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark.background),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.dark)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-light") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light.background),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.light)) : _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("theme-grey") ? ((0,
-        _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey.background),
-        (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.grey)) : (_utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-off") || _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.setFlag("background-shader-gradients"),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-single-gradient") && _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.clearFlag("background-shader-single-gradient"),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-gradients") && _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.clearFlag("background-shader-gradients"),
+        _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.hasFlag("background-shader-water") && _utils_feature_flags__WEBPACK_IMPORTED_MODULE_20__.V.clearFlag("background-shader-water"),
         (0,
         _utils_setThemeColor__WEBPACK_IMPORTED_MODULE_3__.g)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default.background),
         (0,
-        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default));
+        _utils_themes__WEBPACK_IMPORTED_MODULE_21__.Dc)(_utils_themes__WEBPACK_IMPORTED_MODULE_21__.yU.default);
         const MOUNT_NODE = document.getElementById("app")
           , render = e=>{
-            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_31__.Router, {
+            react_dom__WEBPACK_IMPORTED_MODULE_1__.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_35__.Router, {
                 history: _utils_history__WEBPACK_IMPORTED_MODULE_6__.Z
             }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_kano_kbc_telemetry__WEBPACK_IMPORTED_MODULE_5__.Yi, {
                 providerConfig: telemetryConfig
@@ -11297,39 +11478,41 @@
     c90b79b40c6328f03c9e: (e,t,r)=>{
         "use strict";
         r.d(t, {
-            lY: ()=>_,
-            ve: ()=>f,
-            vq: ()=>m,
-            oo: ()=>p,
-            lC: ()=>h,
-            dk: ()=>b
-        }),
+            lY: ()=>d,
+            ve: ()=>m,
+            vq: ()=>p,
+            oo: ()=>h,
+            lC: ()=>b,
+            dk: ()=>v,
+            Dk: ()=>E
+        });
+        var o = r("e2161c2bb2fb866f34ce");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
         "undefined" !== typeof reactHotLoaderGlobal && reactHotLoaderGlobal.default.signature;
-        function o(e) {
+        function a(e) {
             var t = "0123456789abcdef"
               , r = e;
             return 0 == r || isNaN(e) ? "00" : (r = Math.round(Math.min(Math.max(0, r), 255)),
             t.charAt((r - r % 16) / 16) + t.charAt(r % 16))
         }
-        function a(e) {
-            return o(e[0]) + o(e[1]) + o(e[2])
-        }
         function n(e) {
-            return "#" == e.charAt(0) ? e.substring(1, 7) : e
+            return a(e[0]) + a(e[1]) + a(e[2])
         }
         function s(e) {
+            return "#" == e.charAt(0) ? e.substring(1, 7) : e
+        }
+        function i(e) {
             var t = [];
-            return t[0] = parseInt(n(e).substring(0, 2), 16),
-            t[1] = parseInt(n(e).substring(2, 4), 16),
-            t[2] = parseInt(n(e).substring(4, 6), 16),
+            return t[0] = parseInt(s(e).substring(0, 2), 16),
+            t[1] = parseInt(s(e).substring(2, 4), 16),
+            t[2] = parseInt(s(e).substring(4, 6), 16),
             t
         }
-        function i(e, t, r) {
+        function c(e, t, r) {
             r /= 100;
             const o = t * Math.min(r, 1 - r) / 100
               , a = t=>{
@@ -11340,39 +11523,39 @@
             ;
             return `#${a(0)}${a(8)}${a(4)}`
         }
-        const c = e=>{
-            let[t,r,o] = s(e);
-            return h(t, r, o)
+        const l = e=>{
+            let[t,r,o] = i(e);
+            return b(t, r, o)
         }
         ;
-        function l(e, t) {
+        function _(e, t) {
             return Math.floor(Math.random() * (t - e) + e)
         }
-        function _() {
-            return i(l(0, 360), 100, 50)
-        }
         function d() {
-            const e = l(0, 360)
-              , t = (e + l(55, 305)) % 360;
-            return [i(e, 100, 50), i(t, 100, 50)]
+            return c(_(0, 360), 100, 50)
         }
-        function u(e, t, r) {
-            var o = s(e)
-              , n = s(t)
-              , i = r
+        function u() {
+            const e = _(0, 360)
+              , t = (e + _(55, 305)) % 360;
+            return [c(e, 100, 50), c(t, 100, 50)]
+        }
+        function f(e, t, r) {
+            var o = i(e)
+              , a = i(t)
+              , s = r
               , c = 0
               , l = [];
-            for (let e = 0; e < i; e++) {
+            for (let e = 0; e < s; e++) {
                 var _ = [];
-                c += 1 / i,
-                _[0] = o[0] * c + (1 - c) * n[0],
-                _[1] = o[1] * c + (1 - c) * n[1],
-                _[2] = o[2] * c + (1 - c) * n[2],
-                l.push("#" + a(_))
+                c += 1 / s,
+                _[0] = o[0] * c + (1 - c) * a[0],
+                _[1] = o[1] * c + (1 - c) * a[1],
+                _[2] = o[2] * c + (1 - c) * a[2],
+                l.push("#" + n(_))
             }
             return l
         }
-        const f = (e,t,r)=>{
+        const m = (e,t,r)=>{
             let o, a, n;
             if (0 == t)
                 o = a = n = r;
@@ -11388,12 +11571,12 @@
             }
             return [Math.round(255 * o), Math.round(255 * a), Math.round(255 * n)]
         }
-          , m = (e,t,r)=>"#" + ((1 << 24) + (e << 16) + (t << 8) + r).toString(16).slice(1)
-          , p = e=>{
+          , p = (e,t,r)=>"#" + ((1 << 24) + (e << 16) + (t << 8) + r).toString(16).slice(1)
+          , h = e=>{
             const t = parseInt(e, 16);
             return [t >> 16 & 255, t >> 8 & 255, 255 & t]
         }
-          , h = (e,t,r)=>{
+          , b = (e,t,r)=>{
             let o = e / 255
               , a = t / 255
               , n = r / 255;
@@ -11422,30 +11605,37 @@
             }
             return [Math.floor(360 * c), Math.floor(100 * l), Math.floor(100 * _)]
         }
-          , b = (e,t,r)=>{
+          , v = (e,t,r)=>{
             const [o,a,n] = e
-              , [s,i,c] = h(o, a, n)
-              , [l,_,d] = f(s / 360, i * t / 100, c * r / 100);
+              , [s,i,c] = b(o, a, n)
+              , [l,_,d] = m(s / 360, i * t / 100, c * r / 100);
             return [l, _, d]
+        }
+          , E = (e,t,r)=>{
+            return [(0,
+            o.t)(e[0], t[0], r), (0,
+            o.t)(e[1], t[1], r), (0,
+            o.t)(e[2], t[2], r)]
         }
         ;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(o, "hex", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(a, "convertToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(n, "trim", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(s, "hexToRGB", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(i, "hslToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(c, "hexToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(l, "getRandomInt", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(_, "getBrightHexColor", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(d, "getRandomColorPair", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(u, "getColorGradient", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(f, "hslToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(m, "rgbToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(p, "hexToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(h, "rgbToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
-            e.register(b, "changeSaturationAndLightnessRgb", "/home/vsts/work/1/s/src/utils/colors.ts"))
+            e && (e.register(a, "hex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(n, "convertToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(s, "trim", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(i, "hexToRGB", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(c, "hslToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(l, "hexToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(_, "getRandomInt", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(d, "getBrightHexColor", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(u, "getRandomColorPair", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(f, "getColorGradient", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(m, "hslToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(p, "rgbToHex", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(h, "hexToRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(b, "rgbToHsl", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(v, "changeSaturationAndLightnessRgb", "/home/vsts/work/1/s/src/utils/colors.ts"),
+            e.register(E, "mixColors", "/home/vsts/work/1/s/src/utils/colors.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -12088,8 +12278,8 @@
     "957d24b63b1050799be8": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            yU: ()=>i,
-            Dc: ()=>c
+            yU: ()=>c,
+            Dc: ()=>l
         }),
         e = r.hmd(e),
         function() {
@@ -12106,36 +12296,41 @@
             main: "#252525"
         }
           , n = {
-            background: "white",
+            background: "#787C88",
             main: "#252525"
         }
           , s = {
+            background: "white",
+            main: "#252525"
+        }
+          , i = {
             background: "#000000",
             main: "#525252"
         }
-          , i = {
+          , c = {
             dark_grey: o,
             grey: a,
-            light: n,
-            dark: s,
+            light: s,
+            dark: i,
             default: n
         };
-        function c(e) {
+        function l(e) {
             document.documentElement.style.setProperty("--color-background", e.background),
             document.documentElement.style.setProperty("--color-main", e.main)
         }
-        function l(e) {
+        function _(e) {
             document.documentElement.style.setProperty("--color-main", e)
         }
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
             e && (e.register(o, "THEME_DARK_GREY", "/home/vsts/work/1/s/src/utils/themes.ts"),
             e.register(a, "THEME_GREY", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(n, "THEME_LIGHT", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(s, "THEME_DARK", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(i, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(c, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"),
-            e.register(l, "setColor", "/home/vsts/work/1/s/src/utils/themes.ts"))
+            e.register(n, "THEME_GREY2", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(s, "THEME_LIGHT", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(i, "THEME_DARK", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(c, "THEMES", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(l, "setTheme", "/home/vsts/work/1/s/src/utils/themes.ts"),
+            e.register(_, "setColor", "/home/vsts/work/1/s/src/utils/themes.ts"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -12658,24 +12853,24 @@
         e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGAQMAAABL4HDHAAAAA1BMVEUCAwX/uU74AAAADklEQVQYGWMYBaNgiAIAArwAAa44Of4AAAAASUVORK5CYII="
     }
     ,
-    "117b6ff7c3b9a02b04ed": e=>{
-        "use strict";
-        e.exports = "data:image/png;base64,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"
-    }
-    ,
     a919c400c9d519b5448e: (e,t,r)=>{
         "use strict";
         e.exports = r.p + "d47cfcd7d25bfc4b12b6.png"
     }
     ,
-    "03543f3dc851e02a8736": e=>{
-        "use strict";
-        e.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAADAFBMVEVHcEzMvLFtX2SXiX1FQD5HQT4xLSxHQj++sKTEtKgvLCo3MzJpYFzVw7fTwLXVwbZ4amufiYc5NDKYioLaxrc0MS83MzI3MjFiWFWUhYDMuazVwbSFeHStnZSfj4jDsajOvLBgV1IyLi1sYVxWTks3MzI7NjTRv7O8qqBiWFQ4MzHZxrillY3bybrdyLitnZRVTktORkQ0MC6Ie3KYiYK6qJ52a2ScjIQxLi1yZmO1pJuPgnm/raarkoWtk4dtX1fGrJ4fGhi1m4+vlYq7oZYiHRuUfXO6n5TDqZy3nZGzl4xxYlobGBajioCokYPAp5mVfnVkVk+fiH6agXhcTkh7Z2C0mY6kjoJsXFTcxLVjVE1QRD58aGKXgHachXqgiX9nV1Gxlou3n5RZTEfVuqzPs6Z5Zl85MCzMsqRgU0xWSkVUSEPStqhdUEubg3qRenCLd20mIB6+pphqWlQpIyE1LSo/NjPKrqBEODSPeG08My92ZF6eh31IPDhzY1yEcGepjoLIr6JMQjwyKicvKCWBbGWLc2mAamGfh3stJSK9o5favrBvYVmrkIOHdGtLPjtqWFGiiX19a2NoXVWIb2Z7ZF2QfXVRRkFEOzenjIGEbWSchn2MenB3Y1xrU0x8W1XZwrKWeG1yXVabhHhkT0mYg3q9k4p0aGCCWVPPuat3X1jUvrCSc2qhkYW4oJ1fRkOykYXDnJXEk4x3U06dSkePUU6olYqec2v/QziETUq5p5mum4//W037TlbBrqB+cWi7mI/Lkoj8bmCihHrWkYrPRkLkhX+vT1BBNkiSgnmTaGP9bHRtRUKHZV73fXfBUmG4o6qphHrBc270R0H+XWLnTUyQSka5joOqSUWxgHeoenHTT1BCOGCtcmnASUb8dIxgU/17RUGefHWUgIs9OoSrZl82QdKGcnWGdImYYFzaZ2SsiJycfLWPZOhXRpfDgnivTGF/YP46P63hZ4tqPl83RfZ5YX1aSWBYRnxPRt2OQlxcTrq9YriHbb51VcucVJ2F7z/XAAAAPXRSTlMAQf/+JDhhDw8j+o5TVKHX/f6tOa1MvXiEfeTvlnNb2Gzi6cv4+c/AvKDij71yuuWyzdjMpvHd1s2qlbmE58TpogAAE4tJREFUaN7sll1MU2kax4fhBi5Ajdwo60eyF5r4MRc77iS72w6BpqWdFDqgoEZaW8WwiUsb5oI0Swa4oDY1ELuLTSjq8GHJVCyDOkKkgChuDMwyKH6sMEHdMUYxGXeNO86Y2Z3d//O87zk9VRw/xtmr+Z/mHM55e57f83/e533pG2/8rJ/1lNJSMtatyczKWp+1fn1W5pp1Gen/D2p6SmZ3G2uLqrasdSlpP63VNQuIp2EmtCAz46eBp2VkZQtiG5Hb2vZu2bslyfiW7AXr173usqevyQYDtLa9T4vSUOlZGa8Rm7GqmyZWcnY+ob07lQQY37Zg5WuqecYCYAWSoLt37k4SbgUfauOyAP0asCnAdndLnyqtfHc5CVcVT+P4Ind894KUHzu3maCKikqn5VIVFRXV1RUVyq2gR5m+t7utuzvrR7VZRrbEalwKbHV1Tn5+fg7Y5UlsMt69k4qU/er1TsskrFJcdlmNg71W5wcMJkMV0HRfUa56F3Aid69Kf+XZ3RlVqQJHqq+or88pNJhcZrPJUJhTX48HOBQxm9HR7FdaWiujApsEJW49cQMml4vIgXwiq5JosDHd0Wg0M+3ly4zX5qHm5ICcA8MGQ09Pj4ssC+FhEhvoaHc0+rLlTlsV3V3+JLVaxIfyq4h7oafHQNOsVQJeXh4lLX0pcvqKKEMrVGByeHRWzwUI4ABZzqcOz89X2fSSgl6a8nJcUOsFtVpGVpWTj9Zi8AWqtXxaqAwKfDX5JnLFi3tOX1ouqdKfDIyjUIQH2MCOAa7ix4qU3AhdzUsN5JQX5Ua5xsxUqEJVEIKjpw1Ua3QX+rpKPOchAS9U2Dzb0foX85y2ooIWjHAqbYrIARZxsIhBNtBahmUeqQoY6KzBM5tbrX7FC6yqtNX1snPzFZMBiTSwEBybltlFpk3mXLOBmMjBZKLBgKRXCbZADw+vfj44k7hqcdmMQSJNJo4eIK7ZdAwy5ebCckCMCLQhgRe2hwlduOy5+xXS01IFkQ6TyaVGB9gswUQ20T12Mg0fJ54WLvjw8PCG5xQ7ZZiKrKEqsXiDZFF4M3gCXEJkk1mVK5EAW6deHCb97jmNNcxzm/CqIQJhJocukwuXEQKPlFgsuWJMyqxJT8wLocnzD66p1cP5qll+UxA1gZlszi2xlIwcGxkpcTqdJbkYLYHzkqQvSTY3I7v+oc5eOcxNHJBWzVovJYoQFFwLyCMjFmdenoUGLTjEYEmSd4EeAHp44DfP3jk28Gplry4VqhKJRkDiOJ0Wy8hIl0Wv1zstYsTJg2oCzM5V0FUDhQMbFj+z0AMDA1xj1aiGB5YQ/53ntHR1He/q6tXr83gsTxmUfBVv5hUfCCD2sxbzcteAqLHAKkgFmKfICa5e39t1/PhxBtN9YlBNzqJ6R6MbDAAPzL+Y094yuAw8sUzV2lSi6ln0QK+T4F6dTq+O6AVbQ5dkiZ6/s5e5eOWwWZWZwGnk1Ot1iuPexkZ6pNPrkIEqtTYCLtCugYEV8xoGVk6rAk1E0qlq1PEtwJjjv4HbqFNH9UoOKp+Ni6VAvgbmsbwsrlAtCaiIieAFdGosoFOjjkP3gizBjTzII5yZNo887juLgl49j+F4SVyUWHEqHRKQiXV1BXUkityocdwYLKgrYJXikNKyyTiigxx3PbWklsfjcTmpKlTiFLWUlta1SLCut/f4mTNneI7lmKKCWEFBMl7UnEy74k/tImvjaifJ4kIJIoA4tVhxtBAZhs+cO3cG3cXgFqsVSD6JFAoS3gsUNEzH4289sXGm9/URVKktBWNsC8sK8clqDSJ6HRrZSeBzsKxvZK7V4aAPq9QqzdfVJYxTxQGOL08GL+nr69Mr5WWbZLBF0iisQ1yCuAKcZxkh8PEuJ8AtwaCDVFTEF2Qg+IigwCU6Hu9bmwx+J4Yx2SF1LRpkMBi0irAIjNAIbm3BCrKMHDuDUo8w2MoDNOaQbJGoOu3Ct14Pe31JP/zSY32yJWiWrIQiprRZ5Bdha/hT5GCw+IecCzAM0yCEi9+vpOBQKi8SoODEjSXtm0tisRgxS9lkESI5gkE/BwkW1fj9FLSGYrfiKKJaO+mHh8lc4tTVWYMYb22tYdn9MoNkPKadTBUUxGJJtV4LsMAGyWfQz7n7icgnO6tVXOwg6/Is/POADfsxUGlPSEmiRqSeqHusFJyYdvdYVFrqKLUGOcugIPrtdr+dT6oqOzs7KyG7nz1bci3MrbFXakQ3Io9W5KP4Fz1XymDNHrLYkWp1BKVJyO4nE50E62RRxGIcSnB/sIXWFBoLdQaqOElqBgn7su5M1kzyktQalUqwysrOSkFLClmmBraP+tHtLZiY0VHxpTKNxJcEn9EsxXjq2wnw26mtbNMvHCbnnxSTokYi5FlodJT8ihEb9CSeU4jgjeJKu4Cnpr6jWcWpsrJELbMZbcnS3lPISHGlQFNTwW5Z4puqnniFX4uAXdSamqrummmpkUhnhCezuMzodnufltvtNhpDRhmHy028CFeZUzPajO52t9fnOwr5fB6v1+P1KEIA5AJ0BNxUtbvSx8bwqKy4s9hm9Pqaa8MNezTaRKdwuNlHL7MXrqsvTPIZy4RTfNoBbG6eENozQa9u2rQLQoSGJs8B5E22U8fU7Xrx2JicJbcvvGfTwSMdHZs3b+7YvI8PfDqOHDm4fw/QsoZlNm/Yswjb0KLQHp+osM3Y3n50fHxi4mPoBHRI0fvbEeDgttqmA26gx6Al6v/isZBNchv2H+nYt2/rYa0ObT10aF/Hkf17wj7Fs6e5NWatsbcWxRzNPmMoRE/BnZs7efLk1VOn/g79FfqEtGPHH37//gfvbYJpzJctCRwKhXiavOH9723evvXwxo0bP9mIdzbiL0YfOnTiI5CbudqhkDsccUTKqObFRa1hL4Hb29vH526fP3/92rVrn0JXBRrsHd+Q/vzhtlrPAbcbqJC6nn4REjnD8K6OzR9s375969atXKbDslwdJ1DACRTbbaQm83lay2TzltmNzdR47e39t29PfnHlypW/kK5fv/bpVdg/deJf33x7//79b998E8X2HGD9VgXjBm2LlmzY9ccP34TefbfjyEdCH7Mm5ubmxieowaBQLU9ryE3p2iJhekjgySuDg5cGL126NDQ0dOWLyfOTk5P/nHt0/7vHjx+DTGAIrF9pwbRivL5ww58WLnz0aOHCbQ3j49QqE+NCt6H+cZ8Au2tttOhEtu6yZg9zZ6fuDQoNDV2+fHnoHvTw4dR/v7958+uvH99/tHA+MG49tFybamvv3IXu3Dl6tL0f66O/f3Z2lk5TU1Oz/Ue9Ahx2I1MO4sW8NTd5vQw+K7mXhT777MaNGw///dVN0neP7oDr8zVBCTAvcjKNDEJ3b926NWazfSk0Mz09PTMzA+7UTH87T4g71OA5IDYGH53CACPN2Xtnz54dPDvISNYNAX7wAODv796BuSbWr1UwbhCDWhbrKgJwa2XlqNDFi9PTF0dx+sf0zJfoP6pLCCuDYnD6TZ5tSOAoO5YS2M8/V8EPHnz1n7uhEMC1p5tOn/6lFoww/2vXfGLauPI47oONJeAQkPhzhRCk5JTkULWHLkIVHEqIlj/eInAWV5awACVg2UYEB7vCGC+SZXttwI7BQUFsQahSqgBpOERs1AI+RIm6ESybIKq2KD0kW1C0lapIK+3vz3szY2AT8qfSHvY7g4GZee/z+/7em5n3xnP5cjVcWMbHW/Na82hciWNZGM1+exUW0NdwYeuCDF/uCgVC0ChS5omhoSFqYwV8/7v791dXV79bXf3m6bN/gv79DLI4gYWWl0PFyl1xOeSFbXBharhS3yrGRzRRoYnS72jgebX2T5caqvFiPNQ9NhpgZhIur55Q98jIyBfXH/1td/W+IkCSbn7+9Bnqxx//Mtbt9fr9y8vLyrU6F/7Baoa6Gq60fgKjwVsf3RJz3Y/EPOrD85/V1l+6UI1cr3eie8qMlYACU+aJUHJkZOiLrx79Y3eV9Q1Q7969ifrrH56i8vLGL3SFsEh0H9gPFY1crr5UX3teTDlwwv3pp2IG9+H5T2qvNPweDGOEobFQ05QpEI2aUxHTWAiqSwry7u7d3buom5+TPv4YDNzKy6snbhQ1c0wvwfpjy7QpCeSG8VYYln1GMz+cLeLsAqYzV2vrx4mL4GQyNDbhpktaU4i4fr/wDJ3w70JffkkzOhilc9khL0YanZk5ZpRg4zHiRgN+vCZeaPgjjy/+rAj+uYR3auISB0yP/bS8/NPYhDcaiPqjSIZ2/uqHR9+SvlYFAxoo2u31R02mGdR76gjkvRnAws3TFICUDcn7fvV1WH6ovkD3I6KOYJ6xnSDIgBfOBK8/YDabwQdmG+7ZMAa4rlXXdTz9sF8kA2a4NxP4uAr+YGYG7tduN92z8abPggJD9EGCDckkU6Nms0mozWQiNPwE/EpJoaQoEoDwCOBG8AcquJgiSbkR3UbOMwRu/FQBdWNgmE0AHhVqQzIJ84CBy5ELHkURMtTt8XhqYMlVwbkEdnsAnUJhfam2UYoBKeYAdwJoTLJnUrGjplE66IAEUEEitaYmGAzWGFSwcaZG7BIfwGf7aOeQehE8NzkLd01hWhFnjJH7mEhFaedOxyEQjeBIKIHFCK7USz4wz4idXwLNziJacNpMgsZIhnKNwWAFKVYRO64FF+N2uTNIUXCkHoGWNZsoCOQubWzgCGdpFsZEowLkbuNUYTk2GlRqZWosVlGsBefKfVPyD5ECQrux4jaKgD6Yu7kNI5zNjSUEpxBGqztFLj1anzGS+BUzZDwREFubmipwwZWcg9g215kiW8CZm1zcXHl4+/bDlc2N2cnUaMqjiolBxSlVbHHELBYYzcViJZmPIk6KiJocDkcTitlsPVjj0SoF3NmFbeAieWFxci6VQpyClFmjimIxqNJSB6KPupOZ4Fx2DANMS8ThgJUCUPOOeNn/GLxC4NsrmwCemwsGK7QuGYqVRCzMU5SZaZ2xJGapg2PgKIugA1mYZ7jS8Tz7wLNzczUVWmGTNTFUYmG83NyOKtn/gO2kpS6mhkXsiDSeSQ/WzGlTTeApbXI5u4RlIiMv0mfxfrDBIgNDSXqE5dBaryDw4vY6dq717QU4nwDM2XGwIhGLaFFmtl+UKjMeeIp6HA5rF8ehVHqGd0GeXVx7vP7w4frK2uLs5BRM8hwaiQyTU8LBlKjR2mi9aLWePPjYOLcuIzZmN2vYTAd2EECTCIb5AmZ6krgRBspWFelFplVRR5n+kCflJYzF6C42HgaHE5HgTQJME5XNxfl5mNCCmMlWm6UD5kmVnT7sq4FcpFobOS0sDV3j3VExNQWpBsN37jxeA3BEaVNEwsrQRkntJCHZcOi3IadlQmi1WhU4t7liHubq0vGdxwtL89eA26z23nbRqhIaj8NK6jx9+Nc/+hJrBwXG0RHcetB6Mzb4/NICtfE2gzm5soNIKFFbSPEWAB/awnRKlVFOMDaZG8EXbAEH8vw89q51zDQ+bVCyK/qSyC9gBxTF48X/9Tu+3LIWjKyFw4xzBAznLocLnmiWa2B5bfvBGhq+hq2q9l6GxskrEcPhMP0+85JvU4vjAwN4fIuUxrxVsd6OzwvA8gMEX5uebm9HaodML+VXIPulwLHhJWDjGSU34YF9eKiT8cCenp6eX9wj8L3pacLC3k7plJlITYD6cQkP5Lz0m2u9GimU5CRJeFzxjuh7CH6w8D092hHJpSai3DKzVwj+DJ95xTsCRQMD/RkKh5kv+mYH4LHJb9xbAvDewveI7egUnVcGLaA9UolEXP8KsPHUACdIRtur8pEOaxxsWwH8Ym9vbwMMg1uBFFYZ2SdF4IJXvo6RBS3CVIo1k094RHd23rj34sWLJeCSU9GNhE8G2mzMBXKi6AhvvuQnsLw25D41AqJzq9/4F+hGS7iFffb2qlAbykWfCO9J5B/llRtjeSKhBi3KavH96HogvPXrzz//usX5VW1iEZfLhT/4C0v39BQaj/SSkTEfyILpsok6NCH0IDqc3nr+5MnznXQ/YaVLlI816PNRwb6jcoGcQ2BNJSSXdIHk/vTOk19+ebKzle7vFQczDjU8PDgMv3zMLT8qF3tYuEdWBbWwBqk2NGLr602kFTBwXQQczhAdjODC1+DC/eIUkn1KbU5eQPCPDzwn0juU6q0EHDhIe1B2p91ud/JxzM1/LS5cwsp7XC7wxzg7q6rKjosTyIn01s5z4KYhz4NO3IWCnXZBHsY2tvXlvPZrmcZ8xYqstqqqsqoS1iqnrw/JoHS6x+Zzwg4U7CG6BLtsJ4p0b6CiEzbfINslqKqqYReSUciFLefOwQ/uIbJItK3U8GbvwBrOEtmuukUCisioPuTyNhETOyZuoV73hjLmnHApZBWLZGjnPuQO2uVGCZbc0qy3ec/ZUG7zDTu1uZaYKif0nmF71TktV/HrsuXrdW8lafqA68qMOM4JLHHB7vsFurdWQTm3tD2TLLiVh9ktzTLq3oUMOSfwhNa0daXiV+noKvbsO8IyupTOaeWMrqzUBCDOXsJmFxa8Oyy1dVZhNtu229ULihRdM6Arn8ox6N699Fn5p7LFZdkur6LqBTL77G9CVeA5haXZeC/iWwbeMwazs0vfz8/S635zGfWGgqyioqIsUEGBQa836v6v/2H9B9+kRrffzp5WAAAAAElFTkSuQmCC"
-    }
-    ,
     "4e7d0f412453ab5a3ce2": (e,t,r)=>{
         "use strict";
         e.exports = r.p + "a212fb46ab59a379f4ae.png"
+    }
+    ,
+    "8ed0923a100357405e8d": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "cce8b0e8da4dc466c580.png"
+    }
+    ,
+    "1e823c716368cec13261": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "e4ff3fdb1e772cbf532f.png"
     }
     ,
     "79c16640587b1d45f7d2": (e,t,r)=>{
@@ -12697,9 +12892,29 @@
         "use strict";
         e.exports = r.p + "350b1d1480f378b2b5aa.webm"
     }
+    ,
+    "45732eb854ce2086c6c4": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "f91085e33bffb922a627.mov"
+    }
+    ,
+    "57824cf347a208deb857": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "6fb734305b82edbaf44a.webm"
+    }
+    ,
+    "43f58c71e2d23d4ca2ae": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "1c300d88415f77d16e1c.mov"
+    }
+    ,
+    "5ae5f712193f2ccd9912": (e,t,r)=>{
+        "use strict";
+        e.exports = r.p + "ab4d6c285a156c34c179.webm"
+    }
 }, e=>{
     e.O(0, [179], ()=>{
-        [1840, 6521, 5083, 9014, 6743, 327, 5908, 9945, 2868, 5009, 9713, 4958].map(e.E)
+        [1840, 6521, 5083, 5316, 2792, 9014, 9855, 6027, 407, 6743, 327, 5908, 9945, 2868, 5009, 9713, 4958].map(e.E)
     }
     , 5);
     var t = t=>e(e.s = t);
