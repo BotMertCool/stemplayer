@@ -6385,13 +6385,16 @@
                         if (-1 !== c) {
                             const _ = s[c]
                               , d = i;
-                            t !== _.metadata.title && (d && d.id === e ? d.title = t : _.metadata.title = t,
+                            t !== _.metadata.title && (d && d.id === e && (d.title = t),
+                            _.metadata.title = t,
                             l = !0),
-                            r !== _.metadata.artist && (d && d.id === e ? d.artist = r : _.metadata.artist = r,
+                            r !== _.metadata.artist && (d && d.id === e && (d.artist = r),
+                            _.metadata.artist = r,
                             l = !0),
-                            o === _.metadata.colors[0] && a === _.metadata.colors[1] || "" === o || "" === a || (d && d.id === e ? d.colors = [o, a] : _.colors = [o, a],
+                            o === _.metadata.colors[0] && a === _.metadata.colors[1] || "" === o || "" === a || (d && d.id === e && (d.colors = [o, a]),
+                            _.metadata.colors = [o, a],
                             l = !0),
-                            l && n && (d && d.id === e && this.setState({
+                            (l || n) && (d && d.id === e && this.setState({
                                 currentTrack: i
                             }),
                             this.setState({
@@ -10970,8 +10973,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3179",
-            KB_APP_REVISION: "9313c3477e3e37bc38126ebe1c4a27602bcd2937",
+            KB_APP_VERSION: "1.1.3186",
+            KB_APP_REVISION: "cce5e0cf8a786e840a369b39649efc14fc6f4f9c",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",

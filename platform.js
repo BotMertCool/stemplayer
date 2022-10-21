@@ -1364,7 +1364,7 @@
                         null !== (yield k.updateTrackToUserLibrary([t], _.session.AccessToken)).error ? console.error(`error: failed to update metadata on track ${X} (L)`) : e = !0
                     }
                     if (m.deviceConnected && t.on_device) {
-                        null !== (yield(0,
+                        !0 !== (yield(0,
                         S.tJ)(X, re, ce, ie, ue, m)) ? console.error(`error: failed to update metadata on track ${X}`) : e = !0
                     }
                     e ? (w.updateTrackMetaData(X, re, ce, ie, ue, !0),
