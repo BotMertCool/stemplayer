@@ -1135,77 +1135,78 @@
     "7e15fd75b6f1cbf7b3fd": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>A
+            Z: ()=>y
         });
         var o = r("de098c4daf91477f9cbc")
           , a = r("8af190b70a6bc55c6f1b")
           , n = r("657c5d0bc31a26770cad")
-          , s = r("8390a660195ca787c81e")
-          , i = r("9667880090888529dc91")
-          , c = r("410dd64c33f00b849fa7")
-          , l = r("77d9647920c06e8befd6")
-          , _ = r("6515cd559c65eab0c80c")
-          , d = r("d92624744e8fb7e743e8")
-          , u = r("b194d90914e83db0f428")
-          , f = r("3c15b862d899a16e9481")
-          , m = r("553c2c26a5c8a1e6fec3")
-          , p = r("5a530d159ab46bd0cea7")
-          , h = r("238af0e74d3daf256b28");
+          , s = r("8a5d22dd0b24a6092d3e")
+          , i = r("8390a660195ca787c81e")
+          , c = r("9667880090888529dc91")
+          , l = r("410dd64c33f00b849fa7")
+          , _ = r("77d9647920c06e8befd6")
+          , d = r("6515cd559c65eab0c80c")
+          , u = r("d92624744e8fb7e743e8")
+          , f = r("b194d90914e83db0f428")
+          , m = r("3c15b862d899a16e9481")
+          , p = r("553c2c26a5c8a1e6fec3")
+          , h = r("5a530d159ab46bd0cea7")
+          , b = r("238af0e74d3daf256b28");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var b = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var v = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const v = ({audioEngine: e, stemsClient: t})=>{
-            const [r,l] = (0,
+        const E = ({audioEngine: e, stemsClient: t, tracking: {trackEvent: r}})=>{
+            const [s,_] = (0,
             a.useState)()
-              , [d,b] = (0,
+              , [u,v] = (0,
             a.useState)()
-              , [v,E] = (0,
+              , [E,g] = (0,
             a.useState)()
-              , [g,A] = (0,
+              , [A,y] = (0,
             a.useState)("")
-              , [y,P] = (0,
+              , [P,M] = (0,
             a.useState)("")
-              , [M,O] = (0,
+              , [O,T] = (0,
             a.useState)(!1)
-              , [T,D] = (0,
+              , [D,w] = (0,
             a.useState)(!0)
-              , w = (0,
-            m.s)()
               , L = (0,
+            p.s)()
+              , k = (0,
             a.useRef)();
-            L.current = r;
-            const k = (0,
-            a.useRef)();
-            k.current = d;
+            k.current = s;
             const C = (0,
             a.useRef)();
-            C.current = v;
+            C.current = u;
             const R = (0,
             a.useRef)();
-            R.current = e.playbackState;
+            R.current = E;
             const S = (0,
             a.useRef)();
-            S.current = e.trackIsLoaded;
+            S.current = e.playbackState;
             const U = (0,
             a.useRef)();
-            U.current = e.shouldHideMiniPlayer;
+            U.current = e.trackIsLoaded;
             const x = (0,
+            a.useRef)();
+            x.current = e.shouldHideMiniPlayer;
+            const I = (0,
             n.useHistory)();
-            let I;
-            const B = (0,
+            let B;
+            const K = (0,
             a.useRef)();
             (0,
-            a.useEffect)(()=>(I = requestAnimationFrame(H),
-            document.addEventListener("keydown", G),
+            a.useEffect)(()=>(B = requestAnimationFrame(N),
+            document.addEventListener("keydown", W),
             ()=>{
-                document.removeEventListener("keydown", G),
-                cancelAnimationFrame(I),
+                document.removeEventListener("keydown", W),
+                cancelAnimationFrame(B),
                 e.isNavigating && e.setIsNavigating(!1)
             }
             ), []),
@@ -1213,103 +1214,121 @@
             a.useEffect)(()=>{
                 const t = e.getActiveQueue();
                 if (t) {
-                    const o = t.findIndex(e=>{
-                        return (e.id ? e.id : e.global_id) === r
+                    const r = t.findIndex(e=>{
+                        return (e.id ? e.id : e.global_id) === s
                     }
                     );
-                    if (-1 !== o) {
-                        const e = t[o]
-                          , r = (0,
-                        f.vJ)(e)
+                    if (-1 !== r) {
+                        const e = t[r]
+                          , o = (0,
+                        m.vJ)(e)
                           , a = (0,
-                        f.ee)(e)
+                        m.ee)(e)
                           , n = (0,
-                        f.$r)(a, r);
-                        b(o),
-                        E(e),
-                        A(n),
-                        P(r)
+                        m.$r)(a, o);
+                        v(r),
+                        g(e),
+                        y(n),
+                        M(o)
                     } else
-                        e.currentTrack && l(e.currentTrack.id)
+                        e.currentTrack && _(e.currentTrack.id)
                 }
             }
-            , [r, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
+            , [s, e.userQueue, e.currentTrack, e.currentTrackMetadataUpdated]),
             (0,
             a.useEffect)(()=>{
-                e.currentTrack && (M && O(!1),
-                l(e.currentTrack.id));
+                e.currentTrack && (O && T(!1),
+                _(e.currentTrack.id));
                 const t = ()=>{
-                    !0 === S.current && (D(!1),
-                    B.current.removeEventListener("animationiteration", t))
+                    !0 === U.current && (w(!1),
+                    K.current.removeEventListener("animationiteration", t))
                 }
                 ;
                 var r;
-                !0 !== S.current && (D(!0),
-                null === (r = B.current) || void 0 === r || r.addEventListener("animationiteration", (0,
-                s.Ds)(t, 50, !0)));
+                !0 !== U.current && (w(!0),
+                null === (r = K.current) || void 0 === r || r.addEventListener("animationiteration", (0,
+                i.Ds)(t, 50, !0)));
                 return ()=>{
                     var e;
-                    null === (e = B.current) || void 0 === e || e.removeEventListener("animationiteration", t)
+                    null === (e = K.current) || void 0 === e || e.removeEventListener("animationiteration", t)
                 }
             }
             , [e.currentTrack]),
             (0,
             a.useEffect)(()=>{
-                if (e.playbackState !== _.QK.Ended || e.shouldHideMiniPlayer)
-                    e.playbackState === _.QK.Playing && (I = requestAnimationFrame(H));
+                if (e.playbackState !== d.QK.Ended || e.shouldHideMiniPlayer)
+                    e.playbackState === d.QK.Playing && (B = requestAnimationFrame(N));
                 else {
-                    const t = e.getActiveQueue()[d + 1];
-                    t && F(t.id || t.global_id)
+                    const t = e.getActiveQueue()[u + 1];
+                    t && (V(t.id || t.global_id),
+                    r({
+                        event: "playback_auto_next",
+                        data: {
+                            title: A || ""
+                        }
+                    }))
                 }
             }
             , [e.playbackState]),
             (0,
             a.useEffect)(()=>{
-                I = requestAnimationFrame(H)
+                B = requestAnimationFrame(N)
             }
             , [e.currentPosition]);
-            const K = (0,
+            const G = (0,
             a.useRef)();
-            K.current = e.getActiveQueue();
-            const G = t=>{
-                if (!U.current) {
-                    if (S.current && " " === t.key && (t.preventDefault(),
-                    R.current === _.QK.Playing ? e.pause() : e.play()),
+            G.current = e.getActiveQueue();
+            const W = t=>{
+                if (!x.current) {
+                    if (U.current && " " === t.key && (t.preventDefault(),
+                    S.current === d.QK.Playing ? e.pause() : e.play()),
                     "ArrowRight" === t.key) {
-                        const e = K.current[k.current + 1] ? K.current[k.current + 1] : K.current[0];
-                        e && F(e.id || e.global_id)
+                        const e = G.current[C.current + 1] ? G.current[C.current + 1] : G.current[0];
+                        e && (V(e.id || e.global_id),
+                        r({
+                            event: "playback_next",
+                            data: {
+                                title: A || ""
+                            }
+                        }))
                     }
                     if ("ArrowLeft" === t.key) {
-                        const t = K.current[k.current - 1] ? K.current[k.current - 1] : K.current[K.current.length - 1];
-                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : F(t.id || t.global_id))
+                        const t = G.current[C.current - 1] ? G.current[C.current - 1] : G.current[G.current.length - 1];
+                        t && (e.getCurrentTime() >= 3 ? e.seekTo(0) : (V(t.id || t.global_id),
+                        r({
+                            event: "playback_previous",
+                            data: {
+                                title: A || ""
+                            }
+                        })))
                     }
                 }
             }
-              , W = function() {
+              , H = function() {
                 var r = (0,
                 o.Z)(function*() {
-                    const r = L.current;
-                    if (!w())
+                    const r = k.current;
+                    if (!L())
                         return;
                     let o;
-                    if (r === L.current) {
-                        if (e.activeQueue === _.$_.Official) {
-                            const a = yield t.getLatestStems(L.current, C.current.version, "mp3");
+                    if (r === k.current) {
+                        if (e.activeQueue === d.$_.Official) {
+                            const a = yield t.getLatestStems(k.current, R.current.version, "mp3");
                             try {
                                 const n = yield t.getWaveformData(a["waveform-data"], r);
-                                o = e.generateTrack(C.current, a, n)
+                                o = e.generateTrack(R.current, a, n)
                             } catch (t) {
-                                o = e.generateTrack(C.current, a)
+                                o = e.generateTrack(R.current, a)
                             }
                         } else {
-                            const r = e.generateTrack(C.current);
+                            const r = e.generateTrack(R.current);
                             if (!r.waveformData) {
-                                const e = yield t.getWaveformData(C.current.waveforms_url, L.current);
+                                const e = yield t.getWaveformData(R.current.waveforms_url, k.current);
                                 r.waveformData = e
                             }
                             o = r
                         }
-                        if (!w())
+                        if (!L())
                             return;
                         e.load(o)
                     }
@@ -1319,58 +1338,58 @@
                     return r.apply(this, arguments)
                 }
             }()
-              , H = ()=>{
-                if (w()) {
+              , N = ()=>{
+                if (L()) {
                     var t;
                     const r = e.getCurrentPositionPercent();
-                    null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(_.wA).forEach(t=>{
-                        if (!e.getMutedStateForStem(t) && R.current !== _.QK.Stopped) {
+                    null !== (t = e.currentTrack) && void 0 !== t && t.waveformData && Object.values(d.wA).forEach(t=>{
+                        if (!e.getMutedStateForStem(t) && S.current !== d.QK.Stopped) {
                             const r = (0,
-                            h.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
+                            b.tX)(e.currentTrack.waveformData[t].intensity, e.getCurrentTime(), e.getDuration(), e.currentTrack.waveformData[t].fps)
                               , o = document.querySelector(`.mini-player__stems--${t}-container`).querySelector(".mini-player__stems--stem");
                             if (o) {
-                                O(!0);
+                                T(!0);
                                 const e = (0,
-                                u.Z)(r, [0, 1], [.3, 1], !0);
+                                f.Z)(r, [0, 1], [.3, 1], !0);
                                 o.style.transform = `scale(${e})`
                             }
                         }
                     }
                     ),
-                    r < 1 && R.current === _.QK.Playing && (I = requestAnimationFrame(H))
+                    r < 1 && S.current === d.QK.Playing && (B = requestAnimationFrame(N))
                 }
             }
-              , N = t=>{
+              , F = t=>{
                 t.preventDefault(),
                 t.stopPropagation(),
-                x.push(`/connect/stem/track/${e.currentTrack.id}`)
+                I.push(`/connect/stem/track/${e.currentTrack.id}`)
             }
-              , F = t=>{
+              , V = t=>{
                 (0,
-                p.Z)(),
-                l(t),
+                h.Z)(),
+                _(t),
                 e.setIsNavigating(!0),
                 e.stop(),
-                V(),
-                M && O(!1)
+                q(),
+                O && T(!1)
             }
-              , V = (0,
+              , q = (0,
             a.useCallback)((0,
-            s.Ds)(W, 500), []);
+            i.Ds)(H, 500), []);
             return a.createElement(a.Fragment, null, !e.shouldHideMiniPlayer && e.getHasPlayed() && a.createElement("div", {
                 className: "mini-player__topshade"
             }), a.createElement("div", {
                 className: `mini-player ${e.shouldHideMiniPlayer || !e.getHasPlayed() ? "mini-player__hidden" : ""}`,
-                onTouchEnd: N
+                onTouchEnd: F
             }, a.createElement("div", {
                 className: "mini-player__left",
-                onClick: N
+                onClick: F
             }, a.createElement("div", {
-                ref: B,
-                className: `mini-player__stems ${T ? "mini-player__stems--loading" : ""}`
-            }, (()=>Object.values(_.wA).map(t=>{
+                ref: K,
+                className: `mini-player__stems ${D ? "mini-player__stems--loading" : ""}`
+            }, (()=>Object.values(d.wA).map(t=>{
                 const r = e.getMutedStateForStem(t)
-                  , o = r || !e.trackIsLoaded || e.playbackState === _.QK.Stopped;
+                  , o = r || !e.trackIsLoaded || e.playbackState === d.QK.Stopped;
                 return a.createElement("div", {
                     className: `mini-player__stems--stem-container  mini-player__stems--${t}-container`,
                     key: t
@@ -1392,31 +1411,34 @@
                 className: "mini-player__track-info"
             }, a.createElement("p", {
                 className: "mini-player__track-info--title"
-            }, g && g.length ? g : "Untitled"), a.createElement("p", {
+            }, A && A.length ? A : "Untitled"), a.createElement("p", {
                 className: "mini-player__track-info--artist"
-            }, y))), a.createElement("div", {
+            }, P))), a.createElement("div", {
                 className: "mini-player__scrubber-container",
                 onTouchEnd: e=>e.stopPropagation()
-            }, a.createElement(i.Z, null)), a.createElement("div", {
+            }, a.createElement(c.Z, null)), a.createElement("div", {
                 onTouchEnd: e=>e.stopPropagation()
-            }, a.createElement(c.Z, {
+            }, a.createElement(l.Z, {
                 isMiniPlayer: !0,
-                goToTrackCb: F,
-                trackIndex: d
+                goToTrackCb: V,
+                trackIndex: u
             }))))
         }
         ;
-        b(v, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[m.s, n.useHistory]);
-        const E = v
-          , g = (0,
-        d.E9)((0,
-        l.f)(v))
-          , A = g;
+        v(E, "useState{[trackId, setTrackId]}\nuseState{[trackIndex, setTrackIndex]}\nuseState{[currentTrack, setCurrentTrack]}\nuseState{[trackTitle, setTrackTitle]('')}\nuseState{[trackArtist, setTrackArtist]('')}\nuseState{[haveAnimationsLoaded, setHaveAnimationsLoaded](false)}\nuseState{[shouldLoaderSpin, setShouldLoaderSpin](true)}\nuseMounted{isMounted}\nuseRef{trackIdRef}\nuseRef{trackIndexRef}\nuseRef{currentTrackRef}\nuseRef{playbackStateRef}\nuseRef{trackIsLoadedRef}\nuseRef{shouldHideMiniPlayerRef}\nuseHistory{history}\nuseRef{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseEffect{}\nuseRef{queueRef}\nuseCallback{debouncedLoadToAudioEngine}", ()=>[p.s, n.useHistory]);
+        const g = E
+          , A = (0,
+        s.j)({
+            module: "mini_player"
+        })((0,
+        u.E9)((0,
+        _.f)(E)))
+          , y = A;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(v, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
-            e.register(E, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
-            e.register(g, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
+            e && (e.register(E, "MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e.register(g, "__TEST__MiniPlayer", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"),
+            e.register(A, "default", "/home/vsts/work/1/s/src/components/MiniPlayer/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -1719,110 +1741,120 @@
     "410dd64c33f00b849fa7": (e,t,r)=>{
         "use strict";
         r.d(t, {
-            Z: ()=>f
+            Z: ()=>m
         });
         var o = r("8af190b70a6bc55c6f1b")
-          , a = r("804fe702b68cd889ff76")
-          , n = r("88e8bdd04c305099c2c9")
-          , s = r("98207642210e3d58d89a")
-          , i = r("77d9647920c06e8befd6")
-          , c = r("6515cd559c65eab0c80c");
+          , a = r("8a5d22dd0b24a6092d3e")
+          , n = r("804fe702b68cd889ff76")
+          , s = r("88e8bdd04c305099c2c9")
+          , i = r("98207642210e3d58d89a")
+          , c = r("77d9647920c06e8befd6")
+          , l = r("6515cd559c65eab0c80c");
         e = r.hmd(e),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.enterModule : void 0;
             t && t(e)
         }();
-        var l = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
+        var _ = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default.signature : function(e) {
             return e
         }
         ;
-        const _ = ({trackIndex: e, goToTrackCb: t, uploadText: r, deviceTransferActive: i, hidePrevNext: l, isMiniPlayer: _, closeCallback: d, audioEngine: u})=>{
-            const [f,m] = (0,
+        const d = ({trackIndex: e, goToTrackCb: t, uploadText: r, deviceTransferActive: a, hidePrevNext: c, isMiniPlayer: _, closeCallback: d, audioEngine: u, tracking: {trackEvent: f}})=>{
+            const [m,p] = (0,
             o.useState)(null)
-              , p = (0,
+              , h = (0,
             o.useRef)();
-            p.current = f;
-            const h = (r,o)=>{
+            h.current = m;
+            const b = (r,o)=>{
                 if (r.preventDefault(),
-                p.current === o) {
-                    m(null);
+                h.current === o) {
+                    p(null);
                     const r = u.getActiveQueue();
                     if ("prev" === o) {
                         const o = r[e - 1] ? r[e - 1] : r[r.length - 1];
-                        u.getCurrentTime() >= 3 ? u.seekTo(0) : t(o.id || o.global_id)
+                        u.getCurrentTime() >= 3 ? u.seekTo(0) : (t(o.id || o.global_id),
+                        f({
+                            event: "playback_previous"
+                        }))
                     } else {
                         const o = r[e + 1] ? r[e + 1] : r[0];
-                        o ? t(o.id || o.global_id) : d && d()
+                        o ? (t(o.id || o.global_id),
+                        f({
+                            event: "playback_next"
+                        })) : d && d()
                     }
                 }
             }
-              , b = ()=>{
-                p.current && m(null)
+              , v = ()=>{
+                h.current && p(null)
             }
             ;
-            let v, E, g;
-            return _ && window.screen.width > 600 ? (v = 25,
-            E = 57,
-            g = 33) : _ ? (v = 26,
-            E = 59,
-            g = 35) : window.screen.width > 600 ? (v = 30,
-            E = 68,
-            g = 40) : (v = 33,
-            E = 74,
-            g = 44),
+            let E, g, A;
+            return _ && window.screen.width > 600 ? (E = 25,
+            g = 57,
+            A = 33) : _ ? (E = 26,
+            g = 59,
+            A = 35) : window.screen.width > 600 ? (E = 30,
+            g = 68,
+            A = 40) : (E = 33,
+            g = 74,
+            A = 44),
             o.createElement("div", {
                 className: "player-controls"
-            }, !l && o.createElement("div", {
+            }, !c && o.createElement("div", {
                 className: `player-controls__prev-next-button ${_ ? "player-controls__prev-next-button--mini-player" : ""}`
-            }, o.createElement(a.default, {
+            }, o.createElement(n.default, {
                 className: "player-controls__prev-button",
-                onMouseDown: ()=>m("prev"),
-                onMouseLeave: b,
-                onMouseUp: e=>h(e, "prev"),
-                onTouchStart: ()=>m("prev"),
-                onTouchMove: ()=>m(null),
-                onTouchEnd: e=>h(e, "prev")
-            }), o.createElement(a.default, {
+                onMouseDown: ()=>p("prev"),
+                onMouseLeave: v,
+                onMouseUp: e=>b(e, "prev"),
+                onTouchStart: ()=>p("prev"),
+                onTouchMove: ()=>p(null),
+                onTouchEnd: e=>b(e, "prev")
+            }), o.createElement(n.default, {
                 className: "player-controls__next-button",
-                onMouseDown: ()=>m("next"),
-                onMouseUp: e=>h(e, "next"),
-                onMouseLeave: b,
-                onTouchStart: ()=>m("next"),
-                onTouchMove: ()=>m(null),
-                onTouchEnd: e=>h(e, "next")
+                onMouseDown: ()=>p("next"),
+                onMouseUp: e=>b(e, "next"),
+                onMouseLeave: v,
+                onTouchStart: ()=>p("next"),
+                onTouchMove: ()=>p(null),
+                onTouchEnd: e=>b(e, "next")
             }), o.createElement("span", {
                 className: "player-controls__prev-next-icon"
-            }, "next" === p.current ? o.createElement(s.mE, {
-                height: v,
-                width: E
-            }) : "prev" === p.current ? o.createElement(s.ry, {
-                height: v,
-                width: E
-            }) : o.createElement(s._z, {
-                height: v,
-                width: E
-            }))), o.createElement(a.default, {
+            }, "next" === h.current ? o.createElement(i.mE, {
+                height: E,
+                width: g
+            }) : "prev" === h.current ? o.createElement(i.ry, {
+                height: E,
+                width: g
+            }) : o.createElement(i._z, {
+                height: E,
+                width: g
+            }))), o.createElement(n.default, {
                 id: "play-button",
-                icon: ()=>o.createElement(n.WU, {
-                    height: g,
-                    width: g
+                icon: ()=>o.createElement(s.WU, {
+                    height: A,
+                    width: A
                 }),
                 brackets: !0,
                 disabled: !u.trackIsLoaded,
-                onClick: ()=>u.playbackState === c.QK.Playing ? u.pause() : u.play()
+                onClick: ()=>u.playbackState === l.QK.Playing ? u.pause() : u.play()
             }))
         }
         ;
-        l(_, "useState{[prevNextButtonHighlightStatus, setPrevNextButtonHighlightStatus](null)}\nuseRef{prevNextButtonHighlightStatusRef}");
-        const d = _
-          , u = (0,
-        i.f)(_)
-          , f = u;
+        _(d, "useState{[prevNextButtonHighlightStatus, setPrevNextButtonHighlightStatus](null)}\nuseRef{prevNextButtonHighlightStatusRef}");
+        const u = d
+          , f = (0,
+        a.j)({
+            module: "player_controls"
+        })((0,
+        c.f)(d))
+          , m = f;
         !function() {
             var e = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.default : void 0;
-            e && (e.register(_, "PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
-            e.register(d, "__TEST__PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
-            e.register(u, "default", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"))
+            e && (e.register(d, "PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
+            e.register(u, "__TEST__PlayerControls", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"),
+            e.register(f, "default", "/home/vsts/work/1/s/src/components/PlayerControls/index.tsx"))
         }(),
         function() {
             var t = "undefined" !== typeof reactHotLoaderGlobal ? reactHotLoaderGlobal.leaveModule : void 0;
@@ -2136,7 +2168,7 @@
                 return "92924b32b778a2c890d3"
             }
         })
-          , L = "Connect Stem1"
+          , L = "Connect Stemplayer"
           , k = function() {
             var e = (0,
             a.Z)(function*(e) {
@@ -2322,7 +2354,7 @@
                             be()
                     } catch (e) {
                         e.message && e.message.includes("'USB': Must be handling a user gesture to show a permission request") ? (Y(!0),
-                        X("Upload failed - reconnect Stem1"),
+                        X("Upload failed - reconnect Stemplayer"),
                         Z("Try again"),
                         r({
                             error: {
@@ -3952,7 +3984,7 @@
             deviceRequired: !1,
             accessWithLoginSession: !0
         }, {
-            path: ["/stem1"],
+            path: ["/stemplayer"],
             exact: !0,
             layers: [C.home, C.infoStem1],
             deviceRequired: !1,
@@ -5904,16 +5936,24 @@
                 this.hasUserConsent = !1,
                 this.previousPlaybackState = void 0,
                 this.setupAutoplay = (()=>{
+                    const {tracking: {trackEvent: e}} = this.props
+                      , {currentTrack: t} = this.state;
                     if (!0 === this.hasUserConsent)
                         return;
                     this.repository.setupSilentTrackForAutoPlay();
-                    const e = ()=>{
+                    const r = ()=>{
                         this.repository.play(),
                         this.hasUserConsent = !0,
-                        document.body.removeEventListener("click", e)
+                        document.body.removeEventListener("click", r),
+                        e({
+                            event: "playback_started",
+                            data: {
+                                title: (null === t || void 0 === t ? void 0 : t.title) || ""
+                            }
+                        })
                     }
                     ;
-                    document.body.addEventListener("click", e)
+                    document.body.addEventListener("click", r)
                 }
                 ),
                 this.getHasPlayed = (()=>this.hasPlayed),
@@ -5948,20 +5988,36 @@
                 }
                 ),
                 this.play = (()=>{
+                    const {tracking: {trackEvent: e}} = this.props
+                      , {currentTrack: t} = this.state;
                     this.setState({
                         playbackState: AudioEnginePlaybackState.Playing
                     }),
                     this.repository.play(),
                     this.hasPlayed = !0,
                     this.hasUserConsent = !0,
-                    this.setupMediaControls(this.state.currentTrack)
+                    this.setupMediaControls(this.state.currentTrack),
+                    e({
+                        event: "playback_media_play",
+                        data: {
+                            title: (null === t || void 0 === t ? void 0 : t.title) || ""
+                        }
+                    })
                 }
                 ),
                 this.pause = (()=>{
+                    const {tracking: {trackEvent: e}} = this.props
+                      , {currentTrack: t} = this.state;
                     this.setState({
                         playbackState: AudioEnginePlaybackState.Paused
                     }),
-                    this.repository.pause()
+                    this.repository.pause(),
+                    e({
+                        event: "playback_paused",
+                        data: {
+                            title: (null === t || void 0 === t ? void 0 : t.title) || ""
+                        }
+                    })
                 }
                 ),
                 this.playPause = (()=>{
@@ -5976,6 +6032,8 @@
                 }
                 ),
                 this.stop = (()=>{
+                    const {tracking: {trackEvent: e}} = this.props
+                      , {currentTrack: t} = this.state;
                     this.state.playbackState !== AudioEnginePlaybackState.Stopped && (this.state.playbackState !== AudioEnginePlaybackState.Ended && this.setState({
                         playbackState: AudioEnginePlaybackState.Stopped
                     }),
@@ -5984,7 +6042,13 @@
                     }),
                     this.clearMediacontrols(),
                     this.repository.stop(),
-                    this.state.isIsolating && this.setIsolatedStems([]))
+                    this.state.isIsolating && this.setIsolatedStems([]),
+                    e({
+                        event: "playback_stopped",
+                        data: {
+                            title: (null === t || void 0 === t ? void 0 : t.title) || ""
+                        }
+                    }))
                 }
                 ),
                 this.seekTo = (e=>{
@@ -6000,35 +6064,52 @@
                 }
                 ),
                 this.onPlaybackEnded = (e=>{
-                    this.repository.getDurationForStem(e) === this.getDuration() && this.state.playbackState !== AudioEnginePlaybackState.Ended && this.setState({
+                    const {tracking: {trackEvent: t}} = this.props
+                      , {currentTrack: r} = this.state;
+                    this.repository.getDurationForStem(e) === this.getDuration() && this.state.playbackState !== AudioEnginePlaybackState.Ended && (this.setState({
                         playbackState: AudioEnginePlaybackState.Ended
-                    })
+                    }),
+                    t({
+                        event: "playback_ended",
+                        data: {
+                            title: (null === r || void 0 === r ? void 0 : r.title) || ""
+                        }
+                    }))
                 }
                 ),
                 this.toggleMute = (e=>{
-                    const t = this.getMutedStateForStem(e);
-                    switch (t ? this.repository.unmute(e) : this.repository.mute(e),
+                    const {tracking: {trackEvent: t}} = this.props
+                      , {currentTrack: r} = this.state
+                      , o = this.getMutedStateForStem(e);
+                    switch (o ? this.repository.unmute(e) : this.repository.mute(e),
                     e) {
                     case AudioEngineStemType.Vocals:
                         this.setState({
-                            vocalsMuted: !t
+                            vocalsMuted: !o
                         });
                         break;
                     case AudioEngineStemType.Other:
                         this.setState({
-                            otherMuted: !t
+                            otherMuted: !o
                         });
                         break;
                     case AudioEngineStemType.Drums:
                         this.setState({
-                            drumsMuted: !t
+                            drumsMuted: !o
                         });
                         break;
                     case AudioEngineStemType.Bass:
                         this.setState({
-                            bassMuted: !t
+                            bassMuted: !o
                         })
                     }
+                    t({
+                        event: o ? "playback_stem_unmute" : "playback_stem_mute",
+                        data: {
+                            title: (null === r || void 0 === r ? void 0 : r.title) || "",
+                            stemType: e
+                        }
+                    })
                 }
                 ),
                 this.getMutedStateForStem = (e=>{
@@ -6150,16 +6231,6 @@
                         return this.state.bassIsolated
                     }
                 }
-                ),
-                this.previousTrack = (e=>{
-                    this.load(e)
-                }
-                ),
-                this.nextTrack = (e=>{
-                    this.load(e)
-                }
-                ),
-                this.addToQueue = (()=>{}
                 ),
                 this.createQueue = ((e,t)=>{
                     t === QueueType.Official ? this.setState({
@@ -6385,13 +6456,13 @@
                         if (-1 !== c) {
                             const _ = s[c]
                               , d = i;
-                            t !== _.metadata.title && (d && d.id === e && (d.title = t),
+                            _.metadata && t !== _.metadata.title && (d && d.id === e && (d.title = t),
                             _.metadata.title = t,
                             l = !0),
-                            r !== _.metadata.artist && (d && d.id === e && (d.artist = r),
+                            _.metadata && r !== _.metadata.artist && (d && d.id === e && (d.artist = r),
                             _.metadata.artist = r,
                             l = !0),
-                            o === _.metadata.colors[0] && a === _.metadata.colors[1] || "" === o || "" === a || (d && d.id === e && (d.colors = [o, a]),
+                            !_.metadata || o === _.metadata.colors[0] && a === _.metadata.colors[1] || "" === o || "" === a || (d && d.id === e && (d.colors = [o, a]),
                             _.metadata.colors = [o, a],
                             l = !0),
                             (l || n) && (d && d.id === e && this.setState({
@@ -6522,12 +6593,9 @@
                         setIsNavigating: this.setIsNavigating,
                         seekTo: this.seekTo,
                         seekToPercent: this.seekToPercent,
-                        previousTrack: this.previousTrack,
-                        nextTrack: this.nextTrack,
                         createQueue: this.createQueue,
                         getActiveQueue: this.getActiveQueue,
                         setActiveQueue: this.setActiveQueue,
-                        addToQueue: this.addToQueue,
                         removeFromQueue: this.removeFromQueue,
                         setupAutoplay: this.setupAutoplay,
                         getWaveformPeaksForStem: this.getWaveformPeaksForStem,
@@ -10973,8 +11041,8 @@
         const config = {
             TARGET_ENV: "staging",
             NODE_ENV: "staging",
-            KB_APP_VERSION: "1.1.3186",
-            KB_APP_REVISION: "cce5e0cf8a786e840a369b39649efc14fc6f4f9c",
+            KB_APP_VERSION: "1.1.3212",
+            KB_APP_REVISION: "d5ac87bae7e4632bbbdc7271abcb2764a12e3cc6",
             KB_APP_NAME: "stem-player-client",
             KB_APP_TITLE: "STEMPLAYER - Staging",
             KB_APP_URL: "https://staging-stemplatform.netlify.app",
@@ -11013,10 +11081,11 @@
             hasCrossDomainStorage: !1
         }
           , products = [{
-            name: "STEM1",
+            name: "STEMPLAYER",
             variants: [{
-                name: "CLEAR STEM1",
+                name: "CLEAR STEMPLAYER",
                 sku: "1016C",
+                className: "stem1-clear",
                 isAvailable: !0,
                 assets: {
                     image: _assets_images_pngs_sp_product_shot_clear_png__WEBPACK_IMPORTED_MODULE_25__,
@@ -11028,24 +11097,25 @@
                         id: "7290651115697",
                         html_id: "product-component-1660743000760",
                         price: "200 GBP",
-                        moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D GBP"
                     },
                     us: {
                         id: "7374962851996",
                         html_id: "product-component-1660743051424",
                         price: "200 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     },
                     dev: {
                         id: "7610750992546",
                         html_id: "product-component-1660571250200",
                         price: "200 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     }
                 }
             }, {
-                name: "TAN STEM1",
+                name: "TAN STEMPLAYER",
                 sku: "1016",
+                className: "stem1-tan",
                 isAvailable: !0,
                 assets: {
                     image: _assets_images_pngs_sp_product_shot_original_png__WEBPACK_IMPORTED_MODULE_22__,
@@ -11057,19 +11127,19 @@
                         id: "6762869194929",
                         html_id: "product-component-1624464889316",
                         price: "200 GBP",
-                        moneyFormat: "%C2%A3%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D GBP"
                     },
                     us: {
                         id: "6804650524828",
                         html_id: "product-component-1624465060899",
                         price: "200 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     },
                     dev: {
                         id: "6148012408994",
                         html_id: "product-component-1623765396005",
                         price: "200 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     }
                 }
             }]
@@ -11078,7 +11148,10 @@
             variants: [{
                 name: "STEM2",
                 sku: "1017",
+                className: "stem2",
                 isAvailable: !1,
+                totalAvailable: 5e3,
+                shippingDate: "SPRING 2023",
                 assets: {
                     image: _assets_images_pngs_stem2_png__WEBPACK_IMPORTED_MODULE_28__,
                     videoMov: _assets_video_stem2_mov__WEBPACK_IMPORTED_MODULE_29__,
@@ -11086,22 +11159,22 @@
                 },
                 purchaseData: {
                     uk: {
-                        id: "",
-                        html_id: "",
+                        id: "7356290924721",
+                        html_id: "product-component-1666393842362",
                         price: "300 GBP",
-                        moneyFormat: ""
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D GBP"
                     },
                     us: {
-                        id: "",
-                        html_id: "",
+                        id: "7467825135772",
+                        html_id: "product-component-1666393620442",
                         price: "300 USD",
-                        moneyFormat: ""
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     },
                     dev: {
                         id: "7705894944930",
                         html_id: "product-component-1666347257452",
                         price: "300 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     }
                 }
             }]
@@ -11110,7 +11183,10 @@
             variants: [{
                 name: "STEM3",
                 sku: "1018",
+                className: "stem3",
                 isAvailable: !1,
+                totalAvailable: 5e3,
+                shippingDate: "SPRING 2023",
                 assets: {
                     image: _assets_images_pngs_stem3_png__WEBPACK_IMPORTED_MODULE_31__,
                     videoMov: _assets_video_stem3_mov__WEBPACK_IMPORTED_MODULE_32__,
@@ -11118,22 +11194,22 @@
                 },
                 purchaseData: {
                     uk: {
-                        id: "",
-                        html_id: "",
+                        id: "7356292694193",
+                        html_id: "product-component-1666393962857",
                         price: "600 GBP",
-                        moneyFormat: ""
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D GBP"
                     },
                     us: {
-                        id: "",
-                        html_id: "",
+                        id: "7467825627292",
+                        html_id: "product-component-1666393553191",
                         price: "600 USD",
-                        moneyFormat: ""
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     },
                     dev: {
                         id: "7705895403682",
                         html_id: "product-component-1666347115894",
                         price: "600 USD",
-                        moneyFormat: "%24%7B%7Bamount%7D%7D"
+                        moneyFormat: "%7B%7Bamount_no_decimals%7D%7D USD"
                     }
                 }
             }]
@@ -12868,12 +12944,12 @@
     ,
     "8ed0923a100357405e8d": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "cce8b0e8da4dc466c580.png"
+        e.exports = r.p + "8a9c6b23706ee72d4be8.png"
     }
     ,
     "1e823c716368cec13261": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "e4ff3fdb1e772cbf532f.png"
+        e.exports = r.p + "c94ac87a61354a6fb370.png"
     }
     ,
     "79c16640587b1d45f7d2": (e,t,r)=>{
@@ -12898,22 +12974,22 @@
     ,
     "45732eb854ce2086c6c4": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "f91085e33bffb922a627.mov"
+        e.exports = r.p + "8a197445888ad8e319ae.mov"
     }
     ,
     "57824cf347a208deb857": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "6fb734305b82edbaf44a.webm"
+        e.exports = r.p + "2390b2d7853bb03079c3.webm"
     }
     ,
     "43f58c71e2d23d4ca2ae": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "1c300d88415f77d16e1c.mov"
+        e.exports = r.p + "aa3c4beafb05efa75a75.mov"
     }
     ,
     "5ae5f712193f2ccd9912": (e,t,r)=>{
         "use strict";
-        e.exports = r.p + "ab4d6c285a156c34c179.webm"
+        e.exports = r.p + "542ee611a994db6fda66.webm"
     }
 }, e=>{
     e.O(0, [179], ()=>{

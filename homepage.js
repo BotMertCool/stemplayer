@@ -434,7 +434,7 @@
                     href: "http://discord.gg/stemplayer",
                     target: "_blank",
                     className: "button menu-button info__button"
-                }, "FORUM"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+                }, "DISCORD"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
                     className: "button menu-button info__button",
                     onClick: ()=>d.push("/info/terms")
                 }, "T&C")), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
